@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8127115313664016624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2645439993134557484, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6314728025926759367, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
+    - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.990122
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 58.645943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125922, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Name
+      value: Space_Junk_Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192452084279125922, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_TagString
+      value: Space_Junk_Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897121206944072077, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Size.x
+      value: 1.8732547
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897121206944072077, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1915081
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897121206944072077, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.7183931
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897121206944072077, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.02933415
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+--- !u!1 &105904489240291154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8192452084279125922, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
+  m_PrefabInstance: {fileID: 8127115313664016624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8127453855697842306
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105904489240291154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96e2d0a4f5e1c454f814565642bf1397, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2125391021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105904489240291154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee91ae03fc650f44a2bd5214fb49386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugMode: 0
+  maxRotation: 15
+  minPossibleThrust: 0.7
+  maxPossibleThrust: 1.25
+  minPossibleTopSpeed: 2.5
+  maxPossibleTopSpeed: 4.5
+  shouldFlipSprite: 1

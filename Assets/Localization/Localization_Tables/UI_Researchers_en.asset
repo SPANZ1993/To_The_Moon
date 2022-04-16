@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_Researchers_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2662a0f211c0237498ad5d4933b3f566, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1892283116576778
+    m_Localized: Favorite Sport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576777
+    m_Localized: Allen Orbital
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576776
+    m_Localized: "Trained at the world\u2019s finest feline universities. Has cat
+      like reflexes, but sometimes takes cat naps."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576775
+    m_Localized: Fiddle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576779
+    m_Localized: Solar Wind Surfing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576781
+    m_Localized: Burt Beansteen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576782
+    m_Localized: Favorite Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576783
+    m_Localized: Beans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576780
+    m_Localized: "One of space\u2019s most preeminent rocketry experts as well as
+      a top cosmic sports athlete. Conducts great research when he isn\u2019t distracted
+      by his adoring fans."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576784
+    m_Localized: His knowledge of legumes is surpassed only by his knowledge of rocket
+      science. Always researches quickly and masterfully.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576774
+    m_Localized: Favorite Instrument
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576773
+    m_Localized: Katerina Flufferovska
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576772
+    m_Localized: Was serving french fries at a fast food restaurant last month. Does
+      good work when he applies himself.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576771
+    m_Localized: Sleeping
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576770
+    m_Localized: Favorite Hobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576769
+    m_Localized: Woodrow Jackson
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576768
+    m_Localized: "Doesn\u2019t do a lot of deep introspection, but will get the job
+      done reliably."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382468
+    m_Localized: This One
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382467
+    m_Localized: Favorite Video Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382466
+    m_Localized: Newton Percival Carlton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382465
+    m_Localized: Employee Profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382464
+    m_Localized: Employee ID
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

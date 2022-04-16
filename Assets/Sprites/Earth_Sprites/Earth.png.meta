@@ -1,0 +1,3600 @@
+fileFormatVersion: 2
+guid: 5e650ccf72a6e46469a5d87b62e6e06c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6423806749927177598
+    second: GrassA_1
+  - first:
+      213: -3086602609980112195
+    second: GrassA_2
+  - first:
+      213: 6924314980402435031
+    second: GrassB_1
+  - first:
+      213: 8294369937034324297
+    second: GrassB_2
+  - first:
+      213: 5955687731921373103
+    second: Trophy_PedestalA
+  - first:
+      213: 7385045655152147662
+    second: Trophy_PedestalB
+  - first:
+      213: -7412046891123592334
+    second: Logo
+  - first:
+      213: 3775956329943443878
+    second: Logo_Trash
+  - first:
+      213: -6314728025926759367
+    second: Plane1
+  - first:
+      213: 7902158703860476486
+    second: Plane2
+  - first:
+      213: -5289550111512436940
+    second: Flower_Orange1
+  - first:
+      213: 8917927153200763621
+    second: Flower_Orange2
+  - first:
+      213: -2524328396890630821
+    second: Flower_Pink1
+  - first:
+      213: -5332350200267198914
+    second: Flower_Pink2
+  - first:
+      213: 5361631257420472715
+    second: Flower_Purple1
+  - first:
+      213: 1228465305477970562
+    second: Flower_Purple2
+  - first:
+      213: 9056076809899198952
+    second: RockA_1
+  - first:
+      213: 1568976944791875497
+    second: RockA_2
+  - first:
+      213: -6451319951707577422
+    second: Robot_Rings1
+  - first:
+      213: 5845033532405958961
+    second: Robot_Rings2
+  - first:
+      213: 5050210848853395841
+    second: Fuel_Tank
+  - first:
+      213: 7979187214594251000
+    second: RockB_1
+  - first:
+      213: -5046839083263976945
+    second: RockB_2
+  - first:
+      213: -387120296438937512
+    second: Keyboard_Screen1
+  - first:
+      213: -4131956043310619117
+    second: Keyboard_Screen2
+  - first:
+      213: 3654806145904711751
+    second: Keyboard_Screen4
+  - first:
+      213: -2995070078877894131
+    second: Keyboard_Screen5
+  - first:
+      213: 4090802850771672748
+    second: Plant1
+  - first:
+      213: 2243237344338328031
+    second: Plant2
+  - first:
+      213: -65715871781885684
+    second: Coffee1
+  - first:
+      213: 3053304957686523090
+    second: Cofee2
+  - first:
+      213: 5404703936751759412
+    second: Poster
+  - first:
+      213: 1192844576016094557
+    second: Table
+  - first:
+      213: 9178570626457300377
+    second: Rocket_Building
+  - first:
+      213: 5117889508594249501
+    second: Mouse
+  - first:
+      213: -8100296154135606261
+    second: Keyboard
+  - first:
+      213: 9175095644114033106
+    second: CloudA
+  - first:
+      213: 7767473661887639448
+    second: Robot_Screen_Startup3
+  - first:
+      213: -4771805855972453191
+    second: Keyboard_Screen6
+  - first:
+      213: -7725531992882583122
+    second: Keyboard_Screen7
+  - first:
+      213: -5558251259107726959
+    second: Keyboard_Screen9
+  - first:
+      213: -5393079636168667110
+    second: Keyboard_Screen10
+  - first:
+      213: -1403075918087427084
+    second: Computer_Screen2
+  - first:
+      213: -3139694988686388838
+    second: Keyboard_Screen11
+  - first:
+      213: 8966586311442186067
+    second: Keyboard_Screen12
+  - first:
+      213: -8453159333546367710
+    second: Keyboard_Screen14
+  - first:
+      213: -1849922374741344692
+    second: Keyboard_Screen15
+  - first:
+      213: 4787422732180281619
+    second: Keyboard_Screen16
+  - first:
+      213: -5951496265300578705
+    second: Keyboard_Screen17
+  - first:
+      213: -1589417829670063743
+    second: Keyboard_Screen19
+  - first:
+      213: 1085811771701131270
+    second: Keyboard_Screen20
+  - first:
+      213: 1585641402652771794
+    second: Window
+  - first:
+      213: 8722271842803289840
+    second: Robot_Screen_Empty
+  - first:
+      213: 3115718290111480859
+    second: Robot_Screen_Startup1
+  - first:
+      213: 773261281204210858
+    second: Robot_Screen_Startup2
+  - first:
+      213: -5847428952939010971
+    second: Computer_Screen1
+  - first:
+      213: 9222530763774365840
+    second: Robot_Miner
+  - first:
+      213: -9005775866314377051
+    second: CloudB
+  - first:
+      213: 1772166368771238176
+    second: Launch_Cover2
+  - first:
+      213: 2626839459393084993
+    second: Mine_Shaft1
+  - first:
+      213: 6217692495055333485
+    second: Mine_Shaft2
+  - first:
+      213: 3428491173251122526
+    second: Robot_Screen_Startup4
+  - first:
+      213: -357963421316838327
+    second: Robot_Screen_Pickax
+  - first:
+      213: -1710825386507771198
+    second: Robot_Screen_Exclamation
+  - first:
+      213: 6968424497549060531
+    second: Robot_Screen_Loading2
+  - first:
+      213: -7117012198108766654
+    second: Robot_Screen_Loading3
+  - first:
+      213: -78688082753830527
+    second: Robot_Screen_Loading4
+  - first:
+      213: -4095676495126173018
+    second: Mine_Hill1
+  - first:
+      213: 4027447983487812613
+    second: Mine_Hill2
+  - first:
+      213: 6044167298760183922
+    second: Computer
+  - first:
+      213: 333042181394269626
+    second: Rocket_Ground
+  - first:
+      213: 5363733841854348253
+    second: Room_Ground
+  - first:
+      213: 7810780092824436414
+    second: Mine_Ground
+  - first:
+      213: -7494289540377265527
+    second: Rocket_Tower1
+  - first:
+      213: 3577476227537652358
+    second: Rocket_Tower2
+  - first:
+      213: -5606347995224241632
+    second: Rocket_Tower6
+  - first:
+      213: 7694803890362208338
+    second: Rocket_Tower5
+  - first:
+      213: 7237903369837469591
+    second: Rocket_Tower8
+  - first:
+      213: -1940839700508095722
+    second: Room_Wall
+  - first:
+      213: 4031952903650303505
+    second: Robot_Base1
+  - first:
+      213: -8659451703381833691
+    second: Robot_Base2
+  - first:
+      213: 9205127480332610405
+    second: Robot_Base3
+  - first:
+      213: -7841782963002435219
+    second: Robot_Base4
+  - first:
+      213: 8740543175143956395
+    second: Robot_Base5
+  - first:
+      213: -4051419926227991977
+    second: Mine_Cart1
+  - first:
+      213: 5140004021397483017
+    second: Mine_Cart2
+  - first:
+      213: -607999193065115162
+    second: Mine_Cart3
+  - first:
+      213: 8834033887300994707
+    second: Mine_Cart4
+  - first:
+      213: 6172449252521616356
+    second: Rocket_Tower10
+  - first:
+      213: -8192757476834351087
+    second: Robot_Base6
+  - first:
+      213: 3667598157409500007
+    second: Robot_Base7
+  - first:
+      213: -1514556899488527408
+    second: Robot_Base8
+  - first:
+      213: 4294241880578142434
+    second: Robot_Base9
+  - first:
+      213: 2252545063349228790
+    second: Robot_Base10
+  - first:
+      213: -8480571167284963237
+    second: Mine_Cart6
+  - first:
+      213: -8379535045852413486
+    second: Mine_Cart7
+  - first:
+      213: 8287290193985857623
+    second: Mine_Cart8
+  - first:
+      213: 284371763737423165
+    second: Mine_Cart9
+  - first:
+      213: -5350145261029912546
+    second: Mine_Cart10
+  - first:
+      213: 7467323891196551648
+    second: Robot_Base11
+  - first:
+      213: 6842488206505755015
+    second: Robot_Base12
+  - first:
+      213: -8636966842280493821
+    second: Robot_Base13
+  - first:
+      213: 7874956283656454431
+    second: Robot_Base14
+  - first:
+      213: 7053551051603303297
+    second: Robot_Base15
+  - first:
+      213: -7082951207174037898
+    second: Mine_Cart11
+  - first:
+      213: 6913933625444747107
+    second: Mine_Cart12
+  - first:
+      213: -737408880243906024
+    second: Mine_Cart13
+  - first:
+      213: -2958868818829734912
+    second: Mine_Cart14
+  - first:
+      213: -3416233263828025068
+    second: Mine_Cart15
+  - first:
+      213: 2753524791736967975
+    second: Background
+  - first:
+      213: 580044052579557962
+    second: Robot_Base16
+  - first:
+      213: -3578069379124988539
+    second: Robot_Base17
+  - first:
+      213: -4353581607334584552
+    second: Robot_Base18
+  - first:
+      213: 3996960499831143542
+    second: Robot_Base19
+  - first:
+      213: -7041636846575625800
+    second: Robot_Base20
+  - first:
+      213: -7979445981126881994
+    second: Wall_R
+  - first:
+      213: 3867520474982032328
+    second: Mine_Cart16
+  - first:
+      213: -9157916143068711143
+    second: Mine_Cart17
+  - first:
+      213: -1535549643591290113
+    second: Mine_Cart18
+  - first:
+      213: 7909351653937851178
+    second: Mine_Cart19
+  - first:
+      213: 5735966784705046917
+    second: Wall_L
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 1
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.9
+    mipMapFadeDistanceStart: 0
+    mipMapFadeDistanceEnd: 2
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 16
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 52
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 47
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GrassA_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2068
+        width: 17
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.21032715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d7a2b4432f52950800000000000000
+      internalID: 6423806749927177598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassA_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 2068
+        width: 17
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.293396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2875d974f2a25d0800000000000000
+      internalID: -3086602609980112195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassB_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 2065
+        width: 17
+        height: 15
+      alignment: 9
+      pivot: {x: 0.55793786, y: 0.23320313}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d39dcfb9cb181060800000000000000
+      internalID: 6924314980402435031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassB_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 2065
+        width: 17
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5588249, y: 0.30001628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9492c9423858b1370800000000000000
+      internalID: 8294369937034324297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_PedestalA
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 2065
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa74356007ad6a250800000000000000
+      internalID: 5955687731921373103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_PedestalB
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 2065
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccb26d45e3fc7660800000000000000
+      internalID: 7385045655152147662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 2058
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2733a0c8f9e132990800000000000000
+      internalID: -7412046891123592334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_Trash
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 2058
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9aaa5b644e66430800000000000000
+      internalID: 3775956329943443878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plane1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 2051
+        width: 97
+        height: 28
+      alignment: 9
+      pivot: {x: 0.88687855, y: 0.50182235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93c8e6931549d58a0800000000000000
+      internalID: -6314728025926759367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plane2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 2051
+        width: 94
+        height: 28
+      alignment: 9
+      pivot: {x: 0.8829326, y: 0.50146484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64a6d56497b1aad60800000000000000
+      internalID: 7902158703860476486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Orange1
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 2049
+        width: 21
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5939941, y: 0.1437752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f5ca5e23eb796b0800000000000000
+      internalID: -5289550111512436940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Orange2
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 2049
+        width: 19
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1447439}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e297532f77d2cb70800000000000000
+      internalID: 8917927153200763621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Pink1
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 2049
+        width: 21
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5939941, y: 0.1437752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5517ee82b8c7fcd0800000000000000
+      internalID: -2524328396890630821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Pink2
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 2049
+        width: 19
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1437752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e271faebfaff5b0800000000000000
+      internalID: -5332350200267198914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Purple1
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 2049
+        width: 21
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5939941, y: 0.1437752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81ad23b837586a40800000000000000
+      internalID: 5361631257420472715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Purple2
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 2049
+        width: 19
+        height: 31
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1437752}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28af7e7cfa26c0110800000000000000
+      internalID: 1228465305477970562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockA_1
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 2049
+        width: 47
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9c1b0a0e5adad70800000000000000
+      internalID: 9056076809899198952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockA_2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 2049
+        width: 47
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9afe81fe73026c510800000000000000
+      internalID: 1568976944791875497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Rings1
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 2048
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3641a3fae4876a0800000000000000
+      internalID: -6451319951707577422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Rings2
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 2048
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139cd47870bbd1150800000000000000
+      internalID: 5845033532405958961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuel_Tank
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 2048
+        width: 70
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1890bb68204f51640800000000000000
+      internalID: 5050210848853395841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockB_1
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 2046
+        width: 72
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f89a320f74cbbe60800000000000000
+      internalID: 7979187214594251000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockB_2
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 2046
+        width: 72
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a1e73d79606f9b0800000000000000
+      internalID: -5046839083263976945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen1
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2071
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858c965342ca0aaf0800000000000000
+      internalID: -387120296438937512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen2
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 2071
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31621f2eed758a6c0800000000000000
+      internalID: -4131956043310619117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen4
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2071
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748909163da78b230800000000000000
+      internalID: 3654806145904711751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen5
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 2071
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0af41fb1af5f66d0800000000000000
+      internalID: -2995070078877894131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant1
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 2036
+        width: 29
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae966ec48375c830800000000000000
+      internalID: 4090802850771672748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plant2
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 2038
+        width: 29
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd93d20ca74912f10800000000000000
+      internalID: 2243237344338328031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coffee1
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 2029
+        width: 44
+        height: 51
+      alignment: 9
+      pivot: {x: 0.568598, y: 0.29431152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09e55643c7861ff0800000000000000
+      internalID: -65715871781885684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofee2
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 2029
+        width: 44
+        height: 51
+      alignment: 9
+      pivot: {x: 0.56814575, y: 0.29431152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d428d19ea48f5a20800000000000000
+      internalID: 3053304957686523090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poster
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 2030
+        width: 70
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4307e3a589d510b40800000000000000
+      internalID: 5404703936751759412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Table
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 2019
+        width: 110
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55d0b962d5dd8010800000000000000
+      internalID: 1192844576016094557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Building
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 2014
+        width: 70
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d62d7ca55d06f70800000000000000
+      internalID: 9178570626457300377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 2013
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f657f6465660740800000000000000
+      internalID: 5117889508594249501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard
+      rect:
+        serializedVersion: 2
+        x: 1478
+        y: 2006
+        width: 128
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0cc845a097f59f80800000000000000
+      internalID: -8100296154135606261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudA
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 1998
+        width: 181
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d996a760ec745f70800000000000000
+      internalID: 9175095644114033106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup3
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 1970
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89fe303442c9bcb60800000000000000
+      internalID: 7767473661887639448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen6
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2061
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b412a92bd327cdb0800000000000000
+      internalID: -4771805855972453191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen7
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 2061
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea96157859569c490800000000000000
+      internalID: -7725531992882583122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen9
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2061
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1992480cdef1dd2b0800000000000000
+      internalID: -5558251259107726959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen10
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 2061
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1016c805aee725b0800000000000000
+      internalID: -5393079636168667110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Screen2
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1904
+        width: 152
+        height: 94
+      alignment: 9
+      pivot: {x: 0.9276308, y: 0.8724729}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb6e75e2e5478ce0800000000000000
+      internalID: -1403075918087427084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen11
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2051
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a911648ea009d64d0800000000000000
+      internalID: -3139694988686388838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen12
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 2051
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f34654eb6bf6c70800000000000000
+      internalID: 8966586311442186067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen14
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2051
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225e0367f5850ba80800000000000000
+      internalID: -8453159333546367710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen15
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 2051
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ebe77c661c356e0800000000000000
+      internalID: -1849922374741344692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen16
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 2041
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3195c3d2c97507240800000000000000
+      internalID: 4787422732180281619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen17
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 2041
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ee1b8dda9086da0800000000000000
+      internalID: -5951496265300578705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen19
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 2041
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181f7dea7e041f9e0800000000000000
+      internalID: -1589417829670063743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen20
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 2041
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608fe21bd04911f00800000000000000
+      internalID: 1085811771701131270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1913
+        width: 135
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d545426474510610800000000000000
+      internalID: 1585641402652771794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Empty
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1970
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe8ea8470cbb0970800000000000000
+      internalID: 8722271842803289840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 1970
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14484ee6414d3b20800000000000000
+      internalID: 3115718290111480859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1970
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac8db0d90d2bba00800000000000000
+      internalID: 773261281204210858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Screen1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1904
+        width: 152
+        height: 94
+      alignment: 9
+      pivot: {x: 0.92765504, y: 0.8725586}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5646cba2952c9dea0800000000000000
+      internalID: -5847428952939010971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Miner
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1887
+        width: 37
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09012e8ddd20dff70800000000000000
+      internalID: 9222530763774365840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CloudB
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 1883
+        width: 251
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8bb81709e050380800000000000000
+      internalID: -9005775866314377051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Launch_Cover2
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1857
+        width: 111
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3798864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029e08d4ceff79810800000000000000
+      internalID: 1772166368771238176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Shaft1
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 1859
+        width: 105
+        height: 138
+      alignment: 9
+      pivot: {x: 0.104771204, y: 0.8624878}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e9a1b1298647420800000000000000
+      internalID: 2626839459393084993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Shaft2
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 1859
+        width: 105
+        height: 138
+      alignment: 9
+      pivot: {x: 0.10457822, y: 0.862486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68a26aa16ea94650800000000000000
+      internalID: 6217692495055333485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1941
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e550231ae82749f20800000000000000
+      internalID: 3428491173251122526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Pickax
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1941
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c83d53a22480bf0800000000000000
+      internalID: -357963421316838327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Exclamation
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1941
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c2eb74106de148e0800000000000000
+      internalID: -1710825386507771198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1912
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9aa840921d4b060800000000000000
+      internalID: 6968424497549060531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1912
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24eda950d1b4b3d90800000000000000
+      internalID: -7117012198108766654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading4
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1912
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181c66b0b9178eef0800000000000000
+      internalID: -78688082753830527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Hill1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1719
+        width: 413
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa66117deb3927c0800000000000000
+      internalID: -4095676495126173018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Hill2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1719
+        width: 413
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50487274a9e54e730800000000000000
+      internalID: 4027447983487812613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 1710
+        width: 177
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27012a5822231e350800000000000000
+      internalID: 6044167298760183922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Ground
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1299
+        width: 610
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab50a3579143f9400800000000000000
+      internalID: 333042181394269626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Room_Ground
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1301
+        width: 418
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb3879c28fcf6a40800000000000000
+      internalID: 5363733841854348253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Ground
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1299
+        width: 610
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe3e737c17756c60800000000000000
+      internalID: 7810780092824436414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower1
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1492
+        width: 62
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a33e59e5feef790800000000000000
+      internalID: -7494289540377265527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower2
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 1492
+        width: 62
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a49c6bcafb5a130800000000000000
+      internalID: 3577476227537652358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower4
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1349
+        width: 60
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a8f69b3304232b0800000000000000
+      internalID: -5606347995224241632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower5
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 1349
+        width: 58
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25055559e5f69ca60800000000000000
+      internalID: 7694803890362208338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower8
+      rect:
+        serializedVersion: 2
+        x: 1824
+        y: 1349
+        width: 52
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fd3cd44c2327460800000000000000
+      internalID: 7237903369837469591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Room_Wall
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 774
+        width: 418
+        height: 431
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b4d3d4390c015e0800000000000000
+      internalID: -1940839700508095722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1095
+        width: 127
+        height: 108
+      alignment: 9
+      pivot: {x: 0.46428603, y: 0.97236466}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e5e2dbdcf54f730800000000000000
+      internalID: 4031952903650303505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base2
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1095
+        width: 125
+        height: 108
+      alignment: 9
+      pivot: {x: 0.47198877, y: 0.97245735}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52846463e8273d780800000000000000
+      internalID: -8659451703381833691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base3
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 1095
+        width: 125
+        height: 108
+      alignment: 9
+      pivot: {x: 0.47202638, y: 0.97239065}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b69692cae2fbf70800000000000000
+      internalID: 9205127480332610405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base4
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1095
+        width: 124
+        height: 108
+      alignment: 9
+      pivot: {x: 0.483774, y: 0.9721295}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69978451f36c2390800000000000000
+      internalID: -7841782963002435219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base5
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1095
+        width: 124
+        height: 108
+      alignment: 9
+      pivot: {x: 0.48391575, y: 0.9721657}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf9b6a55b5ac4970800000000000000
+      internalID: 8740543175143956395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart1
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1094
+        width: 137
+        height: 111
+      alignment: 9
+      pivot: {x: 0.7809283, y: 0.098901145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752cd3dda0776c7c0800000000000000
+      internalID: -4051419926227991977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart2
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1094
+        width: 137
+        height: 111
+      alignment: 9
+      pivot: {x: 0.7809934, y: 0.09884836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ee97fac66f45740800000000000000
+      internalID: 5140004021397483017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart3
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 1094
+        width: 137
+        height: 111
+      alignment: 9
+      pivot: {x: 0.78086954, y: 0.09884726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e131a984f3ff87f0800000000000000
+      internalID: -607999193065115162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart4
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 1094
+        width: 137
+        height: 111
+      alignment: 9
+      pivot: {x: 0.78080004, y: 0.09883516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396c65a040bc89a70800000000000000
+      internalID: 8834033887300994707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower10
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 1206
+        width: 48
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e32da264e1f8a550800000000000000
+      internalID: 6172449252521616356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 986
+        width: 123
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4877406, y: 0.97215426}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118ec5e5b7a7d4e80800000000000000
+      internalID: -8192757476834351087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base7
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 986
+        width: 119
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4958486, y: 0.97214174}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b3547a71de5e230800000000000000
+      internalID: 3667598157409500007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base8
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 986
+        width: 119
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4284786, y: 0.9721349}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db8edd36863bfae0800000000000000
+      internalID: -1514556899488527408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base9
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 986
+        width: 117
+        height: 107
+      alignment: 9
+      pivot: {x: 0.43578318, y: 0.9721953}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0377f0d36389b30800000000000000
+      internalID: 4294241880578142434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base10
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 986
+        width: 117
+        height: 107
+      alignment: 9
+      pivot: {x: 0.43572998, y: 0.97217596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f49d75fcc5a24f10800000000000000
+      internalID: 2252545063349228790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart6
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 983
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.7807822, y: 0.09978249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b585f819475fe4a80800000000000000
+      internalID: -8480571167284963237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart7
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 983
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.7809292, y: 0.099844635}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1c701c549e5bb80800000000000000
+      internalID: -8379535045852413486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart8
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 983
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78089184, y: 0.09983742}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758ea13068e520370800000000000000
+      internalID: 8287290193985857623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart9
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 983
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78075016, y: 0.099852405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d68b9cc9a42f300800000000000000
+      internalID: 284371763737423165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart10
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 983
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.7807715, y: 0.09994341}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10929b3b3770c5b0800000000000000
+      internalID: -5350145261029912546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base11
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 876
+        width: 114
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4384822, y: 0.97243035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1ee85f38341a760800000000000000
+      internalID: 7467323891196551648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base12
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 876
+        width: 116
+        height: 107
+      alignment: 9
+      pivot: {x: 0.43948892, y: 0.97232085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 781439055c665fe50800000000000000
+      internalID: 6842488206505755015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base13
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 876
+        width: 116
+        height: 107
+      alignment: 9
+      pivot: {x: 0.50839126, y: 0.9721075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d3b05ea64532880800000000000000
+      internalID: -8636966842280493821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base14
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 876
+        width: 115
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4521803, y: 0.9721606}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11c2154407794d60800000000000000
+      internalID: 7874956283656454431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base15
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 876
+        width: 115
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5128742, y: 0.9720071}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18bd5e36f4f33e160800000000000000
+      internalID: 7053551051603303297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart11
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 872
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.7809693, y: 0.09982744}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e97f6776d44bd90800000000000000
+      internalID: -7082951207174037898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart12
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 872
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78093636, y: 0.09978582}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3674341300a33ff50800000000000000
+      internalID: 6913933625444747107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart13
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 872
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78090787, y: 0.09975031}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ae7d6c78234c5f0800000000000000
+      internalID: -737408880243906024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart14
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 872
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.7809025, y: 0.09991899}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c8cac6c7cffe6d0800000000000000
+      internalID: -2958868818829734912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart15
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 872
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.7807626, y: 0.099890694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41148af42f91790d0800000000000000
+      internalID: -3416233263828025068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Background
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 301
+        width: 1709
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723a6b3953c763620800000000000000
+      internalID: 2753524791736967975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base16
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 766
+        width: 114
+        height: 107
+      alignment: 9
+      pivot: {x: 0.51735944, y: 0.97218853}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42251c1efabc0800800000000000000
+      internalID: 580044052579557962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base17
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 766
+        width: 111
+        height: 107
+      alignment: 9
+      pivot: {x: 0.45931154, y: 0.9720385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5857d8b6bd4285ec0800000000000000
+      internalID: -3578069379124988539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base18
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 767
+        width: 108
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4906639, y: 0.962533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fd52a2898f493c0800000000000000
+      internalID: -4353581607334584552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base19
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 766
+        width: 107
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47647065, y: 0.97195005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67cf3b5d56e087730800000000000000
+      internalID: 3996960499831143542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base20
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 766
+        width: 106
+        height: 107
+      alignment: 9
+      pivot: {x: 0.48109233, y: 0.9722798}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9de82a894174e90800000000000000
+      internalID: -7041636846575625800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_R
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1
+        width: 38
+        height: 758
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d83863820534190800000000000000
+      internalID: -7979445981126881994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen3
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 2071
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b508351299d67be0800000000000000
+      internalID: -1479756206100183629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen8
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 2061
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453b9b09ed6a44a10800000000000000
+      internalID: 1892821218243490644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen13
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 2051
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83961d980550aac0800000000000000
+      internalID: -3845980586290801778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Keyboard_Screen18
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 2041
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba50a02fbc6680a0800000000000000
+      internalID: -6879691812619920712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 1941
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f3aa40a8103fe20800000000000000
+      internalID: 3383049437380755243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Screen3
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1904
+        width: 152
+        height: 94
+      alignment: 9
+      pivot: {x: 0.9276111, y: 0.87248456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7984956fb23f753f0800000000000000
+      internalID: -911993029377046377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Screen4
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1904
+        width: 152
+        height: 94
+      alignment: 9
+      pivot: {x: 0.9275505, y: 0.8726573}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448b6886b7c160d40800000000000000
+      internalID: 5550154907140929604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Screen5
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1904
+        width: 152
+        height: 94
+      alignment: 9
+      pivot: {x: 0.9277263, y: 0.872756}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc490c6b9021841d0800000000000000
+      internalID: -3366420888529365811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Launch_Cover1
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 1928
+        width: 111
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.74950093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b176052c46d78e3b0800000000000000
+      internalID: -5482994674613328101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book_Shelf
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 1862
+        width: 95
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ea2c80ff5dc6c70800000000000000
+      internalID: 8965776249528167994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desk
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1697
+        width: 268
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d888f03c508d20d0800000000000000
+      internalID: -3445957006421620523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1679
+        width: 60
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b725fb3210312d5f0800000000000000
+      internalID: -733502893692333445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Button1
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 1634
+        width: 111
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cadb49c5488d7bbe0800000000000000
+      internalID: -1461461491057902164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Button2
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 1634
+        width: 111
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df075fcd2ad64a9e0800000000000000
+      internalID: -1611042220432592643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower3
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 1492
+        width: 62
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638f98517a1c5a6d0800000000000000
+      internalID: -2979762655070652362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower6
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 1492
+        width: 56
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41aeac378f2874f80800000000000000
+      internalID: 747210698664643828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower7
+      rect:
+        serializedVersion: 2
+        x: 1767
+        y: 1349
+        width: 54
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3650e2cfde26c78e0800000000000000
+      internalID: -1694370585520503453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower9
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1206
+        width: 50
+        height: 141
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c670a5a878e20d0800000000000000
+      internalID: -3445667636606178291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart5
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 1094
+        width: 137
+        height: 111
+      alignment: 9
+      pivot: {x: 0.7811208, y: 0.098955035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a93021d7596298a0800000000000000
+      internalID: -6299857102846281307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart16
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 761
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.77351856, y: 0.09978416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3aad881613ca530800000000000000
+      internalID: 3867520474982032328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart17
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 761
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78083926, y: 0.099770285}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917f291e9cb88e080800000000000000
+      internalID: -9157916143068711143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart18
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 761
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78082764, y: 0.099692605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff273ce1cb1a0bae0800000000000000
+      internalID: -1535549643591290113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Cart19
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 761
+        width: 137
+        height: 110
+      alignment: 9
+      pivot: {x: 0.78091854, y: 0.09994396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b2d987c69a3cd60800000000000000
+      internalID: 7909351653937851178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_L
+      rect:
+        serializedVersion: 2
+        x: 1713
+        y: 1
+        width: 38
+        height: 758
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589a8c5766f3a9f40800000000000000
+      internalID: 5735966784705046917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 86005607fd97c5a489ecd0d86e332315
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Logo: -7412046891123592334
+      Flower_Orange1: -5289550111512436940
+      RockA_1: 9056076809899198952
+      Room_Wall: -1940839700508095722
+      Robot_Base20: -7041636846575625800
+      Keyboard_Screen14: -8453159333546367710
+      Robot_Base15: 7053551051603303297
+      Mine_Cart18: -1535549643591290113
+      Robot_Base10: 2252545063349228790
+      Rocket_Ground: 333042181394269626
+      Mine_Cart15: -3416233263828025068
+      Robot_Rings2: 5845033532405958961
+      Mine_Cart14: -2958868818829734912
+      Keyboard_Screen13: -3845980586290801778
+      Mine_Cart13: -737408880243906024
+      Fuel_Tank: 5050210848853395841
+      Keyboard_Screen6: -4771805855972453191
+      Plane1: -6314728025926759367
+      Mine_Cart16: 3867520474982032328
+      Keyboard_Screen2: -4131956043310619117
+      Plane2: 7902158703860476486
+      Robot_Base8: -1514556899488527408
+      Rocket_Button1: -1461461491057902164
+      Desk: -3445957006421620523
+      Mine_Cart2: 5140004021397483017
+      Background: 2753524791736967975
+      Robot_Base4: -7841782963002435219
+      Keyboard_Screen15: -1849922374741344692
+      CloudB: -9005775866314377051
+      Rocket_Button2: -1611042220432592643
+      GrassA_2: -3086602609980112195
+      Computer_Screen1: -5847428952939010971
+      Cofee2: 3053304957686523090
+      Robot_Screen_Loading4: -78688082753830527
+      Robot_Base7: 3667598157409500007
+      Keyboard: -8100296154135606261
+      Robot_Screen_Startup3: 7767473661887639448
+      Mouse: 5117889508594249501
+      Keyboard_Screen20: 1085811771701131270
+      Robot_Base16: 580044052579557962
+      Robot_Base17: -3578069379124988539
+      Mine_Cart7: -8379535045852413486
+      Robot_Base11: 7467323891196551648
+      Rocket_Tower6: 747210698664643828
+      Keyboard_Screen11: -3139694988686388838
+      Robot_Base2: -8659451703381833691
+      Mine_Cart10: -5350145261029912546
+      Robot_Base18: -4353581607334584552
+      Wall_R: -7979445981126881994
+      Robot_Screen_Loading1: 3383049437380755243
+      Keyboard_Screen9: -5558251259107726959
+      Logo_Trash: 3775956329943443878
+      CloudA: 9175095644114033106
+      Keyboard_Screen7: -7725531992882583122
+      Mine_Cart19: 7909351653937851178
+      Mine_Shaft1: 2626839459393084993
+      Robot_Screen_Startup2: 773261281204210858
+      Flower_Orange2: 8917927153200763621
+      Mine_Cart3: -607999193065115162
+      Robot_Screen_Startup1: 3115718290111480859
+      Keyboard_Screen1: -387120296438937512
+      Computer_Screen4: 5550154907140929604
+      Coffee1: -65715871781885684
+      Poster: 5404703936751759412
+      Robot_Base14: 7874956283656454431
+      Rocket_Tower8: 7237903369837469591
+      Plant1: 4090802850771672748
+      Flower_Purple1: 5361631257420472715
+      Rocket_Tower9: -3445667636606178291
+      Keyboard_Screen8: 1892821218243490644
+      RockB_2: -5046839083263976945
+      Keyboard_Screen10: -5393079636168667110
+      Keyboard_Screen12: 8966586311442186067
+      Window: 1585641402652771794
+      Mine_Cart4: 8834033887300994707
+      Plant2: 2243237344338328031
+      Mine_Cart12: 6913933625444747107
+      Robot_Screen_Startup4: 3428491173251122526
+      GrassB_1: 6924314980402435031
+      Earth_41: -4185284398289417087
+      Flower_Purple2: 1228465305477970562
+      Mine_Cart9: 284371763737423165
+      Robot_Base6: -8192757476834351087
+      Keyboard_Screen4: 3654806145904711751
+      Rocket_Tower5: 7694803890362208338
+      Flower_Pink2: -5332350200267198914
+      Table: 1192844576016094557
+      Keyboard_Screen3: -1479756206100183629
+      Book_Shelf: 8965776249528167994
+      Keyboard_Screen5: -2995070078877894131
+      Robot_Screen_Empty: 8722271842803289840
+      Robot_Base9: 4294241880578142434
+      Robot_Screen_Pickax: -357963421316838327
+      Wall_L: 5735966784705046917
+      Robot_Base3: 9205127480332610405
+      Rocket_Tower4: -5606347995224241632
+      Mine_Hill1: -4095676495126173018
+      Keyboard_Screen19: -1589417829670063743
+      Flower_Pink1: -2524328396890630821
+      Robot_Base5: 8740543175143956395
+      Computer_Screen2: -1403075918087427084
+      RockB_1: 7979187214594251000
+      Robot_Base13: -8636966842280493821
+      Mine_Cart5: -6299857102846281307
+      Mine_Cart1: -4051419926227991977
+      Mine_Cart6: -8480571167284963237
+      Robot_Rings1: -6451319951707577422
+      Robot_Base12: 6842488206505755015
+      Keyboard_Screen17: -5951496265300578705
+      Mine_Cart17: -9157916143068711143
+      Mine_Cart8: 8287290193985857623
+      Room_Ground: 5363733841854348253
+      Launch_Cover2: 1772166368771238176
+      Robot_Base1: 4031952903650303505
+      Launch_Cover1: -5482994674613328101
+      Computer_Screen3: -911993029377046377
+      Trophy_PedestalB: 7385045655152147662
+      GrassA_1: 6423806749927177598
+      Robot_Screen_Loading3: -7117012198108766654
+      Mine_Ground: 7810780092824436414
+      Trophy_PedestalA: 5955687731921373103
+      Computer_Screen5: -3366420888529365811
+      Robot_Screen_Exclamation: -1710825386507771198
+      Robot_Base19: 3996960499831143542
+      Mine_Shaft2: 6217692495055333485
+      Rocket_Tower7: -1694370585520503453
+      Rocket_Building: 9178570626457300377
+      Rocket_Tower10: 6172449252521616356
+      Mine_Hill2: 4027447983487812613
+      Robot_Miner: 9222530763774365840
+      Robot_Screen_Loading2: 6968424497549060531
+      Keyboard_Screen18: -6879691812619920712
+      Rocket_Tower1: -7494289540377265527
+      Rocket_Tower2: 3577476227537652358
+      Mine_Cart11: -7082951207174037898
+      RockA_2: 1568976944791875497
+      Computer: 6044167298760183922
+      GrassB_2: 8294369937034324297
+      Keyboard_Screen16: 4787422732180281619
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

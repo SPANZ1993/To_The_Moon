@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI_Experiments Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI_Experiments
+  m_TableCollectionNameGuidString: 0ffdaa1b65845aa488425bba824c79ed
+  m_Entries:
+  - m_Id: 32241246208
+    m_Key: UI.Experiment.Experiment1.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412032
+    m_Key: UI.Experiment.Experiment1.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412033
+    m_Key: UI.Experiment.Experiment2.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412034
+    m_Key: UI.Experiment.Experiment2.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412035
+    m_Key: UI.Experiment.Experiment3.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412036
+    m_Key: UI.Experiment.Experiment3.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412037
+    m_Key: UI.Experiment.Experiment4.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412038
+    m_Key: UI.Experiment.Experiment4.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412039
+    m_Key: UI.Experiment.Experiment5.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412040
+    m_Key: UI.Experiment.Experiment5.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412041
+    m_Key: UI.Experiment.Experiment6.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412042
+    m_Key: UI.Experiment.Experiment6.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412043
+    m_Key: UI.Experiment.Experiment7.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32266412044
+    m_Key: UI.Experiment.Experiment7.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537529880576
+    m_Key: UI.Experiment.Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537546657792
+    m_Key: UI.Experiment.Duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537546657793
+    m_Key: UI.Experiment.Launches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537546657794
+    m_Key: UI.Experiment.Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537550852096
+    m_Key: UI.Experiment.Duration1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537550852097
+    m_Key: UI.Experiment.Duration2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 421537550852098
+    m_Key: UI.Experiment.Duration3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 422062933565440
+    m_Key: UI.Experiment.DurationLabel
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 860362652980084740
+  references:
+    version: 2
+    RefIds:
+    - rid: 860362652980084740
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1649909765171

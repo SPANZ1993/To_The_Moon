@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_Researchers_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 2662a0f211c0237498ad5d4933b3f566, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1892283116576778
+    m_Localized: LIKE TO PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576777
+    m_Localized: ALIEN GUY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576776
+    m_Localized: AM KITTYEEE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576775
+    m_Localized: FEET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576779
+    m_Localized: POOPY BALLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576781
+    m_Localized: BEAN MAN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576782
+    m_Localized: LIKE TO EAT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576783
+    m_Localized: BEAN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576780
+    m_Localized: HE KNOW HOW TO DO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576784
+    m_Localized: HE MAKE DO GOOD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576774
+    m_Localized: WHAT LIKE?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576773
+    m_Localized: BOOF
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576772
+    m_Localized: Big Cheesey Mang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576771
+    m_Localized: NAP TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576770
+    m_Localized: LIKE TO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576769
+    m_Localized: Woodismo Jacksonismo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576768
+    m_Localized: BURTEY BURTEY MC BURTO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382468
+    m_Localized: McQueen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382467
+    m_Localized: Big Eggo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382466
+    m_Localized: Newtonismo Percismo Carltismo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382465
+    m_Localized: Wooter Badooter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382464
+    m_Localized: Make PeePee
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

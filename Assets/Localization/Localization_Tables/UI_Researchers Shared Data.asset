@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI_Researchers Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI_Researchers
+  m_TableCollectionNameGuidString: 2662a0f211c0237498ad5d4933b3f566
+  m_Entries:
+  - m_Id: 1892283112382464
+    m_Key: UI.Researcher.Card.Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382465
+    m_Key: UI.Researcher.Card.Profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382466
+    m_Key: UI.Researcher.Researcher1.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382467
+    m_Key: UI.Researcher.Researcher1.FavoriteLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283112382468
+    m_Key: UI.Researcher.Researcher1.FavoriteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576768
+    m_Key: UI.Researcher.Researcher1.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576769
+    m_Key: UI.Researcher.Researcher2.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576770
+    m_Key: UI.Researcher.Researcher2.FavoriteLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576771
+    m_Key: UI.Researcher.Researcher2.FavoriteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576772
+    m_Key: UI.Researcher.Researcher2.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576773
+    m_Key: UI.Researcher.Researcher3.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576774
+    m_Key: UI.Researcher.Researcher3.FavoriteLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576775
+    m_Key: UI.Researcher.Researcher3.FavoriteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576776
+    m_Key: UI.Researcher.Researcher3.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576777
+    m_Key: UI.Researcher.Researcher4.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576778
+    m_Key: UI.Researcher.Researcher4.FavoriteLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576779
+    m_Key: UI.Researcher.Researcher4.FavoriteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576780
+    m_Key: UI.Researcher.Researcher4.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576781
+    m_Key: UI.Researcher.Researcher5.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576782
+    m_Key: UI.Researcher.Researcher5.FavoriteLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576783
+    m_Key: UI.Researcher.Researcher5.FavoriteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1892283116576784
+    m_Key: UI.Researcher.Researcher5.Description
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1639439421073

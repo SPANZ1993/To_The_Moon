@@ -1,0 +1,850 @@
+fileFormatVersion: 2
+guid: f63d5831fb3b26447ba9d01c8f73502b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Rocket_Bar
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 512
+        width: 15
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8420183057072cf48960c29c40b9c9d6
+      internalID: 903059241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Altitude_Bar_Base
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 142
+        width: 27
+        height: 425
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544f7874374d87445b12e3bd3ee81692
+      internalID: 51778576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Altitude_Glass
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 154
+        width: 15
+        height: 413
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafe03a9a99ebb14797b88049aa05058
+      internalID: 145029257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Altitude_Display
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 529
+        width: 57
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360d351e2e63f52428f35671b230d0f2
+      internalID: 1288602988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Altitude_Display_Glass
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 543
+        width: 43
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7130f90c538330c4db1796804b53a531
+      internalID: 617685579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Dashboard
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 472
+        width: 269
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae26c1b5ee2a544f9b7598683e9125d
+      internalID: -2146750185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 55
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af380347e416bdc428c59698d1702d4c
+      internalID: 759589611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel_Display
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 120
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44dc280727d9b3948849b71de402bdcf
+      internalID: -1713845440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel_Display_Glass
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 120
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63080a31684b174ab98ef654d9f2a73
+      internalID: -1195815244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel_Display_Screen
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 130
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d414da4c6bc487e44bce73b0a9385f45
+      internalID: 1132981025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel_Glass
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 69
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb608945949f2bc43b34a9d4186207a5
+      internalID: 492960011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel_Needle_Nut
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 131
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cba4d8eb07edfe49a9d81f2fc3130ce
+      internalID: 1233965537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 66
+        width: 107
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0520d74118679498063353585c7dda
+      internalID: -14078185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Control_Panel
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 89
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6630de710987b3440bee0335b35aee75
+      internalID: 435362341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Glass
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 103
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9d4407002b1284691d5b5dfc7ad29c
+      internalID: 1251663762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca54fd2279fdc0c41bca0b8aa73c110b
+      internalID: -1819929604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e55815515e9af541beab5f77957a2b7
+      internalID: 558088523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981f994f57116e7468262e1a43725faf
+      internalID: 1420652282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da49925193298c4d92deadece39e1c3
+      internalID: -587356613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_5
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1983caa3fb35b544985c46f7540b8f8d
+      internalID: -1651201774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_6
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0feea4a368f6b4594d1659f1b5e61e
+      internalID: -74247780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c029806081fe845b07f28c9d032e3b
+      internalID: -1801615545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_8
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b55ee8e1aa21a4787b3923c8468a48
+      internalID: -1270740232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c8b728216ad5f4eb677c7a911a1ad4
+      internalID: 279521912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_10
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8924dec9bcde44daddeefa597a8abf
+      internalID: 1530540377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_PowerUp_Screen_11
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 2
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40db80980cc5e974f8ecf17bcc6f9281
+      internalID: 967457187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_Switch
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 39
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e110631375f6f488ee552386a00a23
+      internalID: 1668646041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Orange
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 565
+        width: 15
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2fb71e6711b6c2449d37e191c79ecf6
+      internalID: 778629021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Red
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 565
+        width: 15
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c14b5e9ac6b3b6438f67d0dd1785270
+      internalID: 458838501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Bar_Yellow
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 565
+        width: 15
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb279c47f0ad5fb478d88cac703e3554
+      internalID: -715017177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Fuel_Needle_OLD
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 111
+        width: 3
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229532c7409b8ff408b8dc50fe7e2b1a
+      internalID: -1131289599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Rocket_Mid_Panel_Switch_Light
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 49
+        width: 3
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a048f8d742f3e4b945c9a3c1f90205
+      internalID: -417792770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 74a0042ec6c885d4fae449ade1665106
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      UI_Rocket_Bar_Yellow: -715017177
+      UI_Rocket_Mid_Panel_PowerUp_Glass: 1251663762
+      UI_Rocket_Mid_Panel_PowerUp_Screen_9: 279521912
+      UI_Rocket_Fuel_Display: -1713845440
+      UI_Rocket_Mid_Panel_Switch_Light: -417792770
+      UI_Rocket_Bar_Altitude_Display_Glass: 617685579
+      UI_Rocket_Mid_Panel_PowerUp_Screen_1: -1819929604
+      UI_Rocket_Mid_Panel_PowerUp_Screen_10: 1530540377
+      UI_Rocket_Bar_Red: 458838501
+      UI_Rocket_Fuel: 759589611
+      UI_Rocket_Mid_Panel_PowerUp_Screen_4: -587356613
+      UI_Rocket_Fuel_Glass: 492960011
+      UI_Rocket_Fuel_Needle_OLD: -1131289599
+      UI_Rocket_Bar_Altitude_Display: 1288602988
+      UI_Rocket_Mid_Panel: -14078185
+      UI_Rocket_Bar_Altitude_Bar_Base: 51778576
+      UI_Rocket_Fuel_Display_Screen: 1132981025
+      UI_Rocket_Fuel_Needle_Nut: 1233965537
+      UI_Rocket_Bar: 903059241
+      UI_Rocket_Mid_Panel_PowerUp_Screen_7: -1801615545
+      UI_Rocket_Mid_Panel_PowerUp_Screen_6: -74247780
+      UI_Rocket_Mid_Panel_PowerUp_Control_Panel: 435362341
+      UI_Rocket_Mid_Panel_Switch: 1668646041
+      UI_Rocket_Bar_Orange: 778629021
+      UI_Rocket_Mid_Panel_PowerUp_Screen_2: 558088523
+      UI_Rocket_Dashboard: -2146750185
+      UI_Rocket_Fuel_Display_Glass: -1195815244
+      UI_Rocket_Bar_Altitude_Glass: 145029257
+      UI_Rocket_Mid_Panel_PowerUp_Screen_3: 1420652282
+      UI_Rocket_Mid_Panel_PowerUp_Screen_11: 967457187
+      UI_Rocket_Mid_Panel_PowerUp_Screen_5: -1651201774
+      UI_Rocket_Mid_Panel_PowerUp_Screen_8: -1270740232
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

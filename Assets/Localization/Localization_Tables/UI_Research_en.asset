@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_Research_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 8708f4b65b14858449e24a73aaf57a6a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2553674789969924
+    m_Localized: Time Left
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969925
+    m_Localized: Finish Research
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969926
+    m_Localized: Assign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969927
+    m_Localized: to
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969928
+    m_Localized: '?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969932
+    m_Localized: Bottle Rocket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969929
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969930
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969931
+    m_Localized: Darts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969923
+    m_Localized: Assigned Researcher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969922
+    m_Localized: Assign\nResearcher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969921
+    m_Localized: Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969920
+    m_Localized: Expected Thrust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969933
+    m_Localized: Firework
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674756415488
+    m_Localized: Expected Duration
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 73c66f7eac68ea84f9198ce7c0196126
+  m_SerializeEntries:
+  - m_GUID: 0173973f80785514680b9af482672ffa
+    m_Address: Assets/Localization/Localization_Tables/UI_Banner Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 2662a0f211c0237498ad5d4933b3f566
+    m_Address: Assets/Localization/Localization_Tables/UI_Researchers Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 8708f4b65b14858449e24a73aaf57a6a
+    m_Address: Assets/Localization/Localization_Tables/UI_Research Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 570f22ea984c6d143890c2e243caf087
+    m_Address: Assets/Localization/Localization_Tables/Rocket_Flight_UI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 882f9b057301b7f4f9faddeed62d02cb
+    m_Address: Assets/Localization/Localization_Tables/Mine_Game Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 0ffdaa1b65845aa488425bba824c79ed
+    m_Address: Assets/Localization/Localization_Tables/UI_Experiments Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 077cb2ec913c0e54fa2f3a74b8468389, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a1a1e9b9de499384da11d951814b3e6e, type: 2}
+    - {fileID: 11400000, guid: b539046d33f104347808af3e369a6f6b, type: 2}

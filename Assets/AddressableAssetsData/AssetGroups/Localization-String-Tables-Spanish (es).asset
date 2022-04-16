@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Spanish (es)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Spanish (es)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8ce4faa7251294841906c326396a8756
+  m_SerializeEntries:
+  - m_GUID: 4a3fd1fe8b799254dab7e177848bbcb3
+    m_Address: UI_Banner_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 0c41ddebdf82d714c87fcdfc1fe93eb5
+    m_Address: UI_Researchers_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 839aa31bd422ea84b9e46f099b4bc6f8
+    m_Address: UI_Research_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: f5cde55a575901a41997d745a2cfd6ac
+    m_Address: Rocket_Flight_UI_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: c3e83a7362fa0b946b07075386ab7b0d
+    m_Address: Mine_Game_UI_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  - m_GUID: 090fddf68692cc543b46655599da41e3
+    m_Address: UI_Experiments_es
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-es
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 077cb2ec913c0e54fa2f3a74b8468389, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5aba7b27f9d750f4ab7e2faa5547b672, type: 2}
+    - {fileID: 11400000, guid: ff749e1d80b42e1429e2420ce934e93a, type: 2}

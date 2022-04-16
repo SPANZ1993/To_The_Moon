@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI_Research Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI_Research
+  m_TableCollectionNameGuidString: 8708f4b65b14858449e24a73aaf57a6a
+  m_Entries:
+  - m_Id: 2553674756415488
+    m_Key: UI.Research.DurationLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969920
+    m_Key: UI.Research.ThrustLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969921
+    m_Key: UI.Research.PriceLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969922
+    m_Key: UI.Research.ButtonLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969923
+    m_Key: UI.Research.ResearcherLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969924
+    m_Key: UI.Research.TimeLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969925
+    m_Key: UI.Research.Finish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969926
+    m_Key: UI.Research.ConfirmationBox.Text_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969927
+    m_Key: UI.Research.ConfirmationBox.Text_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969928
+    m_Key: UI.Research.ConfirmationBox.Text_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969929
+    m_Key: UI.Research.ConfirmationBox.Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969930
+    m_Key: UI.Research.ConfirmationBox.No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969931
+    m_Key: UI.Research.Research1.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969932
+    m_Key: UI.Research.Research2.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2553674789969933
+    m_Key: UI.Research.Research3.Name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1639746021673

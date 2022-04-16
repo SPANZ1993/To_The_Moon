@@ -1,0 +1,971 @@
+fileFormatVersion: 2
+guid: 40a6fb3e1456a124fb919321ce8a46af
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2619862458952424067
+    second: Speech_Box_Background
+  - first:
+      213: -181941523458812501
+    second: Speech_Box_Robot_0
+  - first:
+      213: 8637568900022265371
+    second: Speech_Box_Robot_1
+  - first:
+      213: 8110836855774354115
+    second: Speech_Box_Robot_2
+  - first:
+      213: -2086955586918691135
+    second: Speech_Box_Robot_3
+  - first:
+      213: -7521310554002665504
+    second: Speech_Box_Robot_4
+  - first:
+      213: -3257219854698148216
+    second: Speech_Box_Robot_5
+  - first:
+      213: 3913109705471415410
+    second: Speech_Box_Robot_6
+  - first:
+      213: -5817823085593046184
+    second: Speech_Box_Dog__
+  - first:
+      213: -617252147882599727
+    second: Speech_Box_Dog_1
+  - first:
+      213: 3208923786195486204
+    second: Speech_Box_Dog_2
+  - first:
+      213: -3867431613410596169
+    second: Speech_Box_Dog_3
+  - first:
+      213: 1714399396356315662
+    second: Speech_Box_Dog_4
+  - first:
+      213: -6444977371627384456
+    second: Speech_Box_Dog_5
+  - first:
+      213: 3985114465688504230
+    second: Speech_Box_Dog_6
+  - first:
+      213: -310591914447294933
+    second: Speech_Box_Guy_0
+  - first:
+      213: -896436007515862352
+    second: Speech_Box_Guy_1
+  - first:
+      213: -4480046313980292685
+    second: Speech_Box_Guy_2
+  - first:
+      213: -6709197909259735412
+    second: Speech_Box_Guy_3
+  - first:
+      213: 6462858501754896867
+    second: Speech_Box_Guy_4
+  - first:
+      213: -7515933470023391136
+    second: Speech_Box_Guy_5
+  - first:
+      213: 8709107561626946509
+    second: Speech_Box_Guy_6
+  - first:
+      213: 6467735861247679326
+    second: Speech_Box_Gorilla_0
+  - first:
+      213: 6476928061189132621
+    second: Speech_Box_Gorilla_1
+  - first:
+      213: 8092840689956783344
+    second: Speech_Box_Gorilla_2
+  - first:
+      213: 7831695234463534287
+    second: Speech_Box_Gorilla_3
+  - first:
+      213: -2826518550950912525
+    second: Speech_Box_Gorilla_4
+  - first:
+      213: 1375992711000819701
+    second: Speech_Box_Gorilla_5
+  - first:
+      213: -3394588084954134964
+    second: Speech_Box_Gorilla_6
+  - first:
+      213: 7963296891093595119
+    second: Speech_Box_Anims_29
+  - first:
+      213: 8308954081744325598
+    second: Speech_Box_Dog_0
+  - first:
+      213: -4712390449923914292
+    second: Speech_Box_Dog__
+  - first:
+      213: 6115165672944100456
+    second: Blank
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Speech_Box_Background
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 164
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7562c569f064abd0800000000000000
+      internalID: -2619862458952424067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 123
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5185cf52d997df0800000000000000
+      internalID: -181941523458812501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 122
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16e9c8962fced770800000000000000
+      internalID: 8637568900022265371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 123
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca9393b52b7f8070800000000000000
+      internalID: 8110836855774354115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 122
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cec1bb63f4a903e0800000000000000
+      internalID: -2086955586918691135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 122
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef464796efee9790800000000000000
+      internalID: -7521310554002665504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 123
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e0e55bcc70cc2d0800000000000000
+      internalID: -3257219854698148216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Robot_6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 122
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274d1c96b882e4630800000000000000
+      internalID: 3913109705471415410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog__
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853d8215ab0f24fa0800000000000000
+      internalID: -5817823085593046184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da5c9c11741f67f0800000000000000
+      internalID: -617252147882599727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5cb739e23688c20800000000000000
+      internalID: 3208923786195486204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7baab89207f145ac0800000000000000
+      internalID: -3867431613410596169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a56feea25cac710800000000000000
+      internalID: 1714399396356315662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87118ba3a37de86a0800000000000000
+      internalID: -6444977371627384456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a742a41e78fd4730800000000000000
+      internalID: 3985114465688504230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ea245ac4e80bbf0800000000000000
+      internalID: -310591914447294933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bac52063383f83f0800000000000000
+      internalID: -896436007515862352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b118ed1d9da3d1c0800000000000000
+      internalID: -4480046313980292685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ea7c26c0424e2a0800000000000000
+      internalID: -6709197909259735412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1c6bec09fa0b950800000000000000
+      internalID: 6462858501754896867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06869c3845a02b790800000000000000
+      internalID: -7515933470023391136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Guy_6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 42
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcb41793f27fcd870800000000000000
+      internalID: 8709107561626946509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b19be8f7302c950800000000000000
+      internalID: 6467735861247679326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 2
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4110f261cba2e950800000000000000
+      internalID: 6476928061189132621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f483b4dabb8f4070800000000000000
+      internalID: 8092840689956783344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc81575255cfac60800000000000000
+      internalID: 7831695234463534287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 2
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdd48b7a5036c8d0800000000000000
+      internalID: -2826518550950912525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_5
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 2
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f70bb09412881310800000000000000
+      internalID: 1375992711000819701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Gorilla_6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 2
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46098d3f1004e0d0800000000000000
+      internalID: -3394588084954134964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Anims_29
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe33b92c450538e60800000000000000
+      internalID: 7963296891093595119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb0761f6b55f4370800000000000000
+      internalID: 8308954081744325598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Speech_Box_Dog_
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 82
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc587556ad93a9eb0800000000000000
+      internalID: -4712390449923914292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blank
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 165
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864ee7ea7ce6dd450800000000000000
+      internalID: 6115165672944100456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d863a42c85a10df4b91fadf2e1f82ba3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Speech_Box_Gorilla_5: 1375992711000819701
+      Speech_Box_Robot_0: -181941523458812501
+      Speech_Box_Robot_5: -3257219854698148216
+      Speech_Box_Guy_3: -6709197909259735412
+      Speech_Box_Guy_0: -310591914447294933
+      Speech_Box_Guy_1: -896436007515862352
+      Speech_Box_Gorilla_3: 7831695234463534287
+      Speech_Box_Robot_6: 3913109705471415410
+      Speech_Box_Guy_5: -7515933470023391136
+      Speech_Box_Gorilla_1: 6476928061189132621
+      Speech_Box_Robot_3: -2086955586918691135
+      Speech_Box_Dog_3: -3867431613410596169
+      Speech_Box_Robot_1: 8637568900022265371
+      Speech_Box_Gorilla_2: 8092840689956783344
+      Speech_Box_Dog_2: 3208923786195486204
+      Speech_Box_Dog__: -5817823085593046184
+      Speech_Box_Dog_0: 8308954081744325598
+      Blank: 6115165672944100456
+      Speech_Box_Guy_6: 8709107561626946509
+      Speech_Box_Gorilla_4: -2826518550950912525
+      Speech_Box_Anims_29: 7963296891093595119
+      Speech_Box_Background: -2619862458952424067
+      Speech_Box_Dog_: -4712390449923914292
+      Speech_Box_Dog_6: 3985114465688504230
+      Speech_Box_Robot_4: -7521310554002665504
+      Speech_Box_Robot_2: 8110836855774354115
+      Speech_Box_Gorilla_6: -3394588084954134964
+      Speech_Box_Guy_2: -4480046313980292685
+      Speech_Box_Dog_5: -6444977371627384456
+      Speech_Box_Dog_1: -617252147882599727
+      Speech_Box_Gorilla_0: 6467735861247679326
+      Speech_Box_Guy_4: 6462858501754896867
+      Speech_Box_Dog_4: 1714399396356315662
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

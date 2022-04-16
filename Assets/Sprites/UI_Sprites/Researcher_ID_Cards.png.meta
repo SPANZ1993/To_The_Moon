@@ -1,0 +1,496 @@
+fileFormatVersion: 2
+guid: bd96876cb166b244590a676f05a0d62d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6302137068815266806
+    second: Researcher_ID_Card_Name_Pane
+  - first:
+      213: 29396653507618888
+    second: Researcher_ID_Card_Headshot_6
+  - first:
+      213: -7894855279168422702
+    second: Researcher_ID_Card_Headshot_5
+  - first:
+      213: -11442915699231953
+    second: Researcher_ID_Card_Headshot_4
+  - first:
+      213: -2489285792608359615
+    second: Researcher_ID_Card_Base
+  - first:
+      213: 3859907053334403853
+    second: Researcher_ID_Card_Headshot_3
+  - first:
+      213: -3706251375438011707
+    second: Researcher_ID_Card_Headshot_2
+  - first:
+      213: 7781969377920396033
+    second: Researcher_ID_Card_Headshot_1
+  - first:
+      213: -1995941388610905117
+    second: Researcher_ID_Card_Barcode_1
+  - first:
+      213: 7380582219423913661
+    second: Researcher_ID_Card_Barcode_2
+  - first:
+      213: -8546221451432726761
+    second: Researcher_ID_Card_Barcode_3
+  - first:
+      213: -6778470770937781446
+    second: Researcher_ID_Card_Barcode_4
+  - first:
+      213: 4476489834599497964
+    second: Researcher_ID_Card_Barcode_5
+  - first:
+      213: -2992998679073710573
+    second: Researcher_ID_Card_Pane
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Name_Pane
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 481
+        width: 72
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f33e802640b57750800000000000000
+      internalID: 6302137068815266806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Headshot_6
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 448
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84828e1c910786000800000000000000
+      internalID: 29396653507618888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Headshot_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 448
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc7c0cc3f6df6290800000000000000
+      internalID: -7894855279168422702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Headshot_4
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 448
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f237d829ab857dff0800000000000000
+      internalID: -11442915699231953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Base
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 406
+        width: 183
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14be62ba2c7447dd0800000000000000
+      internalID: -2489285792608359615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Headshot_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 401
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b950ca305219530800000000000000
+      internalID: 3859907053334403853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Headshot_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 401
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2e6b6b200c09cc0800000000000000
+      internalID: -3706251375438011707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Headshot_1
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 401
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ba9e72beb1ffb60800000000000000
+      internalID: 7781969377920396033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Barcode_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 388
+        width: 64
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebd85bc1edfc44e0800000000000000
+      internalID: -1995941388610905117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Barcode_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 388
+        width: 64
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db69350bc681d6660800000000000000
+      internalID: 7380582219423913661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Barcode_3
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 388
+        width: 64
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f6787aed8b56980800000000000000
+      internalID: -8546221451432726761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Barcode_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 374
+        width: 64
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33a2e96fb80ee1a0800000000000000
+      internalID: -6778470770937781446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Barcode_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 374
+        width: 64
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce043ff79cfaf1e30800000000000000
+      internalID: 4476489834599497964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Researcher_ID_Card_Pane
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 370
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 40, y: 40, z: 40, w: 40}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e19981f8bb676d0800000000000000
+      internalID: -2992998679073710573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fc993d79e74d98f4c82ee00372f240d5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Researcher_ID_Card_Barcode_4: -6778470770937781446
+      Researcher_ID_Card_Headshot_4: -11442915699231953
+      Researcher_ID_Card_Headshot_2: -3706251375438011707
+      Researcher_ID_Card_Headshot_1: 7781969377920396033
+      Researcher_ID_Card_Base: -2489285792608359615
+      Researcher_ID_Card_Barcode_2: 7380582219423913661
+      Researcher_ID_Card_Barcode_3: -8546221451432726761
+      Researcher_ID_Card_Name_Pane: 6302137068815266806
+      Researcher_ID_Card_Pane: -2992998679073710573
+      Researcher_ID_Card_Headshot_6: 29396653507618888
+      Researcher_ID_Card_Headshot_3: 3859907053334403853
+      Researcher_ID_Card_Barcode_1: -1995941388610905117
+      Researcher_ID_Card_Barcode_5: 4476489834599497964
+      Researcher_ID_Card_Headshot_5: -7894855279168422702
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

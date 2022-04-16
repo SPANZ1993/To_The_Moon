@@ -1,0 +1,762 @@
+fileFormatVersion: 2
+guid: 14b054652b0f9db439c6eee8e43f75aa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Satellite_Screen_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 463
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5a4a44eb79bd346aaa45f12de24435
+      internalID: -1906465041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite_Screen_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 463
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f261127224914ee4fa4e5fecc6ba8482
+      internalID: -724451210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite_Screen_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 463
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efbc6023d9cd00141ace4883a654f85a
+      internalID: 768307692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite_Dish
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 449
+        width: 35
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5, y: 0.9461092}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3022c5f15cbbe445a4b40869f09b545
+      internalID: 1070131119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 434
+        width: 112
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28dd9b8db5568f8419ca05ae61d4a207
+      internalID: 828627514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite_Screen_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 454
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4394f8ab5dcc5f4f835fd989bc8b41c
+      internalID: 86020406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite_Screen_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 454
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44554ca97bc8e8042b25c56765845401
+      internalID: 396834823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Satellite_Screen_5
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 454
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980e7347032f76440ab301c6fe584a9c
+      internalID: -439691710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UFO_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 387
+        width: 90
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd0e8da36f673c4ba16cccde9889ae7
+      internalID: 984224801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UFO_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 387
+        width: 90
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ed3e7a2da25474685dda34df53178a
+      internalID: 1358008454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hot_Air_Balloon_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 329
+        width: 33
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9b6eeebf5c28b44a094a5866c9eaab
+      internalID: -1097372452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hot_Air_Balloon_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 329
+        width: 33
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f769465db6daf5f47a395b02ac3478ed
+      internalID: -1715516711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Space_Cow_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 328
+        width: 81
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5555697, y: 0.44662312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4638207adf8de24fb74e593c10b82d5
+      internalID: -156380869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Space_Cow_1
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 327
+        width: 78
+        height: 56
+      alignment: 9
+      pivot: {x: 0.5640611, y: 0.46483666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489e261b37ed09b45869cb03c08e2548
+      internalID: -1367686262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Comet_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 294
+        width: 101
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5527f07cd5eb77c428f1e08f1d76468e
+      internalID: 948060119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Comet_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 296
+        width: 101
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58872e1070c32dd4ba3ffd4a74299988
+      internalID: -1389072346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Comet_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 260
+        width: 101
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed461267cfbf650458cde68e151db157
+      internalID: 815823706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Comet_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 261
+        width: 101
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443bb241053046649bac8453444962b2
+      internalID: 845297997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 182
+        width: 28
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.46663553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94221f4e31c71b4a92d917f85523055
+      internalID: 751425903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 183
+        width: 28
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.45945966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244c665ad14664f4fad69b00cc7ecbda
+      internalID: -1861428248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kite_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 193
+        width: 44
+        height: 64
+      alignment: 9
+      pivot: {x: 0.65889776, y: 0.7810042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfece9777b02c3648ab1262e36fbde36
+      internalID: 47544867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kite_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 195
+        width: 43
+        height: 62
+      alignment: 9
+      pivot: {x: 0.65108365, y: 0.77424425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005b7d81d3f67a84ba119be1fb064fd6
+      internalID: 148741685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kite_0
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 194
+        width: 36
+        height: 63
+      alignment: 9
+      pivot: {x: 0.5834, y: 0.7776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6caf111ffc72df4094ba13856196ed0
+      internalID: 1722150062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kite_3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 132
+        width: 42
+        height: 59
+      alignment: 9
+      pivot: {x: 0.6428575, y: 0.76245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa455b029d74e864f997617a1e50f0a6
+      internalID: 457878888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 64
+        width: 62
+        height: 65
+      alignment: 9
+      pivot: {x: 0.5158065, y: 0.538462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5a127d9365ad84388af1425689efd0
+      internalID: -564873233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 67
+        width: 65
+        height: 62
+      alignment: 9
+      pivot: {x: 0.49504817, y: 0.5483486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee1db2ed7ede5e42b1abf905aef04f2
+      internalID: -1934135580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 64
+        width: 62
+        height: 65
+      alignment: 9
+      pivot: {x: 0.48998433, y: 0.5474519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a422029eb9c1b41be8a188bdcac5a7
+      internalID: 1798430441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1
+        width: 65
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5079026, y: 0.5558181}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0545465aed5ce7649a50318cafd5877c
+      internalID: -828684503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9953ee179d9a3124b99ce8fe279caed2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Satellite_Screen_5: -439691710
+      Satellite: 828627514
+      Satellite_Screen_0: -1906465041
+      Hot_Air_Balloon_1: -1715516711
+      Asteroid_3: -828684503
+      Space_Cow_1: -1367686262
+      Kite_2: 148741685
+      Kite_1: 47544867
+      Kite_0: 1722150062
+      Comet_3: -1389072346
+      Asteroid_0: -564873233
+      Asteroid_2: 1798430441
+      UFO_1: 1358008454
+      Comet_1: 845297997
+      UFO_0: 984224801
+      Asteroid_1: -1934135580
+      Baloon_1: -1861428248
+      Kite_3: 457878888
+      Comet_0: 948060119
+      Space_Cow_0: -156380869
+      Satellite_Screen_4: 396834823
+      Satellite_Screen_2: 768307692
+      Satellite_Screen_3: 86020406
+      Comet_2: 815823706
+      Satellite_Screen_1: -724451210
+      Satellite_Dish: 1070131119
+      Hot_Air_Balloon_0: -1097372452
+      Baloon_0: 751425903
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
