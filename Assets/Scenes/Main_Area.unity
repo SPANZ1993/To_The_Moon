@@ -10531,47 +10531,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214aa1c4f0727cb409672676c296c3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experiment1Id: 1
-  experiment1IsPersistent: 1
-  experiment1Denomination: 0
-  experiment1Price: 10
-  experiment1Duration: 1
   experiment1Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
-  experiment2Id: 2
-  experiment2IsPersistent: 1
-  experiment2Denomination: 0
-  experiment2Price: 50
-  experiment2Duration: 1
   experiment2Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
-  experiment3Id: 3
-  experiment3IsPersistent: 1
-  experiment3Denomination: 0
-  experiment3Price: 500
-  experiment3Duration: 1
   experiment3Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
-  experiment4Id: 4
-  experiment4IsPersistent: 0
-  experiment4Denomination: 0
-  experiment4Price: 10
-  experiment4Duration: 2
   experiment4Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
-  experiment5Id: 5
-  experiment5IsPersistent: 0
-  experiment5Denomination: 0
-  experiment5Price: 25
-  experiment5Duration: 2
   experiment5Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
-  experiment6Id: 6
-  experiment6IsPersistent: 0
-  experiment6Denomination: 0
-  experiment6Price: 50
-  experiment6Duration: 3
   experiment6Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
-  experiment7Id: 7
-  experiment7IsPersistent: 1
-  experiment7Denomination: 1
-  experiment7Price: 1000
-  experiment7Duration: 2
   experiment7Sprite: {fileID: 21300000, guid: 00c1c56117985c4499f46fe1a73b6c22, type: 3}
 --- !u!224 &482314230 stripped
 RectTransform:
@@ -20691,6 +20656,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4885281592236481840, guid: 0ef6b7eaf98cdee4c8b4543a42613938, type: 3}
   m_PrefabInstance: {fileID: 1340012497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1669296591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669296593}
+  - component: {fileID: 1669296592}
+  m_Layer: 0
+  m_Name: PlayFab_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1669296592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669296591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34d744caebdc9f48900777ea2900496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1669296593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669296591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 66
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1695843533
 GameObject:
   m_ObjectHideFlags: 0

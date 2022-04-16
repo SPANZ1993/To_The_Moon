@@ -64,7 +64,7 @@ public class Minecart_Controller : MonoBehaviour, ITappable
             secondsLeft = calculateSecondsLeft();
             //Debug.Log("CUR COINS: " + curCoins);
         }
-        Debug.Log("IS FULL??: " + isFull + " SECONDS LEFT: " + secondsLeft);
+        //Debug.Log("IS FULL??: " + isFull + " SECONDS LEFT: " + secondsLeft);
     }
 
 
