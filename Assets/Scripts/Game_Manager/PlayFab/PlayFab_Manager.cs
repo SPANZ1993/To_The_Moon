@@ -5,10 +5,13 @@ using UnityEngine;
 
 using PlayFab;
 using PlayFab.ClientModels;
+using Newtonsoft.Json;
 
 
 
 // TODO: DO WE WANT TO USE THE GAMECENTER / ANDROID LEADERBOARDS? IT'S NICE TO BE ABLE TO QUERY THE LEADERBOARD, WHICH YOU CAN DO WITH PLAYFAB
+
+
 public class PlayFab_Manager : MonoBehaviour
 {
 
@@ -29,7 +32,9 @@ public class PlayFab_Manager : MonoBehaviour
     {
         Login();
         //UpdateLeaderboardTest();
-        GetLeaderboardTest();
+        //GetLeaderboardTest();
+        //Invoke("GetUnixTimeServer", 15);
+        GetTitleDataTest();
     }
 
 
@@ -82,6 +87,25 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
 
+
+    void GetUnixTimeServer(){
+        var request = new ExecuteCloudScriptRequest {
+            FunctionName = "GetServerTime"
+        };
+        PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess, OnError);
+    }
+
+    void OnExecuteSuccess(ExecuteCloudScriptResult result){
+        if (result.FunctionResult != null){
+            Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT RESULT: " + result.FunctionResult);
+        }
+        else{
+            Debug.Log("PLAYFAB: GOT A NULL RESULT BACK FROM CLOUDSCRIPT");
+        }
+        //Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT " + result.FunctionResult.ToString());
+    }
+
+
     // Remove
     void UpdateLeaderboardTest(){
         float time = 0;
@@ -113,6 +137,72 @@ public class PlayFab_Manager : MonoBehaviour
         }
         StartCoroutine(_LeaderboardTest());
     }
+
+
+
+    void SaveData(){
+        SaveGameObject s = new SaveGameObject();
+        var request = new UpdateUserDataRequest {
+            Data = new Dictionary<string, string>{
+                {"Saved Game", JsonConvert.SerializeObject(s)}
+            }
+        };
+        PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
+    }
+
+
+    void OnDataSend(UpdateUserDataResult result){
+        Debug.Log("PLAYFAB: Sent data successfully!");
+    }
+
+
+    // void SaveDataTest(){
+    //     float time = 0;
+    //     IEnumerator _SaveDataTest(){
+    //         yield return new WaitForSeconds(0);
+    //         if(time < 15){
+    //             time += Time.deltaTime;
+    //             StartCoroutine(_SaveDataTest());
+    //         }
+    //         else{
+    //             ;
+    //         }
+    //     }
+    //     StartCoroutine(_SaveDataTest());
+    // }
+
+    void GetTitleData(){
+        PlayFabClientAPI.GetTitleData(new GetTitleDataRequest(), OnTitleDataReceieved, OnError);
+    }
+
+
+    void OnTitleDataReceieved(GetTitleDataResult result){
+       if (result.Data == null || result.Data.ContainsKey("Message") == false){
+           Debug.Log("PLAYFAB: NO MESSAGE!");
+           return;
+       }
+       else{
+           Debug.Log("PLAYFAB: GOT MESSAGE --- " + result.Data["Message"]);
+       }
+    }
+
+
+    // Remove
+    void GetTitleDataTest(){
+        float time = 0;
+        IEnumerator _GetTitleDataTest(){
+            yield return new WaitForSeconds(0);
+            if(time < 15){
+                time += Time.deltaTime;
+                StartCoroutine(_GetTitleDataTest());
+            }
+            else{
+                GetTitleData();
+            }
+        }
+        StartCoroutine(_GetTitleDataTest());
+    }
+
 
 
 }
