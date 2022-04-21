@@ -28,10 +28,15 @@ public class UI_Controller : MonoBehaviour
 
     // UI Original LocalScale Dictionaries
     public Dictionary<GameObject, Vector3> currentLocalScales; // Just used as a reference inside EnableUIElement
+    public Dictionary<GameObject, Vector3> landingPageLocalScales;
     public Dictionary<GameObject, Vector3> mainAreaLocalScales;
     public Dictionary<GameObject, Vector3> mineGameLocalScales;
     public Dictionary<GameObject, Vector3> rocketGameLocalScales;
     //
+
+    //Landing Page
+    private GameObject Landing_Page_Retry_Connect_Box;
+    //End Landing Page
 
     // Banner
     private GameObject Thrust_Label_Text;
@@ -346,11 +351,186 @@ public class UI_Controller : MonoBehaviour
 
     void OnLevelWasLoaded(){
         Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
-        if (sceneManager.scene_name == "Main_Area"){
+        if (SceneManager.GetActiveScene().name == "Landing_Page"){
+            indexUIElementSizes();
+
+            Landing_Page_Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
+            DisableUIElement(Landing_Page_Retry_Connect_Box);
+        }
+        else if (sceneManager.scene_name == "Main_Area"){
             ThrustTextObj = null;
             //Debug.Log("INDEXING FROM LEVEL LOADED");
             indexUIElementSizes();
-            StartCoroutine(LateStart());
+            
+
+            gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+            localizationManager = GameObject.Find("Localizer").GetComponent<Localization_Manager>();
+            
+            // Banner
+            LaunchIndicator1 = GameObject.Find("Launch_Indicator1");
+            LaunchIndicator2 = GameObject.Find("Launch_Indicator2");
+            LaunchIndicator3 = GameObject.Find("Launch_Indicator3");
+
+            Thrust_Label_Text = GameObject.Find("Thrust_Label_Text");
+            Launch_Label_Text = GameObject.Find("Launch_Label_Text");
+            Coins_Label_Text = GameObject.Find("Coins_Label_Text");
+            Gems_Label_Text = GameObject.Find("Gems_Label_Text");
+            // End Banner
+
+            // Speech Banner
+            SpeechBanner = GameObject.Find("Speech_Banner");
+            SpeechText = GameObject.Find("Speech_Text");
+            SpeechText_TMP = SpeechText.GetComponent<TextMeshProUGUI>();
+
+            NameText = GameObject.Find("Speech_Name_Text");
+            NameText_TMP = NameText.GetComponent<TextMeshProUGUI>();
+
+            SpeechImage = GameObject.Find("Speech_Image");
+            SpeechImageAnimator = SpeechImage.GetComponent<Animator>();
+
+            // End Speech Banner
+
+            ThrustTextObj = GameObject.Find("Thrust_Text");
+            CoinsTextObj = GameObject.Find("Coins_Text");
+            GemsTextObj = GameObject.Find("Gems_Text");
+
+            // Robot Menu
+            RobotMenuObj = GameObject.Find("Robot_Menu");
+
+            mineSelectionPanel = GameObject.Find("Mines_Selection_Panel");
+            cartSelectionPanel = GameObject.Find("Cart_Selection_Panel");
+            mineSelectionPanelText = GameObject.Find("Mines_Selection_Panel_Text");
+            cartSelectionPanelText = GameObject.Find("Cart_Selection_Panel_Text");
+
+            
+            hashingUpgradePanel = GameObject.Find("Hashing_Upgrade_Panel");
+            blockchainNetworkUpgradePanel = GameObject.Find("Blockchain_Network_Upgrade_Panel");
+            graphicsCardUpgradePanel = GameObject.Find("Graphics_Card_Upgrade_Panel");
+            coldStorageUpgradePanel = GameObject.Find("Cold_Storage_Upgrade_Panel");
+
+            hashingUpgradePriceText = hashingUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+            blockchainNetworkUpgradePriceText = blockchainNetworkUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+            graphicsCardUpgradePriceText = graphicsCardUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+            coldStorageUpgradePriceText = coldStorageUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+            // End Robot Menu
+
+            // Rocket Building Menu
+            RocketBuildingMenuObj = GameObject.Find("Lab_Menu");
+
+            researchSelectionPanel = GameObject.Find("Research_Selection_Panel");
+            experimentsSelectionPanel = GameObject.Find("Experiments_Selection_Panel");
+            experimentsSelectionPanelText = GameObject.Find("Experiments_Selection_Panel_Text");
+            researchSelectionPanelText = GameObject.Find("Research_Selection_Panel_Text");
+
+            labMenuMidPanel = GameObject.Find("Lab_Menu_Mid_Panel");
+            labMenuMidPanelScrollRect = labMenuMidPanel.GetComponent<UnityEngine.UI.ScrollRect>();
+
+            experimentsContainerPanel = GameObject.Find("Experiments_Container_Panel");
+            researchContainerPanel = GameObject.Find("Research_Container_Panel");
+
+            experimentPanels = new List<GameObject>();
+            experimentPanelsPossibleAnchoredPositions = new List<Vector2>();
+            experimentPanelsPossiblePositions = new List<Vector2>();
+            foreach(Transform t in experimentsContainerPanel.transform){
+                experimentPanels.Add(t.gameObject);
+                experimentPanelsPossibleAnchoredPositions.Add(t.GetComponent<RectTransform>().anchoredPosition);
+                experimentPanelsPossiblePositions.Add(t.GetComponent<RectTransform>().position);
+            }
+            numActiveExperiments = experimentPanels.Count;
+
+            experimentContainerPanelsTopBuffer =  experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition[0] - experimentPanelsPossibleAnchoredPositions[0][0];
+            experimentContainerPanelsBottomBuffer = experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - experimentPanelsPossibleAnchoredPositions[1][1];
+            //Debug.Log("EXPERIMENTS BUFFER: " + experimentContainerPanelsBottomBuffer);
+            //Debug.Log("EXPERIMENTS BUFFER TOP: " + experimentContainerPanelsTopBuffer);
+            experimentContainerPanelsOrigAnchoredPosition = experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition;
+
+
+
+            researchPanels = new List<GameObject>();
+            researchPanelsPossibleAnchoredPositions = new List<Vector2>();
+            researchPanelsPossiblePositions = new List<Vector2>();
+            foreach(Transform t in researchContainerPanel.transform){
+                researchPanels.Add(t.gameObject);
+                researchPanelsPossibleAnchoredPositions.Add(t.GetComponent<RectTransform>().anchoredPosition);
+                researchPanelsPossiblePositions.Add(t.GetComponent<RectTransform>().position);
+            }
+            numActiveResearch = researchPanels.Count;
+            
+
+            researchContainerPanelsTopBuffer =  researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[0] - researchPanelsPossibleAnchoredPositions[0][0];
+            researchContainerPanelsBottomBuffer = researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchPanelsPossibleAnchoredPositions[1][1];
+            //Debug.Log("RESEARCH BUFFER CONTAINER ANCHORED POS: " + researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] + " ... " + researchPanelsPossibleAnchoredPositions[1][1] + " AND ITS " + (researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchPanelsPossibleAnchoredPositions[1][1]).ToString());
+            //Debug.Log("RESEARCH BUFFER: " + researchContainerPanelsBottomBuffer);
+            //Debug.Log("RESEARCH BUFFER TOP: " + researchContainerPanelsTopBuffer);
+            researchContainerPanelsOrigAnchoredPosition = researchContainerPanel.GetComponent<RectTransform>().anchoredPosition;
+
+            researchManager = GameObject.Find("Research_Manager").GetComponent<Research_Manager>();
+            researchersManager = GameObject.Find("Researcher_Manager").GetComponent<Researcher_Manager>();
+            experimentsManager = GameObject.Find("Experiments_Manager").GetComponent<Experiments_Manager>();
+            Debug.Log("EXPERIMENTS MANAGER: " + experimentsManager);
+            // End Rocket Building Menu
+
+
+            // Researchers Menu
+            ResearchersMenu = GameObject.Find("Researcher_Menu");
+            ResearchersConfirmationBox = GameObject.Find("Research_Confirmation_Box");
+            researchersMenuMidPanel = GameObject.Find("Researcher_Menu_Mid_Panel");
+            researchersMenuMidPanelScrollRect = researchersMenuMidPanel.GetComponent<UnityEngine.UI.ScrollRect>();
+            researchersMenuContainerPanel = GameObject.Find("Researcher_Menu_Container_Panel");
+
+
+            //Debug.Log("RMCP: " + researchersMenuContainerPanel.name);
+
+            researchersPanels = new List<GameObject>();
+            researchersPanelsPossibleAnchoredPositions = new List<Vector2>();
+            researchersPanelsPossiblePositions = new List<Vector2>();
+            foreach (Transform t in researchersMenuContainerPanel.transform){
+                researchersPanels.Add(t.gameObject);
+                researchersPanelsPossibleAnchoredPositions.Add(t.GetComponent<RectTransform>().anchoredPosition);
+                researchersPanelsPossiblePositions.Add(t.GetComponent<RectTransform>().position);
+            }
+
+            researchersMenuContainerPanelsTopBuffer =  researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[0] - researchersPanelsPossiblePositions[0][0];
+            researchersMenuContainerPanelsBottomBuffer = researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchersPanelsPossibleAnchoredPositions[1][1];
+            //Debug.Log("RESEARCHER BUFFER CONTAINER ANCHORED POS: " + researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] + " ... " + researchersPanelsPossibleAnchoredPositions[1][1] + " AND ITS " + (researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchersPanelsPossibleAnchoredPositions[1][1]).ToString());
+            //Debug.Log("RESEARCHER BUFFER: " + researchersMenuContainerPanelsBottomBuffer);
+            //Debug.Log("RESEARCHER BUFFER TOP: " + researchersMenuContainerPanelsTopBuffer);
+            researchersMenuContainerPanelsOrigAnchoredPosition = researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition;
+            //numActiveResearchers = researchersPanels.Count;
+
+            researchersMenuDisplayed = false;
+            researchersConfirmationBoxDisplayed = false;
+            // End Researchers Menu
+
+            // Not Enough Coins Box
+            NotEnoughCoinsBox = GameObject.Find("Not_Enough_Coins_Box");
+            // End Not Enough Coins Box
+
+
+
+
+
+            //setActiveExperiments(new int[] {0, 1, 3});
+
+
+            ScreenTintObj = GameObject.Find("Screen_Tint");
+
+            //indexUIElementSizes();
+
+
+
+            DisableUIElement(SpeechBanner);
+            DisableUIElement(RobotMenuObj);
+            DisableUIElement(RocketBuildingMenuObj);
+            DisableUIElement(ResearchersMenu);
+            DisableUIElement(ResearchersConfirmationBox);
+            DisableUIElement(NotEnoughCoinsBox);
+            DisableUIElement(ScreenTintObj);
+
+            //_getActiveResearchIds();
+            //_getActiveResearcherIds();
+
+
         }
         else if (sceneManager.scene_name == "Rocket_Flight"){
             gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
@@ -399,185 +579,27 @@ public class UI_Controller : MonoBehaviour
             Debug.Log("DISABLING REWARDED AD CONFIRMATION BOX: " + MineGameRewardedAdConfirmationBox);
             DisableUIElement(MineGameRewardedAdConfirmationBox);
         }
+        // else if (sceneManager.scene_name == "Landing_Page"){
+        //     StartCoroutine(LateStart());
+        // }
     }
 
-    IEnumerator LateStart(){
-        yield return new WaitForSeconds(0);
-        Start();
-    }
+    //IEnumerator LateStart(){
+        //yield return new WaitForSeconds(0);
+        //_LateStart();
+    //}
 
+    //void _LateStart(){
+        //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+    //}
 
 
     // Start is called before the first frame update
     void Start()
     {
-
-        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
-        localizationManager = GameObject.Find("Localizer").GetComponent<Localization_Manager>();
-        
-        // Banner
-        LaunchIndicator1 = GameObject.Find("Launch_Indicator1");
-        LaunchIndicator2 = GameObject.Find("Launch_Indicator2");
-        LaunchIndicator3 = GameObject.Find("Launch_Indicator3");
-
-        Thrust_Label_Text = GameObject.Find("Thrust_Label_Text");
-        Launch_Label_Text = GameObject.Find("Launch_Label_Text");
-        Coins_Label_Text = GameObject.Find("Coins_Label_Text");
-        Gems_Label_Text = GameObject.Find("Gems_Label_Text");
-        // End Banner
-
-        // Speech Banner
-        SpeechBanner = GameObject.Find("Speech_Banner");
-        SpeechText = GameObject.Find("Speech_Text");
-        SpeechText_TMP = SpeechText.GetComponent<TextMeshProUGUI>();
-
-        NameText = GameObject.Find("Speech_Name_Text");
-        NameText_TMP = NameText.GetComponent<TextMeshProUGUI>();
-
-        SpeechImage = GameObject.Find("Speech_Image");
-        SpeechImageAnimator = SpeechImage.GetComponent<Animator>();
-
-        // End Speech Banner
-
-        ThrustTextObj = GameObject.Find("Thrust_Text");
-        CoinsTextObj = GameObject.Find("Coins_Text");
-        GemsTextObj = GameObject.Find("Gems_Text");
-
-        // Robot Menu
-        RobotMenuObj = GameObject.Find("Robot_Menu");
-
-        mineSelectionPanel = GameObject.Find("Mines_Selection_Panel");
-        cartSelectionPanel = GameObject.Find("Cart_Selection_Panel");
-        mineSelectionPanelText = GameObject.Find("Mines_Selection_Panel_Text");
-        cartSelectionPanelText = GameObject.Find("Cart_Selection_Panel_Text");
-
-        
-        hashingUpgradePanel = GameObject.Find("Hashing_Upgrade_Panel");
-        blockchainNetworkUpgradePanel = GameObject.Find("Blockchain_Network_Upgrade_Panel");
-        graphicsCardUpgradePanel = GameObject.Find("Graphics_Card_Upgrade_Panel");
-        coldStorageUpgradePanel = GameObject.Find("Cold_Storage_Upgrade_Panel");
-
-        hashingUpgradePriceText = hashingUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        blockchainNetworkUpgradePriceText = blockchainNetworkUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        graphicsCardUpgradePriceText = graphicsCardUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        coldStorageUpgradePriceText = coldStorageUpgradePanel.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-        // End Robot Menu
-
-        // Rocket Building Menu
-        RocketBuildingMenuObj = GameObject.Find("Lab_Menu");
-
-        researchSelectionPanel = GameObject.Find("Research_Selection_Panel");
-        experimentsSelectionPanel = GameObject.Find("Experiments_Selection_Panel");
-        experimentsSelectionPanelText = GameObject.Find("Experiments_Selection_Panel_Text");
-        researchSelectionPanelText = GameObject.Find("Research_Selection_Panel_Text");
-
-        labMenuMidPanel = GameObject.Find("Lab_Menu_Mid_Panel");
-        labMenuMidPanelScrollRect = labMenuMidPanel.GetComponent<UnityEngine.UI.ScrollRect>();
-
-        experimentsContainerPanel = GameObject.Find("Experiments_Container_Panel");
-        researchContainerPanel = GameObject.Find("Research_Container_Panel");
-
-        experimentPanels = new List<GameObject>();
-        experimentPanelsPossibleAnchoredPositions = new List<Vector2>();
-        experimentPanelsPossiblePositions = new List<Vector2>();
-        foreach(Transform t in experimentsContainerPanel.transform){
-            experimentPanels.Add(t.gameObject);
-            experimentPanelsPossibleAnchoredPositions.Add(t.GetComponent<RectTransform>().anchoredPosition);
-            experimentPanelsPossiblePositions.Add(t.GetComponent<RectTransform>().position);
-        }
-        numActiveExperiments = experimentPanels.Count;
-
-        experimentContainerPanelsTopBuffer =  experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition[0] - experimentPanelsPossibleAnchoredPositions[0][0];
-        experimentContainerPanelsBottomBuffer = experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - experimentPanelsPossibleAnchoredPositions[1][1];
-        //Debug.Log("EXPERIMENTS BUFFER: " + experimentContainerPanelsBottomBuffer);
-        //Debug.Log("EXPERIMENTS BUFFER TOP: " + experimentContainerPanelsTopBuffer);
-        experimentContainerPanelsOrigAnchoredPosition = experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition;
-
-
-
-        researchPanels = new List<GameObject>();
-        researchPanelsPossibleAnchoredPositions = new List<Vector2>();
-        researchPanelsPossiblePositions = new List<Vector2>();
-        foreach(Transform t in researchContainerPanel.transform){
-            researchPanels.Add(t.gameObject);
-            researchPanelsPossibleAnchoredPositions.Add(t.GetComponent<RectTransform>().anchoredPosition);
-            researchPanelsPossiblePositions.Add(t.GetComponent<RectTransform>().position);
-        }
-        numActiveResearch = researchPanels.Count;
-        
-
-        researchContainerPanelsTopBuffer =  researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[0] - researchPanelsPossibleAnchoredPositions[0][0];
-        researchContainerPanelsBottomBuffer = researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchPanelsPossibleAnchoredPositions[1][1];
-        //Debug.Log("RESEARCH BUFFER CONTAINER ANCHORED POS: " + researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] + " ... " + researchPanelsPossibleAnchoredPositions[1][1] + " AND ITS " + (researchContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchPanelsPossibleAnchoredPositions[1][1]).ToString());
-        //Debug.Log("RESEARCH BUFFER: " + researchContainerPanelsBottomBuffer);
-        //Debug.Log("RESEARCH BUFFER TOP: " + researchContainerPanelsTopBuffer);
-        researchContainerPanelsOrigAnchoredPosition = researchContainerPanel.GetComponent<RectTransform>().anchoredPosition;
-
-        researchManager = GameObject.Find("Research_Manager").GetComponent<Research_Manager>();
-        researchersManager = GameObject.Find("Researcher_Manager").GetComponent<Researcher_Manager>();
-        experimentsManager = GameObject.Find("Experiments_Manager").GetComponent<Experiments_Manager>();
-        Debug.Log("EXPERIMENTS MANAGER: " + experimentsManager);
-        // End Rocket Building Menu
-
-
-        // Researchers Menu
-        ResearchersMenu = GameObject.Find("Researcher_Menu");
-        ResearchersConfirmationBox = GameObject.Find("Research_Confirmation_Box");
-        researchersMenuMidPanel = GameObject.Find("Researcher_Menu_Mid_Panel");
-        researchersMenuMidPanelScrollRect = researchersMenuMidPanel.GetComponent<UnityEngine.UI.ScrollRect>();
-        researchersMenuContainerPanel = GameObject.Find("Researcher_Menu_Container_Panel");
-
-
-        //Debug.Log("RMCP: " + researchersMenuContainerPanel.name);
-
-        researchersPanels = new List<GameObject>();
-        researchersPanelsPossibleAnchoredPositions = new List<Vector2>();
-        researchersPanelsPossiblePositions = new List<Vector2>();
-        foreach (Transform t in researchersMenuContainerPanel.transform){
-            researchersPanels.Add(t.gameObject);
-            researchersPanelsPossibleAnchoredPositions.Add(t.GetComponent<RectTransform>().anchoredPosition);
-            researchersPanelsPossiblePositions.Add(t.GetComponent<RectTransform>().position);
-        }
-
-        researchersMenuContainerPanelsTopBuffer =  researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[0] - researchersPanelsPossiblePositions[0][0];
-        researchersMenuContainerPanelsBottomBuffer = researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchersPanelsPossibleAnchoredPositions[1][1];
-        //Debug.Log("RESEARCHER BUFFER CONTAINER ANCHORED POS: " + researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] + " ... " + researchersPanelsPossibleAnchoredPositions[1][1] + " AND ITS " + (researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition[1] - researchersPanelsPossibleAnchoredPositions[1][1]).ToString());
-        //Debug.Log("RESEARCHER BUFFER: " + researchersMenuContainerPanelsBottomBuffer);
-        //Debug.Log("RESEARCHER BUFFER TOP: " + researchersMenuContainerPanelsTopBuffer);
-        researchersMenuContainerPanelsOrigAnchoredPosition = researchersMenuContainerPanel.GetComponent<RectTransform>().anchoredPosition;
-        //numActiveResearchers = researchersPanels.Count;
-
-        researchersMenuDisplayed = false;
-        researchersConfirmationBoxDisplayed = false;
-        // End Researchers Menu
-
-        // Not Enough Coins Box
-        NotEnoughCoinsBox = GameObject.Find("Not_Enough_Coins_Box");
-        // End Not Enough Coins Box
-
-
-
-
-
-        //setActiveExperiments(new int[] {0, 1, 3});
-
-
-        ScreenTintObj = GameObject.Find("Screen_Tint");
-
-        //indexUIElementSizes();
-
-
-
-        DisableUIElement(SpeechBanner);
-        DisableUIElement(RobotMenuObj);
-        DisableUIElement(RocketBuildingMenuObj);
-        DisableUIElement(ResearchersMenu);
-        DisableUIElement(ResearchersConfirmationBox);
-        DisableUIElement(NotEnoughCoinsBox);
-        DisableUIElement(ScreenTintObj);
-
-        //_getActiveResearchIds();
-        //_getActiveResearcherIds();
+        //StartCoroutine(_LateStart());
+        //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        OnLevelWasLoaded();
     }
 
 
@@ -635,7 +657,11 @@ public class UI_Controller : MonoBehaviour
 
     void indexUIElementSizes(){
         string curScene = SceneManager.GetActiveScene().name;
-        if (curScene == "Main_Area"){ //&& mainAreaLocalScales is null){
+        if (curScene == "Landing_Page"){
+            landingPageLocalScales = new Dictionary<GameObject, Vector3>();
+            _indexUIElementSizes(landingPageLocalScales, GameObject.Find("Canvas"));
+        }
+        else if (curScene == "Main_Area"){ //&& mainAreaLocalScales is null){
             mainAreaLocalScales = new Dictionary<GameObject, Vector3>();
             _indexUIElementSizes(mainAreaLocalScales, GameObject.Find("Canvas"));
             //Debug.Log("INDEXING SIZES");
@@ -974,7 +1000,10 @@ public class UI_Controller : MonoBehaviour
 
             currentLocalScales = null;
             if (localScalesDict == null){
-                if(SceneManager.GetActiveScene().name == "Main_Area"){
+                if (SceneManager.GetActiveScene().name == "Landing_Page"){
+                    currentLocalScales = landingPageLocalScales;
+                }
+                else if(SceneManager.GetActiveScene().name == "Main_Area"){
                     //Debug.Log("TRYING TO ENABLE: " + UI.name);
                     //Debug.Log("TRYING TO ENABLE: " + UI.name + " WITH SCALE " + mainAreaLocalScales[UI]);
                     currentLocalScales = mainAreaLocalScales;
@@ -1040,7 +1069,7 @@ public class UI_Controller : MonoBehaviour
         //     if (button != null){
         //         button.enabled = false;
         //     }
-            if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                 UI.transform.localScale = new Vector3(0f, 0f, 0f);
             }
         }
@@ -1067,7 +1096,7 @@ public class UI_Controller : MonoBehaviour
             }
         }
         else{
-            if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                 if(UI.transform.localScale.Equals(new Vector3(0f, 0f, 0f))){
                     isEnabled = true;
                 }

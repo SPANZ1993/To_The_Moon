@@ -26,6 +26,7 @@ public class Scene_Manager : MonoBehaviour
 
     void OnEnable()
     {
+        Landing_Page_Manager.EndLandingPageSceneInfo += onEndLandingPageScene;
         Launch_Button_Controller.InitiateLaunchInfo += onLaunchInitiated;
         Rocket_Game_Manager.EndLaunchSceneInfo += onEndLaunchScene;
         Mine_Game_Manager.EndMineSceneInfo += onEndMineScene;
@@ -35,6 +36,7 @@ public class Scene_Manager : MonoBehaviour
 
     void OnDisable()
     {
+        Landing_Page_Manager.EndLandingPageSceneInfo -= onEndLandingPageScene;
         Launch_Button_Controller.InitiateLaunchInfo -= onLaunchInitiated;
         Rocket_Game_Manager.EndLaunchSceneInfo -= onEndLaunchScene;
         Mine_Game_Manager.EndMineSceneInfo -= onEndMineScene;
@@ -47,6 +49,7 @@ public class Scene_Manager : MonoBehaviour
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            scene_name = SceneManager.GetActiveScene().name;
         }
         else{
             Destroy(this.gameObject);
@@ -56,21 +59,23 @@ public class Scene_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
-        rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
-        rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
-        mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
         scene_name = SceneManager.GetActiveScene().name;
-    }
-
-    void OnLevelWasLoaded(){
-        string cur_scene_name = SceneManager.GetActiveScene().name;
-        if (cur_scene_name == "Main_Area"){
+        if(scene_name == "Main_Area"){
             tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
             rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
             rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
             mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
-            scene_name = SceneManager.GetActiveScene().name;
+            
+        }
+    }
+
+    void OnLevelWasLoaded(){
+        scene_name = SceneManager.GetActiveScene().name;
+        if (scene_name == "Main_Area"){
+            tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
+            rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
+            rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
+            mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>(); 
         }
     }
 
@@ -221,9 +226,27 @@ public class Scene_Manager : MonoBehaviour
 
 
 
+    void onEndLandingPageScene(){
+        StartCoroutine(_onEndingLandingPageScene());
+    }
 
 
-
+    IEnumerator _onEndingLandingPageScene()
+    {
+    
+        if(true){ // If we want to wait for something put it here
+            if (gameObject.GetComponent<Wipe>() == null){
+                gameObject.AddComponent<Wipe>();
+                Scene_Transition wipe = gameObject.GetComponent<Wipe>();
+            //Scene_Transition wipe = new Wipe();
+                wipe.BeginLeavingScene(nextScene: "Main_Area");
+            }
+        }
+        else{
+            yield return new WaitForSeconds(0.0f);
+            StartCoroutine(_onEndingLandingPageScene());
+        }
+    }
 
 
 
