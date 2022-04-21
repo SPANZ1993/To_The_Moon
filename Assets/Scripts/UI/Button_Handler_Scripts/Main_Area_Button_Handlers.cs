@@ -46,7 +46,7 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         gameManager.shouldSaveOnPauseQuit = !gameManager.shouldSaveOnPauseQuit;
         string s = gameManager.shouldSaveOnPauseQuit ? "Yes" : "No";
         Debug.Log(GameObject.Find("Button (4)").transform.GetChild(0).gameObject.name);
-        new Object_Info_Getter().ListComponents(GameObject.Find("Button (4)").transform.GetChild(0).gameObject);
+        Object_Info_Getter.ListComponents(GameObject.Find("Button (4)").transform.GetChild(0).gameObject);
         GameObject.Find("Button (4)").transform.GetChild(0).gameObject.GetComponent<Text>().text = "Save on Quit?:\n" + s;
     }
 

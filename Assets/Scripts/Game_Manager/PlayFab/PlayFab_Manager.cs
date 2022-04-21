@@ -15,7 +15,24 @@ using Newtonsoft.Json;
 public class PlayFab_Manager : MonoBehaviour
 {
 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //Stuff we want to keep
+
     public static PlayFab_Manager instance;
+
+
+    
+    public delegate void PlayFabAccountCreateSuccess(); // We tried to login, couldn't find an existing user, then created a new account
+    public static event PlayFabAccountCreateSuccess PlayFabAccountCreateSuccessInfo;
+
+    public delegate void PlayFabLoginSuccess(); // We logged in successfully
+    public static event PlayFabLoginSuccess PlayFabLoginSuccessInfo;
+
+    public delegate void PlayFabLoginFailure(); // We failed to login for some reason
+    public static event PlayFabLoginFailure PlayFabLoginFailureInfo;
+    
+
 
     void Awake(){
         if (!instance){
@@ -27,18 +44,10 @@ public class PlayFab_Manager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Login();
-        //UpdateLeaderboardTest();
-        //GetLeaderboardTest();
-        //Invoke("GetUnixTimeServer", 15);
-        GetTitleDataTest();
-    }
 
 
-    void Login(){
+
+    public void Login(){
         var request = new LoginWithCustomIDRequest{
             CustomId = SystemInfo.deviceUniqueIdentifier,
             CreateAccount = true
@@ -47,8 +56,47 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     void OnLoginSuccess(LoginResult result){
-        Debug.Log("PLAYFAB: Successful login/account create!");
+        //Debug.Log("PLAYFAB: Successful login/account create! ID: " + result.PlayFabId + " NEW ACCOUNT: " + result.NewlyCreated);
+        if (result != null && result.PlayFabId != null && result.NewlyCreated != null && Random.Range(0f, 100f) > 90f){
+            if(result.NewlyCreated == true && PlayFabAccountCreateSuccessInfo != null){
+                PlayFabAccountCreateSuccessInfo();
+            }
+            else if(result.NewlyCreated == false && PlayFabLoginSuccessInfo != null){
+                PlayFabLoginSuccessInfo();
+            }
+            else if (PlayFabLoginFailureInfo != null){ // Something is fricked.. Just treat it as a login error
+                PlayFabLoginFailureInfo();
+            }
+        }
+        else if (PlayFabLoginFailureInfo != null){
+            PlayFabLoginFailureInfo();
+        }
     }
+
+    void OnLoginError(PlayFabError error){
+        if (PlayFabLoginFailureInfo != null){
+            PlayFabLoginFailureInfo();
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Login();
+        //UpdateLeaderboardTest();
+        //GetLeaderboardTest();
+        //Invoke("GetUnixTimeServer", 15);
+        //GetTitleDataTest();
+        Invoke("Login", 10);
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
     void OnError(PlayFabError error){
         Debug.Log("PLAYFAB: Error while performing PlayFab function \n" + error.GenerateErrorReport());
@@ -205,10 +253,4 @@ public class PlayFab_Manager : MonoBehaviour
 
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //Stuff we want to keep
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

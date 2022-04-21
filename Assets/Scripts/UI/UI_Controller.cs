@@ -36,6 +36,8 @@ public class UI_Controller : MonoBehaviour
 
     //Landing Page
     private GameObject Landing_Page_Retry_Connect_Box;
+    private float minTimeBetweenDisplayRetryConnectBox = 1f;
+    private float timeSinceLastDisplayedRetryConnectBox = 1f;
     //End Landing Page
 
     // Banner
@@ -728,6 +730,16 @@ public class UI_Controller : MonoBehaviour
             }
             updateMineGameTimerText();
         }
+
+        timeSinceLastDisplayedRetryConnectBox = Mathf.Min(timeSinceLastDisplayedRetryConnectBox + Time.deltaTime, minTimeBetweenDisplayRetryConnectBox);
+    }
+
+    void OnApplicationFocus(){
+        timeSinceLastDisplayedRetryConnectBox = minTimeBetweenDisplayRetryConnectBox;
+    }
+
+    void OnApplicationPause(){
+        timeSinceLastDisplayedRetryConnectBox = minTimeBetweenDisplayRetryConnectBox;
     }
 
 
@@ -1097,7 +1109,7 @@ public class UI_Controller : MonoBehaviour
         }
         else{
             if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
-                if(UI.transform.localScale.Equals(new Vector3(0f, 0f, 0f))){
+                if(!UI.transform.localScale.Equals(new Vector3(0f, 0f, 0f))){
                     isEnabled = true;
                 }
             }
@@ -2037,5 +2049,29 @@ public class UI_Controller : MonoBehaviour
     // End Mine Game UI
 
 
+    //Landing Page UI
+    public void enableLandingPageRetryConnectBox(){
+        StartCoroutine(_enableLandingPageRetryConnectBox());
+    }
 
+    IEnumerator _enableLandingPageRetryConnectBox(){
+        // Debug.Log("WAITING TO DISPLAY --- " + System.DateTime.Now);
+        if (!UIElementIsEnabled(Landing_Page_Retry_Connect_Box)){ // If for some reason the box gets displayed while we are waiting then abort
+            if(minTimeBetweenDisplayRetryConnectBox != timeSinceLastDisplayedRetryConnectBox){
+                yield return new WaitForSeconds(0);
+                StartCoroutine(_enableLandingPageRetryConnectBox());
+            }
+            else{
+                // Debug.Log("ENABLING BOX -- " + System.DateTime.Now);
+                EnableUIElement(Landing_Page_Retry_Connect_Box);
+            }
+        }
+    }
+
+    public void disableLandingPageRetryConnectBox(){
+        // Debug.Log("DISABLING BOX -- " + System.DateTime.Now);
+        DisableUIElement(Landing_Page_Retry_Connect_Box);
+        timeSinceLastDisplayedRetryConnectBox = 0f;
+    }
+    //End Landing Page UI
 }

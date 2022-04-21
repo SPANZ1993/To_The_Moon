@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Object_Info_Getter
 {
-    public void ListProperties(Object obj, string label=""){
-        foreach (System.Reflection.PropertyInfo prop in obj.GetType().GetProperties()){
+    public static void ListProperties(System.Object obj, string label = "", System.Type type = null){
+        Debug.Log("TYPE IS : " + type);
+        if (type != null){
+            obj = System.Convert.ChangeType(obj, type);
+            Debug.Log("OBJECT IS: " + obj.GetType());
+        }
+        foreach (System.Reflection.PropertyInfo prop in obj.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)){
             if (label == ""){
                 Debug.Log("Property: " + prop);
             }
@@ -15,8 +20,11 @@ public class Object_Info_Getter
         }
     }
 
-    public void ListMethods(Object obj, string label=""){
-        foreach (System.Reflection.MethodInfo meth in obj.GetType().GetMethods()){
+    public static void ListMethods(System.Object obj, string label = "", System.Type type = null){
+        if (type != null){
+            obj = System.Convert.ChangeType(obj, type);
+        }
+        foreach (System.Reflection.MethodInfo meth in obj.GetType().GetMethods(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)){
             if (label == ""){
                 Debug.Log("Method: " + meth);
             }
@@ -26,7 +34,7 @@ public class Object_Info_Getter
         }
     }
 
-    public void ListComponents(GameObject obj, string label=""){
+    public static void ListComponents(GameObject obj, string label=""){
         Component[] components = obj.GetComponents(typeof(Component));
         foreach(Component component in components) {
             if (label == ""){
