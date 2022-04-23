@@ -7,7 +7,10 @@ using System;
 using System.IO;
 using System.Linq;
 
-using TMPro;
+using UnityEngine.SceneManagement;
+
+using TMPro; // REMOVE
+
 
 public class Game_Manager : MonoBehaviour
 {
@@ -46,7 +49,7 @@ public class Game_Manager : MonoBehaviour
     private float loadSaveWait = 1.0f;
     [SerializeField]
     private int loadSaveRetries = 3;
-    private SaveGameObject loadedGame;
+    public SaveGameObject loadedGame;
 
 
     private bool initializedGame = false; // Is the game initiated?
@@ -57,8 +60,8 @@ public class Game_Manager : MonoBehaviour
     [SerializeField]
     public bool offLineMode { get; private set; } // Is the user playing in offline mode?
     private bool prevOfflineMode = false; // Was the last user session playing in offline mode?
-    public double gameTimeUnix {private set; get;} // The game time... may be set via server or local depending on offline mode
-    public double gameStartTimeUnix {private set; get;}
+    public double gameTimeUnix {set; get;} // The game time... may be set via server or local depending on offline mode
+    public double gameStartTimeUnix {set; get;}
 
     // Game Info
     public double coins = 0.0;
@@ -105,7 +108,7 @@ public class Game_Manager : MonoBehaviour
 
 
     // Serialization
-    private bool doneLoading = false; // Are we done loading the player save, getting server time, and player preferences (This will eventually determine whether loading screen shows or not)    
+    public bool doneLoading = false; // Are we done loading the player save, getting server time, and player preferences (This will eventually determine whether loading screen shows or not)    
     private bool currentlySerializing = false;
     private bool serializingPrevFrame = false;
     private GameObject Save_Indicator;
@@ -159,29 +162,34 @@ public class Game_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
-        serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
-        minecartController = GameObject.Find("Minecart").GetComponent<Minecart_Controller>();
-        robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
-        mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
-        sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
-        adsManager = GameObject.Find("Ads_Manager").GetComponent<Ads_Manager>();
-        researchManager = GameObject.Find("Research_Manager").GetComponent<Research_Manager>();
-        researcherManager = GameObject.Find("Researcher_Manager").GetComponent<Researcher_Manager>();
-        Save_Indicator = GameObject.Find("Save_Indicator");
-        Save_Indicator.GetComponent<SpriteRenderer>().enabled = false;
-        //Debug.Log("HELLO FROM START: " + serverSessionStartTime);
+
     }
 
     void OnLevelWasLoaded(){
         if (instanceID == gameObject.GetInstanceID()){
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
             if (sceneManager.scene_name == "Main_Area"){
+                touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
+                serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
                 minecartController = GameObject.Find("Minecart").GetComponent<Minecart_Controller>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
-                StartCoroutine(_initializeMineCartLevelStart(mineCartCoinsCapacity, mineCartCoinsPerSecond, mineCartLastEmptiedTimeUnix, mineCartCurCoins));
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
-                initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
+                sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
+                adsManager = GameObject.Find("Ads_Manager").GetComponent<Ads_Manager>();
+                researchManager = GameObject.Find("Research_Manager").GetComponent<Research_Manager>();
+                researcherManager = GameObject.Find("Researcher_Manager").GetComponent<Researcher_Manager>();
+                Save_Indicator = GameObject.Find("Save_Indicator");
+                Save_Indicator.GetComponent<SpriteRenderer>().enabled = false;
+                //Debug.Log("HELLO FROM START: " + serverSessionStartTime);
+
+                minecartController = GameObject.Find("Minecart").GetComponent<Minecart_Controller>();
+                robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
+                mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
+                Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);
+                if (sceneManager.prev_scene_name != "Landing_Page"){
+                    StartCoroutine(_initializeMineCartLevelStart(mineCartCoinsCapacity, mineCartCoinsPerSecond, mineCartLastEmptiedTimeUnix, mineCartCurCoins));
+                    initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
+                }
                 //initializeResearch(loadedGame.UnlockedResearchIds, loadedGame.UnlockedResearcherIds, loadedGame.AssignedResearchers, offLineMode: true);
                 //getResearcherInfo();
                 //initializeResearch(unlockedResearchIds , unlockedResearcherIds, assignedResearchers, offLineMode: false);
@@ -212,7 +220,7 @@ public class Game_Manager : MonoBehaviour
 
         // If we don't already have the save data loaded, then do that.
         if (!doneLoading){
-            loadData();
+            //loadData();
         }
         // After we've loaded the save data
         else{
@@ -223,7 +231,8 @@ public class Game_Manager : MonoBehaviour
                 Debug.Log("Local Start Time Unix: " + localSessionStartTimeUnix);
                 poo = true;
             }
-            if (!initializedGame && !initializeGameStarted){
+            if (!initializedGame && !initializeGameStarted && SceneManager.GetActiveScene().name != "Landing_Page"){
+                Debug.Log("TRYING TO INITIALIZE GAME");
                 initializeGame();
             }
             // This is where the game is
@@ -276,8 +285,8 @@ public class Game_Manager : MonoBehaviour
         Research_Manager.ResearchersUpdatedInfo += onResearchersUpdated;
 
 
-        Serializer.SerializationStartedInfo += onSerializationStarted;
-        Serializer.SerializationEndedInfo += onSerializationEnded;
+        PlayFab_Serializer.SerializationStartedInfo += onSerializationStarted;
+        PlayFab_Serializer.SerializationEndedInfo += onSerializationEnded;
     }
 
     void OnDisable()
@@ -306,8 +315,8 @@ public class Game_Manager : MonoBehaviour
         Research_Manager.ResearchersUpdatedInfo -= onResearchersUpdated;
 
 
-        Serializer.SerializationStartedInfo -= onSerializationStarted;
-        Serializer.SerializationEndedInfo -= onSerializationEnded;
+        PlayFab_Serializer.SerializationStartedInfo -= onSerializationStarted;
+        PlayFab_Serializer.SerializationEndedInfo -= onSerializationEnded;
     }
 
 
@@ -328,7 +337,7 @@ public class Game_Manager : MonoBehaviour
             }
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused Added " + timeSinceLastFrame + " Seconds " + timeSinceLastFrameI + " --- " + DateTime.Now;
         }
-        else{
+        else if(SceneManager.GetActiveScene().name == "Main_Area"){
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused FC0 --- " + DateTime.Now;
         }
     }
@@ -341,8 +350,8 @@ public class Game_Manager : MonoBehaviour
                 saveData(disableTouch: false, displayIndicator: false, serially: true);
             }
         }
-        else{   
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused FC0 --- " + DateTime.Now;
+        else if(SceneManager.GetActiveScene().name == "Main_Area"){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused FC0 --- " + DateTime.Now;
         }
     }
 
@@ -375,6 +384,7 @@ public class Game_Manager : MonoBehaviour
         initializeGameStarted = true;
         prevOfflineMode = loadedGame.OffLineMode;
         
+        Debug.Log("SETTING COINS TO: " + coins);
         
         coins = loadedGame.Coins;
         gems = loadedGame.Gems;
@@ -438,19 +448,25 @@ public class Game_Manager : MonoBehaviour
 
 
     private void loadData(){
-        if (doneTryingServerTime){
-            if (gotServerTime){
-                gameTimeUnix = serverSessionStartTimeUnix;
-            }
-            else{
-                // TODO: Prompt the user if they want to play in offline mode
-                Debug.Log("PLAYING IN OFFLINE MODE");
-                gameTimeUnix = localSessionStartTimeUnix;
-                offLineMode = true;
-            }
-            gameStartTimeUnix = gameTimeUnix;
-            //Debug.Log("HELLO FROM UPDATE: " + serverSessionStartTime);
-        }
+
+        // IEnumerator GetServerTime(){
+        //     playFabManager.Ge
+        // }
+        // if (doneTryingServerTime){
+        //     if (gotServerTime){
+        //         gameTimeUnix = serverSessionStartTimeUnix;
+        //     }
+        //     else{
+        //         // TODO: Prompt the user if they want to play in offline mode
+        //         Debug.Log("PLAYING IN OFFLINE MODE");
+        //         gameTimeUnix = localSessionStartTimeUnix;
+        //         offLineMode = true;
+        //     }
+        //     gameStartTimeUnix = gameTimeUnix;
+        //     //Debug.Log("HELLO FROM UPDATE: " + serverSessionStartTime);
+        // }
+
+
 
         // If we aren't sure that we have a save yet then check for it
         if (!doneCheckingForSave){
@@ -621,11 +637,12 @@ public class Game_Manager : MonoBehaviour
 
 
     private void initializeMineCart(double coinsCapacity, double coinsPerSecond, double lastEmptiedTimeUnix, double prevCurCoins){
-            minecartController.coinsCapacity = coinsCapacity;
-            minecartController.coinsPerSecond = coinsPerSecond;
-            minecartController.lastEmptiedTimeUnix = lastEmptiedTimeUnix;
-            minecartController.initializeCurCoins(prevCurCoins);
-            minecartController.calculateNextFullTime();
+        Debug.Log("MCT: " + minecartController + ": " + gameTimeUnix);
+        minecartController.coinsCapacity = coinsCapacity;
+        minecartController.coinsPerSecond = coinsPerSecond;
+        minecartController.lastEmptiedTimeUnix = lastEmptiedTimeUnix;
+        minecartController.initializeCurCoins(prevCurCoins);
+        minecartController.calculateNextFullTime();
     }
 
 
@@ -721,6 +738,7 @@ public class Game_Manager : MonoBehaviour
 
     
     private void onMinecartTapped(double cartCoins){
+        Debug.Log("CART COINS: " + cartCoins);
         coins += cartCoins;
         getMineCartInfo();
     }

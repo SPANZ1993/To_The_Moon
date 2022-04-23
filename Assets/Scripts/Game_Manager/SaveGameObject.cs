@@ -67,7 +67,7 @@ public class SaveGameObject
         Coins = 0.0;
         Gems = 0.0;
 
-        CartLastEmptiedTimeUnix = (double)((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+        CartLastEmptiedTimeUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() - (31536000*10); // 10 years ago //(double)((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
         CartCurCoins = 0.0;
         CartCoinsPerSecond = 1.0;
         CartCapacity = 100.0;

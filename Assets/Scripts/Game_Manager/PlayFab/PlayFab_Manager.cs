@@ -22,6 +22,9 @@ public class PlayFab_Manager : MonoBehaviour
     public static PlayFab_Manager instance;
 
 
+    SaveGameObject loadedGame;
+
+
     
     public delegate void PlayFabAccountCreateSuccess(); // We tried to login, couldn't find an existing user, then created a new account
     public static event PlayFabAccountCreateSuccess PlayFabAccountCreateSuccessInfo;
@@ -31,7 +34,24 @@ public class PlayFab_Manager : MonoBehaviour
 
     public delegate void PlayFabLoginFailure(); // We failed to login for some reason
     public static event PlayFabLoginFailure PlayFabLoginFailureInfo;
+
+    public delegate void PlayFabSaveDataSuccess(); // We successfully got t
+    public static event PlayFabSaveDataSuccess PlayFabSaveDataSuccessInfo;
     
+    public delegate void PlayFabSaveDataFailure(); // We failed to login for some reason
+    public static event PlayFabSaveDataFailure PlayFabSaveDataFailureInfo;
+
+    public delegate void PlayFabGetUnixTimeSuccess(double unixTime); // We succesfully fetched the server time
+    public static event PlayFabGetUnixTimeSuccess PlayFabGetUnixTimeSuccessInfo;
+    
+    public delegate void PlayFabGetUnixTimeFailure(); // We failed to get the server time
+    public static event PlayFabGetUnixTimeFailure PlayFabGetUnixTimeFailureInfo;
+
+    public delegate void PlayFabGetSaveDataSuccess(SaveGameObject loadedData); // We succesfully fetched the saved data
+    public static event PlayFabGetSaveDataSuccess PlayFabGetSaveDataSuccessInfo;
+    
+    public delegate void PlayFabGetSaveDataFailure(); // We failed to get the saved data
+    public static event PlayFabGetSaveDataFailure PlayFabGetSaveDataFailureInfo;
 
 
     void Awake(){
@@ -57,7 +77,7 @@ public class PlayFab_Manager : MonoBehaviour
 
     void OnLoginSuccess(LoginResult result){
         //Debug.Log("PLAYFAB: Successful login/account create! ID: " + result.PlayFabId + " NEW ACCOUNT: " + result.NewlyCreated);
-        if (result != null && result.PlayFabId != null && result.NewlyCreated != null && Random.Range(0f, 100f) > 90f){
+        if (result != null && result.PlayFabId != null && result.NewlyCreated != null && Random.Range(0f, 100f) > 25f){
             if(result.NewlyCreated == true && PlayFabAccountCreateSuccessInfo != null){
                 PlayFabAccountCreateSuccessInfo();
             }
@@ -78,6 +98,86 @@ public class PlayFab_Manager : MonoBehaviour
             PlayFabLoginFailureInfo();
         }
     }
+
+
+
+    public void SaveData(SaveGameObject s){
+        // SaveGameObject s = new SaveGameObject();
+        var request = new UpdateUserDataRequest {
+            Data = new Dictionary<string, string>{
+                {"Saved Game", JsonConvert.SerializeObject(s)}
+            }
+        };
+        PlayFabClientAPI.UpdateUserData(request, OnSaveDataSend, OnError);
+    }
+
+
+    void OnSaveDataSend(UpdateUserDataResult result){
+        Debug.Log("PLAYFAB: Sent data successfully!");
+        if (PlayFabSaveDataSuccessInfo != null){
+            PlayFabSaveDataSuccessInfo();
+        }
+    }
+
+
+    public void LoadData(){
+        var request = new GetUserDataRequest {};
+        PlayFabClientAPI.GetUserData(request, OnSaveDataRecieveSuccess, OnSaveDataRecieveError);
+    }
+    
+    void OnSaveDataRecieveSuccess(GetUserDataResult result){
+        Debug.Log("GOT IT: " + result);
+        if(result.Data != null && result.Data.ContainsKey("Saved Game") == true){
+            Debug.Log("GOT IN HERE: " + result.Data["Saved Game"].Value);
+            SaveGameObject s = JsonConvert.DeserializeObject<SaveGameObject>(result.Data["Saved Game"].Value);
+            //SaveGameObject s = new SaveGameObject();
+            Debug.Log("SGO COINS: " + s.Coins);
+            if (PlayFabGetSaveDataSuccessInfo != null){
+                PlayFabGetSaveDataSuccessInfo(s);
+            }
+        }
+        else{
+            if (PlayFabGetSaveDataFailureInfo != null){
+                PlayFabGetSaveDataFailureInfo();
+            }
+        }
+    }
+
+    void OnSaveDataRecieveError(PlayFabError error){
+        if (PlayFabGetSaveDataFailureInfo != null){
+            PlayFabGetSaveDataFailureInfo();
+        }
+    }
+
+
+
+    public void GetServerTime(){
+        var request = new ExecuteCloudScriptRequest {
+            FunctionName = "GetServerTime"
+        };
+        PlayFabClientAPI.ExecuteCloudScript(request, OnGetUnixTimeSuccess, OnGetUnixTimeFailure);
+    }
+
+    void OnGetUnixTimeSuccess(ExecuteCloudScriptResult result){
+        Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT " + result.FunctionResult.ToString() + " AND IT'S A " + result.FunctionResult.GetType());
+        if (result.FunctionResult != null){
+            if(PlayFabGetUnixTimeSuccessInfo != null){
+                PlayFabGetUnixTimeSuccessInfo(System.Convert.ToDouble(result.FunctionResult));
+            }
+        }
+        else{ // If we didn't get the time then just say it's a failure
+            if(PlayFabGetUnixTimeFailureInfo != null){
+                PlayFabGetUnixTimeFailureInfo();
+            }
+        }
+    }
+
+    void OnGetUnixTimeFailure(PlayFabError error){
+        if(PlayFabGetUnixTimeFailureInfo != null){
+            PlayFabGetUnixTimeFailureInfo();
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -136,22 +236,9 @@ public class PlayFab_Manager : MonoBehaviour
 
 
 
-    void GetUnixTimeServer(){
-        var request = new ExecuteCloudScriptRequest {
-            FunctionName = "GetServerTime"
-        };
-        PlayFabClientAPI.ExecuteCloudScript(request, OnExecuteSuccess, OnError);
-    }
 
-    void OnExecuteSuccess(ExecuteCloudScriptResult result){
-        if (result.FunctionResult != null){
-            Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT RESULT: " + result.FunctionResult);
-        }
-        else{
-            Debug.Log("PLAYFAB: GOT A NULL RESULT BACK FROM CLOUDSCRIPT");
-        }
-        //Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT " + result.FunctionResult.ToString());
-    }
+
+
 
 
     // Remove
@@ -188,20 +275,20 @@ public class PlayFab_Manager : MonoBehaviour
 
 
 
-    void SaveData(){
-        SaveGameObject s = new SaveGameObject();
-        var request = new UpdateUserDataRequest {
-            Data = new Dictionary<string, string>{
-                {"Saved Game", JsonConvert.SerializeObject(s)}
-            }
-        };
-        PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
-    }
+    // void SaveData(){
+    //     SaveGameObject s = new SaveGameObject();
+    //     var request = new UpdateUserDataRequest {
+    //         Data = new Dictionary<string, string>{
+    //             {"Saved Game", JsonConvert.SerializeObject(s)}
+    //         }
+    //     };
+    //     PlayFabClientAPI.UpdateUserData(request, OnDataSend, OnError);
+    // }
 
 
-    void OnDataSend(UpdateUserDataResult result){
-        Debug.Log("PLAYFAB: Sent data successfully!");
-    }
+    // void OnDataSend(UpdateUserDataResult result){
+    //     Debug.Log("PLAYFAB: Sent data successfully!");
+    // }
 
 
     // void SaveDataTest(){

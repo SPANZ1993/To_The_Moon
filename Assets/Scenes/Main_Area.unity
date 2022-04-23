@@ -16943,7 +16943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061652758}
-  - component: {fileID: 1061652757}
+  - component: {fileID: 1061652759}
   m_Layer: 0
   m_Name: Serialization_Manager
   m_TagString: Untagged
@@ -16951,20 +16951,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1061652757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061652756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3ceb88bdbe16f4aa701a2f317c968f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBefore: 5
-  delayAfter: 5
 --- !u!4 &1061652758
 Transform:
   m_ObjectHideFlags: 0
@@ -16980,6 +16966,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061652759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061652756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4633eb10e8b9ca34bad2989a9670a810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBefore: 1
+  delayAfter: 1
 --- !u!1 &1069065866
 GameObject:
   m_ObjectHideFlags: 0
@@ -19641,6 +19641,7 @@ MonoBehaviour:
   unlockedResearcherIds: 
   assignedResearchers: []
   unlockedExperimentIds: 
+  doneLoading: 0
   shouldSaveOnPauseQuit: 1
 --- !u!1 &1482860765
 GameObject:

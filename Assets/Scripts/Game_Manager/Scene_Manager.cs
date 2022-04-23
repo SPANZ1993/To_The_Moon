@@ -23,6 +23,7 @@ public class Scene_Manager : MonoBehaviour
 
 
     public string scene_name;
+    public string prev_scene_name;
 
     void OnEnable()
     {
@@ -50,6 +51,7 @@ public class Scene_Manager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             scene_name = SceneManager.GetActiveScene().name;
+            prev_scene_name = scene_name;
         }
         else{
             Destroy(this.gameObject);
@@ -70,7 +72,14 @@ public class Scene_Manager : MonoBehaviour
     }
 
     void OnLevelWasLoaded(){
+        IEnumerator setPrevScene(){
+            yield return new WaitForSeconds(0);
+            if (SceneManager.GetActiveScene().name != prev_scene_name){
+                prev_scene_name = scene_name;
+            }
+        }
         scene_name = SceneManager.GetActiveScene().name;
+        StartCoroutine(setPrevScene());
         if (scene_name == "Main_Area"){
             tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
             rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
@@ -78,6 +87,9 @@ public class Scene_Manager : MonoBehaviour
             mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>(); 
         }
     }
+
+
+
 
     // Update is called once per frame
     float timer = 5.0f;
