@@ -11,7 +11,7 @@ public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make th
 
     private RectTransform rt;
     private RectTransform textRt;
-    private TextMeshPro textTMP;
+    private TextMeshProUGUI textTMP;
     private Camera cam;
     private Canvas canvas;
     private Vector3 curScreenLocation;
@@ -29,7 +29,7 @@ public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make th
     {
         rt = GetComponent<RectTransform>();
         textRt = rt.GetChild(0).GetComponent<RectTransform>();
-        textTMP =  rt.GetChild(0).GetComponent<TextMeshPro>();
+        textTMP =  rt.GetChild(0).GetComponent<TextMeshProUGUI>();
         Debug.Log("TEXTTMP: " + textTMP);
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();

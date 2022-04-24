@@ -50,6 +50,10 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         GameObject.Find("Button (4)").transform.GetChild(0).gameObject.GetComponent<Text>().text = "Save on Quit?:\n" + s;
     }
 
+    public void onButtonTmp7(){
+        gameManager.onApplicationFocus();
+    }
+
 
     public void closeMenus(){
         uiController.closeMenus();

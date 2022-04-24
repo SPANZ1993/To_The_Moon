@@ -35,7 +35,7 @@ public class UI_Controller : MonoBehaviour
     //
 
     //Landing Page
-    private GameObject Landing_Page_Retry_Connect_Box;
+    private GameObject Retry_Connect_Box;
     private float minTimeBetweenDisplayRetryConnectBox = 1f;
     private float timeSinceLastDisplayedRetryConnectBox = 1f;
     //End Landing Page
@@ -331,9 +331,9 @@ public class UI_Controller : MonoBehaviour
 
         if (!instance || this.GetInstanceID()==instanceID){
             
-            if (!instance){
-                indexUIElementSizes();
-            }
+            // if (!instance){
+            //     indexUIElementSizes();
+            // }
 
             instance = this;
             instanceID = gameObject.GetInstanceID();
@@ -352,14 +352,19 @@ public class UI_Controller : MonoBehaviour
 
 
     void OnLevelWasLoaded(){
-        Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
+        if (this != instance){
+            return;
+        }
+
+        //Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
+        Retry_Connect_Box = null;
         if (SceneManager.GetActiveScene().name == "Landing_Page"){
             indexUIElementSizes();
 
-            Landing_Page_Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
-            DisableUIElement(Landing_Page_Retry_Connect_Box);
+            Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
+            DisableUIElement(Retry_Connect_Box);
         }
-        else if (sceneManager.scene_name == "Main_Area"){
+        else if (SceneManager.GetActiveScene().name == "Main_Area"){
             ThrustTextObj = null;
             //Debug.Log("INDEXING FROM LEVEL LOADED");
             indexUIElementSizes();
@@ -367,6 +372,10 @@ public class UI_Controller : MonoBehaviour
 
             gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
             localizationManager = GameObject.Find("Localizer").GetComponent<Localization_Manager>();
+            
+
+            Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
+            DisableUIElement(Retry_Connect_Box);
             
             // Banner
             LaunchIndicator1 = GameObject.Find("Launch_Indicator1");
@@ -534,7 +543,7 @@ public class UI_Controller : MonoBehaviour
 
 
         }
-        else if (sceneManager.scene_name == "Rocket_Flight"){
+        else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
             gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
             rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
             rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
@@ -565,7 +574,7 @@ public class UI_Controller : MonoBehaviour
             DisableUIElement(RocketFlightRewardedAdConfirmationBox);
 
         }
-        else if (sceneManager.scene_name == "Mine_Game"){
+        else if (SceneManager.GetActiveScene().name == "Mine_Game"){
             mineGameManager = GameObject.Find("Mine_Game_Manager").GetComponent<Mine_Game_Manager>();
 
             MineGameScoreText = GameObject.Find("Score_Text").GetComponent<TextMeshProUGUI>();
@@ -601,6 +610,7 @@ public class UI_Controller : MonoBehaviour
     {
         //StartCoroutine(_LateStart());
         //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        Debug.Log("STARTING UI CONTROLLER");
         OnLevelWasLoaded();
     }
 
@@ -664,6 +674,7 @@ public class UI_Controller : MonoBehaviour
             _indexUIElementSizes(landingPageLocalScales, GameObject.Find("Canvas"));
         }
         else if (curScene == "Main_Area"){ //&& mainAreaLocalScales is null){
+            Debug.Log("INDEXING MAIN AREA");
             mainAreaLocalScales = new Dictionary<GameObject, Vector3>();
             _indexUIElementSizes(mainAreaLocalScales, GameObject.Find("Canvas"));
             //Debug.Log("INDEXING SIZES");
@@ -686,6 +697,9 @@ public class UI_Controller : MonoBehaviour
 
     void _indexUIElementSizes(Dictionary<GameObject, Vector3> localScaleDict, GameObject curObj){
         localScaleDict[curObj] = curObj.transform.localScale;
+        if(curObj.name == "Retry_Connect_Box"){
+            Debug.Log("RETRY CONNECT BOX DURING INDEX: " + curObj.transform.localScale + " ____ " + localScaleDict[curObj] +  " --- " + DateTime.Now);
+        }
         foreach(Transform child in curObj.transform){
             _indexUIElementSizes(localScaleDict, child.gameObject);
         }
@@ -1032,10 +1046,13 @@ public class UI_Controller : MonoBehaviour
             }
 
             try{
+                if(UI == Retry_Connect_Box){
+                    Debug.Log("RETRY CONNECT BOX SCALE IS: " + currentLocalScales[UI]);
+                }
                 UI.transform.localScale = currentLocalScales[UI];
             }
             catch(Exception e){
-                Debug.Log(gameObject.GetInstanceID() + " FUCKED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
+                Debug.LogWarning(gameObject.GetInstanceID() + " FUCKED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
                 //Debug.Log(mainAreaLocalScales[UI] + "...?");
                 throw e;
             }
@@ -2050,27 +2067,29 @@ public class UI_Controller : MonoBehaviour
 
 
     //Landing Page UI
-    public void enableLandingPageRetryConnectBox(){
-        StartCoroutine(_enableLandingPageRetryConnectBox());
+    public void enableRetryConnectBox(){
+        StartCoroutine(_enableRetryConnectBox());
     }
 
-    IEnumerator _enableLandingPageRetryConnectBox(){
+    IEnumerator _enableRetryConnectBox(){
         // Debug.Log("WAITING TO DISPLAY --- " + System.DateTime.Now);
-        if (!UIElementIsEnabled(Landing_Page_Retry_Connect_Box)){ // If for some reason the box gets displayed while we are waiting then abort
+        if (!UIElementIsEnabled(Retry_Connect_Box)){ // If for some reason the box gets displayed while we are waiting then abort
             if(minTimeBetweenDisplayRetryConnectBox != timeSinceLastDisplayedRetryConnectBox){
+                Debug.Log("TRYING TO ENABLE CONNECTION BOX UI WAITING");
                 yield return new WaitForSeconds(0);
-                StartCoroutine(_enableLandingPageRetryConnectBox());
+                StartCoroutine(_enableRetryConnectBox());
             }
             else{
                 // Debug.Log("ENABLING BOX -- " + System.DateTime.Now);
-                EnableUIElement(Landing_Page_Retry_Connect_Box);
+                Debug.Log("TRYING TO ENABLE CONNECTION BOX UI DOING IT! " + Retry_Connect_Box);
+                EnableUIElement(Retry_Connect_Box);
             }
         }
     }
 
-    public void disableLandingPageRetryConnectBox(){
+    public void disableRetryConnectBox(){
         // Debug.Log("DISABLING BOX -- " + System.DateTime.Now);
-        DisableUIElement(Landing_Page_Retry_Connect_Box);
+        DisableUIElement(Retry_Connect_Box);
         timeSinceLastDisplayedRetryConnectBox = 0f;
     }
     //End Landing Page UI

@@ -86,7 +86,6 @@ public class Touch_Detection : MonoBehaviour
 
     [HideInInspector]
     public bool tapInProgress = false;
-    private CircleCollider2D reticle_collider;
 
     public GameObject current_game_object;
 
@@ -154,7 +153,12 @@ public class Touch_Detection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(reticleDisabled){
+            Debug.Log("RETICLE DISABLED!!");
+        }
+        else{
+            Debug.Log("RETICLE ENABLED");
+        }
 
 
         //Update the Text on the screen depending on current TouchPhase, and the current direction vector
@@ -212,7 +216,7 @@ public class Touch_Detection : MonoBehaviour
 
                     // Check to see if we've got any swipes
                     swipeval = DetectSwipe(dragLocs, dragStartTime, dragEndTime);
-                    if (swipeval != NOSWIPE){
+                    if (swipeval != NOSWIPE && !reticleDisabled){
                         if (DebugMode)
                             Debug.Log("SWIPE!!!");
                         if (swipeval == UPSWIPE && SwipedUpInfo != null){
@@ -323,6 +327,7 @@ public class Touch_Detection : MonoBehaviour
     public void disableReticle(){
         //reticleCollider.enabled = false;
         reticleDisabled = true;
+        enableReticleAfterCurTap = false;
     }
 
     public void enableReticle(){

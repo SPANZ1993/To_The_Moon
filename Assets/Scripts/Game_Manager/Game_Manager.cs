@@ -287,6 +287,9 @@ public class Game_Manager : MonoBehaviour
 
         PlayFab_Serializer.SerializationStartedInfo += onSerializationStarted;
         PlayFab_Serializer.SerializationEndedInfo += onSerializationEnded;
+
+        PlayFab_Initializer.StartingPlayFabInitiationInfo += onStartingPlayFabInitiation;
+        PlayFab_Initializer.EndingPlayFabInitiationInfo += onEndingPlayFabInitiation;
     }
 
     void OnDisable()
@@ -317,13 +320,23 @@ public class Game_Manager : MonoBehaviour
 
         PlayFab_Serializer.SerializationStartedInfo -= onSerializationStarted;
         PlayFab_Serializer.SerializationEndedInfo -= onSerializationEnded;
+
+        PlayFab_Initializer.StartingPlayFabInitiationInfo -= onStartingPlayFabInitiation;
+        PlayFab_Initializer.EndingPlayFabInitiationInfo -= onEndingPlayFabInitiation;
     }
 
 
 
     public bool shouldSaveOnPauseQuit = true; // Remove
 
+    public void onApplicationFocus(){ // REMOVE
+        Debug.Log("APP FOCUS?");
+        OnApplicationFocus();
+    }
+
     void OnApplicationFocus(){
+
+        Debug.Log("APP FOCUS");
         if (frameCount != 0){
             DateTime curTime = DateTime.Now;
             double timeSinceLastFrame0 = (double)((DateTimeOffset)localSessionCurrentTime).ToUnixTimeSeconds() - (double)((DateTimeOffset)localSessionPrevFrameTime).ToUnixTimeSeconds();
@@ -335,6 +348,9 @@ public class Game_Manager : MonoBehaviour
             if (timeSinceLastFrame >= 2.0){
                 gameTimeUnix += timeSinceLastFrame;
             }
+            //initializeGame(); //?
+            PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
+            playFabInitializer.callBack = initializeGame;
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused Added " + timeSinceLastFrame + " Seconds " + timeSinceLastFrameI + " --- " + DateTime.Now;
         }
         else if(SceneManager.GetActiveScene().name == "Main_Area"){
@@ -747,6 +763,7 @@ public class Game_Manager : MonoBehaviour
 
     private void onMineGameCoinsAdd(double mineGameCoins){
         coins += mineGameCoins;
+        //saveData(disableTouch: false, displayIndicator: false, serially: false);
     }
 
     
@@ -790,12 +807,12 @@ public class Game_Manager : MonoBehaviour
 
     //Turns off/on whether elements other than UI elements can be tapped on
     private void disableNonUITouch(){
-        //Debug.Log("DisableRet Game Manager");
+        Debug.Log("DisableRet Game Manager " + DateTime.Now);
         touchDetection.disableReticle();
     }
 
     private void enableNonUITouch(){
-        //Debug.Log("DisableRet Game Manager");
+        Debug.Log("EnableRet Game Manager " + DateTime.Now);
         touchDetection.enableReticle();
     }
 
@@ -900,5 +917,43 @@ public class Game_Manager : MonoBehaviour
         currentlySerializing = false;
     }
     // End Serialization Event Handlers
+
+
+    // Start PlayFab Game Initialization Event Handlers
+    private void onStartingPlayFabInitiation(){
+        string sceneName = SceneManager.GetActiveScene().name;
+        switch(sceneName) 
+        {
+            case "Main_Area":
+                Debug.Log("DISABLING TOUCH");
+                disableNonUITouch();
+                break;
+            case "Mine_Game":
+                break;
+            case "Rocket_Flight":
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void onEndingPlayFabInitiation(){
+        string sceneName = SceneManager.GetActiveScene().name;
+        switch(sceneName) 
+        {
+            case "Main_Area":
+                Debug.Log("ENABLING TOUCH");
+                enableNonUITouch();
+                break;
+            case "Mine_Game":
+                break;
+            case "Rocket_Flight":
+                break;
+            default:
+                break;
+        }
+             
+    }
+    // End PlayFab Game Initializatin Event Handlers
 
 }
