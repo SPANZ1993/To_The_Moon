@@ -113,7 +113,7 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     void OnSaveDataSend(UpdateUserDataResult result){
-        Debug.Log("PLAYFAB: Sent data successfully!");
+        //Debug.Log("PLAYFAB: Sent data successfully!");
         if (PlayFabSaveDataSuccessInfo != null){
             PlayFabSaveDataSuccessInfo();
         }
@@ -126,12 +126,12 @@ public class PlayFab_Manager : MonoBehaviour
     }
     
     void OnSaveDataRecieveSuccess(GetUserDataResult result){
-        Debug.Log("GOT IT: " + result);
+        //Debug.Log("GOT IT: " + result);
         if(result.Data != null && result.Data.ContainsKey("Saved Game") == true){
-            Debug.Log("GOT IN HERE: " + result.Data["Saved Game"].Value);
+            //Debug.Log("GOT IN HERE: " + result.Data["Saved Game"].Value);
             SaveGameObject s = JsonConvert.DeserializeObject<SaveGameObject>(result.Data["Saved Game"].Value);
             //SaveGameObject s = new SaveGameObject();
-            Debug.Log("SGO COINS: " + s.Coins);
+            //Debug.Log("SGO COINS: " + s.Coins);
             if (PlayFabGetSaveDataSuccessInfo != null){
                 PlayFabGetSaveDataSuccessInfo(s);
             }
@@ -159,7 +159,7 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     void OnGetUnixTimeSuccess(ExecuteCloudScriptResult result){
-        Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT " + result.FunctionResult.ToString() + " AND IT'S A " + result.FunctionResult.GetType());
+        //Debug.Log("PLAYFAB: GOT THIS FROM CLOUDSCRIPT " + result.FunctionResult.ToString() + " AND IT'S A " + result.FunctionResult.GetType());
         if (result.FunctionResult != null){
             if(PlayFabGetUnixTimeSuccessInfo != null){
                 PlayFabGetUnixTimeSuccessInfo(System.Convert.ToDouble(result.FunctionResult));
@@ -199,7 +199,7 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     void OnError(PlayFabError error){
-        Debug.Log("PLAYFAB: Error while performing PlayFab function \n" + error.GenerateErrorReport());
+        //Debug.Log("PLAYFAB: Error while performing PlayFab function \n" + error.GenerateErrorReport());
     }
 
     public void SendLeaderboard(int score){
@@ -215,7 +215,7 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result){
-        Debug.Log("PLAYFAB: Leaderboard Updated!");
+       // Debug.Log("PLAYFAB: Leaderboard Updated!");
     }
 
     public void GetLeaderboard(){
@@ -230,7 +230,7 @@ public class PlayFab_Manager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result){
         foreach (var item in result.Leaderboard){
-            Debug.Log("PLAYFAB: " + item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            //Debug.Log("PLAYFAB: " + item.Position + " " + item.PlayFabId + " " + item.StatValue);
         }
     }
 
@@ -313,11 +313,11 @@ public class PlayFab_Manager : MonoBehaviour
 
     void OnTitleDataReceieved(GetTitleDataResult result){
        if (result.Data == null || result.Data.ContainsKey("Message") == false){
-           Debug.Log("PLAYFAB: NO MESSAGE!");
+           //Debug.Log("PLAYFAB: NO MESSAGE!");
            return;
        }
        else{
-           Debug.Log("PLAYFAB: GOT MESSAGE --- " + result.Data["Message"]);
+           //Debug.Log("PLAYFAB: GOT MESSAGE --- " + result.Data["Message"]);
        }
     }
 

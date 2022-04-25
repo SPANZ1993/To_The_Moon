@@ -71,7 +71,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
 
     void OnEnable(){
-        Debug.Log("SUBSCRIBING TO AD ACCEPTED");
+        //Debug.Log("SUBSCRIBING TO AD ACCEPTED");
         UI_Controller.AlertRewardedAdAcceptedInfo += onRewardedAdAccepted;
         UI_Controller.AlertRewardedAdRejectedInfo += onRewardedAdRejected;
     }
@@ -114,7 +114,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
         // Optionally execute code if the Ad Unit successfully loads content.
-        Debug.Log("AD LOADED " + adUnitId);
+        //Debug.Log("AD LOADED " + adUnitId);
         if (AdLoadingSuccessInfo != null){
             AdLoadingSuccessInfo(adUnitId);
         }
@@ -122,7 +122,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
  
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
     {
-        Debug.Log($"Error loading Ad Unit: {adUnitId} - {error.ToString()} - {message}");
+        //Debug.Log($"Error loading Ad Unit: {adUnitId} - {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to load, such as attempting to try again.
         if(adUnitId == "Banner_iOS" || adUnitId == "Banner_Android"){
             if(curBannerAdLoadRetries < maxNumberAdLoadRetries){
@@ -160,7 +160,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
  
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
     {
-        Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
+        //Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to show, such as loading another ad.
         if (AdShowErrorInfo != null){
             AdShowErrorInfo(adUnitId);
@@ -168,14 +168,14 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
  
     public void OnUnityAdsShowStart(string adUnitId) {
-        Debug.Log("STARTED SHOWING " + adUnitId + " AD");
+        //Debug.Log("STARTED SHOWING " + adUnitId + " AD");
     }
     public void OnUnityAdsShowClick(string adUnitId) {
-        Debug.Log("AD " + adUnitId + " CLICK");
+        //Debug.Log("AD " + adUnitId + " CLICK");
     }
 
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) {
-        Debug.Log("AD " + adUnitId + " SHOW COMPLETE WITH STATE " + showCompletionState);
+        //Debug.Log("AD " + adUnitId + " SHOW COMPLETE WITH STATE " + showCompletionState);
         if (adUnitId == "Interstitial_iOS" || adUnitId == "Interstitial_Android"){
             timeSinceLastInterstialAd = 0.0f;
         }
@@ -300,12 +300,12 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
 
     private void onRewardedAdAccepted(){
-        Debug.Log("ACCEPTED REWARDED AD");
+        //Debug.Log("ACCEPTED REWARDED AD");
         showRewardedAd();
     }
     
     private void onRewardedAdRejected(){
-        Debug.Log("REJECTED REWARDED AD");
+        //Debug.Log("REJECTED REWARDED AD");
     }
 
 

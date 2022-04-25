@@ -164,9 +164,9 @@ public class Mine_Shaft_Controller : MonoBehaviour, ITappable
         else
         {
             if (tapInitiated && tapped){
-                Debug.Log("Tapped The Mineshaft");
+                //Debug.Log("Tapped The Mineshaft");
                 if (MineShaftTappedInfo != null){
-                    Debug.Log("ALERTING TAPPED THE MINESHAFT");
+                    //Debug.Log("ALERTING TAPPED THE MINESHAFT");
                     MineShaftTappedInfo();
                 }
             }

@@ -140,7 +140,7 @@ public class Researcher_Manager : MonoBehaviour
         if (instanceID == gameObject.GetInstanceID()){
             Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
             if (sceneManager.scene_name == "Main_Area"){
-                Debug.Log("CALLING START RESEARCHER MANAGER.");
+                //Debug.Log("CALLING START RESEARCHER MANAGER.");
                 Start();
             }
         } 

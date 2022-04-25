@@ -24,7 +24,7 @@ public class UI_Controller : MonoBehaviour
 
     // REMOVE
     public bool debugResearch = false;
-    public bool debugExperiment = true;
+    public bool debugExperiment = false;
 
     // UI Original LocalScale Dictionaries
     public Dictionary<GameObject, Vector3> currentLocalScales; // Just used as a reference inside EnableUIElement
@@ -478,7 +478,7 @@ public class UI_Controller : MonoBehaviour
             researchManager = GameObject.Find("Research_Manager").GetComponent<Research_Manager>();
             researchersManager = GameObject.Find("Researcher_Manager").GetComponent<Researcher_Manager>();
             experimentsManager = GameObject.Find("Experiments_Manager").GetComponent<Experiments_Manager>();
-            Debug.Log("EXPERIMENTS MANAGER: " + experimentsManager);
+            //Debug.Log("EXPERIMENTS MANAGER: " + experimentsManager);
             // End Rocket Building Menu
 
 
@@ -570,7 +570,7 @@ public class UI_Controller : MonoBehaviour
 
             indexUIElementSizes();
     
-            Debug.Log("DISABLING REWARDED AD CONFIRMATION BOX: " + RocketFlightRewardedAdConfirmationBox);
+            //Debug.Log("DISABLING REWARDED AD CONFIRMATION BOX: " + RocketFlightRewardedAdConfirmationBox);
             DisableUIElement(RocketFlightRewardedAdConfirmationBox);
 
         }
@@ -587,7 +587,7 @@ public class UI_Controller : MonoBehaviour
 
             indexUIElementSizes();
     
-            Debug.Log("DISABLING REWARDED AD CONFIRMATION BOX: " + MineGameRewardedAdConfirmationBox);
+            //Debug.Log("DISABLING REWARDED AD CONFIRMATION BOX: " + MineGameRewardedAdConfirmationBox);
             DisableUIElement(MineGameRewardedAdConfirmationBox);
         }
         // else if (sceneManager.scene_name == "Landing_Page"){
@@ -610,7 +610,7 @@ public class UI_Controller : MonoBehaviour
     {
         //StartCoroutine(_LateStart());
         //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
-        Debug.Log("STARTING UI CONTROLLER");
+        //Debug.Log("STARTING UI CONTROLLER");
         OnLevelWasLoaded();
     }
 
@@ -648,7 +648,7 @@ public class UI_Controller : MonoBehaviour
             displayExampleSpeech();
         }
         else{
-            Debug.Log("ALREADY TALKING CHIEF");
+            //Debug.Log("ALREADY TALKING CHIEF");
         }
     }
 
@@ -674,7 +674,7 @@ public class UI_Controller : MonoBehaviour
             _indexUIElementSizes(landingPageLocalScales, GameObject.Find("Canvas"));
         }
         else if (curScene == "Main_Area"){ //&& mainAreaLocalScales is null){
-            Debug.Log("INDEXING MAIN AREA");
+            //Debug.Log("INDEXING MAIN AREA");
             mainAreaLocalScales = new Dictionary<GameObject, Vector3>();
             _indexUIElementSizes(mainAreaLocalScales, GameObject.Find("Canvas"));
             //Debug.Log("INDEXING SIZES");
@@ -698,7 +698,7 @@ public class UI_Controller : MonoBehaviour
     void _indexUIElementSizes(Dictionary<GameObject, Vector3> localScaleDict, GameObject curObj){
         localScaleDict[curObj] = curObj.transform.localScale;
         if(curObj.name == "Retry_Connect_Box"){
-            Debug.Log("RETRY CONNECT BOX DURING INDEX: " + curObj.transform.localScale + " ____ " + localScaleDict[curObj] +  " --- " + DateTime.Now);
+            //Debug.Log("RETRY CONNECT BOX DURING INDEX: " + curObj.transform.localScale + " ____ " + localScaleDict[curObj] +  " --- " + DateTime.Now);
         }
         foreach(Transform child in curObj.transform){
             _indexUIElementSizes(localScaleDict, child.gameObject);
@@ -1047,7 +1047,7 @@ public class UI_Controller : MonoBehaviour
 
             try{
                 if(UI == Retry_Connect_Box){
-                    Debug.Log("RETRY CONNECT BOX SCALE IS: " + currentLocalScales[UI]);
+                    //Debug.Log("RETRY CONNECT BOX SCALE IS: " + currentLocalScales[UI]);
                 }
                 UI.transform.localScale = currentLocalScales[UI];
             }
@@ -1468,7 +1468,7 @@ public class UI_Controller : MonoBehaviour
                 int o4 = ((Research)researchPanels[i].GetComponent<ObjectHolder>().Obj).researchId;
                 if (activeResearchIds.Contains(((Research)researchPanels[i].GetComponent<ObjectHolder>().Obj).researchId)){
                     if (debugResearch){
-                        Debug.Log("SETTING ACTIVE RESEARCH: " + i + " TO HEIGHT " + researchPanelsPossiblePositions[curPossibleLoc][1] + " --- " + researchPanels[i].transform.Find("Research_Label_Text").gameObject.GetComponent<TextMeshProUGUI>().text);
+                        //Debug.Log("SETTING ACTIVE RESEARCH: " + i + " TO HEIGHT " + researchPanelsPossiblePositions[curPossibleLoc][1] + " --- " + researchPanels[i].transform.Find("Research_Label_Text").gameObject.GetComponent<TextMeshProUGUI>().text);
                     }
                     //researchPanels[i].SetActive(true);
                     EnableUIElement(researchPanels[i]);
@@ -1480,7 +1480,7 @@ public class UI_Controller : MonoBehaviour
                 else{
                     //researchPanels[i].SetActive(false);
                     if (debugResearch){
-                        Debug.Log("DISABLING RESEARCH: " + i);
+                        //Debug.Log("DISABLING RESEARCH: " + i);
                     }
                     DisableUIElement(researchPanels[i]);
                 }
@@ -1579,7 +1579,7 @@ public class UI_Controller : MonoBehaviour
                 int o4 = (int)(((Experiment)experimentPanels[i].GetComponent<ObjectHolder>().Obj).experimentId);
                 if (activeExperimentIds.Contains((int)((Experiment)experimentPanels[i].GetComponent<ObjectHolder>().Obj).experimentId)){
                     if (debugExperiment){
-                        Debug.Log("SETTING ACTIVE EXPERIMENT: " + i + " TO HEIGHT " + experimentPanelsPossiblePositions[curPossibleLoc][1] + " --- " + experimentPanels[i].transform.Find("Upgrade_Label_Text").gameObject.GetComponent<TextMeshProUGUI>().text);
+                        //Debug.Log("SETTING ACTIVE EXPERIMENT: " + i + " TO HEIGHT " + experimentPanelsPossiblePositions[curPossibleLoc][1] + " --- " + experimentPanels[i].transform.Find("Upgrade_Label_Text").gameObject.GetComponent<TextMeshProUGUI>().text);
                     }
                     //researchPanels[i].SetActive(true);
                     EnableUIElement(experimentPanels[i]);
@@ -2042,9 +2042,9 @@ public class UI_Controller : MonoBehaviour
 
 
     public void startRewardedAd(){
-        Debug.Log("SHOULD BE ALERTING AD");
+        //Debug.Log("SHOULD BE ALERTING AD");
         if (AlertRewardedAdAcceptedInfo != null){
-            Debug.Log("ALERTING AD");
+            //Debug.Log("ALERTING AD");
             AlertRewardedAdAcceptedInfo();
         }
     }
@@ -2075,13 +2075,13 @@ public class UI_Controller : MonoBehaviour
         // Debug.Log("WAITING TO DISPLAY --- " + System.DateTime.Now);
         if (!UIElementIsEnabled(Retry_Connect_Box)){ // If for some reason the box gets displayed while we are waiting then abort
             if(minTimeBetweenDisplayRetryConnectBox != timeSinceLastDisplayedRetryConnectBox){
-                Debug.Log("TRYING TO ENABLE CONNECTION BOX UI WAITING");
+                //Debug.Log("TRYING TO ENABLE CONNECTION BOX UI WAITING");
                 yield return new WaitForSeconds(0);
                 StartCoroutine(_enableRetryConnectBox());
             }
             else{
                 // Debug.Log("ENABLING BOX -- " + System.DateTime.Now);
-                Debug.Log("TRYING TO ENABLE CONNECTION BOX UI DOING IT! " + Retry_Connect_Box);
+                //Debug.Log("TRYING TO ENABLE CONNECTION BOX UI DOING IT! " + Retry_Connect_Box);
                 EnableUIElement(Retry_Connect_Box);
             }
         }

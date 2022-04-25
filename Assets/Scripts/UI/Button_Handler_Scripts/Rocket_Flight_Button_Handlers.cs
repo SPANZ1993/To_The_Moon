@@ -23,12 +23,12 @@ public class Rocket_Flight_Button_Handlers : MonoBehaviour
     }
 
     public void onRewardedAdYesButtonPressed(){
-        Debug.Log("SAID YES");
+        //Debug.Log("SAID YES");
         uiController.startRewardedAd();
     }
 
     public void onRewardedAdNoButtonPressed(){
-        Debug.Log("SAID NO");
+        //Debug.Log("SAID NO");
         uiController.passRewardedAd();
     }
 

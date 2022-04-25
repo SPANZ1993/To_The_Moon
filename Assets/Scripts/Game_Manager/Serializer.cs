@@ -52,7 +52,7 @@ public class Serializer : MonoBehaviour, ISerialization_Manager
     void Start()
     {
         filepath = Path.Combine(Application.persistentDataPath, "To_The_Moon_Save.dat");
-        Debug.Log("SAVE PATH: " + filepath  + "\n EXISTS? " + ((ISerialization_Manager)this).checkForSavedData());
+        //Debug.Log("SAVE PATH: " + filepath  + "\n EXISTS? " + ((ISerialization_Manager)this).checkForSavedData());
         gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
     }
 
@@ -86,7 +86,7 @@ public class Serializer : MonoBehaviour, ISerialization_Manager
             FileStream file = File.Open(filepath, FileMode.Open);
             SaveGameObject data = (SaveGameObject)bf.Deserialize(file);
             file.Close();
-            Debug.Log("Saved Game Loaded Holy Crap");
+            //Debug.Log("Saved Game Loaded Holy Crap");
             return data;
         }
         else{
@@ -142,8 +142,8 @@ public class Serializer : MonoBehaviour, ISerialization_Manager
         FileStream file = File.Create(filepath);
         bf.Serialize(file, data);
         file.Close();
-        Debug.Log("Game data saved!");
-        Debug.Log("ENDED SAVING SERIALIZER");
+        //Debug.Log("Game data saved!");
+        //Debug.Log("ENDED SAVING SERIALIZER");
     }
 
     void ISerialization_Manager.saveGameData(){

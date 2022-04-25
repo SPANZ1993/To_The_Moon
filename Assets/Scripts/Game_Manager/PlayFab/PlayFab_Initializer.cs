@@ -105,7 +105,7 @@ public class PlayFab_Initializer : MonoBehaviour
             Destroy(this);
         }
         else if (failedLogInPlayFabServer && !retryConnectBoxDisplayed && !waitingForResponsePlayFabLogin){
-            Debug.Log("TRYING TO ENABLE CONNECTION BOX");
+            //Debug.Log("TRYING TO ENABLE CONNECTION BOX");
             uiController.enableRetryConnectBox();
             retryConnectBoxDisplayed = true;
         }
@@ -138,24 +138,24 @@ public class PlayFab_Initializer : MonoBehaviour
     }
 
     void onGetServerTimeSuccess(double unixTime){
-        Debug.Log("GOT UNIX TIME HERE: " + unixTime);
+        //Debug.Log("GOT UNIX TIME HERE: " + unixTime);
         serverTime = unixTime;
         waitingForResponsePlayFabTime = false;
     }
 
     void onGetServerTimeFailure(){
-        Debug.Log("FAILED UNIX TIME HERE");
+        //Debug.Log("FAILED UNIX TIME HERE");
         waitingForResponsePlayFabTime = false;
     }
 
     void onGetSaveDataSuccess(SaveGameObject loadedGame){
-        Debug.Log("GOT SAVE DATA HERE: " + loadedGame);
+        //Debug.Log("GOT SAVE DATA HERE: " + loadedGame);
         loadedData = loadedGame;
         waitingForResponsePlayFabData = false;
     }
 
     void onGetSaveDataFailure(){
-        Debug.Log("FAILED SAVE DATA HERE");
+        //Debug.Log("FAILED SAVE DATA HERE");
         loadedData = new SaveGameObject();
         waitingForResponsePlayFabData = false;
     }

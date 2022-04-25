@@ -6,6 +6,8 @@
 public class Scene_Manager : MonoBehaviour
 {
 
+    private Game_Manager gameManager;
+
     // Tiny Scientists
     private Tiny_Scientists_Manager tinyScientistsManager;
 
@@ -61,6 +63,9 @@ public class Scene_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+
         scene_name = SceneManager.GetActiveScene().name;
         if(scene_name == "Main_Area"){
             tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
@@ -141,7 +146,7 @@ public class Scene_Manager : MonoBehaviour
         if (gameObject.GetComponent<Wipe>() == null){
             gameObject.AddComponent<Wipe>();
         }
-        if(true){ // If we wanna wait for some stuff put it here
+        if(!gameManager.currentlySerializing){ // If we wanna wait for some stuff put it here
             //SceneManager.LoadScene("Main_Area");
             Scene_Transition wipe = gameObject.GetComponent<Wipe>();
             if (wipe != null){
@@ -170,7 +175,7 @@ public class Scene_Manager : MonoBehaviour
             gameObject.AddComponent<Circle_Wipe>();
         }
 
-        if(true){ // If we wanna wait for some stuff put it here
+        if(!gameManager.currentlySerializing){ // If we wanna wait for some stuff put it here
             Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
             if (wipe != null){
                 wipe.BeginLeavingScene(nextScene: "Main_Area");

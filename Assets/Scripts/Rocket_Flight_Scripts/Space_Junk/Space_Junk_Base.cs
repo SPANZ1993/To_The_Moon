@@ -11,7 +11,7 @@ public class Space_Junk_Base : MonoBehaviour
     protected void OnEnable(){
         rb = GetComponent<Rigidbody2D>();
 
-        Debug.Log("GOT RB: " + gameObject.name);
+        //Debug.Log("GOT RB: " + gameObject.name);
 
         Rocket_Game_Manager.PauseLaunchSceneInfo += onGamePause;
     }
@@ -23,11 +23,11 @@ public class Space_Junk_Base : MonoBehaviour
     void onGamePause(bool paused){
         
         if (paused){
-            Debug.Log("HEY TRYING TO FREEZE POSITION: " + gameObject.name);
+            //Debug.Log("HEY TRYING TO FREEZE POSITION: " + gameObject.name);
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
         else{
-            Debug.Log("HEY TRYING TO UNFREEZE POSITION: " + gameObject.name);
+            //Debug.Log("HEY TRYING TO UNFREEZE POSITION: " + gameObject.name);
             rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
         }
     }

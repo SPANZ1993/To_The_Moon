@@ -315,7 +315,7 @@ public class Experiments_Manager : MonoBehaviour
 
 
         foreach (GameObject g in experimentPanelsList){
-            Debug.Log("Added Panel: " + g.name);
+            //Debug.Log("Added Panel: " + g.name);
         }
     }
 
@@ -363,7 +363,7 @@ public class Experiments_Manager : MonoBehaviour
         int experimentPanelNum = int.Parse(experimentPanel.name[experimentPanel.name.Length-1].ToString());
         char experimentPanelNumChar = experimentPanel.name[experimentPanel.name.Length-1];
 
-        Debug.Log("EXP NUM: " + experimentIdNum + " --- PANEL NUM: " + experimentPanelNumChar);
+        //Debug.Log("EXP NUM: " + experimentIdNum + " --- PANEL NUM: " + experimentPanelNumChar);
         Debug.Assert(experimentIdNum == experimentPanelNum);
         //refreshResearchPanelTime(researchPanel, callRefreshPanel: false);
 

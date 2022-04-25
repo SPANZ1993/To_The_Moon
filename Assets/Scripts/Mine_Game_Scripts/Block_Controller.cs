@@ -60,7 +60,7 @@ public class Block_Controller : MonoBehaviour
         hashObjs = new GameObject[] {Hash_0, Hash_1, Hash_2, Hash_3, Hash_4};
         guessObjs = new GameObject[] {Guess_0, Guess_1, Guess_2, Guess_3, Guess_4};
 
-        Object_Info_Getter.ListProperties(Hash_0.GetComponent<Light2D>());
+        //Object_Info_Getter.ListProperties(Hash_0.GetComponent<Light2D>());
         
 
 

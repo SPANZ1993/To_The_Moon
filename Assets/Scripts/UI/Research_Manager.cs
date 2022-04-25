@@ -286,11 +286,11 @@ public class Research_Manager : MonoBehaviour
                 }
             }
             else if (curGameObj.name == "Research_Assigned_Researcher_Image"){
-                Debug.Log("AYO THE SIZE IS: " + curGameObj.transform.localScale + gameManager.gameTimeUnix);
+                //Debug.Log("AYO THE SIZE IS: " + curGameObj.transform.localScale + gameManager.gameTimeUnix);
                 if (research.isResearcherAssigned()){
                     if(UI_Controller.UIElementIsEnabled(curGameObj)){
                         int headshot_i = random.Next(research.assignedResearcher.headshots.Count);
-                        Debug.Log("PICKING RANDOM HEADSHOT: " + headshot_i + " OUT OF " + research.assignedResearcher.headshots.Count);
+                        //Debug.Log("PICKING RANDOM HEADSHOT: " + headshot_i + " OUT OF " + research.assignedResearcher.headshots.Count);
                         uiController.EnableUIElement(curGameObj);
                         curGameObj.GetComponent<Image>().sprite = research.assignedResearcher.headshots[headshot_i];
                     }

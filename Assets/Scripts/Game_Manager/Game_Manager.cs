@@ -36,6 +36,9 @@ public class Game_Manager : MonoBehaviour
     private bool currentlyTryingServerTime = false;
     private bool doneTryingServerTime = false;
     private bool gotServerTime = false;
+
+    public bool initializeGameOnReturnToMainArea = false; // If this is true, when we enter the main area scene, try to query playfab to reinitialize the game
+
     
 
 
@@ -109,7 +112,7 @@ public class Game_Manager : MonoBehaviour
 
     // Serialization
     public bool doneLoading = false; // Are we done loading the player save, getting server time, and player preferences (This will eventually determine whether loading screen shows or not)    
-    private bool currentlySerializing = false;
+    public bool currentlySerializing {get; private set;}
     private bool serializingPrevFrame = false;
     private GameObject Save_Indicator;
 
@@ -145,7 +148,7 @@ public class Game_Manager : MonoBehaviour
             instanceID = gameObject.GetInstanceID();
             DontDestroyOnLoad(this.gameObject);
             
-            
+            currentlySerializing = false;
             localSessionStartTime = DateTime.Now;
             localSessionStartTimeUnix = (double)((DateTimeOffset)localSessionStartTime).ToUnixTimeSeconds();
             localSessionCurrentTime = localSessionStartTime;
@@ -185,7 +188,13 @@ public class Game_Manager : MonoBehaviour
                 minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
-                Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);
+                //Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);
+                
+                if(initializeGameOnReturnToMainArea){
+                    PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
+                    playFabInitializer.callBack = initializeGame;
+                    initializeGameOnReturnToMainArea = false;
+                }
                 // if (sceneManager.prev_scene_name != "Landing_Page"){
                 //     StartCoroutine(_initializeMineCartLevelStart(mineCartCoinsCapacity, mineCartCoinsPerSecond, mineCartLastEmptiedTimeUnix, mineCartCurCoins));
                 //     initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
@@ -208,11 +217,12 @@ public class Game_Manager : MonoBehaviour
 
 
 
-    private bool poo = false; //REMOVE
+    private bool poo = true; //REMOVE
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("SERIALIZING?: " + currentlySerializing);
         //Debug.Log("MINEGAME: " + mineGameHitCoins + " --- " + mineGameSolveCoins);
         
         gameTimeUnix += (double)Time.deltaTime;
@@ -232,13 +242,13 @@ public class Game_Manager : MonoBehaviour
                 poo = true;
             }
             if (!initializedGame && !initializeGameStarted && SceneManager.GetActiveScene().name != "Landing_Page"){
-                Debug.Log("TRYING TO INITIALIZE GAME");
+                // Debug.Log("TRYING TO INITIALIZE GAME");
                 initializeGame();
             }
             // This is where the game is
             else{
                 if (currentlySerializing && !serializingPrevFrame){
-                    Debug.Log("CS & SPF: " + currentlySerializing + " " + serializingPrevFrame);
+                    // Debug.Log("CS & SPF: " + currentlySerializing + " " + serializingPrevFrame);
                     //startSaveSequence();
                     serializingPrevFrame = true;
                 }
@@ -327,16 +337,17 @@ public class Game_Manager : MonoBehaviour
 
 
 
-    public bool shouldSaveOnPauseQuit = true; // Remove
 
     public void onApplicationFocus(){ // REMOVE
-        Debug.Log("APP FOCUS?");
         OnApplicationFocus();
     }
 
     void OnApplicationFocus(){
 
-        Debug.Log("APP FOCUS");
+        // Debug.Log("APP FOCUS");
+        if(SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            initializeGameOnReturnToMainArea = true;
+        }
         if (frameCount != 0){
             DateTime curTime = DateTime.Now;
             double timeSinceLastFrame0 = (double)((DateTimeOffset)localSessionCurrentTime).ToUnixTimeSeconds() - (double)((DateTimeOffset)localSessionPrevFrameTime).ToUnixTimeSeconds();
@@ -360,11 +371,9 @@ public class Game_Manager : MonoBehaviour
 
     void OnApplicationPause(){
         if (frameCount != 0){
-            Debug.Log("WOOP: Application Paused --- " + DateTime.Now);
+            // Debug.Log("WOOP: Application Paused --- " + DateTime.Now);
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused --- " + DateTime.Now;
-            if (shouldSaveOnPauseQuit){    
-                saveData(disableTouch: false, displayIndicator: false, serially: true);
-            }
+            saveData(disableTouch: false, displayIndicator: false, serially: true);
         }
         else if(SceneManager.GetActiveScene().name == "Main_Area"){
                 GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused FC0 --- " + DateTime.Now;
@@ -372,10 +381,8 @@ public class Game_Manager : MonoBehaviour
     }
 
     void OnApplicationQuit(){
-        Debug.Log("WOOP: Application Quit Beginning --- " + DateTime.Now);
-        if (shouldSaveOnPauseQuit){
-            saveData(disableTouch: false, displayIndicator: false, serially: true);
-        }
+        // Debug.Log("WOOP: Application Quit Beginning --- " + DateTime.Now);
+        saveData(disableTouch: false, displayIndicator: false, serially: true);
         try{
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nQuit --- " + DateTime.Now;
         }
@@ -400,7 +407,7 @@ public class Game_Manager : MonoBehaviour
         initializeGameStarted = true;
         prevOfflineMode = loadedGame.OffLineMode;
         
-        Debug.Log("SETTING COINS TO: " + coins);
+        // Debug.Log("SETTING COINS TO: " + coins);
         
         coins = loadedGame.Coins;
         gems = loadedGame.Gems;
@@ -411,7 +418,7 @@ public class Game_Manager : MonoBehaviour
 
         if (prevOfflineMode || offLineMode){
 
-            Debug.Log("OFFLINE DAWG!");
+            //Debug.Log("OFFLINE DAWG!");
             //Minecart
             initializeMineCart(loadedGame.CartCapacity, loadedGame.CartCoinsPerSecond, minecartManager.spoofLastEmptiedTime(loadedGame.CartCurCoins), loadedGame.CartCurCoins);
             //
@@ -427,13 +434,13 @@ public class Game_Manager : MonoBehaviour
             //
         }
         else{
-            Debug.Log("SETTING CART EMPTY TIME TO: " +  loadedGame.CartLastEmptiedTimeUnix);
+            //Debug.Log("SETTING CART EMPTY TIME TO: " +  loadedGame.CartLastEmptiedTimeUnix);
             //Minecart
             initializeMineCart(loadedGame.CartCapacity, loadedGame.CartCoinsPerSecond, loadedGame.CartLastEmptiedTimeUnix, loadedGame.CartCurCoins);
             // 
             //Mine Shaft
-            Debug.Log("MINEGAMELASTPLAYED: " + loadedGame.MineGameLastPlayedUnix);
-            Debug.Log("REFRESH TIME: " + mineGameRefreshTime);
+            //Debug.Log("MINEGAMELASTPLAYED: " + loadedGame.MineGameLastPlayedUnix);
+            //Debug.Log("REFRESH TIME: " + mineGameRefreshTime);
             mineGameLastPlayedUnix = loadedGame.MineGameLastPlayedUnix;
             initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
             //
@@ -495,13 +502,13 @@ public class Game_Manager : MonoBehaviour
             }
             else if (loadedGame == null){
                 loadedGame = new SaveGameObject(); // TODO: Say that this is a new game
-                Debug.Log("NO SAVED GAME FOUND... GENERATING NEW GAME");
+                //Debug.Log("NO SAVED GAME FOUND... GENERATING NEW GAME");
             }
 
         }
         if (doneTryingServerTime && loadedGame != null){
             doneLoading = true;
-            Debug.Log("EVERYTHING IS LOADED!");
+            //Debug.Log("EVERYTHING IS LOADED!");
         }
     }
 
@@ -509,7 +516,7 @@ public class Game_Manager : MonoBehaviour
 
 
     public void saveData(bool disableTouch = true, bool displayIndicator = true, bool serially = false){ // If Serially, then use no 
-        Debug.Log("SAVING?");
+        //Debug.Log("SAVING?");
         startSaveSequence(disableTouch, displayIndicator);
         getMineCartInfo();
         getResearcherInfo();
@@ -535,7 +542,7 @@ public class Game_Manager : MonoBehaviour
 
 
     private void startSaveSequence(bool disableTouch, bool displayIndicator){
-        Debug.Log("STARTING SAVING?");
+        //Debug.Log("STARTING SAVING?");
         if(disableTouch){
             disableNonUITouch();
         }
@@ -548,7 +555,7 @@ public class Game_Manager : MonoBehaviour
 
 
     private void endSaveSequence(){
-        Debug.Log("ENDING SAVING?");
+        //Debug.Log("ENDING SAVING?");
         enableNonUITouch();
         //Save_Indicator.active = false;
         //Save_Indicator.SetActive(false);
@@ -574,7 +581,7 @@ public class Game_Manager : MonoBehaviour
             }
             try {
                 loadedGame = serializationManager.loadSavedData();
-                Debug.Log("LOADED SAVE");
+                //Debug.Log("LOADED SAVE");
             }
             catch (FileNotFoundException e){
                 Debug.LogError("FAILED TO LOAD SAVE... " + (n_attempts-1) + " MORE ATTEMPTS");
@@ -622,8 +629,8 @@ public class Game_Manager : MonoBehaviour
                             StartCoroutine(GetServerTime(timeRequestUrl, n_attempts-1));
                             break;
                         case UnityWebRequest.Result.Success:
-                            Debug.Log("GOT IT");
-                            Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                            // Debug.Log("GOT IT");
+                            // Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                             serverSessionStartTime = DateTime.Parse(webRequest.downloadHandler.text);
                             serverSessionStartTimeUnix = (double)((DateTimeOffset)serverSessionStartTime).ToUnixTimeSeconds();
                             currentlyTryingServerTime = false;
@@ -646,14 +653,14 @@ public class Game_Manager : MonoBehaviour
     private void initializeMineShaft(double MineGameLastPlayedUnix, double MineGameRefreshTime){
         mineShaftController.mineGameLastPlayedUnix = MineGameLastPlayedUnix;
         mineShaftController.mineGameRefreshTime = MineGameRefreshTime;
-        Debug.Log("INITIALIZING MINESHAFT");
+        //Debug.Log("INITIALIZING MINESHAFT");
         mineShaftController.calculateNextGameTime();
         mineShaftController.initialized = true;
     }
 
 
     private void initializeMineCart(double coinsCapacity, double coinsPerSecond, double lastEmptiedTimeUnix, double prevCurCoins){
-        Debug.Log("MCT: " + minecartManager + ": " + gameTimeUnix);
+        //Debug.Log("MCT: " + minecartManager + ": " + gameTimeUnix);
         minecartManager.coinsCapacity = coinsCapacity;
         minecartManager.coinsPerSecond = coinsPerSecond;
         minecartManager.lastEmptiedTimeUnix = lastEmptiedTimeUnix;
@@ -687,7 +694,7 @@ public class Game_Manager : MonoBehaviour
             remainingLaunches++;
             //prevLaunchTimeUnix += launchRefreshTime;
             prevLaunchTimeUnix = gameTimeUnix;
-            Debug.Log("REFRESHED!!!");
+            //Debug.Log("REFRESHED!!!");
         }
     }
 
@@ -754,7 +761,7 @@ public class Game_Manager : MonoBehaviour
 
     
     private void onMinecartTapped(double cartCoins){
-        Debug.Log("CART COINS: " + cartCoins);
+        //Debug.Log("CART COINS: " + cartCoins);
         coins += cartCoins;
         getMineCartInfo();
     }
@@ -807,12 +814,12 @@ public class Game_Manager : MonoBehaviour
 
     //Turns off/on whether elements other than UI elements can be tapped on
     private void disableNonUITouch(){
-        Debug.Log("DisableRet Game Manager " + DateTime.Now);
+        //Debug.Log("DisableRet Game Manager " + DateTime.Now);
         touchDetection.disableReticle();
     }
 
     private void enableNonUITouch(){
-        Debug.Log("EnableRet Game Manager " + DateTime.Now);
+        //Debug.Log("EnableRet Game Manager " + DateTime.Now);
         touchDetection.enableReticle();
     }
 
@@ -832,14 +839,14 @@ public class Game_Manager : MonoBehaviour
         if (coins >= mineGameHitCoinsUpgradePrice){
             coins -= mineGameHitCoinsUpgradePrice;
             mineGameHitCoins = Progression_Multiplier_Generator.generateMineGameHitCoinsUpgradeValue(mineGameHitCoins);
-            Debug.Log("HASHING UPGRADE BUTTON PRESSED --- MINE GAME HIT COINS: " + mineGameHitCoins);
+            //Debug.Log("HASHING UPGRADE BUTTON PRESSED --- MINE GAME HIT COINS: " + mineGameHitCoins);
             mineGameHitCoinsUpgradePrice = Progression_Multiplier_Generator.generateMineGameHitCoinsUpgradePriceValue(mineGameHitCoinsUpgradePrice);
             //uiController.selectMineUpgrade();
             adsManager.showInterstitialAd();
         }
         else {
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
-            Debug.Log("NOT ENOUGH COINS FOR THAT");
+            //Debug.Log("NOT ENOUGH COINS FOR THAT");
         }
     }
 
@@ -848,13 +855,13 @@ public class Game_Manager : MonoBehaviour
             coins -= mineGameSolveCoinsUpgradePrice;
             mineGameSolveCoins = Progression_Multiplier_Generator.generateMineGameSolveCoinsUpgradeValue(mineGameSolveCoins);
             mineGameSolveCoinsUpgradePrice = Progression_Multiplier_Generator.generateMineGameSolveCoinsUpgradePriceValue(mineGameSolveCoinsUpgradePrice);
-            Debug.Log("BLOCKCHAIN NETWORK UPGRADE BUTTON PRESSED --- MINE GAME SOLVE COINS: " + mineGameSolveCoins);
+            //Debug.Log("BLOCKCHAIN NETWORK UPGRADE BUTTON PRESSED --- MINE GAME SOLVE COINS: " + mineGameSolveCoins);
             //uiController.selectMineUpgrade();
             adsManager.showInterstitialAd();
         }
         else {
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
-            Debug.Log("NOT ENOUGH COINS FOR THAT");
+            //Debug.Log("NOT ENOUGH COINS FOR THAT");
         }
     }
 
@@ -862,7 +869,7 @@ public class Game_Manager : MonoBehaviour
         if (coins >= mineCartCoinsPerSecondUpgradePrice){
             coins -= mineCartCoinsPerSecondUpgradePrice;
             mineCartCoinsPerSecond = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradeValue(mineCartCoinsPerSecond);
-            Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
+            //Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
             mineCartCoinsPerSecondUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradePriceValue(mineCartCoinsPerSecondUpgradePrice);
             minecartManager.coinsPerSecond = mineCartCoinsPerSecond;
             minecartManager.calculateNextFullTime();
@@ -871,7 +878,7 @@ public class Game_Manager : MonoBehaviour
         }
         else{
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
-            Debug.Log("NOT ENOUGH COINS FOR THAT");
+            //Debug.Log("NOT ENOUGH COINS FOR THAT");
         }
     }
 
@@ -879,7 +886,7 @@ public class Game_Manager : MonoBehaviour
         if (coins >= mineCartCoinsCapacityUpgradePrice){
             coins -= mineCartCoinsCapacityUpgradePrice;
             mineCartCoinsCapacity = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradeValue(mineCartCoinsCapacity);
-            Debug.Log("COLD STORAGE UPGRADE BUTTON PRESSED --- MINE CART COINS CAPACITY: " + mineCartCoinsCapacity);
+            //Debug.Log("COLD STORAGE UPGRADE BUTTON PRESSED --- MINE CART COINS CAPACITY: " + mineCartCoinsCapacity);
             mineCartCoinsCapacityUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradePriceValue(mineCartCoinsCapacityUpgradePrice);
             minecartManager.coinsCapacity = mineCartCoinsCapacity;
             minecartManager.calculateNextFullTime();
@@ -888,7 +895,7 @@ public class Game_Manager : MonoBehaviour
         }
         else{
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
-            Debug.Log("NOT ENOUGH COINS FOR THAT");
+            //Debug.Log("NOT ENOUGH COINS FOR THAT");
         }
     }
 
@@ -903,7 +910,7 @@ public class Game_Manager : MonoBehaviour
 
     // Rocket Flight Event Handlers
     private void onGemCollected(){
-        Debug.Log("Gem Collected");
+        //Debug.Log("Gem Collected");
         gems++;
     }
     // End Rocket Flight Event Handlers
@@ -925,7 +932,7 @@ public class Game_Manager : MonoBehaviour
         switch(sceneName) 
         {
             case "Main_Area":
-                Debug.Log("DISABLING TOUCH");
+                //Debug.Log("DISABLING TOUCH");
                 disableNonUITouch();
                 break;
             case "Mine_Game":
@@ -942,7 +949,7 @@ public class Game_Manager : MonoBehaviour
         switch(sceneName) 
         {
             case "Main_Area":
-                Debug.Log("ENABLING TOUCH");
+                //Debug.Log("ENABLING TOUCH");
                 enableNonUITouch();
                 break;
             case "Mine_Game":

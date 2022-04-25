@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+using UnityEngine.SceneManagement;
+
 public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
 {
 
@@ -133,9 +136,11 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
 
     void ISerialization_Manager.saveGameDataSerially(){
         // Just Kinda Send It Out There and Hope It Saves
-        Debug.Log("TRYNA SAVE BEBE");
-        SaveGameObject data = GenerateSaveGameObject();
-        playFabManager.SaveData(data);
+        //Debug.Log("TRYNA SAVE BEBE");
+        if (SceneManager.GetActiveScene().name != "Landing_Page"){
+            SaveGameObject data = GenerateSaveGameObject();
+            playFabManager.SaveData(data);
+        }
     }
 
 

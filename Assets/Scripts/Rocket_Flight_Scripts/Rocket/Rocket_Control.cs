@@ -99,7 +99,7 @@ public class Rocket_Control : MonoBehaviour
         if (thrustInitialized){ // Game_Manager_Will_Set_This
             if (thrust > 0.0 && userHasControl){
                 if(reachedTargetAltitude && !startedSpiral){
-                    Debug.Log("Reached Target Altitude.. We're Chilling");
+                    //Debug.Log("Reached Target Altitude.. We're Chilling");
                     RotateRocketInMovementDirection();
                     startedSpiral = true;
                     // if (!startedSpiral){
@@ -110,7 +110,7 @@ public class Rocket_Control : MonoBehaviour
                     // }
                 }
                 else{
-                    Debug.Log("HELLO MOVING ROCKET");
+                    //Debug.Log("HELLO MOVING ROCKET");
                     MoveRocket();
                     MaintainMinRotation();
                 }
@@ -138,7 +138,7 @@ public class Rocket_Control : MonoBehaviour
 
     // void MoveSideways(){
     //     if (touchDetection.dragLocs.Count != 0)
-    //         Debug.Log(touchDetection.TouchPos2ScreenPos(touchDetection.dragLocs[touchDetection.dragLocs.Count-1]));
+    //         //Debug.Log(touchDetection.TouchPos2ScreenPos(touchDetection.dragLocs[touchDetection.dragLocs.Count-1]));
     // }
 
 
@@ -349,11 +349,11 @@ public class Rocket_Control : MonoBehaviour
     void onGamePause(bool pause){
         
         if (pause){
-            Debug.Log("PAUSING SHIP");
+            //Debug.Log("PAUSING SHIP");
             shipRb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
         else{
-            Debug.Log("UNPAUSING SHIP " + shipRb);
+            //Debug.Log("UNPAUSING SHIP " + shipRb);
             shipRb.constraints = ~RigidbodyConstraints2D.FreezeAll;
         }
     }

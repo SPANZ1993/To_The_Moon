@@ -153,12 +153,6 @@ public class Touch_Detection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(reticleDisabled){
-            Debug.Log("RETICLE DISABLED!!");
-        }
-        else{
-            Debug.Log("RETICLE ENABLED");
-        }
 
 
         //Update the Text on the screen depending on current TouchPhase, and the current direction vector

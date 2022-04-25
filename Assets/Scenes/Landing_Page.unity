@@ -509,6 +509,7 @@ MonoBehaviour:
   getServerTimeWait: 1
   getServerTimeRetries: 3
   timeRequestUrl: localhost:8000
+  initializeGameOnReturnToMainArea: 0
   loadSaveWait: 1
   loadSaveRetries: 3
   coins: 0
@@ -531,7 +532,7 @@ MonoBehaviour:
   unlockedResearcherIds: 
   assignedResearchers: []
   unlockedExperimentIds: 
-  shouldSaveOnPauseQuit: 1
+  doneLoading: 0
 --- !u!4 &203233948
 Transform:
   m_ObjectHideFlags: 0
@@ -712,6 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene_name: 
+  prev_scene_name: 
   playMineGame: 0
 --- !u!4 &472276979
 Transform:
@@ -1274,7 +1276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugResearch: 0
-  debugExperiment: 1
+  debugExperiment: 0
   researchMenuDisplayed: 0
   NotEnoughCoinsBox: {fileID: 0}
   selectedSprite: {fileID: 7843416716369364892, guid: d40b72e6ffbe36740b3dceacde0e3532, type: 3}

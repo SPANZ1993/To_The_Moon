@@ -222,7 +222,7 @@ public class Robot_Controller : MonoBehaviour, ITappable
         else
         {
             if (tapInitiated && tapped){
-                Debug.Log("TAPPED THE ROBOT");
+                //Debug.Log("TAPPED THE ROBOT");
                 _RobotTappedInfo();
             }
             tapped = false;

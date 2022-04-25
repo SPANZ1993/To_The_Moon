@@ -638,7 +638,7 @@ public class Mine_Game_Manager : MonoBehaviour
     }
 
     private void onAdLoadingSuccess(string adUnitId){
-        Debug.Log("AD LOADED SUCCESS: " + adUnitId);
+        //Debug.Log("AD LOADED SUCCESS: " + adUnitId);
         if(adUnitId.StartsWith("Rewarded")){
             rewardedAdLoaded = true;
         }

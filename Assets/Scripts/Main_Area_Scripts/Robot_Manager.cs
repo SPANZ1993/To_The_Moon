@@ -103,7 +103,7 @@ public class Robot_Manager : MonoBehaviour
 
     
     void onRobotTapped(){
-        Debug.Log("ROBOT TAPPED FROM MANAGER... STATE IS: " + Enum.GetName(typeof(RobotStates), RobotState));
+        //Debug.Log("ROBOT TAPPED FROM MANAGER... STATE IS: " + Enum.GetName(typeof(RobotStates), RobotState));
         RobotTappedInfo();
     }
 

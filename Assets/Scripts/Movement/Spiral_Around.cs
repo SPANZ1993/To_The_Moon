@@ -68,19 +68,19 @@ public class Spiral_Around : MonoBehaviour
 
 
 
-            Debug.Log("STARTING ANGLE: " + Angle);
+            //Debug.Log("STARTING ANGLE: " + Angle);
 
             // float radius = Vector2.Distance(obj.transform.position, target.transform.position);
             // float angle = Angle;
             // float angleSpeed = AngleSpeed;
             // float radialSpeed = RadialSpeed;
-            Debug.Log("OBJ: " + obj);
-            Debug.Log("INSTANCE: " + instance);
-            Debug.Log("TARGET: " + target);
-            Debug.Log("TARGET RADIUS: " + targetRadius);
-            Debug.Log("ANGLE: " + Angle);
-            Debug.Log("ANGLE SPEED: " + AngleSpeed);
-            Debug.Log("RADIAL SPEED: " + RadialSpeed);
+            //Debug.Log("OBJ: " + obj);
+            //Debug.Log("INSTANCE: " + instance);
+            //Debug.Log("TARGET: " + target);
+            //Debug.Log("TARGET RADIUS: " + targetRadius);
+            //Debug.Log("ANGLE: " + Angle);
+            //Debug.Log("ANGLE SPEED: " + AngleSpeed);
+            //Debug.Log("RADIAL SPEED: " + RadialSpeed);
 
             
 

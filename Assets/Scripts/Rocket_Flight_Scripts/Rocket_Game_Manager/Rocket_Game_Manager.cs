@@ -103,7 +103,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         }
         if (gameStarted){
             rocketAltitude = calculateAltitude(rocket);
-            Debug.Log("REACHED TARGET ALTITUDE: " + reachedTargetAltitude);
+            //Debug.Log("REACHED TARGET ALTITUDE: " + reachedTargetAltitude);
             if(rocketAltitude >= targetAltitude){
                 reachedTargetAltitude = true;
                 rocketControl.reachedTargetAltitude = true;
@@ -282,7 +282,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     }
 
     private void onAdLoadingSuccess(string adUnitId){
-        Debug.Log("AD LOADED SUCCESS: " + adUnitId);
+        //Debug.Log("AD LOADED SUCCESS: " + adUnitId);
         if(adUnitId.StartsWith("Rewarded")){
             rewardedAdLoaded = true;
         }
@@ -296,7 +296,7 @@ public class Rocket_Game_Manager : MonoBehaviour
 
 
     private void onRocketFuelEmpty(){
-        Debug.Log("FUEL EMPTY FROM RGM");
+        //Debug.Log("FUEL EMPTY FROM RGM");
         if(rewardedAdAttempted){
             rocketControl.dropRocket();
             Invoke("endGameOnFailure", 5f);
@@ -316,7 +316,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     }
 
     public void SendAlertPause(bool paused){
-        Debug.Log("PAUSING GAME");
+        //Debug.Log("PAUSING GAME");
         if (PauseLaunchSceneInfo != null){
             PauseLaunchSceneInfo(paused);
         }
