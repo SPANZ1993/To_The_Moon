@@ -115,7 +115,7 @@ public class Game_Manager : MonoBehaviour
 
     // References to game element controllers
     private ISerialization_Manager serializationManager;
-    private Minecart_Controller minecartController;
+    private Minecart_Manager minecartManager;
     private Robot_Manager robotManager;
     private Mine_Shaft_Controller mineShaftController;
     private Research_Manager researchManager;
@@ -171,7 +171,7 @@ public class Game_Manager : MonoBehaviour
             if (sceneManager.scene_name == "Main_Area"){
                 touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
                 serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
-                minecartController = GameObject.Find("Minecart").GetComponent<Minecart_Controller>();
+                minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
                 sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
@@ -182,14 +182,14 @@ public class Game_Manager : MonoBehaviour
                 Save_Indicator.GetComponent<SpriteRenderer>().enabled = false;
                 //Debug.Log("HELLO FROM START: " + serverSessionStartTime);
 
-                minecartController = GameObject.Find("Minecart").GetComponent<Minecart_Controller>();
+                minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
                 Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);
-                if (sceneManager.prev_scene_name != "Landing_Page"){
-                    StartCoroutine(_initializeMineCartLevelStart(mineCartCoinsCapacity, mineCartCoinsPerSecond, mineCartLastEmptiedTimeUnix, mineCartCurCoins));
-                    initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
-                }
+                // if (sceneManager.prev_scene_name != "Landing_Page"){
+                //     StartCoroutine(_initializeMineCartLevelStart(mineCartCoinsCapacity, mineCartCoinsPerSecond, mineCartLastEmptiedTimeUnix, mineCartCurCoins));
+                //     initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
+                // }
                 //initializeResearch(loadedGame.UnlockedResearchIds, loadedGame.UnlockedResearcherIds, loadedGame.AssignedResearchers, offLineMode: true);
                 //getResearcherInfo();
                 //initializeResearch(unlockedResearchIds , unlockedResearcherIds, assignedResearchers, offLineMode: false);
@@ -262,7 +262,7 @@ public class Game_Manager : MonoBehaviour
     void OnEnable()
     {
         Launch_Button_Controller.InitiateLaunchInfo += onLaunchInitiated;
-        Minecart_Controller.MinecartTappedInfo += onMinecartTapped;
+        Minecart_Manager.MinecartTappedInfo += onMinecartTapped;
         UI_Controller.UIDisplayStartedInfo += onUIDisplayStarted;
         UI_Controller.UIDisplayEndedInfo += onUIDisplayEnded;
         
@@ -295,7 +295,7 @@ public class Game_Manager : MonoBehaviour
     void OnDisable()
     {
         Launch_Button_Controller.InitiateLaunchInfo -= onLaunchInitiated;
-        Minecart_Controller.MinecartTappedInfo -= onMinecartTapped;
+        Minecart_Manager.MinecartTappedInfo -= onMinecartTapped;
         UI_Controller.UIDisplayStartedInfo -= onUIDisplayStarted;
         UI_Controller.UIDisplayEndedInfo -= onUIDisplayEnded;
 
@@ -413,7 +413,7 @@ public class Game_Manager : MonoBehaviour
 
             Debug.Log("OFFLINE DAWG!");
             //Minecart
-            initializeMineCart(loadedGame.CartCapacity, loadedGame.CartCoinsPerSecond, minecartController.spoofLastEmptiedTime(loadedGame.CartCurCoins), loadedGame.CartCurCoins);
+            initializeMineCart(loadedGame.CartCapacity, loadedGame.CartCoinsPerSecond, minecartManager.spoofLastEmptiedTime(loadedGame.CartCurCoins), loadedGame.CartCurCoins);
             //
             //Mine Shaft
             mineGameLastPlayedUnix = mineShaftController.spoofLastMineGamePlayedTime();
@@ -653,19 +653,19 @@ public class Game_Manager : MonoBehaviour
 
 
     private void initializeMineCart(double coinsCapacity, double coinsPerSecond, double lastEmptiedTimeUnix, double prevCurCoins){
-        Debug.Log("MCT: " + minecartController + ": " + gameTimeUnix);
-        minecartController.coinsCapacity = coinsCapacity;
-        minecartController.coinsPerSecond = coinsPerSecond;
-        minecartController.lastEmptiedTimeUnix = lastEmptiedTimeUnix;
-        minecartController.initializeCurCoins(prevCurCoins);
-        minecartController.calculateNextFullTime();
+        Debug.Log("MCT: " + minecartManager + ": " + gameTimeUnix);
+        minecartManager.coinsCapacity = coinsCapacity;
+        minecartManager.coinsPerSecond = coinsPerSecond;
+        minecartManager.lastEmptiedTimeUnix = lastEmptiedTimeUnix;
+        minecartManager.initializeCurCoins(prevCurCoins);
+        minecartManager.calculateNextFullTime();
     }
 
 
     IEnumerator _initializeMineCartLevelStart(double coinsCapacity, double coinsPerSecond, double lastEmptiedTimeUnix, double prevCurCoins){
         // Does this a little too quick when loading into the main scene so wait for the cart to run its start method
         yield return new WaitForSeconds(0.0f);
-        if (minecartController.startComplete){
+        if (minecartManager.startComplete){
             initializeMineCart(coinsCapacity, coinsPerSecond, lastEmptiedTimeUnix, prevCurCoins);
         }
         else{
@@ -675,10 +675,10 @@ public class Game_Manager : MonoBehaviour
 
 
     private void getMineCartInfo(){
-        mineCartLastEmptiedTimeUnix = minecartController.lastEmptiedTimeUnix;
-        mineCartCurCoins = minecartController.curCoins;
-        mineCartCoinsCapacity =  minecartController.coinsCapacity;
-        mineCartCoinsPerSecond = minecartController.coinsPerSecond;
+        mineCartLastEmptiedTimeUnix = minecartManager.lastEmptiedTimeUnix;
+        mineCartCurCoins = minecartManager.curCoins;
+        mineCartCoinsCapacity =  minecartManager.coinsCapacity;
+        mineCartCoinsPerSecond = minecartManager.coinsPerSecond;
     }
     
 
@@ -763,7 +763,7 @@ public class Game_Manager : MonoBehaviour
 
     private void onMineGameCoinsAdd(double mineGameCoins){
         coins += mineGameCoins;
-        //saveData(disableTouch: false, displayIndicator: false, serially: false);
+        saveData(disableTouch: false, displayIndicator: false, serially: false);
     }
 
     
@@ -864,8 +864,8 @@ public class Game_Manager : MonoBehaviour
             mineCartCoinsPerSecond = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradeValue(mineCartCoinsPerSecond);
             Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
             mineCartCoinsPerSecondUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradePriceValue(mineCartCoinsPerSecondUpgradePrice);
-            minecartController.coinsPerSecond = mineCartCoinsPerSecond;
-            minecartController.calculateNextFullTime();
+            minecartManager.coinsPerSecond = mineCartCoinsPerSecond;
+            minecartManager.calculateNextFullTime();
             //uiController.selectCartUpgrade();
             adsManager.showInterstitialAd();
         }
@@ -881,8 +881,8 @@ public class Game_Manager : MonoBehaviour
             mineCartCoinsCapacity = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradeValue(mineCartCoinsCapacity);
             Debug.Log("COLD STORAGE UPGRADE BUTTON PRESSED --- MINE CART COINS CAPACITY: " + mineCartCoinsCapacity);
             mineCartCoinsCapacityUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradePriceValue(mineCartCoinsCapacityUpgradePrice);
-            minecartController.coinsCapacity = mineCartCoinsCapacity;
-            minecartController.calculateNextFullTime();
+            minecartManager.coinsCapacity = mineCartCoinsCapacity;
+            minecartManager.calculateNextFullTime();
             //uiController.selectCartUpgrade();
             adsManager.showInterstitialAd();
         }

@@ -20207,6 +20207,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8377567534435457891, guid: d49cab3d560ce544bb106f252a4990c5, type: 3}
   m_PrefabInstance: {fileID: 1924746523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1464411913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1464411914}
+  - component: {fileID: 1464411915}
+  m_Layer: 0
+  m_Name: Minecart_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1464411914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464411913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5188815, y: -2.1462474, z: 12946.046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 67
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464411915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464411913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375a2c1aa0d31534187c0b96a8f37576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastEmptiedTimeUnix: 0
+  curCoins: 0
+  coinsCapacity: 0
+  coinsPerSecond: 0
+  startComplete: 0
 --- !u!1 &1468588782
 GameObject:
   m_ObjectHideFlags: 0
@@ -20639,12 +20688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e44e5c91cf89345a2e7430ae2d59f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastEmptiedTimeUnix: 0
-  curCoins: 0
-  coinsCapacity: 100
-  coinsPerSecond: 2
   Input_Detector: {fileID: 1105566507}
-  startComplete: 0
 --- !u!114 &1537949201
 MonoBehaviour:
   m_ObjectHideFlags: 0
