@@ -16,6 +16,7 @@ public class Countdown_Timer_Controller_Mineshaft : Countdown_Timer_Controller_B
 
     protected override void setTimeLeft(){
         timeLeft = mineShaftController.nextRefreshTimeUnix - gameManager.gameTimeUnix;
+        Debug.Log("TimeLeft Mineshaft: " + timeLeft + " ---- " + mineShaftController.nextRefreshTimeUnix + " ---- " + gameManager.gameTimeUnix);
     }
 
     protected override void setIsReady(){

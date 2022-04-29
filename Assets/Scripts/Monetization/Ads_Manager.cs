@@ -25,6 +25,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     #endif
 
     public bool testMode = true; // TODO: Switch this to false for production
+    private bool bannerAdShouldBeShowing = true; // We tried to show the banner ad, it is either showing or we are waiting for it to load
 
 
 
@@ -88,11 +89,12 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
             loadInterstitialAd();
         }
         else if (SceneManager.GetActiveScene().name == "Mine_Game"){
-            showBannerAd();
+            //showBannerAd();
+            
             loadRewardedAd();
         }
         else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
-            showBannerAd(pos:BannerPosition.TOP_CENTER);
+            //showBannerAd(pos:BannerPosition.TOP_CENTER);
             loadRewardedAd();
         }
     }
@@ -203,6 +205,10 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
             yield return new WaitForSeconds(0);
         }
         Advertisement.Banner.Show(bannerPlacementId);
+    }
+
+    public void hidBannerAd(){
+        Advertisement.Banner.Hide();
     }
 
 

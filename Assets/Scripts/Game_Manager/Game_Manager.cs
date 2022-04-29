@@ -69,6 +69,7 @@ public class Game_Manager : MonoBehaviour
     // Game Info
     public double coins = 0.0;
     public double gems = 0.0;
+    public int maxLaunches = 3; // How many launches would we have if they were full
     public int remainingLaunches = 3;
     public double thrust = 100.0;
 
@@ -189,11 +190,16 @@ public class Game_Manager : MonoBehaviour
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
                 //Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);
+
+
                 
                 if(initializeGameOnReturnToMainArea){
                     PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
                     playFabInitializer.callBack = initializeGame;
                     initializeGameOnReturnToMainArea = false;
+                }
+                else{
+                    initializeMineShaft(mineGameLastPlayedUnix, mineGameRefreshTime);
                 }
                 // if (sceneManager.prev_scene_name != "Landing_Page"){
                 //     StartCoroutine(_initializeMineCartLevelStart(mineCartCoinsCapacity, mineCartCoinsPerSecond, mineCartLastEmptiedTimeUnix, mineCartCurCoins));
@@ -204,6 +210,12 @@ public class Game_Manager : MonoBehaviour
                 //initializeResearch(unlockedResearchIds , unlockedResearcherIds, assignedResearchers, offLineMode: false);
             }
             else if (sceneManager.scene_name == "Rocket_Flight"){
+                if (remainingLaunches == maxLaunches){
+                    prevLaunchTimeUnix = gameTimeUnix;
+                }
+                remainingLaunches--;
+                
+
                 Rocket_Control rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
                 rocketControl.thrust = thrust; 
                 rocketControl.thrustInitialized = true; 
@@ -222,7 +234,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("SERIALIZING?: " + currentlySerializing);
+        //Debug.Log("SERIALIZING?: " + Serializing);
         //Debug.Log("MINEGAME: " + mineGameHitCoins + " --- " + mineGameSolveCoins);
         
         gameTimeUnix += (double)Time.deltaTime;
@@ -342,6 +354,11 @@ public class Game_Manager : MonoBehaviour
         OnApplicationFocus();
     }
 
+
+    public void onApplicationPause(){ // REMOVE
+        OnApplicationPause();
+    }
+
     void OnApplicationFocus(){
 
         // Debug.Log("APP FOCUS");
@@ -372,7 +389,7 @@ public class Game_Manager : MonoBehaviour
     void OnApplicationPause(){
         if (frameCount != 0){
             // Debug.Log("WOOP: Application Paused --- " + DateTime.Now);
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused --- " + DateTime.Now;
+            //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused --- " + DateTime.Now;
             saveData(disableTouch: false, displayIndicator: false, serially: true);
         }
         else if(SceneManager.GetActiveScene().name == "Main_Area"){
@@ -411,7 +428,11 @@ public class Game_Manager : MonoBehaviour
         
         coins = loadedGame.Coins;
         gems = loadedGame.Gems;
-        remainingLaunches = loadedGame.LaunchesRemaining;
+        //Debug.Log("SETTING LAUNCHES REMAINING TO: " + loadedGame.LaunchesRemaining);
+        remainingLaunches = loadedGame.LaunchesRemaining + Convert.ToInt32(Math.Max(Math.Floor((gameTimeUnix - loadedGame.LastLaunchTimeUnix)/launchRefreshTime), 0.0));
+        if(remainingLaunches > maxLaunches){ // NOT SURE WHY IT'S DOING THIS BUT...
+            remainingLaunches = maxLaunches;
+        }
 
         mineGameHitCoins = loadedGame.MineGameHitCoins;
         mineGameSolveCoins = loadedGame.MineGameSolveCoins;
@@ -458,6 +479,7 @@ public class Game_Manager : MonoBehaviour
         mineCartCoinsCapacityUpgradePrice = loadedGame.CartCoinsCapacityUpgradePrice;
 
         getMineCartInfo();
+
         initializedGame = true;
     }
 
@@ -690,6 +712,7 @@ public class Game_Manager : MonoBehaviour
     
 
     private void updateRemainingLaunches(){
+        //Debug.Log("HELLO WE'RE HERE ALSO: " + remainingLaunches);
         if (gameTimeUnix > prevLaunchTimeUnix + launchRefreshTime){
             remainingLaunches++;
             //prevLaunchTimeUnix += launchRefreshTime;
@@ -756,7 +779,11 @@ public class Game_Manager : MonoBehaviour
 
 
     private void onLaunchInitiated(){
-        remainingLaunches--;
+        //remainingLaunches--;
+        if (remainingLaunches > maxLaunches){
+            remainingLaunches = maxLaunches;
+        }
+        Debug.Log("HELLO WE'RE HERE: " + remainingLaunches);
     }
 
     

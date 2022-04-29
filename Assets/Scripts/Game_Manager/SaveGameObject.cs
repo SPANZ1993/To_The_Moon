@@ -49,8 +49,8 @@ public class SaveGameObject
 
 
     public double LastLaunchTimeUnix {get; set;}
-
     public int LaunchesRemaining {get; set;}
+    public double PrevLaunchTime{get; set;}
 
     public List<int> UnlockedResearchIds {get; set;}
     public List<int> UnlockedResearcherIds {get; set;}
@@ -67,13 +67,14 @@ public class SaveGameObject
         Coins = 0.0;
         Gems = 0.0;
 
-        CartLastEmptiedTimeUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() - (31536000*10); // 10 years ago //(double)((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+        CartLastEmptiedTimeUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() - (31536000*10); // 10 years ago
         CartCurCoins = 0.0;
         CartCoinsPerSecond = 1.0;
         CartCapacity = 100.0;
         CartCoinsPerSecondUpgradePrice = 100.0;
         CartCoinsCapacityUpgradePrice = 100.0;
 
+        LastLaunchTimeUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() + (31536000*10); // 10 years in the future
         LaunchesRemaining = 3;
 
         MineGameLastPlayedUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() - (31536000*10); // 10 years ago

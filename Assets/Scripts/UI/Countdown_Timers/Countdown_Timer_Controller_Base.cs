@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+using System;
+
 public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make this an abstract class with abstract methods to check the time left and whether the time is done
 {
 
@@ -77,6 +79,46 @@ public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make th
 
     private void updateTimer(){
 
+        double[] ConvertSectoDayOld(double n)
+        {
+            double day = n / (24.0 * 3600.0);
+        
+            n = n % (24.0 * 3600.0);
+            double hour = n / 3600.0;
+        
+            n %= 3600.0;
+            double minutes = n / 60.0 ;
+        
+            n %= 60.0;
+            double seconds = n;
+
+
+            if(day < 1.0){
+                day = 0.0;
+                if(hour < 1.0){
+                    hour = 0.0;
+                    if(minutes < 1.0){
+                        minutes = 0;
+                        if(seconds < 1.0){
+                            seconds = 1.0;
+                        }
+                    }
+                }
+
+            }
+            
+            return new double[] {day, hour, minutes, seconds};
+        }
+
+
+        double[] ConvertSectoDay2(double n){
+            TimeSpan t = new TimeSpan(Convert.ToInt64(n));
+            Debug.Log("TIMESPAN: " + t + " --- " + Convert.ToInt64(n));
+            return new double[] {Convert.ToDouble(t.Days), Convert.ToDouble(t.Hours), Convert.ToDouble(t.Minutes), Convert.ToDouble(t.Seconds)};
+        }
+
+
+
         double[] ConvertSectoDay(double n)
         {
             double day = n / (24.0 * 3600.0);
@@ -108,11 +150,18 @@ public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make th
             return new double[] {day, hour, minutes, seconds};
         }
 
+
+
         if(isReady){
             textTMP.text = "READY";
         }
         else{
             double[] timeArr = ConvertSectoDay(timeLeft);
+            Console.WriteLine("WORLSKDJFL:S");
+
+            Console.WriteLine("TIMESPAN: " + string.Join(", ", timeArr));
+
+
             string displayString = "";
             if(timeArr[0] != 0.0){
                 displayString += "D: " + timeArr[0].ToString("0");

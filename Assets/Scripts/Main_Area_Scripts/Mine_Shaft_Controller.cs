@@ -101,8 +101,10 @@ public class Mine_Shaft_Controller : MonoBehaviour, ITappable
 
     // Sometimes at the start of a scene this will get called before we have the gameManager reference so just wait until we have it from Start()
     IEnumerator _calculateNextGameTime(){ 
+        Debug.Log("CALCULATING NEXT TIME!!!!");
         yield return new WaitForSeconds(0);
         if(gameManager != null){
+            Debug.Log("CALCULATING NEXT TIME!!!!  --- DID IT");
             nextRefreshTimeUnix = mineGameLastPlayedUnix + gameManager.mineGameRefreshTime;
             //Debug.Log("SETTING NEXT REFRESH TIME: " + nextRefreshTimeUnix + "\n CURTIME: " + gameManager.gameTimeUnix);
             refreshCalculated = true;
