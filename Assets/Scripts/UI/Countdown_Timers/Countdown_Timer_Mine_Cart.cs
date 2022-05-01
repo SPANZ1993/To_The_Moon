@@ -16,6 +16,7 @@ public class Countdown_Timer_Mine_Cart : Countdown_Timer_Controller_Base
 
     protected override void setTimeLeft(){
         timeLeft = minecartManager.secondsLeft;
+        Debug.Log("TIME LEFT MINE CART SECONDS: " + timeLeft);
     }
 
     protected override void setIsReady(){
