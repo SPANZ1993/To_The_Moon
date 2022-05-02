@@ -283,7 +283,7 @@ public class Game_Manager : MonoBehaviour
 
     void OnEnable()
     {
-        Launch_Button_Controller.InitiateLaunchInfo += onLaunchInitiated;
+        Scene_Manager.InitiateLaunchInfo += onLaunchInitiated;
         Minecart_Manager.MinecartTappedInfo += onMinecartTapped;
         UI_Controller.UIDisplayStartedInfo += onUIDisplayStarted;
         UI_Controller.UIDisplayEndedInfo += onUIDisplayEnded;
@@ -316,7 +316,7 @@ public class Game_Manager : MonoBehaviour
 
     void OnDisable()
     {
-        Launch_Button_Controller.InitiateLaunchInfo -= onLaunchInitiated;
+        Scene_Manager.InitiateLaunchInfo -= onLaunchInitiated;
         Minecart_Manager.MinecartTappedInfo -= onMinecartTapped;
         UI_Controller.UIDisplayStartedInfo -= onUIDisplayStarted;
         UI_Controller.UIDisplayEndedInfo -= onUIDisplayEnded;

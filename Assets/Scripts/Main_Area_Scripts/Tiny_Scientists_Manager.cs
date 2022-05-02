@@ -79,12 +79,12 @@ public class Tiny_Scientists_Manager : MonoBehaviour
 
     void OnEnable()
     {
-        Launch_Button_Controller.InitiateLaunchInfo += onLaunchInitiated;
+        Scene_Manager.InitiateLaunchInfo += onLaunchInitiated;
     }
 
     void OnDisable()
     {
-        Launch_Button_Controller.InitiateLaunchInfo -= onLaunchInitiated;
+        Scene_Manager.InitiateLaunchInfo -= onLaunchInitiated;
     }
 
 

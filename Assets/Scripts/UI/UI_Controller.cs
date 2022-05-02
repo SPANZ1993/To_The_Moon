@@ -204,6 +204,17 @@ public class UI_Controller : MonoBehaviour
     private bool NotEnoughCoinsBoxDisplayed = false;
     // End Not Enough Coins Box
 
+
+    // autopilot Confirmation Box
+    public GameObject autopilotConfirmationBox;
+    public TextMeshProUGUI autopilotConfirmationBoxText;
+    public TextMeshProUGUI autopilotConfirmationBoxYesText;
+    public TextMeshProUGUI autopilotConfirmationBoxNoText;
+    
+    public delegate void AutopilotSelected(bool selected);
+    public static event AutopilotSelected AutopilotSelectedInfo;
+    // End autopilot Confirmation Box
+
     bool screenTintFirstDisplayed = false; // Has the screen tint object been shown yet?
     private GameObject ScreenTintObj;
 
@@ -517,8 +528,13 @@ public class UI_Controller : MonoBehaviour
             NotEnoughCoinsBox = GameObject.Find("Not_Enough_Coins_Box");
             // End Not Enough Coins Box
 
-
-
+            // autopilot Confirmation Box
+            autopilotConfirmationBox = GameObject.Find("Autopilot_Confirmation_Box");
+            autopilotConfirmationBoxText = GameObject.Find("Autopilot_Confirmation_Text").GetComponent<TextMeshProUGUI>();
+            autopilotConfirmationBoxYesText = GameObject.Find("Autopilot_Confirmation_Yes_Button_Text").GetComponent<TextMeshProUGUI>();
+            autopilotConfirmationBoxNoText = GameObject.Find("Autopilot_Confirmation_No_Button_Text").GetComponent<TextMeshProUGUI>();
+            displayAutoPilotConfirmationBox(false);
+            // End autopilot Confirmation Box
 
 
             //setActiveExperiments(new int[] {0, 1, 3});
@@ -1711,11 +1727,16 @@ public class UI_Controller : MonoBehaviour
             curGameObj = child.gameObject;
             
             if (curGameObj.name == "Research_Confirmation_Text"){
-                curGameObj.GetComponent<TextMeshProUGUI>().text = localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text_0") + " " + 
-                                                                IDCard.transform.Find("Researcher_ID_Name_Text").GetComponent<TextMeshProUGUI>().text + " " + 
-                                                                localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text_1") + " " + 
-                                                                selectedResearchPanel.transform.Find("Research_Label_Text").GetComponent<TextMeshProUGUI>().text + 
-                                                                localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text_2");
+                string t = localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text");
+                t = t.Replace("{researcher}", IDCard.transform.Find("Researcher_ID_Name_Text").GetComponent<TextMeshProUGUI>().text);
+                t = t.Replace("{research}", selectedResearchPanel.transform.Find("Research_Label_Text").GetComponent<TextMeshProUGUI>().text);
+                curGameObj.GetComponent<TextMeshProUGUI>().text = t;
+
+                // curGameObj.GetComponent<TextMeshProUGUI>().text = localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text_0") + " " + 
+                //                                                 IDCard.transform.Find("Researcher_ID_Name_Text").GetComponent<TextMeshProUGUI>().text + " " + 
+                //                                                 localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text_1") + " " + 
+                //                                                 selectedResearchPanel.transform.Find("Research_Label_Text").GetComponent<TextMeshProUGUI>().text + 
+                //                                                 localizationManager.GetLocalizedString(ui_research_table, "UI.Research.ConfirmationBox.Text_2");
 
             }
             else if (curGameObj.name == "Research_Confirmation_Yes_Button"){
@@ -1892,6 +1913,34 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(NotEnoughCoinsBox);
     }
     // End Not Enough Coins Box Button Handlers
+
+    // autopilot Confirmation Button Handlers
+    public void displayAutoPilotConfirmationBox(bool enable){
+        if (enable){
+            EnableUIElement(autopilotConfirmationBox);
+            autopilotConfirmationBoxText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text");
+            autopilotConfirmationBoxYesText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text.Yes");
+            autopilotConfirmationBoxNoText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text.No");
+        }
+        else{
+            DisableUIElement(autopilotConfirmationBox);
+        }
+    }
+
+    public void autopilotConfirmationBoxYesButtonHandler(){
+        displayAutoPilotConfirmationBox(false);
+        if(AutopilotSelectedInfo != null){
+            AutopilotSelectedInfo(true);
+        }
+    }
+
+    public void autopilotConfirmationBoxNoButtonHandler(){
+        displayAutoPilotConfirmationBox(false);
+        if(AutopilotSelectedInfo != null){
+            AutopilotSelectedInfo(false);
+        }
+    }
+    // End autopilot Confirmation Button Handlers
 
 
     // Rocket Flight UI

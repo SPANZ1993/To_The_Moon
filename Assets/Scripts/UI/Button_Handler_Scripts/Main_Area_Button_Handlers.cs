@@ -131,4 +131,14 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
 
 
+    public void autopilotConfirmationBoxYesButtonHandler(){
+        uiController.autopilotConfirmationBoxYesButtonHandler();
+    }
+    
+    public void autopilotConfirmationBoxNoButtonHandler(){
+        uiController.autopilotConfirmationBoxNoButtonHandler();
+    }
+
+
+
 }

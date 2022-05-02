@@ -7,6 +7,7 @@ public class Scene_Manager : MonoBehaviour
 {
 
     private Game_Manager gameManager;
+    private UI_Controller uiController;
 
     // Tiny Scientists
     private Tiny_Scientists_Manager tinyScientistsManager;
@@ -16,6 +17,8 @@ public class Scene_Manager : MonoBehaviour
 
     // Rocket
     private Rocket_Controller_Main_Area rocketController;
+    public delegate void InitiateLaunch();
+    public static event InitiateLaunch InitiateLaunchInfo;
 
     //Mine Shaft
     private Mine_Shaft_Controller mineShaftController;
@@ -35,6 +38,7 @@ public class Scene_Manager : MonoBehaviour
         Mine_Game_Manager.EndMineSceneInfo += onEndMineScene;
         Mine_Shaft_Controller.MineShaftTappedInfo += onMineShaftTapped;
         Scene_Transition.LeavingSceneCompleteInfo += onLeavingSceneTransitionComplete;
+        UI_Controller.AutopilotSelectedInfo += onAutopilotSelected;
     }
 
     void OnDisable()
@@ -45,6 +49,7 @@ public class Scene_Manager : MonoBehaviour
         Mine_Game_Manager.EndMineSceneInfo -= onEndMineScene;
         Mine_Shaft_Controller.MineShaftTappedInfo -= onMineShaftTapped;
         Scene_Transition.LeavingSceneCompleteInfo -= onLeavingSceneTransitionComplete;
+        UI_Controller.AutopilotSelectedInfo -= onAutopilotSelected;
     }
 
 
@@ -65,6 +70,7 @@ public class Scene_Manager : MonoBehaviour
     {
 
         gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
 
         scene_name = SceneManager.GetActiveScene().name;
         if(scene_name == "Main_Area"){
@@ -116,27 +122,46 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
-    IEnumerator _onLaunchInitiated()
+    private void onAutopilotSelected(bool autopilot){
+        StartCoroutine(_onLaunchInitiated(autopilot));
+    }
+
+    IEnumerator _onLaunchInitiated(bool autopilot=false)
     {
     
+        if(InitiateLaunchInfo != null){
+            InitiateLaunchInfo();
+        }
+
         if(tinyScientistsManager.launchComplete && rocketTowerManager.launchComplete && rocketController.launchComplete){
             //SceneManager.LoadScene(sceneName: "Rocket_Flight");
             //scene_name = "Rocket_Flight";
-            if (gameObject.GetComponent<Wipe>() == null){
-                gameObject.AddComponent<Wipe>();
-                Scene_Transition wipe = gameObject.GetComponent<Wipe>();
-            //Scene_Transition wipe = new Wipe();
-                wipe.BeginLeavingScene(nextScene: "Rocket_Flight");
+            if (!autopilot){
+                if (gameObject.GetComponent<Wipe>() == null){
+                    gameObject.AddComponent<Wipe>();
+                    Scene_Transition wipe = gameObject.GetComponent<Wipe>();
+                //Scene_Transition wipe = new Wipe();
+                    wipe.BeginLeavingScene(nextScene: "Rocket_Flight");
+                }
+            }
+            else{
+                // What do we do if they select autopilot?
             }
         }
         else{
             yield return new WaitForSeconds(0.0f);
-            StartCoroutine(_onLaunchInitiated());
+            StartCoroutine(_onLaunchInitiated(autopilot));
         }
     }
 
+
     void onLaunchInitiated(){
-        StartCoroutine(_onLaunchInitiated());
+        if(false){ // If we don't have the autopilot perk
+            StartCoroutine(_onLaunchInitiated(false));
+        }
+        else{
+            uiController.displayAutoPilotConfirmationBox(true);
+        }
     }
 
 

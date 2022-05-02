@@ -34,5 +34,18 @@ MonoBehaviour:
     m_Localized: 'Monedas:'
     m_Metadata:
       m_Items: []
+  - m_Id: 68275780500217856
+    m_Localized: "\xBFDejar que {robot} pilotee la nave? "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68275780516995072
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68275780516995073
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
   references:
-    version: 1
+    version: 2
+    RefIds: []

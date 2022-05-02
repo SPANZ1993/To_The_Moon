@@ -118,9 +118,9 @@ public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make th
         }
         else{
             double[] timeArr = ConvertSectoDay(timeLeft);
-            Console.WriteLine("WORLSKDJFL:S");
+            // Console.WriteLine("WORLSKDJFL:S");
 
-            Console.WriteLine("TIMESPAN: " + string.Join(", ", timeArr));
+            // Console.WriteLine("TIMESPAN: " + string.Join(", ", timeArr));
 
 
             string displayString = "";

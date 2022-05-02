@@ -31,13 +31,26 @@ MonoBehaviour:
     m_Key: UI.Banner.Coins_Text
     m_Metadata:
       m_Items: []
+  - m_Id: 68275780500217856
+    m_Key: UI.Autopilot.Confirmation_Box_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68275780516995072
+    m_Key: UI.Autopilot.Confirmation_Box_Text.Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68275780516995073
+    m_Key: UI.Autopilot.Confirmation_Box_Text.No
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    id: 0
+    rid: 0
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: 0
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1635223603363

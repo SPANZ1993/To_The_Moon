@@ -12,12 +12,12 @@ public class Rocket_Tower_Manager : MonoBehaviour
 
     void OnEnable()
     {
-        Launch_Button_Controller.InitiateLaunchInfo += onLaunchInitiated;
+        Scene_Manager.InitiateLaunchInfo += onLaunchInitiated;
     }
 
     void OnDisable()
     {
-        Launch_Button_Controller.InitiateLaunchInfo -= onLaunchInitiated;
+        Scene_Manager.InitiateLaunchInfo -= onLaunchInitiated;
     }
 
     // Start is called before the first frame update
