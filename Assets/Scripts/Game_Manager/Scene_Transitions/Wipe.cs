@@ -9,8 +9,8 @@ public class Wipe : Scene_Transition
 
     GameObject Wipe_Rect;
     float wipeTime = 1.5f;
-    int leavingWipeTweenId;
-    int enteringWipeTweenId;
+    public int leavingWipeTweenId;
+    public int enteringWipeTweenId;
 
 
     // public delegate void SerializationStarted();

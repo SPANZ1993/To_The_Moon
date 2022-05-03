@@ -37,6 +37,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     private Rocket_Control rocketControl;
     private bool startedRocketControlSpiral = false;
 
+    Upgrades_Manager upgradesManager;
     Game_Scaler gameScaler;
     UI_Controller uiController;
     Game_Manager gameManager;
@@ -72,6 +73,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         rocketControl = rocket.GetComponent<Rocket_Control>();
         arrivingPlanet = GameObject.Find("Arriving_Planet");
 
+        upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();    
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
         gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
@@ -330,7 +332,14 @@ public class Rocket_Game_Manager : MonoBehaviour
         }
     }
 
-
+    public void RunAutopilotSimulation(){
+        if (upgradesManager == null){
+            upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
+        }
+        upgradesManager.autopilotHeight = 10.0;
+        upgradesManager.autopilotGems = 0;
+        upgradesManager.autopilotReturnState = AutopilotReturnState.Normal; // Could switch this up if we need to
+    }
 
 
 }

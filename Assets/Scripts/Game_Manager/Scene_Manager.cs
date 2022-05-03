@@ -7,6 +7,7 @@ public class Scene_Manager : MonoBehaviour
 {
 
     private Game_Manager gameManager;
+    private Upgrades_Manager upgradesManager;
     private UI_Controller uiController;
 
     // Tiny Scientists
@@ -77,8 +78,7 @@ public class Scene_Manager : MonoBehaviour
             tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
             rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
             rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
-            mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
-            
+            mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();   
         }
     }
 
@@ -92,10 +92,52 @@ public class Scene_Manager : MonoBehaviour
         scene_name = SceneManager.GetActiveScene().name;
         StartCoroutine(setPrevScene());
         if (scene_name == "Main_Area"){
+            upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
             tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
             rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
             rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
-            mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>(); 
+            mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
+        }
+        else if(scene_name == "Rocket_Flight"){
+
+            IEnumerator waitDuringAutopilot(Wipe OldWipe){
+                double timer = 0.0;
+                int oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
+                int oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
+                if (LeanTween.isTweening(oldWipeTweenIdEnter)){
+                    Debug.Log("CANCELING");
+                    LeanTween.cancel(oldWipeTweenIdEnter);
+                    Destroy(OldWipe);
+                }
+                if (LeanTween.isTweening(oldWipeTweenIdLeave)){
+                    Debug.Log("CANCELING");
+                    LeanTween.cancel(oldWipeTweenIdLeave);
+                    Destroy(OldWipe);
+                }
+                while(timer < .25){ // How long we display the black screen for the rocket game
+                    timer += Time.deltaTime;
+                    oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
+                    oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
+                    if (LeanTween.isTweening(oldWipeTweenIdEnter)){
+                        Debug.Log("CANCELING");
+                        LeanTween.cancel(oldWipeTweenIdEnter);
+                        Destroy(OldWipe);
+                    }
+                    if (LeanTween.isTweening(oldWipeTweenIdLeave)){
+                        Debug.Log("CANCELING");
+                        LeanTween.cancel(oldWipeTweenIdLeave);
+                        Destroy(OldWipe);
+                    }
+                    yield return new WaitForSeconds(0);
+                }
+                Scene_Transition wipe = gameObject.AddComponent<Wipe>();
+                //wipe.BeginLeavingScene(nextScene: "Main_Area");
+                SceneManager.LoadScene(sceneName: "Main_Area");
+            }
+
+            Wipe oldWipe = gameObject.GetComponent<Wipe>();
+            GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>().RunAutopilotSimulation();
+            StartCoroutine(waitDuringAutopilot(oldWipe));
         }
     }
 
@@ -123,6 +165,7 @@ public class Scene_Manager : MonoBehaviour
 
 
     private void onAutopilotSelected(bool autopilot){
+        upgradesManager.autopilotFlag = autopilot;
         StartCoroutine(_onLaunchInitiated(autopilot));
     }
 
@@ -136,7 +179,7 @@ public class Scene_Manager : MonoBehaviour
         if(tinyScientistsManager.launchComplete && rocketTowerManager.launchComplete && rocketController.launchComplete){
             //SceneManager.LoadScene(sceneName: "Rocket_Flight");
             //scene_name = "Rocket_Flight";
-            if (!autopilot){
+            if (!autopilot || autopilot){ // We con do some other stuff below if we want to do something different depending on autopilot selection
                 if (gameObject.GetComponent<Wipe>() == null){
                     gameObject.AddComponent<Wipe>();
                     Scene_Transition wipe = gameObject.GetComponent<Wipe>();
@@ -156,7 +199,7 @@ public class Scene_Manager : MonoBehaviour
 
 
     void onLaunchInitiated(){
-        if(false){ // If we don't have the autopilot perk
+        if(upgradesManager == null || !upgradesManager.upgradesUnlockedDict[Upgrade.Autopilot]){ // If we don't have the autopilot perk
             StartCoroutine(_onLaunchInitiated(false));
         }
         else{

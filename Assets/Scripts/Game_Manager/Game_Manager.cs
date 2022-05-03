@@ -40,7 +40,7 @@ public class Game_Manager : MonoBehaviour
     public bool initializeGameOnReturnToMainArea = false; // If this is true, when we enter the main area scene, try to query playfab to reinitialize the game
 
     
-
+    private Upgrades_Manager upgradesManager;
 
 
     // Stuff Related to Saved Game
@@ -175,6 +175,7 @@ public class Game_Manager : MonoBehaviour
             if (sceneManager.scene_name == "Main_Area"){
                 touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
                 serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
+                upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
                 minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
@@ -208,6 +209,17 @@ public class Game_Manager : MonoBehaviour
                 //initializeResearch(loadedGame.UnlockedResearchIds, loadedGame.UnlockedResearcherIds, loadedGame.AssignedResearchers, offLineMode: true);
                 //getResearcherInfo();
                 //initializeResearch(unlockedResearchIds , unlockedResearcherIds, assignedResearchers, offLineMode: false);
+
+                
+
+                // If we just finished an autopilot flight
+                if(upgradesManager.autopilotHeight != null && upgradesManager.autopilotGems != null && upgradesManager.autopilotReturnState != null){
+                    Debug.Log("Just finished an autopilot with " + upgradesManager.autopilotHeight + " height and found " + upgradesManager.autopilotGems + " gems and state " + upgradesManager.autopilotReturnState);
+                    upgradesManager.autopilotHeight = null;
+                    upgradesManager.autopilotGems = null;
+                    upgradesManager.autopilotReturnState = null;
+                }
+
             }
             else if (sceneManager.scene_name == "Rocket_Flight"){
                 if (remainingLaunches == maxLaunches){
@@ -217,8 +229,8 @@ public class Game_Manager : MonoBehaviour
                 
 
                 Rocket_Control rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
-                rocketControl.thrust = thrust; 
-                rocketControl.thrustInitialized = true; 
+                rocketControl.thrust = thrust;
+                rocketControl.thrustInitialized = true;
             }
             else if (sceneManager.scene_name == "Mine_Game"){
                 

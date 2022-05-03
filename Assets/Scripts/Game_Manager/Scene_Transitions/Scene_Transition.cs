@@ -52,7 +52,7 @@ public abstract class Scene_Transition: MonoBehaviour
 
     public void Awake(){
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
-        if (UIElementLocalScales == null){
+        if (UIElementLocalScales == null || true){
             indexUILocalScaleSizes();
         }
     }
