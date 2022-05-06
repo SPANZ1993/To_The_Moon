@@ -127,6 +127,7 @@ public class Game_Manager : MonoBehaviour
     private Touch_Detection touchDetection;
 
 
+    private UI_Controller uiController;
     private Ads_Manager adsManager;
     private Scene_Manager sceneManager;
 
@@ -170,12 +171,13 @@ public class Game_Manager : MonoBehaviour
     }
 
     void OnLevelWasLoaded(){
-        if (instanceID == gameObject.GetInstanceID()){
+        if (instanceID == gameObject.GetInstanceID() && instance == this){
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
-            if (sceneManager.scene_name == "Main_Area"){
+            if (SceneManager.GetActiveScene().name == "Main_Area"){
+                uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
                 touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
                 serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
-                upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
+                upgradesManager = Upgrades_Manager.instance;
                 minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
@@ -213,31 +215,29 @@ public class Game_Manager : MonoBehaviour
                 
 
                 // If we just finished an autopilot flight
-                if(upgradesManager.autopilotHeight != null && upgradesManager.autopilotGems != null && upgradesManager.autopilotReturnState != null){
-                    Debug.Log("Just finished an autopilot with " + upgradesManager.autopilotHeight + " height and found " + upgradesManager.autopilotGems + " gems and state " + upgradesManager.autopilotReturnState);
-                    upgradesManager.autopilotHeight = null;
-                    upgradesManager.autopilotGems = null;
-                    upgradesManager.autopilotReturnState = null;
+                if(upgradesManager.autopilotFlag == true){
+                    //Debug.Log("HANDLING AUTOPILOT RETURN");
+                    Handle_Autopilot_Return();
                 }
-
             }
-            else if (sceneManager.scene_name == "Rocket_Flight"){
+            else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
                 if (remainingLaunches == maxLaunches){
                     prevLaunchTimeUnix = gameTimeUnix;
                 }
+                //Debug.Log("CALLING THIS: " + gameObject.GetInstanceID() + " --- " + (this==instance));
                 remainingLaunches--;
                 
-
-                Rocket_Control rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
-                rocketControl.thrust = thrust;
-                rocketControl.thrustInitialized = true;
+                if(!upgradesManager.autopilotFlag){
+                    Rocket_Control rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
+                    rocketControl.thrust = thrust;
+                    rocketControl.thrustInitialized = true;
+                }
             }
-            else if (sceneManager.scene_name == "Mine_Game"){
+            else if (SceneManager.GetActiveScene().name == "Mine_Game"){
                 
             }
         }
     }
-
 
 
 
@@ -490,7 +490,20 @@ public class Game_Manager : MonoBehaviour
         mineCartCoinsPerSecondUpgradePrice = loadedGame.CartCoinsPerSecondUpgradePrice;
         mineCartCoinsCapacityUpgradePrice = loadedGame.CartCoinsCapacityUpgradePrice;
 
-        getMineCartInfo();
+
+        IEnumerator _GetMineCartInfo(){
+            while(minecartManager == null){
+                yield return new WaitForSeconds(0);
+            }
+            getMineCartInfo();
+        }
+
+        if(SceneManager.GetActiveScene().name != "Landing_Page"){
+            getMineCartInfo();
+        }
+        else{
+            StartCoroutine(_GetMineCartInfo());
+        }
 
         initializedGame = true;
     }
@@ -795,7 +808,7 @@ public class Game_Manager : MonoBehaviour
         if (remainingLaunches > maxLaunches){
             remainingLaunches = maxLaunches;
         }
-        Debug.Log("HELLO WE'RE HERE: " + remainingLaunches);
+        //Debug.Log("HELLO WE'RE HERE: " + remainingLaunches);
     }
 
     
@@ -948,7 +961,7 @@ public class Game_Manager : MonoBehaviour
 
 
     // Rocket Flight Event Handlers
-    private void onGemCollected(){
+    public void onGemCollected(){
         //Debug.Log("Gem Collected");
         gems++;
     }
@@ -1001,5 +1014,30 @@ public class Game_Manager : MonoBehaviour
              
     }
     // End PlayFab Game Initializatin Event Handlers
+
+    // Start Autopilot Return Stuff
+
+    // void _Handle_Autopilot_Return(){
+    //     while(SceneManagement.GetActiveScene().name != "Main_Area"){
+    //         yield return new WaitForSeconds(0);
+    //     }
+    //     Invoke("__Handle_Autopilot_Return" 1f);
+    // }
+
+    void _Handle_Autopilot_Return(){
+        uiController.Display_Autopilot_Result_Speech((AutopilotReturnState)upgradesManager.autopilotReturnState, (double)upgradesManager.autopilotHeight, (int)upgradesManager.autopilotGems);
+        upgradesManager.autopilotHeight = null;
+        upgradesManager.autopilotGems = null;
+        upgradesManager.autopilotReturnState = null;
+    }
+
+    void Handle_Autopilot_Return(){
+        //Debug.Log("Just finished an autopilot with " + upgradesManager.autopilotHeight + " height and found " + upgradesManager.autopilotGems + " gems and state " + upgradesManager.autopilotReturnState);
+
+
+        Invoke("_Handle_Autopilot_Return", 1.5f);
+        //StartCoroutine(_Handle_Autopilot_Return());
+    }
+    // End Autopilot Return Stuff
 
 }

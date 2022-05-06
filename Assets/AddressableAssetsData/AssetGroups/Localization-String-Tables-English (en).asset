@@ -47,6 +47,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
+  - m_GUID: 6b7b61cc7789e5645bece6cc4d4c139a
+    m_Address: Robot_Script_Table_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 077cb2ec913c0e54fa2f3a74b8468389, type: 2}
   m_SchemaSet:

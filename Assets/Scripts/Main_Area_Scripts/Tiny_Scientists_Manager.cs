@@ -67,7 +67,7 @@ public class Tiny_Scientists_Manager : MonoBehaviour
             ["TS_3R"] = "TS_3L",
             ["TS_2L"] = "TS_2R",
             ["TS_1R"] = "TS_1L",
-            ["TS_0L"] = "TS_0R"
+            ["TS_0L"] = "TS_0R",
         };
 
 
@@ -128,7 +128,10 @@ public class Tiny_Scientists_Manager : MonoBehaviour
     }
 
  
-
+    void OnLevelWasLoaded(){
+        launched = false;
+        launchComplete = false;
+    }
  
 
    // Update is called once per frame
@@ -171,6 +174,11 @@ public class Tiny_Scientists_Manager : MonoBehaviour
         int end_i;
         bool goingDown = false;
         bool launchSequence = false;
+
+        // if (prevWayPoint.name == "TS_BUILDING" && targetWayPoint.name == "TS_BUILDING"){
+        //     newPathGameObj.Add(targetWayPoint);
+        //     return newPathGameObj;
+        // }
 
 
         if (targetWayPoint.name == "TS_BUILDING"){
@@ -248,6 +256,7 @@ public class Tiny_Scientists_Manager : MonoBehaviour
         foreach (string wp in newPath){
             newPathGameObj.Add(waypoints[wp]);
         }
+        //Debug.Log("PATH FROM " + prevWayPoint.name + " TO " + targetWayPoint.name + " IS " + string.Join(", ", newPath));
         return newPathGameObj;
     }
 

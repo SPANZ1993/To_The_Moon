@@ -1,0 +1,6 @@
+Key,Id,Shared Comment,English(en),English(en) Comments,Spanish(es),Spanish(es) Comments
+Robot_Script.Autopilot_Return.Normal.No_Gems.1.1,,,Hey bro! I was able to fly {height} miles!,,Hey bro! I was able to fly {height} miles!,
+Robot_Script.Autopilot_Return.Normal.Single_Gem.1.1,,,Hey bro! I was able to fly {height} miles!,,Hey bro! I was able to fly {height} miles!,
+Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2,,,I also found a gem! Let’s go!,,I also found a gem! Let’s go!,
+Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1,,,Hey bro! I was able to fly {height} miles!,,Hey bro! I was able to fly {height} miles!,
+Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2,,,I also found {gems} gems! Let’s go!,,I also found {gems} gems! Let’s go!,

@@ -93,7 +93,15 @@ public class Number_String_Formatter
 
 
 
-
+    // Speech Object Stuff
+    public static string formatHeightForSpeechObject(double height, int decimals=0){
+        return defaultNumberFormat(height, decimals:decimals);
+    }
+    
+    public static string formatHeightForSpeechObject(float height, int decimals=0){
+        return defaultNumberFormat(height, decimals:decimals);
+    }
+    // End Speech Object Stuff
 
 
 

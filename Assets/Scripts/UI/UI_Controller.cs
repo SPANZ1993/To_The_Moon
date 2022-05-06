@@ -255,7 +255,7 @@ public class UI_Controller : MonoBehaviour
 
 
 
-
+    private Speech_Object_Generator speechObjectGenerator;
     private Localization_Manager localizationManager;
 
 
@@ -383,6 +383,7 @@ public class UI_Controller : MonoBehaviour
 
             gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
             localizationManager = GameObject.Find("Localizer").GetComponent<Localization_Manager>();
+            speechObjectGenerator = GameObject.Find("Speech_Object_Generator").GetComponent<Speech_Object_Generator>();
             
 
             Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
@@ -2142,4 +2143,16 @@ public class UI_Controller : MonoBehaviour
         timeSinceLastDisplayedRetryConnectBox = 0f;
     }
     //End Landing Page UI
+
+
+
+    // Speech Handlers
+    public void Display_Autopilot_Result_Speech(AutopilotReturnState autopilotReturnState, double autopilotHeight, int autopilotGems){
+        //Speech_Object speechObj = new Speech_Object();
+        Speech_Object speechObj = speechObjectGenerator.GenerateAutopilotResultSpeech(autopilotReturnState, autopilotHeight, autopilotGems);
+        Display_Speech(speechObj);
+    }
+    // End Speech Handlers
+
+
 }

@@ -56,6 +56,7 @@ public class Upgrades_Manager : MonoBehaviour
         if(!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            autopilotFlag = false;
         }
         else{
             Destroy(this.gameObject);
@@ -107,7 +108,12 @@ public class Upgrades_Manager : MonoBehaviour
 
     public void OnLevelWasLoaded(){
         if (SceneManager.GetActiveScene().name == "Main_Area"){
-            autopilotFlag = false;
+            IEnumerator unsetAutopilotFlag(){
+                yield return new WaitForSeconds(0.5f);
+                autopilotFlag = false;
+            }
+            StartCoroutine(unsetAutopilotFlag());
+            Debug.Log("HELLO FROM UPGRADE MANAGER: " + autopilotHeight + " " + autopilotGems + " " + autopilotReturnState);
         }
     }
 

@@ -73,10 +73,12 @@ public class Rocket_Game_Manager : MonoBehaviour
         rocketControl = rocket.GetComponent<Rocket_Control>();
         arrivingPlanet = GameObject.Find("Arriving_Planet");
 
-        upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
+        upgradesManager = Upgrades_Manager.instance;
+        //upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();    
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
-        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        gameManager = Game_Manager.instance;
+        //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         // UI STUFF
         //Altitude_Text = GameObject.Find("Altitude_Text").GetComponent<TextMeshProUGUI>();
         //Time_Text = GameObject.Find("Time_Text").GetComponent<TextMeshProUGUI>();
@@ -333,12 +335,31 @@ public class Rocket_Game_Manager : MonoBehaviour
     }
 
     public void RunAutopilotSimulation(){
+        
         if (upgradesManager == null){
-            upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
+            //upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>().instance;
+            upgradesManager = Upgrades_Manager.instance;
         }
         upgradesManager.autopilotHeight = 10.0;
-        upgradesManager.autopilotGems = 0;
+        
+        int gemSeed = UnityEngine.Random.Range(0,10);
+        if (gemSeed < 5){
+            upgradesManager.autopilotGems = 0;
+        }
+        else if (gemSeed >= 5 && gemSeed < 8){
+            upgradesManager.autopilotGems = 1;
+        }
+        else if (gemSeed >= 8){
+            upgradesManager.autopilotGems = 10;
+        }
         upgradesManager.autopilotReturnState = AutopilotReturnState.Normal; // Could switch this up if we need to
+        Debug.Log("RUNNING AUTOPILOT SIMULATION " + upgradesManager.autopilotHeight + " " + upgradesManager.autopilotGems + " " + upgradesManager.autopilotReturnState);
+        if (gameManager == null){
+            gameManager = Game_Manager.instance;
+        }
+
+        gameManager.gems += (double)upgradesManager.autopilotGems;
+        //gameManager.Handle_Autopilot_Return();
     }
 
 
