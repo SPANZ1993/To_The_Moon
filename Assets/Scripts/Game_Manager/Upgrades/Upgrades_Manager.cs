@@ -38,8 +38,13 @@ public class Upgrades_Manager : MonoBehaviour
     public int? autopilotGems;
     public AutopilotReturnState? autopilotReturnState;
     // End Autopilot
+
+
     // Lateral Boosters
+    
     // End Lateral Boosters
+    
+    
     // Particle Shield
     // End Particle Shield
     // Cow Catcher
@@ -77,11 +82,13 @@ public class Upgrades_Manager : MonoBehaviour
                 switch(upgrade){
                     case Upgrade.Autopilot:
                         upgradesMaxNumberDict[upgrade] = 1;
-                        upgradesNumberDict[upgrade] = 1; // REMOVE
-                        upgradesUnlockedDict[upgrade] = true; // REMOVE
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false;
                         break;
                     case Upgrade.Lateral_Boosters:
                         upgradesMaxNumberDict[upgrade] = 1;
+                        upgradesNumberDict[upgrade] = 1; // REMOVE
+                        upgradesUnlockedDict[upgrade] = true; // REMOVE
                         break;
                     case Upgrade.Particle_Shield:
                         upgradesMaxNumberDict[upgrade] = 1;

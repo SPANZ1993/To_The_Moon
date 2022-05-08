@@ -1273,7 +1273,7 @@ RectTransform:
   - {fileID: 296266053}
   - {fileID: 773258972}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.073564105, y: 0.30021015}
   m_AnchorMax: {x: 0.9261453, y: 0.765395}
@@ -6168,7 +6168,7 @@ RectTransform:
   m_Children:
   - {fileID: 259949179}
   m_Father: {fileID: 505488069}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6479,7 +6479,7 @@ RectTransform:
   m_Children:
   - {fileID: 1548762140}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6673,7 +6673,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 704738420}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7112,7 +7112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505488069}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &173159235
 SpriteRenderer:
@@ -8409,6 +8409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Experiment_Upgrade_Panel_5
       objectReference: {fileID: 0}
+    - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5687726979663371505, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.4729004
@@ -8644,7 +8648,7 @@ RectTransform:
   - {fileID: 865993098}
   - {fileID: 445057448}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.074418806, y: 0.047394946}
   m_AnchorMax: {x: 0.9261453, y: 0.26221013}
@@ -8890,6 +8894,10 @@ PrefabInstance:
     - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_Name
       value: Experiment_Upgrade_Panel_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5687726979663371505, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9176,7 +9184,7 @@ RectTransform:
   m_Children:
   - {fileID: 950457548}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10885,7 +10893,7 @@ RectTransform:
   - {fileID: 944780354}
   - {fileID: 367186507}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08360684, y: 0.059000004}
   m_AnchorMax: {x: 0.915, y: 0.9115798}
@@ -11747,6 +11755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1438327019}
   - {fileID: 92787538}
   - {fileID: 704738420}
   - {fileID: 1392553846}
@@ -12253,7 +12262,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 704738420}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12773,7 +12782,7 @@ RectTransform:
   - {fileID: 11099163}
   - {fileID: 235817961}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0735641, y: 0.3002101}
   m_AnchorMax: {x: 0.9261453, y: 0.765395}
@@ -13829,7 +13838,7 @@ RectTransform:
   - {fileID: 376002336}
   - {fileID: 17384868}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.073564105, y: 0.30021015}
   m_AnchorMax: {x: 0.9261453, y: 0.765395}
@@ -14196,7 +14205,6 @@ RectTransform:
   - {fileID: 308952140}
   - {fileID: 708945592}
   - {fileID: 378648787}
-  - {fileID: 1438327019}
   - {fileID: 1865832794}
   - {fileID: 81403489}
   - {fileID: 675494843}
@@ -14217,7 +14225,7 @@ RectTransform:
   - {fileID: 115903370}
   - {fileID: 477491608}
   m_Father: {fileID: 505488069}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14786,6 +14794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Experiment_Upgrade_Panel_2
       objectReference: {fileID: 0}
+    - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5687726979663371505, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.4729004
@@ -15082,6 +15094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Experiment_Upgrade_Panel_6
       objectReference: {fileID: 0}
+    - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5687726979663371505, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.4729004
@@ -15225,7 +15241,7 @@ RectTransform:
   - {fileID: 682895343}
   - {fileID: 977727483}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24640173, y: 0.43839496}
   m_AnchorMax: {x: 0.7867094, y: 0.6287899}
@@ -15624,7 +15640,7 @@ RectTransform:
   m_Children:
   - {fileID: 1903291953}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19340,7 +19356,7 @@ RectTransform:
   m_Children:
   - {fileID: 1746442707}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20056,7 +20072,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505488069}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1392553847
 MonoBehaviour:
@@ -20466,17 +20482,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438327018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.0009873618, y: 0.0009873618, z: 0.003949447}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 704738420}
-  m_RootOrder: 4
+  m_Father: {fileID: 505488069}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9023207, y: 0.41176507}
   m_AnchorMax: {x: 0.9463063, y: 0.5883322}
-  m_AnchoredPosition: {x: -1020, y: -46}
-  m_SizeDelta: {x: 48.558594, y: -347.0328}
+  m_AnchoredPosition: {x: -2.067749, y: -0.18118668}
+  m_SizeDelta: {x: 100.02173, y: 100.03519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438327020
 MonoBehaviour:
@@ -20812,7 +20828,7 @@ RectTransform:
   - {fileID: 1005503183}
   - {fileID: 518020957}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24640173, y: 0.43839496}
   m_AnchorMax: {x: 0.7867094, y: 0.6287899}
@@ -22402,7 +22418,7 @@ RectTransform:
   m_Children:
   - {fileID: 1434598041}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27880,7 +27896,7 @@ RectTransform:
   m_Children:
   - {fileID: 1517381130}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33213,7 +33229,7 @@ RectTransform:
   m_Children:
   - {fileID: 1316310197}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33349,7 +33365,7 @@ RectTransform:
   - {fileID: 467632891}
   - {fileID: 974887156}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.073564105, y: 0.7952102}
   m_AnchorMax: {x: 0.9261453, y: 0.9586051}
@@ -33610,7 +33626,7 @@ RectTransform:
   - {fileID: 2135804763}
   - {fileID: 1454856558}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21214531, y: 0.43839496}
   m_AnchorMax: {x: 0.7867094, y: 0.6287899}
@@ -34383,7 +34399,7 @@ RectTransform:
   m_Children:
   - {fileID: 1964285267}
   m_Father: {fileID: 704738420}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34598,6 +34614,10 @@ PrefabInstance:
     - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_Name
       value: Experiment_Upgrade_Panel_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5687726979663371505, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -34923,7 +34943,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505488069}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &2052181616
 SpriteMask:
@@ -36088,6 +36108,10 @@ PrefabInstance:
     - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_Name
       value: Experiment_Upgrade_Panel_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687726979359593347, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5687726979663371505, guid: 10c1af884a721464a9d0a6dd63077e16, type: 3}
       propertyPath: m_AnchoredPosition.x
