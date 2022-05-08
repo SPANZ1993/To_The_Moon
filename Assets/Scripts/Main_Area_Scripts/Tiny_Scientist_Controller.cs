@@ -71,6 +71,7 @@ public class Tiny_Scientist_Controller : MonoBehaviour
         isAtFinalWaypoint = false;
     }
 
+    bool tmp = true;
     // Update is called once per frame
     void Update()
     {
@@ -114,8 +115,9 @@ public class Tiny_Scientist_Controller : MonoBehaviour
         scientist_animator.SetFloat("Walk_Vel", hvel);
         scientist_animator.SetBool("Standing", hvel==0.0f);
         scientist_animator.SetBool("Run", launched);
-        if (launched){
+        if (launched && tmp){
             //Debug.Log("PATH ORDER AFTER LAUNCH: " + string.Join(", ", path_order));
+            tmp = false;
         }
     }
 

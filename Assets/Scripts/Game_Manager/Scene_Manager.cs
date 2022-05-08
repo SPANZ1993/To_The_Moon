@@ -166,15 +166,18 @@ public class Scene_Manager : MonoBehaviour
 
     private void onAutopilotSelected(bool autopilot){
         upgradesManager.autopilotFlag = autopilot;
+
+        if(InitiateLaunchInfo != null){
+            InitiateLaunchInfo();
+        }
+
         StartCoroutine(_onLaunchInitiated(autopilot));
     }
 
     IEnumerator _onLaunchInitiated(bool autopilot=false)
     {
     
-        if(InitiateLaunchInfo != null){
-            InitiateLaunchInfo();
-        }
+
 
         if(tinyScientistsManager.launchComplete && rocketTowerManager.launchComplete && rocketController.launchComplete){
             //SceneManager.LoadScene(sceneName: "Rocket_Flight");

@@ -113,7 +113,7 @@ public class Upgrades_Manager : MonoBehaviour
                 autopilotFlag = false;
             }
             StartCoroutine(unsetAutopilotFlag());
-            Debug.Log("HELLO FROM UPGRADE MANAGER: " + autopilotHeight + " " + autopilotGems + " " + autopilotReturnState);
+            //Debug.Log("HELLO FROM UPGRADE MANAGER: " + autopilotHeight + " " + autopilotGems + " " + autopilotReturnState);
         }
     }
 
