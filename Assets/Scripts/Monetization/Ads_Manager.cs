@@ -90,11 +90,12 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         }
         else if (SceneManager.GetActiveScene().name == "Mine_Game"){
             //showBannerAd();
-            
+            hideBannerAd();
             loadRewardedAd();
         }
         else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
             //showBannerAd(pos:BannerPosition.TOP_CENTER);
+            hideBannerAd();
             loadRewardedAd();
         }
     }
@@ -207,7 +208,8 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         Advertisement.Banner.Show(bannerPlacementId);
     }
 
-    public void hidBannerAd(){
+    public void hideBannerAd(){
+        //Debug.Log("HIDING BANNER AD");
         Advertisement.Banner.Hide();
     }
 
