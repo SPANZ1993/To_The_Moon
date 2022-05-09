@@ -230,6 +230,7 @@ public class Game_Manager : MonoBehaviour
                 if(!upgradesManager.autopilotFlag){
                     Rocket_Control rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
                     rocketControl.thrust = thrust;
+                    rocketControl.initialThrust = thrust;
                     rocketControl.thrustInitialized = true;
                 }
             }

@@ -34,6 +34,9 @@ public class Rocket_Control : MonoBehaviour
     [SerializeField]
     private float thrustDecrementRate = 1.0f; // How much thrust to decrement per second (At max thrust being applied)
 
+
+    private int hitCount = 0;
+
     private bool isBouncing = false;
     public bool reachedTargetAltitude = false;
     public bool startedSpiral = false;
@@ -41,8 +44,10 @@ public class Rocket_Control : MonoBehaviour
     private bool userHasControl = true; // Is the user controlling the rocket?
 
     public bool thrustInitialized;
+    public double initialThrust;
 
     private Game_Scaler gameScaler;
+    private Upgrades_Manager upgradesManager;
 
 
     public bool alertedFuelEmpty = false;
@@ -60,10 +65,13 @@ public class Rocket_Control : MonoBehaviour
     {   
 
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
-
+        upgradesManager = Upgrades_Manager.instance;
 
         maxInstThrust = gameScaler.Scale_Value_To_Screen_Width(maxInstThrust); // SCALE TO HEIGHT???
         maxVertSpeed = gameScaler.Scale_Value_To_Screen_Height(maxVertSpeed);
+        // if(upgradesManager.upgradesUnlockedDict[Upgrade.Lateral_Boosters]){
+        //     maxHorSpeed = maxHorSpeed * 1.5f;
+        // }
         maxHorSpeed = gameScaler.Scale_Value_To_Screen_Width(maxHorSpeed);
 
         rocketParticleSystem = GameObject.Find("Rocket_Particles").GetComponent<ParticleSystem>();
@@ -192,6 +200,9 @@ public class Rocket_Control : MonoBehaviour
         Vector2 IntAngle2ForceVector(float int_angle){
             float YComp = _SolveForYComponent(int_angle);
             float XComp = _SolveForXComponent(int_angle, YComp);
+            if(upgradesManager.upgradesUnlockedDict[Upgrade.Lateral_Boosters]){ // TODO: Make Some Visual To Show This is Happening
+                XComp = XComp * 3.5f;
+            }
             return new Vector2(XComp, YComp);
         }
 
@@ -309,15 +320,16 @@ public class Rocket_Control : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (!isBouncing){
             // Debug.Log("BOUNCE: " + (collision.contacts[0].normal * cur_speed));
             Vector2 bounceDir = collision.contacts[0].normal * maxInstThrust;
-            if (bounceDir.y < 0.0f){
+            if (bounceDir.y < 0.0f && !(upgradesManager.upgradesUnlockedDict[Upgrade.Cow_Catcher] && hitCount < 3)){
                 shipRb.AddForce(new Vector2(0.0f, bounceDir.y));
                 isBouncing = true;
+                thrust -= initialThrust * 0.05;
                 Invoke("StopBounce", 0.3f);
             }
+            hitCount++;
         }
     }
 

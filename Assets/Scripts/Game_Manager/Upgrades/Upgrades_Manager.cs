@@ -87,14 +87,18 @@ public class Upgrades_Manager : MonoBehaviour
                         break;
                     case Upgrade.Lateral_Boosters:
                         upgradesMaxNumberDict[upgrade] = 1;
-                        upgradesNumberDict[upgrade] = 1; // REMOVE
-                        upgradesUnlockedDict[upgrade] = true; // REMOVE
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false; // TODO: Make Some Visual Representation of This
                         break;
                     case Upgrade.Particle_Shield:
-                        upgradesMaxNumberDict[upgrade] = 1;
+                        upgradesMaxNumberDict[upgrade] = 1; // TODO: Make Some Visual Representation of This
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false; // TODO: Implement Dark Matter and Particle Shield
                         break;
                     case Upgrade.Cow_Catcher:
                         upgradesMaxNumberDict[upgrade] = 1;
+                        upgradesMaxNumberDict[upgrade] = 1;
+                        upgradesUnlockedDict[upgrade] = true;
                         break;
                     case Upgrade.Turbo_Boost:
                         upgradesMaxNumberDict[upgrade] = 1;
