@@ -110,7 +110,9 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     unlockedResearchIds: gameManager.unlockedResearchIds,
                                                     unlockedResearcherIds: gameManager.unlockedResearcherIds,
                                                     assignedResearchers: gameManager.assignedResearchers,
-                                                    unlockedExperimentIds: gameManager.unlockedExperimentIds
+                                                    unlockedExperimentIds: gameManager.unlockedExperimentIds,
+                                                    upgradesUnlockedDict: gameManager.upgradesUnlockedDict,
+                                                    upgradesNumberDict: gameManager.upgradesNumberDict
                                                 );   
     }
 

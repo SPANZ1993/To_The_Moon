@@ -15,7 +15,7 @@ public enum ExperimentId{
     Turbo_Boost = 5,
     Da_Bomb = 6,
     Gem_Magnet = 7
-}
+} // If we have one of these that isn't an upgrade, make sure the int value isn't in the upgrade enum values
 
 public enum Duration{
     Permanent = 1,

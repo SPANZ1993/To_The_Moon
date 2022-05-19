@@ -18,65 +18,74 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 2553674789969924
-    m_Localized: Time Left
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969925
-    m_Localized: Finish Research
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969926
-    m_Localized: Assign
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969927
-    m_Localized: to
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969928
-    m_Localized: '?'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969932
-    m_Localized: Bottle Rocket
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969929
-    m_Localized: Yes
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2553674789969930
+  - m_Id: 55536416724770824
     m_Localized: No
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674789969931
-    m_Localized: Darts
+  - m_Id: 55536416724770823
+    m_Localized: Yes
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674789969923
-    m_Localized: Assigned Researcher
+  - m_Id: 55536416724770822
+    m_Localized: Assign {researcher} to {research}?
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674789969922
-    m_Localized: Assign\nResearcher
+  - m_Id: 55536416724770821
+    m_Localized: Finish Research
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674789969921
-    m_Localized: Price
+  - m_Id: 55536416724770820
+    m_Localized: Time Left
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674789969920
+  - m_Id: 55536416724770816
     m_Localized: Expected Thrust
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674789969933
+  - m_Id: 55536416724770819
+    m_Localized: Assigned Researcher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770818
+    m_Localized: Assign\nResearcher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770817
+    m_Localized: Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770825
+    m_Localized: Darts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770826
+    m_Localized: Bottle Rocket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770827
+    m_Localized: Bow and Arrow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770828
     m_Localized: Firework
     m_Metadata:
       m_Items: []
-  - m_Id: 2553674756415488
+  - m_Id: 55536416712187904
     m_Localized: Expected Duration
     m_Metadata:
       m_Items: []
+  - m_Id: 55536416724770829
+    m_Localized: Nuclear Fusion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770830
+    m_Localized: Ion Thruster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55536416724770831
+    m_Localized: Dark Matter Reactor
+    m_Metadata:
+      m_Items: []
   references:
-    version: 1
+    version: 2
+    RefIds: []

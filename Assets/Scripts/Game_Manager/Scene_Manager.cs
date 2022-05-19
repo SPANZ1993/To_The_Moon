@@ -89,35 +89,22 @@ public class Scene_Manager : MonoBehaviour
                 prev_scene_name = scene_name;
             }
         }
-        scene_name = SceneManager.GetActiveScene().name;
-        StartCoroutine(setPrevScene());
-        if (scene_name == "Main_Area"){
-            upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
-            tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
-            rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
-            rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
-            mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
-        }
-        else if(scene_name == "Rocket_Flight"){
-            if(upgradesManager.autopilotFlag){
-                IEnumerator waitDuringAutopilot(Wipe OldWipe){
-                    double timer = 0.0;
-                    int oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
-                    int oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
-                    if (LeanTween.isTweening(oldWipeTweenIdEnter)){
-                        Debug.Log("CANCELING");
-                        LeanTween.cancel(oldWipeTweenIdEnter);
-                        Destroy(OldWipe);
-                    }
-                    if (LeanTween.isTweening(oldWipeTweenIdLeave)){
-                        Debug.Log("CANCELING");
-                        LeanTween.cancel(oldWipeTweenIdLeave);
-                        Destroy(OldWipe);
-                    }
-                    while(timer < .25){ // How long we display the black screen for the rocket game
-                        timer += Time.deltaTime;
-                        oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
-                        oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
+        if (this == instance){
+            scene_name = SceneManager.GetActiveScene().name;
+            StartCoroutine(setPrevScene());
+            if (scene_name == "Main_Area"){
+                upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
+                tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
+                rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
+                rocketController = GameObject.Find("Rocket").GetComponent<Rocket_Controller_Main_Area>();
+                mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
+            }
+            else if(scene_name == "Rocket_Flight"){
+                if(upgradesManager.autopilotFlag){
+                    IEnumerator waitDuringAutopilot(Wipe OldWipe){
+                        double timer = 0.0;
+                        int oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
+                        int oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
                         if (LeanTween.isTweening(oldWipeTweenIdEnter)){
                             Debug.Log("CANCELING");
                             LeanTween.cancel(oldWipeTweenIdEnter);
@@ -128,16 +115,31 @@ public class Scene_Manager : MonoBehaviour
                             LeanTween.cancel(oldWipeTweenIdLeave);
                             Destroy(OldWipe);
                         }
-                        yield return new WaitForSeconds(0);
+                        while(timer < .25){ // How long we display the black screen for the rocket game
+                            timer += Time.deltaTime;
+                            oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
+                            oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
+                            if (LeanTween.isTweening(oldWipeTweenIdEnter)){
+                                Debug.Log("CANCELING");
+                                LeanTween.cancel(oldWipeTweenIdEnter);
+                                Destroy(OldWipe);
+                            }
+                            if (LeanTween.isTweening(oldWipeTweenIdLeave)){
+                                Debug.Log("CANCELING");
+                                LeanTween.cancel(oldWipeTweenIdLeave);
+                                Destroy(OldWipe);
+                            }
+                            yield return new WaitForSeconds(0);
+                        }
+                        Scene_Transition wipe = gameObject.AddComponent<Wipe>();
+                        //wipe.BeginLeavingScene(nextScene: "Main_Area");
+                        SceneManager.LoadScene(sceneName: "Main_Area");
                     }
-                    Scene_Transition wipe = gameObject.AddComponent<Wipe>();
-                    //wipe.BeginLeavingScene(nextScene: "Main_Area");
-                    SceneManager.LoadScene(sceneName: "Main_Area");
-                }
 
-                Wipe oldWipe = gameObject.GetComponent<Wipe>();
-                GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>().RunAutopilotSimulation();
-                StartCoroutine(waitDuringAutopilot(oldWipe));
+                    Wipe oldWipe = gameObject.GetComponent<Wipe>();
+                    GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>().RunAutopilotSimulation();
+                    StartCoroutine(waitDuringAutopilot(oldWipe));
+                }
             }
         }
     }
@@ -203,7 +205,8 @@ public class Scene_Manager : MonoBehaviour
 
 
     void onLaunchInitiated(){
-        if(upgradesManager == null || !upgradesManager.upgradesUnlockedDict[Upgrade.Autopilot]){ // If we don't have the autopilot perk
+        Debug.Log("UGM: " + upgradesManager + upgradesManager.upgradesUnlockedDict);
+        if(upgradesManager == null || !upgradesManager.upgradesUnlockedDict[Upgrade.Autopilot_System]){ // If we don't have the autopilot perk
             if(InitiateLaunchInfo != null){
                 InitiateLaunchInfo();
             }

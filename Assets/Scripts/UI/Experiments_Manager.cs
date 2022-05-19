@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 
@@ -13,7 +15,8 @@ public class Experiments_Manager : MonoBehaviour
     private Localization_Manager localizationManager;
     string ui_experiments_table = "UI_Experiments";
 
-    public List<ExperimentId> unlockedExperimentIDs {get; private set;} // Which Experiments Should We Display in The Menu?
+    public List<ExperimentId> unlockedExperimentIDs;// {get; private set;} // Which Experiments Should We Display in The Menu?
+    public Dictionary<ExperimentId, Experiment> experimentId2Experiment;
 
 
 
@@ -171,7 +174,7 @@ public class Experiments_Manager : MonoBehaviour
 
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
 
-
+        experimentId2Experiment = new Dictionary<ExperimentId, Experiment>();
         experimentsList = new List<Experiment>();
         experimentPanelsList = new List<GameObject>();
 
@@ -196,6 +199,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel1_Object_Holder = Experiment_Panel1.GetComponent<ObjectHolder>();
         Experiment_Panel1_Object_Holder.Obj = experiment1;
         experimentPanelsList.Add(Experiment_Panel1);
+        experimentId2Experiment[experiment1Id] = experiment1;
 
         
         experiment2Name = localizationManager.GetLocalizedString(ui_experiments_table, "UI.Experiment.Experiment2.Name");
@@ -215,6 +219,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel2_Object_Holder = Experiment_Panel2.GetComponent<ObjectHolder>();
         Experiment_Panel2_Object_Holder.Obj = experiment2;
         experimentPanelsList.Add(Experiment_Panel2);
+        experimentId2Experiment[experiment2Id] = experiment2;
 
 
         experiment3Name = localizationManager.GetLocalizedString(ui_experiments_table, "UI.Experiment.Experiment3.Name");
@@ -234,6 +239,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel3_Object_Holder = Experiment_Panel3.GetComponent<ObjectHolder>();
         Experiment_Panel3_Object_Holder.Obj = experiment3;
         experimentPanelsList.Add(Experiment_Panel3);
+        experimentId2Experiment[experiment3Id] = experiment3;
 
 
         experiment4Name = localizationManager.GetLocalizedString(ui_experiments_table, "UI.Experiment.Experiment4.Name");
@@ -253,6 +259,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel4_Object_Holder = Experiment_Panel4.GetComponent<ObjectHolder>();
         Experiment_Panel4_Object_Holder.Obj = experiment4;
         experimentPanelsList.Add(Experiment_Panel4);
+        experimentId2Experiment[experiment4Id] = experiment4;
 
 
         experiment5Name = localizationManager.GetLocalizedString(ui_experiments_table, "UI.Experiment.Experiment5.Name");
@@ -272,6 +279,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel5_Object_Holder = Experiment_Panel5.GetComponent<ObjectHolder>();
         Experiment_Panel5_Object_Holder.Obj = experiment5;
         experimentPanelsList.Add(Experiment_Panel5);
+        experimentId2Experiment[experiment5Id] = experiment5;
 
         
         experiment6Name = localizationManager.GetLocalizedString(ui_experiments_table, "UI.Experiment.Experiment6.Name");
@@ -291,6 +299,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel6_Object_Holder = Experiment_Panel6.GetComponent<ObjectHolder>();
         Experiment_Panel6_Object_Holder.Obj = experiment6;
         experimentPanelsList.Add(Experiment_Panel6);
+        experimentId2Experiment[experiment6Id] = experiment6;
 
 
         experiment7Name = localizationManager.GetLocalizedString(ui_experiments_table, "UI.Experiment.Experiment7.Name");
@@ -310,7 +319,7 @@ public class Experiments_Manager : MonoBehaviour
         Experiment_Panel7_Object_Holder = Experiment_Panel7.GetComponent<ObjectHolder>();
         Experiment_Panel7_Object_Holder.Obj = experiment7;
         experimentPanelsList.Add(Experiment_Panel7);
-
+        experimentId2Experiment[experiment7Id] = experiment7;
 
 
 
@@ -318,6 +327,63 @@ public class Experiments_Manager : MonoBehaviour
             //Debug.Log("Added Panel: " + g.name);
         }
     }
+
+
+
+
+    void OnLevelWasLoaded(){
+        if (instance == this){
+            if (SceneManager.GetActiveScene().name == "Main_Area"){
+                experimentPanelsList = new List<GameObject>();
+ 
+                Experiment_Panel1 = GameObject.Find("Experiment_Upgrade_Panel_1");
+                Experiment_Panel1_Object_Holder = Experiment_Panel1.GetComponent<ObjectHolder>();
+                Experiment_Panel1_Object_Holder.Obj = experiment1;
+                experimentPanelsList.Add(Experiment_Panel1);
+
+                
+                Experiment_Panel2 = GameObject.Find("Experiment_Upgrade_Panel_2");
+                Experiment_Panel2_Object_Holder = Experiment_Panel2.GetComponent<ObjectHolder>();
+                Experiment_Panel2_Object_Holder.Obj = experiment2;
+                experimentPanelsList.Add(Experiment_Panel2);
+
+                
+                Experiment_Panel3 = GameObject.Find("Experiment_Upgrade_Panel_3");
+                Experiment_Panel3_Object_Holder = Experiment_Panel3.GetComponent<ObjectHolder>();
+                Experiment_Panel3_Object_Holder.Obj = experiment3;
+                experimentPanelsList.Add(Experiment_Panel3);
+
+                Experiment_Panel4 = GameObject.Find("Experiment_Upgrade_Panel_4");
+                Experiment_Panel4_Object_Holder = Experiment_Panel4.GetComponent<ObjectHolder>();
+                Experiment_Panel4_Object_Holder.Obj = experiment4;
+                experimentPanelsList.Add(Experiment_Panel4);
+
+                Experiment_Panel5 = GameObject.Find("Experiment_Upgrade_Panel_5");
+                Experiment_Panel5_Object_Holder = Experiment_Panel5.GetComponent<ObjectHolder>();
+                Experiment_Panel5_Object_Holder.Obj = experiment5;
+                experimentPanelsList.Add(Experiment_Panel5);
+
+                Experiment_Panel6 = GameObject.Find("Experiment_Upgrade_Panel_6");
+                Experiment_Panel6_Object_Holder = Experiment_Panel6.GetComponent<ObjectHolder>();
+                Experiment_Panel6_Object_Holder.Obj = experiment6;
+                experimentPanelsList.Add(Experiment_Panel6);
+
+                Experiment_Panel7 = GameObject.Find("Experiment_Upgrade_Panel_7");
+                Experiment_Panel7_Object_Holder = Experiment_Panel7.GetComponent<ObjectHolder>();
+                Experiment_Panel7_Object_Holder.Obj = experiment7;
+                experimentPanelsList.Add(Experiment_Panel7);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -440,20 +506,31 @@ public class Experiments_Manager : MonoBehaviour
 
 
 
-    // public void setUnlockedExperimentIds(List<int> UnlockedExperimentIds, bool alertExperimentsUpdated = false){
-    //     unlockedExperimentIDs = UnlockedExperimentIds;
-    // }
+    public void setUnlockedExperimentIds(List<int> UnlockedExperimentIds, bool alertExperimentsUpdated = false){
+        List<ExperimentId> experimentIdList = new List<ExperimentId>();
+        foreach(int xid in UnlockedExperimentIds){
+            if (System.Enum.IsDefined(typeof(ExperimentId), xid))
+            {
+                experimentIdList.Add((ExperimentId)xid);
+            }
+            else
+            {
+                throw new System.ArgumentException("Cannot set unlocked experiments " + xid + " does not correspond to any ExperimentId");
+            }
+        }
+        setUnlockedExperimentIds(experimentIdList, alertExperimentsUpdated);
+    }
 
-    // public void setUnlockedExperimentIds(int[] unlockedExperimentIds, bool alertExperimentsUpdated = false){
-    //     //uiController.setActiveResearch(activeResearchIds, alertResearchersUpdated);
-    //     setUnlockedExperimentIds(new List<ExperimentId>(unlockedExperimentIds), alertResearchersUpdated);
-    // }
+    public void setUnlockedExperimentIds(int[] unlockedExperimentIds, bool alertExperimentsUpdated = false){
+        //uiController.setActiveResearch(activeResearchIds, alertResearchersUpdated);
+        setUnlockedExperimentIds(new List<int>(unlockedExperimentIds), alertExperimentsUpdated);
+    }
 
 
 
     
     public void setUnlockedExperimentIds(List<ExperimentId> UnlockedExperimentIds, bool alertExperimentsUpdated = false){
-        unlockedExperimentIDs = UnlockedExperimentIds;
+        unlockedExperimentIDs = UnlockedExperimentIds.Distinct().ToList();
     }
 
     public void setUnlockedExperimentIds(ExperimentId[] unlockedExperimentIds, bool alertExperimentsUpdated = false){
@@ -461,10 +538,9 @@ public class Experiments_Manager : MonoBehaviour
         setUnlockedExperimentIds(new List<ExperimentId>(unlockedExperimentIds), alertExperimentsUpdated);
     }
 
-    public List<int> getUnlockedExperimentIds(){
+    public List<ExperimentId> getUnlockedExperimentIds(){
         //return uiController._getActiveResearchIds();
-        //return unlockedExperimentIDs;
-        return new List<int>(new int[] {});
+        return unlockedExperimentIDs;
     }
 
 

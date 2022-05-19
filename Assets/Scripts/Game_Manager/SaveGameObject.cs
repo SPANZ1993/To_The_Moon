@@ -58,6 +58,9 @@ public class SaveGameObject
 
     public List<int> UnlockedExperimentIds {get; set;}
 
+    public Dictionary<Upgrade, bool> UpgradesUnlockedDict {get; private set;}
+    public Dictionary<Upgrade, int> UpgradesNumberDict  {get; private set;}
+
 
     public SaveGameObject(){
         IsValid = true;
@@ -88,6 +91,28 @@ public class SaveGameObject
         AssignedResearchers = new List<ResearchAssignmentObject>();
 
         UnlockedExperimentIds = new List<int> {1, 2};
+
+        UpgradesUnlockedDict = generateUpgradesUnlockedDict();
+        UpgradesNumberDict = generateUpgradesNumberDict();
+    }
+
+    private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
+        Dictionary<Upgrade, bool> uud = new Dictionary<Upgrade, bool>();
+        foreach(Upgrade upgrade in Enum.GetValues(typeof(Upgrade))){
+            uud[upgrade] = false;
+            // if (upgrade == Upgrade.Autopilot_System){
+            //     uud[upgrade] = true;
+            // } // REMOVE
+        }
+        return uud;
+    }
+
+    private Dictionary<Upgrade, int> generateUpgradesNumberDict(){
+        Dictionary<Upgrade, int> und = new Dictionary<Upgrade, int>();
+        foreach(Upgrade upgrade in Enum.GetValues(typeof(Upgrade))){
+            und[upgrade] = 0;
+        }
+        return und;
     }
 
     public SaveGameObject(bool isValid, 
@@ -111,7 +136,10 @@ public class SaveGameObject
                             List<int> unlockedResearchIds,
                             List<int> unlockedResearcherIds,
                             List<ResearchAssignmentObject> assignedResearchers,
-                            List<int> unlockedExperimentIds){
+                            List<int> unlockedExperimentIds,
+                            Dictionary<Upgrade, bool> upgradesUnlockedDict,
+                            Dictionary<Upgrade, int> upgradesNumberDict){
+
         IsValid = isValid;
         IsNewGame = isNewGame;
         OffLineMode = offLineMode;
@@ -141,6 +169,9 @@ public class SaveGameObject
         AssignedResearchers = assignedResearchers;
 
         UnlockedExperimentIds = unlockedExperimentIds;
+    
+        UpgradesUnlockedDict = upgradesUnlockedDict;
+        UpgradesNumberDict = upgradesNumberDict; 
     }
 
 }

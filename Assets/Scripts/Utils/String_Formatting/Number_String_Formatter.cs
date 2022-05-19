@@ -81,7 +81,7 @@ public class Number_String_Formatter
 
 
 
-
+    // Robot Menu Stuff
     public static string robotMenuFormatPriceText(double price, int decimals=0){
         return defaultNumberFormat(price, decimals:decimals);
     }
@@ -89,6 +89,41 @@ public class Number_String_Formatter
     public static string robotMenuFormatPriceText(float price, int decimals=0){
         return defaultNumberFormat(price, decimals:decimals);
     }
+    // End Robot Menu Stuff
+
+    // Lab Menu Stuff
+    public static string formatTimeForResearchDurationText(double secs){
+        return defaultTimeNumberFormat(secs);
+    }
+
+    public static string formatTimeForResearchDurationText(float secs){
+        return defaultTimeNumberFormat(secs);
+    }
+
+    public static string formatTimeForResearchTimeLeftText(double secs){
+        return defaultTimeNumberFormat(secs);
+    }
+
+    public static string formatTimeForResearchTimeLeftText(float secs){
+        return defaultTimeNumberFormat(secs);
+    }
+
+    public static string formatResearchPriceText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatResearchPriceText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+    
+    public static string formatResearchExpectedThrustText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatResearchExpectedThrustText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+    // End Lab Menu Stuff
 
 
 
@@ -104,8 +139,19 @@ public class Number_String_Formatter
     // End Speech Object Stuff
 
 
+    // Countdown Timer Stuff
+    public static string formatTimeForCountdownTimer(double secs){
+        return defaultTimeNumberFormat(secs);
+    }
 
-    public static float floorDivision(float dividend, float divisor, int decimals=0){
+    public static string formatTimeForCountdownTimer(float secs){
+        return defaultTimeNumberFormat(secs);
+    }
+    // End Countdown Timer Stuff
+
+
+
+    private static float floorDivision(float dividend, float divisor, int decimals=0){
 
         int nthdecimal(float num, int n){
             return ((int)(num * Mathf.Pow(10f, n))/10);
@@ -136,7 +182,7 @@ public class Number_String_Formatter
         // }
     }
 
-    public static double floorDivision(double dividend, double divisor, int decimals=0){
+    private static double floorDivision(double dividend, double divisor, int decimals=0){
         int nthdecimal(float num, int n){
             return ((int)(num * Mathf.Pow(10f, n))/10);
         } 
@@ -160,11 +206,11 @@ public class Number_String_Formatter
 
 
 
-    public static string defaultNumberFormat(float num, int decimals=0){
+    private static string defaultNumberFormat(float num, int decimals=0){
         return defaultNumberFormat((double)num, decimals);
     }
 
-    public static string defaultNumberFormat(int num, int decimals=0){
+    private static string defaultNumberFormat(int num, int decimals=0){
         return defaultNumberFormat((double) num, decimals);
     }
 
@@ -344,7 +390,7 @@ public class Number_String_Formatter
 
 
 
-    public static string defaultNumberFormat(double num, int decimals=0){
+    private static string defaultNumberFormat(double num, int decimals=0){
 
         if (num == 0.0){
             return "0";
@@ -428,6 +474,74 @@ public class Number_String_Formatter
         
         return trimDecimals(s, decimals) + id;
     }
+
+    // Time Stuff
+    private static double[] ConvertSectoDay(double n)
+        {
+            double day = n / (24.0 * 3600.0);
+        
+            n = n % (24.0 * 3600.0);
+            double hour = n / 3600.0;
+        
+            n %= 3600.0;
+            double minutes = n / 60.0 ;
+        
+            n %= 60.0;
+            double seconds = n;
+
+
+            if(day < 1.0){
+                day = 0.0;
+                if(hour < 1.0){
+                    hour = 0.0;
+                    if(minutes < 1.0){
+                        minutes = 0;
+                        if(seconds < 1.0){
+                            seconds = 1.0;
+                        }
+                    }
+                }
+
+            }
+            
+            return new double[] {Math.Floor(day), Math.Floor(hour), Math.Floor(minutes), Math.Floor(seconds)};
+    }
+
+    private static string defaultTimeNumberFormat(double n){
+        if(n < 1){
+            return "S: 0";
+        }
+        double[] timeArr = ConvertSectoDay(n);
+        string displayString = "";
+        if(timeArr[0] != 0.0){
+            displayString += "D: " + timeArr[0].ToString("0");
+        }
+        if(timeArr[1] != 0.0){
+            if(displayString != ""){
+                displayString += "  ";
+            }
+            displayString += "H: " + timeArr[1].ToString("0");
+        }
+        if(timeArr[2] != 0.0){
+            if(displayString != ""){
+                displayString += "  ";
+            }
+            displayString += "M: " + timeArr[2].ToString("0");
+        }
+        if(timeArr[3] != 0.0){
+            if(displayString != ""){
+                displayString += "  ";
+            }
+            displayString += "S: " + timeArr[3].ToString("0");
+        }
+        return displayString;
+    }
+
+    private static string defaultTimeNumberFormat(float n){
+        return defaultTimeNumberFormat((double)n);
+    }
+    // End Time Stuff
+
 
 
 }

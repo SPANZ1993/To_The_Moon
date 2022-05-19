@@ -7,13 +7,13 @@ using System;
 
 
 public enum Upgrade{
-    Autopilot,
-    Lateral_Boosters,
-    Particle_Shield,
-    Cow_Catcher,
-    Turbo_Boost,
-    Da_Bomb,
-    Gem_Magnet
+    Autopilot_System = 1,
+    Lateral_Boosters = 2,
+    Particle_Shield = 3,
+    Cow_Catcher = 4,
+    Turbo_Boost = 5,
+    Da_Bomb = 6,
+    Gem_Magnet = 7
 }
 
 
@@ -27,11 +27,13 @@ public class Upgrades_Manager : MonoBehaviour
 {
 
 
-    public Dictionary<Upgrade, bool> upgradesUnlockedDict {get; private set;}
-    public Dictionary<Upgrade, int> upgradesNumberDict  {get; private set;}
+    public Dictionary<Upgrade, bool> upgradesUnlockedDict {get; set;} // Have we acquired this upgrade
+    public Dictionary<Upgrade, int> upgradesNumberDict  {get; set;}
     public Dictionary<Upgrade, int> upgradesMaxNumberDict  {get; private set;}
-
-
+    
+    public Dictionary<Upgrade, ExperimentId> upgrade2ExperimentId {get; private set;}
+    public Dictionary<ExperimentId, Upgrade> experimentId2Upgrade {get; private set;}
+    
     // Autopilot
     public bool autopilotFlag = false; // If true, the next rocket game we enter will be an autopilot flight
     public double? autopilotHeight;
@@ -68,37 +70,98 @@ public class Upgrades_Manager : MonoBehaviour
         }
     }
 
+    private void BuildUpgrade2ExperimentIdDict(){
+        upgrade2ExperimentId = new Dictionary<Upgrade, ExperimentId>();
+        experimentId2Upgrade = new Dictionary<ExperimentId, Upgrade>();
+        foreach(Upgrade upgrade in Enum.GetValues(typeof(Upgrade))){
+            //Debug.Log(upgrade + " " + (int)upgrade +  " " + Enum.GetName(typeof(Upgrade), (int)upgrade));
+            ExperimentId exp;
+            bool foundExp = false;
+            foundExp = Enum.TryParse(Enum.GetName(typeof(Upgrade), (int)upgrade), out exp);
+            
+            if (foundExp){
+                if((int)upgrade == (int)exp){
+                    //Debug.Log("EXP: " + exp + "   " + " UPGRADE: " + upgrade);
+                    upgrade2ExperimentId[upgrade] = exp;
+                    experimentId2Upgrade[exp] = upgrade;
+                }
+                else{
+                    throw new InvalidOperationException(Enum.GetName(typeof(Upgrade), (int)upgrade) + " HAS A DIFFERENT VALUE IN EXPERIMENTID ENUM");
+                }
+            }
+            else{
+                throw new InvalidOperationException(Enum.GetName(typeof(Upgrade), (int)upgrade) + " UPGRADE HAS NO CORRESPONDING EXPERIMENT");
+            }
+
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        if (upgradesUnlockedDict == null && upgradesNumberDict == null && upgradesMaxNumberDict == null){
+        
+        if (upgrade2ExperimentId == null || experimentId2Upgrade == null){
+            BuildUpgrade2ExperimentIdDict();
+        }
+
+
+        if (upgradesUnlockedDict == null && upgradesNumberDict == null){
             upgradesUnlockedDict = new Dictionary<Upgrade, bool>();
             upgradesNumberDict = new Dictionary<Upgrade, int>();
-            upgradesMaxNumberDict = new Dictionary<Upgrade, int>();
             foreach(Upgrade upgrade in Enum.GetValues(typeof(Upgrade))){
                 upgradesUnlockedDict[upgrade] = false;
                 upgradesNumberDict[upgrade] = 0;
-                upgradesMaxNumberDict[upgrade] = 0;
                 switch(upgrade){
-                    case Upgrade.Autopilot:
-                        upgradesMaxNumberDict[upgrade] = 1;
+                    case Upgrade.Autopilot_System:
                         upgradesNumberDict[upgrade] = 0;
                         upgradesUnlockedDict[upgrade] = false;
                         break;
                     case Upgrade.Lateral_Boosters:
-                        upgradesMaxNumberDict[upgrade] = 1;
                         upgradesNumberDict[upgrade] = 0;
                         upgradesUnlockedDict[upgrade] = false; // TODO: Make Some Visual Representation of This
                         break;
                     case Upgrade.Particle_Shield:
-                        upgradesMaxNumberDict[upgrade] = 1; // TODO: Make Some Visual Representation of This
                         upgradesNumberDict[upgrade] = 0;
                         upgradesUnlockedDict[upgrade] = false; // TODO: Implement Dark Matter and Particle Shield
                         break;
                     case Upgrade.Cow_Catcher:
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false;
+                        break;
+                    case Upgrade.Turbo_Boost:
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false;
+                        break;
+                    case Upgrade.Da_Bomb:
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false;
+                        break;
+                    case Upgrade.Gem_Magnet:
+                        upgradesNumberDict[upgrade] = 0;
+                        upgradesUnlockedDict[upgrade] = false;
+                        break;
+                    default:
+                        break;
+                }
+            }    
+        }
+
+        if (upgradesMaxNumberDict == null){
+            upgradesMaxNumberDict = new Dictionary<Upgrade, int>();
+            foreach(Upgrade upgrade in Enum.GetValues(typeof(Upgrade))){
+                upgradesMaxNumberDict[upgrade] = 0;
+                switch(upgrade){
+                    case Upgrade.Autopilot_System:
                         upgradesMaxNumberDict[upgrade] = 1;
+                        break;
+                    case Upgrade.Lateral_Boosters:
                         upgradesMaxNumberDict[upgrade] = 1;
-                        upgradesUnlockedDict[upgrade] = true;
+                        break;
+                    case Upgrade.Particle_Shield:
+                        upgradesMaxNumberDict[upgrade] = 1; // TODO: Make Some Visual Representation of This
+                        break;
+                    case Upgrade.Cow_Catcher:
+                        upgradesMaxNumberDict[upgrade] = 1;
                         break;
                     case Upgrade.Turbo_Boost:
                         upgradesMaxNumberDict[upgrade] = 1;
@@ -113,8 +176,8 @@ public class Upgrades_Manager : MonoBehaviour
                         upgradesMaxNumberDict[upgrade] = 1;
                         break;
                 }
-            }
-        }        
+            }    
+        }
     }
 
     public void OnLevelWasLoaded(){

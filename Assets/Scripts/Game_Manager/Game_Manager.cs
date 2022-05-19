@@ -39,8 +39,10 @@ public class Game_Manager : MonoBehaviour
 
     public bool initializeGameOnReturnToMainArea = false; // If this is true, when we enter the main area scene, try to query playfab to reinitialize the game
 
-    
+    // Upgrades Stuff
     private Upgrades_Manager upgradesManager;
+    public Dictionary<Upgrade, bool> upgradesUnlockedDict {get; private set;}
+    public Dictionary<Upgrade, int> upgradesNumberDict  {get; private set;}
 
 
     // Stuff Related to Saved Game
@@ -108,6 +110,7 @@ public class Game_Manager : MonoBehaviour
     public List<ResearchAssignmentObject> assignedResearchers;
 
     //Experiment Info
+    public Experiments_Manager experimentsManager;
     public List<int> unlockedExperimentIds;
 
 
@@ -155,7 +158,7 @@ public class Game_Manager : MonoBehaviour
             localSessionStartTimeUnix = (double)((DateTimeOffset)localSessionStartTime).ToUnixTimeSeconds();
             localSessionCurrentTime = localSessionStartTime;
             localSessionPrevFrameTime = localSessionStartTime;
-            StartCoroutine(GetServerTime(timeRequestUrl, getServerTimeRetries));
+            //StartCoroutine(GetServerTime(timeRequestUrl, getServerTimeRetries));
         }
         else{
             Destroy(this.gameObject);
@@ -178,6 +181,7 @@ public class Game_Manager : MonoBehaviour
                 touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
                 serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
                 upgradesManager = Upgrades_Manager.instance;
+                experimentsManager = Experiments_Manager.instance;
                 minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
@@ -283,6 +287,10 @@ public class Game_Manager : MonoBehaviour
                 }
                 else{
                     updateRemainingLaunches();
+                    if (upgradesManager != null){
+                        upgradesUnlockedDict = upgradesManager.upgradesUnlockedDict;
+                        upgradesNumberDict = upgradesManager.upgradesNumberDict;
+                    }
                 }
             }
         }
@@ -400,7 +408,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     void OnApplicationPause(){
-        if (frameCount != 0){
+        if (frameCount != 0 && SceneManager.GetActiveScene().name != "Landing_Page"){
             // Debug.Log("WOOP: Application Paused --- " + DateTime.Now);
             //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused --- " + DateTime.Now;
             saveData(disableTouch: false, displayIndicator: false, serially: true);
@@ -412,7 +420,9 @@ public class Game_Manager : MonoBehaviour
 
     void OnApplicationQuit(){
         // Debug.Log("WOOP: Application Quit Beginning --- " + DateTime.Now);
-        saveData(disableTouch: false, displayIndicator: false, serially: true);
+        if(SceneManager.GetActiveScene().name != "Landing_Page"){
+            saveData(disableTouch: false, displayIndicator: false, serially: true);
+        }
         try{
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nQuit --- " + DateTime.Now;
         }
@@ -466,6 +476,12 @@ public class Game_Manager : MonoBehaviour
             // Research
             initializeResearch(loadedGame.UnlockedResearchIds, loadedGame.UnlockedResearcherIds, loadedGame.AssignedResearchers, offLineMode: true);
             //
+            // Upgrades
+            initializeUpgrades(loadedGame.UpgradesUnlockedDict, loadedGame.UpgradesNumberDict);
+            //
+            // Experiments
+            initializeExperiments(loadedGame.UnlockedExperimentIds);
+            //
         }
         else{
             //Debug.Log("SETTING CART EMPTY TIME TO: " +  loadedGame.CartLastEmptiedTimeUnix);
@@ -483,6 +499,12 @@ public class Game_Manager : MonoBehaviour
             //
             // Research
             initializeResearch(loadedGame.UnlockedResearchIds, loadedGame.UnlockedResearcherIds, loadedGame.AssignedResearchers, offLineMode: false);
+            //
+            // Upgrades
+            initializeUpgrades(loadedGame.UpgradesUnlockedDict, loadedGame.UpgradesNumberDict);
+            //
+            // Experiments
+            initializeExperiments(loadedGame.UnlockedExperimentIds);
             //
         }
 
@@ -788,8 +810,25 @@ public class Game_Manager : MonoBehaviour
     }
 
 
+    private void initializeExperiments(List<int> unlockedExperimentIds){
+        experimentsManager.setUnlockedExperimentIds(unlockedExperimentIds);
+    }
+
+
     private void getExperimentInfo(){
-        //unlockedExperimentIds
+        List<int> unlockedExperimentIdsInt = new List<int>();
+        foreach(ExperimentId exp in experimentsManager.unlockedExperimentIDs){
+            unlockedExperimentIdsInt.Add((int) exp);
+        }
+        unlockedExperimentIds = unlockedExperimentIdsInt;
+    }
+
+
+
+    private void initializeUpgrades(Dictionary<Upgrade, bool> upgradesUnlockedDict, Dictionary<Upgrade, int> upgradesNumberDict){
+        // Debug.Log("INITIALIZING UPGRADES");
+        upgradesManager.upgradesUnlockedDict = upgradesUnlockedDict;
+        upgradesManager.upgradesNumberDict = upgradesNumberDict;
     }
 
 

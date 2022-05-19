@@ -79,73 +79,11 @@ public abstract class Countdown_Timer_Controller_Base : MonoBehaviour // Make th
 
     private void updateTimer(){
 
-
-        double[] ConvertSectoDay(double n)
-        {
-            double day = n / (24.0 * 3600.0);
-        
-            n = n % (24.0 * 3600.0);
-            double hour = n / 3600.0;
-        
-            n %= 3600.0;
-            double minutes = n / 60.0 ;
-        
-            n %= 60.0;
-            double seconds = n;
-
-
-            if(day < 1.0){
-                day = 0.0;
-                if(hour < 1.0){
-                    hour = 0.0;
-                    if(minutes < 1.0){
-                        minutes = 0;
-                        if(seconds < 1.0){
-                            seconds = 1.0;
-                        }
-                    }
-                }
-
-            }
-            
-            return new double[] {Math.Floor(day), Math.Floor(hour), Math.Floor(minutes), Math.Floor(seconds)};
-        }
-
-
-
         if(isReady){
             textTMP.text = "READY";
         }
         else{
-            double[] timeArr = ConvertSectoDay(timeLeft);
-            // Console.WriteLine("WORLSKDJFL:S");
-
-            // Console.WriteLine("TIMESPAN: " + string.Join(", ", timeArr));
-
-
-            string displayString = "";
-            if(timeArr[0] != 0.0){
-                displayString += "D: " + timeArr[0].ToString("0");
-            }
-            if(timeArr[1] != 0.0){
-                if(displayString != ""){
-                    displayString += "  ";
-                }
-                displayString += "H: " + timeArr[1].ToString("0");
-            }
-            if(timeArr[2] != 0.0){
-                if(displayString != ""){
-                    displayString += "  ";
-                }
-                displayString += "M: " + timeArr[2].ToString("0");
-            }
-            if(timeArr[3] != 0.0){
-                if(displayString != ""){
-                    displayString += "  ";
-                }
-                displayString += "S: " + timeArr[3].ToString("0");
-            }
-            textTMP.text = displayString;
+            textTMP.text = Number_String_Formatter.formatTimeForCountdownTimer(timeLeft);
         }
 
     }

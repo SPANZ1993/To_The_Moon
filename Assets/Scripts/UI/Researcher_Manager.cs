@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System;
+using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 
@@ -347,7 +348,7 @@ public class Researcher_Manager : MonoBehaviour
 
 
     public void setUnlockedResearchersIds(List<int> unlockedResearchersIdsNew){
-        unlockedResearchersIds = unlockedResearchersIdsNew;
+        unlockedResearchersIds = unlockedResearchersIdsNew.Distinct().ToList();
         //Debug.Log("UNLOCKED RESEARCHERS ARE: " + string.Join(", ", unlockedResearchersIds));
     }
 

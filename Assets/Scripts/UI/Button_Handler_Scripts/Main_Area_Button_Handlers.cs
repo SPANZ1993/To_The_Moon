@@ -81,6 +81,11 @@ public class Main_Area_Button_Handlers : MonoBehaviour
     }
 
 
+    public void experimentPanelButtonHandler(GameObject ExperimentPanel){
+        uiController.experimentPanelButtonHandler(ExperimentPanel);
+    }
+
+
     public void researchersConfirmationBoxNoButtonHandler(){
         uiController.researchersConfirmationBoxNoButtonHandler();
     }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 using TMPro;
 
 public class Research_Manager : MonoBehaviour
@@ -46,12 +47,45 @@ public class Research_Manager : MonoBehaviour
     double research3Price = 5000.0;
     private Research research3;
 
+    [SerializeField]
+	Sprite research4Sprite;
+    string research4Name;
+    double research4ExpectedTime = 10800.0 / 1000.0; // 10800
+    double research4ExpectedThrust = 5000.0;
+    double research4Price = 25000.0;
+    private Research research4;
+
+    [SerializeField]
+	Sprite research5Sprite;
+    string research5Name;
+    double research5ExpectedTime = 21600.0 / 1000.0; // 21600
+    double research5ExpectedThrust = 10000.0;
+    double research5Price = 100000.0;
+    private Research research5;
+    
+    [SerializeField]
+	Sprite research6Sprite;
+    string research6Name;
+    double research6ExpectedTime = 43200.0 / 1000.0; // 43200
+    double research6ExpectedThrust = 25000.0;
+    double research6Price = 1000000.0;
+    private Research research6;
+
+    [SerializeField]
+	Sprite research7Sprite;
+    string research7Name;
+    double research7ExpectedTime = 86400.0 / 1000.0; // 86400
+    double research7ExpectedThrust = 1000000.0;
+    double research7Price = 100000000.0;
+    private Research research7;
+
+
 
 
     public List<Research> researchList {get; private set;}
 
-    private GameObject Research_Panel1, Research_Panel2, Research_Panel3;
-    private ObjectHolder Research_Panel1_Object_Holder, Research_Panel2_Object_Holder, Research_Panel3_Object_Holder;
+    private GameObject Research_Panel1, Research_Panel2, Research_Panel3, Research_Panel4, Research_Panel5, Research_Panel6, Research_Panel7;
+    private ObjectHolder Research_Panel1_Object_Holder, Research_Panel2_Object_Holder, Research_Panel3_Object_Holder, Research_Panel4_Object_Holder, Research_Panel5_Object_Holder, Research_Panel6_Object_Holder, Research_Panel7_Object_Holder;
     private List<GameObject> researchPanelsList;
 
 
@@ -97,9 +131,8 @@ public class Research_Manager : MonoBehaviour
 
     
     void OnLevelWasLoaded(){
-        if (instanceID == gameObject.GetInstanceID()){
-            Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
-            if (sceneManager.scene_name == "Main_Area"){
+        if (instance == this){
+            if (SceneManager.GetActiveScene().name == "Main_Area"){
                 researchPanelsList = new List<GameObject>();
  
                 Research_Panel1 = GameObject.Find("Research_Panel_1");
@@ -119,6 +152,25 @@ public class Research_Manager : MonoBehaviour
                 Research_Panel3_Object_Holder.Obj = research3;
                 researchPanelsList.Add(Research_Panel3);
 
+                Research_Panel4 = GameObject.Find("Research_Panel_4");
+                Research_Panel4_Object_Holder = Research_Panel4.GetComponent<ObjectHolder>();
+                Research_Panel4_Object_Holder.Obj = research4;
+                researchPanelsList.Add(Research_Panel4);
+
+                Research_Panel5 = GameObject.Find("Research_Panel_5");
+                Research_Panel5_Object_Holder = Research_Panel5.GetComponent<ObjectHolder>();
+                Research_Panel5_Object_Holder.Obj = research5;
+                researchPanelsList.Add(Research_Panel5);
+
+                Research_Panel6 = GameObject.Find("Research_Panel_6");
+                Research_Panel6_Object_Holder = Research_Panel6.GetComponent<ObjectHolder>();
+                Research_Panel6_Object_Holder.Obj = research6;
+                researchPanelsList.Add(Research_Panel6);
+
+                Research_Panel7 = GameObject.Find("Research_Panel_7");
+                Research_Panel7_Object_Holder = Research_Panel7.GetComponent<ObjectHolder>();
+                Research_Panel7_Object_Holder.Obj = research7;
+                researchPanelsList.Add(Research_Panel7);
             }
         }
     }
@@ -186,9 +238,75 @@ public class Research_Manager : MonoBehaviour
                         );
         researchList.Add(research3);
         Research_Panel3 = GameObject.Find("Research_Panel_3");
-        researchPanelsList.Add(Research_Panel3);
         Research_Panel3_Object_Holder = Research_Panel3.GetComponent<ObjectHolder>();
         Research_Panel3_Object_Holder.Obj = research3;
+        researchPanelsList.Add(Research_Panel3);
+
+
+        research4Name = "Research Name 4";
+        research4 = new Research(
+                        ResearchId: 4,
+                        ResearchName: localizationManager.GetLocalizedString(ui_research_table, "UI.Research.Research4.Name"),
+                        ExpectedTime: research4ExpectedTime,
+                        ExpectedThrust: research4ExpectedThrust,
+                        Price: research4Price,
+                        ResearchSprite: research4Sprite
+                        );
+        researchList.Add(research4);
+        Research_Panel4 = GameObject.Find("Research_Panel_4");
+        Research_Panel4_Object_Holder = Research_Panel4.GetComponent<ObjectHolder>();
+        Research_Panel4_Object_Holder.Obj = research4;
+        researchPanelsList.Add(Research_Panel4);
+
+
+        research5Name = "Research Name 5";
+        research5 = new Research(
+                        ResearchId: 5,
+                        ResearchName: localizationManager.GetLocalizedString(ui_research_table, "UI.Research.Research5.Name"),
+                        ExpectedTime: research5ExpectedTime,
+                        ExpectedThrust: research5ExpectedThrust,
+                        Price: research5Price,
+                        ResearchSprite: research5Sprite
+                        );
+        researchList.Add(research5);
+        Research_Panel5 = GameObject.Find("Research_Panel_5");
+        Research_Panel5_Object_Holder = Research_Panel5.GetComponent<ObjectHolder>();
+        Research_Panel5_Object_Holder.Obj = research5;
+        researchPanelsList.Add(Research_Panel5);
+
+
+        research6Name = "Research Name 6";
+        research6 = new Research(
+                        ResearchId: 6,
+                        ResearchName: localizationManager.GetLocalizedString(ui_research_table, "UI.Research.Research6.Name"),
+                        ExpectedTime: research6ExpectedTime,
+                        ExpectedThrust: research6ExpectedThrust,
+                        Price: research6Price,
+                        ResearchSprite: research6Sprite
+                        );
+        researchList.Add(research6);
+        Research_Panel6 = GameObject.Find("Research_Panel_6");
+        Research_Panel6_Object_Holder = Research_Panel6.GetComponent<ObjectHolder>();
+        Research_Panel6_Object_Holder.Obj = research6;
+        researchPanelsList.Add(Research_Panel6);
+
+
+        research7Name = "Research Name 7";
+        research7 = new Research(
+                        ResearchId: 7,
+                        ResearchName: localizationManager.GetLocalizedString(ui_research_table, "UI.Research.Research7.Name"),
+                        ExpectedTime: research7ExpectedTime,
+                        ExpectedThrust: research7ExpectedThrust,
+                        Price: research7Price,
+                        ResearchSprite: research7Sprite
+                        );
+        researchList.Add(research7);
+        Research_Panel7 = GameObject.Find("Research_Panel_7");
+        Research_Panel7_Object_Holder = Research_Panel7.GetComponent<ObjectHolder>();
+        Research_Panel7_Object_Holder.Obj = research7;
+        researchPanelsList.Add(Research_Panel7);
+
+
         refreshAllResearch();
         refreshAllResearchPanels();
     }
@@ -258,7 +376,7 @@ public class Research_Manager : MonoBehaviour
             }
             else if (curGameObj.name == "Research_Price_Text"){
                 if (!research.isResearcherAssigned()){
-                    curGameObj.GetComponent<TextMeshProUGUI>().text = research.price.ToString();
+                    curGameObj.GetComponent<TextMeshProUGUI>().text = Number_String_Formatter.formatResearchPriceText(research.price);
                     uiController.EnableUIElement(curGameObj);
                 }
                 else{
@@ -336,7 +454,7 @@ public class Research_Manager : MonoBehaviour
             else if (curGameObj.name == "Research_Time_Left_Text"){
                 if (research.isResearcherAssigned() && !research.researchComplete){
                     uiController.EnableUIElement(curGameObj);
-                    curGameObj.GetComponent<TextMeshProUGUI>().text = Math.Round(research.timeLeft).ToString();
+                    curGameObj.GetComponent<TextMeshProUGUI>().text = Number_String_Formatter.formatTimeForResearchTimeLeftText(research.timeLeft);
                 }
                 else{
                     uiController.DisableUIElement(curGameObj);
@@ -361,6 +479,15 @@ public class Research_Manager : MonoBehaviour
                 else{
                     uiController.DisableUIElement(curGameObj);
                 }
+            }
+            else if (curGameObj.name == "Research_Image"){
+                curGameObj.GetComponent<Image>().sprite = research.researchSprite;
+            }
+            else if (curGameObj.name == "Research_Duration_Text"){
+                curGameObj.GetComponent<TextMeshProUGUI>().text = Number_String_Formatter.formatTimeForResearchDurationText(research.expectedTime);
+            }
+            else if (curGameObj.name == "Research_Expected_Thrust_Text"){
+                curGameObj.GetComponent<TextMeshProUGUI>().text = Number_String_Formatter.formatResearchExpectedThrustText(research.expectedThrust); 
             }
             else{
                 // Debug.Log("AYO: " + curGameObj.name);
@@ -388,7 +515,7 @@ public class Research_Manager : MonoBehaviour
             uiController.EnableUIElement(curGameObj);
             //research.timeLeft -= Time.deltaTime;
             if(!research.researchComplete){
-                curGameObj.GetComponent<TextMeshProUGUI>().text = Math.Round(curTimeLeft).ToString();
+                curGameObj.GetComponent<TextMeshProUGUI>().text = Number_String_Formatter.formatTimeForResearchTimeLeftText(curTimeLeft);
             }
             else if (callRefreshPanel){
                 //uiController.DisableUIElement(curGameObj);
@@ -452,7 +579,7 @@ public class Research_Manager : MonoBehaviour
 
 
     public void setUnlockedResearchIds(List<int> unlockedResearchIds, bool alertResearchersUpdated = true){
-        unlockedResearchIDs = unlockedResearchIds;
+        unlockedResearchIDs = unlockedResearchIds.Distinct().ToList();
     }
 
     public void setUnlockedResearchIds(int[] unlockedResearchIds, bool alertResearchersUpdated = true){

@@ -17,6 +17,7 @@ using UnityEngine.SceneManagement;
 
 
 using System.Text;
+using System.Linq;
 
 
 public class UI_Controller : MonoBehaviour
@@ -254,7 +255,7 @@ public class UI_Controller : MonoBehaviour
     // End Mine Game UI
 
 
-
+    private Upgrades_Manager upgradesManager;
     private Speech_Object_Generator speechObjectGenerator;
     private Localization_Manager localizationManager;
 
@@ -380,7 +381,7 @@ public class UI_Controller : MonoBehaviour
             //Debug.Log("INDEXING FROM LEVEL LOADED");
             indexUIElementSizes();
             
-
+            upgradesManager = Upgrades_Manager.instance;
             gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
             localizationManager = GameObject.Find("Localizer").GetComponent<Localization_Manager>();
             speechObjectGenerator = GameObject.Find("Speech_Object_Generator").GetComponent<Speech_Object_Generator>();
@@ -645,7 +646,7 @@ public class UI_Controller : MonoBehaviour
     public void onButtonTmp2(){
         Research_Manager researchManager = GameObject.Find("Research_Manager").GetComponent<Research_Manager>(); 
         List<int> unlockedResearchIds = researchManager.getUnlockedResearchIds();
-        if (unlockedResearchIds.Max() < 3){
+        if (unlockedResearchIds.Max() < 7){
             //Debug.Log("ADDING RESEARCH: " + unlockedResearchIds.Max() + 1);
             unlockedResearchIds.Add(unlockedResearchIds.Max() + 1);
             researchManager.setUnlockedResearchIds(unlockedResearchIds);
@@ -654,6 +655,7 @@ public class UI_Controller : MonoBehaviour
 
     public void onButtonTmp3(){
         gameManager.coins += 500.0;
+        gameManager.gems += 5;
     }
 
     public void onButtonTmp4(){
@@ -1585,7 +1587,18 @@ public class UI_Controller : MonoBehaviour
 
     public void enableActiveExperimentPanels(){
 
-        List<int> activeExperimentIds = experimentsManager.getUnlockedExperimentIds();
+        List<ExperimentId> activeExperimentIdsExp = experimentsManager.getUnlockedExperimentIds();
+        List<int> activeExperimentIds = new List<int>();
+        foreach(ExperimentId exp in activeExperimentIdsExp){
+            // If we have already purchased a persistent experiment, then don't display its panel
+            if(!(upgradesManager.upgradesUnlockedDict[(Upgrade)exp] && experimentsManager.experimentId2Experiment[exp].isPersistent)){
+                activeExperimentIds.Add((int)exp);
+            }
+            else{
+                Debug.Log("NOT DISPLAYING EXPERIMENT " + experimentsManager.experimentId2Experiment[exp].experimentName + " WITH ID " + exp + "/"  + (Upgrade)exp + " BECAUSE WE ALREADY BOUGHT IT");
+            }
+        }
+        Debug.Log("SETTING THESE IDS: " + string.Join(", ", activeExperimentIds));
         experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition = experimentContainerPanelsOrigAnchoredPosition;
 
         int curPossibleLoc = 0;
@@ -1682,6 +1695,50 @@ public class UI_Controller : MonoBehaviour
         enableActiveExperimentPanels();
         experimentsManager.refreshAllExperimentsPanels();
     }
+
+
+    public void experimentPanelButtonHandler(GameObject ExperimentPanel){
+        Experiment experiment = (Experiment)ExperimentPanel.GetComponent<ObjectHolder>().Obj;
+        ExperimentId experimentId = experiment.experimentId;
+        Denomination experimentDenomination = experiment.denomination;
+        double price = experiment.price;
+
+
+        bool transactionExecuted = false; // Did pressing the button result in the Experiment being purchased
+        
+        Debug.Log("YOYOYO");
+        // If our experiment has a corresponding upgrade
+        if(Enum.GetValues(typeof(Upgrade)).Cast<int>().ToList().IndexOf((int)experimentId) != -1){
+            Upgrade upgradeId = upgradesManager.experimentId2Upgrade[experimentId];
+            if(upgradesManager.upgradesUnlockedDict[upgradeId] == false || (upgradesManager.upgradesNumberDict[upgradeId] < upgradesManager.upgradesMaxNumberDict[upgradeId])){
+                if(experimentDenomination == Denomination.Gems && gameManager.gems >= price){
+                    upgradesManager.upgradesUnlockedDict[upgradeId] = true;
+                    upgradesManager.upgradesNumberDict[upgradeId] += 1;
+                    gameManager.gems -= price;
+                    transactionExecuted = true;
+                }
+                else if(experimentDenomination == Denomination.Coins && gameManager.coins >= price){
+                    upgradesManager.upgradesUnlockedDict[upgradeId] = true;
+                    upgradesManager.upgradesNumberDict[upgradeId] += 1;
+                    gameManager.coins -= price;
+                    transactionExecuted = true;
+                }
+            }
+        }
+        else{
+            
+        }
+
+        if(transactionExecuted){
+            // TODO: Do something here (Sound effect?)
+            enableActiveExperimentPanels();
+        }
+        else{
+            // TODO: Do something here
+        }
+        
+    }
+
 
 
     public void researchPanelButtonHandler(GameObject ResearchPanel){

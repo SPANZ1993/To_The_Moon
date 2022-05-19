@@ -262,11 +262,10 @@ public class Tiny_Scientists_Manager : MonoBehaviour
 
 
     void onLaunchInitiated(){
-        Debug.Log("CALLING THIS");
         launched = true;
         for (int i = 0; i < scientists.Count; i++){
             scientists_controllers[i].path_order = calculateWaypointPath(scientists_controllers[i].Cur_Target_Waypoint, waypoints["TS_BUILDING"]);
-            Debug.Log("SUPPLYING WAYPOINT PATH: " + string.Join(", ", scientists_controllers[i].path_order));
+            //Debug.Log("SUPPLYING WAYPOINT PATH: " + string.Join(", ", scientists_controllers[i].path_order));
             scientists_controllers[i].launched = true;
         }
     }
