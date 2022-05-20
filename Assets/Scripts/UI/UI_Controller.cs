@@ -1361,8 +1361,8 @@ public class UI_Controller : MonoBehaviour
         coldStorageUpgradePriceText.text = Number_String_Formatter.robotMenuFormatPriceText(gameManager.mineCartCoinsCapacityUpgradePrice);
         EnableUIElement(graphicsCardUpgradePanel);
         EnableUIElement(coldStorageUpgradePanel);
-        DisableUIElement(hashingUpgradePanel);
-        DisableUIElement(blockchainNetworkUpgradePanel);
+        //DisableUIElement(hashingUpgradePanel);
+        //DisableUIElement(blockchainNetworkUpgradePanel);
         mineUpgradeSelected = false;
     }
 
