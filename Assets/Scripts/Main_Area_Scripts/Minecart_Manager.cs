@@ -178,7 +178,7 @@ public class Minecart_Manager : MonoBehaviour
 
 
     void onMinecartTapped(){
-        if (curCoins != 0){
+        if (curCoins != 0 && !Scene_Manager.instance.startedMineSceneTransition){
             double curCoinsTmp = curCoins;
             curCoins = 0.0;
             lastEmptiedTimeUnix = gameManager.gameTimeUnix;

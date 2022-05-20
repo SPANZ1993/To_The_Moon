@@ -78,7 +78,7 @@ public class UI_Controller : MonoBehaviour
 
     // Robot Menu
     bool robotMenuFirstDisplayed = false; // Has the robot menu been shown yet
-    private bool robotMenuDisplayed = false;
+    public bool robotMenuDisplayed = false;
     private bool mineUpgradeSelected = true;
     private GameObject mineSelectionPanel;
     private GameObject mineSelectionPanelText;
@@ -97,7 +97,7 @@ public class UI_Controller : MonoBehaviour
 
     // Rocket Building Menu
     bool rocketBuildingMenuFirstDisplayed = false;
-    private bool rocketBuildingMenuDisplayed = false;
+    public bool rocketBuildingMenuDisplayed = false;
     public bool researchMenuDisplayed = false;
     private GameObject RocketBuildingMenuObj;
     private GameObject researchSelectionPanel;
@@ -276,6 +276,7 @@ public class UI_Controller : MonoBehaviour
     public static int instanceID;
 
 
+    private Scene_Manager sceneManager;
     private Game_Manager gameManager;
 
 
@@ -369,7 +370,7 @@ public class UI_Controller : MonoBehaviour
         if (this != instance){
             return;
         }
-
+        sceneManager = Scene_Manager.instance; // This is not the Unity SceneManager... this is our custom class
         //Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
         Retry_Connect_Box = null;
         if (SceneManager.GetActiveScene().name == "Landing_Page"){
@@ -938,7 +939,7 @@ public class UI_Controller : MonoBehaviour
 
 
     void onRobotTapped(){
-        if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed){
+        if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed && !sceneManager.startedMineSceneTransition){
 
             EnableUIElement(RobotMenuObj);
             EnableUIElement(ScreenTintObj);
@@ -952,7 +953,7 @@ public class UI_Controller : MonoBehaviour
 
 
     void onRocketBuildingTapped(){
-        if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed){
+        if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed && !sceneManager.startedRocketSceneTransition){
 
             EnableUIElement(RocketBuildingMenuObj);
             //IEnumerator tmpIE(){

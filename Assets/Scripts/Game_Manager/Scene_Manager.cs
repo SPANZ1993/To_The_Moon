@@ -18,10 +18,12 @@ public class Scene_Manager : MonoBehaviour
 
     // Rocket
     private Rocket_Controller_Main_Area rocketController;
+    public bool startedRocketSceneTransition {get; private set;}
     public delegate void InitiateLaunch();
     public static event InitiateLaunch InitiateLaunchInfo;
 
     //Mine Shaft
+    public bool startedMineSceneTransition {get; private set;}
     private Mine_Shaft_Controller mineShaftController;
 
 
@@ -69,9 +71,11 @@ public class Scene_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
+
+        startedRocketSceneTransition = false;
+        startedMineSceneTransition = false;
 
         scene_name = SceneManager.GetActiveScene().name;
         if(scene_name == "Main_Area"){
@@ -90,6 +94,8 @@ public class Scene_Manager : MonoBehaviour
             }
         }
         if (this == instance){
+            startedRocketSceneTransition = false;
+            startedMineSceneTransition = false;
             scene_name = SceneManager.GetActiveScene().name;
             StartCoroutine(setPrevScene());
             if (scene_name == "Main_Area"){
@@ -171,6 +177,7 @@ public class Scene_Manager : MonoBehaviour
         upgradesManager.autopilotFlag = autopilot;
 
         if(InitiateLaunchInfo != null){
+            startedRocketSceneTransition = true;
             InitiateLaunchInfo();
         }
 
@@ -208,6 +215,7 @@ public class Scene_Manager : MonoBehaviour
         //Debug.Log("UGM: " + upgradesManager + upgradesManager.upgradesUnlockedDict);
         if(upgradesManager == null || !upgradesManager.upgradesUnlockedDict[Upgrade.Autopilot_System]){ // If we don't have the autopilot perk
             if(InitiateLaunchInfo != null){
+                startedRocketSceneTransition = true;
                 InitiateLaunchInfo();
             }
             StartCoroutine(_onLaunchInitiated(false));
@@ -293,6 +301,7 @@ public class Scene_Manager : MonoBehaviour
 
 
     void onStartMineScene(){
+        startedMineSceneTransition = true;
         StartCoroutine(_onStartMineScene());
     }
 

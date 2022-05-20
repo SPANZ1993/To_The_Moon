@@ -13,6 +13,9 @@ public class Move_Camera : MonoBehaviour
 
     public float panSpeed;
 
+    //public bool currentlyMoving = false;
+    public int movingTweenId = -1;
+
     private int cur_i;
     private int cur_dest_i;
     private Vector3 position;
@@ -27,6 +30,11 @@ public class Move_Camera : MonoBehaviour
     private bool _SwipedDown = false;
     private bool _SwipedLeft = false;
     private bool _SwipedRight = false;
+
+
+    private UI_Controller uiController;
+    private Scene_Manager sceneManager;
+    private bool screenFrozen = false; // Flag that says if the screen is allowed to move or not
 
 
     private Game_Scaler game_scaler;
@@ -76,15 +84,25 @@ public class Move_Camera : MonoBehaviour
     {
         game_scaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
 
+        uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
+        sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
+
         cur_i = 0;
         cur_dest_i = 0;
-        this.transform.position = locs[cur_i];   
+        this.transform.position = new Vector3(locs[cur_i].x, locs[cur_i].y, -10f); 
     }
 
     private bool firstUpdate = true;
 
+
+
+
+
+
+
     void Update()
     {
+        screenFrozen = isFrozen();
         if (firstUpdate)
         {
             
@@ -126,7 +144,7 @@ public class Move_Camera : MonoBehaviour
                 if (cur_i == ROOM){
                     if (DebugMode)
                         Debug.Log("MOVING TO COMPUTER");
-                    cur_dest_i = COMPUTER;
+                    //cur_dest_i = COMPUTER; // We don't want to be able to go the computer. At least not yet.
                 }
                 _SwipedDown = false;
             }
@@ -152,6 +170,13 @@ public class Move_Camera : MonoBehaviour
                 }
                 _SwipedRight = false;
             }
+            if(screenFrozen){
+                _SwipedUp = false;
+                _SwipedDown = false;
+                _SwipedLeft = false;
+                _SwipedRight = false;
+                cur_dest_i = cur_i;
+            }
         }
         else
         {
@@ -159,7 +184,10 @@ public class Move_Camera : MonoBehaviour
                 Debug.Log("CUR I " + cur_i);
                 Debug.Log("CUR DEST" + cur_dest_i);
             }
-            moveTowards(this.transform.position, locs[cur_dest_i], panSpeed * Time.deltaTime);
+            //moveTowards(this.transform.position, locs[cur_dest_i], panSpeed * Time.deltaTime);
+            if (!LeanTween.isTweening(movingTweenId)){
+                movingTweenId = LeanTween.move(this.gameObject, locs[cur_dest_i], panSpeed).setEase(LeanTweenType.easeInOutSine).id;
+            }
             if (locs.Contains(this.transform.position))
                 cur_i = cur_dest_i;
         }
@@ -195,5 +223,18 @@ public class Move_Camera : MonoBehaviour
     }
 
 
+        // UI_Controller
+    //public bool rocketBuildingMenuDisplayed = false;
+    //public bool researchMenuDisplayed = false;
+    
+    // Scene_Manager
+    // public bool startedRocketSceneTransition {get; private set;}
+    // public bool startedMineSceneTransition {get; private set;}
+
+
+    bool isFrozen(){
+        //Debug.Log("UHHH: " + !(!uiController.rocketBuildingMenuDisplayed && !uiController.researchMenuDisplayed && !sceneManager.startedRocketSceneTransition && !sceneManager.startedMineSceneTransition));
+        return uiController.rocketBuildingMenuDisplayed || uiController.researchMenuDisplayed || sceneManager.startedRocketSceneTransition || sceneManager.startedMineSceneTransition;
+    }
 
 }
