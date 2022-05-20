@@ -246,11 +246,31 @@ public class Game_Manager : MonoBehaviour
 
 
 
+    void fixRoundingErrors(){
+        double _fixRoundingError(double n, double threshold){
+            if(Math.Abs(Math.Floor(n)-n) <= threshold){
+                n = Math.Floor(n);
+            }
+            else if(Math.Abs(Math.Ceiling(n)-n) <= threshold){
+                n = Math.Ceiling(n);
+            }
+            return n;
+        }
+        // For some double values we end up with very near rounding errors, causing them to be displayed weirdly in the UI. This fixes that.
+        // i.e. 7.9999 -> 8 and 8.0001 -> 8;
+        double threshold = 0.001;
+        
+        gems = _fixRoundingError(gems, threshold);
+        coins = _fixRoundingError(coins, threshold);
+        thrust = _fixRoundingError(thrust, threshold);
+    }
+
     private bool poo = true; //REMOVE
 
     // Update is called once per frame
     void Update()
     {
+        fixRoundingErrors();
         //Debug.Log("SERIALIZING?: " + Serializing);
         //Debug.Log("MINEGAME: " + mineGameHitCoins + " --- " + mineGameSolveCoins);
         

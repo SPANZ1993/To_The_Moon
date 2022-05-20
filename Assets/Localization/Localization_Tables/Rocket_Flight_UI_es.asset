@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: mi.
     m_Metadata:
       m_Items: []
+  - m_Id: 23449603965345792
+    m_Localized: Mira el anuncio para restaurar el 25% del empuje!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

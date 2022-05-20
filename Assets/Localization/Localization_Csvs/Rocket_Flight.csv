@@ -2,3 +2,4 @@ Key,Id,Shared Comment,English(en),English(en) Comments,Spanish(es),Spanish(es) C
 UI.Rocket_Flight.Thrust,,,Thrust:,,Empuje:,
 UI.Rocket_Flight.Altitude,,,Altitude:,,Altitud:,
 UI.Rocket_Flight.Altitude_Abbreviation,,,mi.,,mi.,
+UI.Rocket_Flight.Rewarded_Ad_Text,,,Watch ad to restore 25% of thrust!,,Mira el anuncio para restaurar el 25% del empuje!,

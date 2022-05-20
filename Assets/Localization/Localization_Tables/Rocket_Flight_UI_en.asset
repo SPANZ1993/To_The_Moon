@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: mi.
     m_Metadata:
       m_Items: []
+  - m_Id: 23449603965345792
+    m_Localized: Watch ad to restore 25% of thrust!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

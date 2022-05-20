@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: 'Coins:'
     m_Metadata:
       m_Items: []
+  - m_Id: 19460984288206848
+    m_Localized: Watch Ad To Double Earned Coins!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

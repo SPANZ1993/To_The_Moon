@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: 'Monedas:'
     m_Metadata:
       m_Items: []
+  - m_Id: 19460984288206848
+    m_Localized: Mira el anuncio para duplicar las monedas ganadas!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

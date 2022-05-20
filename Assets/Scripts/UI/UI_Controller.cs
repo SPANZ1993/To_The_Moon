@@ -243,7 +243,8 @@ public class UI_Controller : MonoBehaviour
     private TextMeshProUGUI altitudeText;
 
 
-    GameObject RocketFlightRewardedAdConfirmationBox;
+    private GameObject RocketFlightRewardedAdConfirmationBox;
+    private TextMeshProUGUI RocketFlightRewardedAdConfirmationBoxText;
     // End Rocket Flight Dashboard
 
     // Mine Game UI
@@ -252,6 +253,7 @@ public class UI_Controller : MonoBehaviour
     private TextMeshProUGUI MineGameScoreText, MineGameTimerText, MineGameScoreLabelText, MineGameTimerLabelText;
 
     private GameObject MineGameRewardedAdConfirmationBox;
+    private TextMeshProUGUI MineGameRewardedAdConfirmationBoxText;
     // End Mine Game UI
 
 
@@ -585,6 +587,7 @@ public class UI_Controller : MonoBehaviour
         
 
             RocketFlightRewardedAdConfirmationBox = GameObject.Find("Rewarded_Ad_Confirmation_Box");
+            RocketFlightRewardedAdConfirmationBoxText = GameObject.Find("Rewarded_Ad_Confirmation_Text").GetComponent<TextMeshProUGUI>();
 
             indexUIElementSizes();
     
@@ -602,6 +605,7 @@ public class UI_Controller : MonoBehaviour
 
 
             MineGameRewardedAdConfirmationBox = GameObject.Find("Rewarded_Ad_Confirmation_Box");
+            MineGameRewardedAdConfirmationBoxText = GameObject.Find("Rewarded_Ad_Confirmation_Text").GetComponent<TextMeshProUGUI>();
 
             indexUIElementSizes();
     
@@ -759,6 +763,8 @@ public class UI_Controller : MonoBehaviour
             _testUIElementSizes(localScaleDict, child.gameObject);
         }
     }
+
+
 
 
     int frame_count = 0;
@@ -2149,6 +2155,7 @@ public class UI_Controller : MonoBehaviour
     // }
 
     public void rocketFlightEnableRewardedAdConfirmationBox(){
+        RocketFlightRewardedAdConfirmationBoxText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Rewarded_Ad_Text");
         EnableUIElement(RocketFlightRewardedAdConfirmationBox);
     }
     
@@ -2193,6 +2200,7 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void mineGameEnableRewardedAdConfirmationBox(){
+        MineGameRewardedAdConfirmationBoxText.text = localizationManager.GetLocalizedString(ui_mine_game_table, "UI.Mine_Game.Rewarded_Ad_Text");
         EnableUIElement(MineGameRewardedAdConfirmationBox);
     }
     

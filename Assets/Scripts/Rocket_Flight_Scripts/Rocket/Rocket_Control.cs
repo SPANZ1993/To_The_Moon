@@ -347,7 +347,7 @@ public class Rocket_Control : MonoBehaviour
         }
         // Stop the camera from following the rocket, turn off thrust, and let rocket fall from screen
         // As if rocket ran out of fuel
-        Debug.Log("DROPPING ROCKET");
+        //Debug.Log("DROPPING ROCKET");
         userHasControl = false;
         rocketParticleSystem.Stop(true);
 

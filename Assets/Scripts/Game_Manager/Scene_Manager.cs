@@ -205,7 +205,7 @@ public class Scene_Manager : MonoBehaviour
 
 
     void onLaunchInitiated(){
-        Debug.Log("UGM: " + upgradesManager + upgradesManager.upgradesUnlockedDict);
+        //Debug.Log("UGM: " + upgradesManager + upgradesManager.upgradesUnlockedDict);
         if(upgradesManager == null || !upgradesManager.upgradesUnlockedDict[Upgrade.Autopilot_System]){ // If we don't have the autopilot perk
             if(InitiateLaunchInfo != null){
                 InitiateLaunchInfo();

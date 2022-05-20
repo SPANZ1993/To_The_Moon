@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: UI.Mine_Game.Coins
     m_Metadata:
       m_Items: []
+  - m_Id: 19460984288206848
+    m_Key: UI.Mine_Game.Rewarded_Ad_Text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
