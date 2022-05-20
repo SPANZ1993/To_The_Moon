@@ -53,16 +53,20 @@ public class Mine_Shaft_Controller : MonoBehaviour, ITappable
             checkMineGameIsReady();
         }
 
-        
-        if (mineIndicator is null){
-            mineIndicator = GameObject.Find("Mine_Indicator");
-        }
+        try{
+            if (mineIndicator is null){
+                mineIndicator = GameObject.Find("Mine_Indicator");
+            }
 
-        if(mineGameIsReady){
-            mineIndicator.GetComponent<Image>().color = new Color(0, 255, 0, 255);
+            if(mineGameIsReady){
+                mineIndicator.GetComponent<Image>().color = new Color(0, 255, 0, 255);
+            }
+            else{
+                mineIndicator.GetComponent<Image>().color = new Color(255, 0, 0, 255);
+            }
         }
-        else{
-            mineIndicator.GetComponent<Image>().color = new Color(255, 0, 0, 255);
+        catch(System.Exception e){
+
         }
     }
 

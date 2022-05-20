@@ -453,7 +453,7 @@ public class Experiments_Manager : MonoBehaviour
             else if (curGameObj.name == "Upgrade_Price_Text_Gems"){
                 //TODO: MAKE THIS NUMBER FORMATTED
                 if(experiment.denomination == Denomination.Gems){
-                    curGameObj.GetComponent<TextMeshProUGUI>().text = experiment.price.ToString();
+                    curGameObj.GetComponent<TextMeshProUGUI>().text = experiment.price.ToString(); // TODO: Make format func
                     uiController.EnableUIElement(curGameObj);
                 }
                 else{
@@ -463,7 +463,7 @@ public class Experiments_Manager : MonoBehaviour
             else if (curGameObj.name == "Upgrade_Price_Text_Coins"){
                 //TODO: MAKE THIS NUMBER FORMATTED
                 if(experiment.denomination == Denomination.Coins){
-                    curGameObj.GetComponent<TextMeshProUGUI>().text = experiment.price.ToString();
+                    curGameObj.GetComponent<TextMeshProUGUI>().text = experiment.price.ToString(); // TODO: Make format func
                     uiController.EnableUIElement(curGameObj);
                 }
                 else{

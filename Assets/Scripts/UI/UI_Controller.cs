@@ -671,6 +671,34 @@ public class UI_Controller : MonoBehaviour
         }
     }
 
+    public void onButtonTmp6(){
+        Experiments_Manager experimentsManager = GameObject.Find("Experiments_Manager").GetComponent<Experiments_Manager>(); 
+        List<ExperimentId> unlockedExperimentIdsId = experimentsManager.getUnlockedExperimentIds();
+        List<int> unlockedExperimentIds = new List<int>();
+        foreach(ExperimentId exp in unlockedExperimentIdsId){
+            unlockedExperimentIds.Add((int)exp);
+        }
+        int addedNum = -1;
+        int attempts = 0;
+        bool found = false;
+        System.Random rnd = new System.Random();
+        while(attempts < 1000 && (unlockedExperimentIds.Contains(addedNum) || addedNum == -1)){
+            addedNum = rnd.Next(1, 8);
+            attempts++;
+        }
+        if (attempts != 1000){
+            found = true;
+        }
+        if (found){
+            Debug.Log("ADDING EXPERIMENT: " + (ExperimentId)addedNum);
+            unlockedExperimentIds.Add(addedNum);
+            experimentsManager.setUnlockedExperimentIds(unlockedExperimentIds);
+        }
+        else{
+            Debug.Log("COULDN'T ADD ANY MORE EXPERIMENTS");
+        }
+    }
+
 
     private int[] randomListTmp(int num){
         System.Random rand = new System.Random();
@@ -1595,10 +1623,10 @@ public class UI_Controller : MonoBehaviour
                 activeExperimentIds.Add((int)exp);
             }
             else{
-                Debug.Log("NOT DISPLAYING EXPERIMENT " + experimentsManager.experimentId2Experiment[exp].experimentName + " WITH ID " + exp + "/"  + (Upgrade)exp + " BECAUSE WE ALREADY BOUGHT IT");
+                //Debug.Log("NOT DISPLAYING EXPERIMENT " + experimentsManager.experimentId2Experiment[exp].experimentName + " WITH ID " + exp + "/"  + (Upgrade)exp + " BECAUSE WE ALREADY BOUGHT IT");
             }
         }
-        Debug.Log("SETTING THESE IDS: " + string.Join(", ", activeExperimentIds));
+        //Debug.Log("SETTING THESE IDS: " + string.Join(", ", activeExperimentIds));
         experimentsContainerPanel.GetComponent<RectTransform>().anchoredPosition = experimentContainerPanelsOrigAnchoredPosition;
 
         int curPossibleLoc = 0;
@@ -1636,6 +1664,7 @@ public class UI_Controller : MonoBehaviour
         }
         numActiveExperiments = curPossibleLoc;
         _scaleExperimentsContainerPanel();
+        experimentsManager.refreshAllExperimentsPanels();
         // if (ResearchersUpdatedInfo != null && alertResearchersUpdated){
         //     ResearchersUpdatedInfo();
         // }
@@ -1706,7 +1735,7 @@ public class UI_Controller : MonoBehaviour
 
         bool transactionExecuted = false; // Did pressing the button result in the Experiment being purchased
         
-        Debug.Log("YOYOYO");
+        //Debug.Log("YOYOYO WE CLICKED EXPERIMENT: " + experimentId);
         // If our experiment has a corresponding upgrade
         if(Enum.GetValues(typeof(Upgrade)).Cast<int>().ToList().IndexOf((int)experimentId) != -1){
             Upgrade upgradeId = upgradesManager.experimentId2Upgrade[experimentId];
@@ -1734,6 +1763,7 @@ public class UI_Controller : MonoBehaviour
             enableActiveExperimentPanels();
         }
         else{
+            Debug.Log("WE DIDN'T DO ANYTHING WITH EXPERIMENT : " + experimentId);
             // TODO: Do something here
         }
         

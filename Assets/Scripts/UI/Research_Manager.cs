@@ -26,7 +26,7 @@ public class Research_Manager : MonoBehaviour
     [SerializeField]
     Sprite research1Sprite;
     string research1Name;
-    double research1ExpectedTime = 600.0 / 100.0; // 600
+    double research1ExpectedTime = 600; //600.0 / 100.0;
     double research1ExpectedThrust = 100.0;
     double research1Price = 100.0;
     private Research research1;
@@ -34,7 +34,7 @@ public class Research_Manager : MonoBehaviour
     [SerializeField]
     Sprite research2Sprite;
     string research2Name;
-    double research2ExpectedTime = 1800.0 / 100.0; // 1800
+    double research2ExpectedTime = 1800; // 1800.0 / 100.0;
     double research2ExpectedThrust = 500.0;
     double research2Price = 1000.0;
     private Research research2;
@@ -42,7 +42,7 @@ public class Research_Manager : MonoBehaviour
     [SerializeField]
     Sprite research3Sprite;
     string research3Name;
-    double research3ExpectedTime = 5400.0 / 100.0; // 5400
+    double research3ExpectedTime = 5400.0; //5400.0 / 100.0;
     double research3ExpectedThrust = 1000.0;
     double research3Price = 5000.0;
     private Research research3;
