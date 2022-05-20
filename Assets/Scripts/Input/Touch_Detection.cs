@@ -10,7 +10,7 @@ public class Touch_Detection : MonoBehaviour
 
     // If true, display touch location on screen
     [SerializeField]
-    private bool DebugMode = false;
+    private bool DebugMode = true;
     [SerializeField]
     private bool RenderReticle = false;
 
@@ -39,9 +39,10 @@ public class Touch_Detection : MonoBehaviour
 
 
     // Values that define what a "Swipe" is
-    public double MaxSwipeTime = 1;
-    public float VSwipeMinPercent = 50;
-    public float HSwipeMinPercent = 50;
+    private double MaxSwipeTime = 1;
+    private float VSwipeMinPercent = 50;
+    private float HSwipeMinPercent = 25;
+    public bool currentlySwiping {get; private set;}
 
 
     // A GameObject With A Hitbox That Will Be Active During a Touch
@@ -143,6 +144,7 @@ public class Touch_Detection : MonoBehaviour
 
         cam = GameObject.Find("Main Camera");
         cam_transform = cam.GetComponent<Transform>();        
+        currentlySwiping = false;
     }
 
     void OnLevelWasLoaded(){
@@ -171,6 +173,7 @@ public class Touch_Detection : MonoBehaviour
             {
                 //When a touch has first been detected, change the message and record the starting position
                 case TouchPhase.Began:
+                    currentlySwiping = false;
                     // Record initial touch position.
                     startPos = touch.position;
                     dragLocs.Add(touch.position);
@@ -189,6 +192,7 @@ public class Touch_Detection : MonoBehaviour
 
                 //Determine if the touch is a moving touch
                 case TouchPhase.Moved:
+                    currentlySwiping = DetectSwipe(dragLocs, dragStartTime, Time.timeAsDouble) != NOSWIPE;
                     // Determine direction by comparing the current touch position with the initial one
                     direction = touch.position - startPos;
                     dragLocs.Add(touch.position);
@@ -248,6 +252,7 @@ public class Touch_Detection : MonoBehaviour
         else
         {
             tapInProgress = false;
+            currentlySwiping = false;
             dragLocs = new List<Vector2>();
             dragStartTime = 0;
             dragEndTime = 0;
@@ -283,18 +288,10 @@ public class Touch_Detection : MonoBehaviour
             float VDragPercent = (Mathf.Abs(dragStartLoc.y - dragEndLoc.y) / game_scaler.ScreenHeightPx) * 100.0f;
             float HDragPercent = (Mathf.Abs(dragStartLoc.x - dragEndLoc.x) / game_scaler.ScreenWidthPx) * 100.0f;
 
-            //VERTICAL SWIPE TAKES PRIORITY
-            if (VDragPercent >= VSwipeMinPercent){
-                if (dragStartLoc.y > dragEndLoc.y)
-                {
-                    return UPSWIPE;
-                }
-                else 
-                {
-                    return DOWNSWIPE;
-                }
-            }
-            else if (HDragPercent >= HSwipeMinPercent){
+            // HORIZONTAL SWIPE TAKES PRIORITY
+            
+            if (HDragPercent >= HSwipeMinPercent){
+                //Debug.Log("HDRAG PERCENT: " + HDragPercent + " --- " + HSwipeMinPercent + " TIME: " + (dragEndTime - dragStartTime) +  "---- HSWIPE!!!");
                 if (dragStartLoc.x > dragEndLoc.x)
                 {
                     return RIGHTSWIPE;
@@ -304,8 +301,19 @@ public class Touch_Detection : MonoBehaviour
                     return LEFTSWIPE;
                 }
             }
+            else if (VDragPercent >= VSwipeMinPercent){
+                if (dragStartLoc.y > dragEndLoc.y)
+                {
+                    return UPSWIPE;
+                }
+                else 
+                {
+                    return DOWNSWIPE;
+                }
+            }
             else
             {
+                //Debug.Log("HDRAG PERCENT: " + HDragPercent + " --- " + HSwipeMinPercent + " TIME: " + (dragEndTime - dragStartTime) +  "---- NOSWIPE");
                 return NOSWIPE; // NO SWIPE... DIDN'T SWIPE FAR ENOUGH
             }
 

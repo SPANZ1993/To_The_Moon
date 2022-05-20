@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class Reticle : MonoBehaviour
 {
 
@@ -69,7 +71,10 @@ public class Reticle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        TapEndInfo(other.gameObject);
+        if(!touch_detection.currentlySwiping || SceneManager.GetActiveScene().name != "Main_Area"){
+            TapEndInfo(other.gameObject);
+        }
+
     }
 
 
