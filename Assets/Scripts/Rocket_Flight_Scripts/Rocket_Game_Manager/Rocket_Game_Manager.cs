@@ -163,6 +163,15 @@ public class Rocket_Game_Manager : MonoBehaviour
     //     Time_Text.text = gameTimer.ToString();
     // }
 
+    public float calculateGameYPos(float height){ // Calculate Game Y Position From Altitude (Inverse of CalculateAltitude)
+        return (height/gameScaler.ScaleY) - rocketOrigGameHeight;
+    }
+
+    public float calcAlt(float ypos){
+        float height = (ypos - rocketOrigGameHeight) * gameScaler.ScaleY;
+        return height;
+    }
+
 
     public float calculateAltitude(float ypos){
         

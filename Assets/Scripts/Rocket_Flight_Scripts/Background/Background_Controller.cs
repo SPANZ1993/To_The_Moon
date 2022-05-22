@@ -214,7 +214,7 @@ public class Background_Controller : MonoBehaviour
         }
     }
 
-    List<Color> getColor(Vector3 spriteLoc, bool first=true){
+    public List<Color> getColor(Vector3 spriteLoc, bool first=true){
         // Given a vector defining the location of a background chunk sprite, return the three colors
         // for the sprite
 
@@ -253,11 +253,14 @@ public class Background_Controller : MonoBehaviour
         //float height = gameScaler.Scale_Value_To_Screen_Height(spriteLoc.y);
         float height;
         try{
+            if(rocketGameManager == null){
+                rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
+            }
             height = rocketGameManager.calculateAltitude(spriteLoc.y);
             //Debug.Log("HEIGHT IS: " + height);
         }
         catch(Exception e){
-            Debug.Log("PROBLEM CALCULATING HEIGHT :(    :" + e);
+            //Debug.Log("PROBLEM CALCULATING HEIGHT :(    :" + e + ")");
             height = 0.0f;
         }
 

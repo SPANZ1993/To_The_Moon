@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1325452493615387829}
   - component: {fileID: 1496229526285054401}
   - component: {fileID: -1176726883208052097}
+  - component: {fileID: -7806440778012596827}
   m_Layer: 6
   m_Name: Space_Junk_Background_Star_2
   m_TagString: Space_Junk_Background_Star_2
@@ -217,3 +218,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDrawDistance: 50
   spaceJunkSpawnerName: Background_Junk_Spawner
+--- !u!114 &-7806440778012596827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496229526285054402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44acc2371a9551e43a22c5bd3455e8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
