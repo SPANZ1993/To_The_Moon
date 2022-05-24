@@ -72,12 +72,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             timeSinceLastInterstialAd = minTimeBetweenInterstitialAds;
-            if (platform == Platforms.iOS){
-                Debug.Log("IOS");
-            }
-            else if (platform == Platforms.Android){
-                Debug.Log("ANDROID");
-            }
+
         }
         else{
             Destroy(this.gameObject);
@@ -115,6 +110,12 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
 
     void Start(){
+        if (platform == Platforms.iOS){
+            Debug.Log("IOS");
+        }
+        else if (platform == Platforms.Android){
+            Debug.Log("ANDROID");
+        }
         Advertisement.Initialize(gameId, testMode);
         OnLevelWasLoaded();
     }

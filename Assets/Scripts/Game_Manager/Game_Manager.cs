@@ -133,7 +133,12 @@ public class Game_Manager : MonoBehaviour
     public Metrics_Object metrics;
 
     private UI_Controller uiController;
+
+
+        // Ads Stuff
     private Ads_Manager adsManager;
+    public bool playInterstitialAdOnMenuClose = false;
+
     private Scene_Manager sceneManager;
 
 
@@ -927,6 +932,11 @@ public class Game_Manager : MonoBehaviour
         else{
             enableNonUITouchBoundingBox(boundingBox);
         }
+        if(playInterstitialAdOnMenuClose){
+            //Debug.Log("Playing Intestitial Ad");
+            adsManager.showInterstitialAd();
+            playInterstitialAdOnMenuClose = false;
+        }
     }
     
     
@@ -940,6 +950,7 @@ public class Game_Manager : MonoBehaviour
 
 
     private void onResearchFinished(double thrustReward){
+        playInterstitialAdOnMenuClose = true;
         thrust += thrustReward;
     }
 
@@ -973,7 +984,8 @@ public class Game_Manager : MonoBehaviour
             //Debug.Log("HASHING UPGRADE BUTTON PRESSED --- MINE GAME HIT COINS: " + mineGameHitCoins);
             mineGameHitCoinsUpgradePrice = Progression_Multiplier_Generator.generateMineGameHitCoinsUpgradePriceValue(mineGameHitCoinsUpgradePrice);
             //uiController.selectMineUpgrade();
-            adsManager.showInterstitialAd();
+            //adsManager.showInterstitialAd();
+            playInterstitialAdOnMenuClose = true;
         }
         else {
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
@@ -988,7 +1000,8 @@ public class Game_Manager : MonoBehaviour
             mineGameSolveCoinsUpgradePrice = Progression_Multiplier_Generator.generateMineGameSolveCoinsUpgradePriceValue(mineGameSolveCoinsUpgradePrice);
             //Debug.Log("BLOCKCHAIN NETWORK UPGRADE BUTTON PRESSED --- MINE GAME SOLVE COINS: " + mineGameSolveCoins);
             //uiController.selectMineUpgrade();
-            adsManager.showInterstitialAd();
+            //adsManager.showInterstitialAd();
+            playInterstitialAdOnMenuClose = true;
         }
         else {
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
@@ -1005,7 +1018,8 @@ public class Game_Manager : MonoBehaviour
             minecartManager.coinsPerSecond = mineCartCoinsPerSecond;
             minecartManager.calculateNextFullTime();
             //uiController.selectCartUpgrade();
-            adsManager.showInterstitialAd();
+            //adsManager.showInterstitialAd();
+            playInterstitialAdOnMenuClose = true;
         }
         else{
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
@@ -1022,7 +1036,8 @@ public class Game_Manager : MonoBehaviour
             minecartManager.coinsCapacity = mineCartCoinsCapacity;
             minecartManager.calculateNextFullTime();
             //uiController.selectCartUpgrade();
-            adsManager.showInterstitialAd();
+            //adsManager.showInterstitialAd();
+            playInterstitialAdOnMenuClose = true;
         }
         else{
             // TODO: DISPLAY NOT ENOUGH COINS THINGY

@@ -1757,6 +1757,7 @@ public class UI_Controller : MonoBehaviour
                     upgradesManager.upgradesUnlockedDict[upgradeId] = true;
                     upgradesManager.upgradesNumberDict[upgradeId] += 1;
                     gameManager.coins -= price;
+                    gameManager.playInterstitialAdOnMenuClose = true;
                     transactionExecuted = true;
                 }
             }
@@ -1767,6 +1768,7 @@ public class UI_Controller : MonoBehaviour
 
         if(transactionExecuted){
             // TODO: Do something here (Sound effect?)
+            gameManager.playInterstitialAdOnMenuClose = true;
             enableActiveExperimentPanels();
         }
         else{
@@ -1983,6 +1985,7 @@ public class UI_Controller : MonoBehaviour
             // DisableUIElement(ScreenTintObj);
             EnableUIElement(RocketBuildingMenuObj, touchOnly: true);
             EnableUIElement(ResearchersMenu, touchOnly: true);
+            gameManager.playInterstitialAdOnMenuClose = true;
             closeMenus();
         }
         else{
