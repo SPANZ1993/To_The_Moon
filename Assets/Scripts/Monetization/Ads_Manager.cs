@@ -55,6 +55,13 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     public static event AdShowError AdShowErrorInfo;
 
 
+
+    public delegate void InterstitalAdShow();
+    public static event InterstitalAdShow InterstitalAdShowInfo;
+
+    public delegate void RewardedAdShow();
+    public static event RewardedAdShow RewardedAdShowInfo;
+
     public static Ads_Manager instance;
 
 
@@ -254,6 +261,9 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         }
 
         if (adUnitId != "" && timeSinceLastInterstialAd >= minTimeBetweenInterstitialAds){
+            if(InterstitalAdShowInfo != null){
+                InterstitalAdShowInfo();
+            }
             Advertisement.Show(adUnitId, this);
         }
     }

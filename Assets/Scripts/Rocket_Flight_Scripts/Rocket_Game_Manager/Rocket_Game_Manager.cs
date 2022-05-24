@@ -15,6 +15,9 @@ public class Rocket_Game_Manager : MonoBehaviour
 
     private float rocketOrigGameHeight; // Measured in game coordinates
     public float rocketAltitude; // Measured in "Altitude"
+    public float rocketMaxAltitude;
+
+    public int numGemsCollected = 0;
     private GameObject arrivingPlanet;
     //public double rocketAltitude;
     [SerializeField]
@@ -24,7 +27,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     public bool gameStarted {get; private set;}
     private bool firstFrameGameStarted = false; // Is it the first frame since the game started?
 
-    
+
 
     private float gameTimer;
 
@@ -68,6 +71,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     {
         gameStarted = false;
 
+
         rocket = GameObject.Find("Rocket");
         rocketParticles = GameObject.Find("Rocket_Particles");
         rocketControl = rocket.GetComponent<Rocket_Control>();
@@ -107,6 +111,9 @@ public class Rocket_Game_Manager : MonoBehaviour
         }
         if (gameStarted){
             rocketAltitude = calculateAltitude(rocket);
+            if ((rocketMaxAltitude == -1 || rocketAltitude > rocketMaxAltitude) && !startedRocketControlSpiral){
+                rocketMaxAltitude = rocketAltitude;
+            }
             //Debug.Log("REACHED TARGET ALTITUDE: " + reachedTargetAltitude);
             if(rocketAltitude >= targetAltitude){
                 reachedTargetAltitude = true;
@@ -138,6 +145,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         Ads_Manager.AdLoadingErrorInfo += onAdLoadingError;
         Ads_Manager.AdLoadingSuccessInfo += onAdLoadingSuccess;
         Ads_Manager.AdShowErrorInfo += onAdShowError;
+        Gem_Collection_Controller.GemCollectedInfo += onGemCollected;
         UI_Controller.AlertRewardedAdRejectedInfo += onRewardedAdRejected;
     }
 
@@ -148,6 +156,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         Ads_Manager.AdLoadingErrorInfo -= onAdLoadingError;
         Ads_Manager.AdLoadingSuccessInfo -= onAdLoadingSuccess;
         Ads_Manager.AdShowErrorInfo -= onAdShowError;
+        Gem_Collection_Controller.GemCollectedInfo -= onGemCollected;
         UI_Controller.AlertRewardedAdRejectedInfo -= onRewardedAdRejected;
     }
 
@@ -188,7 +197,9 @@ public class Rocket_Game_Manager : MonoBehaviour
         return calculateAltitude(g.transform.position.y);
     }
 
-
+    private void onGemCollected(){
+        numGemsCollected++;
+    }
 
 
     private void resumeAfterRewardedAd(){
@@ -198,6 +209,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     private void endGameOnFailure(){
         // End this scene as if the rocket did not reach the destination
         uiController.rocketFlightDisableRewardedAdConfirmationBox();
+        gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude);
         SendAlertEndScene();
     }
 
@@ -248,7 +260,6 @@ public class Rocket_Game_Manager : MonoBehaviour
         int rocketMoveId = LeanTween.move(rocket, Vector2.Lerp(rocket.transform.position, destinationObject.transform.position, .75f), 2f).setEase(LeanTweenType.easeInOutSine).id;
         LeanTween.descr(rocketMoveId).setOnComplete(StartShipSpiral);
     }
-
 
 
     private void onRewardedAdComplete(UnityAdsShowCompletionState showCompletionState){

@@ -61,6 +61,8 @@ public class SaveGameObject
     public Dictionary<Upgrade, bool> UpgradesUnlockedDict {get; private set;}
     public Dictionary<Upgrade, int> UpgradesNumberDict  {get; private set;}
 
+    public Metrics_Object Metrics;
+
 
     public SaveGameObject(){
         IsValid = true;
@@ -94,6 +96,8 @@ public class SaveGameObject
 
         UpgradesUnlockedDict = generateUpgradesUnlockedDict();
         UpgradesNumberDict = generateUpgradesNumberDict();
+
+        Metrics = new Metrics_Object();
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -138,7 +142,8 @@ public class SaveGameObject
                             List<ResearchAssignmentObject> assignedResearchers,
                             List<int> unlockedExperimentIds,
                             Dictionary<Upgrade, bool> upgradesUnlockedDict,
-                            Dictionary<Upgrade, int> upgradesNumberDict){
+                            Dictionary<Upgrade, int> upgradesNumberDict,
+                            Metrics_Object metrics){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -172,6 +177,8 @@ public class SaveGameObject
     
         UpgradesUnlockedDict = upgradesUnlockedDict;
         UpgradesNumberDict = upgradesNumberDict; 
+    
+        Metrics = metrics;
     }
 
 }

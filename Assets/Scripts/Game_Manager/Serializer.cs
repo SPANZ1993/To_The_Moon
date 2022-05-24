@@ -135,7 +135,8 @@ public class Serializer : MonoBehaviour, ISerialization_Manager
                                                     assignedResearchers: gameManager.assignedResearchers,
                                                     unlockedExperimentIds: gameManager.unlockedExperimentIds,
                                                     upgradesUnlockedDict: gameManager.upgradesUnlockedDict,
-                                                    upgradesNumberDict: gameManager.upgradesNumberDict
+                                                    upgradesNumberDict: gameManager.upgradesNumberDict,
+                                                    metrics: gameManager.metrics
                                                 );   
     }
 

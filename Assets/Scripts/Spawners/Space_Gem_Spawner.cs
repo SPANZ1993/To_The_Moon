@@ -96,6 +96,6 @@ public class Space_Gem_Spawner : MonoBehaviour
 
         }
     
-        Debug.Log("Will be spawning " + spawningAltitudes.Count + " gems at these altitudes: " + string.Join(", ", spawningAltitudes));
+        //Debug.Log("Will be spawning " + spawningAltitudes.Count + " gems at these altitudes: " + string.Join(", ", spawningAltitudes));
     }
 }

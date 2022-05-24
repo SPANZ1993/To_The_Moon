@@ -129,6 +129,8 @@ public class Game_Manager : MonoBehaviour
     private Researcher_Manager researcherManager;
     private Touch_Detection touchDetection;
 
+    // Metrics
+    public Metrics_Object metrics;
 
     private UI_Controller uiController;
     private Ads_Manager adsManager;
@@ -275,6 +277,12 @@ public class Game_Manager : MonoBehaviour
         //Debug.Log("MINEGAME: " + mineGameHitCoins + " --- " + mineGameSolveCoins);
         
         gameTimeUnix += (double)Time.deltaTime;
+        if (metrics != null && Time.deltaTime < 1){
+            metrics.secondsPlayed += (double)Time.deltaTime;
+        }
+        if(coins >= metrics.maxCoinsAlltime){
+            metrics.maxCoinsAlltime = coins;
+        }
 
 
         // If we don't already have the save data loaded, then do that.
@@ -353,6 +361,10 @@ public class Game_Manager : MonoBehaviour
 
         PlayFab_Initializer.StartingPlayFabInitiationInfo += onStartingPlayFabInitiation;
         PlayFab_Initializer.EndingPlayFabInitiationInfo += onEndingPlayFabInitiation;
+
+
+        Ads_Manager.InterstitalAdShowInfo += onInterstitialAdShow;
+        Ads_Manager.RewardedAdShowInfo += onRewardedAdShow;
     }
 
     void OnDisable()
@@ -386,6 +398,9 @@ public class Game_Manager : MonoBehaviour
 
         PlayFab_Initializer.StartingPlayFabInitiationInfo -= onStartingPlayFabInitiation;
         PlayFab_Initializer.EndingPlayFabInitiationInfo -= onEndingPlayFabInitiation;
+
+        Ads_Manager.InterstitalAdShowInfo -= onInterstitialAdShow;
+        Ads_Manager.RewardedAdShowInfo -= onRewardedAdShow;
     }
 
 
@@ -548,6 +563,7 @@ public class Game_Manager : MonoBehaviour
             StartCoroutine(_GetMineCartInfo());
         }
 
+        metrics = loadedGame.Metrics;
         initializedGame = true;
     }
 
@@ -875,6 +891,7 @@ public class Game_Manager : MonoBehaviour
     private void onMinecartTapped(double cartCoins){
         //Debug.Log("CART COINS: " + cartCoins);
         coins += cartCoins;
+        metrics.minecartCoinsCollected += cartCoins;
         getMineCartInfo();
     }
 
@@ -882,6 +899,8 @@ public class Game_Manager : MonoBehaviour
 
     private void onMineGameCoinsAdd(double mineGameCoins){
         coins += mineGameCoins;
+        metrics.mineGameCoinsCollected += mineGameCoins;
+        metrics.numMineGamePlays++;
         saveData(disableTouch: false, displayIndicator: false, serially: false);
     }
 
@@ -1086,6 +1105,7 @@ public class Game_Manager : MonoBehaviour
 
     void _Handle_Autopilot_Return(){
         uiController.Display_Autopilot_Result_Speech((AutopilotReturnState)upgradesManager.autopilotReturnState, (double)upgradesManager.autopilotHeight, (int)upgradesManager.autopilotGems);
+        metrics.updateFlights((int)upgradesManager.autopilotGems, true, (float)upgradesManager.autopilotHeight);
         upgradesManager.autopilotHeight = null;
         upgradesManager.autopilotGems = null;
         upgradesManager.autopilotReturnState = null;
@@ -1100,4 +1120,18 @@ public class Game_Manager : MonoBehaviour
     }
     // End Autopilot Return Stuff
 
+    //Ads Metrics
+    private void onInterstitialAdShow(){
+        metrics.numInterstitialAdsWatched++;
+    }
+
+    private void onRewardedAdShow(){
+        if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            metrics.numRewardedAdsWatchedRocketFlight++;
+        }
+        else if (SceneManager.GetActiveScene().name == "Mine_Game"){
+            metrics.numRewardedAdsWatchedMineGame++;
+        }
+    }
+    // End Ads Metrics
 }

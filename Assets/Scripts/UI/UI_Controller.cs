@@ -2156,6 +2156,7 @@ public class UI_Controller : MonoBehaviour
     // }
 
     public void rocketFlightEnableRewardedAdConfirmationBox(){
+        gameManager.metrics.numRewardedAdsOfferedRocketFlight++;
         RocketFlightRewardedAdConfirmationBoxText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Rewarded_Ad_Text");
         EnableUIElement(RocketFlightRewardedAdConfirmationBox);
     }
@@ -2201,6 +2202,7 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void mineGameEnableRewardedAdConfirmationBox(){
+        gameManager.metrics.numRewardedAdsOfferedMineGame++;
         MineGameRewardedAdConfirmationBoxText.text = localizationManager.GetLocalizedString(ui_mine_game_table, "UI.Mine_Game.Rewarded_Ad_Text");
         EnableUIElement(MineGameRewardedAdConfirmationBox);
     }
