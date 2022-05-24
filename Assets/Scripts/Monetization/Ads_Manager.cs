@@ -19,10 +19,11 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     #elif UNITY_ANDROID
     private Platforms platform = Platforms.Android;
-    private int gameId = "4691389";
+    private string gameId = "4691389";
 
     private string bannerPlacementId = "Banner_Android";
     #endif
+
 
     public bool testMode = true; // TODO: Switch this to false for production
     private bool bannerAdShouldBeShowing = true; // We tried to show the banner ad, it is either showing or we are waiting for it to load
@@ -71,6 +72,12 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             timeSinceLastInterstialAd = minTimeBetweenInterstitialAds;
+            if (platform == Platforms.iOS){
+                Debug.Log("IOS");
+            }
+            else if (platform == Platforms.Android){
+                Debug.Log("ANDROID");
+            }
         }
         else{
             Destroy(this.gameObject);
