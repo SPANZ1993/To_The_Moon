@@ -8,7 +8,7 @@ public class Wipe : Scene_Transition
     // public static Wipe instance;
 
     GameObject Wipe_Rect;
-    float wipeTime = 1.5f;
+    //float wipeTime = 1.5f;
     public int leavingWipeTweenId;
     public int enteringWipeTweenId;
 
@@ -44,6 +44,11 @@ public class Wipe : Scene_Transition
 
 
     private void wipeStart(string nextScene){
+        string transitionClipName = "UI_Transition_Out";
+        if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
+            Audio_Manager.instance.Play(transitionClipName);
+        }
+        
 
         void OnLeavingWipeComplete(){
             base._LeavingSceneComplete(nextScene);
@@ -54,6 +59,7 @@ public class Wipe : Scene_Transition
         RectTransform rt = Wipe_Rect.GetComponent<RectTransform>();
         float startY = rt.anchoredPosition.y;
         Vector3 newPos;
+        float wipeTime = Audio_Manager.instance.GetAudioSource(transitionClipName).clip.length;
         leavingWipeTweenId = LeanTween.value(Wipe_Rect, startY, 0.0f, wipeTime).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(
             (value) => 
             {
@@ -69,6 +75,10 @@ public class Wipe : Scene_Transition
 
 
     private void wipeEnd(){
+        string transitionClipName = "UI_Transition_In";
+        if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
+            Audio_Manager.instance.Play(transitionClipName);
+        }
 
         void OnEnteringWipeComplete(){
             base._EnteringSceneComplete();
@@ -79,6 +89,7 @@ public class Wipe : Scene_Transition
         RectTransform rt = Wipe_Rect.GetComponent<RectTransform>();
         float startY = rt.anchoredPosition.y;
         Vector3 newPos;
+        float wipeTime = Audio_Manager.instance.GetAudioSource(transitionClipName).clip.length;
         rt.anchoredPosition = new Vector3(rt.anchoredPosition.x, 0.0f, rt.anchoredPosition.y);
         enteringWipeTweenId = LeanTween.value(Wipe_Rect, 0.0f, startY, wipeTime).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(
             (value) => 

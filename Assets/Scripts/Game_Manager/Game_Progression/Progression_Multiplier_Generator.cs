@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+
 public class Progression_Multiplier_Generator : MonoBehaviour
 {
     // // Start is called before the first frame update
@@ -18,36 +20,36 @@ public class Progression_Multiplier_Generator : MonoBehaviour
 
 
     public static double generateMineCartCoinsCapacityUpgradeValue(double mineCartCoinsCapacity){
-        return mineCartCoinsCapacity * 1.1;
+        return Math.Round(mineCartCoinsCapacity * 1.1);
     }
 
     public static double generateMineCartCoinsPerSecondUpgradeValue(double mineCartCoinsPerSecond){
-        return mineCartCoinsPerSecond * 1.1;
+        return Math.Round(mineCartCoinsPerSecond * 1.1);
     }
 
     public static double generateMineGameHitCoinsUpgradeValue(double mineGameHitCoins){
-        return mineGameHitCoins * 1.1;
+        return Math.Round(mineGameHitCoins * 1.1);
     }
 
     public static double generateMineGameSolveCoinsUpgradeValue(double mineGameSolveCoins){
-        return mineGameSolveCoins * 1.1;
+        return Math.Round(mineGameSolveCoins * 1.1);
     }
 
 
     public static double generateMineCartCoinsCapacityUpgradePriceValue(double mineCartCoinsCapacityUpgradePrice){
-        return mineCartCoinsCapacityUpgradePrice * 1.1;
+        return Math.Round(mineCartCoinsCapacityUpgradePrice * 1.1);
     }
 
     public static double generateMineCartCoinsPerSecondUpgradePriceValue(double mineCartCoinsPerSecondUpgradePrice){
-        return mineCartCoinsPerSecondUpgradePrice * 1.1;
+        return Math.Round(mineCartCoinsPerSecondUpgradePrice * 1.1);
     }
 
     public static double generateMineGameHitCoinsUpgradePriceValue(double mineGameHitCoinsUpgradePrice){
-        return mineGameHitCoinsUpgradePrice * 1.1;
+        return Math.Round(mineGameHitCoinsUpgradePrice * 1.1);
     }
 
     public static double generateMineGameSolveCoinsUpgradePriceValue(double mineGameSolveCoinsUpgradePrice){
-        return mineGameSolveCoinsUpgradePrice * 1.1;
+        return Math.Round(mineGameSolveCoinsUpgradePrice * 1.1);
     }
     
 }

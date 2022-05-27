@@ -943,8 +943,8 @@ public class UI_Controller : MonoBehaviour
 
             EnableUIElement(RobotMenuObj);
             EnableUIElement(ScreenTintObj);
-            robotMenuDisplayed = true;
             selectMineUpgrade();
+            robotMenuDisplayed = true;
             if (UIDisplayStartedInfo != null){
                 UIDisplayStartedInfo(new Vector3[0]);
             }
@@ -963,8 +963,12 @@ public class UI_Controller : MonoBehaviour
             //StartCoroutine(tmpIE());
             //researchManager.refreshAllResearchPanels(); // THIS DOESN'T WORK BUT THE ABOVE DOES.... PROBABLY GOING TO HAVE TO CHANGE ENABLEUIELEMENT() CODE A BIT
             EnableUIElement(ScreenTintObj);
-            rocketBuildingMenuDisplayed = true;
+            //AUDIO
             selectResearch();
+            rocketBuildingMenuDisplayed = true;
+            if(!Audio_Manager.instance.IsPlaying("Rocket_Building_Tapped")){
+                Audio_Manager.instance.Play("Rocket_Building_Tapped");
+            }
             if (UIDisplayStartedInfo != null){
                 UIDisplayStartedInfo(new Vector3[0]);
             }
@@ -1335,6 +1339,9 @@ public class UI_Controller : MonoBehaviour
 
     // Button Handlers Robot Menu
     public void selectMineUpgrade(){
+        if(robotMenuDisplayed && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_1")){
+            Audio_Manager.instance.Play("UI_Select_Pane_1");
+        }
         cartSelectionPanel.GetComponent<Image>().sprite = unselectedSprite;
         mineSelectionPanel.GetComponent<Image>().sprite = selectedSprite;
         cartSelectionPanelText.GetComponent<TextMeshProUGUI>().font = unselectedFont;
@@ -1351,6 +1358,9 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void selectCartUpgrade(){
+        if(robotMenuDisplayed && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_2")){
+            Audio_Manager.instance.Play("UI_Select_Pane_2");
+        }
         cartSelectionPanel.GetComponent<Image>().sprite = selectedSprite;
         mineSelectionPanel.GetComponent<Image>().sprite = unselectedSprite;
         cartSelectionPanelText.GetComponent<TextMeshProUGUI>().font = selectedFont;
@@ -1376,6 +1386,12 @@ public class UI_Controller : MonoBehaviour
         else{
             selectCartUpgrade();
         }
+    }
+
+    public void onRobotMenuButtonFailed(){
+        DisableUIElement(RobotMenuObj, touchOnly: true);
+        EnableUIElement(NotEnoughCoinsBox);
+        NotEnoughCoinsBoxDisplayed = true;
     }
 
 
@@ -1693,6 +1709,9 @@ public class UI_Controller : MonoBehaviour
 
    public void selectResearch(){
         //Debug.Log("SELECTING RESEARCH");
+        if(rocketBuildingMenuDisplayed && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_1")){
+            Audio_Manager.instance.Play("UI_Select_Pane_1");
+        }
         researchSelectionPanel.GetComponent<Image>().sprite = selectedSprite;
         experimentsSelectionPanel.GetComponent<Image>().sprite = unselectedSprite;
         researchSelectionPanelText.GetComponent<TextMeshProUGUI>().font = selectedFont;
@@ -1711,9 +1730,15 @@ public class UI_Controller : MonoBehaviour
         enableActiveResearchPanels();
         researchManager.refreshAllResearchPanels();
         //mineUpgradeSelected = true;
+
+        
+
     }
 
     public void selectExperiments(){
+        if(rocketBuildingMenuDisplayed && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_2")){
+            Audio_Manager.instance.Play("UI_Select_Pane_2");
+        }
         researchSelectionPanel.GetComponent<Image>().sprite = unselectedSprite;
         experimentsSelectionPanel.GetComponent<Image>().sprite = selectedSprite;
         researchSelectionPanelText.GetComponent<TextMeshProUGUI>().font = unselectedFont;
@@ -1767,6 +1792,9 @@ public class UI_Controller : MonoBehaviour
         }
 
         if(transactionExecuted){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+                Audio_Manager.instance.Play("UI_Button_Confirm");
+            }
             // TODO: Do something here (Sound effect?)
             gameManager.playInterstitialAdOnMenuClose = true;
             enableActiveExperimentPanels();
@@ -1774,6 +1802,9 @@ public class UI_Controller : MonoBehaviour
         else{
             Debug.Log("WE DIDN'T DO ANYTHING WITH EXPERIMENT : " + experimentId);
             // TODO: Do something here
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
         }
         
     }
@@ -1783,6 +1814,9 @@ public class UI_Controller : MonoBehaviour
     public void researchPanelButtonHandler(GameObject ResearchPanel){
         //Debug.Log("BUTTON PRESSED " + getResearchPanelName(ResearchPanel));
         if (gameManager.coins >= ((Research)ResearchPanel.GetComponent<ObjectHolder>().Obj).price){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+                Audio_Manager.instance.Play("UI_Button_Confirm");
+            }
             EnableUIElement(ResearchersMenu);
             enableActiveResearchersPanels();
             //setActiveResearchers(_getActiveResearcherIds().ToArray()); // NEW
@@ -1790,6 +1824,9 @@ public class UI_Controller : MonoBehaviour
             selectedResearchPanel = ResearchPanel;
         }
         else{
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
             DisableUIElement(RocketBuildingMenuObj, touchOnly: true);
             EnableUIElement(NotEnoughCoinsBox);
             NotEnoughCoinsBoxDisplayed = true;
@@ -1802,6 +1839,9 @@ public class UI_Controller : MonoBehaviour
         Researcher researcher = research.assignedResearcher;
         double reward = research.thrustReward;
         research.deassignResearcher();
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Process_Complete")){
+            Audio_Manager.instance.Play("UI_Button_Process_Complete");
+        }
         if (ResearchFinishedInfo != null){
             ResearchFinishedInfo(reward);
         }
@@ -1857,6 +1897,9 @@ public class UI_Controller : MonoBehaviour
         researchersConfirmationBoxDisplayed = true;
         DisableUIElement(RocketBuildingMenuObj, touchOnly: true);
         DisableUIElement(ResearchersMenu, touchOnly: true);
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect")){
+            Audio_Manager.instance.Play("UI_Button_No_Effect");
+        }
     }
     // End Researchers Menu
 
@@ -1965,6 +2008,9 @@ public class UI_Controller : MonoBehaviour
 
 
     public void researchersConfirmationBoxYesButtonHandler(){
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+            Audio_Manager.instance.Play("UI_Button_Confirm");
+        }
         //Debug.Log("PRESSED YES! " + selectedResearchPanel.transform.Find("Researcher_Label_Text").GetComponent<TextMeshProUGUI>().text + " " + selectedResearcherPanel.transform.Find("Researcher_ID_Name_Text").GetComponent<TextMeshProUGUI>().text);
         Research selectedResearch = (Research)selectedResearchPanel.GetComponent<ObjectHolder>().Obj;
         Researcher selectedResearcher = (Researcher)selectedResearcherPanel.GetComponent<ObjectHolder>().Obj;
@@ -1995,18 +2041,26 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void researchersConfirmationBoxNoButtonHandler(){
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+            Audio_Manager.instance.Play("UI_Button_Deny");
+        }
         DisableUIElement(ResearchersConfirmationBox);
         //Debug.Log("PRESSED NO! " + selectedResearchPanel + " " + selectedResearcherPanel);
         EnableUIElement(RocketBuildingMenuObj, touchOnly: true);
         EnableUIElement(ResearchersMenu, touchOnly: true);
         selectedResearcherPanel = null;
+        enableActiveResearchersPanels();
     }
     // End Researchers Menu Button Handlers
 
     // Not Enough Coins Box Button Handlers
     public void onNotEnoughCoinsButtonPressed(){
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect")){
+            Audio_Manager.instance.Play("UI_Button_No_Effect");
+        }
         EnableUIElement(RocketBuildingMenuObj, touchOnly: true);
         EnableUIElement(ResearchersMenu, touchOnly: true);
+        EnableUIElement(RobotMenuObj, touchOnly: true);
         DisableUIElement(ResearchersMenu);
         DisableUIElement(NotEnoughCoinsBox);
     }

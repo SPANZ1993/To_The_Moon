@@ -895,6 +895,17 @@ public class Game_Manager : MonoBehaviour
     
     private void onMinecartTapped(double cartCoins){
         //Debug.Log("CART COINS: " + cartCoins);
+        if(cartCoins <= 1){
+            cartCoins = 0;
+        }
+        if(!Audio_Manager.instance.IsPlaying("Minecart_Coin_Collect") && !Audio_Manager.instance.IsPlaying("Minecart_Coin_Collect_Empty")){
+            if(cartCoins != 0){
+                Audio_Manager.instance.Play("Minecart_Coin_Collect");
+            }
+            else{
+                Audio_Manager.instance.Play("Minecart_Coin_Collect_Empty");
+            }
+        }
         coins += cartCoins;
         metrics.minecartCoinsCollected += cartCoins;
         getMineCartInfo();
@@ -979,6 +990,9 @@ public class Game_Manager : MonoBehaviour
     // UI Button Handlers
     private void onHashingUpgradeButtonPressed(){
         if (coins >= mineGameHitCoinsUpgradePrice){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+                Audio_Manager.instance.Play("UI_Button_Confirm");
+            }
             coins -= mineGameHitCoinsUpgradePrice;
             mineGameHitCoins = Progression_Multiplier_Generator.generateMineGameHitCoinsUpgradeValue(mineGameHitCoins);
             //Debug.Log("HASHING UPGRADE BUTTON PRESSED --- MINE GAME HIT COINS: " + mineGameHitCoins);
@@ -990,11 +1004,18 @@ public class Game_Manager : MonoBehaviour
         else {
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
             //Debug.Log("NOT ENOUGH COINS FOR THAT");
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
+            uiController.onRobotMenuButtonFailed();
         }
     }
 
     private void onBlockChainNetworkUpgradeButtonPressed(){
         if (coins >= mineGameSolveCoinsUpgradePrice){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+                Audio_Manager.instance.Play("UI_Button_Confirm");
+            }
             coins -= mineGameSolveCoinsUpgradePrice;
             mineGameSolveCoins = Progression_Multiplier_Generator.generateMineGameSolveCoinsUpgradeValue(mineGameSolveCoins);
             mineGameSolveCoinsUpgradePrice = Progression_Multiplier_Generator.generateMineGameSolveCoinsUpgradePriceValue(mineGameSolveCoinsUpgradePrice);
@@ -1006,11 +1027,18 @@ public class Game_Manager : MonoBehaviour
         else {
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
             //Debug.Log("NOT ENOUGH COINS FOR THAT");
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
+            uiController.onRobotMenuButtonFailed();
         }
     }
 
     private void onGraphicsCardUpgradeButtonPressed(){
         if (coins >= mineCartCoinsPerSecondUpgradePrice){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+                Audio_Manager.instance.Play("UI_Button_Confirm");
+            }
             coins -= mineCartCoinsPerSecondUpgradePrice;
             mineCartCoinsPerSecond = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradeValue(mineCartCoinsPerSecond);
             //Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
@@ -1024,11 +1052,18 @@ public class Game_Manager : MonoBehaviour
         else{
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
             //Debug.Log("NOT ENOUGH COINS FOR THAT");
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
+            uiController.onRobotMenuButtonFailed();
         }
     }
 
     private void onColdStorageUpgradeButtonPressed(){
         if (coins >= mineCartCoinsCapacityUpgradePrice){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+                Audio_Manager.instance.Play("UI_Button_Confirm");
+            }
             coins -= mineCartCoinsCapacityUpgradePrice;
             mineCartCoinsCapacity = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradeValue(mineCartCoinsCapacity);
             //Debug.Log("COLD STORAGE UPGRADE BUTTON PRESSED --- MINE CART COINS CAPACITY: " + mineCartCoinsCapacity);
@@ -1042,6 +1077,10 @@ public class Game_Manager : MonoBehaviour
         else{
             // TODO: DISPLAY NOT ENOUGH COINS THINGY
             //Debug.Log("NOT ENOUGH COINS FOR THAT");
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
+            uiController.onRobotMenuButtonFailed();
         }
     }
 

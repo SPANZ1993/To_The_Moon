@@ -22,6 +22,10 @@ public class Circle_Wipe : Scene_Transition
 
 
     private void wipeStart(string nextScene){
+        string transitionClipName = "UI_Transition_Out";
+        if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
+            Audio_Manager.instance.Play(transitionClipName);
+        }
 
         void OnLeavingWipeComplete(){
             base._LeavingSceneComplete(nextScene);
@@ -43,6 +47,7 @@ public class Circle_Wipe : Scene_Transition
         //         rt.anchoredPosition = newPos;
         //     }
         // ).id;
+        float wipeTime = Audio_Manager.instance.GetAudioSource(transitionClipName).clip.length;
         leavingWipeTweenId = LeanTween.scale(Wipe_Iris, newSize, wipeTime).id;
         LeanTween.descr(leavingWipeTweenId).setOnComplete(OnLeavingWipeComplete);
     }
@@ -51,7 +56,12 @@ public class Circle_Wipe : Scene_Transition
 
 
     private void wipeEnd(){
-        
+        string transitionClipName = "UI_Transition_In";
+        if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
+            Audio_Manager.instance.Play(transitionClipName);
+        }
+
+
         void OnEnteringWipeComplete(){
             base._EnteringSceneComplete();
         }
@@ -72,6 +82,7 @@ public class Circle_Wipe : Scene_Transition
         //         rt.anchoredPosition = newPos;
         //     }
         // ).id;
+        float wipeTime = Audio_Manager.instance.GetAudioSource(transitionClipName).clip.length;
         enteringWipeTweenId = LeanTween.scale(Wipe_Iris, newSize, wipeTime).id;
         LeanTween.descr(enteringWipeTweenId).setOnComplete(OnEnteringWipeComplete);
     }

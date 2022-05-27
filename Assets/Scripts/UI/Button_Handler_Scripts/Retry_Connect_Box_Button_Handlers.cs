@@ -18,6 +18,7 @@ public class Retry_Connect_Box_Button_Handlers : MonoBehaviour
 
 
     public void onRetryConnectButtonPressed(){
+        Audio_Manager.instance.Play("UI_Button_No_Effect");
         if(RetryConnectBoxButtonHandlerPressedInfo != null){
             RetryConnectBoxButtonHandlerPressedInfo();
         }

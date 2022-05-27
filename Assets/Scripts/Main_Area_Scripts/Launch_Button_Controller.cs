@@ -9,6 +9,11 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     private bool buttonPressed = false;
     private bool buttonPressStarted = false;
 
+    // Just track the previous vals so we can easily play sound effects
+    private bool? coverOpenPrevFrame;
+    private bool? buttonPressedPrevFrame;
+    private bool? buttonPressStartedPrevFrame;
+
     [SerializeField]
     private GameObject Launch_Cover;
     [SerializeField]
@@ -138,6 +143,7 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
                 prevDragStartTime = 0.0f;
                 prevDragEndTime = 0.0f;
                 buttonPressStarted = false;
+
             }
         }
     }
@@ -191,8 +197,33 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     }
 
  
-
-
+    void playSounds(){
+        if(coverOpenPrevFrame != null){
+            if(coverOpen && !(bool)coverOpenPrevFrame){
+                if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Cover_Open")){
+                    Audio_Manager.instance.Play("Rocket_Button_Cover_Open");
+                }
+            }
+            else if(!coverOpen && (bool)coverOpenPrevFrame){
+                //CLOSING
+                if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Cover_Close")){
+                    Audio_Manager.instance.Play("Rocket_Button_Cover_Close");
+                }
+            }
+        }
+        if(buttonPressedPrevFrame != null){
+            if(buttonPressed && !(bool)buttonPressedPrevFrame){
+                if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Press")){
+                    Audio_Manager.instance.Play("Rocket_Button_Press");
+                }
+            }
+            else if(!buttonPressed && (bool)buttonPressedPrevFrame){
+                if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Release")){
+                    Audio_Manager.instance.Play("Rocket_Button_Release");
+                }
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -208,6 +239,14 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
             // Update animations
             coverAnimator.SetBool("isOpen", coverOpen);
             buttonAnimator.SetBool("isPressed", buttonPressed);
+
+            // SoundStuffHere
+            playSounds();
+
+            coverOpenPrevFrame = coverOpen;
+            buttonPressedPrevFrame = buttonPressed;
+            buttonPressStartedPrevFrame = buttonPressStartedPrevFrame;
+
         }
     }
 }

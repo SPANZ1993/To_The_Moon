@@ -35,6 +35,10 @@ public class Rocket_Controller_Main_Area : MonoBehaviour
     private Vector3 rocketPrevPos;
     private Vector3 rocketOrigPos;
 
+
+    private Sound rocketRumbleSound;
+
+
     private bool startedMoveTween = false;
     private bool cameraMoving = false;
 
@@ -96,6 +100,9 @@ public class Rocket_Controller_Main_Area : MonoBehaviour
 
 
     void onRocketLaunchStarted(float shakeTime){
+        if(!Audio_Manager.instance.IsPlaying("Rocket_Launch_Rumble")){
+            Audio_Manager.instance.Play("Rocket_Launch_Rumble");
+        }
         rocketParticleSystem.Play(true);
         smokeParticleSystemLeft.Play(true);
         smokeParticleSystemRight.Play(true);
@@ -123,6 +130,14 @@ public class Rocket_Controller_Main_Area : MonoBehaviour
         LeanTween.scale(rocketParticleSystemObj, new Vector3(0.5f, 0.5f, 0.5f), 4f).setEase(LeanTweenType.easeInQuad);
         LeanTween.scale(rocketLogo, new Vector3(0.5f, 0.5f, 0.5f), 4f).setEase(LeanTweenType.easeInQuad);
         startedMoveTween = true;
+        // Tween Volume of Rocket Rumble
+        Sound s = Audio_Manager.instance.GetSound("Rocket_Launch_Rumble");
+        LeanTween.value(new GameObject(), Audio_Manager.instance.GetVolume(s), Audio_Manager.instance.GetVolume(s)*.1f, 4f).setEase(LeanTweenType.easeInOutSine).setOnUpdate(
+            (value) =>
+            {
+                Audio_Manager.instance.SetVolume(s, value);
+            }
+        );
     }
 
     IEnumerator _turnOffSmoke(float shakeTime){

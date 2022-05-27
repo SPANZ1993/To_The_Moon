@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08360684, y: 0.059000004}
   m_AnchorMax: {x: 0.915, y: 0.9115798}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.020019531}
+  m_AnchoredPosition: {x: 0.00024414062, y: -0.020019531}
   m_SizeDelta: {x: 972.1, y: 2157.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25689862
@@ -376,6 +376,227 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &78349290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78349292}
+  - component: {fileID: 78349291}
+  m_Layer: 0
+  m_Name: Audio_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &78349291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78349290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fef3395f8588b4b98e6193da6f4e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Robot_Test
+    clip: {fileID: 8300000, guid: b0adbfbe6d68e3041b0d55b997bb8387, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Main_Area_Theme_Earth
+    clip: {fileID: 8300000, guid: ca8a04c51e7d0484bb67ebba97c7b832, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Theme_Earth
+    clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Mine_Theme_Earth
+    clip: {fileID: 8300000, guid: 6a2de1e7856b80046b68cae2432926f3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Button_Press
+    clip: {fileID: 8300000, guid: 251ad0b196fd5f147985fda44c20f90b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Button_Release
+    clip: {fileID: 8300000, guid: 5063ae8e600f6d64fa6dc6d9b782d536, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Button_Cover_Open
+    clip: {fileID: 8300000, guid: 6034c727ad0c76849930e278d63ae497, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Button_Cover_Close
+    clip: {fileID: 8300000, guid: e3dd73ccee6784d49a3d94b6247b9b2b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Building_Tapped
+    clip: {fileID: 8300000, guid: be65c9855746f31438f61cdd98297548, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Launch_Rumble
+    clip: {fileID: 8300000, guid: 369b0ae8c3b0b05439b52f0aac4f93a1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Minecart_Coin_Collect
+    clip: {fileID: 8300000, guid: fe29150642a3a2b4e9c7a1e6a995110c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Minecart_Coin_Collect_Empty
+    clip: {fileID: 8300000, guid: ad934fec436c1b5409ee3523c34c767b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Computer_Off
+    clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Computer_On
+    clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Button_No_Effect
+    clip: {fileID: 8300000, guid: 2b9aa2ec0bf2e78478c633a562957b76, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Button_Confirm
+    clip: {fileID: 8300000, guid: 0881d075a54477242b234820df00ee35, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Button_Process_Complete
+    clip: {fileID: 8300000, guid: 57692a79057b4874ea21889f60a5c615, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Button_Deny
+    clip: {fileID: 8300000, guid: dafb0996c47654647aa3ab8076c44fcd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Select_Pane_1
+    clip: {fileID: 8300000, guid: aa4a224c960d0481c862870ebd3ca7d2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Select_Pane_2
+    clip: {fileID: 8300000, guid: 353fbe685a1e94c3c9bab7ff61ef6169, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Transition_In
+    clip: {fileID: 8300000, guid: 62a1acdbd7605cf4d80bdc097763ed7b, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Transition_Out
+    clip: {fileID: 8300000, guid: 9ecee9ca53ca6a949b123305a3dec4a2, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+--- !u!4 &78349292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78349290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96120041
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +733,20 @@ MonoBehaviour:
   initializeGameOnReturnToMainArea: 0
   loadSaveWait: 1
   loadSaveRetries: 3
+  loadedGame:
+    Metrics:
+      profileCreationTimeUnix: 1653431569
+      secondsPlayed: 0
+      maxCoinsAlltime: 0
+      maxAltAllTime: 0
+      numMineGamePlays: 0
+      mineGameCoinsCollected: 0
+      minecartCoinsCollected: 0
+      numInterstitialAdsWatched: 0
+      numRewardedAdsOfferedRocketFlight: 0
+      numRewardedAdsWatchedRocketFlight: 0
+      numRewardedAdsOfferedMineGame: 0
+      numRewardedAdsWatchedMineGame: 0
   coins: 0
   gems: 0
   maxLaunches: 3
@@ -535,6 +770,20 @@ MonoBehaviour:
   experimentsManager: {fileID: 0}
   unlockedExperimentIds: 
   doneLoading: 0
+  metrics:
+    profileCreationTimeUnix: 1653431569
+    secondsPlayed: 0
+    maxCoinsAlltime: 0
+    maxAltAllTime: 0
+    numMineGamePlays: 0
+    mineGameCoinsCollected: 0
+    minecartCoinsCollected: 0
+    numInterstitialAdsWatched: 0
+    numRewardedAdsOfferedRocketFlight: 0
+    numRewardedAdsWatchedRocketFlight: 0
+    numRewardedAdsOfferedMineGame: 0
+    numRewardedAdsWatchedMineGame: 0
+  playInterstitialAdOnMenuClose: 0
 --- !u!4 &203233948
 Transform:
   m_ObjectHideFlags: 0
@@ -909,7 +1158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15618527, y: 0.09473168}
   m_AnchorMax: {x: 0.84781474, y: 0.31894046}
-  m_AnchoredPosition: {x: -0.0045776367, y: -0.0037841797}
+  m_AnchoredPosition: {x: -0.004638672, y: -0.00390625}
   m_SizeDelta: {x: -672.56, y: -483.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778671866
@@ -1117,7 +1366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07251006, y: 0.041768327}
   m_AnchorMax: {x: 0.92648584, y: 0.9620001}
-  m_AnchoredPosition: {x: -0.005004883, y: -4.5}
+  m_AnchoredPosition: {x: -0.0048828125, y: -4.5}
   m_SizeDelta: {x: 1660.6, y: 3950.1401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399777837
@@ -1279,6 +1528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugResearch: 0
   debugExperiment: 0
+  robotMenuDisplayed: 0
+  rocketBuildingMenuDisplayed: 0
   researchMenuDisplayed: 0
   NotEnoughCoinsBox: {fileID: 0}
   autopilotConfirmationBox: {fileID: 0}
