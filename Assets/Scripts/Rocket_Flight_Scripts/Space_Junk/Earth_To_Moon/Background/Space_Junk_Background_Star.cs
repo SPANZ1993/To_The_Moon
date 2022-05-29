@@ -26,7 +26,7 @@ public class Space_Junk_Background_Star : MonoBehaviour
             Color.RGBToHSV(backgroundController.getColor(gameObject.transform.position, first:false)[0], out H, out S, out V);
 
             //Debug.Log("H: " + H + " S: " + S + " V!: " + V);
-            starLight.intensity = Mathf.Lerp(0f, 25f, 1f-V);
+            starLight.intensity = Mathf.Lerp(0f, 25f, Mathf.Pow(1f-V, 5f));
         }
         catch(System.Exception e){
             //Debug.Log(e);

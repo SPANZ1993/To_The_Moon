@@ -8,7 +8,9 @@ public class Space_Junk_Flyer : Space_Junk_Base
     bool DebugMode = false;
 
     [SerializeField]
-    private float maxRotation = 15.0f; // 15 degrees
+    private float maxRotation = 15.0f; // How severe an angle of flight can the object take
+    [SerializeField]
+    private float maxSpriteRotation; // Visually, how much can we rotate the sprite (Must be less than or equal to max rotation)
     //protected Rigidbody2D rb;
     protected SpriteRenderer rend;
     protected bool goingRight;
@@ -74,8 +76,14 @@ public class Space_Junk_Flyer : Space_Junk_Base
 
         //Debug.Log("VECTOR3 ZERO: " + Vector3.zero + " ... " + rb.velocity + " ... " + rb.angularVelocity);
 
-
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, offsetAngle);
+        if(offsetAngle >= 0){
+            Debug.Log("OA: " + offsetAngle + " ---> " + Mathf.Min(offsetAngle, maxSpriteRotation));
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Min(offsetAngle, maxSpriteRotation));
+        }
+        else{
+            Debug.Log("OA: " + offsetAngle + " ---> " + -Mathf.Min(Mathf.Abs(offsetAngle), maxSpriteRotation));
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -Mathf.Min(Mathf.Abs(offsetAngle), maxSpriteRotation));
+        }
         CalculateXYMovementComponents(offsetAngle, goingRight);
         thrustVec = new Vector2(thrust, thrust);
         thrustVec = thrustVec * ForceComponents;

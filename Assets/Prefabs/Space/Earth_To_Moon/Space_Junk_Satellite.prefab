@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 0
   maxRotation: 80
+  maxSpriteRotation: 80
   minPossibleThrust: 1.2
   maxPossibleThrust: 1.3
   minPossibleTopSpeed: 1.1
