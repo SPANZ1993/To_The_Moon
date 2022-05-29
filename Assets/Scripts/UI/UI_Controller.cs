@@ -238,6 +238,7 @@ public class UI_Controller : MonoBehaviour
     private GameObject altitudeBarProgress;
     private Vector3 altitudeBarProgressOrigPos;
     private UnityEngine.Rendering.Universal.Light2D altitudeBarProgressLight;
+    private Color altitudeBarProgressLightColor;
     private FieldInfo _altitudeBarProgressLightShapePath;
     private TextMeshProUGUI altitudeText;
 
@@ -581,6 +582,7 @@ public class UI_Controller : MonoBehaviour
             altitudeBarProgressOrigPos = altitudeBarProgress.GetComponent<RectTransform>().anchoredPosition;
             //altitudeBarProgressOrigWorldPos = cam.
             altitudeBarProgressLight = altitudeBarProgress.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+            altitudeBarProgressLightColor = altitudeBarProgressLight.color;
             _altitudeBarProgressLightShapePath = altitudeBarProgressLight.GetType().GetField("m_ShapePath", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
             //_LightCookieSprite =  typeof( Light2D ).GetField( "m_LightCookieSprite", BindingFlags.NonPublic | BindingFlags.Instance );
             altitudeText = GameObject.Find("Altitude_Text").GetComponent<TextMeshProUGUI>();
@@ -2293,6 +2295,7 @@ public class UI_Controller : MonoBehaviour
         //altitudeBarProgress.GetComponent<RectTransform>().GetWorldCorners(v4);
         altitudeBarProgress.GetComponent<RectTransform>().GetLocalCorners(v4);
         //Debug.Log("Local Corners: " + SerializeVector3Array(v4) + " SIZE VECTOR: " + sv2 + " POS VECTOR: " + sv3);
+        altitudeBarProgressLight.color = altitudeBarProgressLightColor; // Maybe explicitly setting the color to the original each frame will fix the wrong color issue?
         _altitudeBarProgressLightShapePath.SetValue(altitudeBarProgressLight, v4);
     }
     
