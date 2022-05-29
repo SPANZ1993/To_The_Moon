@@ -15,7 +15,6 @@ using UI_Characters;
 using UnityEngine.SceneManagement;
 
 
-
 using System.Text;
 using System.Linq;
 
@@ -635,6 +634,7 @@ public class UI_Controller : MonoBehaviour
         //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         //Debug.Log("STARTING UI CONTROLLER");
         OnLevelWasLoaded();
+        //Invoke("displayExampleSpeech", 15);
     }
 
 
@@ -827,7 +827,7 @@ public class UI_Controller : MonoBehaviour
             example_speech_strings.Add("I will trigger the libs with a hilarious inside joke...");
             example_speech_characters.Add(Characters.Gorilla);
             example_speech_emotions.Add(Emotions.Talking);
-            example_speech_post_emotions.Add(Emotions.Happy);
+            example_speech_post_emotions.Add(Emotions.Idle);
 
             example_speech_strings.Add("LET'S GO BRANDON!");
             example_speech_characters.Add(Characters.Gorilla);
@@ -838,6 +838,11 @@ public class UI_Controller : MonoBehaviour
             example_speech_characters.Add(Characters.Guy);
             example_speech_emotions.Add(Emotions.Talking);
             example_speech_post_emotions.Add(Emotions.Happy);
+
+            example_speech_strings.Add("Those blue haired new wave feminists are so upset.");
+            example_speech_characters.Add(Characters.Guy);
+            example_speech_emotions.Add(Emotions.Talking);
+            example_speech_post_emotions.Add(Emotions.Idle);
 
             
             example_speech_strings.Add("ACK!! HERE COMES THE WOKE MOB!!!");
@@ -851,6 +856,11 @@ public class UI_Controller : MonoBehaviour
             example_speech_emotions.Add(Emotions.Talking);
             example_speech_post_emotions.Add(Emotions.Sad);
 
+            example_speech_strings.Add("Those libs are always trying to bring about the downfall of the Western Man.");
+            example_speech_characters.Add(Characters.Dog);
+            example_speech_emotions.Add(Emotions.Talking);
+            example_speech_post_emotions.Add(Emotions.Idle);
+
             example_speech_strings.Add("Don't worry! Our technoking Elong Musk will save us with a cool new robot or something!");
             example_speech_characters.Add(Characters.Dog);
             example_speech_emotions.Add(Emotions.Talking);
@@ -860,6 +870,11 @@ public class UI_Controller : MonoBehaviour
             example_speech_characters.Add(Characters.Robot);
             example_speech_emotions.Add(Emotions.Talking);
             example_speech_post_emotions.Add(Emotions.Idle);
+
+            example_speech_strings.Add("The greasy meats lubricate my circuits nicely.");
+            example_speech_characters.Add(Characters.Robot);
+            example_speech_emotions.Add(Emotions.Talking);
+            example_speech_post_emotions.Add(Emotions.Happy);
 
             example_speech_strings.Add("My circuits yearn for the meta-human experience.");
             example_speech_characters.Add(Characters.Robot);
@@ -1203,9 +1218,92 @@ public class UI_Controller : MonoBehaviour
         int curCharIndex = 1;
         //SpeechText_TMP
         bool doneDisplayingSpeech = false;
+        bool started_next_speech_element = false;
 
         bool doneDisplayingCurSpeech = false;
-        string curSpeechText;
+        string curSpeechText = "";
+
+        Dictionary<Characters, Dictionary<Emotions, Sound[]>> charsEmotions2Sounds = new Dictionary<Characters, Dictionary<Emotions, Sound[]>>();
+        Sound[] allSounds = new Sound[0];
+
+
+        void initializeChars2Emotions2Sounds(){
+            Characters curChar;
+            Emotions curEmot;
+            for(int i=0; i<speech_object.speech_strings.Count; i++){
+                curChar = speech_object.characters[i];
+                curEmot = speech_object.postEmotions[i];
+                if(!charsEmotions2Sounds.Keys.Contains(curChar)){
+                    charsEmotions2Sounds[curChar] = new Dictionary<Emotions, Sound[]>();
+                }
+                if(!charsEmotions2Sounds[curChar].Keys.Contains(curEmot)){
+                    charsEmotions2Sounds[curChar][curEmot] = UI_Characters.CharacterEmotions2SpeechSounds.getSounds(curChar, curEmot);
+                    allSounds = allSounds.Concat(charsEmotions2Sounds[curChar][curEmot]).ToArray();
+                }
+            }
+        }
+
+        void adjustBeepPitch(Sound s, Emotions e){
+            Audio_Manager.instance.ResetPitch(s);
+            // Randomly Adjust Pitch In Some Range Depending on What The Emotion Is
+            // Just to give the speech a little more pizazz
+            switch(e){
+                case Emotions.Idle:
+                    Audio_Manager.instance.SetPitch(s, s.origPitch * UnityEngine.Random.Range(0.95f, 1.05f));
+                    break;
+                case Emotions.Happy:
+                    Audio_Manager.instance.SetPitch(s, s.origPitch * s.origPitch * UnityEngine.Random.Range(0.95f, 1.05f));
+                    break;
+                case Emotions.Sad:
+                    Audio_Manager.instance.SetPitch(s, s.origPitch * s.origPitch * UnityEngine.Random.Range(0.95f, 1.05f));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        IEnumerator _playSpeechSound(){
+
+            yield return new WaitForSeconds(0);
+            playSpeechSound();
+        }
+
+
+
+
+        void playSpeechSound(){
+            //yield return new WaitForSeconds(0);
+            if(curSpeechIndex < speech_object.speech_strings.Count && curCharIndex < speech_object.speech_strings[curSpeechIndex].Length){
+                //Debug.Log("SBBP: " + speechBannerButtonPressed + " --- SNSE: " + started_next_speech_element);
+
+                
+                if(curCharIndex < curSpeechText.Length && !(allSounds.Select(s => Audio_Manager.instance.IsPlaying(s)).ToArray().Contains(true))){
+                    //yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.025f)); // Wait for a random interval in between doots
+                    if(charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]].Length > 0){
+                        int noiseI = UnityEngine.Random.Range(0, charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]].Length);
+                        
+                        adjustBeepPitch(charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]][noiseI], speech_object.postEmotions[curSpeechIndex]);
+
+                        Audio_Manager.instance.Play(charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]][noiseI]);
+                        //Debug.Log("Playing: " + charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]][noiseI].name);
+                    }
+                }
+                else if(curCharIndex == curSpeechText.Length){
+                    //Debug.Log("STOPPING DOOTS");
+                    foreach(Sound s in allSounds){
+                        Audio_Manager.instance.Stop(s);
+                    }
+                }
+            }
+            if(!doneDisplayingSpeech){
+                StartCoroutine(_playSpeechSound());
+            }
+        }
+
+
+
+
 
         //<color=#00000000>.</color>
         string generate_speech_string(){
@@ -1225,7 +1323,7 @@ public class UI_Controller : MonoBehaviour
         }
 
 
-        bool started_next_speech_element = false;
+        
         IEnumerator _display_speech_element()
         {
             yield return new WaitForSeconds(0);
@@ -1244,6 +1342,7 @@ public class UI_Controller : MonoBehaviour
             }
             if(doneDisplayingCurSpeech){
                 if (curSpeechIndex >= speech_object.speech_strings.Count){
+                    doneDisplayingSpeech = true;
                     DisableUIElement(SpeechBanner);
                     SpeechText_TMP.text = "";
                     
@@ -1267,7 +1366,8 @@ public class UI_Controller : MonoBehaviour
         }
 
         IEnumerator _update_displayed_text(int _cur_speech_index){
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
+            //yield return new WaitForSeconds(0.2f);
             if (curSpeechIndex == _cur_speech_index){
                 if (SpeechText_TMP.text == curSpeechText){
                     SpeechImageAnimator.SetInteger("Character", 0);
@@ -1290,11 +1390,16 @@ public class UI_Controller : MonoBehaviour
                     if (curCharIndex < curSpeechText.Length && !speechBannerButtonPressed){
                         //SpeechText_TMP.text = curSpeechText.Substring(0, curCharIndex) + "_" + new string("\u00A0"[0], curSpeechText.Length - curCharIndex - 1);
                         SpeechText_TMP.text = generate_speech_string();
+                        // string speechS = "Speech_Beep_Gorilla_Happy_" + UnityEngine.Random.Range(0,10).ToString();
+                        // Debug.Log(speechS);
+                        // Audio_Manager.instance.Play(speechS);
                         //Debug.Log(SpeechText_TMP.text);
+                        playSpeechSound();
                         curCharIndex++;
                     }
                     else{
                         SpeechText_TMP.text = curSpeechText;
+                        curCharIndex = curSpeechText.Length; // New
                         started_next_speech_element = false;
                         if (speechBannerButtonPressed){
                             speechBannerButtonPressed = false;
@@ -1318,7 +1423,9 @@ public class UI_Controller : MonoBehaviour
 
         EnableUIElement(SpeechBanner);
         //touch_detection
+        initializeChars2Emotions2Sounds();
         StartCoroutine(_display_speech_element());
+        //StartCoroutine(_playSpeechSound());
     }
     // Speech Banner End
 

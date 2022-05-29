@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using System;
 using System.Linq;
 
 namespace UI_Characters
@@ -89,24 +90,24 @@ namespace UI_Characters
             switch (c)
             {
                 case Characters.Robot:
-                return RobotName;
-                break;
+                    return RobotName;
+                    break;
 
                 case Characters.Guy:
-                return GuyName;
-                break;
+                    return GuyName;
+                    break;
 
                 case Characters.Dog:
-                return DogName;
-                break;
+                    return DogName;
+                    break;
 
                 case Characters.Gorilla:
-                return GorillaName;
-                break;
+                    return GorillaName;
+                    break;
 
                 default:
-                return "";
-                break;
+                    return "";
+                    break;
             }
         }
         
@@ -115,4 +116,204 @@ namespace UI_Characters
         }
     }
     
+    
+    public class CharacterEmotions2SpeechSounds{
+
+        public static Sound[] getSounds(Characters c, Emotions e){
+            string[] speechStrs = new string[0];
+            switch (c)
+            {
+                case Characters.Robot:
+                    if(e == Emotions.Idle){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Robot_Neutral_0",
+                            "Speech_Beep_Robot_Neutral_1",
+                            "Speech_Beep_Robot_Neutral_2",
+                            "Speech_Beep_Robot_Neutral_3",
+                            "Speech_Beep_Robot_Neutral_4",
+                            "Speech_Beep_Robot_Neutral_5",
+                            "Speech_Beep_Robot_Neutral_6",
+                            "Speech_Beep_Robot_Neutral_7",
+                            "Speech_Beep_Robot_Neutral_8",
+                            "Speech_Beep_Robot_Neutral_9"
+                        };
+                    }
+                    else if(e == Emotions.Happy){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Robot_Happy_0",
+                            "Speech_Beep_Robot_Happy_1",
+                            "Speech_Beep_Robot_Happy_2",
+                            "Speech_Beep_Robot_Happy_3",
+                            "Speech_Beep_Robot_Happy_4",
+                            "Speech_Beep_Robot_Happy_5",
+                            "Speech_Beep_Robot_Happy_6",
+                            "Speech_Beep_Robot_Happy_7",
+                            "Speech_Beep_Robot_Happy_8",
+                            "Speech_Beep_Robot_Happy_9"
+                        };
+                    }
+                    else if(e == Emotions.Sad){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Robot_Sad_0",
+                            "Speech_Beep_Robot_Sad_1",
+                            "Speech_Beep_Robot_Sad_2",
+                            "Speech_Beep_Robot_Sad_3",
+                            "Speech_Beep_Robot_Sad_4",
+                            "Speech_Beep_Robot_Sad_5",
+                            "Speech_Beep_Robot_Sad_6",
+                            "Speech_Beep_Robot_Sad_7",
+                            "Speech_Beep_Robot_Sad_8",
+                            "Speech_Beep_Robot_Sad_9"
+                        };
+                    }
+                    break;
+
+                case Characters.Guy:
+                    if(e == Emotions.Idle){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Stonks_Neutral_0",
+                            "Speech_Beep_Stonks_Neutral_1",
+                            "Speech_Beep_Stonks_Neutral_2",
+                            "Speech_Beep_Stonks_Neutral_3",
+                            "Speech_Beep_Stonks_Neutral_4",
+                            "Speech_Beep_Stonks_Neutral_5",
+                            "Speech_Beep_Stonks_Neutral_6",
+                            "Speech_Beep_Stonks_Neutral_7",
+                            "Speech_Beep_Stonks_Neutral_8",
+                            "Speech_Beep_Stonks_Neutral_9"
+                        };
+                    }
+                    else if(e == Emotions.Happy){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Stonks_Happy_0",
+                            "Speech_Beep_Stonks_Happy_1",
+                            "Speech_Beep_Stonks_Happy_2",
+                            "Speech_Beep_Stonks_Happy_3",
+                            "Speech_Beep_Stonks_Happy_4",
+                            "Speech_Beep_Stonks_Happy_5",
+                            "Speech_Beep_Stonks_Happy_6",
+                            "Speech_Beep_Stonks_Happy_7",
+                            "Speech_Beep_Stonks_Happy_8",
+                            "Speech_Beep_Stonks_Happy_9"
+                        };
+                    }
+                    else if(e == Emotions.Sad){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Stonks_Sad_0",
+                            "Speech_Beep_Stonks_Sad_1",
+                            "Speech_Beep_Stonks_Sad_2",
+                            "Speech_Beep_Stonks_Sad_3",
+                            "Speech_Beep_Stonks_Sad_4",
+                            "Speech_Beep_Stonks_Sad_5",
+                            "Speech_Beep_Stonks_Sad_6",
+                            "Speech_Beep_Stonks_Sad_7",
+                            "Speech_Beep_Stonks_Sad_8",
+                            "Speech_Beep_Stonks_Sad_9"
+                        };
+                    }
+                    break;
+
+                case Characters.Dog:
+                    if(e == Emotions.Idle){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Dog_Neutral_0",
+                            "Speech_Beep_Dog_Neutral_1",
+                            "Speech_Beep_Dog_Neutral_2",
+                            "Speech_Beep_Dog_Neutral_3",
+                            "Speech_Beep_Dog_Neutral_4",
+                            "Speech_Beep_Dog_Neutral_5",
+                            "Speech_Beep_Dog_Neutral_6",
+                            "Speech_Beep_Dog_Neutral_7",
+                            "Speech_Beep_Dog_Neutral_8",
+                            "Speech_Beep_Dog_Neutral_9"
+                        };
+                    }
+                    else if(e == Emotions.Happy){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Dog_Happy_0",
+                            "Speech_Beep_Dog_Happy_1",
+                            "Speech_Beep_Dog_Happy_2",
+                            "Speech_Beep_Dog_Happy_3",
+                            "Speech_Beep_Dog_Happy_4",
+                            "Speech_Beep_Dog_Happy_5",
+                            "Speech_Beep_Dog_Happy_6",
+                            "Speech_Beep_Dog_Happy_7",
+                            "Speech_Beep_Dog_Happy_8",
+                            "Speech_Beep_Dog_Happy_9"
+                        };
+                    }
+                    else if(e == Emotions.Sad){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Dog_Sad_0",
+                            "Speech_Beep_Dog_Sad_1",
+                            "Speech_Beep_Dog_Sad_2",
+                            "Speech_Beep_Dog_Sad_3",
+                            "Speech_Beep_Dog_Sad_4",
+                            "Speech_Beep_Dog_Sad_5",
+                            "Speech_Beep_Dog_Sad_6",
+                            "Speech_Beep_Dog_Sad_7",
+                            "Speech_Beep_Dog_Sad_8",
+                            "Speech_Beep_Dog_Sad_9"
+                        };
+                    }
+                    break;
+
+                case Characters.Gorilla:
+                    if(e == Emotions.Idle){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Gorilla_Neutral_0",
+                            "Speech_Beep_Gorilla_Neutral_1",
+                            "Speech_Beep_Gorilla_Neutral_2",
+                            "Speech_Beep_Gorilla_Neutral_3",
+                            "Speech_Beep_Gorilla_Neutral_4",
+                            "Speech_Beep_Gorilla_Neutral_5",
+                            "Speech_Beep_Gorilla_Neutral_6",
+                            "Speech_Beep_Gorilla_Neutral_7",
+                            "Speech_Beep_Gorilla_Neutral_8",
+                            "Speech_Beep_Gorilla_Neutral_9"
+                        };
+                    }
+                    else if(e == Emotions.Happy){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Gorilla_Happy_0",
+                            "Speech_Beep_Gorilla_Happy_1",
+                            "Speech_Beep_Gorilla_Happy_2",
+                            "Speech_Beep_Gorilla_Happy_3",
+                            "Speech_Beep_Gorilla_Happy_4",
+                            "Speech_Beep_Gorilla_Happy_5",
+                            "Speech_Beep_Gorilla_Happy_6",
+                            "Speech_Beep_Gorilla_Happy_7",
+                            "Speech_Beep_Gorilla_Happy_8",
+                            "Speech_Beep_Gorilla_Happy_9"
+                        };
+                    }
+                    else if(e == Emotions.Sad){
+                        speechStrs = new string[]{
+                            "Speech_Beep_Gorilla_Sad_0",
+                            "Speech_Beep_Gorilla_Sad_1",
+                            "Speech_Beep_Gorilla_Sad_2",
+                            "Speech_Beep_Gorilla_Sad_3",
+                            "Speech_Beep_Gorilla_Sad_4",
+                            "Speech_Beep_Gorilla_Sad_5",
+                            "Speech_Beep_Gorilla_Sad_6",
+                            "Speech_Beep_Gorilla_Sad_7",
+                            "Speech_Beep_Gorilla_Sad_8",
+                            "Speech_Beep_Gorilla_Sad_9"
+                        };
+                    }
+                    else{
+                        //print("COULD'NT GET SPEECH SOUNDS FOR " + c + " --- " + e);
+                        return new Sound[0];
+                    }
+                    break;
+
+                default:
+                    //Debug.Log("COULD'NT GET SPEECH SOUNDS FOR " + c + " --- " + e);
+                    return new Sound[0];
+                    break;
+            }
+            return speechStrs.Select(str => Audio_Manager.instance.GetSound(str)).ToArray();
+        }
+    }
+
 }

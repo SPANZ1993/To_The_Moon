@@ -76,10 +76,20 @@ public partial class Audio_Manager : MonoBehaviour
         GetAudioSource(name).Play();
     }
 
+    public void Play(Sound s)
+    {
+        GetAudioSource(s).Play();
+    }
+
     //this addition to the code was made by me, the rest was from Brackeys tutorial
     public void Stop(string name)
     {
         GetAudioSource(name).Stop();
+    }
+    
+    public void Stop(Sound s)
+    {
+        s.source.Stop();
     }
 
     public bool IsPlaying(string name){
@@ -89,6 +99,15 @@ public partial class Audio_Manager : MonoBehaviour
         }
 
         return s.isPlaying;
+    }
+
+    public bool IsPlaying(Sound s){
+        AudioSource aS = GetAudioSource(s);
+        if(aS == null){
+            return false;
+        }
+
+        return aS.isPlaying;
     }
 
     public AudioSource GetAudioSource(string name){
@@ -133,4 +152,33 @@ public partial class Audio_Manager : MonoBehaviour
     public void ResetVolume(Sound s){
         SetVolume(s, s.origVolume);
     }
+
+    public void SetPitch(string name, float pitch){
+        Sound s = GetSound(name);
+        s.pitch = pitch;
+        s.source.pitch = s.pitch;
+    }
+
+    public void SetPitch(Sound s, float pitch){
+        s.pitch = pitch;
+        s.source.pitch = s.pitch;
+    }
+
+    public float GetPitch(string name){
+        Sound s = GetSound(name);
+        return s.pitch;
+    }
+
+    public float GetPitch(Sound s){
+        return s.pitch;
+    }
+
+    public void ResetPitch(string name){
+        ResetPitch(GetSound(name));
+    }
+
+    public void ResetPitch(Sound s){
+        SetPitch(s, s.origPitch);
+    }
+
 }
