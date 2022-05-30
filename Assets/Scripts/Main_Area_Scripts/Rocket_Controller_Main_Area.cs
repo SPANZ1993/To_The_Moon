@@ -103,6 +103,7 @@ public class Rocket_Controller_Main_Area : MonoBehaviour
         if(!Audio_Manager.instance.IsPlaying("Rocket_Launch_Rumble")){
             Audio_Manager.instance.Play("Rocket_Launch_Rumble");
         }
+
         rocketParticleSystem.Play(true);
         smokeParticleSystemLeft.Play(true);
         smokeParticleSystemRight.Play(true);

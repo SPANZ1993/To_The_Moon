@@ -486,6 +486,14 @@ MonoBehaviour:
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
+  - name: Rocket_Launch_Alarm
+    clip: {fileID: 8300000, guid: b33c9eb2cb7e72f439252bd1dc26d554, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
   - name: Minecart_Coin_Collect
     clip: {fileID: 8300000, guid: fe29150642a3a2b4e9c7a1e6a995110c, type: 3}
     volume: 1
@@ -577,6 +585,22 @@ MonoBehaviour:
   - name: UI_Transition_Out
     clip: {fileID: 8300000, guid: 9ecee9ca53ca6a949b123305a3dec4a2, type: 3}
     volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Flight_Thrusters
+    clip: {fileID: 8300000, guid: 9ff2bb4dd668929469398636849bda9c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Rocket_Flight_Hit_Thud
+    clip: {fileID: 8300000, guid: f7c34eec4de1bec4bb2c6f9a05f1777d, type: 3}
+    volume: 0.631
     pitch: 1
     loop: 0
     source: {fileID: 0}

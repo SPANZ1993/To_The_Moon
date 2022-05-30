@@ -54,6 +54,7 @@ public partial class Audio_Manager : MonoBehaviour
             Play("Main_Area_Theme_Earth");
         }
         else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            Play("Rocket_Flight_Thrusters");
             Play("Rocket_Theme_Earth");
         }
         else if (SceneManager.GetActiveScene().name == "Mine_Game"){

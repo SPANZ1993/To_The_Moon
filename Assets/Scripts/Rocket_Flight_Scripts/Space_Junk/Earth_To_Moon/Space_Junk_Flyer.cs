@@ -20,7 +20,7 @@ public class Space_Junk_Flyer : Space_Junk_Base
     private float thrust; // = 0.5f;
     [SerializeField]
     private float minPossibleTopSpeed, maxPossibleTopSpeed;
-    protected float topSpeed; // = 2.0f; 
+    protected float topSpeed; // = 2.0f;
 
 
     [SerializeField]
@@ -77,11 +77,11 @@ public class Space_Junk_Flyer : Space_Junk_Base
         //Debug.Log("VECTOR3 ZERO: " + Vector3.zero + " ... " + rb.velocity + " ... " + rb.angularVelocity);
 
         if(offsetAngle >= 0){
-            Debug.Log("OA: " + offsetAngle + " ---> " + Mathf.Min(offsetAngle, maxSpriteRotation));
+            //Debug.Log("OA: " + offsetAngle + " ---> " + Mathf.Min(offsetAngle, maxSpriteRotation));
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Min(offsetAngle, maxSpriteRotation));
         }
         else{
-            Debug.Log("OA: " + offsetAngle + " ---> " + -Mathf.Min(Mathf.Abs(offsetAngle), maxSpriteRotation));
+            //Debug.Log("OA: " + offsetAngle + " ---> " + -Mathf.Min(Mathf.Abs(offsetAngle), maxSpriteRotation));
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, -Mathf.Min(Mathf.Abs(offsetAngle), maxSpriteRotation));
         }
         CalculateXYMovementComponents(offsetAngle, goingRight);

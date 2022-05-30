@@ -8,6 +8,7 @@ public class Rocket_Tower_Manager : MonoBehaviour
 
     public bool launched {get; private set;}
     public bool launchComplete;
+    public bool retractComplete;
     private Animator towerAnim;
 
     void OnEnable()
@@ -27,20 +28,44 @@ public class Rocket_Tower_Manager : MonoBehaviour
 
         launched = false;
         launchComplete = false;
+        retractComplete = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        towerAnim.SetBool("Retracting", launched);
-        towerAnim.SetBool("Retracted", launchComplete);
+
     }
 
     IEnumerator _onLaunchInitiated(bool first){
+        IEnumerator _stopRetracting(float retracttime){
+            yield return new WaitForSeconds(retracttime*0.51f); // Need to do this because only half o
+            launched = false;
+            retractComplete = true;
+            towerAnim.SetBool("Retracting", false);
+            towerAnim.SetBool("Retracted", true);
+        }
+
 
         if (first){
+            Sound alarmSound = Audio_Manager.instance.GetSound("Rocket_Launch_Alarm");
             launched = true;
-            yield return new WaitForSeconds(2.5f);
+            towerAnim.SetBool("Retracting", true);
+            towerAnim.SetBool("Retracted", false);
+            if(!Audio_Manager.instance.IsPlaying(alarmSound)){
+                Audio_Manager.instance.Play(alarmSound);
+            }
+            AnimationClip[] clips = towerAnim.runtimeAnimatorController.animationClips;
+            float retractClipLength = 0f;
+            foreach(AnimationClip clip in clips)
+            {   
+                if(clip.name == "Rocket_Tower_Retract"){
+                    retractClipLength = clip.length;
+                }
+            }
+            Debug.Log(retractClipLength);
+            StartCoroutine(_stopRetracting(retractClipLength));
+            yield return new WaitForSeconds(Mathf.Max(alarmSound.clip.length, retractClipLength));
             StartCoroutine(_onLaunchInitiated(false));
         }
         else{

@@ -321,6 +321,9 @@ public class Rocket_Control : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isBouncing){
+            if(!Audio_Manager.instance.IsPlaying("Rocket_Flight_Hit_Thud")){
+                Audio_Manager.instance.Play("Rocket_Flight_Hit_Thud");
+            }
             // Debug.Log("BOUNCE: " + (collision.contacts[0].normal * cur_speed));
             Vector2 bounceDir = collision.contacts[0].normal * maxInstThrust;
             if (bounceDir.y < 0.0f && !(upgradesManager.upgradesUnlockedDict[Upgrade.Cow_Catcher] && hitCount < 3)){
@@ -348,6 +351,9 @@ public class Rocket_Control : MonoBehaviour
         // Stop the camera from following the rocket, turn off thrust, and let rocket fall from screen
         // As if rocket ran out of fuel
         //Debug.Log("DROPPING ROCKET");
+        if(Audio_Manager.instance.IsPlaying("Rocket_Flight_Thrusters")){
+            Audio_Manager.instance.Stop("Rocket_Flight_Thrusters");
+        }
         userHasControl = false;
         rocketParticleSystem.Stop(true);
 
