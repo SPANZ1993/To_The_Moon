@@ -9,6 +9,7 @@ public class Metrics_Object
 {
 
     // GamePlay
+    public double numGameStartups; // Implemented
     public double profileCreationTimeUnix; // Sort of Implemented... Fix this
     public double secondsPlayed; // Implemented
     public double maxCoinsAlltime; // Implemented
@@ -41,6 +42,7 @@ public class Metrics_Object
 
     public Metrics_Object(){
         // GamePlay
+        numGameStartups = 1;
         profileCreationTimeUnix = (double)((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
         secondsPlayed = 0;
         maxCoinsAlltime = 0;
@@ -74,6 +76,7 @@ public class Metrics_Object
     
     public Metrics_Object(
                 // GamePlay
+                double NumGameStartups,
                 double ProfileCreationTimeUnix,
                 double SecondsPlayed,
                 double MaxCoinsAllTime,
@@ -97,6 +100,8 @@ public class Metrics_Object
                 int NumRewardedAdsOfferedMineGame,
                 int NumRewardedAdsWatchedMineGame
                 ){
+
+        numGameStartups = NumGameStartups;
         profileCreationTimeUnix = ProfileCreationTimeUnix;
         secondsPlayed = SecondsPlayed;
         maxCoinsAlltime = MaxCoinsAllTime;

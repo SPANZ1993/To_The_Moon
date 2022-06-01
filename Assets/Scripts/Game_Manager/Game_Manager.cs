@@ -132,6 +132,9 @@ public class Game_Manager : MonoBehaviour
     // Metrics
     public Metrics_Object metrics;
 
+    // User Info
+    public string userDisplayName;
+
     private UI_Controller uiController;
 
 
@@ -229,6 +232,10 @@ public class Game_Manager : MonoBehaviour
                 if(upgradesManager.autopilotFlag == true){
                     //Debug.Log("HANDLING AUTOPILOT RETURN");
                     Handle_Autopilot_Return();
+                }
+
+                if(metrics.numGameStartups == 1 && userDisplayName == null){
+                    Debug.Log("THIS IS THE FIRST BABY!");
                 }
             }
             else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){

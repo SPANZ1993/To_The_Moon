@@ -1847,6 +1847,7 @@ MonoBehaviour:
   loadSaveRetries: 3
   loadedGame:
     Metrics:
+      numGameStartups: 1
       profileCreationTimeUnix: 1653431569
       secondsPlayed: 0
       maxCoinsAlltime: 0
@@ -1883,6 +1884,7 @@ MonoBehaviour:
   unlockedExperimentIds: 
   doneLoading: 0
   metrics:
+    numGameStartups: 1
     profileCreationTimeUnix: 1653431569
     secondsPlayed: 0
     maxCoinsAlltime: 0

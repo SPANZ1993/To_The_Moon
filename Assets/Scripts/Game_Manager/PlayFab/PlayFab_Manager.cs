@@ -29,7 +29,7 @@ public class PlayFab_Manager : MonoBehaviour
     public delegate void PlayFabAccountCreateSuccess(); // We tried to login, couldn't find an existing user, then created a new account
     public static event PlayFabAccountCreateSuccess PlayFabAccountCreateSuccessInfo;
 
-    public delegate void PlayFabLoginSuccess(); // We logged in successfully
+    public delegate void PlayFabLoginSuccess(LoginResult result); // We logged in successfully
     public static event PlayFabLoginSuccess PlayFabLoginSuccessInfo;
 
     public delegate void PlayFabLoginFailure(); // We failed to login for some reason
@@ -70,7 +70,10 @@ public class PlayFab_Manager : MonoBehaviour
     public void Login(){
         var request = new LoginWithCustomIDRequest{
             CustomId = SystemInfo.deviceUniqueIdentifier,
-            CreateAccount = true
+            CreateAccount = true,
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams{
+                GetPlayerProfile = true
+            }
         };
         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
     }
@@ -82,7 +85,7 @@ public class PlayFab_Manager : MonoBehaviour
                 PlayFabAccountCreateSuccessInfo();
             }
             else if(result.NewlyCreated == false && PlayFabLoginSuccessInfo != null){
-                PlayFabLoginSuccessInfo();
+                PlayFabLoginSuccessInfo(result);
             }
             else if (PlayFabLoginFailureInfo != null){ // Something is fricked.. Just treat it as a login error
                 PlayFabLoginFailureInfo();

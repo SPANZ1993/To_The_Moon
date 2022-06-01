@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using PlayFab;
+using PlayFab.ClientModels;
+using Newtonsoft.Json;
 
 public class PlayFab_Initializer : MonoBehaviour
 {
@@ -16,11 +21,12 @@ public class PlayFab_Initializer : MonoBehaviour
     bool failedGetLoadedData = false;
     bool startedSceneTransition = false;
 
+    string displayName; // The user's display name
+
     bool retryConnectBoxDisplayed = false;
     bool waitingForResponsePlayFabLogin = false;
     bool waitingForResponsePlayFabTime = false;
     bool waitingForResponsePlayFabData = false;
-
 
     public System.Action callBack {private get; set;}
 
@@ -94,9 +100,14 @@ public class PlayFab_Initializer : MonoBehaviour
         // Debug.Log("LOADED DATA: " + loadedData);
         // Debug.Log("SERVER TIME: " + serverTime);
         if (loggedInPlayFabServer && serverTime != null && loadedData != null){
+            if (SceneManager.GetActiveScene().name == "Landing_Page"){ // It should always be this scene if we are creating a user
+                loadedData.Metrics.numGameStartups += 1;
+            }
             gameManager.loadedGame = loadedData;
+            gameManager.metrics = loadedData.Metrics;
             gameManager.gameTimeUnix = serverTime ?? 0;
             gameManager.gameStartTimeUnix = serverTime ?? 0;
+            gameManager.userDisplayName = displayName;
             gameManager.doneLoading = true;
             callBack();
             if(EndingPlayFabInitiationInfo != null){
@@ -124,12 +135,19 @@ public class PlayFab_Initializer : MonoBehaviour
         failedLogInPlayFabServer = false;
         waitingForResponsePlayFabLogin = false;
         loadedData = new SaveGameObject();
+        if (SceneManager.GetActiveScene().name == "Landing_Page"){ // It should always be this scene if we are creating a user
+            loadedData.Metrics.numGameStartups = 0;
+        }
     }
     
-    void onPlayFabLoginSuccess(){
+    void onPlayFabLoginSuccess(LoginResult result){
         loggedInPlayFabServer = true;
         failedLogInPlayFabServer = false;
         waitingForResponsePlayFabLogin = false;
+        displayName = null;
+        if (result.InfoResultPayload.PlayerProfile != null){
+            displayName = result.InfoResultPayload.PlayerProfile.DisplayName;
+        }
     }
 
     void onPlayFabLoginFailure(){
@@ -152,6 +170,7 @@ public class PlayFab_Initializer : MonoBehaviour
         //Debug.Log("GOT SAVE DATA HERE: " + loadedGame);
         loadedData = loadedGame;
         waitingForResponsePlayFabData = false;
+
     }
 
     void onGetSaveDataFailure(){

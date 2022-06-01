@@ -75,6 +75,11 @@ public class UI_Controller : MonoBehaviour
     Emotions curEmotion;
     // End Speech Banner
 
+
+    // Name Input Box
+    private GameObject nameInputBox;
+    // End Name Input Box
+
     // Robot Menu
     bool robotMenuFirstDisplayed = false; // Has the robot menu been shown yet
     public bool robotMenuDisplayed = false;
@@ -392,7 +397,8 @@ public class UI_Controller : MonoBehaviour
 
             Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
             DisableUIElement(Retry_Connect_Box);
-            
+
+
             // Banner
             LaunchIndicator1 = GameObject.Find("Launch_Indicator1");
             LaunchIndicator2 = GameObject.Find("Launch_Indicator2");
@@ -420,6 +426,15 @@ public class UI_Controller : MonoBehaviour
             ThrustTextObj = GameObject.Find("Thrust_Text");
             CoinsTextObj = GameObject.Find("Coins_Text");
             GemsTextObj = GameObject.Find("Gems_Text");
+
+
+
+            // Name Enter Box
+            nameInputBox = GameObject.Find("Name_Input_Box");
+            // End Name Enter Box
+            
+
+
 
             // Robot Menu
             RobotMenuObj = GameObject.Find("Robot_Menu");
@@ -552,6 +567,7 @@ public class UI_Controller : MonoBehaviour
 
 
             DisableUIElement(SpeechBanner);
+            DisableUIElement(nameInputBox);
             DisableUIElement(RobotMenuObj);
             DisableUIElement(RocketBuildingMenuObj);
             DisableUIElement(ResearchersMenu);
@@ -811,6 +827,17 @@ public class UI_Controller : MonoBehaviour
     void OnApplicationPause(){
         timeSinceLastDisplayedRetryConnectBox = minTimeBetweenDisplayRetryConnectBox;
     }
+
+
+    // Name Input Box Stuff
+
+    // End Name Input Box Stuff
+
+
+
+
+
+
 
 
     void displayExampleSpeech(){
