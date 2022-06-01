@@ -6,6 +6,8 @@ public class Space_Junk_Base : MonoBehaviour
 {
 
     protected Rigidbody2D rb;
+    [SerializeField]
+    private string bumpSound;
 
 
     protected void OnEnable(){
@@ -30,5 +32,9 @@ public class Space_Junk_Base : MonoBehaviour
             //Debug.Log("HEY TRYING TO UNFREEZE POSITION: " + gameObject.name);
             rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
         }
+    }
+
+    public string getBumpSound(){
+        return bumpSound;
     }
 }

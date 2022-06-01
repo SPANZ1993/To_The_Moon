@@ -424,7 +424,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Rocket_Theme_Earth
     clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -432,7 +432,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Mine_Theme_Earth
     clip: {fileID: 8300000, guid: 6a2de1e7856b80046b68cae2432926f3, type: 3}
-    volume: 1
+    volume: 0.25
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -504,6 +504,14 @@ MonoBehaviour:
     origPitch: 0
   - name: Minecart_Coin_Collect_Empty
     clip: {fileID: 8300000, guid: ad934fec436c1b5409ee3523c34c767b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Robot_Tapped
+    clip: {fileID: 8300000, guid: 9afa73ab7768ee94a94a6f5dc7fe9bd9, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -592,7 +600,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Rocket_Flight_Thrusters
     clip: {fileID: 8300000, guid: 9ff2bb4dd668929469398636849bda9c, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -600,7 +608,127 @@ MonoBehaviour:
     origPitch: 0
   - name: Rocket_Flight_Hit_Thud
     clip: {fileID: 8300000, guid: f7c34eec4de1bec4bb2c6f9a05f1777d, type: 3}
-    volume: 0.631
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Baloon_Bump
+    clip: {fileID: 8300000, guid: 3384da2dc6bc1eb4694110f7eb659b2b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Cow_Bump
+    clip: {fileID: 8300000, guid: c74a7e2b7d6d18144a3ba2f27b6d36fd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Hot_Air_Baloon_Bump
+    clip: {fileID: 8300000, guid: c571579b8490c95448bcd58e0d8fb5d0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Asteroid_Bump
+    clip: {fileID: 8300000, guid: 023aec3b26ad7e849863077522da2382, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Kite_Bump
+    clip: {fileID: 8300000, guid: 5f24d860902a53d4c99175a74b839f7e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Airplane_Bump
+    clip: {fileID: 8300000, guid: 59483861485a7524abf1ccac60ba9bb6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_UFO_Bump
+    clip: {fileID: 8300000, guid: f6d55c389bf34d8479484255019ea45e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Satellite_Bump
+    clip: {fileID: 8300000, guid: f8994698f151a5a43be6a41ce35641fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Pickax_Hit
+    clip: {fileID: 8300000, guid: 28e9beecbdbebba40a0a0660ce8588a5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Switch_Lights
+    clip: {fileID: 8300000, guid: fd0f1b677ba7f414c9f7396eda5fd1d3, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Block_Solved
+    clip: {fileID: 8300000, guid: c28703fa6d8808e438d348a345901b9e, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Minecart_Earth
+    clip: {fileID: 8300000, guid: ef0911c5628e041409774738fb1b32f6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Robot_Hit_0
+    clip: {fileID: 8300000, guid: b2e502f1475ff7245b0f1c5b7953a424, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Robot_Hit_1
+    clip: {fileID: 8300000, guid: 451340b9c1a50204583f5a522e5ad958, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Robot_Hit_2
+    clip: {fileID: 8300000, guid: 0bb5f77f5fae945439937425d14a4da0, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}

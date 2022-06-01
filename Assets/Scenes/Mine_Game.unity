@@ -2867,7 +2867,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 105.7
+  m_fontSize: 116.9
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3290,6 +3290,12 @@ MonoBehaviour:
   CartCollector: {fileID: 50747253}
   curBlock: {fileID: 1027338904197786368}
   curCart: {fileID: 4721465773067139007}
+  minTimeBetweenRobotSounds: 3
+  robotSoundLikelihood: 0.2
+  robotSoundStrings:
+  - Robot_Hit_0
+  - Robot_Hit_1
+  - Robot_Hit_2
   HitIndicator: {fileID: 1481402878}
   RobotBase: {fileID: 1690685895}
   RobotArms: {fileID: 1071250500}
@@ -3523,7 +3529,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 101.1
+  m_fontSize: 111.8
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3876,7 +3882,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 105.7
+  m_fontSize: 116.9
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1

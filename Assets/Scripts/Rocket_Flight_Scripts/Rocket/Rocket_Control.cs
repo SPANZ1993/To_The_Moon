@@ -321,9 +321,21 @@ public class Rocket_Control : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isBouncing){
+            try{
+                // Try to play the object we hit's bump sound if we can
+                Space_Junk_Base sj = collision.gameObject.GetComponent<Space_Junk_Base>();
+                if(!Audio_Manager.instance.IsPlaying(sj.getBumpSound())){
+                    Audio_Manager.instance.Play(sj.getBumpSound());
+                }
+            }
+            catch(System.Exception e){
+                Debug.Log("No Bump Sound For " + collision.gameObject);
+            }
+
             if(!Audio_Manager.instance.IsPlaying("Rocket_Flight_Hit_Thud")){
                 Audio_Manager.instance.Play("Rocket_Flight_Hit_Thud");
             }
+
             // Debug.Log("BOUNCE: " + (collision.contacts[0].normal * cur_speed));
             Vector2 bounceDir = collision.contacts[0].normal * maxInstThrust;
             if (bounceDir.y < 0.0f && !(upgradesManager.upgradesUnlockedDict[Upgrade.Cow_Catcher] && hitCount < 3)){

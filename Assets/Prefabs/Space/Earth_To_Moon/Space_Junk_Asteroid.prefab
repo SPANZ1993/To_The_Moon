@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee91ae03fc650f44a2bd5214fb49386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpSound: Space_Junk_Asteroid_Bump
   DebugMode: 0
   maxRotation: 80
   maxSpriteRotation: 80

@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c28390e1dbcb814c9f2671b5e341b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpSound: Space_Junk_UFO_Bump
   DebugMode: 1
   maxRotation: 8
   wiggleTime: 0.18

@@ -20,12 +20,14 @@ public class Circle_Wipe : Scene_Transition
     }
 
 
+    
 
     private void wipeStart(string nextScene){
         string transitionClipName = "UI_Transition_Out";
         if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
             Audio_Manager.instance.Play(transitionClipName);
         }
+
 
         void OnLeavingWipeComplete(){
             base._LeavingSceneComplete(nextScene);
@@ -57,10 +59,15 @@ public class Circle_Wipe : Scene_Transition
 
     private void wipeEnd(){
         string transitionClipName = "UI_Transition_In";
-        if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
-            Audio_Manager.instance.Play(transitionClipName);
+        IEnumerator _startTransitionSoundNextFrame(){
+            yield return new WaitForSeconds(0);
+            Debug.Log("STARTING TRANSITION SOUND!");
+            if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
+                Debug.Log("WE AREN'T PLAYING IT YET.. HERE WE GO");
+                Audio_Manager.instance.Play(transitionClipName);
+            }
         }
-
+        StartCoroutine(_startTransitionSoundNextFrame());
 
         void OnEnteringWipeComplete(){
             base._EnteringSceneComplete();

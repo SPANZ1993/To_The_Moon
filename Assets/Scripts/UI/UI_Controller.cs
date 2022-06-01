@@ -1226,7 +1226,7 @@ public class UI_Controller : MonoBehaviour
         string curSpeechText = "";
 
         Dictionary<Characters, Dictionary<Emotions, Sound[]>> charsEmotions2Sounds = new Dictionary<Characters, Dictionary<Emotions, Sound[]>>();
-        Sound[] allSounds = new Sound[0];
+        Sound[] allSpeechSounds = new Sound[0];
 
 
         void initializeChars2Emotions2Sounds(){
@@ -1240,7 +1240,7 @@ public class UI_Controller : MonoBehaviour
                 }
                 if(!charsEmotions2Sounds[curChar].Keys.Contains(curEmot)){
                     charsEmotions2Sounds[curChar][curEmot] = UI_Characters.CharacterEmotions2SpeechSounds.getSounds(curChar, curEmot);
-                    allSounds = allSounds.Concat(charsEmotions2Sounds[curChar][curEmot]).ToArray();
+                    allSpeechSounds = allSpeechSounds.Concat(charsEmotions2Sounds[curChar][curEmot]).ToArray();
                 }
             }
         }
@@ -1280,7 +1280,7 @@ public class UI_Controller : MonoBehaviour
                 //Debug.Log("SBBP: " + speechBannerButtonPressed + " --- SNSE: " + started_next_speech_element);
 
                 
-                if(curCharIndex < curSpeechText.Length && !(allSounds.Select(s => Audio_Manager.instance.IsPlaying(s)).ToArray().Contains(true))){
+                if(curCharIndex < curSpeechText.Length && !(allSpeechSounds.Select(s => Audio_Manager.instance.IsPlaying(s)).ToArray().Contains(true))){
                     //yield return new WaitForSeconds(UnityEngine.Random.Range(0f, 0.025f)); // Wait for a random interval in between doots
                     if(charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]].Length > 0){
                         int noiseI = UnityEngine.Random.Range(0, charsEmotions2Sounds[speech_object.characters[curSpeechIndex]][speech_object.postEmotions[curSpeechIndex]].Length);
@@ -1293,7 +1293,7 @@ public class UI_Controller : MonoBehaviour
                 }
                 else if(curCharIndex == curSpeechText.Length){
                     //Debug.Log("STOPPING DOOTS");
-                    foreach(Sound s in allSounds){
+                    foreach(Sound s in allSpeechSounds){
                         Audio_Manager.instance.Stop(s);
                     }
                 }

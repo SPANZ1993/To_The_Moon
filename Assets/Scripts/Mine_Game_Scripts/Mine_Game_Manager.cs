@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 
 using System;
+using System.Linq;
 using TMPro;
 
 //using LimitedQueue;
@@ -35,6 +36,14 @@ public class Mine_Game_Manager : MonoBehaviour
     [SerializeField]
     private GameObject curCart;
     private GameObject prevCart;
+    [SerializeField]
+    private double minTimeBetweenRobotSounds;
+    [SerializeField]
+    private float robotSoundLikelihood;
+    [SerializeField]
+    private string[] robotSoundStrings;
+    private Sound[] robotSounds;
+    private double lastRobotSoundTime;
     
     private Block_Controller curBlockController, prevBlockController;
 
@@ -140,6 +149,12 @@ public class Mine_Game_Manager : MonoBehaviour
 
         RobotArmsRenderer = RobotArms.GetComponent<SpriteRenderer>();
         PickaxRenderer = Pickax.GetComponent<SpriteRenderer>();
+
+        lastRobotSoundTime = gameManager.gameTimeUnix;
+        robotSounds = new Sound[robotSoundStrings.Length];
+        for(int i=0; i<robotSoundStrings.Length; i++){
+            robotSounds[i] = Audio_Manager.instance.GetSound(robotSoundStrings[i]);
+        }
 
         // Floating Text Stuff
         uiInfoHolder = new UI_Info_Holder();
@@ -390,6 +405,9 @@ public class Mine_Game_Manager : MonoBehaviour
         prevBlockTweenId = LeanTween.move(prevBlock, destroyBlockLoc, cartMoveSeconds).setEase(LeanTweenType.easeInOutSine).id;
         curCartTweenId = LeanTween.move(curCart, activeCartLoc, cartMoveSeconds).setEase(LeanTweenType.easeInOutSine).id;
         prevCartTweenId = LeanTween.move(prevCart, destroyCartLoc, cartMoveSeconds).setEase(LeanTweenType.easeInOutSine).id;
+        if(!Audio_Manager.instance.IsPlaying("Minecart_Earth")){ // TODO: Switch this depending on what level we are on
+            Audio_Manager.instance.Play("Minecart_Earth");
+        }
     }
 
 
@@ -413,6 +431,15 @@ public class Mine_Game_Manager : MonoBehaviour
         RobotRings.transform.position = RobotWaypointLocs[HitIndicatorSelection] - RobotRingsOffset;
     }
 
+    private void spinForRobotSound(){
+        float spinNum = UnityEngine.Random.Range(0, 10);
+        if (spinNum <= (robotSoundLikelihood/100f) && gameManager.gameTimeUnix-lastRobotSoundTime >= minTimeBetweenRobotSounds){
+            if(!(robotSounds.Select(s => Audio_Manager.instance.IsPlaying(s)).ToArray().Contains(true))){
+                int choice = UnityEngine.Random.Range((int)0, (int)robotSounds.Length);
+                Audio_Manager.instance.Play(robotSounds[choice]);
+            }
+        }
+    }
 
 
     private void updateRobotArms(){
@@ -487,6 +514,12 @@ public class Mine_Game_Manager : MonoBehaviour
                 updatePickax(PickaxState.Swing);
                 sparkDisplaySecondsRemaining = sparkDisplaySeconds;
                 bool solved = curBlockController.Hit(HitIndicatorSelection);
+                if(solved){
+                    Audio_Manager.instance.Play("Block_Solved");
+                }
+                else{
+                    Audio_Manager.instance.Play("Switch_Lights");
+                }
                 double curTapScore = solved ? gameManager.mineGameSolveCoins : gameManager.mineGameHitCoins;
                 score += curTapScore;
                 //updateScoreText();
@@ -494,6 +527,7 @@ public class Mine_Game_Manager : MonoBehaviour
                 
                 curFloatingText = Instantiate(floatingText, HitIndicator.transform.position, Quaternion.identity);
                 initializeFloatingText(curFloatingText, curTapScore);
+                Audio_Manager.instance.Play("Pickax_Hit");
 
                 currentlyHitting = false;
             }
@@ -590,6 +624,7 @@ public class Mine_Game_Manager : MonoBehaviour
             if (gameObjectName == "Tap_Button"){
                 swingButtonHeld = false;
                 armsUp = true;
+                spinForRobotSound();
                 updateRobotArms();
                 updatePickax(PickaxState.Up);
                 Tap_Button_Anim.SetBool("Tapped", false);

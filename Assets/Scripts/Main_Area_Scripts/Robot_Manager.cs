@@ -103,6 +103,9 @@ public class Robot_Manager : MonoBehaviour
 
     
     void onRobotTapped(){
+        if(!Audio_Manager.instance.IsPlaying("Robot_Tapped")){
+            Audio_Manager.instance.Play("Robot_Tapped");
+        }
         //Debug.Log("ROBOT TAPPED FROM MANAGER... STATE IS: " + Enum.GetName(typeof(RobotStates), RobotState));
         RobotTappedInfo();
     }

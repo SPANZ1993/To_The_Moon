@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fb7e457185a28499475e46e46e1892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpSound: Space_Junk_Satellite_Bump
   DebugMode: 0
   maxRotation: 80
   maxSpriteRotation: 80

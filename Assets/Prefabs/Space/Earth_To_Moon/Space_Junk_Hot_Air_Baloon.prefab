@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d10d8821757134db07f0ba6d4d0e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumpSound: Space_Junk_Hot_Air_Baloon_Bump
   thrustVert: 1
   topSpeedVert: 0.2
 --- !u!95 &542062060142483888
