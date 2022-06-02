@@ -6,6 +6,11 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement;
  
 
+public enum Languages {
+    English = 0,
+    Spanish = 1
+}
+
 public class Localization_Manager : MonoBehaviour
 {
     //TODO: load localized string
@@ -13,13 +18,12 @@ public class Localization_Manager : MonoBehaviour
     [SerializeField]
     private List<Locale> localesList = new List<Locale>();
 
+    public Languages currentLanguage {get; private set;}
+
     [SerializeField]
     private bool setEnglishTmp, setSpanishTmp = false; // REMOVE
 
-    enum Languages {
-        English = 0,
-        Spanish = 1
-    }
+
 
     public static Localization_Manager instance;
 
@@ -32,9 +36,18 @@ public class Localization_Manager : MonoBehaviour
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            setCurrentLanguage();
         }
         else{
             Destroy(this.gameObject);
+        }
+    }
+
+    private void setCurrentLanguage(){
+        for(int i=0; i<localesList.Count; i++){
+            if(LocalizationSettings.SelectedLocale == localesList[i]){
+                currentLanguage = (Languages)i;
+            }
         }
     }
 
@@ -45,6 +58,7 @@ public class Localization_Manager : MonoBehaviour
         if (LocaleChangedInfo != null){
             LocaleChangedInfo();
         }
+        setCurrentLanguage();
     }
 
     // private IEnumerator _changeLanguageTest(){

@@ -20348,7 +20348,7 @@ GameObject:
   - component: {fileID: 1240280327}
   - component: {fileID: 1240280326}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: Name_Enter_Input_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22532,6 +22532,7 @@ MonoBehaviour:
     numRewardedAdsWatchedRocketFlight: 0
     numRewardedAdsOfferedMineGame: 0
     numRewardedAdsWatchedMineGame: 0
+  userDisplayName: 
   playInterstitialAdOnMenuClose: 0
 --- !u!1 &1482314885
 GameObject:
@@ -24011,6 +24012,7 @@ GameObject:
   - component: {fileID: 1604078762}
   - component: {fileID: 1604078761}
   - component: {fileID: 1604078760}
+  - component: {fileID: 1604078763}
   m_Layer: 0
   m_Name: Localizer
   m_TagString: Untagged
@@ -24078,6 +24080,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604078763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604078759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7004b59bb1d2345a2f167c2de45805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1617064497
 PrefabInstance:
   m_ObjectHideFlags: 0

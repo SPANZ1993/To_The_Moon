@@ -141,5 +141,9 @@ public class Main_Area_Button_Handlers : MonoBehaviour
     }
 
 
+    public void nameSubmitButtonPressed(){
+        uiController.onNameSubmitButtonPressed();
+    }
+
 
 }

@@ -78,6 +78,7 @@ public class UI_Controller : MonoBehaviour
 
     // Name Input Box
     private GameObject nameInputBox;
+    private GameObject nameInputBoxSubmitButton;
     // End Name Input Box
 
     // Robot Menu
@@ -2446,5 +2447,11 @@ public class UI_Controller : MonoBehaviour
     }
     // End Speech Handlers
 
+
+    // Name Input Handlers
+    public void onNameSubmitButtonPressed(){
+
+    }
+    // End Name Input Handlers
 
 }

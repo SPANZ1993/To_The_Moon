@@ -234,8 +234,10 @@ public class Game_Manager : MonoBehaviour
                     Handle_Autopilot_Return();
                 }
 
-                if(metrics.numGameStartups == 1 && userDisplayName == null){
+                if(metrics.numGameStartups == 1 || userDisplayName == null){
                     Debug.Log("THIS IS THE FIRST BABY!");
+                    Onboarding_Manager onboardingManager = gameObject.AddComponent<Onboarding_Manager>();
+                    onboardingManager.ExecuteOnboarding(1f);
                 }
             }
             else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
@@ -253,7 +255,7 @@ public class Game_Manager : MonoBehaviour
                 }
             }
             else if (SceneManager.GetActiveScene().name == "Mine_Game"){
-                
+
             }
         }
     }
