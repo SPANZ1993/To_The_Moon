@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: No
     m_Metadata:
       m_Items: []
+  - m_Id: 79951638658965504
+    m_Localized: Moneda
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

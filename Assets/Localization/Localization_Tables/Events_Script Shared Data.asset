@@ -10,51 +10,47 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: UI_Banner Shared Data
+  m_Name: Events_Script Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: UI_Banner
-  m_TableCollectionNameGuidString: 0173973f80785514680b9af482672ffa
+  m_TableCollectionName: Events_Script
+  m_TableCollectionNameGuidString: fa440ffe0af15404fa719534125348ee
   m_Entries:
-  - m_Id: 12351604154368
-    m_Key: UI.Banner.Thrust_Text
+  - m_Id: 33738612736
+    m_Key: Events_Script.Onboarding.1.1
     m_Metadata:
       m_Items: []
-  - m_Id: 12351604154369
-    m_Key: UI.Banner.Launches_Text
+  - m_Id: 33843470336
+    m_Key: Events_Script.Onboarding.1.2
     m_Metadata:
       m_Items: []
-  - m_Id: 284538839916544
-    m_Key: UI.Banner.Gems_Text
+  - m_Id: 33843470337
+    m_Key: Events_Script.Onboarding.1.3
     m_Metadata:
       m_Items: []
-  - m_Id: 287678171602944
-    m_Key: UI.Banner.Coins_Text
+  - m_Id: 255506740043776
+    m_Key: Events_Script.Onboarding.1.4
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780500217856
-    m_Key: UI.Autopilot.Confirmation_Box_Text
+  - m_Id: 255506761015296
+    m_Key: Events_Script.Onboarding.1.5
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995072
-    m_Key: UI.Autopilot.Confirmation_Box_Text.Yes
+  - m_Id: 255506761015297
+    m_Key: Events_Script.Onboarding.1.6
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995073
-    m_Key: UI.Autopilot.Confirmation_Box_Text.No
-    m_Metadata:
-      m_Items: []
-  - m_Id: 79951638658965504
-    m_Key: UI.General.Coin
+  - m_Id: 281984336814080
+    m_Key: Events_Script.Onboarding.2.1
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 0
+    rid: 7515586009958711303
   references:
     version: 2
     RefIds:
-    - rid: 0
+    - rid: 7515586009958711303
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1635223603363
+        m_CustomEpoch: 1654212677932

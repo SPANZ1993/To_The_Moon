@@ -93,6 +93,7 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     isNewGame: false, 
                                                     coins: gameManager.coins,
                                                     gems: gameManager.gems,
+                                                    coinName: gameManager.coinName,
                                                     offLineMode: gameManager.offLineMode, 
                                                     cartLastEmptiedTimeUnix: gameManager.mineCartLastEmptiedTimeUnix,
                                                     cartCurCoins: gameManager.mineCartCurCoins,

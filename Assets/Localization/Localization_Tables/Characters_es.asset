@@ -10,44 +10,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: UI_Banner_en
+  m_Name: Characters_es
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 0173973f80785514680b9af482672ffa, type: 2}
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 43a910171604016478f5f75b6135adb4, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 12351604154368
-    m_Localized: 'Thrust:'
+  - m_Id: 48028606464
+    m_Localized: Robo
     m_Metadata:
       m_Items: []
-  - m_Id: 12351604154369
-    m_Localized: 'Launches:'
+  - m_Id: 48120881152
+    m_Localized: Robo
     m_Metadata:
       m_Items: []
-  - m_Id: 284538839916544
-    m_Localized: 'Gems:'
+  - m_Id: 48120881153
+    m_Localized: Stonko Tonto
     m_Metadata:
       m_Items: []
-  - m_Id: 287678171602944
-    m_Localized: 'Coins:'
+  - m_Id: 48120881154
+    m_Localized: Tonto
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780500217856
-    m_Localized: 'Let {robot} pilot the ship? '
+  - m_Id: 48120881155
+    m_Localized: El Fantasma de la Gitonga
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995072
-    m_Localized: Yes
+  - m_Id: 48120881156
+    m_Localized: Gitonga
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995073
-    m_Localized: No
+  - m_Id: 48120881157
+    m_Localized: Samson Shiba
     m_Metadata:
       m_Items: []
-  - m_Id: 79951638658965504
-    m_Localized: Coin
+  - m_Id: 48120881158
+    m_Localized: Samson Shiba
     m_Metadata:
       m_Items: []
   references:

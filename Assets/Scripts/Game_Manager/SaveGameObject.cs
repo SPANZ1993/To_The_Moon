@@ -31,6 +31,7 @@ public class SaveGameObject
     public double Coins {get; set;}
     public double Gems {get; set;}
     public bool OffLineMode {get; set;}
+    public string CoinName {get; set;}
 
 
     public double CartLastEmptiedTimeUnix {get; set;}
@@ -68,6 +69,7 @@ public class SaveGameObject
         IsValid = true;
         IsNewGame = true;
         OffLineMode = false;
+        CoinName = null;
 
         Coins = 0.0;
         Gems = 0.0;
@@ -123,7 +125,8 @@ public class SaveGameObject
                             bool isNewGame, 
                             double coins,
                             double gems,
-                            bool offLineMode, 
+                            bool offLineMode,
+                            string coinName,
                             double cartLastEmptiedTimeUnix,
                             double cartCurCoins,
                             double cartCoinsPerSecond,
@@ -151,6 +154,7 @@ public class SaveGameObject
 
         Coins = coins;
         Gems = gems;
+        CoinName = coinName;
         
         CartLastEmptiedTimeUnix = cartLastEmptiedTimeUnix;
         CartCurCoins = cartCurCoins;

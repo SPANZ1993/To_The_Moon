@@ -79,7 +79,21 @@ public class UI_Controller : MonoBehaviour
     // Name Input Box
     private GameObject nameInputBox;
     private GameObject nameInputBoxSubmitButton;
+    private TMP_InputField nameEnterField;
+    
+    public delegate void NameInputBoxSubmitButtonPressed(string nameText);
+    public static event NameInputBoxSubmitButtonPressed NameInputBoxSubmitButtonPressedInfo;
     // End Name Input Box
+
+    // Coin Name Input Box
+    private GameObject coinNameInputBox;
+    private GameObject coinNameInputBoxSubmitButton;
+    private TMP_InputField coinNameEnterField;
+    
+    public delegate void CoinNameInputBoxSubmitButtonPressed(string nameText);
+    public static event CoinNameInputBoxSubmitButtonPressed CoinNameInputBoxSubmitButtonPressedInfo;
+    // End Coin Name Input Box
+
 
     // Robot Menu
     bool robotMenuFirstDisplayed = false; // Has the robot menu been shown yet
@@ -432,8 +446,13 @@ public class UI_Controller : MonoBehaviour
 
             // Name Enter Box
             nameInputBox = GameObject.Find("Name_Input_Box");
+            nameEnterField = GameObject.Find("Name_Enter_Input_Field").GetComponent<TMP_InputField>();
             // End Name Enter Box
             
+            // Coin Name Enter Box
+            coinNameInputBox = GameObject.Find("Coin_Name_Input_Box");
+            coinNameEnterField = GameObject.Find("Coin_Name_Enter_Input_Field").GetComponent<TMP_InputField>();
+            // End Coin Name Enter Box
 
 
 
@@ -569,6 +588,7 @@ public class UI_Controller : MonoBehaviour
 
             DisableUIElement(SpeechBanner);
             DisableUIElement(nameInputBox);
+            DisableUIElement(coinNameInputBox);
             DisableUIElement(RobotMenuObj);
             DisableUIElement(RocketBuildingMenuObj);
             DisableUIElement(ResearchersMenu);
@@ -1242,7 +1262,7 @@ public class UI_Controller : MonoBehaviour
 
 
     // This code is very good and makes sense
-    void Display_Speech(Speech_Object speech_object){
+    public void Display_Speech(Speech_Object speech_object, System.Action callBack=null){
         speechIsDisplayed = true;
         int curSpeechIndex = 0;
         int curCharIndex = 1;
@@ -1355,7 +1375,8 @@ public class UI_Controller : MonoBehaviour
 
         
         IEnumerator _display_speech_element()
-        {
+        {    
+            //Debug.Log("CSI: " + curSpeechIndex);
             yield return new WaitForSeconds(0);
             if (curSpeechIndex < speech_object.speech_strings.Count){
                 SpeechImageAnimator.SetInteger("Character", 0);
@@ -1375,6 +1396,13 @@ public class UI_Controller : MonoBehaviour
                     doneDisplayingSpeech = true;
                     DisableUIElement(SpeechBanner);
                     SpeechText_TMP.text = "";
+                    // For some reason, a child object gets added to our speech text gameobject and it messes up the UI manager. Just find that and delete it real quick when we're done displaying
+                    foreach(Transform textChildTransform in SpeechText.transform){
+                        Destroy(textChildTransform.gameObject);
+                    }
+                    if(callBack != null){
+                        callBack();
+                    }
                     
                     Vector3[] speechBannerBb = new Vector3[4];
                     SpeechBanner.GetComponent<RectTransform>().GetWorldCorners(speechBannerBb);
@@ -2450,8 +2478,32 @@ public class UI_Controller : MonoBehaviour
 
     // Name Input Handlers
     public void onNameSubmitButtonPressed(){
-
+        
+        // If this button is displayed then there better be an onboarding event manager attached to the game manager
+        // Onboarding_Manager onboardingManager = gameManager.gameObject.GetComponent<Onboarding_Manager>();
+        // if(onboardingManager == null){
+        //     return;
+        // }
+        // onboardingManager.displayName = nameEnterField.text;
+        // onboardingManager.displayName
+        Debug.Log("YO YO");
+        if(NameInputBoxSubmitButtonPressedInfo != null){
+            Debug.Log("YO YO YO");
+            NameInputBoxSubmitButtonPressedInfo(nameEnterField.text);
+        }
     }
     // End Name Input Handlers
+
+    // Coin Name Input Handlers
+    public void onCoinNameSubmitButtonPressed(){
+        
+        Debug.Log("Coin Name Submit Button Pressed From UI Manager");
+        // Debug.Log("YO YO");
+        if(CoinNameInputBoxSubmitButtonPressedInfo != null){
+            Debug.Log("YO YO YO");
+            CoinNameInputBoxSubmitButtonPressedInfo(coinNameEnterField.text);
+        }
+    }
+    // Coin Name Input Handlers End
 
 }

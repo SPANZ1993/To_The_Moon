@@ -10,51 +10,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: UI_Banner Shared Data
+  m_Name: Characters Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: UI_Banner
-  m_TableCollectionNameGuidString: 0173973f80785514680b9af482672ffa
+  m_TableCollectionName: Characters
+  m_TableCollectionNameGuidString: 43a910171604016478f5f75b6135adb4
   m_Entries:
-  - m_Id: 12351604154368
-    m_Key: UI.Banner.Thrust_Text
+  - m_Id: 48028606464
+    m_Key: Character.Robot.Name
     m_Metadata:
       m_Items: []
-  - m_Id: 12351604154369
-    m_Key: UI.Banner.Launches_Text
+  - m_Id: 48120881152
+    m_Key: Character.Robot.DisplayName
     m_Metadata:
       m_Items: []
-  - m_Id: 284538839916544
-    m_Key: UI.Banner.Gems_Text
+  - m_Id: 48120881153
+    m_Key: Character.Stonks.Name
     m_Metadata:
       m_Items: []
-  - m_Id: 287678171602944
-    m_Key: UI.Banner.Coins_Text
+  - m_Id: 48120881154
+    m_Key: Character.Stonks.DisplayName
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780500217856
-    m_Key: UI.Autopilot.Confirmation_Box_Text
+  - m_Id: 48120881155
+    m_Key: Character.Gorilla.Name
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995072
-    m_Key: UI.Autopilot.Confirmation_Box_Text.Yes
+  - m_Id: 48120881156
+    m_Key: Character.Gorilla.DisplayName
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995073
-    m_Key: UI.Autopilot.Confirmation_Box_Text.No
+  - m_Id: 48120881157
+    m_Key: Character.Dog.Name
     m_Metadata:
       m_Items: []
-  - m_Id: 79951638658965504
-    m_Key: UI.General.Coin
+  - m_Id: 48120881158
+    m_Key: Character.Dog.DisplayName
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 0
+    rid: 7515586009958711298
   references:
     version: 2
     RefIds:
-    - rid: 0
+    - rid: 7515586009958711298
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1635223603363
+        m_CustomEpoch: 1654206008059

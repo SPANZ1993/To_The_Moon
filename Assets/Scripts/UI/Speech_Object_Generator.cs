@@ -13,6 +13,8 @@ public class Speech_Object_Generator : MonoBehaviour
     public static Speech_Object_Generator instance;
     private Localization_Manager localizationManager;
 
+    private UI_Characters.Characters2Names characters2Names;
+    private UI_Characters.Characters2DisplayNames characters2DisplayNames;
     private UI_Characters.Characters2Emotions characters2Emotions;
     
     private List<string> allKeysList; // All possible keys for loading strings
@@ -21,6 +23,7 @@ public class Speech_Object_Generator : MonoBehaviour
     private Dictionary<string, UI_Characters.Emotions> script2PostEmotion;
 
     string robotStringTableName = "Robot_Script_Table";
+    string eventsScriptTableName = "Events_Script";
     string main_area_ui_table_name = "UI_Banner";
 
     void Awake(){
@@ -38,6 +41,8 @@ public class Speech_Object_Generator : MonoBehaviour
         localizationManager = Localization_Manager.instance;
 
         characters2Emotions = new UI_Characters.Characters2Emotions();
+        characters2Names = new UI_Characters.Characters2Names();
+        characters2DisplayNames = new UI_Characters.Characters2DisplayNames();
 
         script2Character = new Dictionary<string, UI_Characters.Characters>(){
             // Robot
@@ -45,7 +50,19 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.1", UI_Characters.Characters.Robot}, // 2
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2", UI_Characters.Characters.Robot}, // 3
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1", UI_Characters.Characters.Robot }, // 4
-            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Characters.Robot} // 5
+            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Characters.Robot}, // 5
+            // End Robot
+
+            // Onboarding
+            {"Events_Script.Onboarding.1.1", UI_Characters.Characters.Robot}, // 6
+            {"Events_Script.Onboarding.1.2", UI_Characters.Characters.Robot}, // 7
+            {"Events_Script.Onboarding.1.3", UI_Characters.Characters.Robot}, // 8
+            {"Events_Script.Onboarding.1.4", UI_Characters.Characters.Robot}, // 9
+            {"Events_Script.Onboarding.1.5", UI_Characters.Characters.Robot}, // 10
+            {"Events_Script.Onboarding.1.6", UI_Characters.Characters.Robot}, // 11
+
+            {"Events_Script.Onboarding.2.1", UI_Characters.Characters.Robot} // 12
+            // End Onboarding
         };
         script2Emotion = new Dictionary<string, UI_Characters.Emotions>(){
             // Robot
@@ -53,7 +70,19 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.1", UI_Characters.Emotions.Talking}, // 2
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2", UI_Characters.Emotions.Talking}, // 3
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1", UI_Characters.Emotions.Talking}, // 4
-            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Emotions.Talking} // 5
+            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Emotions.Talking}, // 5
+            // End Robot
+
+            // Onboarding
+            {"Events_Script.Onboarding.1.1", UI_Characters.Emotions.Talking}, // 6
+            {"Events_Script.Onboarding.1.2", UI_Characters.Emotions.Talking}, // 7
+            {"Events_Script.Onboarding.1.3", UI_Characters.Emotions.Talking}, // 8
+            {"Events_Script.Onboarding.1.4", UI_Characters.Emotions.Talking}, // 9
+            {"Events_Script.Onboarding.1.5", UI_Characters.Emotions.Talking}, // 10
+            {"Events_Script.Onboarding.1.6", UI_Characters.Emotions.Talking}, // 11
+
+            {"Events_Script.Onboarding.2.1", UI_Characters.Emotions.Talking}, // 12
+            // End Onboarding
         };
         script2PostEmotion = new Dictionary<string, UI_Characters.Emotions>(){
             // Robot
@@ -61,7 +90,18 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.1", UI_Characters.Emotions.Idle}, // 2
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2", UI_Characters.Emotions.Idle}, // 3
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1", UI_Characters.Emotions.Idle}, // 4
-            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Emotions.Idle} // 5
+            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Emotions.Idle}, // 5
+
+            // Onboarding
+            {"Events_Script.Onboarding.1.1", UI_Characters.Emotions.Idle}, // 6
+            {"Events_Script.Onboarding.1.2", UI_Characters.Emotions.Idle}, // 7
+            {"Events_Script.Onboarding.1.3", UI_Characters.Emotions.Idle}, // 8
+            {"Events_Script.Onboarding.1.4", UI_Characters.Emotions.Idle}, // 9
+            {"Events_Script.Onboarding.1.5", UI_Characters.Emotions.Idle}, // 10
+            {"Events_Script.Onboarding.1.6", UI_Characters.Emotions.Idle}, // 11
+
+            {"Events_Script.Onboarding.2.1", UI_Characters.Emotions.Idle} // 12
+            // End Onboarding
         };
 
         allKeysList = getAllKeys();
@@ -107,6 +147,10 @@ public class Speech_Object_Generator : MonoBehaviour
                 localizedStrTemp = localizationManager.GetLocalizedString(robotStringTableName, key);
                 curStringTableName = robotStringTableName;
             }
+            else if(key.StartsWith("Events_Script")){
+                localizedStrTemp = localizationManager.GetLocalizedString(eventsScriptTableName, key);
+                curStringTableName = eventsScriptTableName;
+            }
             else{
                 throw new Exception("Key: " + key + " doesn't follow naming conventions");
             }
@@ -133,13 +177,41 @@ public class Speech_Object_Generator : MonoBehaviour
         if (keyString.StartsWith("Robot_Script")){
             return robotStringTableName;
         }
+        else if (keyString.StartsWith("Events_Script")){
+            return eventsScriptTableName;
+        }
         throw new Exception("Key doesn't belong to any string table");
         return null;
     }
 
-    private Speech_Object buildSpeechObjectWithStartKey(bool isBlocker, string keyString, Func<string, string> formatFunc=null){
+
+
+
+    public string defaultStringFormatFunc(string inputStr){
+        inputStr = inputStr.Replace("{playername}", Game_Manager.instance.userDisplayName);
+        inputStr = inputStr.Replace("{coinname}", Game_Manager.instance.coinName);
+        inputStr = inputStr.Replace("{robot}", characters2Names[UI_Characters.Characters.Robot]);
+        inputStr = inputStr.Replace("{robotDisplay}", characters2DisplayNames[UI_Characters.Characters.Robot]);
+        inputStr = inputStr.Replace("{stonks}", characters2Names[UI_Characters.Characters.Guy]);
+        inputStr = inputStr.Replace("{stonksDisplay}", characters2DisplayNames[UI_Characters.Characters.Guy]);
+        inputStr = inputStr.Replace("{dog}", characters2Names[UI_Characters.Characters.Dog]);
+        inputStr = inputStr.Replace("{dogDisplay}", characters2DisplayNames[UI_Characters.Characters.Dog]);
+        inputStr = inputStr.Replace("{gorilla}", characters2Names[UI_Characters.Characters.Gorilla]);
+        inputStr = inputStr.Replace("{gorillaDisplay}", characters2DisplayNames[UI_Characters.Characters.Gorilla]);
+
+        return inputStr;
+    }
+
+
+
+
+
+    public Speech_Object buildSpeechObjectWithStartKey(bool isBlocker, string keyString, Func<string, string> formatFunc=null){
         string stringTable = determineStringTableFromKeyString(keyString);
         
+        if(formatFunc==null){
+            formatFunc = defaultStringFormatFunc;
+        }
         
         
         
@@ -178,9 +250,15 @@ public class Speech_Object_Generator : MonoBehaviour
     }
 
 
+
+
+
+
+
     public Speech_Object GenerateAutopilotResultSpeech(AutopilotReturnState autopilotReturnState, double autopilotHeight, int autopilotGems){
         
         string AutopilotResultFormatFunc(string inputStr){
+            inputStr = defaultStringFormatFunc(inputStr);
             inputStr = inputStr.Replace("{height}", Number_String_Formatter.formatHeightForSpeechObject(autopilotHeight));
             inputStr = inputStr.Replace("{gems}", autopilotGems.ToString());
             return inputStr;

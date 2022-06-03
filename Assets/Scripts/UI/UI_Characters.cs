@@ -36,24 +36,24 @@ namespace UI_Characters
             switch (c)
             {
                 case Characters.Robot:
-                return RobotArr;
-                break;
+                    return RobotArr;
+                    break;
 
                 case Characters.Guy:
-                return GuyArr;
-                break;
+                    return GuyArr;
+                    break;
 
                 case Characters.Dog:
-                return DogArr;
-                break;
+                    return DogArr;
+                    break;
 
                 case Characters.Gorilla:
-                return GorillaArr;
-                break;
+                    return GorillaArr;
+                    break;
 
                 default:
-                return new Emotions[] {};
-                break;
+                    return new Emotions[] {};
+                    break;
             }
         }
 
@@ -79,30 +79,24 @@ namespace UI_Characters
         string GorillaName;
 
 
-        public Characters2Names(){
-            RobotName = "Robo McTwist";
-            GuyName = "Sir Stonkman";
-            DogName = "Dogerino";
-            GorillaName = "Baramhay";
-        }
-
         private string getCharacterNames(Characters c){
+            string characters_table = "Characters";
             switch (c)
             {
                 case Characters.Robot:
-                    return RobotName;
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Robot.Name");
                     break;
 
                 case Characters.Guy:
-                    return GuyName;
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Stonks.Name");
                     break;
 
                 case Characters.Dog:
-                    return DogName;
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Dog.Name");
                     break;
 
                 case Characters.Gorilla:
-                    return GorillaName;
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Gorilla.Name");
                     break;
 
                 default:
@@ -116,6 +110,46 @@ namespace UI_Characters
         }
     }
     
+    public class Characters2DisplayNames{
+
+        string RobotName;
+        string GuyName;
+        string DogName;
+        string GorillaName;
+
+
+        private string getCharacterNames(Characters c){
+            string characters_table = "Characters";
+            switch (c)
+            {
+                case Characters.Robot:
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Robot.DisplayName");
+                    break;
+
+                case Characters.Guy:
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Stonks.DisplayName");
+                    break;
+
+                case Characters.Dog:
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Dog.DisplayName");
+                    break;
+
+                case Characters.Gorilla:
+                    return Localization_Manager.instance.GetLocalizedString(characters_table, "Character.Gorilla.DisplayName");
+                    break;
+
+                default:
+                    return "";
+                    break;
+            }
+        }
+        
+        public string this[Characters c]{
+            get => getCharacterNames(c);
+        }
+    }
+
+
     
     public class CharacterEmotions2SpeechSounds{
 

@@ -17,8 +17,8 @@ public class BadwordsFilter : MonoBehaviour
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-            //Debug.Log("YEET CONTAINS BAD WORDS? " + checkWordContainsBadWords("YEET", Languages.English));
-            //Debug.Log("Bags of bDIcks Sandwiches CONTAINS BAD WORDS? " + checkWordContainsBadWords("Bags of bDIcks Sandwiches", Languages.English));
+            //Debug.Log("YEET CONTAINS BAD WORDS? " + checkWordContainsBadWords("YEET"));
+            //Debug.Log("Bags of bDIcks Sandwiches CONTAINS BAD WORDS? " + checkWordContainsBadWords("Bags of bDIcks Sandwiches"));
         }
         else{
             Destroy(this.gameObject);
@@ -40,7 +40,8 @@ public class BadwordsFilter : MonoBehaviour
     }
 
 
-    bool checkWordContainsBadWords(string word, Languages language){
+    public bool checkWordContainsBadWords(string word){
+
 
         List<string> getBadWordsList(Languages language){
 
@@ -72,7 +73,7 @@ public class BadwordsFilter : MonoBehaviour
             badwords.RemoveAt(0);
             return badwords;
         }
-    
+        Languages language = Localization_Manager.instance.currentLanguage;
         List<string> badwords = getBadWordsList(language);
         //Debug.Log(string.Join(", ", badwords));
 

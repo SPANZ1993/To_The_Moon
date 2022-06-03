@@ -142,7 +142,13 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
 
     public void nameSubmitButtonPressed(){
+        Debug.Log("YO");
         uiController.onNameSubmitButtonPressed();
+    }
+
+    public void coinNameSubmitButtonPressed(){
+        Debug.Log("YO");
+        uiController.onCoinNameSubmitButtonPressed();
     }
 
 

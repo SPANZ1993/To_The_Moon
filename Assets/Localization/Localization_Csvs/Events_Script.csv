@@ -1,0 +1,10 @@
+Key,Id,Shared Comment,English(en),English(en) Comments,Spanish(es),Spanish(es) Comments
+Events_Script.Onboarding.1.1,,Robot,Hello {playername}! It seems as though your fledgling cryptocurrency empire is really taking off!,,,
+Events_Script.Onboarding.1.2,,Robot,"The coin that you’ve created has become one of the hottest investments on the market, and your wealth is quickly growing.",,,
+Events_Script.Onboarding.1.3,,Robot,"I am the Occasionally Serviceable Cryptocurrency Acquisition Robot, but you can call me {robot}",,,
+Events_Script.Onboarding.1.4,,Robot,I was produced by the company of a friendly businessman to help up-and-coming crypto billionaires like yourself manage your operations. ,,,
+Events_Script.Onboarding.1.5,,Robot,My creator actually stops by around here from time to time. I can’t wait for you to meet him!,,,
+Events_Script.Onboarding.1.6,,Robot,"Anyway, my protocol dictates that I must ask for the name of your cryptocurrency before I begin operations.",,,
+Events_Script.Onboarding.2.1,,Robot,"{coinname}, huh? I like the sound of that. We’re going to take this coin to the top of the charts.",,,
+Events_Script.Onboarding.2.2,,Robot,Let me show you around!,,,
+Events_Script.Onboarding.2.3,,,This is your home base. You can use your computer to trade {coinname} for other cryptocurrencies.,,,

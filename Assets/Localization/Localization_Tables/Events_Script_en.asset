@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Events_Script_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: fa440ffe0af15404fa719534125348ee, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 33738612736
+    m_Localized: Hello {playername}! It seems as though your fledgling cryptocurrency
+      empire is really taking off!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33843470336
+    m_Localized: "The coin that you\u2019ve created has become one of the hottest
+      investments on the market, and your wealth is quickly growing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33843470337
+    m_Localized: I am the Occasionally Serviceable Cryptocurrency Acquisition Robot,
+      but you can call me {robot}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255506740043776
+    m_Localized: 'I was produced by the company of a friendly businessman to help
+      up-and-coming crypto billionaires like yourself manage your operations. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255506761015296
+    m_Localized: "My creator actually stops by around here from time to time. I can\u2019t
+      wait for you to meet him!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 255506761015297
+    m_Localized: Anyway, my protocol dictates that I must ask for the name of your
+      cryptocurrency before I begin operations.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281984336814080
+    m_Localized: '{coinname}'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

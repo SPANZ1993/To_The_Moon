@@ -45,6 +45,14 @@ MonoBehaviour:
     m_Address: Assets/Localization/Localization_Tables/Robot_Script Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 43a910171604016478f5f75b6135adb4
+    m_Address: Assets/Localization/Localization_Tables/Characters Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: fa440ffe0af15404fa719534125348ee
+    m_Address: Assets/Localization/Localization_Tables/Events_Script Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 077cb2ec913c0e54fa2f3a74b8468389, type: 2}
   m_SchemaSet:

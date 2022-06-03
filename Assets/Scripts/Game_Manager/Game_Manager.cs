@@ -134,6 +134,7 @@ public class Game_Manager : MonoBehaviour
 
     // User Info
     public string userDisplayName;
+    public string coinName;
 
     private UI_Controller uiController;
 
@@ -234,10 +235,10 @@ public class Game_Manager : MonoBehaviour
                     Handle_Autopilot_Return();
                 }
 
-                if(metrics.numGameStartups == 1 || userDisplayName == null){
+                if(metrics.numGameStartups == 1 || userDisplayName == null || coinName == null){
                     Debug.Log("THIS IS THE FIRST BABY!");
                     Onboarding_Manager onboardingManager = gameObject.AddComponent<Onboarding_Manager>();
-                    onboardingManager.ExecuteOnboarding(1f);
+                    onboardingManager.ExecuteOnboarding(2.5f);
                 }
             }
             else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
@@ -379,6 +380,12 @@ public class Game_Manager : MonoBehaviour
 
         Ads_Manager.InterstitalAdShowInfo += onInterstitialAdShow;
         Ads_Manager.RewardedAdShowInfo += onRewardedAdShow;
+
+
+        // Special Events
+        Onboarding_Manager.OnboardingStartedInfo += onOnboardingStarted;
+        Onboarding_Manager.OnboardingEndedInfo += onOnboardingEnded;
+        // End Special Events
     }
 
     void OnDisable()
@@ -415,6 +422,12 @@ public class Game_Manager : MonoBehaviour
 
         Ads_Manager.InterstitalAdShowInfo -= onInterstitialAdShow;
         Ads_Manager.RewardedAdShowInfo -= onRewardedAdShow;
+
+
+        // Special Events
+        Onboarding_Manager.OnboardingStartedInfo -= onOnboardingStarted;
+        Onboarding_Manager.OnboardingEndedInfo -= onOnboardingEnded;
+        // End Special Events
     }
 
 
@@ -500,6 +513,7 @@ public class Game_Manager : MonoBehaviour
         
         coins = loadedGame.Coins;
         gems = loadedGame.Gems;
+        coinName = loadedGame.CoinName;
         //Debug.Log("SETTING LAUNCHES REMAINING TO: " + loadedGame.LaunchesRemaining);
         remainingLaunches = loadedGame.LaunchesRemaining + Convert.ToInt32(Math.Max(Math.Floor((gameTimeUnix - loadedGame.LastLaunchTimeUnix)/launchRefreshTime), 0.0));
         if(remainingLaunches > maxLaunches){ // NOT SURE WHY IT'S DOING THIS BUT...
@@ -1197,4 +1211,21 @@ public class Game_Manager : MonoBehaviour
         }
     }
     // End Ads Metrics
+
+
+    // Start Special Events
+
+    // Start Onboarding
+    private void onOnboardingStarted(){
+        disableNonUITouch();
+    }
+    
+    private void onOnboardingEnded(){
+
+    }
+    // End Onboarding
+
+
+
+    // End Special Events
 }
