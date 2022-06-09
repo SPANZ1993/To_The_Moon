@@ -18,38 +18,486 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 33738612736
-    m_Localized: Hello {playername}! It seems as though your fledgling cryptocurrency
-      empire is really taking off!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 33843470336
-    m_Localized: "The coin that you\u2019ve created has become one of the hottest
-      investments on the market, and your wealth is quickly growing."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 33843470337
-    m_Localized: I am the Occasionally Serviceable Cryptocurrency Acquisition Robot,
-      but you can call me {robot}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 255506740043776
+  - m_Id: 1757464248344578
     m_Localized: 'I was produced by the company of a friendly businessman to help
       up-and-coming crypto billionaires like yourself manage your operations. '
     m_Metadata:
       m_Items: []
-  - m_Id: 255506761015296
+  - m_Id: 1757464248344579
     m_Localized: "My creator actually stops by around here from time to time. I can\u2019t
       wait for you to meet him!"
     m_Metadata:
       m_Items: []
-  - m_Id: 255506761015297
+  - m_Id: 1757464248344580
     m_Localized: Anyway, my protocol dictates that I must ask for the name of your
       cryptocurrency before I begin operations.
     m_Metadata:
       m_Items: []
-  - m_Id: 281984336814080
-    m_Localized: '{coinname}'
+  - m_Id: 1757464248344581
+    m_Localized: "{coinname}, huh? It\u2019s got a nice ring to it. We\u2019re going
+      to take this coin to the top of the charts!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344582
+    m_Localized: Let me show you around!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344583
+    m_Localized: This is your home base. You can use your computer to trade {coinname}
+      for other cryptocurrencies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344584
+    m_Localized: You can also do some online shopping with your computer. I understand
+      this is a favorite pastime for you humans.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344585
+    m_Localized: I will handle all the record keeping of your business. You can check
+      those in the bookshelf.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344586
+    m_Localized: "If you want to see how you\u2019re doing, you can always peruse
+      the records there. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344587
+    m_Localized: 'If you need me to implement any new directives, you can make a
+      note in the records and I will get right to it. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344588
+    m_Localized: As you know, cryptocurrency is created through mining.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344589
+    m_Localized: "Since I\u2019ve joined your team I\u2019ve made a some great improvements
+      to your {coinname} mining capabilities."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344590
+    m_Localized: "Let\u2019s go check them out!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344591
+    m_Localized: You can navigate by swiping left or right. Try swiping to the left
+      to go check out the mines!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538880
+    m_Localized: "My user\u2019s manual suggests that you can execute a swipe by
+      dragging your finger from the left to right side of the screen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538881
+    m_Localized: "Here we are. The mines. This is where you can usually find me hard
+      at work mining {coinname}\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538882
+    m_Localized: "\u2026 or just resting my circuits from time to time."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538883
+    m_Localized: This is your minecart. I will fill it up with the coins I mine until
+      it is full, then you can come by and collect them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538884
+    m_Localized: "It looks like the minecart is full now. You might as well collect
+      those coins while we\u2019re here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538885
+    m_Localized: Go ahead. Just tap on the minecart and collect the coins. I worked
+      hard filling that thing up!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538886
+    m_Localized: We just made our first 100 {coinname} together! I shall mark this
+      occasion in my data logs for future auditing purposes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538887
+    m_Localized: If you wish, I will also allow you to join me in the mineshaft,
+      where I solve puzzles to extract the {coinname}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538888
+    m_Localized: All you need to do is tap the mineshaft.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538889
+    m_Localized: I can only do that from time to time, though. I need to recharge
+      my lithium ion batteries afterwards.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538890
+    m_Localized: Mining is hard work, buddy.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538891
+    m_Localized: You can tap on me to spend your coins on upgrades for the minecart
+      and the mineshaft that will allow me to mine even more efficiently!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538892
+    m_Localized: "Any good entrepreneur knows you need to spend money to make money.
+      Invest wisely and you\u2019ll be raking in the coins in no time!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538893
+    m_Localized: "Now let\u2019s head back to base. I have someone for you to meet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538894
+    m_Localized: Just drag your finger from the right to the left side of the screen
+      to swipe. Remember?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538895
+    m_Localized: '{robot}! Long time no see! How are you getting along with your
+      new employer, {playername}?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538896
+    m_Localized: "{dog}! I haven\u2019t seen you since I left your factory. Things
+      are going swimmingly. I was just showing {playername} around their facilities."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538897
+    m_Localized: '{playername}, this is {dog}. He is the inventor of autonomous humanoid
+      crypto-mining robots.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538898
+    m_Localized: "This, along with a number of other ventures has made him one of
+      the wealthiest dogs on Earth\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538899
+    m_Localized: and as you may have gathered, he is my creator. How it warms my
+      capacitors to see him again!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538900
+    m_Localized: "Now now {robot}, there\u2019s no need to talk me up like that."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538901
+    m_Localized: "I\u2019m not some kibble-and-caviar kind of pup."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538902
+    m_Localized: "I\u2019m much more down to hang out, bark at squirrels, maybe check
+      out a few sick memes online. Ya know, Such Wow."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538903
+    m_Localized: "Well now that I\u2019ve made it here {robot}, I need to ask you
+      a question\u2026 "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538904
+    m_Localized: "Have you seen my updog? I\u2019ve been looking for it everywhere."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538905
+    m_Localized: That does not compute sir. What is updog?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538906
+    m_Localized: Nothing much homie!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538907
+    m_Localized: I really gotta upgrade the humor components on these things.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538908
+    m_Localized: Actually I came to see you {playername}. I need your help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538909
+    m_Localized: In my spare time I like to dabble in some space travel.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538910
+    m_Localized: "It\u2019s a bit of a passion project for me."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538911
+    m_Localized: I want to expand dogmanity out to the stars!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538912
+    m_Localized: But it seems I now have some competition.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538913
+    m_Localized: '{stonks} has built his own rocket and is already on the moon!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538914
+    m_Localized: "{stonks}? Isn\u2019t that the guy who made all that money trading
+      stocks in internet companies?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538915
+    m_Localized: Yes! And he thinks stocks are better than crypto! Get with the times
+      man!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538916
+    m_Localized: "Unfortunately I\u2019ve been too busy with my other companies to
+      keep up with him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538917
+    m_Localized: "{playername}, after watching how you\u2019ve built up {coinname},
+      I think you\u2019re the one for this job\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538918
+    m_Localized: I am gifting you some of my rocketry resources, so you can check
+      out what {stonks} is doing up there.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538919
+    m_Localized: "We haven\u2019t quite worked out the technology to make it to the
+      moon yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538920
+    m_Localized: "I\u2019m just too busy right now, and I figured with all the {coinname}
+      you\u2019re amassing, you could fund the expedition."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538921
+    m_Localized: "So {playername} needs to take\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538922
+    m_Localized: '{coinname} TO THE MOOooOON!!!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538923
+    m_Localized: "Oh brother\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538924
+    m_Localized: "{robot}, you\u2019ve been around my rocket facility, right? Why
+      don\u2019t you show {playername} the ropes. I\u2019ll be back to check on you
+      two later."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538925
+    m_Localized: "I\u2019ll be back to check on you two later."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538926
+    m_Localized: Right away sir!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538927
+    m_Localized: '{robot}, stop calling me sir!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538928
+    m_Localized: "{playername}, I trust you\u2019ll be on the moon in no time. Back
+      to business for me\u2026 bye now!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538929
+    m_Localized: Yes sir!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538930
+    m_Localized: "\u2026 So\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538931
+    m_Localized: "\u2026 {playername}\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538932
+    m_Localized: "Let\u2019s head over to your new rocket facility."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538933
+    m_Localized: "Don\u2019t you know the drill by now? Drag your finger from the
+      right side of the screen to the left side of the screen to swipe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538934
+    m_Localized: You humans truly perplex me sometimes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538935
+    m_Localized: "Oh my\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538936
+    m_Localized: Look at that rust bucket of a rocket.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344577
+    m_Localized: I am the Occasionally Serviceable Cryptocurrency Acquisition Robot,
+      but you can call me {robot}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538937
+    m_Localized: My calculations do not predict a high probability of you making
+      it to the moon in that thing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538938
+    m_Localized: I feel it deep in my software that you can do it, though.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538939
+    m_Localized: I learned a few things about the operations of this place while
+      working alongside {dog}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538940
+    m_Localized: This is your rocket lab.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538941
+    m_Localized: This is where you can spend your {coinname} to conduct experiments
+      on your rocket.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538942
+    m_Localized: "You\u2019ve got a couple employees to assign to various research
+      projects."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538943
+    m_Localized: "When an employee finishes their research, you can collect the knowledge
+      they\u2019ve gained."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538944
+    m_Localized: This knowledge will increase the thrust of the rocket.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538945
+    m_Localized: "The more thrust we have, the higher we can go\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538946
+    m_Localized: "\u2026 so we\u2019re going to need a lot of thrust."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538947
+    m_Localized: '{dog} was always talking about these things called {gemname_plural}.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538948
+    m_Localized: He said that he had some secret experiments prepared that required
+      them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538949
+    m_Localized: Apparently you can only find {gemname_plural} in the void of space.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538950
+    m_Localized: So if you see a {gemname_singular} out there, pick it up so we can
+      run those experiments!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538951
+    m_Localized: "Speaking of going up there\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538952
+    m_Localized: To launch your rocket, just open the lid, and press the launch button.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538953
+    m_Localized: You can open the lid by swiping up on it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538954
+    m_Localized: Just drag your finger from the bottom to the top of the button to
+      open the lid.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538955
+    m_Localized: Wait!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538956
+    m_Localized: "Don\u2019t press it yet!!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538957
+    m_Localized: "I don\u2019t need you flying off. Close that thing so we can head
+      back to base."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538958
+    m_Localized: Are you still there?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538959
+    m_Localized: Drag your finger from the top to the bottom of the lid to close
+      it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538960
+    m_Localized: I can complete 500,000,000 calculations per second, but take your
+      time {playername}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538961
+    m_Localized: Whenever you are ready, drag your finger from the left to the right
+      side of the screen to swipe us back to base.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538962
+    m_Localized: "You\u2019ve just about seen it all."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538963
+    m_Localized: "Remember that I, and the rest of your employees will be hard at
+      work even when you\u2019re sleeping."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538964
+    m_Localized: In fact, most things will have timers next to them showing when
+      they are ready for use.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538965
+    m_Localized: Be on the lookout for those!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464248344576
+    m_Localized: "The coin that you\u2019ve created has become one of the hottest
+      investments on the market, and your wealth is quickly growing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464239955968
+    m_Localized: Hello {playername}! It seems as though your fledgling cryptocurrency
+      empire is really taking off!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464252538966
+    m_Localized: Things will be much more efficient around here with your guidance,
+      however.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464256733184
+    m_Localized: Be sure to check in often!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757464256733185
+    m_Localized: Good luck, {playername}!
     m_Metadata:
       m_Items: []
   references:

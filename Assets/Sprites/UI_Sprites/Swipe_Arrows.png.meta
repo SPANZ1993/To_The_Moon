@@ -1,0 +1,696 @@
+fileFormatVersion: 2
+guid: cdc283a6b6351f2418eb417d8c2057e1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 265
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b785996b7b9ca4b965e88516399c00
+      internalID: 1000671674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 265
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74682af00949cc74e8376f4b03f28070
+      internalID: -59960643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_3
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 265
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3489dec35199d3b448a336036f33d45a
+      internalID: 492110208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_4
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 265
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b727dcdc5c9c84997525b39967363a
+      internalID: 1843083765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_1
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 254
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18bff6b0a29288848b60cf3a84a57fdc
+      internalID: -1170610129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_2
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 254
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4cfd8b727c42a04ea400bb59affdca2
+      internalID: 1814587387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_3
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 254
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67d404977ccb4b47a9483279a2cb7d3
+      internalID: -421238098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_4
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 254
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310f5570506fc7f40912553988f1d579
+      internalID: 1054596634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 177
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939c001771ebc604f955a981d1fa2798
+      internalID: 1873724108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 177
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25fd236ede3413641aad84554d011241
+      internalID: -1721124826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_7
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 177
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188aceb61df83c74894f493888bca179
+      internalID: 1008306348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_8
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 177
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3bb5819e9e1cb4099970bbc47a158d
+      internalID: -994546310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_5
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 155
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad1296e6f7974a4f973199c32d57487
+      internalID: 1524685681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_6
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 155
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c558f117dfa76942aaf2e33e65273f9
+      internalID: 1147924193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_7
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 155
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82cef3e35818574f93c49d8451ef0a0
+      internalID: 1945956430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_8
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 155
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67407a377f14da040871def8be3a4967
+      internalID: -1629501542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 89
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f330eaa8e7f16254682e1103bd313b03
+      internalID: -381731336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_10
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 89
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a39754590893534e994f7091b73140c
+      internalID: -2073164218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_11
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 89
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b173a733349c4dd4e933e3f763cf73e5
+      internalID: 458746364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_12
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 89
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc36620d1328ab348be414c51dc278b0
+      internalID: -487744745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_9
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 56
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5887b0a7202bfb4eaae69def7fa14e5
+      internalID: -66561640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_10
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 56
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf0091655291fa419fa13f28b93e2d6
+      internalID: -603694746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_11
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 56
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e68dd43490cff479116590eaaef1d0
+      internalID: 30790409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Vert_0
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 56
+        width: 42
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fc2d7383effeb42929fd77dcc84559
+      internalID: -381272327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swipe_Arrows_Hor_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 221
+        height: 84
+      alignment: 9
+      pivot: {x: 0.2037246, y: 0.6671968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927be2ade995c0f4494a30eed5ed980c
+      internalID: 356561410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b5f0a0015a1b10e4db3b4b2807ea8e71
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Swipe_Arrows_Vert_8: -1629501542
+      Swipe_Arrows_Hor_5: 1873724108
+      Swipe_Arrows_Vert_10: -603694746
+      Swipe_Arrows_Hor_1: 1000671674
+      Swipe_Arrows_Hor_3: 492110208
+      Swipe_Arrows_Hor_2: -59960643
+      Swipe_Arrows_Vert_4: 1054596634
+      Swipe_Arrows_Hor_8: -994546310
+      Swipe_Arrows_Hor_10: -2073164218
+      Swipe_Arrows_Hor_4: 1843083765
+      Swipe_Arrows_Vert_7: 1945956430
+      Swipe_Arrows_Vert_0: -381272327
+      Swipe_Arrows_Vert_1: -1170610129
+      Swipe_Arrows_Hor_6: -1721124826
+      Swipe_Arrows_Vert_5: 1524685681
+      Swipe_Arrows_Hor_11: 458746364
+      Swipe_Arrows_Hor_12: -487744745
+      Swipe_Arrows_Hor_0: 356561410
+      Swipe_Arrows_Hor_7: 1008306348
+      Swipe_Arrows_Vert_11: 30790409
+      Swipe_Arrows_Vert_6: 1147924193
+      Swipe_Arrows_Vert_9: -66561640
+      Swipe_Arrows_Vert_2: 1814587387
+      Swipe_Arrows_Hor_9: -381731336
+      Swipe_Arrows_Vert_3: -421238098
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

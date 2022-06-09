@@ -235,7 +235,7 @@ public class Game_Manager : MonoBehaviour
                     Handle_Autopilot_Return();
                 }
 
-                if(metrics.numGameStartups == 1 || userDisplayName == null || coinName == null){
+                if(metrics.numGameStartups == 1 || userDisplayName == null || coinName == null){ 
                     Debug.Log("THIS IS THE FIRST BABY!");
                     Onboarding_Manager onboardingManager = gameObject.AddComponent<Onboarding_Manager>();
                     onboardingManager.ExecuteOnboarding(2.5f);
@@ -384,6 +384,7 @@ public class Game_Manager : MonoBehaviour
 
         // Special Events
         Onboarding_Manager.OnboardingStartedInfo += onOnboardingStarted;
+        Onboarding_Manager.OnboardingDisableNonUITouchInfo += onOnboardingDisableNonUITouch;
         Onboarding_Manager.OnboardingEndedInfo += onOnboardingEnded;
         // End Special Events
     }
@@ -426,6 +427,7 @@ public class Game_Manager : MonoBehaviour
 
         // Special Events
         Onboarding_Manager.OnboardingStartedInfo -= onOnboardingStarted;
+        Onboarding_Manager.OnboardingDisableNonUITouchInfo -= onOnboardingDisableNonUITouch;
         Onboarding_Manager.OnboardingEndedInfo -= onOnboardingEnded;
         // End Special Events
     }
@@ -465,24 +467,30 @@ public class Game_Manager : MonoBehaviour
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused Added " + timeSinceLastFrame + " Seconds " + timeSinceLastFrameI + " --- " + DateTime.Now;
         }
         else if(SceneManager.GetActiveScene().name == "Main_Area"){
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused FC0 --- " + DateTime.Now;
+            try{
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused FC0 --- " + DateTime.Now;
+            }
+            catch(System.Exception e){}
         }
     }
 
     void OnApplicationPause(){
-        if (frameCount != 0 && SceneManager.GetActiveScene().name != "Landing_Page"){
+        if (frameCount != 0 && SceneManager.GetActiveScene().name != "Landing_Page" && gameObject.GetComponent<Onboarding_Manager>() == null){
             // Debug.Log("WOOP: Application Paused --- " + DateTime.Now);
             //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused --- " + DateTime.Now;
             saveData(disableTouch: false, displayIndicator: false, serially: true);
         }
         else if(SceneManager.GetActiveScene().name == "Main_Area"){
-                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused FC0 --- " + DateTime.Now;
+            try{
+                    GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused FC0 --- " + DateTime.Now;
+            }
+            catch(System.Exception e){}
         }
     }
 
     void OnApplicationQuit(){
         // Debug.Log("WOOP: Application Quit Beginning --- " + DateTime.Now);
-        if(SceneManager.GetActiveScene().name != "Landing_Page"){
+        if(SceneManager.GetActiveScene().name != "Landing_Page" && gameObject.GetComponent<Onboarding_Manager>() == null){
             saveData(disableTouch: false, displayIndicator: false, serially: true);
         }
         try{
@@ -961,6 +969,7 @@ public class Game_Manager : MonoBehaviour
     
     private void onUIDisplayEnded(Vector3[] boundingBox){
         if (boundingBox.Length == 0){
+            Debug.Log("ON UI DE");
             enableNonUITouch();
         }
         else{
@@ -991,11 +1000,12 @@ public class Game_Manager : MonoBehaviour
     //Turns off/on whether elements other than UI elements can be tapped on
     private void disableNonUITouch(){
         //Debug.Log("DisableRet Game Manager " + DateTime.Now);
-        touchDetection.disableReticle();
+        Touch_Detection.instance.disableReticle();
     }
 
     private void enableNonUITouch(){
         //Debug.Log("EnableRet Game Manager " + DateTime.Now);
+        Debug.Log("ENABLING GM");
         touchDetection.enableReticle();
     }
 
@@ -1217,6 +1227,11 @@ public class Game_Manager : MonoBehaviour
 
     // Start Onboarding
     private void onOnboardingStarted(){
+        disableNonUITouch();
+    }
+    
+    private void onOnboardingDisableNonUITouch(){
+        Debug.Log("Disabling");
         disableNonUITouch();
     }
     

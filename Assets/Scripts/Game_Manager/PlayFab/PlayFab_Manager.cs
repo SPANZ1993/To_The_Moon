@@ -54,17 +54,36 @@ public class PlayFab_Manager : MonoBehaviour
     public static event PlayFabGetSaveDataFailure PlayFabGetSaveDataFailureInfo;
 
 
+    public delegate void PlayFabGetAccountInfoSuccess(); // We got data for the user (by name)
+    public static event PlayFabGetAccountInfoSuccess PlayFabGetAccountInfoSuccessInfo;
+
+    public delegate void PlayFabGetAccountInfoFailure(); // We failed to get data for the user (by name)
+    public static event PlayFabGetAccountInfoFailure PlayFabGetAccountInfoFailureInfo;
+
+    public delegate void PlayFabSetDisplayNameSuccess(UpdateUserTitleDisplayNameResult result); // We set the user's display name
+    public static event PlayFabSetDisplayNameSuccess PlayFabSetDisplayNameSuccessInfo;
+
+    public delegate void PlayFabSetDisplayNameFailure(); // We failed set the user's display name
+    public static event PlayFabSetDisplayNameFailure PlayFabSetDisplayNameFailureInfo;
+
+
     void Awake(){
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            Invoke("checkForHarry", 5f);
         }
         else{
             Destroy(this.gameObject);
         }
+
+
     }
 
-
+    // Remove
+    public void checkForHarry(){
+        GetAccountInfo("Barry");
+    }
 
 
     public void Login(){
@@ -101,6 +120,36 @@ public class PlayFab_Manager : MonoBehaviour
             PlayFabLoginFailureInfo();
         }
     }
+
+
+
+    public void SetDisplayName(string userDisplayName){
+        var request = new UpdateUserTitleDisplayNameRequest{
+            DisplayName = userDisplayName
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnSetDisplayNameSuccess, OnSetDisplayNameError);
+    }
+
+    public void OnSetDisplayNameSuccess(UpdateUserTitleDisplayNameResult result){
+        Debug.Log("SET DISPLAY NAME!!");
+        if (PlayFabSetDisplayNameSuccessInfo != null){
+            PlayFabSetDisplayNameSuccessInfo(result);
+        }
+    }
+
+    public void OnSetDisplayNameError(PlayFabError error){
+        Debug.Log("SET DISPLAY NAME ERRROR!!");
+        if (PlayFabSetDisplayNameFailureInfo != null){
+            PlayFabSetDisplayNameFailureInfo();
+        }
+    }
+
+
+
+
+
+
+
 
 
 
@@ -202,7 +251,7 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     void OnError(PlayFabError error){
-        //Debug.Log("PLAYFAB: Error while performing PlayFab function \n" + error.GenerateErrorReport());
+        Debug.Log("PLAYFAB: Error while performing PlayFab function \n" + error.GenerateErrorReport());
     }
 
     public void SendLeaderboard(int score){
@@ -238,8 +287,24 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
 
+    public void GetAccountInfo(string playerDisplayName){
+        var request = new GetAccountInfoRequest {
+            TitleDisplayName = playerDisplayName
+        };
+        PlayFabClientAPI.GetAccountInfo(request, OnAccountInfoGet, OnAccountInfoGetError);
+    }
 
+    void OnAccountInfoGet(GetAccountInfoResult result){
+        if(PlayFabGetAccountInfoSuccessInfo != null){
+            PlayFabGetAccountInfoSuccessInfo();
+        }
+    }
 
+    void OnAccountInfoGetError(PlayFabError error){
+        if(PlayFabGetAccountInfoFailureInfo != null){
+            PlayFabGetAccountInfoFailureInfo();
+        }
+    }
 
 
 

@@ -55,7 +55,7 @@ public class UI_Controller : MonoBehaviour
     // End Banner
 
     // Speech Banner
-    bool speechIsDisplayed = false;
+    public bool speechIsDisplayed {get; private set;}
     bool speechBannerButtonPressed = false;
     private GameObject SpeechBanner;
 
@@ -70,6 +70,7 @@ public class UI_Controller : MonoBehaviour
 
     private Characters2Emotions characters2Emotions = new Characters2Emotions();
     private Characters2Names characters2Names = new Characters2Names();
+    private Characters2DisplayNames characters2DisplayNames = new Characters2DisplayNames();
 
     Characters curCharacter;
     Emotions curEmotion;
@@ -79,20 +80,52 @@ public class UI_Controller : MonoBehaviour
     // Name Input Box
     private GameObject nameInputBox;
     private GameObject nameInputBoxSubmitButton;
+    private TextMeshProUGUI nameInputBoxHeaderText;
+    private TextMeshProUGUI nameInputBoxPromptText;
+    private TextMeshProUGUI nameInputBoxHintText;
     private TMP_InputField nameEnterField;
+    private TextMeshProUGUI nameEnterFieldPlaceholder;
     
     public delegate void NameInputBoxSubmitButtonPressed(string nameText);
     public static event NameInputBoxSubmitButtonPressed NameInputBoxSubmitButtonPressedInfo;
+
+
+    private GameObject nameInputConfirmationBox;
+    private TextMeshProUGUI nameInputConfirmationBoxText;
+    private TextMeshProUGUI nameInputConfirmationBoxPromptText;
+
+
+    public delegate void NameSubmitConfirmationButtonPressed(bool selectedYes);
+    public static event NameSubmitConfirmationButtonPressed NameSubmitConfirmationButtonPressedInfo;
+
     // End Name Input Box
 
     // Coin Name Input Box
     private GameObject coinNameInputBox;
     private GameObject coinNameInputBoxSubmitButton;
+    private TextMeshProUGUI coinNameInputBoxText;
+    private TextMeshProUGUI coinNameInputBoxHintText;
+    private TextMeshProUGUI coinNameInputBoxCoinText;
     private TMP_InputField coinNameEnterField;
+    private TextMeshProUGUI coinnameEnterFieldPlaceholder;
     
     public delegate void CoinNameInputBoxSubmitButtonPressed(string nameText);
     public static event CoinNameInputBoxSubmitButtonPressed CoinNameInputBoxSubmitButtonPressedInfo;
+
+    private GameObject coinNameInputConfirmationBox;
+    private TextMeshProUGUI coinNameInputConfirmationBoxText;
+    private TextMeshProUGUI coinNameInputConfirmationBoxPromptText;
+
+
+
+    public delegate void CoinNameSubmitConfirmationButtonPressed(bool selectedYes);
+    public static event CoinNameSubmitConfirmationButtonPressed CoinNameSubmitConfirmationButtonPressedInfo;
     // End Coin Name Input Box
+
+    // UI Swipe Arrows
+    private GameObject leftSwipeArrow;
+    private GameObject rightSwipeArrow;
+    // End UI Swipe Arrows
 
 
     // Robot Menu
@@ -234,6 +267,26 @@ public class UI_Controller : MonoBehaviour
     public delegate void AutopilotSelected(bool selected);
     public static event AutopilotSelected AutopilotSelectedInfo;
     // End autopilot Confirmation Box
+
+
+    // Bookshelf Menu
+    private GameObject bookshelfMenu;
+    private bool bookshelfMenuDisplayed = false;
+
+    private GameObject Bookshelf_Container_Panel;
+
+    private GameObject Options_Selection_Panel;
+    private TextMeshProUGUI Options_Selection_Panel_Text;
+    private ScrollRect optionsScrollRect;
+    private GameObject Records_Selection_Panel;
+    private TextMeshProUGUI Records_Selection_Panel_Text;
+    private ScrollRect recordsScrollRect;
+    // End Bookshelf Menu
+
+
+
+
+
 
     bool screenTintFirstDisplayed = false; // Has the screen tint object been shown yet?
     private GameObject ScreenTintObj;
@@ -392,6 +445,7 @@ public class UI_Controller : MonoBehaviour
         }
         sceneManager = Scene_Manager.instance; // This is not the Unity SceneManager... this is our custom class
         //Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
+        speechIsDisplayed = false;
         Retry_Connect_Box = null;
         if (SceneManager.GetActiveScene().name == "Landing_Page"){
             indexUIElementSizes();
@@ -447,14 +501,35 @@ public class UI_Controller : MonoBehaviour
             // Name Enter Box
             nameInputBox = GameObject.Find("Name_Input_Box");
             nameEnterField = GameObject.Find("Name_Enter_Input_Field").GetComponent<TMP_InputField>();
+            nameEnterFieldPlaceholder = GameObject.Find("Name_Enter_Input_Field_Placeholder").GetComponent<TextMeshProUGUI>();
+
+            nameInputBoxHeaderText = GameObject.Find("Name_Enter_Box_Text").GetComponent<TextMeshProUGUI>();
+            nameInputBoxPromptText = GameObject.Find("Name_Enter_Box_Prompt_Text").GetComponent<TextMeshProUGUI>();
+            nameInputBoxHintText = GameObject.Find("Name_Enter_Box_Hint_Text").GetComponent<TextMeshProUGUI>();
+
+            nameInputConfirmationBox = GameObject.Find("Name_Input_Confirmation_Box");
+            nameInputConfirmationBoxText = GameObject.Find("Name_Input_Confirmation_Text").GetComponent<TextMeshProUGUI>();
+            nameInputConfirmationBoxPromptText = GameObject.Find("Name_Input_Confirmation_Prompt_Text").GetComponent<TextMeshProUGUI>();
             // End Name Enter Box
             
             // Coin Name Enter Box
             coinNameInputBox = GameObject.Find("Coin_Name_Input_Box");
             coinNameEnterField = GameObject.Find("Coin_Name_Enter_Input_Field").GetComponent<TMP_InputField>();
+            coinnameEnterFieldPlaceholder = GameObject.Find("Coin_Name_Enter_Input_Field_Placeholder").GetComponent<TextMeshProUGUI>();
+
+            coinNameInputBoxText = GameObject.Find("Coin_Name_Enter_Box_Text").GetComponent<TextMeshProUGUI>();
+            coinNameInputBoxHintText = GameObject.Find("Coin_Name_Enter_Box_Hint_Text").GetComponent<TextMeshProUGUI>();
+            coinNameInputBoxCoinText = GameObject.Find("Coin_Name_Enter_Box_Coin_Text").GetComponent<TextMeshProUGUI>();
+
+            coinNameInputConfirmationBox = GameObject.Find("Coin_Name_Input_Confirmation_Box");
+            coinNameInputConfirmationBoxText = GameObject.Find("Coin_Name_Input_Confirmation_Text").GetComponent<TextMeshProUGUI>();
+            coinNameInputConfirmationBoxPromptText = GameObject.Find("Coin_Name_Input_Confirmation_Prompt_Text").GetComponent<TextMeshProUGUI>();
             // End Coin Name Enter Box
 
-
+            // UI Swipe Arrows
+            leftSwipeArrow = GameObject.Find("Left_Swipe_Arrow");
+            rightSwipeArrow = GameObject.Find("Right_Swipe_Arrow");
+            // End UI Swipe Arrows
 
             // Robot Menu
             RobotMenuObj = GameObject.Find("Robot_Menu");
@@ -575,6 +650,20 @@ public class UI_Controller : MonoBehaviour
             autopilotConfirmationBoxNoText = GameObject.Find("Autopilot_Confirmation_No_Button_Text").GetComponent<TextMeshProUGUI>();
             displayAutoPilotConfirmationBox(false);
             // End autopilot Confirmation Box
+            
+            // Bookshelf Menu
+            bookshelfMenu = GameObject.Find("Bookshelf_Menu");
+
+            Options_Selection_Panel = GameObject.Find("Options_Selection_Panel");
+            Options_Selection_Panel_Text = GameObject.Find("Options_Selection_Panel_Text").GetComponent<TextMeshProUGUI>();
+            Bookshelf_Container_Panel =  GameObject.Find("Bookshelf_Container_Panel");
+            optionsScrollRect = GameObject.Find("Bookshelf_Container_Panel").GetComponent<ScrollRect>();
+
+            Records_Selection_Panel = GameObject.Find("Records_Selection_Panel");
+            Records_Selection_Panel_Text = GameObject.Find("Records_Selection_Panel_Text").GetComponent<TextMeshProUGUI>();
+            Records_Container_Panel = GameObject.Find("Records_Container_Panel");
+            //recordsScrollRect = GameObject.Find("Records_Container_Panel").GetComponent<ScrollRect>();
+            // End Bookshelf Menu
 
 
             //setActiveExperiments(new int[] {0, 1, 3});
@@ -588,7 +677,12 @@ public class UI_Controller : MonoBehaviour
 
             DisableUIElement(SpeechBanner);
             DisableUIElement(nameInputBox);
+            DisableUIElement(nameInputConfirmationBox);
             DisableUIElement(coinNameInputBox);
+            DisableUIElement(coinNameInputConfirmationBox);
+            DisableUIElement(bookshelfMenu);
+            DisableUIElement(leftSwipeArrow);
+            DisableUIElement(rightSwipeArrow);
             DisableUIElement(RobotMenuObj);
             DisableUIElement(RocketBuildingMenuObj);
             DisableUIElement(ResearchersMenu);
@@ -851,12 +945,82 @@ public class UI_Controller : MonoBehaviour
 
 
     // Name Input Box Stuff
+    public void displayNameInputBox(string hint = null, string potentialName = null){
+        
+        EnableUIElement(ScreenTintObj);
+        EnableUIElement(nameInputBox);
+        DisableUIElement(ScreenTintObj, touchOnly:true);
+        string UIStringTable = "UI_Banner";
+        
+        nameInputBoxHeaderText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Header");
+        nameInputBoxPromptText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Prompt");
+        nameEnterFieldPlaceholder.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Default_Name");
+        
+        if (hint == null){
+            nameInputBoxHintText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Hint.Default");
+        }
+        else{
+            nameInputBoxHintText.text = hint;
+        }
+
+        if(potentialName == null){
+            nameEnterField.text = "";
+        }
+        else{
+            nameEnterField.text = potentialName;
+        }
+    }
+
+
+    public void displayNameConfirmationBox(string potentialName){
+        UI_Controller.instance.EnableUIElement(ScreenTintObj);
+        DisableUIElement(ScreenTintObj, touchOnly:true);
+        EnableUIElement(nameInputConfirmationBox);
+        string UIStringTable = "UI_Banner";
+        nameInputConfirmationBoxText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Confirmation_Box.Text").Replace("{potentialPlayerName}", potentialName);
+        nameInputConfirmationBoxPromptText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Confirmation_Box.Prompt").Replace("{potentialPlayerName}", potentialName);
+
+    }
 
     // End Name Input Box Stuff
 
 
 
+    // Coin Name Input Box Stuff
+    public void displayCoinNameInputBox(string hint = null, string potentialCoinName = null){
+        foreach (Transform child in coinNameInputBoxHintText.gameObject.transform){
+            Destroy(child.gameObject);
+        }
+        UI_Controller.instance.EnableUIElement(coinNameInputBox);
+        UI_Controller.instance.EnableUIElement(ScreenTintObj);
+        DisableUIElement(ScreenTintObj, touchOnly:true);
+        string UIStringTable = "UI_Banner";
+        coinNameInputBoxText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Coin_Name_Input_Box.Prompt");
+        coinNameInputBoxCoinText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Coin_Name_Input_Box.Coin");
+        coinnameEnterFieldPlaceholder.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Coin_Name_Input_Box.Default_Name");
+        if (hint == null){
+            coinNameInputBoxHintText.text = "";
+        }
+        else{
+            coinNameInputBoxHintText.text = hint;
+        }
+        if(potentialCoinName == null){
+            coinNameEnterField.text = "";
+        }
+        else{
+            coinNameEnterField.text = potentialCoinName;
+        }
+    }
 
+    public void displayCoinNameConfirmationBox(string potentialName){
+        UI_Controller.instance.EnableUIElement(ScreenTintObj);
+        DisableUIElement(ScreenTintObj, touchOnly:true);
+        EnableUIElement(coinNameInputConfirmationBox);
+        string UIStringTable = "UI_Banner";
+        coinNameInputConfirmationBoxText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Coin_Name_Confirmation_Box.Text").Replace("{potentialCoinName}", potentialName);
+        coinNameInputConfirmationBoxPromptText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Coin_Name_Confirmation_Box.Prompt").Replace("{potentialCoinName}", potentialName);
+    }
+    // End Coin Name Input Box Stuff
 
 
 
@@ -1086,6 +1250,13 @@ public class UI_Controller : MonoBehaviour
 
             sendUIEndAlert = true;
         }
+
+        if(bookshelfMenuDisplayed){
+            DisableUIElement(bookshelfMenu);
+            DisableUIElement(ScreenTintObj);
+            bookshelfMenuDisplayed = false;
+        }
+
         
 
         if (NotEnoughCoinsBoxDisplayed){
@@ -1175,9 +1346,14 @@ public class UI_Controller : MonoBehaviour
                 UI.transform.localScale = currentLocalScales[UI];
             }
             catch(Exception e){
-                Debug.LogWarning(gameObject.GetInstanceID() + " FUCKED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
+                Debug.LogWarning(gameObject.GetInstanceID() + " MESSED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
                 //Debug.Log(mainAreaLocalScales[UI] + "...?");
-                throw e;
+                if(UI.name.StartsWith("TMP SubMeshUI")){
+                    Destroy(UI);
+                }
+                else{
+                    throw e;
+                }
             }
 
         }
@@ -1224,6 +1400,7 @@ public class UI_Controller : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                 UI.transform.localScale = new Vector3(0f, 0f, 0f);
             }
+
         }
     }
 
@@ -1376,6 +1553,7 @@ public class UI_Controller : MonoBehaviour
         
         IEnumerator _display_speech_element()
         {    
+            started_next_speech_element = false; // New
             //Debug.Log("CSI: " + curSpeechIndex);
             yield return new WaitForSeconds(0);
             if (curSpeechIndex < speech_object.speech_strings.Count){
@@ -1384,7 +1562,7 @@ public class UI_Controller : MonoBehaviour
                 SpeechImageAnimator.SetInteger("Character", (int)speech_object.characters[curSpeechIndex]);
                 SpeechImageAnimator.SetInteger("Emotion", (int)speech_object.emotions[curSpeechIndex]);
                 curSpeechText = speech_object.speech_strings[curSpeechIndex];
-                NameText_TMP.text = characters2Names[speech_object.characters[curSpeechIndex]];
+                NameText_TMP.text = characters2DisplayNames[speech_object.characters[curSpeechIndex]];
                 //SpeechText_TMP.text = curSpeechText[0].ToString() + "_" + new string("\u00A0"[0], curSpeechText.Length-2);
                 curCharIndex = 0;
                 SpeechText_TMP.text = generate_speech_string();
@@ -1395,6 +1573,7 @@ public class UI_Controller : MonoBehaviour
                 if (curSpeechIndex >= speech_object.speech_strings.Count){
                     doneDisplayingSpeech = true;
                     DisableUIElement(SpeechBanner);
+                    speechIsDisplayed = false;
                     SpeechText_TMP.text = "";
                     // For some reason, a child object gets added to our speech text gameobject and it messes up the UI manager. Just find that and delete it real quick when we're done displaying
                     foreach(Transform textChildTransform in SpeechText.transform){
@@ -1426,6 +1605,9 @@ public class UI_Controller : MonoBehaviour
         IEnumerator _update_displayed_text(int _cur_speech_index){
             yield return new WaitForSeconds(0.03f);
             //yield return new WaitForSeconds(0.2f);
+            // if(speechBannerButtonPressed){
+            //     Debug.Log("SPEECH BANNER PRESSED OUT HERE!!");
+            // }
             if (curSpeechIndex == _cur_speech_index){
                 if (SpeechText_TMP.text == curSpeechText){
                     SpeechImageAnimator.SetInteger("Character", 0);
@@ -1441,6 +1623,9 @@ public class UI_Controller : MonoBehaviour
                         StartCoroutine(_display_speech_element());
                     }
                     else{
+                        // if(speechBannerButtonPressed){
+                        //     Debug.Log("1");
+                        // }
                         StartCoroutine(_update_displayed_text(_cur_speech_index));
                     }
                 }
@@ -1463,6 +1648,9 @@ public class UI_Controller : MonoBehaviour
                             speechBannerButtonPressed = false;
                         }
                     }
+                    // if(speechBannerButtonPressed){
+                    //     Debug.Log("2");
+                    // }
                     StartCoroutine(_update_displayed_text(_cur_speech_index));
                 }
             }
@@ -2259,6 +2447,118 @@ public class UI_Controller : MonoBehaviour
     }
     // End autopilot Confirmation Button Handlers
 
+    // For use with scroll rects that aren't shitty, i.e. ones based off the bookshelf menu prefab
+    // Not sure why... but if we only do this set on one frame, Unity overrides it and sets it to .5 immediately after
+    public IEnumerator setScrollRectToTop(ScrollRect sr){
+        float t = 0;
+        while(t < 0.05){
+            yield return new WaitForSeconds(0);
+            sr.verticalNormalizedPosition = 1f;
+            t += Time.deltaTime;
+        }
+        Canvas.ForceUpdateCanvases();
+    }
+
+
+
+    // Bookshelf Menu Button Handlers
+    public void onBookshelfTapped(){
+        if (!bookshelfMenuDisplayed){ // And computer menu not displayed
+            EnableUIElement(bookshelfMenu);
+            EnableUIElement(ScreenTintObj);
+            bookshelfMenuDisplayed = true;
+
+            selectOptions();
+        } 
+    }
+
+    bool monitoring = false;
+    public void selectOptions(){
+
+        Options_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;
+        Records_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
+        Options_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = selectedFont;
+        Records_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = unselectedFont;
+
+        // optionsScrollRect.content = null;
+        
+        
+        //DisableUIElement(Records_Container_Panel);
+        //EnableUIElement(Bookshelf_Container_Panel);
+        optionsScrollRect.content = GameObject.Find("Options_Scroll_Panel").GetComponent<RectTransform>();
+        // optionsScrollRect.content = GameObject.Find("Bookshelf_Container_Panel").GetComponent<RectTransform>();
+        DisableUIElement(GameObject.Find("Records_Scroll_Panel"));
+
+        EnableUIElement(GameObject.Find("Options_Scroll_Panel"));
+
+
+        //optionsScrollRect.verticalNormalizedPosition = 1f;
+        //Debug.Log(optionsScrollRect.verticalNormalizedPosition);
+        // IEnumerator _setVertPos(){
+        //     yield return new WaitForEndOfFrame();
+        //     optionsScrollRect.enabled = false;
+        //     optionsScrollRect.enabled = true;
+        //     optionsScrollRect.verticalNormalizedPosition = 1f;
+
+        // }
+        //optionsScrollRect.SetNormalizedPosition(1f, 1);
+        //Canvas.ForceUpdateCanvases();
+        //StartCoroutine(setScrollRectToTop(optionsScrollRect));
+        //StartCoroutine(_selectOptionsNextFrame());
+        // IEnumerator monitorOptions(){
+        //     monitoring = true;
+        //     while(monitoring){
+        //         yield return new WaitForSeconds(0);
+        //         Debug.Log("OSRP: " + optionsScrollRect.verticalNormalizedPosition);
+        //     }
+        // }
+
+        // optionsScrollRect.verticalNormalizedPosition = 1f;
+        // StartCoroutine(_setVertPos());
+
+    }
+
+
+    public void selectRecords(){
+
+        Options_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
+        Records_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;
+        Options_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = unselectedFont;
+        Records_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = selectedFont;
+
+        
+
+        optionsScrollRect.content = GameObject.Find("Records_Scroll_Panel").GetComponent<RectTransform>();
+
+        DisableUIElement(GameObject.Find("Options_Scroll_Panel"));
+        EnableUIElement(GameObject.Find("Records_Scroll_Panel"));
+
+
+        
+        //optionsScrollRect.verticalNormalizedPosition = 1f;
+        //Debug.Log(optionsScrollRect.verticalNormalizedPosition);
+        //DisableUIElement(Bookshelf_Container_Panel);
+        //EnableUIElement(Records_Container_Panel);
+
+        //recordsScrollRect.content = GameObject.Find("Records_Container_Panel").GetComponent<RectTransform>();
+        // IEnumerator _setVertPos(){
+        //     yield return new WaitForEndOfFrame();
+        //     recordsScrollRect.enabled = false;
+        //     recordsScrollRect.enabled = true;
+        //     recordsScrollRect.verticalNormalizedPosition = 1f;
+
+        // }
+
+        //recordsScrollRect.Move
+        // recordsScrollRect.verticalNormalizedPosition = 1f;
+        // StartCoroutine(_setVertPos());
+        //Canvas.ForceUpdateCanvases();
+        //StartCoroutine(setScrollRectToTop(recordsScrollRect));
+        
+    }
+
+    // End Bookshelf Button Handlers
+
 
     // Rocket Flight UI
     private void updateFuelNeedle(){
@@ -2492,6 +2792,12 @@ public class UI_Controller : MonoBehaviour
             NameInputBoxSubmitButtonPressedInfo(nameEnterField.text);
         }
     }
+
+    public void onNameSubmitConfirmationButtonPressed(bool selectedYes){
+        if(NameSubmitConfirmationButtonPressedInfo != null){
+            NameSubmitConfirmationButtonPressedInfo(selectedYes);
+        }
+    }
     // End Name Input Handlers
 
     // Coin Name Input Handlers
@@ -2502,6 +2808,12 @@ public class UI_Controller : MonoBehaviour
         if(CoinNameInputBoxSubmitButtonPressedInfo != null){
             Debug.Log("YO YO YO");
             CoinNameInputBoxSubmitButtonPressedInfo(coinNameEnterField.text);
+        }
+    }
+
+    public void onCoinNameSubmitConfirmationButtonPressed(bool selectedYes){
+        if(CoinNameSubmitConfirmationButtonPressedInfo != null){
+            CoinNameSubmitConfirmationButtonPressedInfo(selectedYes);
         }
     }
     // Coin Name Input Handlers End

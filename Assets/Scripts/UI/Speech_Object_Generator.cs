@@ -61,7 +61,126 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.1.5", UI_Characters.Characters.Robot}, // 10
             {"Events_Script.Onboarding.1.6", UI_Characters.Characters.Robot}, // 11
 
-            {"Events_Script.Onboarding.2.1", UI_Characters.Characters.Robot} // 12
+            {"Events_Script.Onboarding.2.1", UI_Characters.Characters.Robot}, // 12
+            {"Events_Script.Onboarding.2.2", UI_Characters.Characters.Robot}, // 13
+            {"Events_Script.Onboarding.2.3", UI_Characters.Characters.Robot}, // 14
+            
+            {"Events_Script.Onboarding.3.1", UI_Characters.Characters.Robot}, // 15
+            {"Events_Script.Onboarding.3.2", UI_Characters.Characters.Robot}, // 16
+            {"Events_Script.Onboarding.3.3", UI_Characters.Characters.Robot}, // 17
+            {"Events_Script.Onboarding.3.4", UI_Characters.Characters.Robot}, // 18
+
+            {"Events_Script.Onboarding.4.1", UI_Characters.Characters.Robot}, // 19
+            {"Events_Script.Onboarding.4.2", UI_Characters.Characters.Robot}, // 20
+            {"Events_Script.Onboarding.4.3", UI_Characters.Characters.Robot}, // 21
+            {"Events_Script.Onboarding.4.4", UI_Characters.Characters.Robot}, // 22
+
+            {"Events_Script.Onboarding.5.1", UI_Characters.Characters.Robot}, // 23
+
+            {"Events_Script.Onboarding.6.1", UI_Characters.Characters.Robot}, // 24
+            {"Events_Script.Onboarding.6.2", UI_Characters.Characters.Robot}, // 25
+            {"Events_Script.Onboarding.6.3", UI_Characters.Characters.Robot}, // 26
+
+
+            {"Events_Script.Onboarding.7.1", UI_Characters.Characters.Robot}, // 27
+
+            {"Events_Script.Onboarding.8.1", UI_Characters.Characters.Robot}, // 28
+
+            {"Events_Script.Onboarding.9.1", UI_Characters.Characters.Robot}, // 29
+            {"Events_Script.Onboarding.9.2", UI_Characters.Characters.Robot}, // 30
+            {"Events_Script.Onboarding.9.3", UI_Characters.Characters.Robot}, // 30b
+
+            {"Events_Script.Onboarding.10.1", UI_Characters.Characters.Robot}, // 31
+            {"Events_Script.Onboarding.10.2", UI_Characters.Characters.Robot}, // 32
+            {"Events_Script.Onboarding.10.3", UI_Characters.Characters.Robot}, // 32b
+
+            {"Events_Script.Onboarding.11.1", UI_Characters.Characters.Robot}, // 33
+            {"Events_Script.Onboarding.11.2", UI_Characters.Characters.Robot}, // 34
+
+            {"Events_Script.Onboarding.12.1", UI_Characters.Characters.Robot}, // 35
+
+            {"Events_Script.Onboarding.13.1", UI_Characters.Characters.Dog}, // 36
+            {"Events_Script.Onboarding.13.2", UI_Characters.Characters.Robot}, // 37
+            {"Events_Script.Onboarding.13.3", UI_Characters.Characters.Robot}, // 38
+            {"Events_Script.Onboarding.13.4", UI_Characters.Characters.Robot}, // 39
+            {"Events_Script.Onboarding.13.5", UI_Characters.Characters.Robot}, // 40
+            {"Events_Script.Onboarding.13.6", UI_Characters.Characters.Dog}, // 41
+            {"Events_Script.Onboarding.13.7", UI_Characters.Characters.Dog}, // 42
+            {"Events_Script.Onboarding.13.8", UI_Characters.Characters.Dog}, // 42b
+            {"Events_Script.Onboarding.13.9", UI_Characters.Characters.Dog}, // 43
+            {"Events_Script.Onboarding.13.10", UI_Characters.Characters.Dog}, // 44
+            {"Events_Script.Onboarding.13.11", UI_Characters.Characters.Robot}, // 45
+            {"Events_Script.Onboarding.13.12", UI_Characters.Characters.Dog}, // 46
+            {"Events_Script.Onboarding.13.13", UI_Characters.Characters.Dog}, // 46b
+            {"Events_Script.Onboarding.13.14", UI_Characters.Characters.Dog}, // 47
+            {"Events_Script.Onboarding.13.15", UI_Characters.Characters.Dog}, // 48
+            {"Events_Script.Onboarding.13.16", UI_Characters.Characters.Dog}, // 49
+            {"Events_Script.Onboarding.13.17", UI_Characters.Characters.Dog}, // 50
+            {"Events_Script.Onboarding.13.18", UI_Characters.Characters.Dog}, // 51
+            {"Events_Script.Onboarding.13.19", UI_Characters.Characters.Dog}, // 52
+            {"Events_Script.Onboarding.13.20", UI_Characters.Characters.Robot}, // 53
+            {"Events_Script.Onboarding.13.21", UI_Characters.Characters.Dog}, // 54
+            {"Events_Script.Onboarding.13.22", UI_Characters.Characters.Dog}, // 55
+            {"Events_Script.Onboarding.13.23", UI_Characters.Characters.Dog}, // 56
+            {"Events_Script.Onboarding.13.24", UI_Characters.Characters.Dog}, // 57
+            {"Events_Script.Onboarding.13.25", UI_Characters.Characters.Dog}, // 58
+            {"Events_Script.Onboarding.13.26", UI_Characters.Characters.Dog}, // 59
+            {"Events_Script.Onboarding.13.27", UI_Characters.Characters.Robot}, // 60
+            {"Events_Script.Onboarding.13.28", UI_Characters.Characters.Dog}, // 61
+            {"Events_Script.Onboarding.13.29", UI_Characters.Characters.Robot}, // 62
+            {"Events_Script.Onboarding.13.30", UI_Characters.Characters.Dog}, // 63
+            {"Events_Script.Onboarding.13.31", UI_Characters.Characters.Dog}, // 63b
+            {"Events_Script.Onboarding.13.32", UI_Characters.Characters.Robot}, // 64
+            {"Events_Script.Onboarding.13.33", UI_Characters.Characters.Dog}, // 65
+            {"Events_Script.Onboarding.13.34", UI_Characters.Characters.Dog}, // 66
+            {"Events_Script.Onboarding.13.35", UI_Characters.Characters.Robot}, // 67
+            {"Events_Script.Onboarding.13.36", UI_Characters.Characters.Robot}, // 68
+            {"Events_Script.Onboarding.13.37", UI_Characters.Characters.Robot}, // 69
+            {"Events_Script.Onboarding.13.38", UI_Characters.Characters.Robot}, // 70
+
+            {"Events_Script.Onboarding.14.1", UI_Characters.Characters.Robot}, // 71
+            {"Events_Script.Onboarding.14.2", UI_Characters.Characters.Robot}, // 72
+
+            {"Events_Script.Onboarding.15.1", UI_Characters.Characters.Robot}, // 73
+            {"Events_Script.Onboarding.15.2", UI_Characters.Characters.Robot}, // 74
+            {"Events_Script.Onboarding.15.3", UI_Characters.Characters.Robot}, // 75
+            {"Events_Script.Onboarding.15.4", UI_Characters.Characters.Robot}, // 76
+            {"Events_Script.Onboarding.15.5", UI_Characters.Characters.Robot}, // 77
+            {"Events_Script.Onboarding.15.6", UI_Characters.Characters.Robot}, // 78
+
+            {"Events_Script.Onboarding.16.1", UI_Characters.Characters.Robot}, // 79
+            {"Events_Script.Onboarding.16.2", UI_Characters.Characters.Robot}, // 80
+            {"Events_Script.Onboarding.16.3", UI_Characters.Characters.Robot}, // 81
+            {"Events_Script.Onboarding.16.4", UI_Characters.Characters.Robot}, // 82
+            {"Events_Script.Onboarding.16.5", UI_Characters.Characters.Robot}, // 83
+            {"Events_Script.Onboarding.16.6", UI_Characters.Characters.Robot}, // 84
+            {"Events_Script.Onboarding.16.7", UI_Characters.Characters.Robot}, // 85
+            {"Events_Script.Onboarding.16.8", UI_Characters.Characters.Robot}, // 86
+            {"Events_Script.Onboarding.16.9", UI_Characters.Characters.Robot}, // 87
+            {"Events_Script.Onboarding.16.10", UI_Characters.Characters.Robot}, // 88
+            {"Events_Script.Onboarding.16.11", UI_Characters.Characters.Robot}, // 89
+            {"Events_Script.Onboarding.16.12", UI_Characters.Characters.Robot}, // 90
+            {"Events_Script.Onboarding.16.13", UI_Characters.Characters.Robot}, // 90
+
+            {"Events_Script.Onboarding.17.1", UI_Characters.Characters.Robot}, // 91
+
+            {"Events_Script.Onboarding.18.1", UI_Characters.Characters.Robot}, // 92
+            {"Events_Script.Onboarding.18.2", UI_Characters.Characters.Robot}, // 93
+            {"Events_Script.Onboarding.18.3", UI_Characters.Characters.Robot}, // 94
+
+            {"Events_Script.Onboarding.19.1", UI_Characters.Characters.Robot}, // 95
+            {"Events_Script.Onboarding.19.2", UI_Characters.Characters.Robot}, // 96
+
+            {"Events_Script.Onboarding.20.1", UI_Characters.Characters.Robot}, // 97
+            {"Events_Script.Onboarding.20.2", UI_Characters.Characters.Robot}, // 98
+
+            {"Events_Script.Onboarding.21.1", UI_Characters.Characters.Robot}, // 99
+            {"Events_Script.Onboarding.21.2", UI_Characters.Characters.Robot}, // 100
+            {"Events_Script.Onboarding.21.3", UI_Characters.Characters.Robot}, // 101
+            {"Events_Script.Onboarding.21.4", UI_Characters.Characters.Robot}, // 102
+            {"Events_Script.Onboarding.21.5", UI_Characters.Characters.Robot}, // 103
+            {"Events_Script.Onboarding.21.6", UI_Characters.Characters.Robot}, // 104
+            {"Events_Script.Onboarding.21.7", UI_Characters.Characters.Robot}, // 105
             // End Onboarding
         };
         script2Emotion = new Dictionary<string, UI_Characters.Emotions>(){
@@ -82,6 +201,124 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.1.6", UI_Characters.Emotions.Talking}, // 11
 
             {"Events_Script.Onboarding.2.1", UI_Characters.Emotions.Talking}, // 12
+            {"Events_Script.Onboarding.2.2", UI_Characters.Emotions.Talking}, // 13
+            {"Events_Script.Onboarding.2.3", UI_Characters.Emotions.Talking}, // 14
+
+            {"Events_Script.Onboarding.3.1", UI_Characters.Emotions.Talking}, // 15
+            {"Events_Script.Onboarding.3.2", UI_Characters.Emotions.Talking}, // 16
+            {"Events_Script.Onboarding.3.3", UI_Characters.Emotions.Talking}, // 17
+            {"Events_Script.Onboarding.3.4", UI_Characters.Emotions.Talking}, // 18
+
+            {"Events_Script.Onboarding.4.1", UI_Characters.Emotions.Talking}, // 19
+            {"Events_Script.Onboarding.4.2", UI_Characters.Emotions.Talking}, // 20
+            {"Events_Script.Onboarding.4.3", UI_Characters.Emotions.Talking}, // 21
+            {"Events_Script.Onboarding.4.4", UI_Characters.Emotions.Talking}, // 22
+
+            {"Events_Script.Onboarding.5.1", UI_Characters.Emotions.Talking}, // 23
+
+            {"Events_Script.Onboarding.6.1", UI_Characters.Emotions.Talking}, // 24
+            {"Events_Script.Onboarding.6.2", UI_Characters.Emotions.Talking}, // 25
+            {"Events_Script.Onboarding.6.3", UI_Characters.Emotions.Talking}, // 26
+
+            {"Events_Script.Onboarding.7.1", UI_Characters.Emotions.Talking}, // 27
+
+            {"Events_Script.Onboarding.8.1", UI_Characters.Emotions.Talking}, // 28
+
+            {"Events_Script.Onboarding.9.1", UI_Characters.Emotions.Talking}, // 29
+            {"Events_Script.Onboarding.9.2", UI_Characters.Emotions.Talking}, // 30
+            {"Events_Script.Onboarding.9.3", UI_Characters.Emotions.Talking}, // 30b
+
+            {"Events_Script.Onboarding.10.1", UI_Characters.Emotions.Talking}, // 31
+            {"Events_Script.Onboarding.10.2", UI_Characters.Emotions.Talking}, // 32
+            {"Events_Script.Onboarding.10.3", UI_Characters.Emotions.Talking}, // 32b
+
+            {"Events_Script.Onboarding.11.1", UI_Characters.Emotions.Talking}, // 33
+            {"Events_Script.Onboarding.11.2", UI_Characters.Emotions.Talking}, // 34
+
+            {"Events_Script.Onboarding.12.1", UI_Characters.Emotions.Talking}, // 35
+
+            {"Events_Script.Onboarding.13.1", UI_Characters.Emotions.Talking}, // 36
+            {"Events_Script.Onboarding.13.2", UI_Characters.Emotions.Talking}, // 37
+            {"Events_Script.Onboarding.13.3", UI_Characters.Emotions.Talking}, // 38
+            {"Events_Script.Onboarding.13.4", UI_Characters.Emotions.Talking}, // 39
+            {"Events_Script.Onboarding.13.5", UI_Characters.Emotions.Talking}, // 40
+            {"Events_Script.Onboarding.13.6", UI_Characters.Emotions.Talking}, // 41
+            {"Events_Script.Onboarding.13.7", UI_Characters.Emotions.Talking}, // 42
+            {"Events_Script.Onboarding.13.8", UI_Characters.Emotions.Talking}, // 42b
+            {"Events_Script.Onboarding.13.9", UI_Characters.Emotions.Talking}, // 43
+            {"Events_Script.Onboarding.13.10", UI_Characters.Emotions.Talking}, // 44
+            {"Events_Script.Onboarding.13.11", UI_Characters.Emotions.Talking}, // 45
+            {"Events_Script.Onboarding.13.12", UI_Characters.Emotions.Talking}, // 46
+            {"Events_Script.Onboarding.13.13", UI_Characters.Emotions.Talking}, // 46b
+            {"Events_Script.Onboarding.13.14", UI_Characters.Emotions.Talking}, // 47
+            {"Events_Script.Onboarding.13.15", UI_Characters.Emotions.Talking}, // 48
+            {"Events_Script.Onboarding.13.16", UI_Characters.Emotions.Talking}, // 49
+            {"Events_Script.Onboarding.13.17", UI_Characters.Emotions.Talking}, // 50
+            {"Events_Script.Onboarding.13.18", UI_Characters.Emotions.Talking}, // 51
+            {"Events_Script.Onboarding.13.19", UI_Characters.Emotions.Talking}, // 52
+            {"Events_Script.Onboarding.13.20", UI_Characters.Emotions.Talking}, // 53
+            {"Events_Script.Onboarding.13.21", UI_Characters.Emotions.Talking}, // 54
+            {"Events_Script.Onboarding.13.22", UI_Characters.Emotions.Talking}, // 55
+            {"Events_Script.Onboarding.13.23", UI_Characters.Emotions.Talking}, // 56
+            {"Events_Script.Onboarding.13.24", UI_Characters.Emotions.Talking}, // 57
+            {"Events_Script.Onboarding.13.25", UI_Characters.Emotions.Talking}, // 58
+            {"Events_Script.Onboarding.13.26", UI_Characters.Emotions.Talking}, // 59
+            {"Events_Script.Onboarding.13.27", UI_Characters.Emotions.Talking}, // 60
+            {"Events_Script.Onboarding.13.28", UI_Characters.Emotions.Talking}, // 61
+            {"Events_Script.Onboarding.13.29", UI_Characters.Emotions.Talking}, // 62
+            {"Events_Script.Onboarding.13.30", UI_Characters.Emotions.Talking}, // 63
+            {"Events_Script.Onboarding.13.31", UI_Characters.Emotions.Talking}, // 63b
+            {"Events_Script.Onboarding.13.32", UI_Characters.Emotions.Talking}, // 64
+            {"Events_Script.Onboarding.13.33", UI_Characters.Emotions.Talking}, // 65
+            {"Events_Script.Onboarding.13.34", UI_Characters.Emotions.Talking}, // 66
+            {"Events_Script.Onboarding.13.35", UI_Characters.Emotions.Talking}, // 67
+            {"Events_Script.Onboarding.13.36", UI_Characters.Emotions.Talking}, // 68
+            {"Events_Script.Onboarding.13.37", UI_Characters.Emotions.Talking}, // 69
+            {"Events_Script.Onboarding.13.38", UI_Characters.Emotions.Talking}, // 70
+
+            {"Events_Script.Onboarding.14.1", UI_Characters.Emotions.Talking}, // 71
+            {"Events_Script.Onboarding.14.2", UI_Characters.Emotions.Talking}, // 72
+
+            {"Events_Script.Onboarding.15.1", UI_Characters.Emotions.Talking}, // 73
+            {"Events_Script.Onboarding.15.2", UI_Characters.Emotions.Talking}, // 74
+            {"Events_Script.Onboarding.15.3", UI_Characters.Emotions.Talking}, // 75
+            {"Events_Script.Onboarding.15.4", UI_Characters.Emotions.Talking}, // 76
+            {"Events_Script.Onboarding.15.5", UI_Characters.Emotions.Talking}, // 77
+            {"Events_Script.Onboarding.15.6", UI_Characters.Emotions.Talking}, // 78
+
+            {"Events_Script.Onboarding.16.1", UI_Characters.Emotions.Talking}, // 79
+            {"Events_Script.Onboarding.16.2", UI_Characters.Emotions.Talking}, // 80
+            {"Events_Script.Onboarding.16.3", UI_Characters.Emotions.Talking}, // 81
+            {"Events_Script.Onboarding.16.4", UI_Characters.Emotions.Talking}, // 82
+            {"Events_Script.Onboarding.16.5", UI_Characters.Emotions.Talking}, // 83
+            {"Events_Script.Onboarding.16.6", UI_Characters.Emotions.Talking}, // 84
+            {"Events_Script.Onboarding.16.7", UI_Characters.Emotions.Talking}, // 85
+            {"Events_Script.Onboarding.16.8", UI_Characters.Emotions.Talking}, // 86
+            {"Events_Script.Onboarding.16.9", UI_Characters.Emotions.Talking}, // 87
+            {"Events_Script.Onboarding.16.10", UI_Characters.Emotions.Talking}, // 88
+            {"Events_Script.Onboarding.16.11", UI_Characters.Emotions.Talking}, // 89
+            {"Events_Script.Onboarding.16.12", UI_Characters.Emotions.Talking}, // 90
+            {"Events_Script.Onboarding.16.13", UI_Characters.Emotions.Talking}, // 90b
+
+            {"Events_Script.Onboarding.17.1", UI_Characters.Emotions.Talking}, // 91
+
+            {"Events_Script.Onboarding.18.1", UI_Characters.Emotions.Talking}, // 92
+            {"Events_Script.Onboarding.18.2", UI_Characters.Emotions.Talking}, // 93
+            {"Events_Script.Onboarding.18.3", UI_Characters.Emotions.Talking}, // 94
+            
+            {"Events_Script.Onboarding.19.1", UI_Characters.Emotions.Talking}, // 95
+            {"Events_Script.Onboarding.19.2", UI_Characters.Emotions.Talking}, // 96
+
+            {"Events_Script.Onboarding.20.1", UI_Characters.Emotions.Talking}, // 97
+            {"Events_Script.Onboarding.20.2", UI_Characters.Emotions.Talking}, // 98
+
+            {"Events_Script.Onboarding.21.1", UI_Characters.Emotions.Talking}, // 99
+            {"Events_Script.Onboarding.21.2", UI_Characters.Emotions.Talking}, // 100
+            {"Events_Script.Onboarding.21.3", UI_Characters.Emotions.Talking}, // 101
+            {"Events_Script.Onboarding.21.4", UI_Characters.Emotions.Talking}, // 102
+            {"Events_Script.Onboarding.21.5", UI_Characters.Emotions.Talking}, // 103
+            {"Events_Script.Onboarding.21.6", UI_Characters.Emotions.Talking}, // 104
+            {"Events_Script.Onboarding.21.7", UI_Characters.Emotions.Talking}, // 105
             // End Onboarding
         };
         script2PostEmotion = new Dictionary<string, UI_Characters.Emotions>(){
@@ -100,7 +337,125 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.1.5", UI_Characters.Emotions.Idle}, // 10
             {"Events_Script.Onboarding.1.6", UI_Characters.Emotions.Idle}, // 11
 
-            {"Events_Script.Onboarding.2.1", UI_Characters.Emotions.Idle} // 12
+            {"Events_Script.Onboarding.2.1", UI_Characters.Emotions.Idle}, // 12
+            {"Events_Script.Onboarding.2.2", UI_Characters.Emotions.Idle}, // 13
+            {"Events_Script.Onboarding.2.3", UI_Characters.Emotions.Idle}, // 14
+
+            {"Events_Script.Onboarding.3.1", UI_Characters.Emotions.Idle}, // 15
+            {"Events_Script.Onboarding.3.2", UI_Characters.Emotions.Idle}, // 16
+            {"Events_Script.Onboarding.3.3", UI_Characters.Emotions.Idle}, // 17
+            {"Events_Script.Onboarding.3.4", UI_Characters.Emotions.Idle}, // 18
+
+            {"Events_Script.Onboarding.4.1", UI_Characters.Emotions.Idle}, // 19
+            {"Events_Script.Onboarding.4.2", UI_Characters.Emotions.Idle}, // 20
+            {"Events_Script.Onboarding.4.3", UI_Characters.Emotions.Idle}, // 21
+            {"Events_Script.Onboarding.4.4", UI_Characters.Emotions.Idle}, // 22
+
+            {"Events_Script.Onboarding.5.1", UI_Characters.Emotions.Idle}, // 23
+
+            {"Events_Script.Onboarding.6.1", UI_Characters.Emotions.Idle}, // 24
+            {"Events_Script.Onboarding.6.2", UI_Characters.Emotions.Idle}, // 25
+            {"Events_Script.Onboarding.6.3", UI_Characters.Emotions.Idle}, // 26
+
+            {"Events_Script.Onboarding.7.1", UI_Characters.Emotions.Idle}, // 27
+            
+            {"Events_Script.Onboarding.8.1", UI_Characters.Emotions.Idle}, // 28
+
+            {"Events_Script.Onboarding.9.1", UI_Characters.Emotions.Idle}, // 29
+            {"Events_Script.Onboarding.9.2", UI_Characters.Emotions.Idle}, // 30
+            {"Events_Script.Onboarding.9.3", UI_Characters.Emotions.Idle}, // 30b
+
+            {"Events_Script.Onboarding.10.1", UI_Characters.Emotions.Idle}, // 31
+            {"Events_Script.Onboarding.10.2", UI_Characters.Emotions.Idle}, // 32
+            {"Events_Script.Onboarding.10.3", UI_Characters.Emotions.Idle}, // 32b
+
+            {"Events_Script.Onboarding.11.1", UI_Characters.Emotions.Idle}, // 33
+            {"Events_Script.Onboarding.11.2", UI_Characters.Emotions.Idle}, // 34
+
+            {"Events_Script.Onboarding.12.1", UI_Characters.Emotions.Idle}, // 35
+
+            {"Events_Script.Onboarding.13.1", UI_Characters.Emotions.Happy}, // 36
+            {"Events_Script.Onboarding.13.2", UI_Characters.Emotions.Idle}, // 37
+            {"Events_Script.Onboarding.13.3", UI_Characters.Emotions.Idle}, // 38
+            {"Events_Script.Onboarding.13.4", UI_Characters.Emotions.Idle}, // 39
+            {"Events_Script.Onboarding.13.5", UI_Characters.Emotions.Idle}, // 40
+            {"Events_Script.Onboarding.13.6", UI_Characters.Emotions.Idle}, // 41
+            {"Events_Script.Onboarding.13.7", UI_Characters.Emotions.Idle}, // 42
+            {"Events_Script.Onboarding.13.8", UI_Characters.Emotions.Idle}, // 42b
+            {"Events_Script.Onboarding.13.9", UI_Characters.Emotions.Idle}, // 43
+            {"Events_Script.Onboarding.13.10", UI_Characters.Emotions.Idle}, // 44
+            {"Events_Script.Onboarding.13.11", UI_Characters.Emotions.Idle}, // 45
+            {"Events_Script.Onboarding.13.12", UI_Characters.Emotions.Happy}, // 46
+            {"Events_Script.Onboarding.13.13", UI_Characters.Emotions.Idle}, // 46b
+            {"Events_Script.Onboarding.13.14", UI_Characters.Emotions.Idle}, // 47
+            {"Events_Script.Onboarding.13.15", UI_Characters.Emotions.Idle}, // 48
+            {"Events_Script.Onboarding.13.16", UI_Characters.Emotions.Idle}, // 49
+            {"Events_Script.Onboarding.13.17", UI_Characters.Emotions.Happy}, // 50
+            {"Events_Script.Onboarding.13.18", UI_Characters.Emotions.Idle}, // 51
+            {"Events_Script.Onboarding.13.19", UI_Characters.Emotions.Sad}, // 52
+            {"Events_Script.Onboarding.13.20", UI_Characters.Emotions.Idle}, // 53
+            {"Events_Script.Onboarding.13.21", UI_Characters.Emotions.Idle}, // 54
+            {"Events_Script.Onboarding.13.22", UI_Characters.Emotions.Sad}, // 55
+            {"Events_Script.Onboarding.13.23", UI_Characters.Emotions.Idle}, // 56
+            {"Events_Script.Onboarding.13.24", UI_Characters.Emotions.Idle}, // 57
+            {"Events_Script.Onboarding.13.25", UI_Characters.Emotions.Idle}, // 58
+            {"Events_Script.Onboarding.13.26", UI_Characters.Emotions.Idle}, // 59
+            {"Events_Script.Onboarding.13.27", UI_Characters.Emotions.Idle}, // 60
+            {"Events_Script.Onboarding.13.28", UI_Characters.Emotions.Happy}, // 61
+            {"Events_Script.Onboarding.13.29", UI_Characters.Emotions.Idle}, // 62
+            {"Events_Script.Onboarding.13.30", UI_Characters.Emotions.Idle}, // 63
+            {"Events_Script.Onboarding.13.31", UI_Characters.Emotions.Idle}, // 63b
+            {"Events_Script.Onboarding.13.32", UI_Characters.Emotions.Idle}, // 64
+            {"Events_Script.Onboarding.13.33", UI_Characters.Emotions.Idle}, // 65
+            {"Events_Script.Onboarding.13.34", UI_Characters.Emotions.Idle}, // 66
+            {"Events_Script.Onboarding.13.35", UI_Characters.Emotions.Idle}, // 67
+            {"Events_Script.Onboarding.13.36", UI_Characters.Emotions.Idle}, // 68
+            {"Events_Script.Onboarding.13.37", UI_Characters.Emotions.Idle}, // 69
+            {"Events_Script.Onboarding.13.38", UI_Characters.Emotions.Idle}, // 70
+
+            {"Events_Script.Onboarding.14.1", UI_Characters.Emotions.Idle}, // 71
+            {"Events_Script.Onboarding.14.2", UI_Characters.Emotions.Idle}, // 72
+
+            {"Events_Script.Onboarding.15.1", UI_Characters.Emotions.Idle}, // 73
+            {"Events_Script.Onboarding.15.2", UI_Characters.Emotions.Idle}, // 74 
+            {"Events_Script.Onboarding.15.3", UI_Characters.Emotions.Idle}, // 75
+            {"Events_Script.Onboarding.15.4", UI_Characters.Emotions.Idle}, // 76
+            {"Events_Script.Onboarding.15.5", UI_Characters.Emotions.Idle}, // 77
+            {"Events_Script.Onboarding.15.6", UI_Characters.Emotions.Idle}, // 78
+
+            {"Events_Script.Onboarding.16.1", UI_Characters.Emotions.Idle}, // 79
+            {"Events_Script.Onboarding.16.2", UI_Characters.Emotions.Idle}, // 80
+            {"Events_Script.Onboarding.16.3", UI_Characters.Emotions.Idle}, // 81
+            {"Events_Script.Onboarding.16.4", UI_Characters.Emotions.Idle}, // 82
+            {"Events_Script.Onboarding.16.5", UI_Characters.Emotions.Idle}, // 83
+            {"Events_Script.Onboarding.16.6", UI_Characters.Emotions.Idle}, // 84
+            {"Events_Script.Onboarding.16.7", UI_Characters.Emotions.Idle}, // 85
+            {"Events_Script.Onboarding.16.8", UI_Characters.Emotions.Idle}, // 86
+            {"Events_Script.Onboarding.16.9", UI_Characters.Emotions.Idle}, // 87
+            {"Events_Script.Onboarding.16.10", UI_Characters.Emotions.Idle}, // 88
+            {"Events_Script.Onboarding.16.11", UI_Characters.Emotions.Idle}, // 89
+            {"Events_Script.Onboarding.16.12", UI_Characters.Emotions.Idle}, // 90
+            {"Events_Script.Onboarding.16.13", UI_Characters.Emotions.Idle}, // 90b
+
+            {"Events_Script.Onboarding.17.1", UI_Characters.Emotions.Idle}, // 91
+            
+            {"Events_Script.Onboarding.18.1", UI_Characters.Emotions.Idle}, // 92
+            {"Events_Script.Onboarding.18.2", UI_Characters.Emotions.Idle}, // 93
+            {"Events_Script.Onboarding.18.3", UI_Characters.Emotions.Idle}, // 94
+
+            {"Events_Script.Onboarding.19.1", UI_Characters.Emotions.Idle}, // 95
+            {"Events_Script.Onboarding.19.2", UI_Characters.Emotions.Idle}, // 96
+
+            {"Events_Script.Onboarding.20.1", UI_Characters.Emotions.Idle}, // 97
+            {"Events_Script.Onboarding.20.2", UI_Characters.Emotions.Idle}, // 98
+
+            {"Events_Script.Onboarding.21.1", UI_Characters.Emotions.Idle}, // 99
+            {"Events_Script.Onboarding.21.2", UI_Characters.Emotions.Idle}, // 100
+            {"Events_Script.Onboarding.21.3", UI_Characters.Emotions.Idle}, // 101
+            {"Events_Script.Onboarding.21.4", UI_Characters.Emotions.Idle}, // 102
+            {"Events_Script.Onboarding.21.5", UI_Characters.Emotions.Idle}, // 103
+            {"Events_Script.Onboarding.21.6", UI_Characters.Emotions.Idle}, // 104
+            {"Events_Script.Onboarding.21.7", UI_Characters.Emotions.Idle}, // 105
             // End Onboarding
         };
 
@@ -188,8 +543,11 @@ public class Speech_Object_Generator : MonoBehaviour
 
 
     public string defaultStringFormatFunc(string inputStr){
+        inputStr = inputStr.Replace("{gamename}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Game_Name"));
         inputStr = inputStr.Replace("{playername}", Game_Manager.instance.userDisplayName);
         inputStr = inputStr.Replace("{coinname}", Game_Manager.instance.coinName);
+        inputStr = inputStr.Replace("{gemname_singular}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Gem_Name_Singular"));
+        inputStr = inputStr.Replace("{gemname_plural}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Gem_Name_Plural"));
         inputStr = inputStr.Replace("{robot}", characters2Names[UI_Characters.Characters.Robot]);
         inputStr = inputStr.Replace("{robotDisplay}", characters2DisplayNames[UI_Characters.Characters.Robot]);
         inputStr = inputStr.Replace("{stonks}", characters2Names[UI_Characters.Characters.Guy]);
@@ -229,7 +587,7 @@ public class Speech_Object_Generator : MonoBehaviour
             if (formatFunc != null){
                 curString = formatFunc(curString);
             }
-            Debug.Log("CUR STRING: " + curString);
+            //Debug.Log("CUR STRING: " + curString);
             if (!curString.StartsWith("No translation found")){
                 Speech_Strings_List.Add(curString);
                 Characters_List.Add(script2Character[keyString]);
@@ -239,11 +597,11 @@ public class Speech_Object_Generator : MonoBehaviour
             else{
                 stringsRemaining = false;
             }
-            Debug.Log("WAS: " + keyString);
+            //Debug.Log("WAS: " + keyString);
             splitKeyString = new List<string>(keyString.Split("."));
             curKeyStringConversationIndex = Int32.Parse(splitKeyString[splitKeyString.Count-1]) + 1;
             keyString = string.Join(".", splitKeyString.GetRange(0, splitKeyString.Count-1)) + "." + curKeyStringConversationIndex.ToString();
-            Debug.Log("NOW: " + keyString);
+            //Debug.Log("NOW: " + keyString);
             count--;
         }
         return new Speech_Object(isBlocker, Speech_Strings_List, Characters_List, Emotions_List, Post_Emotions_List);

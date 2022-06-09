@@ -15,36 +15,116 @@ MonoBehaviour:
   m_TableCollectionName: UI_Banner
   m_TableCollectionNameGuidString: 0173973f80785514680b9af482672ffa
   m_Entries:
-  - m_Id: 12351604154368
+  - m_Id: 81403512184528896
     m_Key: UI.Banner.Thrust_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 12351604154369
+  - m_Id: 81403512184528897
     m_Key: UI.Banner.Launches_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 284538839916544
+  - m_Id: 81403512184528898
     m_Key: UI.Banner.Gems_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 287678171602944
+  - m_Id: 81403512184528899
     m_Key: UI.Banner.Coins_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780500217856
+  - m_Id: 81403512184528900
     m_Key: UI.Autopilot.Confirmation_Box_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995072
+  - m_Id: 81403512184528901
     m_Key: UI.Autopilot.Confirmation_Box_Text.Yes
     m_Metadata:
       m_Items: []
-  - m_Id: 68275780516995073
+  - m_Id: 81403512184528902
     m_Key: UI.Autopilot.Confirmation_Box_Text.No
     m_Metadata:
       m_Items: []
-  - m_Id: 79951638658965504
+  - m_Id: 81403512184528903
     m_Key: UI.General.Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528904
+    m_Key: UI.General.Gem_Name_Singular
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528905
+    m_Key: UI.General.Gem_Name_Plural
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528906
+    m_Key: UI.General.Game_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528907
+    m_Key: UI.Onboarding.Name_Default
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528908
+    m_Key: UI.Onboarding.Name_Input_Box.Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528909
+    m_Key: UI.Onboarding.Name_Input_Box.Prompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528910
+    m_Key: UI.Onboarding.Name_Input_Box.Default_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528911
+    m_Key: UI.Onboarding.Name_Input_Box.Hint.Default
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528912
+    m_Key: UI.Onboarding.Name_Input_Box.Hint.Badwords
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528913
+    m_Key: UI.Onboarding.Name_Input_Box.Hint.Too_Short
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528914
+    m_Key: UI.Onboarding.Name_Input_Box.Hint.Taken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528915
+    m_Key: UI.Onboarding.Name_Confirmation_Box.Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528916
+    m_Key: UI.Onboarding.Name_Confirmation_Box.Prompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528917
+    m_Key: UI.Onboarding.Coin_Name_Input_Box.Prompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528918
+    m_Key: UI.Onboarding.Coin_Name_Input_Box.Default_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528919
+    m_Key: UI.Onboarding.Coin_Name_Input_Box.Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528920
+    m_Key: UI.Onboarding.Coin_Name_Confirmation_Box.Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528921
+    m_Key: UI.Onboarding.Coin_Name_Confirmation_Box.Prompt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528922
+    m_Key: UI.Onboarding.Coin_Name_Input_Box.Hint.Badwords
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81403512184528923
+    m_Key: UI.Onboarding.Coin_Name_Input_Box.Hint.Too_Short
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -4,6 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using System;
+
+
+public enum Swipe{
+    NOSWIPE = 0,
+    UPSWIPE = 1,
+    DOWNSWIPE = 2,
+    LEFTSWIPE = 3,
+    RIGHTSWIPE = 4
+} 
 
 public class Touch_Detection : MonoBehaviour
 {
@@ -35,7 +45,7 @@ public class Touch_Detection : MonoBehaviour
     [HideInInspector]
     public double dragEndTime;
 
-    private int swipeval;
+    private Swipe swipeval;
 
 
     // Values that define what a "Swipe" is
@@ -53,17 +63,15 @@ public class Touch_Detection : MonoBehaviour
     public static Touch_Detection instance;
 
     private bool enableReticleAfterCurTap = false;
+    private Dictionary<Swipe, bool> enableSwipesAfterCurTap;
     [SerializeField]
     private bool reticleDisabled = false;
     private List<Vector3[]> reticleDisabledBoxes = new List<Vector3[]>();
 
 
-    private int NOSWIPE = 0;
-    private int UPSWIPE = 1;
-    private int DOWNSWIPE = 2;
-    private int LEFTSWIPE = 3;
-    private int RIGHTSWIPE = 4;
 
+
+    private Dictionary<Swipe, bool> enabledSwipes;
 
     
 
@@ -142,6 +150,21 @@ public class Touch_Detection : MonoBehaviour
         reticleRenderer = reticle.GetComponent<SpriteRenderer>();
         reticleCollider = reticle.GetComponent<CircleCollider2D>();
 
+        enabledSwipes = new Dictionary<Swipe, bool>(){
+            {Swipe.UPSWIPE, true},
+            {Swipe.DOWNSWIPE, true},
+            {Swipe.LEFTSWIPE, true},
+            {Swipe.RIGHTSWIPE, true}
+        };
+
+        enableSwipesAfterCurTap = new Dictionary<Swipe, bool>(){
+            {Swipe.UPSWIPE, false},
+            {Swipe.DOWNSWIPE, false},
+            {Swipe.LEFTSWIPE, false},
+            {Swipe.RIGHTSWIPE, false}
+        };
+
+
         cam = GameObject.Find("Main Camera");
         cam_transform = cam.GetComponent<Transform>();        
         currentlySwiping = false;
@@ -192,7 +215,7 @@ public class Touch_Detection : MonoBehaviour
 
                 //Determine if the touch is a moving touch
                 case TouchPhase.Moved:
-                    currentlySwiping = DetectSwipe(dragLocs, dragStartTime, Time.timeAsDouble) != NOSWIPE;
+                    currentlySwiping = DetectSwipe(dragLocs, dragStartTime, Time.timeAsDouble) != Swipe.NOSWIPE;
                     // Determine direction by comparing the current touch position with the initial one
                     direction = touch.position - startPos;
                     dragLocs.Add(touch.position);
@@ -214,19 +237,23 @@ public class Touch_Detection : MonoBehaviour
 
                     // Check to see if we've got any swipes
                     swipeval = DetectSwipe(dragLocs, dragStartTime, dragEndTime);
-                    if (swipeval != NOSWIPE && !reticleDisabled){
+                    if (swipeval != Swipe.NOSWIPE){
                         if (DebugMode)
                             Debug.Log("SWIPE!!!");
-                        if (swipeval == UPSWIPE && SwipedUpInfo != null){
+                        if (swipeval == Swipe.UPSWIPE && enabledSwipes[Swipe.UPSWIPE] == true &&  SwipedUpInfo != null){
+                            Debug.Log("UTD");
                             SwipedUpInfo();
                         }
-                        else if (swipeval == DOWNSWIPE && SwipedDownInfo != null){
+                        else if (swipeval == Swipe.DOWNSWIPE && enabledSwipes[Swipe.DOWNSWIPE] == true && SwipedDownInfo != null){
+                            Debug.Log("DTD");
                             SwipedDownInfo();
                         }
-                        else if (swipeval == LEFTSWIPE && SwipedLeftInfo != null){
+                        else if (swipeval == Swipe.LEFTSWIPE && enabledSwipes[Swipe.LEFTSWIPE] == true && SwipedLeftInfo != null){
+                            Debug.Log("LTD");
                             SwipedLeftInfo();
                         }
-                        else if (swipeval == RIGHTSWIPE && SwipedRightInfo != null){
+                        else if (swipeval == Swipe.RIGHTSWIPE && enabledSwipes[Swipe.RIGHTSWIPE] == true && SwipedRightInfo != null){
+                            Debug.Log("RTD");
                             SwipedRightInfo();
                         }
                     }
@@ -240,6 +267,12 @@ public class Touch_Detection : MonoBehaviour
                     if (enableReticleAfterCurTap){
                         reticleDisabled = false;
                         enableReticleAfterCurTap = true;
+                    }
+                    foreach(Swipe pos_swipe in new Swipe[] {Swipe.UPSWIPE, Swipe.DOWNSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE}){
+                        if(enableSwipesAfterCurTap[pos_swipe]){
+                            enabledSwipes[pos_swipe] = true;
+                            enableSwipesAfterCurTap[pos_swipe] = false;
+                        }
                     }
 
                     break;
@@ -280,7 +313,7 @@ public class Touch_Detection : MonoBehaviour
     
 
 
-    int DetectSwipe(List<Vector2> dragLocs, double dragStartTime, double dragEndTime){
+    Swipe DetectSwipe(List<Vector2> dragLocs, double dragStartTime, double dragEndTime){
         if (dragEndTime - dragStartTime <= MaxSwipeTime){
             Vector2 dragStartLoc = dragLocs[0];
             Vector2 dragEndLoc = dragLocs[dragLocs.Count - 1];
@@ -294,49 +327,152 @@ public class Touch_Detection : MonoBehaviour
                 //Debug.Log("HDRAG PERCENT: " + HDragPercent + " --- " + HSwipeMinPercent + " TIME: " + (dragEndTime - dragStartTime) +  "---- HSWIPE!!!");
                 if (dragStartLoc.x > dragEndLoc.x)
                 {
-                    return RIGHTSWIPE;
+                    return Swipe.RIGHTSWIPE;
                 }
                 else 
                 {
-                    return LEFTSWIPE;
+                    return Swipe.LEFTSWIPE;
                 }
             }
             else if (VDragPercent >= VSwipeMinPercent){
                 if (dragStartLoc.y > dragEndLoc.y)
                 {
-                    return UPSWIPE;
+                    return Swipe.UPSWIPE;
                 }
                 else 
                 {
-                    return DOWNSWIPE;
+                    return Swipe.DOWNSWIPE;
                 }
             }
             else
             {
                 //Debug.Log("HDRAG PERCENT: " + HDragPercent + " --- " + HSwipeMinPercent + " TIME: " + (dragEndTime - dragStartTime) +  "---- NOSWIPE");
-                return NOSWIPE; // NO SWIPE... DIDN'T SWIPE FAR ENOUGH
+                return Swipe.NOSWIPE; // NO SWIPE... DIDN'T SWIPE FAR ENOUGH
             }
 
         }
         else
         {
             // NO SWIPE... Took Too Long
-            return NOSWIPE;
+            return Swipe.NOSWIPE;
         }
     }
 
     
-    public void disableReticle(){
+    public void disableReticle(bool disableswipes=true){
         //reticleCollider.enabled = false;
         reticleDisabled = true;
         enableReticleAfterCurTap = false;
+        if(disableswipes){
+            disableSwipes();
+        }
     }
 
-    public void enableReticle(){
+    public void enableReticle(bool immediately=false, bool enableswipes=true){
         //reticleCollider.enabled = true;
         //reticleDisabled = false;
+        Debug.Log("ENABLING RETICLE TD");
+        if(!immediately){
+            enableReticleAfterCurTap = true;
+        }
+        else{
+            reticleDisabled = false;
+            enableReticleAfterCurTap = false;
+        }
+        if(enableswipes){
+            enableSwipes(immediately:immediately);
+        }
+    }
+
+    public void enableReticleInstant(){
+        // A little dangerous but we gotta do it sometimes
+        reticleDisabled = false;
         enableReticleAfterCurTap = true;
     }
+
+    public void enableSwipes(bool immediately = false){
+        enableSwipes(new [] {Swipe.UPSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE, Swipe.DOWNSWIPE}, immediately);
+    }
+
+    public void enableSwipes(List<Swipe> swipes, bool immediately = false){
+        enableSwipes(swipes.ToArray(), immediately);
+    }
+
+    public void enableSwipes(Swipe[] swipes, bool immediately = false){
+        foreach(Swipe swipe in swipes){
+            enableSwipes(swipe, immediately);
+        }
+    }
+
+    public void enableSwipes(Swipe swipe, bool immediately = false){
+        if(enableSwipesAfterCurTap != null){
+            Debug.Log("ENABLING " + swipe);
+            if(!immediately){
+                enableSwipesAfterCurTap[swipe] = true;
+            }
+            else{
+                enabledSwipes[swipe] = true;
+                enableSwipesAfterCurTap[swipe] = false;
+            }
+        }
+        else{
+            StartCoroutine(_enableSwipes(swipe, immediately));
+        }
+    }
+
+    // Just in case this gets called before it's initialized
+    IEnumerator _enableSwipes(Swipe swipe, bool immediately){
+        while(enableSwipesAfterCurTap == null){
+            yield return new WaitForSeconds(0);
+        }
+        Debug.Log("ENABLING " + swipe);
+        if(!immediately){
+            enableSwipesAfterCurTap[swipe] = true;
+        }
+        else{
+            enabledSwipes[swipe] = true;
+            enableSwipesAfterCurTap[swipe] = false;
+        }
+    }
+
+
+
+    public void disableSwipes(){
+        disableSwipes(new Swipe[] {Swipe.UPSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE, Swipe.DOWNSWIPE});
+    }
+
+    public void disableSwipes(List<Swipe> swipes){
+        disableSwipes(swipes.ToArray());
+    }
+
+    public void disableSwipes(Swipe[] swipes){
+        foreach(Swipe swipe in swipes){
+            disableSwipes(swipe);
+        }
+    }
+
+    public void disableSwipes(Swipe swipe){
+        if(enabledSwipes != null){
+            Debug.Log("DISABLING " + swipe);
+            enabledSwipes[swipe] = false;
+            enableSwipesAfterCurTap[swipe] = false;
+        }
+        StartCoroutine(_disableSwipes(swipe));
+    }
+
+    // Just in case this gets called before it's initialized
+    IEnumerator _disableSwipes(Swipe swipe){
+        while(enabledSwipes == null){
+            yield return new WaitForSeconds(0);
+        }
+        Debug.Log("DISABLING " + swipe);
+        enabledSwipes[swipe] = false;
+        enableSwipesAfterCurTap[swipe] = false;
+    }
+
+
+
+
 
 
     public void disableReticleInBoundingBox(Vector3[] boundingBox){
@@ -440,17 +576,17 @@ public class Touch_Detection : MonoBehaviour
 
 
     void TapStartListener(GameObject other){
-        if (TapStartInfo != null)
+        if (TapStartInfo != null && !reticleDisabled)
             TapStartInfo(other);
     }
     
     void TapStayListener(GameObject other){
-        if (TapStayInfo != null)
+        if (TapStayInfo != null && !reticleDisabled)
             TapStayInfo(other);
     }
 
     void TapEndListener(GameObject other){
-        if (TapEndInfo != null)
+        if (TapEndInfo != null && !reticleDisabled)
             TapEndInfo(other);
     }
 

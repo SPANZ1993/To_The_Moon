@@ -146,10 +146,50 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         uiController.onNameSubmitButtonPressed();
     }
 
+    public void nameSubmitConfirmationButtonPressedYes(){
+        Debug.Log("Name Submit Yes");
+        uiController.onNameSubmitConfirmationButtonPressed(true);
+    }
+
+    public void nameSubmitConfirmationButtonPressedNo(){
+        Debug.Log("Name Submit No");
+        uiController.onNameSubmitConfirmationButtonPressed(false);
+    }
+
     public void coinNameSubmitButtonPressed(){
         Debug.Log("YO");
         uiController.onCoinNameSubmitButtonPressed();
     }
 
+    public void coinNameSubmitConfirmationButtonPressedYes(){
+        Debug.Log("Coin Name Submit Yes");
+        uiController.onCoinNameSubmitConfirmationButtonPressed(true);
+    }
 
+    public void coinNameSubmitConfirmationButtonPressedNo(){
+        Debug.Log("Coin Name Submit No");
+        uiController.onCoinNameSubmitConfirmationButtonPressed(false);
+    }
+
+
+    public void selectOptions(){
+        uiController.selectOptions();
+    }
+
+    public void selectRecords(){
+        uiController.selectRecords();
+    }
+
+    // Not a button handler... but... whatever
+    public void setOptionsScrollRect(){
+        //Debug.Log("WAS: " + GameObject.Find("Options_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition);
+        //GameObject.Find("Options_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
+        //Debug.Log("NOW: " + GameObject.Find("Options_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition);
+
+    }
+
+    public void setRecordsScrollRect(){
+        //GameObject.Find("Records_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
+    }
+    //
 }

@@ -27,6 +27,7 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     private double prevDragStartTime;
     private double prevDragEndTime;
 
+    private bool buttonEnabled = true;
 
 
     private Animator coverAnimator;
@@ -56,7 +57,11 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     public static event InitiateLaunch InitiateLaunchInfo;
 
 
+    public delegate void LidOpenedPrevFrame();
+    public static event LidOpenedPrevFrame LidOpenedPrevFrameInfo;
 
+    public delegate void LidClosedPrevFrame();
+    public static event LidClosedPrevFrame LidClosedPrevFrameInfo;
 
 
 
@@ -118,7 +123,7 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
             //Debug.Log("Finger Lifted");
             if (coverOpen && buttonPressStarted && buttonPressed){
                 // Check if we pressed the button
-                if (gameManager.remainingLaunches >= 1){
+                if (gameManager.remainingLaunches >= 1 && buttonEnabled && !UI_Controller.instance.speechIsDisplayed){
                     //Debug.Log("LAUNCH TIME BABY!");
                     launched = true;
                     InitiateLaunchInfo();
@@ -151,7 +156,7 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
 
     public void onTapEnd()
     {
-        if (!launched){
+        if (!launched && !UI_Controller.instance.speechIsDisplayed){
             // Debug.Log("LBC END");
             // If we lifted our finger, else if we dragged off the object
             StartCoroutine(_onTapEnd(true));
@@ -200,18 +205,25 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     void playSounds(){
         if(coverOpenPrevFrame != null){
             if(coverOpen && !(bool)coverOpenPrevFrame){
+                //OPENING
+                if(LidOpenedPrevFrameInfo != null){
+                    LidOpenedPrevFrameInfo();
+                }
                 if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Cover_Open")){
                     Audio_Manager.instance.Play("Rocket_Button_Cover_Open");
                 }
             }
             else if(!coverOpen && (bool)coverOpenPrevFrame){
                 //CLOSING
+                if(LidClosedPrevFrameInfo != null){
+                    LidClosedPrevFrameInfo();
+                }
                 if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Cover_Close")){
                     Audio_Manager.instance.Play("Rocket_Button_Cover_Close");
                 }
             }
         }
-        if(buttonPressedPrevFrame != null){
+        if(buttonPressedPrevFrame != null && buttonEnabled){
             if(buttonPressed && !(bool)buttonPressedPrevFrame){
                 if(!Audio_Manager.instance.IsPlaying("Rocket_Button_Press")){
                     Audio_Manager.instance.Play("Rocket_Button_Press");
@@ -237,6 +249,9 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
             curDragEndTime = touchDetection.dragEndTime;
 
             // Update animations
+            if(!buttonEnabled){
+                buttonPressed = false;
+            }
             coverAnimator.SetBool("isOpen", coverOpen);
             buttonAnimator.SetBool("isPressed", buttonPressed);
 
@@ -248,5 +263,13 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
             buttonPressStartedPrevFrame = buttonPressStartedPrevFrame;
 
         }
+    }
+
+    public void disable(){
+        buttonEnabled = false;
+    }
+
+    public void enable(){
+        buttonEnabled = true;
     }
 }
