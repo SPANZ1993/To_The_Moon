@@ -274,13 +274,14 @@ public class UI_Controller : MonoBehaviour
     private bool bookshelfMenuDisplayed = false;
 
     private GameObject Bookshelf_Container_Panel;
+    private ScrollRect bookshelfScrollRect;
 
     private GameObject Options_Selection_Panel;
     private TextMeshProUGUI Options_Selection_Panel_Text;
-    private ScrollRect optionsScrollRect;
+    //private ScrollRect optionsScrollRect;
     private GameObject Records_Selection_Panel;
     private TextMeshProUGUI Records_Selection_Panel_Text;
-    private ScrollRect recordsScrollRect;
+    //private ScrollRect recordsScrollRect;
     // End Bookshelf Menu
 
 
@@ -657,11 +658,11 @@ public class UI_Controller : MonoBehaviour
             Options_Selection_Panel = GameObject.Find("Options_Selection_Panel");
             Options_Selection_Panel_Text = GameObject.Find("Options_Selection_Panel_Text").GetComponent<TextMeshProUGUI>();
             Bookshelf_Container_Panel =  GameObject.Find("Bookshelf_Container_Panel");
-            optionsScrollRect = GameObject.Find("Bookshelf_Container_Panel").GetComponent<ScrollRect>();
+            bookshelfScrollRect = Bookshelf_Container_Panel.GetComponent<ScrollRect>();
 
             Records_Selection_Panel = GameObject.Find("Records_Selection_Panel");
             Records_Selection_Panel_Text = GameObject.Find("Records_Selection_Panel_Text").GetComponent<TextMeshProUGUI>();
-            Records_Container_Panel = GameObject.Find("Records_Container_Panel");
+            //Records_Container_Panel = GameObject.Find("Records_Container_Panel");
             //recordsScrollRect = GameObject.Find("Records_Container_Panel").GetComponent<ScrollRect>();
             // End Bookshelf Menu
 
@@ -1340,10 +1341,10 @@ public class UI_Controller : MonoBehaviour
             }
 
             try{
-                if(UI == Retry_Connect_Box){
-                    //Debug.Log("RETRY CONNECT BOX SCALE IS: " + currentLocalScales[UI]);
-                }
                 UI.transform.localScale = currentLocalScales[UI];
+                // if(UI.GetComponent<VerticalLayoutGroup>() != null){
+                //     UI.GetComponent<VerticalLayoutGroup>().enabled = true;
+                // }
             }
             catch(Exception e){
                 Debug.LogWarning(gameObject.GetInstanceID() + " MESSED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
@@ -1399,6 +1400,9 @@ public class UI_Controller : MonoBehaviour
         //     }
             if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                 UI.transform.localScale = new Vector3(0f, 0f, 0f);
+                // if(UI.GetComponent<VerticalLayoutGroup>() != null){
+                //     UI.GetComponent<VerticalLayoutGroup>().enabled = true;
+                // }
             }
 
         }
@@ -2456,7 +2460,7 @@ public class UI_Controller : MonoBehaviour
             sr.verticalNormalizedPosition = 1f;
             t += Time.deltaTime;
         }
-        Canvas.ForceUpdateCanvases();
+        //Canvas.ForceUpdateCanvases();
     }
 
 
@@ -2468,12 +2472,15 @@ public class UI_Controller : MonoBehaviour
             EnableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = true;
 
+            Touch_Detection.instance.disableReticle(disableswipes:true);
+
             selectOptions();
         } 
     }
 
     bool monitoring = false;
     public void selectOptions(){
+
 
         Options_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;
         Records_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
@@ -2485,10 +2492,11 @@ public class UI_Controller : MonoBehaviour
         
         //DisableUIElement(Records_Container_Panel);
         //EnableUIElement(Bookshelf_Container_Panel);
-        optionsScrollRect.content = GameObject.Find("Options_Scroll_Panel").GetComponent<RectTransform>();
+        bookshelfScrollRect.content = GameObject.Find("Options_Scroll_Panel").GetComponent<RectTransform>();
         // optionsScrollRect.content = GameObject.Find("Bookshelf_Container_Panel").GetComponent<RectTransform>();
+        
+        
         DisableUIElement(GameObject.Find("Records_Scroll_Panel"));
-
         EnableUIElement(GameObject.Find("Options_Scroll_Panel"));
 
 
@@ -2504,6 +2512,7 @@ public class UI_Controller : MonoBehaviour
         //optionsScrollRect.SetNormalizedPosition(1f, 1);
         //Canvas.ForceUpdateCanvases();
         //StartCoroutine(setScrollRectToTop(optionsScrollRect));
+        StartCoroutine(setScrollRectToTop(bookshelfScrollRect));
         //StartCoroutine(_selectOptionsNextFrame());
         // IEnumerator monitorOptions(){
         //     monitoring = true;
@@ -2528,7 +2537,7 @@ public class UI_Controller : MonoBehaviour
 
         
 
-        optionsScrollRect.content = GameObject.Find("Records_Scroll_Panel").GetComponent<RectTransform>();
+        bookshelfScrollRect.content = GameObject.Find("Records_Scroll_Panel").GetComponent<RectTransform>();
 
         DisableUIElement(GameObject.Find("Options_Scroll_Panel"));
         EnableUIElement(GameObject.Find("Records_Scroll_Panel"));
@@ -2554,6 +2563,7 @@ public class UI_Controller : MonoBehaviour
         // StartCoroutine(_setVertPos());
         //Canvas.ForceUpdateCanvases();
         //StartCoroutine(setScrollRectToTop(recordsScrollRect));
+        StartCoroutine(setScrollRectToTop(bookshelfScrollRect));
         
     }
 

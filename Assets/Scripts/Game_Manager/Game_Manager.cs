@@ -1000,13 +1000,14 @@ public class Game_Manager : MonoBehaviour
     //Turns off/on whether elements other than UI elements can be tapped on
     private void disableNonUITouch(){
         //Debug.Log("DisableRet Game Manager " + DateTime.Now);
-        Touch_Detection.instance.disableReticle();
+        Touch_Detection.instance.disableReticle(disableswipes:true);
     }
 
     private void enableNonUITouch(){
         //Debug.Log("EnableRet Game Manager " + DateTime.Now);
         Debug.Log("ENABLING GM");
         touchDetection.enableReticle();
+        touchDetection.enableSwipes(immediately:false);
     }
 
     private void disableNonUITouchBoundingBox(Vector3[] boundingBox){
