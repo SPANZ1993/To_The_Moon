@@ -97,6 +97,9 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
     public void onSpeechBannerButtonPressed(){
         uiController.onSpeechBannerButtonPressed();
+        // if(!UI_Controller.instance.speechIsDisplayed){
+        //     UI_Controller.instance.displayExampleSpeech();
+        // }
     }
 
 
@@ -181,15 +184,18 @@ public class Main_Area_Button_Handlers : MonoBehaviour
     }
 
     // Not a button handler... but... whatever
-    public void setOptionsScrollRect(){
-        //Debug.Log("WAS: " + GameObject.Find("Options_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition);
-        //GameObject.Find("Options_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
-        //Debug.Log("NOW: " + GameObject.Find("Options_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition);
-
+    public void onSoundFXSliderChanged(GameObject sliderObj){
+        Game_Manager.instance.soundFxSoundLevel = sliderObj.GetComponent<Slider>().value;
+        Audio_Manager.instance.UpdateChannelVolumes();
     }
 
-    public void setRecordsScrollRect(){
-        //GameObject.Find("Records_Container_Panel").GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
+    public void onMusicSliderChanged(GameObject sliderObj){
+        Game_Manager.instance.musicSoundLevel = sliderObj.GetComponent<Slider>().value;
+        Audio_Manager.instance.UpdateChannelVolumes();
+    }
+
+    public void selectTextSpeed(GameObject ToggleObj){
+        Game_Manager.instance.textSpeed = ToggleObj.GetComponent<TextSpeedHolder>().textSpeed;
     }
     //
 }

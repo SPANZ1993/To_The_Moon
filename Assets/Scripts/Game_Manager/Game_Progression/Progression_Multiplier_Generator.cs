@@ -24,11 +24,21 @@ public class Progression_Multiplier_Generator : MonoBehaviour
     }
 
     public static double generateMineCartCoinsPerSecondUpgradeValue(double mineCartCoinsPerSecond){
-        return Math.Round(mineCartCoinsPerSecond * 1.1);
+        if(mineCartCoinsPerSecond > 10){
+            return Math.Round(mineCartCoinsPerSecond * 1.1);
+        }
+        else{
+            return Math.Round(mineCartCoinsPerSecond * 2.0);
+        }
     }
 
     public static double generateMineGameHitCoinsUpgradeValue(double mineGameHitCoins){
-        return Math.Round(mineGameHitCoins * 1.1);
+        if(mineGameHitCoins > 10){
+            return Math.Round(mineGameHitCoins * 1.1);
+        }
+        else{
+            return Math.Round(mineGameHitCoins * 2.0);
+        }
     }
 
     public static double generateMineGameSolveCoinsUpgradeValue(double mineGameSolveCoins){

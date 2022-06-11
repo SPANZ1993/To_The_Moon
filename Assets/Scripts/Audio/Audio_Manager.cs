@@ -1,10 +1,15 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //Credit to Brackeys youtube tutorial on Audio managers, as the majority of this code and learning how to use it was made by him.
 
+public enum AudioChannel{
+    SoundFX = 0,
+    Music = 1
+    }
 
 public partial class Audio_Manager : MonoBehaviour
 {
@@ -44,10 +49,20 @@ public partial class Audio_Manager : MonoBehaviour
     // }
 
     public void OnLevelWasLoaded(){
+        float curSoundLevel = 1f;
         foreach (Sound s in sounds)
         {
+            if(s.channel == AudioChannel.SoundFX){
+                curSoundLevel = Game_Manager.instance.soundFxSoundLevel;
+            }
+            else if(s.channel == AudioChannel.Music){
+                curSoundLevel = Game_Manager.instance.musicSoundLevel;
+            }
+            else{
+                curSoundLevel = 1f;
+            }
             Stop(s.name);
-            SetVolume(s, s.origVolume);
+            SetVolume(s, s.origVolume * curSoundLevel);
         }
 
         if (SceneManager.GetActiveScene().name == "Main_Area"){
@@ -55,7 +70,7 @@ public partial class Audio_Manager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
             Play("Rocket_Flight_Thrusters");
-            //Play("Rocket_Theme_Earth");
+            Play("Rocket_Theme_Earth");
         }
         else if (SceneManager.GetActiveScene().name == "Mine_Game"){
             Play("Mine_Theme_Earth");
@@ -180,6 +195,38 @@ public partial class Audio_Manager : MonoBehaviour
 
     public void ResetPitch(Sound s){
         SetPitch(s, s.origPitch);
+    }
+
+
+    public void UpdateChannelVolumes(){
+        float curSoundLevel = 1f;
+        foreach (Sound s in sounds)
+        {
+            if(s.channel == AudioChannel.SoundFX){
+                curSoundLevel = Game_Manager.instance.soundFxSoundLevel;
+            }
+            else if(s.channel == AudioChannel.Music){
+                curSoundLevel = Game_Manager.instance.musicSoundLevel;
+            }
+            else{
+                curSoundLevel = 1f;
+            }
+            SetVolume(s, s.origVolume * curSoundLevel);
+        }
+    }
+
+    public void UpdateChannelVolumes(Dictionary<AudioChannel, float> levels){
+        float curSoundLevel = 1f;
+        foreach (Sound s in sounds)
+        {
+            if(levels.ContainsKey(s.channel)){
+                curSoundLevel = levels[s.channel];
+            }
+            else{
+                curSoundLevel = 1f;
+            }
+            SetVolume(s, s.origVolume * curSoundLevel);
+        }
     }
 
 }

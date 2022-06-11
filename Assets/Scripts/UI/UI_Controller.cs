@@ -19,6 +19,18 @@ using System.Text;
 using System.Linq;
 
 
+
+
+public enum TextSpeed{
+    Slow = 0,
+    Medium = 1,
+    Fast = 2
+}
+
+
+
+
+
 public class UI_Controller : MonoBehaviour
 {
 
@@ -281,7 +293,23 @@ public class UI_Controller : MonoBehaviour
     //private ScrollRect optionsScrollRect;
     private GameObject Records_Selection_Panel;
     private TextMeshProUGUI Records_Selection_Panel_Text;
-    //private ScrollRect recordsScrollRect;
+
+    private TextMeshProUGUI Highest_Altitude_Value_Text;
+    private TextMeshProUGUI Most_Coins_Value_Text;
+
+    private TextMeshProUGUI Minecart_Capacity_Value_Text;
+    private TextMeshProUGUI Minecart_Rate_Value_Text;
+    private TextMeshProUGUI Mineshaft_Per_Swing_Value_Text;
+    private TextMeshProUGUI Mineshaft_Per_Block_Value_Text;
+
+
+    private Slider musicLevelSlider;
+    private Slider soundFxLevelSlider;
+
+
+    private Checkbox_Group textSpeedCheckboxGroup;
+    private Checkbox_Group languageCheckboxGroup;
+
     // End Bookshelf Menu
 
 
@@ -664,6 +692,24 @@ public class UI_Controller : MonoBehaviour
             Records_Selection_Panel_Text = GameObject.Find("Records_Selection_Panel_Text").GetComponent<TextMeshProUGUI>();
             //Records_Container_Panel = GameObject.Find("Records_Container_Panel");
             //recordsScrollRect = GameObject.Find("Records_Container_Panel").GetComponent<ScrollRect>();
+
+            musicLevelSlider = GameObject.Find("Music_Slider").GetComponent<Slider>();
+            soundFxLevelSlider = GameObject.Find("Sound_FX_Slider").GetComponent<Slider>();
+
+            textSpeedCheckboxGroup = GameObject.Find("Text_Speed_Separator_Panel").GetComponent<Checkbox_Group>();
+            languageCheckboxGroup = GameObject.Find("Language_Separator_Panel").GetComponent<Checkbox_Group>();
+
+
+            Most_Coins_Value_Text = GameObject.Find("Most_Coins_Value_Text").GetComponent<TextMeshProUGUI>();
+            Highest_Altitude_Value_Text = GameObject.Find("Highest_Altitude_Value_Text").GetComponent<TextMeshProUGUI>();
+
+
+            Minecart_Capacity_Value_Text = GameObject.Find("Mines_Info_Minecart_Info_Capacity_Value_Text").GetComponent<TextMeshProUGUI>();
+            Minecart_Rate_Value_Text = GameObject.Find("Mines_Info_Minecart_Info_Rate_Value_Text").GetComponent<TextMeshProUGUI>();
+            Mineshaft_Per_Swing_Value_Text = GameObject.Find("Mines_Info_Mineshaft_Info_Per_Swing_Value_Text").GetComponent<TextMeshProUGUI>();
+            Mineshaft_Per_Block_Value_Text = GameObject.Find("Mines_Info_Mineshaft_Info_Per_Block_Value_Text").GetComponent<TextMeshProUGUI>();
+
+
             // End Bookshelf Menu
 
 
@@ -802,12 +848,7 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void onButtonTmp5(){
-        if(GameObject.Find("Speech_Banner").transform.localScale == new Vector3(0.0f, 0.0f, 0.0f)){
-            displayExampleSpeech();
-        }
-        else{
-            //Debug.Log("ALREADY TALKING CHIEF");
-        }
+        displayExampleSpeech();
     }
 
     public void onButtonTmp6(){
@@ -1026,7 +1067,7 @@ public class UI_Controller : MonoBehaviour
 
 
 
-    void displayExampleSpeech(){
+    public void displayExampleSpeech(){
             List<string> example_speech_strings = new List<string>();
             List<Characters> example_speech_characters = new List<Characters>();
             List<Emotions> example_speech_emotions = new List<Emotions>();
@@ -1444,7 +1485,6 @@ public class UI_Controller : MonoBehaviour
 
     // This code is very good and makes sense
     public void Display_Speech(Speech_Object speech_object, System.Action callBack=null){
-        speechIsDisplayed = true;
         int curSpeechIndex = 0;
         int curCharIndex = 1;
         //SpeechText_TMP
@@ -1607,7 +1647,18 @@ public class UI_Controller : MonoBehaviour
         }
 
         IEnumerator _update_displayed_text(int _cur_speech_index){
-            yield return new WaitForSeconds(0.03f);
+            if(Game_Manager.instance.textSpeed == TextSpeed.Fast){
+                yield return new WaitForSeconds(0.0075f);
+            }
+            else if(Game_Manager.instance.textSpeed == TextSpeed.Medium){
+                yield return new WaitForSeconds(0.03f);
+            }
+            else if (Game_Manager.instance.textSpeed == TextSpeed.Slow){
+                yield return new WaitForSeconds(0.065f);
+            }
+            else{
+                yield return new WaitForSeconds(0.03f);
+            }
             //yield return new WaitForSeconds(0.2f);
             // if(speechBannerButtonPressed){
             //     Debug.Log("SPEECH BANNER PRESSED OUT HERE!!");
@@ -1660,22 +1711,26 @@ public class UI_Controller : MonoBehaviour
             }
         }
 
-        Vector3[] speechBannerBb = new Vector3[4];
-        SpeechBanner.GetComponent<RectTransform>().GetWorldCorners(speechBannerBb);
-        if(UIDisplayStartedInfo != null){
-            if (speech_object.is_blocker){
-                UIDisplayStartedInfo(new Vector3[0]);
+        if(!speechIsDisplayed){
+            Debug.Log("Displaying Speech");
+            speechIsDisplayed = true;
+            Vector3[] speechBannerBb = new Vector3[4];
+            SpeechBanner.GetComponent<RectTransform>().GetWorldCorners(speechBannerBb);
+            if(UIDisplayStartedInfo != null){
+                if (speech_object.is_blocker){
+                    UIDisplayStartedInfo(new Vector3[0]);
+                }
+                else{
+                    UIDisplayStartedInfo(speechBannerBb);
+                }
             }
-            else{
-                UIDisplayStartedInfo(speechBannerBb);
-            }
-        }
 
-        EnableUIElement(SpeechBanner);
-        //touch_detection
-        initializeChars2Emotions2Sounds();
-        StartCoroutine(_display_speech_element());
-        //StartCoroutine(_playSpeechSound());
+            EnableUIElement(SpeechBanner);
+            //touch_detection
+            initializeChars2Emotions2Sounds();
+            StartCoroutine(_display_speech_element());
+            //StartCoroutine(_playSpeechSound());
+        }
     }
     // Speech Banner End
 
@@ -2487,6 +2542,17 @@ public class UI_Controller : MonoBehaviour
         Options_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = selectedFont;
         Records_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = unselectedFont;
 
+        soundFxLevelSlider.value = Game_Manager.instance.soundFxSoundLevel;
+        musicLevelSlider.value = Game_Manager.instance.musicSoundLevel;
+
+        //foreach(Toggle t in textSpeedCheckboxGroup.registeredToggles){
+            //Debug.Log(t.gameObject.name + " --- " + t.gameObject.GetComponent<TextSpeedHolder>().textSpeed + " --- " + (t.gameObject.GetComponent<TextSpeedHolder>().textSpeed == Game_Manager.instance.textSpeed));
+            //Debug.Log("AY: " + textSpeedCheckboxGroup.registeredToggles.Where(t => (t.gameObject.GetComponent<TextSpeedHolder>().textSpeed == Game_Manager.instance.textSpeed)).ToList());
+            //Debug.Log("AY: " + textSpeedCheckboxGroup.registeredToggles.Where(t => (t.gameObject.GetComponent<TextSpeedHolder>().textSpeed == Game_Manager.instance.textSpeed)).ToList().Count());
+        //}
+        //Debug.Log(string.Join(",", textSpeedCheckboxGroup.registeredToggles.Where(t => t.gameObject.GetComponent<TextSpeedHolder>().textSpeed == Game_Manager.instance.textSpeed).ToList()));
+        //Debug.Log("WOO: " + textSpeedCheckboxGroup.registeredToggles.Where(t => t.gameObject.GetComponent<TextSpeedHolder>().textSpeed == Game_Manager.instance.textSpeed).ToList()[0]);
+        textSpeedCheckboxGroup.SelectCheckbox(textSpeedCheckboxGroup.registeredToggles.Where(t => t.gameObject.GetComponent<TextSpeedHolder>().textSpeed == Game_Manager.instance.textSpeed).ToList()[0]);
         // optionsScrollRect.content = null;
         
         
@@ -2535,7 +2601,16 @@ public class UI_Controller : MonoBehaviour
         Options_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = unselectedFont;
         Records_Selection_Panel_Text.GetComponent<TextMeshProUGUI>().font = selectedFont;
 
-        
+        Highest_Altitude_Value_Text.text = Number_String_Formatter.formatHighestAltitudeText(Game_Manager.instance.metrics.maxAltAllTime); 
+        Most_Coins_Value_Text.text = Number_String_Formatter.formatMostCoinsText(Game_Manager.instance.metrics.maxCoinsAlltime);
+
+
+        Minecart_Capacity_Value_Text.text = Number_String_Formatter.formatMinecartCapacityText(Game_Manager.instance.mineCartCoinsCapacity);
+        Minecart_Rate_Value_Text.text = Number_String_Formatter.formatMinecartRateText(Game_Manager.instance.mineCartCoinsPerSecond * 60.0);
+        Mineshaft_Per_Swing_Value_Text.text = Number_String_Formatter.formatMineshaftPerSwingText(Game_Manager.instance.mineGameHitCoins);
+        Mineshaft_Per_Block_Value_Text.text = Number_String_Formatter.formatMineshaftPerBlockText(Game_Manager.instance.mineGameSolveCoins);
+
+
 
         bookshelfScrollRect.content = GameObject.Find("Records_Scroll_Panel").GetComponent<RectTransform>();
 

@@ -169,6 +169,12 @@ public class PlayFab_Initializer : MonoBehaviour
     void onGetSaveDataSuccess(SaveGameObject loadedGame){
         //Debug.Log("GOT SAVE DATA HERE: " + loadedGame);
         loadedData = loadedGame;
+
+        Dictionary<AudioChannel, float> channelVols = new Dictionary<AudioChannel, float>();
+        channelVols[AudioChannel.SoundFX] = loadedData.SoundFxSoundLevel;
+        channelVols[AudioChannel.Music] = loadedData.MusicSoundLevel;
+        Audio_Manager.instance.UpdateChannelVolumes(channelVols);
+        
         waitingForResponsePlayFabData = false;
 
     }

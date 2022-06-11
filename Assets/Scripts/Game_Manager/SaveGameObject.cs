@@ -53,6 +53,11 @@ public class SaveGameObject
     public int LaunchesRemaining {get; set;}
     public double PrevLaunchTime{get; set;}
 
+    public float MusicSoundLevel {get; set;}
+    public float SoundFxSoundLevel {get; set;}
+
+    public TextSpeed SpeedText {get; set;}
+
     public List<int> UnlockedResearchIds {get; set;}
     public List<int> UnlockedResearcherIds {get; set;}
     public List<ResearchAssignmentObject> AssignedResearchers {get; set;}
@@ -89,6 +94,11 @@ public class SaveGameObject
         MineGameSolveCoins = 10;
         MineGameHitCoinsUpgradePrice = 100.0;
         MineGameSolveCoinsUpgradePrice = 100.0;
+
+        MusicSoundLevel = 1f;
+        SoundFxSoundLevel = 1f;
+
+        SpeedText = TextSpeed.Medium;
 
         UnlockedResearchIds = new List<int> {1, 2};
         UnlockedResearcherIds = new List<int> {1, 2};
@@ -140,6 +150,9 @@ public class SaveGameObject
                             double mineGameSolveCoinsUpgradePrice,
                             double lastLaunchTimeUnix,
                             int launchesRemaining,
+                            float musicSoundLevel,
+                            float soundFxSoundLevel,
+                            TextSpeed speedText,
                             List<int> unlockedResearchIds,
                             List<int> unlockedResearcherIds,
                             List<ResearchAssignmentObject> assignedResearchers,
@@ -172,6 +185,11 @@ public class SaveGameObject
         
         LastLaunchTimeUnix = lastLaunchTimeUnix;
         LaunchesRemaining = launchesRemaining;
+
+        MusicSoundLevel = musicSoundLevel;
+        SoundFxSoundLevel = soundFxSoundLevel;
+
+        SpeedText = speedText;
 
         UnlockedResearchIds = unlockedResearchIds;
         UnlockedResearcherIds = unlockedResearcherIds;

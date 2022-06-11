@@ -411,6 +411,7 @@ MonoBehaviour:
     volume: 0
     pitch: 1
     loop: 1
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -419,6 +420,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    channel: 1
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -427,6 +429,7 @@ MonoBehaviour:
     volume: 0.6
     pitch: 1
     loop: 1
+    channel: 1
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -435,6 +438,7 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     loop: 1
+    channel: 1
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -443,6 +447,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -451,6 +456,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -459,6 +465,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -467,6 +474,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -475,6 +483,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -483,6 +492,7 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -491,6 +501,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -499,6 +510,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -507,6 +519,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -515,6 +528,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -523,6 +537,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -531,6 +546,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -539,6 +555,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -547,6 +564,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -555,6 +573,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -563,6 +582,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -571,6 +591,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -579,6 +600,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -587,6 +609,7 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -595,6 +618,7 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -603,6 +627,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -611,6 +636,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -619,6 +645,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -627,6 +654,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -635,6 +663,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -643,6 +672,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -651,6 +681,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -659,6 +690,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -667,6 +699,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -675,6 +708,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -683,6 +717,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -691,6 +726,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -699,6 +735,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -707,6 +744,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -715,6 +753,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -723,6 +762,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -731,6 +771,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -739,6 +780,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -747,6 +789,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -755,6 +798,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -763,6 +807,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -771,6 +816,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -779,6 +825,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -787,6 +834,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -795,6 +843,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -803,6 +852,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -811,6 +861,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -819,6 +870,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -827,6 +879,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -835,6 +888,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -843,6 +897,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -851,6 +906,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -859,6 +915,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -867,6 +924,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -875,6 +933,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -883,6 +942,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -891,6 +951,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -899,6 +960,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -907,6 +969,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -915,6 +978,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -923,6 +987,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -931,6 +996,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -939,6 +1005,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -947,6 +1014,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -955,6 +1023,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -963,6 +1032,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -971,6 +1041,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -979,6 +1050,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -987,6 +1059,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -995,6 +1068,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1003,6 +1077,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1011,6 +1086,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1019,6 +1095,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1027,6 +1104,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1035,6 +1113,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1043,6 +1122,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1051,6 +1131,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1059,6 +1140,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1067,6 +1149,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1075,6 +1158,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1083,6 +1167,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1091,6 +1176,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1099,6 +1185,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1107,6 +1194,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1115,6 +1203,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1123,6 +1212,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1131,6 +1221,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1139,6 +1230,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1147,6 +1239,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1155,6 +1248,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1163,6 +1257,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1171,6 +1266,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1179,6 +1275,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1187,6 +1284,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1195,6 +1293,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1203,6 +1302,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1211,6 +1311,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1219,6 +1320,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1227,6 +1329,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1235,6 +1338,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1243,6 +1347,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1251,6 +1356,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1259,6 +1365,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1267,6 +1374,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1275,6 +1383,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1283,6 +1392,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1291,6 +1401,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1299,6 +1410,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1307,6 +1419,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1315,6 +1428,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1323,6 +1437,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1331,6 +1446,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1339,6 +1455,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1347,6 +1464,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1355,6 +1473,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1363,6 +1482,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1371,6 +1491,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1379,6 +1500,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1387,6 +1509,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1395,6 +1518,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1403,6 +1527,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1411,6 +1536,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1419,6 +1545,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1427,6 +1554,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1435,6 +1563,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1443,6 +1572,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1451,6 +1581,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1459,6 +1590,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1467,6 +1599,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1475,6 +1608,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1483,6 +1617,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1491,6 +1626,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1499,6 +1635,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1507,6 +1644,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1515,6 +1653,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1523,6 +1662,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1531,6 +1671,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1539,6 +1680,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1547,6 +1689,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1555,6 +1698,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1563,6 +1707,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1571,6 +1716,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1579,6 +1725,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1587,6 +1734,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1595,6 +1743,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1603,6 +1752,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1611,6 +1761,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1619,6 +1770,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1627,6 +1779,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1635,6 +1788,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1643,6 +1797,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1651,6 +1806,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1659,6 +1815,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1667,6 +1824,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1675,6 +1833,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1683,6 +1842,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1691,6 +1851,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    channel: 0
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
@@ -1897,6 +2058,10 @@ MonoBehaviour:
     numRewardedAdsWatchedRocketFlight: 0
     numRewardedAdsOfferedMineGame: 0
     numRewardedAdsWatchedMineGame: 0
+  userDisplayName: 
+  coinName: 
+  musicSoundLevel: 0
+  soundFxSoundLevel: 0
   playInterstitialAdOnMenuClose: 0
 --- !u!4 &203233948
 Transform:

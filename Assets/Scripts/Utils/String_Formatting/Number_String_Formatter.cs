@@ -125,7 +125,56 @@ public class Number_String_Formatter
     }
     // End Lab Menu Stuff
 
+    // Bookshelf Menu Stuff
+    public static string formatHighestAltitudeText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
 
+    public static string formatHighestAltitudeText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMostCoinsText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMostCoinsText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+
+    public static string formatMinecartCapacityText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMinecartCapacityText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMinecartRateText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMinecartRateText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMineshaftPerSwingText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMineshaftPerSwingText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMineshaftPerBlockText(double price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+
+    public static string formatMineshaftPerBlockText(float price, int decimals=0){
+        return defaultNumberFormat(price, decimals: decimals);
+    }
+    // End Bookshelf Menu Stuff
 
 
     // Speech Object Stuff

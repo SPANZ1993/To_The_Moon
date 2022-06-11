@@ -19,7 +19,7 @@ public class Mine_Shaft_Controller : MonoBehaviour, ITappable
 
     private Game_Manager gameManager;
 
-    [HideInInspector]
+
     public double mineGameLastPlayedUnix;
     public double mineGameRefreshTime;
     public double nextRefreshTimeUnix {get; set;}

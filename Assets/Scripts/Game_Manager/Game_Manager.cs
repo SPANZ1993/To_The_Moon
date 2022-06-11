@@ -136,10 +136,21 @@ public class Game_Manager : MonoBehaviour
     public string userDisplayName;
     public string coinName;
 
+
+    // Sound Info
+    public float musicSoundLevel;
+    public float soundFxSoundLevel;
+
+
+
+    // Text Stuff
+    public TextSpeed textSpeed;
+
+
     private UI_Controller uiController;
 
 
-        // Ads Stuff
+    // Ads Stuff
     private Ads_Manager adsManager;
     public bool playInterstitialAdOnMenuClose = false;
 
@@ -159,6 +170,11 @@ public class Game_Manager : MonoBehaviour
             mineGameRefreshTime = 3600.0;
             launchRefreshTime = 1800.0;
             offLineMode = false;
+
+            musicSoundLevel = 1f;
+            soundFxSoundLevel = 1f;
+
+            textSpeed = TextSpeed.Medium;
 
             instance = this;
             instanceID = gameObject.GetInstanceID();
@@ -287,6 +303,9 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
         fixRoundingErrors();
         //Debug.Log("SERIALIZING?: " + Serializing);
         //Debug.Log("MINEGAME: " + mineGameHitCoins + " --- " + mineGameSolveCoins);
@@ -600,6 +619,14 @@ public class Game_Manager : MonoBehaviour
         }
 
         metrics = loadedGame.Metrics;
+
+        musicSoundLevel = loadedGame.MusicSoundLevel;
+        soundFxSoundLevel = loadedGame.SoundFxSoundLevel;
+        Audio_Manager.instance.UpdateChannelVolumes();
+        
+        textSpeed = loadedGame.SpeedText;
+        
+
         initializedGame = true;
     }
 
@@ -1075,10 +1102,10 @@ public class Game_Manager : MonoBehaviour
             }
             coins -= mineCartCoinsPerSecondUpgradePrice;
             mineCartCoinsPerSecond = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradeValue(mineCartCoinsPerSecond);
-            //Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
+            Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
             mineCartCoinsPerSecondUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradePriceValue(mineCartCoinsPerSecondUpgradePrice);
-            minecartManager.coinsPerSecond = mineCartCoinsPerSecond;
-            minecartManager.calculateNextFullTime();
+            Minecart_Manager.instance.coinsPerSecond = mineCartCoinsPerSecond;
+            Minecart_Manager.instance.calculateNextFullTime();
             //uiController.selectCartUpgrade();
             //adsManager.showInterstitialAd();
             playInterstitialAdOnMenuClose = true;
@@ -1102,8 +1129,8 @@ public class Game_Manager : MonoBehaviour
             mineCartCoinsCapacity = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradeValue(mineCartCoinsCapacity);
             //Debug.Log("COLD STORAGE UPGRADE BUTTON PRESSED --- MINE CART COINS CAPACITY: " + mineCartCoinsCapacity);
             mineCartCoinsCapacityUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsCapacityUpgradePriceValue(mineCartCoinsCapacityUpgradePrice);
-            minecartManager.coinsCapacity = mineCartCoinsCapacity;
-            minecartManager.calculateNextFullTime();
+            Minecart_Manager.instance.coinsCapacity = mineCartCoinsCapacity;
+            Minecart_Manager.instance.calculateNextFullTime();
             //uiController.selectCartUpgrade();
             //adsManager.showInterstitialAd();
             playInterstitialAdOnMenuClose = true;
