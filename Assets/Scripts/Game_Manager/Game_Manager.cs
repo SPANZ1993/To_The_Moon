@@ -146,9 +146,9 @@ public class Game_Manager : MonoBehaviour
     // Text Stuff
     public TextSpeed textSpeed;
 
-
+    // UI Stuff
     private UI_Controller uiController;
-
+    public Vector3 circleWipeOpenSize;
 
     // Ads Stuff
     private Ads_Manager adsManager;
@@ -224,6 +224,14 @@ public class Game_Manager : MonoBehaviour
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
                 //Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);
+
+                if(circleWipeOpenSize == null || circleWipeOpenSize.Equals(new Vector3())){
+                    circleWipeOpenSize = GameObject.Find("Circle_Wipe_Iris").transform.localScale;
+                    Debug.Log("GOT CIRCLE WIPE SIZE: " + circleWipeOpenSize);
+                }
+                else{
+                    Debug.Log("DIDNT GET IT: " + circleWipeOpenSize);
+                }
 
 
                 

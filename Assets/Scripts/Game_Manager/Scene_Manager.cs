@@ -308,6 +308,7 @@ public class Scene_Manager : MonoBehaviour
 
     void onMineShaftTapped(){
         if(mineShaftController.mineGameIsReady){
+            Touch_Detection.instance.disableReticle(disableswipes:true);
             onStartMineScene();
         }
     }

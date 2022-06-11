@@ -173,6 +173,8 @@ public class Touch_Detection : MonoBehaviour
     void OnLevelWasLoaded(){
         cam = GameObject.Find("Main Camera");
         cam_transform = cam.GetComponent<Transform>();
+        enableReticle(immediately:true);
+        enableSwipes(immediately:true);
     }
 
     // Update is called once per frame

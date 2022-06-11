@@ -22,7 +22,7 @@ public class Mine_Shaft_Controller : MonoBehaviour, ITappable
 
     public double mineGameLastPlayedUnix;
     public double mineGameRefreshTime;
-    public double nextRefreshTimeUnix {get; set;}
+    public double nextRefreshTimeUnix;
     public bool mineGameIsReady {get; private set;}
 
     public bool initialized = false;

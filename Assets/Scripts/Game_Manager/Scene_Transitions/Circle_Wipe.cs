@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class Circle_Wipe : Scene_Transition
 {
 
@@ -70,6 +72,7 @@ public class Circle_Wipe : Scene_Transition
         StartCoroutine(_startTransitionSoundNextFrame());
 
         void OnEnteringWipeComplete(){
+            Debug.Log("WIPE COMPLETE");
             base._EnteringSceneComplete();
         }
 
@@ -81,6 +84,9 @@ public class Circle_Wipe : Scene_Transition
         // float startY = rt.anchoredPosition.y;
         Wipe_Iris.transform.localScale = new Vector3(0f, 0f, 0f);
         Vector3 newSize = new Vector3(15f, 15f, 15f);
+        if(SceneManager.GetActiveScene().name == "Main_Area"){
+            newSize = Game_Manager.instance.circleWipeOpenSize;
+        }
         // leavingWipeTweenId = LeanTween.value(Wipe_Rect, startY, 0.0f, wipeTime).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(
         //     (value) => 
         //     {
