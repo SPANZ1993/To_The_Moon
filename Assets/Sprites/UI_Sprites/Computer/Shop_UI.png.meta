@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: d40b72e6ffbe36740b3dceacde0e3532
+guid: 9c7dc10e078f45845ad03ed83ed3a053
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6595680761151332689
-    second: UI_Unselected
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -92,19 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -127,194 +112,206 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Green_Button_Pressed
+      name: Shop_UI_Logo
       rect:
         serializedVersion: 2
-        x: 1
-        y: 373
-        width: 371
-        height: 370
+        x: 2
+        y: 27
+        width: 70
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 755e173cf60646ae0800000000000000
-      internalID: -1557013538026691241
+      spriteID: a0e6e19f27368284bb22dddeef0e48fa
+      internalID: -1443817615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Green_Button_Unpressed
+      name: Shop_UI_Browser_Window
       rect:
         serializedVersion: 2
-        x: 374
-        y: 373
-        width: 371
-        height: 371
+        x: 76
+        y: 67
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 53, y: 52, z: 50, w: 50}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78dbda97e36d52100800000000000000
-      internalID: 82707731993968007
+      spriteID: b85a3aaee629d0c468f1ef112583f4f0
+      internalID: -444192067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Mini_Img_Frame
+      name: Shop_UI_Panel
       rect:
         serializedVersion: 2
-        x: 748
-        y: 374
-        width: 370
-        height: 370
+        x: 102
+        y: 67
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 20, z: 20, w: 20}
+      border: {x: 8, y: 8, z: 8, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b10cc935c0ddffe00800000000000000
-      internalID: 1080825480604336155
+      spriteID: c9ea0ddc8f964aa449d8e9bec6f31e98
+      internalID: -1748580292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Outline
+      name: Shop_UI_Text_Panel
       rect:
         serializedVersion: 2
-        x: 1121
-        y: 374
-        width: 370
-        height: 370
+        x: 76
+        y: 41
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 80, y: 80, z: 80, w: 80}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 187754eda00643180800000000000000
-      internalID: -9136572144232859775
+      spriteID: e7dabd9eca37b014083e9f1d8d4172ff
+      internalID: 1430076162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Red_Button_Pressed
+      name: Shop_UI_Picture_Outline
       rect:
         serializedVersion: 2
-        x: 1494
-        y: 374
-        width: 370
-        height: 370
+        x: 102
+        y: 41
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2cb52d679eba2770800000000000000
-      internalID: 8586885197115800619
+      spriteID: 948adebe4b919b24287f5cfd69b883c8
+      internalID: -1159513259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Red_Button_Unpressed
+      name: Shop_UI_Confirm_Button_Unpressed
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 15
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f816723a3c36e9d45b95bf05609a99c9
+      internalID: 600104375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_UI_Confirm_Button_Pressed
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 15
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04acbf1bfd906f4186ec4b0bba81804
+      internalID: -1666086285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_UI_Deny_Button_Unpressed
       rect:
         serializedVersion: 2
         x: 2
         y: 1
-        width: 370
-        height: 370
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+      border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bcd3691f46e04170800000000000000
-      internalID: 8160775752198118580
+      spriteID: b5848a69eef7bc1458d6f0cdc19a4498
+      internalID: 1182482884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Pane
+      name: Shop_UI_Deny_Button_Pressed
       rect:
         serializedVersion: 2
-        x: 375
+        x: 28
         y: 1
-        width: 370
-        height: 370
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6a06f0b8a30d5760800000000000000
-      internalID: 7448113381798972013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Selected
-      rect:
-        serializedVersion: 2
-        x: 748
-        y: 1
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c978e8482f969dc60800000000000000
-      internalID: 7843416716369364892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Unselected
-      rect:
-        serializedVersion: 2
-        x: 1121
-        y: 1
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fae52bb0b4f6774a0800000000000000
-      internalID: -6595680761151332689
+      spriteID: dacc4e3e6c1d68544a216e4e881bfc89
+      internalID: -1745838541
       vertices: []
       indices: 
       edges: []
@@ -322,7 +319,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0aceb58c548507f4e9a1d642ee288dd1
+    spriteID: a147a7972c28fe3479d8f2136863b951
     internalID: 0
     vertices: []
     indices: 
@@ -330,15 +327,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Green_Button_Pressed: -1557013538026691241
-      UI_Red_Button_Unpressed: 8160775752198118580
-      UI_Outline: -9136572144232859775
-      UI_Pane: 7448113381798972013
-      UI_Unselected: -6595680761151332689
-      UI_Red_Button_Pressed: 8586885197115800619
-      UI_Selected: 7843416716369364892
-      UI_Mini_Img_Frame: 1080825480604336155
-      UI_Green_Button_Unpressed: 82707731993968007
+      Shop_UI_Text_Panel: 1430076162
+      Shop_UI_Panel: -1748580292
+      Shop_UI_Deny_Button_Unpressed: 1182482884
+      Shop_UI_Browser_Window: -444192067
+      Shop_UI_Confirm_Button_Unpressed: 600104375
+      Shop_UI_Logo: -1443817615
+      Shop_UI_Picture_Outline: -1159513259
+      Shop_UI_Deny_Button_Pressed: -1745838541
+      Shop_UI_Confirm_Button_Pressed: -1666086285
+      Shop_UI_5: -893320104
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

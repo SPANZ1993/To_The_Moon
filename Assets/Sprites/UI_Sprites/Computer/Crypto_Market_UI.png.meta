@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: d40b72e6ffbe36740b3dceacde0e3532
+guid: 6b9c33b4db0e29e4ba571f850da216d9
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6595680761151332689
-    second: UI_Unselected
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -92,19 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -127,194 +112,206 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Green_Button_Pressed
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 373
-        width: 371
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 755e173cf60646ae0800000000000000
-      internalID: -1557013538026691241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Green_Button_Unpressed
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 373
-        width: 371
-        height: 371
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 53, y: 52, z: 50, w: 50}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78dbda97e36d52100800000000000000
-      internalID: 82707731993968007
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Mini_Img_Frame
-      rect:
-        serializedVersion: 2
-        x: 748
-        y: 374
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 20, z: 20, w: 20}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b10cc935c0ddffe00800000000000000
-      internalID: 1080825480604336155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Outline
-      rect:
-        serializedVersion: 2
-        x: 1121
-        y: 374
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 80, y: 80, z: 80, w: 80}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 187754eda00643180800000000000000
-      internalID: -9136572144232859775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Red_Button_Pressed
-      rect:
-        serializedVersion: 2
-        x: 1494
-        y: 374
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2cb52d679eba2770800000000000000
-      internalID: 8586885197115800619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Red_Button_Unpressed
+      name: Crypto_Market_UI_Logo
       rect:
         serializedVersion: 2
         x: 2
         y: 1
-        width: 370
-        height: 370
+        width: 136
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bcd3691f46e04170800000000000000
-      internalID: 8160775752198118580
+      spriteID: 05c545661309bfc45a3209ce13451370
+      internalID: 1401360089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Pane
+      name: Crypto_Market_UI_Panel
       rect:
         serializedVersion: 2
-        x: 375
-        y: 1
-        width: 370
-        height: 370
+        x: 142
+        y: 45
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 8, y: 8, z: 8, w: 8}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6a06f0b8a30d5760800000000000000
-      internalID: 7448113381798972013
+      spriteID: 52011b00e8ce6104eb5cd5a68131a5a7
+      internalID: 70293985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Selected
+      name: Crypto_Market_UI_Price_Text_Panel
       rect:
         serializedVersion: 2
-        x: 748
-        y: 1
-        width: 370
-        height: 370
+        x: 168
+        y: 45
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c978e8482f969dc60800000000000000
-      internalID: 7843416716369364892
+      spriteID: 13d397200ff963a4f8e0b32d7e4cff9c
+      internalID: -1880850807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Unselected
+      name: Crypto_Market_UI_Text_Panel
       rect:
         serializedVersion: 2
-        x: 1121
-        y: 1
-        width: 370
-        height: 370
+        x: 194
+        y: 45
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae52bb0b4f6774a0800000000000000
-      internalID: -6595680761151332689
+      spriteID: 5b42e33fff255bc4ba43d8f34f06e4b4
+      internalID: -361835827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crypto_Market_UI_Picture_Outline
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 45
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9916813331febb4c94d098e89230094
+      internalID: -1277850860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crypto_Market_UI_Confirm_Button_Unpressed
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 45
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2809bf0930376ec4a9dccc5b3ec710bc
+      internalID: 1008308016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crypto_Market_UI_Confirm_Button_Pressed
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 19
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a61dfc0401b364492aed2559be580f
+      internalID: -294814862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crypto_Market_UI_Deny_Button_Unpressed
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 19
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42223fbe64f75c408bf9478e62bdd3a
+      internalID: 2059546722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crypto_Market_UI_Deny_Button_Pressed
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 19
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6c3d782e7e66b4ca770e79fd7907a5
+      internalID: -1059836223
       vertices: []
       indices: 
       edges: []
@@ -322,7 +319,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0aceb58c548507f4e9a1d642ee288dd1
+    spriteID: 7154d200105aef84198ef9c50c3309d8
     internalID: 0
     vertices: []
     indices: 
@@ -330,15 +327,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Green_Button_Pressed: -1557013538026691241
-      UI_Red_Button_Unpressed: 8160775752198118580
-      UI_Outline: -9136572144232859775
-      UI_Pane: 7448113381798972013
-      UI_Unselected: -6595680761151332689
-      UI_Red_Button_Pressed: 8586885197115800619
-      UI_Selected: 7843416716369364892
-      UI_Mini_Img_Frame: 1080825480604336155
-      UI_Green_Button_Unpressed: 82707731993968007
+      Crypto_Market_UI_Price_Text_Panel: -1880850807
+      Crypto_Market_UI_Picture_Outline: -1277850860
+      Crypto_Market_UI_9: 43757433
+      Crypto_Market_UI_Confirm_Button_Pressed: -294814862
+      Crypto_Market_UI_Logo: 1401360089
+      Crypto_Market_UI_Confirm_Button_Unpressed: 1008308016
+      Crypto_Market_UI_Deny_Button_Unpressed: 2059546722
+      Crypto_Market_UI_Text_Panel: -361835827
+      Crypto_Market_UI_Deny_Button_Pressed: -1059836223
+      Crypto_Market_UI_Panel: 70293985
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

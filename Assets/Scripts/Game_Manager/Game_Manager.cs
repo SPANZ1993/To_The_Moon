@@ -142,6 +142,10 @@ public class Game_Manager : MonoBehaviour
     public float soundFxSoundLevel;
 
 
+    // Crypto Stuff
+    public string cryptoServerIP = "http://127.0.0.1";
+    public int cryptoServerPort = 5000; 
+
 
     // Text Stuff
     public TextSpeed textSpeed;
@@ -194,9 +198,17 @@ public class Game_Manager : MonoBehaviour
         
     }
 
+
+    void getCryptos(){
+        Crypto_Manager.instance.getPricesActiveCryptos();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+
+        Invoke("getCryptos", 20);
 
     }
 

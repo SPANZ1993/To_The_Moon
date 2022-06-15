@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: d40b72e6ffbe36740b3dceacde0e3532
+guid: 64080c8d122816e4cbbb6a2bf65f0176
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6595680761151332689
-    second: UI_Unselected
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -39,8 +36,8 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -92,19 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -127,194 +112,164 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Green_Button_Pressed
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 373
-        width: 371
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 755e173cf60646ae0800000000000000
-      internalID: -1557013538026691241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Green_Button_Unpressed
-      rect:
-        serializedVersion: 2
-        x: 374
-        y: 373
-        width: 371
-        height: 371
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 53, y: 52, z: 50, w: 50}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78dbda97e36d52100800000000000000
-      internalID: 82707731993968007
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Mini_Img_Frame
-      rect:
-        serializedVersion: 2
-        x: 748
-        y: 374
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 20, y: 20, z: 20, w: 20}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b10cc935c0ddffe00800000000000000
-      internalID: 1080825480604336155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Outline
-      rect:
-        serializedVersion: 2
-        x: 1121
-        y: 374
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 80, y: 80, z: 80, w: 80}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 187754eda00643180800000000000000
-      internalID: -9136572144232859775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Red_Button_Pressed
-      rect:
-        serializedVersion: 2
-        x: 1494
-        y: 374
-        width: 370
-        height: 370
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2cb52d679eba2770800000000000000
-      internalID: 8586885197115800619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Red_Button_Unpressed
+      name: Computer_Base_UI_Browser_Header
       rect:
         serializedVersion: 2
         x: 2
         y: 1
-        width: 370
-        height: 370
+        width: 207
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 50, y: 50, z: 50, w: 50}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bcd3691f46e04170800000000000000
-      internalID: 8160775752198118580
+      spriteID: 1c407388f435d464fbba414ff482f330
+      internalID: 678529966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Pane
+      name: Computer_Base_UI_Outline
       rect:
         serializedVersion: 2
-        x: 375
-        y: 1
-        width: 370
-        height: 370
+        x: 213
+        y: 11
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 12, y: 12, z: 12, w: 12}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6a06f0b8a30d5760800000000000000
-      internalID: 7448113381798972013
+      spriteID: e85152dc19d5339468fffa75d10b7d1d
+      internalID: 792844996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Selected
+      name: Computer_Base_UI_Browser_Tab Unselected
       rect:
         serializedVersion: 2
-        x: 748
-        y: 1
-        width: 370
-        height: 370
+        x: 259
+        y: 36
+        width: 76
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c978e8482f969dc60800000000000000
-      internalID: 7843416716369364892
+      spriteID: 0fe51daa082fe404181f3899a4805f2a
+      internalID: 1959488631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Unselected
+      name: Computer_Base_UI_Broswer_Tab_Selected
       rect:
         serializedVersion: 2
-        x: 1121
-        y: 1
-        width: 370
-        height: 370
+        x: 339
+        y: 36
+        width: 76
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 40, z: 40, w: 40}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae52bb0b4f6774a0800000000000000
-      internalID: -6595680761151332689
+      spriteID: 31f1123567ecd1e4da35990923a969f2
+      internalID: -1431187566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Base_Browser_Window
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 10
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 3, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2fa9916703acb4583c1b5abe59609d
+      internalID: 2030736070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Base_UI_Scroll_Bar
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 15
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f604ef0704710af4ab2c18d93277bed0
+      internalID: 380422074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Computer_Base_UI_On_Button
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 26
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba214654362df4c46bc081871186b8e2
+      internalID: 79630963
       vertices: []
       indices: 
       edges: []
@@ -322,7 +277,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0aceb58c548507f4e9a1d642ee288dd1
+    spriteID: 5128a7b95ea4e36499db6c479f065742
     internalID: 0
     vertices: []
     indices: 
@@ -330,15 +285,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Green_Button_Pressed: -1557013538026691241
-      UI_Red_Button_Unpressed: 8160775752198118580
-      UI_Outline: -9136572144232859775
-      UI_Pane: 7448113381798972013
-      UI_Unselected: -6595680761151332689
-      UI_Red_Button_Pressed: 8586885197115800619
-      UI_Selected: 7843416716369364892
-      UI_Mini_Img_Frame: 1080825480604336155
-      UI_Green_Button_Unpressed: 82707731993968007
+      Computer_Base_UI_Outline: 2030736070
+      Computer_Base_UI_Browser_Tab Unselected: -1431187566
+      Computer_Base_UI_Browser_Header: 1959488631
+      Computer_Base_UI_Scroll_Bar: 380422074
+      Computer_Base_Browser_Window: 678529966
+      Computer_Base_UI_Broswer_Tab_Selected: 380422074
+      Computer_Base_UI_On_Button: 79630963
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
