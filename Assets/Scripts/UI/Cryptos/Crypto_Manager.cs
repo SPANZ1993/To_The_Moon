@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using Newtonsoft.Json;
+
+using System.Linq;
 
 public class Crypto_Manager : MonoBehaviour
 {
@@ -22,6 +25,8 @@ public class Crypto_Manager : MonoBehaviour
 
     [SerializeField]
     private Crypto_Scriptable_Object[] activeCryptos;
+    public Dictionary<Crypto_Scriptable_Object, double> activeCryptosToPrice {get; private set;}
+    private bool failedPriceGet = false;
 
 
     public void getPricesActiveCryptos(){
@@ -53,12 +58,22 @@ public class Crypto_Manager : MonoBehaviour
                     case UnityWebRequest.Result.ConnectionError:
                     case UnityWebRequest.Result.DataProcessingError:
                         Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                        failedPriceGet = true;
                         break;
                     case UnityWebRequest.Result.ProtocolError:
                         Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                        failedPriceGet = true;
                         break;
                     case UnityWebRequest.Result.Success:
                         Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                        Dictionary<string, double> recievedPrices = JsonConvert.DeserializeObject<Dictionary<string, double>>(webRequest.downloadHandler.text);
+                        activeCryptosToPrice = new Dictionary<Crypto_Scriptable_Object, double>();
+                        foreach(Crypto_Scriptable_Object curCrypto in activeCryptos){
+                            if(recievedPrices.Keys.Contains(curCrypto.FollowCoinAbbrev)){
+                                activeCryptosToPrice[curCrypto] = recievedPrices[curCrypto.FollowCoinAbbrev];
+                            }
+                            Debug.Log("PRICE OF " + curCrypto.CoinName + " IS SET TO " + activeCryptosToPrice[curCrypto]);
+                        }
                         break;
                 }
             }

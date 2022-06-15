@@ -312,6 +312,17 @@ public class UI_Controller : MonoBehaviour
 
     // End Bookshelf Menu
 
+    // Computer Menu
+    private GameObject computerMenu;
+    private bool computerMenuDisplayed = false;
+
+    private GameObject Computer_Container_Panel;
+    private ScrollRect computerScrollRect;
+
+    private GameObject shopScrollPanel;
+    private GameObject exchangeScrollPanel;
+    // End Computer Menu
+
 
 
 
@@ -712,6 +723,16 @@ public class UI_Controller : MonoBehaviour
 
             // End Bookshelf Menu
 
+            // Computer Menu
+            computerMenu = GameObject.Find("Computer_Menu");
+
+            Computer_Container_Panel = GameObject.Find("Computer_Container_Panel");
+            computerScrollRect = Computer_Container_Panel.GetComponent<ScrollRect>();
+
+            shopScrollPanel = GameObject.Find("Shop_Scroll_Panel");
+            exchangeScrollPanel = GameObject.Find("Exchange_Scroll_Panel");
+            // End Computer Menu
+
 
             //setActiveExperiments(new int[] {0, 1, 3});
 
@@ -728,6 +749,7 @@ public class UI_Controller : MonoBehaviour
             DisableUIElement(coinNameInputBox);
             DisableUIElement(coinNameInputConfirmationBox);
             DisableUIElement(bookshelfMenu);
+            DisableUIElement(computerMenu);
             DisableUIElement(leftSwipeArrow);
             DisableUIElement(rightSwipeArrow);
             DisableUIElement(RobotMenuObj);
@@ -1297,6 +1319,12 @@ public class UI_Controller : MonoBehaviour
             DisableUIElement(bookshelfMenu);
             DisableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = false;
+        }
+
+        if(computerMenuDisplayed){
+            DisableUIElement(computerMenu);
+            DisableUIElement(ScreenTintObj);
+            computerMenuDisplayed = false;
         }
 
         
@@ -2522,7 +2550,7 @@ public class UI_Controller : MonoBehaviour
 
     // Bookshelf Menu Button Handlers
     public void onBookshelfTapped(){
-        if (!bookshelfMenuDisplayed){ // And computer menu not displayed
+        if (!bookshelfMenuDisplayed && !computerMenuDisplayed){
             EnableUIElement(bookshelfMenu);
             EnableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = true;
@@ -2643,6 +2671,43 @@ public class UI_Controller : MonoBehaviour
     }
 
     // End Bookshelf Button Handlers
+
+    // Computer Button Handlers
+    public void onComputerTapped(){
+        if (!bookshelfMenuDisplayed && !computerMenuDisplayed){ // And computer menu not displayed
+            EnableUIElement(computerMenu);
+            EnableUIElement(ScreenTintObj);
+            computerMenuDisplayed = true;
+
+            Touch_Detection.instance.disableReticle(disableswipes:true);
+
+            //selectOptions();
+            selectShop();
+
+            Crypto_Manager.instance.getPricesActiveCryptos();
+        }
+    }
+
+    public void selectShop(){
+        computerScrollRect.content = shopScrollPanel.GetComponent<RectTransform>();
+
+        DisableUIElement(exchangeScrollPanel);
+        EnableUIElement(shopScrollPanel);
+    }
+
+    public void selectExchange(){
+        computerScrollRect.content = exchangeScrollPanel.GetComponent<RectTransform>();
+
+        DisableUIElement(shopScrollPanel);
+        EnableUIElement(exchangeScrollPanel);
+        if(Crypto_Manager.instance.activeCryptosToPrice != null){
+
+        }
+        else{
+
+        }
+    }
+    // End Computer Button Handlers
 
 
     // Rocket Flight UI

@@ -183,6 +183,14 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         uiController.selectRecords();
     }
 
+    public void selectShop(){
+        uiController.selectShop();
+    }
+
+    public void selectExchange(){
+        uiController.selectExchange();
+    }
+
     // Not a button handler... but... whatever
     public void onSoundFXSliderChanged(GameObject sliderObj){
         Game_Manager.instance.soundFxSoundLevel = sliderObj.GetComponent<Slider>().value;

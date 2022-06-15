@@ -80,7 +80,8 @@ public class Computer_Controller : MonoBehaviour, ITappable
         else
         {
             if (tapInitiated && tapped){
-                Debug.Log("Computer Tapped");
+                //Debug.Log("Computer Tapped");
+                UI_Controller.instance.onComputerTapped();
             }
             tapped = false;
             tapInitiated = false;
