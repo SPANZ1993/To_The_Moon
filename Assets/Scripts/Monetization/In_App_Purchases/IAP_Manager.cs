@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using System;
+using System.Linq;
 
 public class IAP_Manager : MonoBehaviour
 {
@@ -25,7 +27,7 @@ public class IAP_Manager : MonoBehaviour
 
 
     public void OnPurchaseComplete(Product product){
-        IAP_Product_Scriptable Object product_scriptable_obj = getProductObjectByID(product.definition.id);
+        IAP_Product_Scriptable_Object product_scriptable_obj = getProductObjectByID(product.definition.id);
         Debug.Log("PRODUCT IS: " + product_scriptable_obj.ProductTitle);
         
     }
