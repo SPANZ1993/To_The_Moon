@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
-[CreateAssetMenu(fileName = "Robot_Outfit", menuName = "ScriptableObjects/IAP_Product_Robot_Outfit", order = 2)]
-public class IAP_Product_Robot_Outfit : IAP_Product_Scriptable_Object
+[CreateAssetMenu(fileName = "Gem_Drop", menuName = "ScriptableObjects/IAP_Product_Gem_Drop", order = 3)]
+public class IAP_Product_Gem_Drop : IAP_Product_Scriptable_Object
 {
-    public Sprite RobotOutfitSprite { get { return robotOutfitSprite; } private set { robotOutfitSprite = value; } }
-
+    public double NumGems { get { return numGems; } private set {numGems = value;}}
+    
     [SerializeField]
-    private Sprite robotOutfitSprite;
+    private double numGems;
+
 
 
     public override void OnPurchaseComplete(Product product){
@@ -19,6 +20,4 @@ public class IAP_Product_Robot_Outfit : IAP_Product_Scriptable_Object
     public override void OnPurchaseFailed(Product product, PurchaseFailureReason reason){
         base.OnPurchaseFailed(product, reason);
     }
-
-
 }

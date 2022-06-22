@@ -14,11 +14,12 @@ public class IAPButtonDescriptionController : MonoBehaviour
     private void Awake()
     {
         attachedButton = GetComponent<IAPButton>();
-        Initialize();
+        //Initialize();
     }
  
-    private void Initialize()
+    public void Initialize()
     {
+        Debug.Log("INITIALIZING HERE " + attachedButton.productId);
         var product = CodelessIAPStoreListener.Instance.GetProduct(attachedButton.productId);
  
         if (priceText != null)

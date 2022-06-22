@@ -2820,6 +2820,7 @@ MonoBehaviour:
   autopilotConfirmationBoxYesText: {fileID: 0}
   autopilotConfirmationBoxNoText: {fileID: 0}
   exchangePanelPrefab: {fileID: 2987626675233976229, guid: 91d066270bb0e794a9df7c98ef261333, type: 3}
+  shopPanelPrefab: {fileID: 2987626675233976229, guid: 1739610b326adf04e8e1254cdc76f7cc, type: 3}
   selectedSprite: {fileID: 7843416716369364892, guid: d40b72e6ffbe36740b3dceacde0e3532, type: 3}
   unselectedSprite: {fileID: -6595680761151332689, guid: d40b72e6ffbe36740b3dceacde0e3532, type: 3}
   selectedFont: {fileID: 11400000, guid: 63f9a1e7ab6b6594daf0b0d561780465, type: 2}
@@ -3152,6 +3153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeProducts:
   - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}
+  - {fileID: 11400000, guid: ab47b22ffd37db145bb59abf2cea15a7, type: 2}
 --- !u!4 &2023067952
 Transform:
   m_ObjectHideFlags: 0

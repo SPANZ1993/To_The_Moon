@@ -859,12 +859,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2987626675312324267}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.testnonconsumable
+  productId: 
   buttonType: 0
   consumePurchase: 0
   onPurchaseComplete:
@@ -949,19 +949,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2987626675312324268}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5805895499994449407}
-        m_TargetAssemblyTypeName: Main_Area_Button_Handlers, Assembly-CSharp
-        m_MethodName: onExchangeBuyButtonPressed
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2987626675233976229}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1133848919737411182
 MonoBehaviour:
   m_ObjectHideFlags: 0

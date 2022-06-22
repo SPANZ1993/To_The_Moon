@@ -341,6 +341,8 @@ public class UI_Controller : MonoBehaviour
 
     [SerializeField]
     private GameObject exchangePanelPrefab;
+    [SerializeField]
+    private GameObject shopPanelPrefab;
     // End Computer Menu
 
 
@@ -2756,9 +2758,77 @@ public class UI_Controller : MonoBehaviour
         }
         
         removeAllExchangePanels();
+        if(true){ // Is there some reason we might not want the shop panels to display???
+            IAP_Manager.instance.addPanelsToShop();
+        }
+        else{
+            // TODO: Handle this case
+        }
+        
+        StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
+        StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
     }
+
+
+
+    public GameObject addShopPanel(IAP_Product_Scriptable_Object product){
+        GameObject shopPanel = Instantiate(shopPanelPrefab, new Vector3(0, 0 , 0), Quaternion.identity);
+        GameObject buyButtonObj = Object_Finder.findChildObjectByName(shopPanel, "Shop_Buy_Button");
+
+        IAP_Manager.instance.initializeIAPButton(buyButtonObj, product);
+        buyButtonObj.GetComponent<IAPButtonDescriptionController>().Initialize();
+
+
+        shopPanel.transform.localScale = GameObject.Find("Shop_Logo_Panel").transform.localScale; // New
+        //Debug.Log("SETTING SCALE TO: " + shopPanel.transform.localScale);
+        //mainAreaLocalScales[shopPanel] = shopPanel.transform.localScale;
+        _indexUIElementSizes(mainAreaLocalScales, shopPanel);
+        shopPanel.GetComponent<ObjectHolder>().Obj = product;
+        return addShopPanel(shopPanel);
+    }  
+
+    public GameObject addShopPanel(GameObject shopPanel){
+        // The product manager will hold these, so if we've already got them created just make them children of the menu
+        // And Update Them
+        IAP_Product_Scriptable_Object product = (IAP_Product_Scriptable_Object)shopPanel.GetComponent<ObjectHolder>().Obj;
+        //Object_Finder.findChildObjectByName(shopPanel, "Exchange_Coin_Name_Text").GetComponent<TextMeshProUGUI>().text = product.CoinName;
+        //Object_Finder.findChildObjectByName(shopPanel, "Exchange_Description_Text").GetComponent<TextMeshProUGUI>().text = product.CoinDescription;
+        updateShopPanel(shopPanel);
+
+        
+
+        shopPanel.transform.SetParent(shopScrollPanel.transform);
+        //shopPanel.transform.localScale = mainAreaLocalScales[shopPanel];
+        
+        EnableUIElement(shopPanel);
+        //Debug.Log("SETTING SCALE TO: " + shopPanel.transform.localScale);
+        return shopPanel;
+    }
+
+
+    private void updateShopPanel(GameObject panel){
+        Debug.Log("WOULD BE UPDATING PANEL HERE");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public void selectExchange(){
