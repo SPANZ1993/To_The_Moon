@@ -18,116 +18,132 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 81403512184528903
-    m_Localized: Coin
+  - m_Id: 86438137504096275
+    m_Localized: Is this correct?
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528904
-    m_Localized: Cosmic Gem
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528905
-    m_Localized: Cosmic Gems
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528906
-    m_Localized: GameyMcGameyPants
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528907
-    m_Localized: Name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528908
-    m_Localized: Welcome to {gamename}!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528909
-    m_Localized: What is your name?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528910
-    m_Localized: Name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528902
-    m_Localized: No
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528901
-    m_Localized: Yes
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528911
-    m_Localized: Other people might see this so be nice!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528912
-    m_Localized: "Your name can\u2019t have any bad words in it."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528913
-    m_Localized: Your name must be at least 3 characters long.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528914
-    m_Localized: Someone else already has that name. Try something different.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528915
+  - m_Id: 86438137504096274
     m_Localized: 'Your name is: {potentialPlayerName}'
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528916
-    m_Localized: Is this correct?
+  - m_Id: 86438137504096273
+    m_Localized: Someone else already has that name. Try something different.
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528917
+  - m_Id: 86438137504096272
+    m_Localized: Your name must be at least 3 characters long.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096271
+    m_Localized: "Your name can\u2019t have any bad words in it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096270
+    m_Localized: Other people might see this so be nice!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096269
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096268
+    m_Localized: What is your name?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096276
     m_Localized: What is your cryptocurrency called?
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528918
+  - m_Id: 86438137504096277
     m_Localized: Coin Name
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528919
+  - m_Id: 86438137504096267
+    m_Localized: Welcome to {gamename}!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096266
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096265
+    m_Localized: GameyMcGameyPants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096264
+    m_Localized: Cosmic Gems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096263
+    m_Localized: Cosmic Gem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096262
     m_Localized: Coin
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528920
-    m_Localized: 'Your cryptocurrency is called: {potentialCoinName}'
+  - m_Id: 86438137504096261
+    m_Localized: No
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528921
-    m_Localized: Is this correct?
+  - m_Id: 86438137504096260
+    m_Localized: Yes
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528900
+  - m_Id: 86438137504096259
     m_Localized: 'Let {robot} pilot the ship? '
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528922
-    m_Localized: "Your coin name can\u2019t have any bad words in it."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528923
-    m_Localized: Your coin name must be at least 3 characters long.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528899
+  - m_Id: 86438137504096258
     m_Localized: 'Coins:'
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528898
+  - m_Id: 86438137504096257
     m_Localized: 'Gems:'
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528897
+  - m_Id: 86438137504096278
+    m_Localized: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096256
     m_Localized: 'Launches:'
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528896
+  - m_Id: 86438137478930432
     m_Localized: 'Thrust:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096279
+    m_Localized: 'Your cryptocurrency is called: {potentialCoinName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096280
+    m_Localized: Is this correct?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096281
+    m_Localized: "Your coin name can\u2019t have any bad words in it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096282
+    m_Localized: Your coin name must be at least 3 characters long.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096283
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096284
+    m_Localized: Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096285
+    m_Localized: How many {cryptoname} do you want to {buysell}?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096286
+    m_Localized: 'Value: {ncoins} {coinname}'
     m_Metadata:
       m_Items: []
   references:

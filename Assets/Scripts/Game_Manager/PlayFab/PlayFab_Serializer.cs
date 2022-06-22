@@ -117,7 +117,9 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     unlockedExperimentIds: gameManager.unlockedExperimentIds,
                                                     upgradesUnlockedDict: gameManager.upgradesUnlockedDict,
                                                     upgradesNumberDict: gameManager.upgradesNumberDict,
-                                                    metrics: gameManager.metrics
+                                                    metrics: gameManager.metrics,
+                                                    serializedCryptoBalances: Crypto_Manager.instance.serializeCryptoBalances(),
+                                                    serializedCryptoAveragePrices: Crypto_Manager.instance.serializeCryptoAveragePrices()
                                                 );   
     }
 

@@ -8,6 +8,7 @@ using System.Globalization;
 
 public class Number_String_Formatter
 {
+    public static bool IsNumeric(string text) => Double.TryParse(text, out _);
 
 
     public static string bannerUIFormatThrustNumberText(float thrust, int decimals=0){
@@ -197,6 +198,41 @@ public class Number_String_Formatter
         return defaultTimeNumberFormat(secs);
     }
     // End Countdown Timer Stuff
+
+
+    // Computer Stuff
+    public static string formatBuySellConfirmationNumCoins(double nCoins){
+        return defaultNumberFormat(nCoins);
+    }
+
+    public static string formatBuySellConfirmationNumCoins(float nCoins){
+        return defaultNumberFormat(nCoins);
+    }
+
+    public static string formatBuySellConfirmationValueCoins(double nCoins){
+        return defaultNumberFormat(nCoins);
+    }
+
+    public static string formatBuySellConfirmationValueCoins(float nCoins){
+        return defaultNumberFormat(nCoins);
+    }
+
+    public static string formatCryptoBalanceCoins(double nCoins){
+        return defaultNumberFormat(nCoins);
+    }
+
+    public static string formatCryptoBalanceCoins(float nCoins){
+        return defaultNumberFormat(nCoins);
+    }
+
+    public static string formatCryptoValue(double cryptoValue){
+        return defaultNumberFormat(cryptoValue);
+    }
+
+    public static string formatCryptoValue(float cryptoValue){
+        return defaultNumberFormat(cryptoValue);
+    }
+    // End Computer Stuff
 
 
 

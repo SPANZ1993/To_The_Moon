@@ -17,4 +17,5 @@ MonoBehaviour:
   coinDescription: You might feel some plight if you invest in this one.
   followCoinName: litecoin
   followCoinAbbrev: LTC
+  coinId: 2
   displayImage: {fileID: 0}

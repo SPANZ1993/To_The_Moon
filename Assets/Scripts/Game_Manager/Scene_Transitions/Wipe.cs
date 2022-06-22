@@ -77,9 +77,9 @@ public class Wipe : Scene_Transition
         string transitionClipName = "UI_Transition_In";
         IEnumerator _startTransitionSoundNextFrame(){
             yield return new WaitForSeconds(0);
-            Debug.Log("STARTING TRANSITION SOUND!");
+            //Debug.Log("STARTING TRANSITION SOUND!");
             if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
-                Debug.Log("WE AREN'T PLAYING IT YET.. HERE WE GO");
+                //Debug.Log("WE AREN'T PLAYING IT YET.. HERE WE GO");
                 Audio_Manager.instance.Play(transitionClipName);
             }
         }

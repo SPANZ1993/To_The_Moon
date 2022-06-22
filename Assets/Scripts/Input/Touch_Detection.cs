@@ -243,19 +243,19 @@ public class Touch_Detection : MonoBehaviour
                         if (DebugMode)
                             Debug.Log("SWIPE!!!");
                         if (swipeval == Swipe.UPSWIPE && enabledSwipes[Swipe.UPSWIPE] == true &&  SwipedUpInfo != null){
-                            Debug.Log("UTD");
+                            //Debug.Log("UTD");
                             SwipedUpInfo();
                         }
                         else if (swipeval == Swipe.DOWNSWIPE && enabledSwipes[Swipe.DOWNSWIPE] == true && SwipedDownInfo != null){
-                            Debug.Log("DTD");
+                            //Debug.Log("DTD");
                             SwipedDownInfo();
                         }
                         else if (swipeval == Swipe.LEFTSWIPE && enabledSwipes[Swipe.LEFTSWIPE] == true && SwipedLeftInfo != null){
-                            Debug.Log("LTD");
+                            //Debug.Log("LTD");
                             SwipedLeftInfo();
                         }
                         else if (swipeval == Swipe.RIGHTSWIPE && enabledSwipes[Swipe.RIGHTSWIPE] == true && SwipedRightInfo != null){
-                            Debug.Log("RTD");
+                            //Debug.Log("RTD");
                             SwipedRightInfo();
                         }
                     }
@@ -373,7 +373,7 @@ public class Touch_Detection : MonoBehaviour
     public void enableReticle(bool immediately=false, bool enableswipes=true){
         //reticleCollider.enabled = true;
         //reticleDisabled = false;
-        Debug.Log("ENABLING RETICLE TD");
+        //Debug.Log("ENABLING RETICLE TD");
         if(!immediately){
             enableReticleAfterCurTap = true;
         }
@@ -408,7 +408,7 @@ public class Touch_Detection : MonoBehaviour
 
     public void enableSwipes(Swipe swipe, bool immediately = false){
         if(enableSwipesAfterCurTap != null){
-            Debug.Log("ENABLING " + swipe);
+            //Debug.Log("ENABLING " + swipe);
             if(!immediately){
                 enableSwipesAfterCurTap[swipe] = true;
             }
@@ -427,7 +427,7 @@ public class Touch_Detection : MonoBehaviour
         while(enableSwipesAfterCurTap == null){
             yield return new WaitForSeconds(0);
         }
-        Debug.Log("ENABLING " + swipe);
+        //Debug.Log("ENABLING " + swipe);
         if(!immediately){
             enableSwipesAfterCurTap[swipe] = true;
         }
@@ -455,7 +455,7 @@ public class Touch_Detection : MonoBehaviour
 
     public void disableSwipes(Swipe swipe){
         if(enabledSwipes != null){
-            Debug.Log("DISABLING " + swipe);
+            //Debug.Log("DISABLING " + swipe);
             enabledSwipes[swipe] = false;
             enableSwipesAfterCurTap[swipe] = false;
         }
@@ -467,7 +467,7 @@ public class Touch_Detection : MonoBehaviour
         while(enabledSwipes == null){
             yield return new WaitForSeconds(0);
         }
-        Debug.Log("DISABLING " + swipe);
+        //Debug.Log("DISABLING " + swipe);
         enabledSwipes[swipe] = false;
         enableSwipesAfterCurTap[swipe] = false;
     }

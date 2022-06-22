@@ -191,6 +191,50 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         uiController.selectExchange();
     }
 
+    public void onExchangeBuyButtonPressed(GameObject panel){
+        Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
+        Debug.Log("BUYING: " + crypto.CoinName);
+        UI_Controller.instance.onBuySellCryptoButtonPressed(true, crypto);
+    }
+
+    public void onExchangeSellButtonPressed(GameObject panel){
+        Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
+        Debug.Log("SELLING: " + crypto.CoinName);
+        UI_Controller.instance.onBuySellCryptoButtonPressed(false, crypto);
+    }
+
+    public void onExchangeBuySellConfirmButtonPressed(){
+        Debug.Log("CONFIRM");
+        UI_Controller.instance.onExchangeBuySellConfirmButtonPressed();
+    }  
+
+    public void onExchangeBuySellCancelButtonPressed(){
+        Debug.Log("CANCEL");
+        UI_Controller.instance.onExchangeBuySellCancelButtonPressed();
+    }
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumSelect(){
+        Debug.Log("SELECT");
+        UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumSelect();
+    }
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumEndEdit(){
+        Debug.Log("END EDIT");
+        UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumEndEdit();
+    }
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumDeselect(){
+        Debug.Log("DESELECT");
+        UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumEndEdit();
+    }
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumValueChanged(){
+        Debug.Log("VALUE CHANGED");
+        UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumValueChanged();
+    }
+    
+    //public void 
+
     // Not a button handler... but... whatever
     public void onSoundFXSliderChanged(GameObject sliderObj){
         Game_Manager.instance.soundFxSoundLevel = sliderObj.GetComponent<Slider>().value;

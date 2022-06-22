@@ -17,4 +17,5 @@ MonoBehaviour:
   coinDescription: It's Plightcoin with a dog on it.
   followCoinName: dogecoin
   followCoinAbbrev: DOGE
+  coinId: 3
   displayImage: {fileID: 0}

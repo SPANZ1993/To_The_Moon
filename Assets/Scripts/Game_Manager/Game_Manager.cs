@@ -645,6 +645,8 @@ public class Game_Manager : MonoBehaviour
         Audio_Manager.instance.UpdateChannelVolumes();
         
         textSpeed = loadedGame.SpeedText;
+
+        Crypto_Manager.instance.initializeCryptoBalanceAndAveragePrice(loadedGame.SerializedCryptoBalances, loadedGame.SerializedCryptoAveragePrices);
         
 
         initializedGame = true;
@@ -1016,7 +1018,7 @@ public class Game_Manager : MonoBehaviour
     
     private void onUIDisplayEnded(Vector3[] boundingBox){
         if (boundingBox.Length == 0){
-            Debug.Log("ON UI DE");
+            //Debug.Log("ON UI DE");
             enableNonUITouch();
         }
         else{
@@ -1052,7 +1054,7 @@ public class Game_Manager : MonoBehaviour
 
     private void enableNonUITouch(){
         //Debug.Log("EnableRet Game Manager " + DateTime.Now);
-        Debug.Log("ENABLING GM");
+        //Debug.Log("ENABLING GM");
         touchDetection.enableReticle();
         touchDetection.enableSwipes(immediately:false);
     }

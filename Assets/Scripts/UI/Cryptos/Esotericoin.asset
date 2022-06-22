@@ -18,4 +18,5 @@ MonoBehaviour:
     a monkey with sunglasses.
   followCoinName: ethereum
   followCoinAbbrev: ETH
+  coinId: 1
   displayImage: {fileID: 0}

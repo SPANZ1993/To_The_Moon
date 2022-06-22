@@ -319,12 +319,29 @@ public class UI_Controller : MonoBehaviour
     private GameObject Computer_Container_Panel;
     private ScrollRect computerScrollRect;
 
+    private GameObject shopWindowPanel;
     private GameObject shopScrollPanel;
+    private ScrollRect shopWindowPanelScrollRect;
+
+    private GameObject exchangeWindowPanel;
     private GameObject exchangeScrollPanel;
+    private ScrollRect exchangeWindowPanelScrollRect;
+
+
+    private Scrollbar computerScrollbar;
+
+    private GameObject exchangeBuySellConfirmationBox;
+    private TextMeshProUGUI exchangeBuySellConfirmationBoxText;
+    private TMP_InputField exchangeBuySellConfirmationBoxInputField;
+    private TextMeshProUGUI exchangeBuySellConfirmationBoxValueText;
+    private TextMeshProUGUI exchangeBuySellConfirmationBoxInputFieldText;
+    private double? curExchangeBuySellConfirmationBoxInputFieldNum;
+    private bool? curExchangeBuySellConfirmationBoxBuying; // Are we buying or selling
+    private Crypto_Scriptable_Object curExchangeBuySellConfirmationBoxCrypto;
+
+    [SerializeField]
+    private GameObject exchangePanelPrefab;
     // End Computer Menu
-
-
-
 
 
 
@@ -731,6 +748,21 @@ public class UI_Controller : MonoBehaviour
 
             shopScrollPanel = GameObject.Find("Shop_Scroll_Panel");
             exchangeScrollPanel = GameObject.Find("Exchange_Scroll_Panel");
+
+            shopWindowPanel = GameObject.Find("Shop_Window_Panel");
+            shopWindowPanelScrollRect = shopWindowPanel.GetComponent<ScrollRect>();
+            exchangeWindowPanel = GameObject.Find("Exchange_Window_Panel");
+            exchangeWindowPanelScrollRect = exchangeWindowPanel.GetComponent<ScrollRect>();
+
+            computerScrollbar = GameObject.Find("Computer_Scrollbar").GetComponent<Scrollbar>();
+
+            exchangeBuySellConfirmationBox = GameObject.Find("Exchange_Buy_Sell_Confirmation_Box");
+
+            exchangeBuySellConfirmationBoxText = GameObject.Find("Exchange_Buy_Sell_Confirmation_Box_Text_Panel_Text").GetComponent<TextMeshProUGUI>();
+            exchangeBuySellConfirmationBoxInputField = GameObject.Find("Exchange_Buy_Sell_Confirmation_Box_Crypto_Count_Input_Field").GetComponent<TMP_InputField>();
+            exchangeBuySellConfirmationBoxInputFieldText = GameObject.Find("Exchange_Buy_Sell_Confirmation_Box_Crypto_Count_Input_Field_Text").GetComponent<TextMeshProUGUI>();
+            exchangeBuySellConfirmationBoxValueText = GameObject.Find("Exchange_Buy_Sell_Confirmation_Box_Value_Text").GetComponent<TextMeshProUGUI>();
+
             // End Computer Menu
 
 
@@ -750,6 +782,7 @@ public class UI_Controller : MonoBehaviour
             DisableUIElement(coinNameInputConfirmationBox);
             DisableUIElement(bookshelfMenu);
             DisableUIElement(computerMenu);
+            DisableUIElement(exchangeBuySellConfirmationBox);
             DisableUIElement(leftSwipeArrow);
             DisableUIElement(rightSwipeArrow);
             DisableUIElement(RobotMenuObj);
@@ -1324,6 +1357,7 @@ public class UI_Controller : MonoBehaviour
         if(computerMenuDisplayed){
             DisableUIElement(computerMenu);
             DisableUIElement(ScreenTintObj);
+            removeAllExchangePanels();
             computerMenuDisplayed = false;
         }
 
@@ -1356,10 +1390,11 @@ public class UI_Controller : MonoBehaviour
             EnableUIElement(child, touchOnly: touchOnly);
         }
 
-        if (touchOnly){     
+        if (touchOnly){
 
             Button button = UI.GetComponent<Button>();
             UnityEngine.UI.ScrollRect scrollRect = UI.GetComponent<UnityEngine.UI.ScrollRect>();
+            UnityEngine.UI.Scrollbar scrollBar = UI.GetComponent<UnityEngine.UI.Scrollbar>();
 
             if (button != null){
                 button.enabled = true;
@@ -1368,6 +1403,11 @@ public class UI_Controller : MonoBehaviour
             if (scrollRect != null){
                 scrollRect.enabled = true;
             }
+
+            if (scrollBar != null){
+                scrollBar.enabled = true;
+            }
+
 
         }
         else{
@@ -1441,6 +1481,7 @@ public class UI_Controller : MonoBehaviour
 
             Button button = UI.GetComponent<Button>();
             UnityEngine.UI.ScrollRect scrollRect = UI.GetComponent<UnityEngine.UI.ScrollRect>();
+            UnityEngine.UI.Scrollbar scrollBar = UI.GetComponent<UnityEngine.UI.Scrollbar>();
 
             if (button != null){
                 button.enabled = false;
@@ -1448,6 +1489,10 @@ public class UI_Controller : MonoBehaviour
 
             if (scrollRect != null){
                 scrollRect.enabled = false;
+            }
+
+            if (scrollBar != null){
+                scrollBar.enabled = false;
             }
         }
         else{
@@ -2536,14 +2581,24 @@ public class UI_Controller : MonoBehaviour
 
     // For use with scroll rects that aren't shitty, i.e. ones based off the bookshelf menu prefab
     // Not sure why... but if we only do this set on one frame, Unity overrides it and sets it to .5 immediately after
-    public IEnumerator setScrollRectToTop(ScrollRect sr){
-        float t = 0;
-        while(t < 0.05){
-            yield return new WaitForSeconds(0);
-            sr.verticalNormalizedPosition = 1f;
-            t += Time.deltaTime;
-        }
-        //Canvas.ForceUpdateCanvases();
+    // public IEnumerator setScrollRectToTop(ScrollRect sr){
+    //     float t = 0;
+    //     while(t < 0.05){
+    //         yield return new WaitForSeconds(0);
+    //         sr.verticalNormalizedPosition = 1f;
+    //         t += Time.deltaTime;
+    //     }
+    //     //Canvas.ForceUpdateCanvases();
+    // }
+
+
+
+    IEnumerator setScrollRectToTop(ScrollRect sr)
+    {
+        yield return new WaitForEndOfFrame ();
+        Canvas.ForceUpdateCanvases();
+        sr.verticalNormalizedPosition = 1f;
+        Canvas.ForceUpdateCanvases();
     }
 
 
@@ -2689,24 +2744,270 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void selectShop(){
-        computerScrollRect.content = shopScrollPanel.GetComponent<RectTransform>();
+        //computerScrollRect.content = shopScrollPanel.GetComponent<RectTransform>();
 
-        DisableUIElement(exchangeScrollPanel);
-        EnableUIElement(shopScrollPanel);
+        DisableUIElement(exchangeWindowPanel);
+        EnableUIElement(shopWindowPanel);
+        DisableUIElement(exchangeBuySellConfirmationBox);
+
+        if(shopWindowPanelScrollRect.verticalScrollbar == null){
+            shopWindowPanelScrollRect.verticalScrollbar = exchangeWindowPanelScrollRect.verticalScrollbar;
+            exchangeWindowPanelScrollRect.verticalScrollbar = null;
+        }
+        
+        removeAllExchangePanels();
+        StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
+        StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
     }
+
 
     public void selectExchange(){
         computerScrollRect.content = exchangeScrollPanel.GetComponent<RectTransform>();
 
-        DisableUIElement(shopScrollPanel);
-        EnableUIElement(exchangeScrollPanel);
-        if(Crypto_Manager.instance.activeCryptosToPrice != null){
+        DisableUIElement(shopWindowPanel);
+        EnableUIElement(exchangeWindowPanel);
+        DisableUIElement(exchangeBuySellConfirmationBox);
 
+
+        if(exchangeWindowPanelScrollRect.verticalScrollbar == null){
+            exchangeWindowPanelScrollRect.verticalScrollbar = shopWindowPanelScrollRect.verticalScrollbar;
+            shopWindowPanelScrollRect.verticalScrollbar = null;
+        }
+        
+
+
+
+        if(Crypto_Manager.instance.activeCryptosToPrice != null){
+            Crypto_Manager.instance.addPanelsToExchange();
         }
         else{
+            Debug.Log("NO ACTIVE CRYPTOS");
+            // TODO: Handle this case
+        }
+        
+        StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
+        StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
+    }
 
+
+    public void removeAllExchangePanels(){
+        // Make it so the exchange panels are no longer children of the UI Object
+        // They will still be tracked by the Crypto_Manager so we can reference them later
+        foreach(Transform t in exchangeScrollPanel.transform){
+            if(t.gameObject.name != "Exchange_Logo_Panel"){
+                Debug.Log("DISABLING: " + t.gameObject.name);
+                DisableUIElement(t.gameObject);
+                t.SetParent(Crypto_Manager.instance.transform);
+            }
+            else{
+                Debug.Log("NOT MESSING WITH LOGO PANEL");
+            }
         }
     }
+
+
+    public void updateExchangePanel(GameObject exchangePanel){
+        Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)exchangePanel.GetComponent<ObjectHolder>().Obj;
+        if(Crypto_Manager.instance.activeCryptosToBalance.Keys.Contains(crypto)){
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Balance_Text").GetComponent<TextMeshProUGUI>().text = "Balance: " + Number_String_Formatter.formatCryptoBalanceCoins(Crypto_Manager.instance.getCoinBalance(crypto));
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Value_Text").GetComponent<TextMeshProUGUI>().text = "Value: " + Number_String_Formatter.formatCryptoValue(Math.Floor(Crypto_Manager.instance.getCoinBalance(crypto)*Crypto_Manager.instance.getCoinPrice(crypto))) + " " + Game_Manager.instance.coinName;
+        }
+        else{
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Balance_Text").GetComponent<TextMeshProUGUI>().text = "Balance: 0";
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Value_Text").GetComponent<TextMeshProUGUI>().text = "";
+        }
+        if(Crypto_Manager.instance.activeCryptosToAveragePrice.Keys.Contains(crypto)){
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Average_Price_Text").GetComponent<TextMeshProUGUI>().text = "Average Price: " + Crypto_Manager.instance.getCoinAveragePrice(crypto);
+        }
+        else{
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Average_Price_Text").GetComponent<TextMeshProUGUI>().text = "";
+        }
+        Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Price_Text").GetComponent<TextMeshProUGUI>().text = Crypto_Manager.instance.activeCryptosToPrice[crypto].ToString();
+    }
+
+
+    public GameObject addExchangePanel(Crypto_Scriptable_Object crypto){
+        GameObject exchangePanel = Instantiate(exchangePanelPrefab, new Vector3(0, 0 , 0), Quaternion.identity);
+        exchangePanel.transform.localScale = GameObject.Find("Exchange_Logo_Panel").transform.localScale; // New
+        //Debug.Log("SETTING SCALE TO: " + exchangePanel.transform.localScale);
+        //mainAreaLocalScales[exchangePanel] = exchangePanel.transform.localScale;
+        _indexUIElementSizes(mainAreaLocalScales, exchangePanel);
+        exchangePanel.GetComponent<ObjectHolder>().Obj = crypto;
+        return addExchangePanel(exchangePanel);
+    }  
+
+    public GameObject addExchangePanel(GameObject exchangePanel){
+        // The crypto manager will hold these, so if we've already got them created just make them children of the menu
+        // And Update Them
+        Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)exchangePanel.GetComponent<ObjectHolder>().Obj;
+        Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Coin_Name_Text").GetComponent<TextMeshProUGUI>().text = crypto.CoinName;
+        Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Description_Text").GetComponent<TextMeshProUGUI>().text = crypto.CoinDescription;
+        updateExchangePanel(exchangePanel);
+
+        
+
+        exchangePanel.transform.SetParent(exchangeScrollPanel.transform);
+        //exchangePanel.transform.localScale = mainAreaLocalScales[exchangePanel];
+        
+        EnableUIElement(exchangePanel);
+        //Debug.Log("SETTING SCALE TO: " + exchangePanel.transform.localScale);
+        return exchangePanel;
+    }
+
+
+
+
+
+
+    public void onBuySellCryptoButtonPressed(bool buying, Crypto_Scriptable_Object crypto){
+        //private TextMeshProUGUI exchangeBuySellConfirmationBoxText; //Exchange_Buy_Sell_Confirmation_Box_Text_Panel_Text
+        //private TextMeshProUGUI exchangeBuySellConfirmationBoxInputFieldText; // Exchange_Buy_Sell_Confirmation_Box_Crypto_Count_Input_Field_Text
+        //private TMP_InputField exchangeBuySellConfirmationBoxInputField; //Exchange_Buy_Sell_Confirmation_Box_Crypto_Count_Input_Field
+        //private TextMeshProUGUI exchangeBuySellConfirmationBoxValueText; //Exchange_Buy_Sell_Confirmation_Box_Value_Text
+        
+        string curExchangeBuySellText = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Buy_Sell_Confirmation_Box.Text");
+        curExchangeBuySellText = curExchangeBuySellText.Replace("{cryptoname}", crypto.CoinName);
+        string buySellTextStr =  buying ?  "UI.Computer.Exchange.Buy" : "UI.Computer.Exchange.Sell";
+        curExchangeBuySellText = curExchangeBuySellText.Replace("{buysell}", localizationManager.GetLocalizedString(main_area_ui_table, buySellTextStr).ToLower());
+        exchangeBuySellConfirmationBoxText.text = curExchangeBuySellText;
+
+        exchangeBuySellConfirmationBoxInputFieldText.text = "";
+
+
+
+        string curExchangeBuySellConfirmationBoxValueText = Localization_Manager.instance.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Buy_Sell_Confirmation_Box.Value_Text");
+        curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{ncoins}", Number_String_Formatter.formatBuySellConfirmationValueCoins(0));
+        curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{coinname}", Game_Manager.instance.coinName) + Localization_Manager.instance.GetLocalizedString(main_area_ui_table, "UI.General.Coin");
+        exchangeBuySellConfirmationBoxValueText.text = curExchangeBuySellConfirmationBoxValueText;
+
+
+
+
+        curExchangeBuySellConfirmationBoxInputFieldNum = 0.0;
+        curExchangeBuySellConfirmationBoxBuying = buying;
+        curExchangeBuySellConfirmationBoxCrypto = crypto;
+
+        exchangeBuySellConfirmationBoxInputField.text = "";
+
+
+
+
+
+        
+        DisableUIElement(Computer_Container_Panel, touchOnly:true);
+        EnableUIElement(exchangeBuySellConfirmationBox);
+        EnableUIElement(exchangeBuySellConfirmationBox, touchOnly:true);
+    }
+
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumEndEdit(){
+
+        if(curExchangeBuySellConfirmationBoxInputFieldNum == null || 
+            curExchangeBuySellConfirmationBoxInputFieldNum == 0.0 ||
+            exchangeBuySellConfirmationBoxInputField.text.Length == 0 ||
+            exchangeBuySellConfirmationBoxInputField.text[0] == '0'
+            ){
+            exchangeBuySellConfirmationBoxInputField.text = "";
+            curExchangeBuySellConfirmationBoxInputFieldNum = 0;
+            Debug.Log("EE NUM IS NULL");
+        }
+        else{
+            if((bool)curExchangeBuySellConfirmationBoxBuying && Crypto_Manager.instance.getCoinPrice(curExchangeBuySellConfirmationBoxCrypto) * curExchangeBuySellConfirmationBoxInputFieldNum > Game_Manager.instance.coins){
+                curExchangeBuySellConfirmationBoxInputFieldNum = Math.Floor(Game_Manager.instance.coins/Crypto_Manager.instance.getCoinPrice(curExchangeBuySellConfirmationBoxCrypto));
+            }
+            else if(!(bool)curExchangeBuySellConfirmationBoxBuying && Crypto_Manager.instance.activeCryptosToBalance.Keys.Contains(curExchangeBuySellConfirmationBoxCrypto) && curExchangeBuySellConfirmationBoxInputFieldNum > Crypto_Manager.instance.getCoinBalance(curExchangeBuySellConfirmationBoxCrypto)){
+                curExchangeBuySellConfirmationBoxInputFieldNum = Math.Floor(Crypto_Manager.instance.getCoinBalance(curExchangeBuySellConfirmationBoxCrypto));
+            }
+            exchangeBuySellConfirmationBoxInputField.contentType = TMPro.TMP_InputField.ContentType.Alphanumeric;
+            exchangeBuySellConfirmationBoxInputField.ForceLabelUpdate();
+            exchangeBuySellConfirmationBoxInputField.text = Number_String_Formatter.formatBuySellConfirmationNumCoins((double)curExchangeBuySellConfirmationBoxInputFieldNum);
+            exchangeBuySellConfirmationBoxInputField.ForceLabelUpdate();
+        }
+
+    }
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumSelect(){
+        exchangeBuySellConfirmationBoxInputField.contentType = TMPro.TMP_InputField.ContentType.IntegerNumber;
+        if(curExchangeBuySellConfirmationBoxInputFieldNum == null){
+            exchangeBuySellConfirmationBoxInputField.text = "";
+        }
+        else{
+            exchangeBuySellConfirmationBoxInputField.text = Math.Floor((double)curExchangeBuySellConfirmationBoxInputFieldNum).ToString();
+        }
+    }
+
+    public void onExchangeBuySellConfirmationBoxInputFieldNumValueChanged(){
+        Debug.Log(exchangeBuySellConfirmationBoxInputFieldText.text.GetType().ToString());
+        Debug.Log("TEXT IS: " + exchangeBuySellConfirmationBoxInputField.text + " " + exchangeBuySellConfirmationBoxInputField.text.All(char.IsNumber) + " " + Number_String_Formatter.IsNumeric(exchangeBuySellConfirmationBoxInputField.text));
+        
+        if(exchangeBuySellConfirmationBoxInputField.text.Length > 0 && Number_String_Formatter.IsNumeric(exchangeBuySellConfirmationBoxInputField.text)){
+            if(exchangeBuySellConfirmationBoxInputField.text[0] != '0'){
+                curExchangeBuySellConfirmationBoxInputFieldNum = Convert.ToDouble(exchangeBuySellConfirmationBoxInputField.text);
+            }
+        }
+
+        string curExchangeBuySellConfirmationBoxValueText = Localization_Manager.instance.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Buy_Sell_Confirmation_Box.Value_Text");
+        curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{ncoins}", Number_String_Formatter.formatBuySellConfirmationValueCoins(Crypto_Manager.instance.activeCryptosToPrice[curExchangeBuySellConfirmationBoxCrypto] * (double)curExchangeBuySellConfirmationBoxInputFieldNum));
+        curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{coinname}", Game_Manager.instance.coinName) + Localization_Manager.instance.GetLocalizedString(main_area_ui_table, "UI.General.Coin");
+        exchangeBuySellConfirmationBoxValueText.text = curExchangeBuySellConfirmationBoxValueText;
+        
+        // IEnumerator checkStringNextFrame(){
+        //     yield return new WaitForEndOfFrame();
+        //     string textNum = "";
+        //     if(exchangeBuySellConfirmationBoxInputFieldText.text.Length > 1){
+        //         textNum = exchangeBuySellConfirmationBoxInputFieldText.text.Substring(0, exchangeBuySellConfirmationBoxInputFieldText.text.Length - 1);
+        //     }
+        //     if((textNum.Length >= 1 && textNum.All(char.IsNumber) && textNum[0] != '0') && exchangeBuySellConfirmationBoxInputFieldText.text != ""){
+        //         curExchangeBuySellConfirmationBoxInputFieldNum = Convert.ToDouble(textNum);
+        //         Debug.Log("SETTING TO: " + Convert.ToDouble(textNum));
+        //     }
+        //     else if(textNum.Length >= 1 && (textNum.All(char.IsNumber) && textNum[0] == '0')){
+        //         curExchangeBuySellConfirmationBoxInputFieldNum = 0;
+        //         onExchangeBuySellConfirmationBoxInputFieldNumEndEdit();
+        //     }
+        //     curExchangeBuySellConfirmationBoxInputFieldNum ??= 0.0;
+        //     curExchangeBuySellConfirmationBoxInputFieldNum = Math.Floor((double)curExchangeBuySellConfirmationBoxInputFieldNum);
+        //     Debug.Log("VC NUM IS " + ((double)curExchangeBuySellConfirmationBoxInputFieldNum).ToString());
+        // }
+
+        // StartCoroutine(checkStringNextFrame());
+    }
+
+    public void onExchangeBuySellConfirmButtonPressed(){
+        Debug.Log(((bool)curExchangeBuySellConfirmationBoxBuying ? "BOUGHT: " : "SOLD: ")  + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
+
+        bool completedTransaction = false;
+        if((bool)curExchangeBuySellConfirmationBoxBuying){
+            // Buy
+            completedTransaction = Crypto_Manager.instance.buyCoin(curExchangeBuySellConfirmationBoxCrypto, (double)curExchangeBuySellConfirmationBoxInputFieldNum);
+        }
+        else{
+            // Sell
+            completedTransaction = Crypto_Manager.instance.sellCoin(curExchangeBuySellConfirmationBoxCrypto, (double)curExchangeBuySellConfirmationBoxInputFieldNum);
+        }
+
+
+
+        if(completedTransaction){
+            DisableUIElement(exchangeBuySellConfirmationBox);
+            EnableUIElement(Computer_Container_Panel, touchOnly:true);
+            Crypto_Manager.instance.updateAllExchangePanels();
+        }
+        else{
+            // If we can't do the transaction
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+                Audio_Manager.instance.Play("UI_Button_Deny");
+            }
+        }
+    }
+
+    
+    public void onExchangeBuySellCancelButtonPressed(){
+        Debug.Log("CANCELED " + ((bool)curExchangeBuySellConfirmationBoxBuying ? "BUY: " : "SELL: ") + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
+        DisableUIElement(exchangeBuySellConfirmationBox);
+        EnableUIElement(Computer_Container_Panel, touchOnly:true);
+    }
+
     // End Computer Button Handlers
 
 

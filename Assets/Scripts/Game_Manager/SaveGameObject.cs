@@ -69,6 +69,9 @@ public class SaveGameObject
 
     public Metrics_Object Metrics;
 
+    public Dictionary<int, double> SerializedCryptoBalances {get; private set;}
+    public Dictionary<int, double> SerializedCryptoAveragePrices {get; private set;}
+
 
     public SaveGameObject(){
         IsValid = true;
@@ -110,6 +113,9 @@ public class SaveGameObject
         UpgradesNumberDict = generateUpgradesNumberDict();
 
         Metrics = new Metrics_Object();
+
+        SerializedCryptoBalances = new Dictionary<int, double>();
+        SerializedCryptoAveragePrices = new Dictionary<int, double>();
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -159,7 +165,9 @@ public class SaveGameObject
                             List<int> unlockedExperimentIds,
                             Dictionary<Upgrade, bool> upgradesUnlockedDict,
                             Dictionary<Upgrade, int> upgradesNumberDict,
-                            Metrics_Object metrics){
+                            Metrics_Object metrics, 
+                            Dictionary<int, double> serializedCryptoBalances,
+                            Dictionary<int, double> serializedCryptoAveragePrices){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -201,6 +209,9 @@ public class SaveGameObject
         UpgradesNumberDict = upgradesNumberDict; 
     
         Metrics = metrics;
+    
+        SerializedCryptoBalances = serializedCryptoBalances;
+        SerializedCryptoAveragePrices = serializedCryptoAveragePrices;
     }
 
 }

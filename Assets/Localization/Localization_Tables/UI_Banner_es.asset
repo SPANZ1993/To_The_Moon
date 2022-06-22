@@ -18,48 +18,48 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 81403512184528898
-    m_Localized: 'Gemas:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528899
-    m_Localized: 'Monedas:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528900
-    m_Localized: "\xBFDejar que {robot} pilotee la nave? "
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528901
-    m_Localized: Si
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528902
-    m_Localized: No
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528903
-    m_Localized: Moneda
-    m_Metadata:
-      m_Items: []
-  - m_Id: 81403512184528904
+  - m_Id: 86438137504096263
     m_Localized: Gemas Cosmica
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528905
-    m_Localized: Gema Cosmica
+  - m_Id: 86438137504096262
+    m_Localized: Moneda
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528897
+  - m_Id: 86438137504096261
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096260
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096259
+    m_Localized: "\xBFDejar que {robot} pilotee la nave? "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096258
+    m_Localized: 'Monedas:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096257
+    m_Localized: 'Gemas:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137504096256
     m_Localized: 'Lanzamientos:'
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528896
-    m_Localized: 'Empuje:'
+  - m_Id: 86438137504096264
+    m_Localized: Gema Cosmica
     m_Metadata:
       m_Items: []
-  - m_Id: 81403512184528906
+  - m_Id: 86438137504096265
     m_Localized: El Gamey Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86438137478930432
+    m_Localized: 'Empuje:'
     m_Metadata:
       m_Items: []
   references:
