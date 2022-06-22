@@ -16,9 +16,11 @@ public class PlayFab_Initializer : MonoBehaviour
     bool loggedInPlayFabServer = false;
     public double? serverTime {get; private set;}
     public SaveGameObject loadedData {get; private set;}
+    public Dictionary<string, string> titleData {get; private set;}
     bool failedLogInPlayFabServer = false;
     bool failedGetServerTime = false;
     bool failedGetLoadedData = false;
+    bool failedGetTitleData = false;
     bool startedSceneTransition = false;
 
     string displayName; // The user's display name
@@ -27,6 +29,7 @@ public class PlayFab_Initializer : MonoBehaviour
     bool waitingForResponsePlayFabLogin = false;
     bool waitingForResponsePlayFabTime = false;
     bool waitingForResponsePlayFabData = false;
+    bool waitingForResponsePlayFabTitleData = false;
 
     public System.Action callBack {private get; set;}
 
@@ -45,6 +48,8 @@ public class PlayFab_Initializer : MonoBehaviour
         PlayFab_Manager.PlayFabGetUnixTimeFailureInfo += onGetServerTimeFailure;
         PlayFab_Manager.PlayFabGetSaveDataSuccessInfo += onGetSaveDataSuccess;
         PlayFab_Manager.PlayFabGetSaveDataFailureInfo += onGetSaveDataFailure;
+        PlayFab_Manager.PlayFabGetTitleDataSuccessInfo += onGetTitleDataSuccess;
+        PlayFab_Manager.PlayFabGetTitleDataFailureInfo += onGetTitleDataFailure;
 
         Retry_Connect_Box_Button_Handlers.RetryConnectBoxButtonHandlerPressedInfo += onRetryConnectButtonPressed;
     }
@@ -57,6 +62,8 @@ public class PlayFab_Initializer : MonoBehaviour
         PlayFab_Manager.PlayFabGetUnixTimeFailureInfo -= onGetServerTimeFailure;
         PlayFab_Manager.PlayFabGetSaveDataSuccessInfo -= onGetSaveDataSuccess;
         PlayFab_Manager.PlayFabGetSaveDataFailureInfo -= onGetSaveDataFailure;
+        PlayFab_Manager.PlayFabGetTitleDataSuccessInfo -= onGetTitleDataSuccess;
+        PlayFab_Manager.PlayFabGetTitleDataFailureInfo -= onGetTitleDataFailure;
     
         Retry_Connect_Box_Button_Handlers.RetryConnectBoxButtonHandlerPressedInfo -= onRetryConnectButtonPressed;
     }
@@ -68,6 +75,8 @@ public class PlayFab_Initializer : MonoBehaviour
         if(StartingPlayFabInitiationInfo != null){
             StartingPlayFabInitiationInfo();
         }
+
+        Debug.Log("IS TITLE DATA NULL? " + (titleData == null));
 
         playFabManager = GameObject.Find("PlayFab_Manager").GetComponent<PlayFab_Manager>();
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
@@ -99,7 +108,7 @@ public class PlayFab_Initializer : MonoBehaviour
     {
         // Debug.Log("LOADED DATA: " + loadedData);
         // Debug.Log("SERVER TIME: " + serverTime);
-        if (loggedInPlayFabServer && serverTime != null && loadedData != null){
+        if (loggedInPlayFabServer && serverTime != null && loadedData != null && titleData != null){
             if (SceneManager.GetActiveScene().name == "Landing_Page"){ // It should always be this scene if we are creating a user
                 loadedData.Metrics.numGameStartups += 1;
             }
@@ -108,6 +117,7 @@ public class PlayFab_Initializer : MonoBehaviour
             gameManager.gameTimeUnix = serverTime ?? 0;
             gameManager.gameStartTimeUnix = serverTime ?? 0;
             gameManager.userDisplayName = displayName;
+            gameManager.titleData = titleData;
             gameManager.doneLoading = true;
             callBack();
             if(EndingPlayFabInitiationInfo != null){
@@ -127,6 +137,10 @@ public class PlayFab_Initializer : MonoBehaviour
         if (loggedInPlayFabServer && loadedData == null && !waitingForResponsePlayFabData){
             playFabManager.LoadData();
             waitingForResponsePlayFabData = true;
+        }
+        if (loggedInPlayFabServer && titleData == null && !waitingForResponsePlayFabTitleData){
+            playFabManager.GetTitleData();
+            waitingForResponsePlayFabTitleData = true;
         }
     }
 
@@ -184,6 +198,16 @@ public class PlayFab_Initializer : MonoBehaviour
         loadedData = new SaveGameObject();
         waitingForResponsePlayFabData = false;
     }
+
+
+    void onGetTitleDataSuccess(Dictionary<string, string> TitleData){
+        titleData = TitleData;
+    }
+
+    void onGetTitleDataFailure(){
+
+    }
+
 
     void onRetryConnectButtonPressed(){
         Login();

@@ -67,22 +67,22 @@ public class PlayFab_Manager : MonoBehaviour
     public static event PlayFabSetDisplayNameFailure PlayFabSetDisplayNameFailureInfo;
 
 
+    public delegate void PlayFabGetTitleDataSuccess(Dictionary<string, string> titleData); // We got the title data
+    public static event PlayFabGetTitleDataSuccess PlayFabGetTitleDataSuccessInfo;
+
+    public delegate void PlayFabGetTitleDataFailure(); // We failed to get the title data
+    public static event PlayFabGetTitleDataFailure PlayFabGetTitleDataFailureInfo;
+
     void Awake(){
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-            Invoke("checkForHarry", 5f);
         }
         else{
             Destroy(this.gameObject);
         }
 
 
-    }
-
-    // Remove
-    public void checkForHarry(){
-        GetAccountInfo("Barry");
     }
 
 
@@ -239,7 +239,7 @@ public class PlayFab_Manager : MonoBehaviour
         //GetLeaderboardTest();
         //Invoke("GetUnixTimeServer", 15);
         //GetTitleDataTest();
-        Invoke("Login", 10);
+        //Invoke("Login", 10);
     }
 
 
@@ -374,19 +374,29 @@ public class PlayFab_Manager : MonoBehaviour
     //     StartCoroutine(_SaveDataTest());
     // }
 
-    void GetTitleData(){
+    public void GetTitleData(){
         PlayFabClientAPI.GetTitleData(new GetTitleDataRequest(), OnTitleDataReceieved, OnError);
     }
 
 
     void OnTitleDataReceieved(GetTitleDataResult result){
        if (result.Data == null || result.Data.ContainsKey("Message") == false){
-           //Debug.Log("PLAYFAB: NO MESSAGE!");
+           Debug.Log("PLAYFAB: NO MESSAGE!");
            return;
        }
        else{
-           //Debug.Log("PLAYFAB: GOT MESSAGE --- " + result.Data["Message"]);
+            Debug.Log("PLAYFAB: GOT MESSAGE --- " + result.Data["Message"]);
        }
+
+       if(PlayFabGetTitleDataSuccessInfo != null){
+           PlayFabGetTitleDataSuccessInfo(result.Data);
+       }
+    }
+
+    void onGetTitleDataError(PlayFabError error){
+        if(PlayFabGetTitleDataFailureInfo != null){
+            PlayFabGetTitleDataFailureInfo();
+        }
     }
 
 

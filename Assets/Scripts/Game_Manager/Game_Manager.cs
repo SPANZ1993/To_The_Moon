@@ -57,6 +57,10 @@ public class Game_Manager : MonoBehaviour
     public SaveGameObject loadedGame;
 
 
+    // Title data
+    public Dictionary<string, string> titleData;
+
+
     private bool initializedGame = false; // Is the game initiated?
     private bool initializeGameStarted = false; // Have we called the function that initializes the game?
 
@@ -216,6 +220,11 @@ public class Game_Manager : MonoBehaviour
         if (instanceID == gameObject.GetInstanceID() && instance == this){
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
             if (SceneManager.GetActiveScene().name == "Main_Area"){
+                foreach(string k in titleData.Keys){
+                    Debug.Log(k + ": " + titleData[k]);
+                }
+
+
                 uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
                 touchDetection = GameObject.Find("Input_Detector").GetComponent<Touch_Detection>();
                 serializationManager = GameObject.Find("Serialization_Manager").GetComponent<ISerialization_Manager>();
