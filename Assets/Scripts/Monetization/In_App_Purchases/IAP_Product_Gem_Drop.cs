@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
-[CreateAssetMenu(fileName = "Gem_Drop", menuName = "ScriptableObjects/IAP_Product_Gem_Drop", order = 3)]
-public class IAP_Product_Gem_Drop : IAP_Product_Scriptable_Object
+[CreateAssetMenu(fileName = "IAP_Gem_Drop", menuName = "ScriptableObjects/IAP_Product_Gem_Drop", order = 3)]
+public class IAP_Product_Gem_Drop : IAP_Product_Scriptable_Object_Consumable
 {
     public double NumGems { get { return numGems; } private set {numGems = value;}}
     
@@ -14,7 +14,7 @@ public class IAP_Product_Gem_Drop : IAP_Product_Scriptable_Object
 
 
     public override void OnPurchaseComplete(Product product){
-        base.OnPurchaseComplete(product);
+        base.OnPurchaseComplete(product); // Do this at the end
     }
 
     public override void OnPurchaseFailed(Product product, PurchaseFailureReason reason){

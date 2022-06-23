@@ -4,15 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Purchasing;
 using TMPro;
 
 using System;
 using System.Linq;
 using System.Reflection;
 
-using UI_Characters;
 
-using UnityEngine.SceneManagement;
+using UI_Characters;
 
 
 using System.Text;
@@ -342,7 +343,10 @@ public class UI_Controller : MonoBehaviour
     [SerializeField]
     private GameObject exchangePanelPrefab;
     [SerializeField]
-    private GameObject shopPanelPrefab;
+    private GameObject shopPanelPrefab; 
+
+    private bool exchangeDisplayed = false;
+    private bool shopDisplayed = false;
     // End Computer Menu
 
 
@@ -1361,6 +1365,8 @@ public class UI_Controller : MonoBehaviour
             DisableUIElement(ScreenTintObj);
             removeAllExchangePanels();
             computerMenuDisplayed = false;
+            shopDisplayed = false;
+            exchangeDisplayed = false;
         }
 
         
@@ -2195,7 +2201,6 @@ public class UI_Controller : MonoBehaviour
     // Button Handlers Rocket Building Menu
 
    public void selectResearch(){
-        //Debug.Log("SELECTING RESEARCH");
         if(rocketBuildingMenuDisplayed && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_1")){
             Audio_Manager.instance.Play("UI_Select_Pane_1");
         }
@@ -2217,9 +2222,6 @@ public class UI_Controller : MonoBehaviour
         enableActiveResearchPanels();
         researchManager.refreshAllResearchPanels();
         //mineUpgradeSelected = true;
-
-        
-
     }
 
     public void selectExperiments(){
@@ -2769,6 +2771,9 @@ public class UI_Controller : MonoBehaviour
         StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
+
+        shopDisplayed = true;
+        exchangeDisplayed = false;
     }
 
 
@@ -2776,16 +2781,20 @@ public class UI_Controller : MonoBehaviour
     public GameObject addShopPanel(IAP_Product_Scriptable_Object product){
         GameObject shopPanel = Instantiate(shopPanelPrefab, new Vector3(0, 0 , 0), Quaternion.identity);
         GameObject buyButtonObj = Object_Finder.findChildObjectByName(shopPanel, "Shop_Buy_Button");
+        shopPanel.GetComponent<ObjectHolder>().Obj = product;
 
         IAP_Manager.instance.initializeIAPButton(buyButtonObj, product);
-        buyButtonObj.GetComponent<IAPButtonDescriptionController>().Initialize();
-
+        
+        // Since we don't actually add owned by default products to the catalog
+        if(!(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) && ((IAP_Product_Scriptable_Object_Nonconsumable)shopPanel.GetComponent<ObjectHolder>().Obj).OwnedByDefault)){
+            buyButtonObj.GetComponent<IAPButtonDescriptionController>().Initialize();
+        }
 
         shopPanel.transform.localScale = GameObject.Find("Shop_Logo_Panel").transform.localScale; // New
         //Debug.Log("SETTING SCALE TO: " + shopPanel.transform.localScale);
         //mainAreaLocalScales[shopPanel] = shopPanel.transform.localScale;
         _indexUIElementSizes(mainAreaLocalScales, shopPanel);
-        shopPanel.GetComponent<ObjectHolder>().Obj = product;
+        
         return addShopPanel(shopPanel);
     }  
 
@@ -2808,8 +2817,107 @@ public class UI_Controller : MonoBehaviour
     }
 
 
-    private void updateShopPanel(GameObject panel){
+    public void updateShopPanel(GameObject panel){
+
         Debug.Log("WOULD BE UPDATING PANEL HERE");
+        IAP_Product_Scriptable_Object product = (IAP_Product_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
+
+
+
+        GameObject shopBuyButton = Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button");
+        IAPButtonDescriptionController shopBuyButtonDescriptionController = shopBuyButton.GetComponent<IAPButtonDescriptionController>();
+
+        TextMeshProUGUI priceText = Object_Finder.findChildObjectByName(panel, "Shop_Price_Text").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI titleText = Object_Finder.findChildObjectByName(panel, "Shop_Panel_Product_Title_Panel_Text").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI descriptionText = Object_Finder.findChildObjectByName(panel, "Shop_Description_Text").GetComponent<TextMeshProUGUI>();
+
+
+        Button shopBuyButtonComponent = shopBuyButton.GetComponent<Button>();
+        shopBuyButtonComponent.onClick.RemoveAllListeners();
+        shopBuyButtonComponent.interactable = true;
+
+
+        if(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType())){
+            // If this is a non-consumable product
+            IAP_Product_Scriptable_Object_Nonconsumable productSub = (IAP_Product_Scriptable_Object_Nonconsumable)panel.GetComponent<ObjectHolder>().Obj; // Same reference to the product, but just now as the subtype
+
+            //shopBuyButtonComponent.interactable = false;
+
+            if(!IAP_Manager.instance.checkNonConsumableProductForOwnership(productSub) && !productSub.OwnedByDefault){
+                // Proceed as normal with IAP Buy Button
+                Debug.Log("It's nonconsumable and we don't own it");
+                shopBuyButton.GetComponent<IAPButton>().enabled = true;
+                
+                shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
+
+                // TODO: Localize
+                Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = "Buy";
+            }
+            else{
+                Debug.Log("It's Nonconsumable and we own it");
+ 
+                
+
+                shopBuyButtonDescriptionController.Clear();
+                
+                // If we disable IAP Button right after we buy it, then that may screw up the connection to the store
+                // So instead we'll just disable the Button so it can't be pressed for a bit... and then disable the IAP Button
+                IEnumerator disableIAPButtonAfterPurchase(){
+                    shopBuyButtonComponent.interactable = false;
+                    while(Game_Manager.instance.gameTimeUnix - IAP_Manager.instance.lastNonConsumableProductIdBuyTime <= 0.5){
+                        yield return new WaitForEndOfFrame();
+                        Debug.Log("WAITING TO TURN BUTTON BACK ON");
+                    }
+                    Debug.Log("OKAY TURNING IT BACK ON... But IAP Button is off time diff is " + (Game_Manager.instance.gameTimeUnix - IAP_Manager.instance.lastNonConsumableProductIdBuyTime));
+                    shopBuyButtonComponent.interactable = true;
+                    shopBuyButton.GetComponent<IAPButton>().enabled = false;
+                }
+                StartCoroutine(disableIAPButtonAfterPurchase());
+
+                    
+
+
+                descriptionText.text = productSub.ProductDescription;
+                // TODO: Localize
+                priceText.text = "Already Owned";
+                if(productSub.Equippable){
+                    // Turn the buy button into an equip button because we already own it
+                    Debug.Log("It's NONconsumable equippable And We Already Own It -- " + productSub.ProductId);
+                    
+                    if(!productSub.Equipped){
+                        shopBuyButtonComponent.onClick.AddListener(productSub.OnEquip);
+                        Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = productSub.EquipButtonString;
+                    }
+                    else{
+                        shopBuyButtonComponent.interactable = false;
+                        shopBuyButtonComponent.onClick.AddListener(productSub.OnEquip);
+                        Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = productSub.EquippedButtonString;
+                    }
+                }
+                else{
+                    // Pretty much just want to remove the button or say we already own it
+                    Debug.Log("It's NONconsumable NONequippable And We Already Own It -- " + productSub.ProductId);
+                    DisableUIElement(shopBuyButton);
+                }
+            }
+        }
+        else if(typeof(IAP_Product_Scriptable_Object_Consumable).IsAssignableFrom(product.GetType())){
+            // If this is a consumable product
+            // Proceed as normal with IAP Buy Button because you can buy as many of these as you want
+            Debug.Log("It's consumable -- " + product.ProductId);
+
+            shopBuyButton.GetComponent<IAPButton>().enabled = true;
+            
+            shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
+
+            // TODO: Localize
+            Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = "Buy";
+
+
+        }
+        else{
+            throw new ArgumentException("WHAT IS GOING ON WITH THIS PRODUCT: " + product.ProductTitle + " IT ISN'T CONSUMABLE OR NON-CONSUMABLE... GetType() " + product.GetType().ToString());
+        }
     }
 
 
@@ -2857,6 +2965,9 @@ public class UI_Controller : MonoBehaviour
         
         StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
+
+        shopDisplayed = false;
+        exchangeDisplayed = true;
     }
 
 

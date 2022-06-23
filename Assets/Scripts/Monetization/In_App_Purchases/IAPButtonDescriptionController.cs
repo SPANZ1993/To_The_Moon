@@ -16,6 +16,12 @@ public class IAPButtonDescriptionController : MonoBehaviour
         attachedButton = GetComponent<IAPButton>();
         //Initialize();
     }
+
+    public void Clear(){
+        priceText = null;
+        titleText = null;
+        descriptionText = null;
+    }
  
     public void Initialize()
     {
@@ -30,5 +36,12 @@ public class IAPButtonDescriptionController : MonoBehaviour
  
         if (descriptionText != null)
             descriptionText.SetText(product.metadata.localizedDescription);
+    }
+
+    public void Initialize(TextMeshProUGUI PriceText, TextMeshProUGUI TitleText, TextMeshProUGUI DescriptionText){
+        priceText = PriceText;
+        titleText = TitleText;
+        descriptionText = DescriptionText;
+        Initialize();
     }
 }

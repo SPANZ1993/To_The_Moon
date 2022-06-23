@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba2967ccf5d9ab545b16c03f18ecf8e9, type: 3}
-  m_Name: Gem_Drop
+  m_Name: IAP_Gem_Drop_5
   m_EditorClassIdentifier: 
   productId: com.eggkidgames.blockchainblastoff.testconsumable
   productTitle: Test Consumable

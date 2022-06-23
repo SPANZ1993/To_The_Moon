@@ -11,15 +11,16 @@ public class IAP_Manager : MonoBehaviour
     private IAP_Product_Scriptable_Object[] activeProducts;
 
     //private IAP_Product_Scriptable_Object[] purchasedProducts;
-    //private IAP_Product_Scriptable_Object[] inactiveProducts; // Products that exist, but are not currently for sale
+    //private IAP_Product_Scriptable_Object[] allProducts; // Contains products that exist, but are not currently for sale
+    public List<string> ownedNonConsumableProductsIds; // Non-Consumable Products That We Own.. We don't want to sell these twice, but allow them to be equipped instead
+    public double lastNonConsumableProductIdBuyTime = -1; // Used to update the menu to prevent double buys of non-consumable items
 
 
     public Dictionary<IAP_Product_Scriptable_Object, GameObject> activeProductsToShopPanel {get; private set;}
 
 
 
-
-
+    // TODO... MAKE SURE WE ADD THE PRODUCTS WE ALREADY OWN TO THE ACTIVE PRODUCTS WHEN WE INITIALIZE THIS FROM A LOADED GAME
 
     public static IAP_Manager instance;
     
@@ -28,6 +29,7 @@ public class IAP_Manager : MonoBehaviour
         if (!instance){
             instance = this;
             activeProductsToShopPanel = new Dictionary<IAP_Product_Scriptable_Object, GameObject>();
+            ownedNonConsumableProductsIds = new List<string>();
             DontDestroyOnLoad(this.gameObject);
         }
         else{
@@ -76,9 +78,7 @@ public class IAP_Manager : MonoBehaviour
 
 
     public void initializeIAPButton(IAPButton button, IAP_Product_Scriptable_Object product){
-        Debug.Log("A " + product.ProductId);
         button.productId = product.ProductId;
-        Debug.Log("B");
         button.consumePurchase = product.ConsumePurchase;
 
         button.onPurchaseComplete.RemoveAllListeners();
@@ -93,5 +93,24 @@ public class IAP_Manager : MonoBehaviour
             button.enabled = true;
         }
     }
+
+
+
+    public void updateAllShopPanels(){
+        foreach(GameObject panel in activeProductsToShopPanel.Values){
+            UI_Controller.instance.updateShopPanel(panel);
+        }
+    }
+
+    public bool checkNonConsumableProductForOwnership(IAP_Product_Scriptable_Object product){
+        bool owned = false;
+        if(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) && ownedNonConsumableProductsIds.Contains(product.ProductId)){
+            owned = true;
+        }
+        return owned;
+    }
+
+
+
 
 }

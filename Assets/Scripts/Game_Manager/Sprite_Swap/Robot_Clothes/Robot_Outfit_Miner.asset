@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db5d8aa821de4c4ea32750e45286807, type: 3}
+  m_Name: Robot_Outfit_Miner
+  m_EditorClassIdentifier: 
+  outfitId: 0
+  robotOutfitSprite: {fileID: 9222530763774365840, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
