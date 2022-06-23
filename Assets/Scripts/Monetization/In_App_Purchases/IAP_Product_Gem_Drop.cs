@@ -14,6 +14,7 @@ public class IAP_Product_Gem_Drop : IAP_Product_Scriptable_Object_Consumable
 
 
     public override void OnPurchaseComplete(Product product){
+        Game_Manager.instance.gems += NumGems;
         base.OnPurchaseComplete(product); // Do this at the end
     }
 

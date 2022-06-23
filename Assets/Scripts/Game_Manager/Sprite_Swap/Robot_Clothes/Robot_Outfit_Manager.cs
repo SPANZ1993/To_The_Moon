@@ -14,7 +14,8 @@ public class Robot_Outfit_Manager : MonoBehaviour
     
     public int CurOutfitID { get { return curOutfitID; } private set { curOutfitID = value; } }
 
-    private int curOutfitID = 0;
+    [SerializeField]
+    private int curOutfitID;
 
     public static Robot_Outfit_Manager instance;
     
@@ -23,6 +24,7 @@ public class Robot_Outfit_Manager : MonoBehaviour
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            curOutfitID = 0;
         }
         else{
             Destroy(this.gameObject);

@@ -2789,6 +2789,8 @@ public class UI_Controller : MonoBehaviour
         if(!(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) && ((IAP_Product_Scriptable_Object_Nonconsumable)shopPanel.GetComponent<ObjectHolder>().Obj).OwnedByDefault)){
             buyButtonObj.GetComponent<IAPButtonDescriptionController>().Initialize();
         }
+        // TODO: FOR ONES THAT ARE OWNED BY DEFAULT WE NEED TO SET THE TEXT MANUALLY
+
 
         shopPanel.transform.localScale = GameObject.Find("Shop_Logo_Panel").transform.localScale; // New
         //Debug.Log("SETTING SCALE TO: " + shopPanel.transform.localScale);
@@ -2819,7 +2821,6 @@ public class UI_Controller : MonoBehaviour
 
     public void updateShopPanel(GameObject panel){
 
-        Debug.Log("WOULD BE UPDATING PANEL HERE");
         IAP_Product_Scriptable_Object product = (IAP_Product_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
 
 
@@ -2831,9 +2832,10 @@ public class UI_Controller : MonoBehaviour
         TextMeshProUGUI titleText = Object_Finder.findChildObjectByName(panel, "Shop_Panel_Product_Title_Panel_Text").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI descriptionText = Object_Finder.findChildObjectByName(panel, "Shop_Description_Text").GetComponent<TextMeshProUGUI>();
 
+        titleText.text = product.ProductTitle;
 
         Button shopBuyButtonComponent = shopBuyButton.GetComponent<Button>();
-        shopBuyButtonComponent.onClick.RemoveAllListeners();
+        
         shopBuyButtonComponent.interactable = true;
 
 
@@ -2846,8 +2848,10 @@ public class UI_Controller : MonoBehaviour
             if(!IAP_Manager.instance.checkNonConsumableProductForOwnership(productSub) && !productSub.OwnedByDefault){
                 // Proceed as normal with IAP Buy Button
                 Debug.Log("It's nonconsumable and we don't own it");
+                //IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
                 shopBuyButton.GetComponent<IAPButton>().enabled = true;
-                
+                IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
+
                 shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
 
                 // TODO: Localize
@@ -2883,12 +2887,14 @@ public class UI_Controller : MonoBehaviour
                 if(productSub.Equippable){
                     // Turn the buy button into an equip button because we already own it
                     Debug.Log("It's NONconsumable equippable And We Already Own It -- " + productSub.ProductId);
-                    
+                    shopBuyButtonComponent.onClick.RemoveAllListeners();
                     if(!productSub.Equipped){
+                        Debug.Log("OWN IT AND IT'S NOT EQUIPPED " + productSub.ProductId);
                         shopBuyButtonComponent.onClick.AddListener(productSub.OnEquip);
                         Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = productSub.EquipButtonString;
                     }
                     else{
+                        Debug.Log("OWN IT AND IT'S EQUIPPED");
                         shopBuyButtonComponent.interactable = false;
                         shopBuyButtonComponent.onClick.AddListener(productSub.OnEquip);
                         Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = productSub.EquippedButtonString;
@@ -2906,12 +2912,16 @@ public class UI_Controller : MonoBehaviour
             // Proceed as normal with IAP Buy Button because you can buy as many of these as you want
             Debug.Log("It's consumable -- " + product.ProductId);
 
+            IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
+
             shopBuyButton.GetComponent<IAPButton>().enabled = true;
             
             shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
 
             // TODO: Localize
             Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = "Buy";
+
+            
 
 
         }

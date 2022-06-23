@@ -2021,6 +2021,8 @@ MonoBehaviour:
       numRewardedAdsWatchedRocketFlight: 0
       numRewardedAdsOfferedMineGame: 0
       numRewardedAdsWatchedMineGame: 0
+    OwnedNonConsumableProductsIds:
+    - com.eggkidgames.blockchainblastoff.robotMinerOutfit
   coins: 0
   gems: 0
   maxLaunches: 3
@@ -3132,6 +3134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957729076}
   - component: {fileID: 1957729075}
+  - component: {fileID: 1957729077}
   m_Layer: 0
   m_Name: Sprite_Swap_Manager
   m_TagString: Untagged
@@ -3154,6 +3157,7 @@ MonoBehaviour:
   allOutfits:
   - {fileID: 11400000, guid: 4ebb466126e6af14182711c9481b019c, type: 2}
   - {fileID: 11400000, guid: 41a86a1da2d48b24f94b1682e94a9117, type: 2}
+  curOutfitID: 0
 --- !u!4 &1957729076
 Transform:
   m_ObjectHideFlags: 0
@@ -3169,6 +3173,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1957729077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957729074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f24a9dde7357544a6ecfa7902ff13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSkins:
+  - {fileID: 11400000, guid: c0f0ff2b305580d40bcdd192b6e99ff8, type: 2}
+  - {fileID: 11400000, guid: 19b1e6cb8c5064e4cb484c0c29805259, type: 2}
+  curSkinID: 0
 --- !u!1 &2023067950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,9 +3218,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a7583223f40594dada3054f61ac2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeProducts:
+  allProducts:
   - {fileID: 11400000, guid: d032ee0d989a8b7419c490e6a1a50c13, type: 2}
   - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}
+  - {fileID: 11400000, guid: a5e59fae036fb68498475137796614e1, type: 2}
+  - {fileID: 11400000, guid: 312f9da3dce311649b4df59d2bb5eaa1, type: 2}
+  - {fileID: 11400000, guid: ab47b22ffd37db145bb59abf2cea15a7, type: 2}
+  - {fileID: 11400000, guid: bad938ad71dc0874498209866f03d337, type: 2}
+  activeProducts:
+  - {fileID: 11400000, guid: d032ee0d989a8b7419c490e6a1a50c13, type: 2}
+  - {fileID: 11400000, guid: a5e59fae036fb68498475137796614e1, type: 2}
+  - {fileID: 11400000, guid: bad938ad71dc0874498209866f03d337, type: 2}
+  - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}
+  - {fileID: 11400000, guid: 312f9da3dce311649b4df59d2bb5eaa1, type: 2}
   - {fileID: 11400000, guid: ab47b22ffd37db145bb59abf2cea15a7, type: 2}
   ownedNonConsumableProductsIds: []
   lastNonConsumableProductIdBuyTime: -1

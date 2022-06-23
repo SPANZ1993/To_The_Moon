@@ -10,8 +10,8 @@ public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_
 {
 
     public bool OwnedByDefault {get {return ownedByDefault; } private set {ownedByDefault = value;} }
-    public bool Equippable {get {return equippable; } private set {equippable = value;}}
-    public bool Equipped {get {return equipped; } protected set {equipped = value;}}
+    public bool Equippable {get {return equippable; } private set {equippable = value;} }
+    public bool Equipped {get {return equipped; } protected set {equipped = value;} }
     public string EquipButtonString {get {return equipButtonString; } private set {equipButtonString = value;}}
     public string EquippedButtonString {get {return equippedButtonString; } private set {equippedButtonString = value;}}
 
@@ -54,6 +54,8 @@ public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_
 
     public void OnEquip(){
         _onEquip();
+        Equipped = true;
+        Debug.Log("A ARE WE EQUIPPED? " + Equipped + " " + ProductId);
         IAP_Manager.instance.updateAllShopPanels();
     }
 

@@ -16,6 +16,9 @@ MonoBehaviour:
   productTitle: Test Non-Consumable
   productDescription: It's a test of a non-consumable.
   consumePurchase: 0
+  ownedByDefault: 0
   equippable: 1
+  equipped: 0
   equipButtonString: Wear
+  equippedButtonString: Wearing
   robotOutfitSprite: {fileID: 11400000, guid: 41a86a1da2d48b24f94b1682e94a9117, type: 2}

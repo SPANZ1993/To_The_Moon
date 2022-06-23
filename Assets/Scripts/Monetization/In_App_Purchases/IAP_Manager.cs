@@ -7,11 +7,13 @@ using System.Linq;
 
 public class IAP_Manager : MonoBehaviour
 {
+
+    [SerializeField]
+    private IAP_Product_Scriptable_Object[] allProducts; // All products including ones that aren't currently available for sale... defines order in UI
     [SerializeField]
     private IAP_Product_Scriptable_Object[] activeProducts;
 
-    //private IAP_Product_Scriptable_Object[] purchasedProducts;
-    //private IAP_Product_Scriptable_Object[] allProducts; // Contains products that exist, but are not currently for sale
+    
     public List<string> ownedNonConsumableProductsIds; // Non-Consumable Products That We Own.. We don't want to sell these twice, but allow them to be equipped instead
     public double lastNonConsumableProductIdBuyTime = -1; // Used to update the menu to prevent double buys of non-consumable items
 
@@ -30,6 +32,14 @@ public class IAP_Manager : MonoBehaviour
             instance = this;
             activeProductsToShopPanel = new Dictionary<IAP_Product_Scriptable_Object, GameObject>();
             ownedNonConsumableProductsIds = new List<string>();
+            // Add owned by default products to this
+            foreach(IAP_Product_Scriptable_Object product in activeProducts){
+                Debug.Assert(Array.Exists(allProducts, p => p.Equals(product)));
+                if(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) && ((IAP_Product_Scriptable_Object_Nonconsumable)(System.Object)product).OwnedByDefault){
+                    ownedNonConsumableProductsIds.Add(product.ProductId);
+                }
+            }
+
             DontDestroyOnLoad(this.gameObject);
         }
         else{
@@ -57,7 +67,8 @@ public class IAP_Manager : MonoBehaviour
     }
 
     public void addPanelsToShop(){
-        foreach(IAP_Product_Scriptable_Object product in activeProducts){
+        // Do it this way to maintain ordering in the UI
+        foreach(IAP_Product_Scriptable_Object product in allProducts.Where(product => activeProducts.Contains(product))){
             if(!activeProductsToShopPanel.Keys.Contains(product) || activeProductsToShopPanel[product] == null){
                 Debug.Log("ADDING NEW PANEL: " + product.ProductTitle);
                 GameObject panel = UI_Controller.instance.addShopPanel(product);

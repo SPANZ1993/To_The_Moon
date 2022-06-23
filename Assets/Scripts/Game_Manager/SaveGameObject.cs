@@ -72,6 +72,11 @@ public class SaveGameObject
     public Dictionary<int, double> SerializedCryptoBalances {get; private set;}
     public Dictionary<int, double> SerializedCryptoAveragePrices {get; private set;}
 
+    public List<string> OwnedNonConsumableProductsIds;
+
+    public int CurRobotClothesId {get; set;}
+
+    public int CurShipSkinId {get; set;}
 
     public SaveGameObject(){
         IsValid = true;
@@ -116,6 +121,12 @@ public class SaveGameObject
 
         SerializedCryptoBalances = new Dictionary<int, double>();
         SerializedCryptoAveragePrices = new Dictionary<int, double>();
+
+        OwnedNonConsumableProductsIds = new List<string>{"com.eggkidgames.blockchainblastoff.robotMinerOutfit", "com.eggkidgames.blockchainblastoff.shipSkinDefault"};
+
+        CurRobotClothesId = 0; // Mine outfit
+
+        CurShipSkinId = 0; // Default Ship Skin
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -167,7 +178,10 @@ public class SaveGameObject
                             Dictionary<Upgrade, int> upgradesNumberDict,
                             Metrics_Object metrics, 
                             Dictionary<int, double> serializedCryptoBalances,
-                            Dictionary<int, double> serializedCryptoAveragePrices){
+                            Dictionary<int, double> serializedCryptoAveragePrices,
+                            List<string> ownedNonConsumableProductsIds,
+                            int curRobotClothesId,
+                            int curShipSkinId){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -212,6 +226,12 @@ public class SaveGameObject
     
         SerializedCryptoBalances = serializedCryptoBalances;
         SerializedCryptoAveragePrices = serializedCryptoAveragePrices;
+
+        OwnedNonConsumableProductsIds = ownedNonConsumableProductsIds;
+
+        CurRobotClothesId = curRobotClothesId;
+
+        CurShipSkinId = curShipSkinId;
     }
 
 }

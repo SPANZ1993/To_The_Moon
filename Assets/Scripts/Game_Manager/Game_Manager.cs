@@ -657,6 +657,12 @@ public class Game_Manager : MonoBehaviour
 
         Crypto_Manager.instance.initializeCryptoBalanceAndAveragePrice(loadedGame.SerializedCryptoBalances, loadedGame.SerializedCryptoAveragePrices);
         
+        initializeIAPManager(loadedGame.OwnedNonConsumableProductsIds);
+
+        initializeRobotOutfit(loadedGame.CurRobotClothesId);
+        //Robot_Outfit_Manager.instance.setCurRobotOutfitId(loadedGame.CurRobotClothesId);
+
+        initializeShipSkin(loadedGame.CurShipSkinId);
 
         initializedGame = true;
     }
@@ -899,7 +905,54 @@ public class Game_Manager : MonoBehaviour
         }
     }
 
+    private void initializeIAPManager(List<string> ownedNonConsumableProductsIds){
+        IAP_Manager.instance.ownedNonConsumableProductsIds = ownedNonConsumableProductsIds;
+    }
 
+    // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on
+    private void initializeRobotOutfit(int outfitId){
+        Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
+        // If the IAP Manager says we own the outfit that we are trying to wear
+        List<IAP_Product_Robot_Outfit> ownedRobotOutfitIAPs = new List<IAP_Product_Robot_Outfit>();
+        foreach(IAP_Product_Robot_Outfit outfitIAP in IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId))){
+            ownedRobotOutfitIAPs.Add((IAP_Product_Robot_Outfit)(System.Object)outfitIAP);
+        }
+
+        if(ownedRobotOutfitIAPs.Any(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId)){
+            Debug.Log("HEY WE OWN THIS OUTFIT");
+            //Robot_Outfit_Manager.instance.setCurRobotOutfitId(outfitId);
+            // Call Equip on the Outfit That We Found
+            new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0].OnEquip();
+        }
+        else{
+            Debug.Log("WE DON'T OWN THIS OUTFIT");
+            initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
+        }
+    }
+
+
+
+
+    // Initialize ship skin.. make sure we own the skin, and then equip it.. if we don't own it, just put the default skin on
+    private void initializeShipSkin(int skinId){
+        Debug.Log("TRYING TO PUT ON SKIN: " + skinId);
+        // If the IAP Manager says we own the Skin that we are trying to wear
+        List<IAP_Product_Ship_Skin> ownedShipSkinIAPs = new List<IAP_Product_Ship_Skin>();
+        foreach(IAP_Product_Ship_Skin SkinIAP in IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Ship_Skin).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId))){
+            ownedShipSkinIAPs.Add((IAP_Product_Ship_Skin)(System.Object)SkinIAP);
+        }
+
+        if(ownedShipSkinIAPs.Any(shipSkinIAP => shipSkinIAP.ShipSkin.SkinId == skinId)){
+            Debug.Log("HEY WE OWN THIS SKIN");
+            //Ship_Skin_Manager.instance.setCurShipSkinId(skinId);
+            // Call Equip on the Skin That We Found
+            new List<IAP_Product_Ship_Skin>(ownedShipSkinIAPs.Where(shipSkinIAP => shipSkinIAP.ShipSkin.SkinId == skinId))[0].OnEquip();
+        }
+        else{
+            Debug.Log("WE DON'T OWN THIS SKIN");
+            initializeShipSkin(new SaveGameObject().CurShipSkinId);
+        }
+    }
 
 
 

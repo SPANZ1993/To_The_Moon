@@ -25,7 +25,7 @@ public class IAPButtonDescriptionController : MonoBehaviour
  
     public void Initialize()
     {
-        Debug.Log("INITIALIZING HERE " + attachedButton.productId);
+        //Debug.Log("INITIALIZING HERE " + attachedButton.productId);
         var product = CodelessIAPStoreListener.Instance.GetProduct(attachedButton.productId);
  
         if (priceText != null)

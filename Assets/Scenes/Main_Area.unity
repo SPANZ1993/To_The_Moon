@@ -27884,7 +27884,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -7412046891123592334, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -29262,6 +29262,8 @@ MonoBehaviour:
       numRewardedAdsWatchedRocketFlight: 0
       numRewardedAdsOfferedMineGame: 0
       numRewardedAdsWatchedMineGame: 0
+    OwnedNonConsumableProductsIds:
+    - com.eggkidgames.blockchainblastoff.robotMinerOutfit
   coins: 0
   gems: 0
   maxLaunches: 3

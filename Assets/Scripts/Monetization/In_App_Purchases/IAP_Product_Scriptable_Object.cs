@@ -5,7 +5,7 @@ using UnityEngine.Purchasing;
 
 
 
-public abstract class IAP_Product_Scriptable_Object : ScriptableObject
+public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.IEquatable<IAP_Product_Scriptable_Object>
 {
     public string ProductId { get { return productId; } private set { productId = value; } }
     public string ProductTitle { get { return productTitle; } private set {productTitle = value;}}
@@ -29,5 +29,10 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject
 
     public virtual void OnPurchaseFailed(Product product, PurchaseFailureReason reason){
         Debug.Log("PURCHASE OF: " + ProductId + " ... " + product.definition.id + " FAILED DUE TO... " + reason);
+    }
+
+
+    public bool Equals(IAP_Product_Scriptable_Object other){
+        return ProductId == other.productId;
     }
 }
