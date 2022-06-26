@@ -11,6 +11,12 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
     public string ProductTitle { get { return productTitle; } private set {productTitle = value;}}
     public string ProductDescription { get { return productDescription; } private set {productDescription = value;}}
     public bool ConsumePurchase {get {return consumePurchase; } private set {consumePurchase = value;}}
+    public Sprite PreviewSprite { get { return previewSprite; } private set { previewSprite = value; } }
+
+
+
+
+
 
     [SerializeField]
     private string productId;
@@ -20,6 +26,9 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
     private string productDescription;
     [SerializeField]
     private bool consumePurchase;
+    [SerializeField]
+    private Sprite previewSprite;
+
 
 
     public virtual void OnPurchaseComplete(Product product){
@@ -34,5 +43,16 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
 
     public bool Equals(IAP_Product_Scriptable_Object other){
         return ProductId == other.productId;
+    }
+
+    // If we have any products that have specific requirements in order for them to be active, put them here
+    // For example, we only want to display Patron-Only Products if the User is a Patron
+    public static bool SpecialRequirementsMet(IAP_Product_Scriptable_Object product){
+        if((product.ProductId == "com.eggkidgames.blockchainblastoff.robotOutfitPatron" || product.ProductId == "cacapeepee") && !Game_Manager.instance.isPatron){
+            Debug.Log("IN HERE");
+            return false;
+        }
+
+        return true;
     }
 }

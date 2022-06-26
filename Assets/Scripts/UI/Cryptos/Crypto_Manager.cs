@@ -39,10 +39,10 @@ public class Crypto_Manager : MonoBehaviour
 
     public void Update(){
         foreach(Crypto_Scriptable_Object c in activeCryptosToBalance.Keys){
-            Debug.Log(c.CoinName + " BAL - " + activeCryptosToBalance[c]);
+            //Debug.Log(c.CoinName + " BAL - " + activeCryptosToBalance[c]);
         }
         foreach(Crypto_Scriptable_Object c in activeCryptosToAveragePrice.Keys){
-            Debug.Log(c.CoinName + " AVG - " + activeCryptosToAveragePrice[c]);
+            //Debug.Log(c.CoinName + " AVG - " + activeCryptosToAveragePrice[c]);
         }
     }
 
@@ -101,6 +101,16 @@ public class Crypto_Manager : MonoBehaviour
     }
 
     public void addPanelsToExchange(){
+
+
+        // Remove all panels first in case we need to reorder
+        foreach(Crypto_Scriptable_Object crypto in activeCryptos){
+            if(activeCryptosToExchangePanel.Keys.Contains(crypto) && activeCryptosToExchangePanel[crypto] != null){
+                activeCryptosToExchangePanel[crypto].transform.SetParent(null);
+            }
+        }
+
+
         foreach(Crypto_Scriptable_Object crypto in activeCryptosToPrice.Keys){
             if(activeCryptosToPrice[crypto] != null){
                 if(!activeCryptosToExchangePanel.Keys.Contains(crypto) || activeCryptosToExchangePanel[crypto] == null){

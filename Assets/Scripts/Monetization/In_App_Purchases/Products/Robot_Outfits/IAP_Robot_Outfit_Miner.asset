@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ff02ea3033fda4eb66ebec2ee6edcb, type: 3}
-  m_Name: IAP_Robot_Outfit_Test
+  m_Name: IAP_Robot_Outfit_Miner
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.testnonconsumable
-  productTitle: Test Non-Consumable
-  productDescription: It's a test of a non-consumable.
+  productId: com.eggkidgames.blockchainblastoff.robotOutfitMiner
+  productTitle: Miner
+  productDescription: An old classic
   consumePurchase: 0
-  ownedByDefault: 0
+  previewSprite: {fileID: -864934001, guid: bef077e8b671ad6428aa4215b8ad0a11, type: 3}
+  ownedByDefault: 1
   equippable: 1
   equipped: 0
   equipButtonString: Wear
   equippedButtonString: Wearing
-  robotOutfitSprite: {fileID: 11400000, guid: 41a86a1da2d48b24f94b1682e94a9117, type: 2}
+  robotOutfitSprite: {fileID: 11400000, guid: 4ebb466126e6af14182711c9481b019c, type: 2}

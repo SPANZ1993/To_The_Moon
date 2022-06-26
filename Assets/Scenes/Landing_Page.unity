@@ -249,7 +249,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.75
 --- !u!222 &25689864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2023,6 +2023,7 @@ MonoBehaviour:
       numRewardedAdsWatchedMineGame: 0
     OwnedNonConsumableProductsIds:
     - com.eggkidgames.blockchainblastoff.robotMinerOutfit
+  isPatron: 0
   coins: 0
   gems: 0
   maxLaunches: 3
@@ -2531,7 +2532,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.75
 --- !u!222 &778671868
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2683,7 +2684,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.25
 --- !u!222 &1399777838
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2813,6 +2814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugResearch: 0
   debugExperiment: 0
+  canvas: {fileID: 0}
   robotMenuDisplayed: 0
   rocketBuildingMenuDisplayed: 0
   researchMenuDisplayed: 0
@@ -2821,6 +2823,8 @@ MonoBehaviour:
   autopilotConfirmationBoxText: {fileID: 0}
   autopilotConfirmationBoxYesText: {fileID: 0}
   autopilotConfirmationBoxNoText: {fileID: 0}
+  Computer_Menu_Header_Panel_Selected_Sprite: {fileID: -1431187566, guid: 64080c8d122816e4cbbb6a2bf65f0176, type: 3}
+  Computer_Menu_Header_Panel_Unselected_Sprite: {fileID: 1959488631, guid: 64080c8d122816e4cbbb6a2bf65f0176, type: 3}
   exchangePanelPrefab: {fileID: 2987626675233976229, guid: 91d066270bb0e794a9df7c98ef261333, type: 3}
   shopPanelPrefab: {fileID: 2987626675233976229, guid: 1739610b326adf04e8e1254cdc76f7cc, type: 3}
   selectedSprite: {fileID: 7843416716369364892, guid: d40b72e6ffbe36740b3dceacde0e3532, type: 3}
@@ -3157,6 +3161,9 @@ MonoBehaviour:
   allOutfits:
   - {fileID: 11400000, guid: 4ebb466126e6af14182711c9481b019c, type: 2}
   - {fileID: 11400000, guid: 41a86a1da2d48b24f94b1682e94a9117, type: 2}
+  - {fileID: 11400000, guid: 2b4215a5300c77c4da611540b78807f5, type: 2}
+  - {fileID: 11400000, guid: 1827c8f1df839a8419afc2e436fd1fd5, type: 2}
+  - {fileID: 11400000, guid: d22574ba9b44050428ae2cbafb7ac45d, type: 2}
   curOutfitID: 0
 --- !u!4 &1957729076
 Transform:
@@ -3221,17 +3228,23 @@ MonoBehaviour:
   allProducts:
   - {fileID: 11400000, guid: d032ee0d989a8b7419c490e6a1a50c13, type: 2}
   - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}
+  - {fileID: 11400000, guid: 36a199983297cba43bf3bc80c66f3693, type: 2}
+  - {fileID: 11400000, guid: 24bfc81eee8e8d34fb3933c3ee152104, type: 2}
+  - {fileID: 11400000, guid: 69efb3132ebfb064780cb3833aec796c, type: 2}
   - {fileID: 11400000, guid: a5e59fae036fb68498475137796614e1, type: 2}
-  - {fileID: 11400000, guid: 312f9da3dce311649b4df59d2bb5eaa1, type: 2}
   - {fileID: 11400000, guid: ab47b22ffd37db145bb59abf2cea15a7, type: 2}
   - {fileID: 11400000, guid: bad938ad71dc0874498209866f03d337, type: 2}
+  - {fileID: 11400000, guid: 27a331c3e3cee18468d14e25d0e3edad, type: 2}
   activeProducts:
   - {fileID: 11400000, guid: d032ee0d989a8b7419c490e6a1a50c13, type: 2}
-  - {fileID: 11400000, guid: a5e59fae036fb68498475137796614e1, type: 2}
-  - {fileID: 11400000, guid: bad938ad71dc0874498209866f03d337, type: 2}
   - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}
-  - {fileID: 11400000, guid: 312f9da3dce311649b4df59d2bb5eaa1, type: 2}
+  - {fileID: 11400000, guid: 36a199983297cba43bf3bc80c66f3693, type: 2}
+  - {fileID: 11400000, guid: 24bfc81eee8e8d34fb3933c3ee152104, type: 2}
+  - {fileID: 11400000, guid: 69efb3132ebfb064780cb3833aec796c, type: 2}
+  - {fileID: 11400000, guid: a5e59fae036fb68498475137796614e1, type: 2}
   - {fileID: 11400000, guid: ab47b22ffd37db145bb59abf2cea15a7, type: 2}
+  - {fileID: 11400000, guid: bad938ad71dc0874498209866f03d337, type: 2}
+  - {fileID: 11400000, guid: 27a331c3e3cee18468d14e25d0e3edad, type: 2}
   ownedNonConsumableProductsIds: []
   lastNonConsumableProductIdBuyTime: -1
 --- !u!4 &2023067952

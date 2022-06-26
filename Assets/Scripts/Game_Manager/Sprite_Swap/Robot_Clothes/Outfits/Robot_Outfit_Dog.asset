@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4db5d8aa821de4c4ea32750e45286807, type: 3}
-  m_Name: Robot_Outfit_Flower_TEST
+  m_Name: Robot_Outfit_Dog
   m_EditorClassIdentifier: 
-  outfitId: 1
-  robotOutfitSprite: {fileID: 1228465305477970562, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
+  outfitId: 2
+  robotOutfitSprite: {fileID: -600827942, guid: e2cccfb0ceccd9542857ffdb3710e72e, type: 3}

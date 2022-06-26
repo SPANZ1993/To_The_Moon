@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6ff02ea3033fda4eb66ebec2ee6edcb, type: 3}
-  m_Name: IAP_Robot_Outfit_Miner
+  m_Name: IAP_Robot_Outfit_Dog
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.robotMinerOutfit
-  productTitle: Miner
-  productDescription: An old classic
+  productId: com.eggkidgames.blockchainblastoff.robotOutfitDog
+  productTitle: Doggo
+  productDescription: Woof Woof!
   consumePurchase: 0
-  ownedByDefault: 1
+  previewSprite: {fileID: 9300741, guid: bef077e8b671ad6428aa4215b8ad0a11, type: 3}
+  ownedByDefault: 0
   equippable: 1
   equipped: 0
   equipButtonString: Wear
   equippedButtonString: Wearing
-  robotOutfitSprite: {fileID: 11400000, guid: 4ebb466126e6af14182711c9481b019c, type: 2}
+  robotOutfitSprite: {fileID: 11400000, guid: 2b4215a5300c77c4da611540b78807f5, type: 2}

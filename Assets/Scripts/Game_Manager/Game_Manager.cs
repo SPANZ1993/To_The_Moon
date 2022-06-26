@@ -60,6 +60,9 @@ public class Game_Manager : MonoBehaviour
     // Title data
     public Dictionary<string, string> titleData;
 
+    // Patreon Stuff
+    public bool isPatron = false;
+
 
     private bool initializedGame = false; // Is the game initiated?
     private bool initializeGameStarted = false; // Have we called the function that initializes the game?
@@ -907,6 +910,19 @@ public class Game_Manager : MonoBehaviour
 
     private void initializeIAPManager(List<string> ownedNonConsumableProductsIds){
         IAP_Manager.instance.ownedNonConsumableProductsIds = ownedNonConsumableProductsIds;
+
+        // If a new automatically owned product ID gets added, add that to the list
+        SaveGameObject sgo = new SaveGameObject();
+        foreach(string productId in sgo.OwnedNonConsumableProductsIds){
+            if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(productId)){
+                IAP_Manager.instance.ownedNonConsumableProductsIds.Add(productId);
+            }
+        }
+
+
+        // Remove dups
+        IAP_Manager.instance.ownedNonConsumableProductsIds = IAP_Manager.instance.ownedNonConsumableProductsIds.Distinct().Where(pid => pid != null && pid != "").ToList();
+
     }
 
     // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on
@@ -914,15 +930,31 @@ public class Game_Manager : MonoBehaviour
         Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
         // If the IAP Manager says we own the outfit that we are trying to wear
         List<IAP_Product_Robot_Outfit> ownedRobotOutfitIAPs = new List<IAP_Product_Robot_Outfit>();
+
+        Debug.Log(">>> " + string.Join(", ", IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id))));
+        Debug.Log("OUTFITS WE OWN: " + string.Join(", ", IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId)).Select(product => product.ProductId).ToList()));
+
+
         foreach(IAP_Product_Robot_Outfit outfitIAP in IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId))){
+            Debug.Log("ADDING: " + outfitIAP.ProductId);
             ownedRobotOutfitIAPs.Add((IAP_Product_Robot_Outfit)(System.Object)outfitIAP);
+            ownedRobotOutfitIAPs[ownedRobotOutfitIAPs.Count-1].OnUnequip();
         }
 
         if(ownedRobotOutfitIAPs.Any(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId)){
             Debug.Log("HEY WE OWN THIS OUTFIT");
             //Robot_Outfit_Manager.instance.setCurRobotOutfitId(outfitId);
             // Call Equip on the Outfit That We Found
-            new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0].OnEquip();
+            IAP_Product_Robot_Outfit outfit = new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0];
+            if(IAP_Product_Scriptable_Object.SpecialRequirementsMet(outfit)){
+                outfit.OnEquip();
+            }
+            else{
+                // Like if a patreon membership expired
+                Debug.Log("We own this outfit but don't meet the requirements");
+                ((IAP_Product_Robot_Outfit)(System.Object)outfit).OnUnequip();
+                initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
+            }
         }
         else{
             Debug.Log("WE DON'T OWN THIS OUTFIT");

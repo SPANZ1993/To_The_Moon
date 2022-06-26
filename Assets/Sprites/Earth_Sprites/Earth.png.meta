@@ -1686,8 +1686,8 @@ TextureImporter:
         y: 1887
         width: 37
         height: 110
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3482,12 +3482,12 @@ TextureImporter:
       Robot_Base4: -7841782963002435219
       Keyboard_Screen15: -1849922374741344692
       CloudB: -9005775866314377051
-      Rocket_Button2: -1611042220432592643
       GrassA_2: -3086602609980112195
-      Computer_Screen1: -5847428952939010971
       Cofee2: 3053304957686523090
-      Robot_Screen_Loading4: -78688082753830527
+      Computer_Screen1: -5847428952939010971
       Robot_Base7: 3667598157409500007
+      Robot_Screen_Loading4: -78688082753830527
+      Rocket_Button2: -1611042220432592643
       Keyboard: -8100296154135606261
       Robot_Screen_Startup3: 7767473661887639448
       Mouse: 5117889508594249501
@@ -3513,10 +3513,10 @@ TextureImporter:
       Flower_Orange2: 8917927153200763621
       Mine_Cart3: -607999193065115162
       Robot_Screen_Startup1: 3115718290111480859
-      Keyboard_Screen1: -387120296438937512
+      Poster: 5404703936751759412
       Computer_Screen4: 5550154907140929604
       Coffee1: -65715871781885684
-      Poster: 5404703936751759412
+      Keyboard_Screen1: -387120296438937512
       Robot_Base14: 7874956283656454431
       Rocket_Tower8: 7237903369837469591
       Plant1: 4090802850771672748

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using UnityEngine.Localization.Settings;
  
 [RequireComponent(typeof(IAPButton))]
 public class IAPButtonDescriptionController : MonoBehaviour
@@ -30,7 +31,7 @@ public class IAPButtonDescriptionController : MonoBehaviour
  
         if (priceText != null)
             priceText.SetText(product.metadata.localizedPriceString);
- 
+
         if (titleText != null)
             titleText.SetText(product.metadata.localizedTitle);
  

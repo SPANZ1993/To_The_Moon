@@ -67,15 +67,23 @@ public class IAP_Manager : MonoBehaviour
     }
 
     public void addPanelsToShop(){
+        
+        // Remove all panels first in case we need to reorder
+        foreach(IAP_Product_Scriptable_Object product in allProducts){
+            if(activeProductsToShopPanel.Keys.Contains(product) && activeProductsToShopPanel[product] != null){
+                activeProductsToShopPanel[product].transform.SetParent(null);
+            }
+        }
+
         // Do it this way to maintain ordering in the UI
-        foreach(IAP_Product_Scriptable_Object product in allProducts.Where(product => activeProducts.Contains(product))){
+        foreach(IAP_Product_Scriptable_Object product in allProducts.Where(product => activeProducts.Contains(product)).Where(product => IAP_Product_Scriptable_Object.SpecialRequirementsMet(product))){
             if(!activeProductsToShopPanel.Keys.Contains(product) || activeProductsToShopPanel[product] == null){
-                Debug.Log("ADDING NEW PANEL: " + product.ProductTitle);
+                Debug.Log("ADDING SHOP NEW PANEL: " + product.ProductTitle);
                 GameObject panel = UI_Controller.instance.addShopPanel(product);
                 activeProductsToShopPanel[product] = panel;
             }
             else{
-                Debug.Log("ADDING OLD PANEL: " + product.ProductTitle);
+                Debug.Log("ADDING SHOP OLD PANEL: " + product.ProductTitle);
                 GameObject panel = UI_Controller.instance.addShopPanel(activeProductsToShopPanel[product]);
                 activeProductsToShopPanel[product] = panel;
             }

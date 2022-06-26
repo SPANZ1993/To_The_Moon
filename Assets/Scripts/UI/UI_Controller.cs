@@ -39,6 +39,9 @@ public class UI_Controller : MonoBehaviour
     public bool debugResearch = false;
     public bool debugExperiment = false;
 
+
+    public GameObject canvas;
+
     // UI Original LocalScale Dictionaries
     public Dictionary<GameObject, Vector3> currentLocalScales; // Just used as a reference inside EnableUIElement
     public Dictionary<GameObject, Vector3> landingPageLocalScales;
@@ -320,6 +323,17 @@ public class UI_Controller : MonoBehaviour
     private GameObject Computer_Container_Panel;
     private ScrollRect computerScrollRect;
 
+
+    private GameObject Computer_Menu_Header_Panel;
+    private GameObject Computer_Menu_Header_Panel_Exchange_Tab;
+    private GameObject Computer_Menu_Header_Panel_Shop_Tab;
+    private Image Computer_Menu_Header_Panel_Exchange_Tab_Image;
+    private Image Computer_Menu_Header_Panel_Shop_Tab_Image;
+    [SerializeField]
+    private Sprite Computer_Menu_Header_Panel_Selected_Sprite;
+    [SerializeField]
+    private Sprite Computer_Menu_Header_Panel_Unselected_Sprite;
+
     private GameObject shopWindowPanel;
     private GameObject shopScrollPanel;
     private ScrollRect shopWindowPanelScrollRect;
@@ -340,10 +354,15 @@ public class UI_Controller : MonoBehaviour
     private bool? curExchangeBuySellConfirmationBoxBuying; // Are we buying or selling
     private Crypto_Scriptable_Object curExchangeBuySellConfirmationBoxCrypto;
 
+    
+
+
+
     [SerializeField]
     private GameObject exchangePanelPrefab;
     [SerializeField]
-    private GameObject shopPanelPrefab; 
+    private GameObject shopPanelPrefab;
+
 
     private bool exchangeDisplayed = false;
     private bool shopDisplayed = false;
@@ -510,6 +529,7 @@ public class UI_Controller : MonoBehaviour
         //Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
         speechIsDisplayed = false;
         Retry_Connect_Box = null;
+        canvas = GameObject.Find("Canvas");
         if (SceneManager.GetActiveScene().name == "Landing_Page"){
             indexUIElementSizes();
 
@@ -751,6 +771,15 @@ public class UI_Controller : MonoBehaviour
 
             Computer_Container_Panel = GameObject.Find("Computer_Container_Panel");
             computerScrollRect = Computer_Container_Panel.GetComponent<ScrollRect>();
+
+            GameObject.Find("Computer_Scrollbar").GetComponent<Scrollbar>().direction = Scrollbar.Direction.BottomToTop;
+
+            Computer_Menu_Header_Panel = GameObject.Find("Computer_Menu_Header_Panel");
+            Computer_Menu_Header_Panel_Exchange_Tab = GameObject.Find("Computer_Menu_Header_Panel_Exchange_Tab");
+            Computer_Menu_Header_Panel_Shop_Tab = GameObject.Find("Computer_Menu_Header_Panel_Shop_Tab");
+            Computer_Menu_Header_Panel_Exchange_Tab_Image = Computer_Menu_Header_Panel_Exchange_Tab.GetComponent<Image>();
+            Computer_Menu_Header_Panel_Shop_Tab_Image = Computer_Menu_Header_Panel_Shop_Tab.GetComponent<Image>();
+
 
             shopScrollPanel = GameObject.Find("Shop_Scroll_Panel");
             exchangeScrollPanel = GameObject.Find("Exchange_Scroll_Panel");
@@ -2772,6 +2801,18 @@ public class UI_Controller : MonoBehaviour
         StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
 
+
+        Computer_Menu_Header_Panel_Exchange_Tab.transform.SetParent(canvas.transform);
+        Computer_Menu_Header_Panel_Shop_Tab.transform.SetParent(canvas.transform);
+        Computer_Menu_Header_Panel_Exchange_Tab.transform.SetParent(Computer_Menu_Header_Panel.transform);
+        Computer_Menu_Header_Panel_Shop_Tab.transform.SetParent(Computer_Menu_Header_Panel.transform);
+        Computer_Menu_Header_Panel_Shop_Tab_Image.sprite = Computer_Menu_Header_Panel_Selected_Sprite;
+        Computer_Menu_Header_Panel_Exchange_Tab_Image.sprite = Computer_Menu_Header_Panel_Unselected_Sprite;
+
+
+
+
+
         shopDisplayed = true;
         exchangeDisplayed = false;
     }
@@ -2806,7 +2847,9 @@ public class UI_Controller : MonoBehaviour
         IAP_Product_Scriptable_Object product = (IAP_Product_Scriptable_Object)shopPanel.GetComponent<ObjectHolder>().Obj;
         //Object_Finder.findChildObjectByName(shopPanel, "Exchange_Coin_Name_Text").GetComponent<TextMeshProUGUI>().text = product.CoinName;
         //Object_Finder.findChildObjectByName(shopPanel, "Exchange_Description_Text").GetComponent<TextMeshProUGUI>().text = product.CoinDescription;
-        updateShopPanel(shopPanel);
+        
+        
+        //updateShopPanel(shopPanel); // OLD
 
         
 
@@ -2814,6 +2857,9 @@ public class UI_Controller : MonoBehaviour
         //shopPanel.transform.localScale = mainAreaLocalScales[shopPanel];
         
         EnableUIElement(shopPanel);
+
+        updateShopPanel(shopPanel); // NEW
+
         //Debug.Log("SETTING SCALE TO: " + shopPanel.transform.localScale);
         return shopPanel;
     }
@@ -2823,7 +2869,12 @@ public class UI_Controller : MonoBehaviour
 
         IAP_Product_Scriptable_Object product = (IAP_Product_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
 
-
+        if(product.PreviewSprite != null){
+            Object_Finder.findChildObjectByName(panel, "Shop_Panel_Image").GetComponent<Image>().sprite = product.PreviewSprite;
+        }
+        else{
+            Debug.Log("Missing preview image for: " + product.ProductId + "!!!!!");
+        }
 
         GameObject shopBuyButton = Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button");
         IAPButtonDescriptionController shopBuyButtonDescriptionController = shopBuyButton.GetComponent<IAPButtonDescriptionController>();
@@ -2882,8 +2933,10 @@ public class UI_Controller : MonoBehaviour
 
 
                 descriptionText.text = productSub.ProductDescription;
+
                 // TODO: Localize
                 priceText.text = "Already Owned";
+
                 if(productSub.Equippable){
                     // Turn the buy button into an equip button because we already own it
                     Debug.Log("It's NONconsumable equippable And We Already Own It -- " + productSub.ProductId);
@@ -2975,6 +3028,16 @@ public class UI_Controller : MonoBehaviour
         
         StartCoroutine(setScrollRectToTop(exchangeWindowPanelScrollRect));
         StartCoroutine(setScrollRectToTop(shopWindowPanelScrollRect));
+
+
+        Computer_Menu_Header_Panel_Exchange_Tab.transform.SetParent(canvas.transform);
+        Computer_Menu_Header_Panel_Shop_Tab.transform.SetParent(canvas.transform);
+        Computer_Menu_Header_Panel_Shop_Tab.transform.SetParent(Computer_Menu_Header_Panel.transform);
+        Computer_Menu_Header_Panel_Exchange_Tab.transform.SetParent(Computer_Menu_Header_Panel.transform);
+        Computer_Menu_Header_Panel_Shop_Tab_Image.sprite = Computer_Menu_Header_Panel_Unselected_Sprite;
+        Computer_Menu_Header_Panel_Exchange_Tab_Image.sprite = Computer_Menu_Header_Panel_Selected_Sprite;
+
+
 
         shopDisplayed = false;
         exchangeDisplayed = true;

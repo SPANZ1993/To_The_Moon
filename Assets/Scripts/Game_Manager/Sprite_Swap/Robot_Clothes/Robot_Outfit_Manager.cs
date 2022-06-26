@@ -55,10 +55,11 @@ public class Robot_Outfit_Manager : MonoBehaviour
     public void setRobotOutfit(int outfitId){
         Robot_Outfit_Scriptable_Object outfit = null;
         try{
-                outfit = getOutfitById(CurOutfitID);
+            outfit = getOutfitById(CurOutfitID);
         }
         catch(Exception e){
-            Debug.Log("Couldn't find outfit with id " + outfitId);
+            Debug.Log("Couldn't find outfit with id " + outfitId + " just returning the first outfit we have");
+            outfit = allOutfits[0];
         }
         if (SceneManager.GetActiveScene().name == "Main_Area"){
             if(outfit != null){

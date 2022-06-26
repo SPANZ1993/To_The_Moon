@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ff02ea3033fda4eb66ebec2ee6edcb, type: 3}
+  m_Name: IAP_Robot_Outfit_Patron
+  m_EditorClassIdentifier: 
+  productId: com.eggkidgames.blockchainblastoff.robotOutfitPatron
+  productTitle: Patron
+  productDescription: Look at that outfit! They must be in some kind of exclusive
+    club.
+  consumePurchase: 0
+  previewSprite: {fileID: -964684682, guid: bef077e8b671ad6428aa4215b8ad0a11, type: 3}
+  ownedByDefault: 1
+  equippable: 1
+  equipped: 1
+  equipButtonString: Wear
+  equippedButtonString: Wearing
+  robotOutfitSprite: {fileID: 11400000, guid: d22574ba9b44050428ae2cbafb7ac45d, type: 2}
