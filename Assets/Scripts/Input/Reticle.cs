@@ -72,6 +72,7 @@ public class Reticle : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if(!touch_detection.currentlySwiping || SceneManager.GetActiveScene().name != "Main_Area"){
+            Debug.Log("INSIDE BOX?: " + Touch_Detection.instance.reticleInsideDisabledBox(Input.GetTouch(0).position));
             TapEndInfo(other.gameObject);
         }
 

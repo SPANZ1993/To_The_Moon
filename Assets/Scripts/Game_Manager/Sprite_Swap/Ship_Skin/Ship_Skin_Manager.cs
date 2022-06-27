@@ -66,7 +66,7 @@ public class Ship_Skin_Manager : MonoBehaviour
             }
         }
         else if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
-            Debug.Log("SET ROCKET SKIN!!!!!!!!");
+            GameObject.Find("Rocket").GetComponent<SpriteRenderer>().sprite = skin.ShipSkinSprite;
         }
 
         if(skin == null){

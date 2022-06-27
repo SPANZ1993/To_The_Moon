@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3db5dcf949378684daea1637ed276afb, type: 3}
-  m_Name: IAP_Ship_Skin_Test
+  m_Name: IAP_Ship_Skin_Diamond_Hands
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.shipSkinTest
-  productTitle: Test Ship Skin
-  productDescription: Just a test
+  productId: com.eggkidgames.blockchainblastoff.shipSkinDiamondHands
+  productTitle: Diamond Hands
+  productDescription: You can't go to the moon without diamond hands!
   consumePurchase: 0
+  previewSprite: {fileID: 9056076809899198952, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
   ownedByDefault: 0
   equippable: 1
   equipped: 0

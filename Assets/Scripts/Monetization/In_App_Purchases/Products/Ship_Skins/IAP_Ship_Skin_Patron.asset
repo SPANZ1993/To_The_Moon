@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3db5dcf949378684daea1637ed276afb, type: 3}
-  m_Name: IAP_Ship_Skin_Default
+  m_Name: IAP_Ship_Skin_Patron
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.shipSkinDefault
-  productTitle: Ol' Reliable
-  productDescription: A gift from our friend Samson Shiba
+  productId: com.eggkidgames.blockchainblastoff.shipSkinPatron
+  productTitle: The Premier Cruiser
+  productDescription: You have to be someone special to fly this.
   consumePurchase: 0
-  previewSprite: {fileID: 4265887189097787566, guid: 6386684758aa30f44b2f178169f18b97, type: 3}
+  previewSprite: {fileID: 0}
   ownedByDefault: 1
   equippable: 1
-  equipped: 1
+  equipped: 0
   equipButtonString: Use This Rocket
   equippedButtonString: Using This Rocket
-  shipSkin: {fileID: 11400000, guid: c0f0ff2b305580d40bcdd192b6e99ff8, type: 2}
+  shipSkin: {fileID: 11400000, guid: 528a21a0a3ec6c44083b54a9a151101b, type: 2}

@@ -67,7 +67,7 @@ public class Robot_Outfit_Manager : MonoBehaviour
             }
         }
         else if(SceneManager.GetActiveScene().name == "Mine_Game"){
-            Debug.Log("SET OSCARS OUTFIT!!!!!!!!");
+            GameObject.Find("Robot_Clothes").GetComponent<SpriteRenderer>().sprite = outfit.RobotOutfitSprite;
         }
 
         if(outfit == null){

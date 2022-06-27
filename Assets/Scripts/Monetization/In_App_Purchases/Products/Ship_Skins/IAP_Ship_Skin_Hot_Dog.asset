@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3db5dcf949378684daea1637ed276afb, type: 3}
-  m_Name: IAP_Ship_Skin_Default
+  m_Name: IAP_Ship_Skin_Hot_Dog
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.shipSkinDefault
-  productTitle: Ol' Reliable
-  productDescription: A gift from our friend Samson Shiba
+  productId: com.eggkidgames.blockchainblastoff.shipSkinHotDog
+  productTitle: The Glizzymobile
+  productDescription: We're having a cookout in space!
   consumePurchase: 0
-  previewSprite: {fileID: 4265887189097787566, guid: 6386684758aa30f44b2f178169f18b97, type: 3}
-  ownedByDefault: 1
+  previewSprite: {fileID: -2143292936, guid: 9dee27117e18c864dbeaaafaa6e6545a, type: 3}
+  ownedByDefault: 0
   equippable: 1
-  equipped: 1
+  equipped: 0
   equipButtonString: Use This Rocket
   equippedButtonString: Using This Rocket
-  shipSkin: {fileID: 11400000, guid: c0f0ff2b305580d40bcdd192b6e99ff8, type: 2}
+  shipSkin: {fileID: 11400000, guid: 837f71b62d759e5479019c725d27a648, type: 2}

@@ -193,9 +193,10 @@ public class Touch_Detection : MonoBehaviour
 
             Touch touch = Input.GetTouch(0);
 
+
             // Handle finger movements based on TouchPhase
             switch (touch.phase)
-            {
+            {    
                 //When a touch has first been detected, change the message and record the starting position
                 case TouchPhase.Began:
                     currentlySwiping = false;
@@ -235,7 +236,7 @@ public class Touch_Detection : MonoBehaviour
                     dragEndTime = Time.timeAsDouble;
                     message = "Ending ";
                     reticleRenderer.enabled = false;
-                    reticleCollider.enabled= false;
+                    reticleCollider.enabled = false;
 
                     // Check to see if we've got any swipes
                     swipeval = DetectSwipe(dragLocs, dragStartTime, dragEndTime);
@@ -259,6 +260,9 @@ public class Touch_Detection : MonoBehaviour
                             SwipedRightInfo();
                         }
                     }
+
+
+
 
                     // If we got a swipe, reset all the swipe vars
                     // dragLocs = new List<Vector2>();
@@ -488,6 +492,7 @@ public class Touch_Detection : MonoBehaviour
             screenBoundingBox[i] = game_scaler.WorldToScreenPoint(bound);
         }
         reticleDisabledBoxes.Add(screenBoundingBox);
+        Debug.Log("ADDED BOUNDING BOX");
         //Debug.Log("RETICLE DISABLED BOXES LEN: " + reticleDisabledBoxes.Count);
         foreach(Vector3[]bb in reticleDisabledBoxes){
             //foreach(Vector3 b in bb){
@@ -500,6 +505,7 @@ public class Touch_Detection : MonoBehaviour
         if (boundingBox.Length != 4){
             throw new ArgumentException("Bounding Box Must Contain 4 Vectors");
         }
+        Debug.Log("REMOVED BOUNDING BOX");
         Vector3[] screenBoundingBox = new Vector3[4];
         List<int> iToRemove = new List<int>();
         for(int i = 0; i < reticleDisabledBoxes.Count; i++){
@@ -530,7 +536,7 @@ public class Touch_Detection : MonoBehaviour
     }
 
 
-    private bool reticleInsideDisabledBox(Vector2 touchPos){
+    public bool reticleInsideDisabledBox(Vector2 touchPos){
         // Have to give this the touch pos bc reticle might not be where the touch is at the start of the frame
         if(reticleDisabledBoxes.Count == 0){
             return false;

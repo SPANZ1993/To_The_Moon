@@ -904,7 +904,7 @@ public class UI_Controller : MonoBehaviour
         //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         //Debug.Log("STARTING UI CONTROLLER");
         OnLevelWasLoaded();
-        //Invoke("displayExampleSpeech", 15);
+        Invoke("displayExampleSpeech", 15);
     }
 
 
@@ -1595,6 +1595,10 @@ public class UI_Controller : MonoBehaviour
 
     // This code is very good and makes sense
     public void Display_Speech(Speech_Object speech_object, System.Action callBack=null){
+
+        // Going to just treat every speech object as a blocker...
+        bool block = true;
+
         int curSpeechIndex = 0;
         int curCharIndex = 1;
         //SpeechText_TMP
@@ -1703,7 +1707,7 @@ public class UI_Controller : MonoBehaviour
             return genstr;
         }
 
-
+        Vector3[] speechBannerBb = new Vector3[4];
         
         IEnumerator _display_speech_element()
         {    
@@ -1737,16 +1741,19 @@ public class UI_Controller : MonoBehaviour
                         callBack();
                     }
                     
-                    Vector3[] speechBannerBb = new Vector3[4];
-                    SpeechBanner.GetComponent<RectTransform>().GetWorldCorners(speechBannerBb);
                     if (UIDisplayEndedInfo != null){
-                        if (speech_object.is_blocker){
-                            UIDisplayEndedInfo(new Vector3[0]);
-                        }
-                        else{
-                            UIDisplayEndedInfo(speechBannerBb);
-                        }
+                        //Debug.Log("DISABLING: " + speechBannerBb[0] + " " + speechBannerBb[1] + " " + speechBannerBb[2] +  " " + speechBannerBb[3]);
+                        UIDisplayEndedInfo(speechBannerBb);
                     }
+
+                    if(speech_object.is_blocker){
+                        Touch_Detection.instance.enableReticle(enableswipes: true, immediately: true);
+                    }
+
+                    
+                    // if(speech_object.is_blocker || block){
+                    //     Touch_Detection.instance.enableReticle(immediately:true, enableswipes:true);
+                    // }
                 }
                 else{
                     doneDisplayingCurSpeech = false;
@@ -1822,18 +1829,26 @@ public class UI_Controller : MonoBehaviour
         }
 
         if(!speechIsDisplayed){
-            Debug.Log("Displaying Speech");
+            //Debug.Log("Displaying Speech");
             speechIsDisplayed = true;
-            Vector3[] speechBannerBb = new Vector3[4];
-            SpeechBanner.GetComponent<RectTransform>().GetWorldCorners(speechBannerBb);
-            if(UIDisplayStartedInfo != null){
-                if (speech_object.is_blocker){
-                    UIDisplayStartedInfo(new Vector3[0]);
-                }
-                else{
+
+            
+            
+
+            IEnumerator disableBoundingBoxNextFrame(){
+                yield return new WaitForSeconds(0);
+                SpeechBanner.GetComponent<RectTransform>().GetWorldCorners(speechBannerBb);    
+                if(UIDisplayStartedInfo != null){
+                    
                     UIDisplayStartedInfo(speechBannerBb);
                 }
             }
+
+            if(speech_object.is_blocker){
+                Touch_Detection.instance.disableReticle(disableswipes: true);
+            }
+
+            StartCoroutine(disableBoundingBoxNextFrame());
 
             EnableUIElement(SpeechBanner);
             //touch_detection

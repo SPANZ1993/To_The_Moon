@@ -122,7 +122,7 @@ public class SaveGameObject
         SerializedCryptoBalances = new Dictionary<int, double>();
         SerializedCryptoAveragePrices = new Dictionary<int, double>();
 
-        OwnedNonConsumableProductsIds = new List<string>{"com.eggkidgames.blockchainblastoff.robotOutfitMiner", "com.eggkidgames.blockchainblastoff.robotOutfitPatron", "com.eggkidgames.blockchainblastoff.shipSkinDefault"};
+        OwnedNonConsumableProductsIds = new List<string>{"com.eggkidgames.blockchainblastoff.robotOutfitMiner", "com.eggkidgames.blockchainblastoff.robotOutfitPatron", "com.eggkidgames.blockchainblastoff.shipSkinDefault", "com.eggkidgames.blockchainblastoff.shipSkinPatron"};
 
         CurRobotClothesId = 0; // Mine outfit
 
