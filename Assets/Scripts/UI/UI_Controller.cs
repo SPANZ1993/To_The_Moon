@@ -1397,6 +1397,9 @@ public class UI_Controller : MonoBehaviour
             computerMenuDisplayed = false;
             shopDisplayed = false;
             exchangeDisplayed = false;
+            if(!Audio_Manager.instance.IsPlaying("UI_Computer_Off")){
+                Audio_Manager.instance.Play("UI_Computer_Off");
+            }
         }
 
         
@@ -2657,6 +2660,13 @@ public class UI_Controller : MonoBehaviour
     // Bookshelf Menu Button Handlers
     public void onBookshelfTapped(){
         if (!bookshelfMenuDisplayed && !computerMenuDisplayed){
+            
+            if(!Audio_Manager.instance.IsPlaying("Bookshelf_Tapped")){
+                Audio_Manager.instance.Play("Bookshelf_Tapped");
+            }
+
+
+
             EnableUIElement(bookshelfMenu);
             EnableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = true;
@@ -2780,6 +2790,11 @@ public class UI_Controller : MonoBehaviour
 
     // Computer Button Handlers
     public void onComputerTapped(){
+        
+        if(!Audio_Manager.instance.IsPlaying("UI_Computer_On")){
+            Audio_Manager.instance.Play("UI_Computer_On");
+        }
+
         if (!bookshelfMenuDisplayed && !computerMenuDisplayed){ // And computer menu not displayed
             EnableUIElement(computerMenu);
             EnableUIElement(ScreenTintObj);
@@ -2788,13 +2803,13 @@ public class UI_Controller : MonoBehaviour
             Touch_Detection.instance.disableReticle(disableswipes:true);
 
             //selectOptions();
-            selectShop();
+            selectShop(silent:true);
 
             Crypto_Manager.instance.getPricesActiveCryptos();
         }
     }
 
-    public void selectShop(){
+    public void selectShop(bool silent=false){
         //computerScrollRect.content = shopScrollPanel.GetComponent<RectTransform>();
 
         DisableUIElement(exchangeWindowPanel);
@@ -2828,7 +2843,11 @@ public class UI_Controller : MonoBehaviour
         Computer_Menu_Header_Panel_Exchange_Tab_Image.sprite = Computer_Menu_Header_Panel_Unselected_Sprite;
 
 
-
+        if(!silent){
+            if(!Audio_Manager.instance.IsPlaying("UI_Computer_Mouse_Click")){
+                Audio_Manager.instance.Play("UI_Computer_Mouse_Click");
+            }
+        }
 
 
         shopDisplayed = true;
@@ -3020,7 +3039,7 @@ public class UI_Controller : MonoBehaviour
 
 
 
-    public void selectExchange(){
+    public void selectExchange(bool silent=false){
         computerScrollRect.content = exchangeScrollPanel.GetComponent<RectTransform>();
 
         DisableUIElement(shopWindowPanel);
@@ -3055,7 +3074,11 @@ public class UI_Controller : MonoBehaviour
         Computer_Menu_Header_Panel_Shop_Tab_Image.sprite = Computer_Menu_Header_Panel_Unselected_Sprite;
         Computer_Menu_Header_Panel_Exchange_Tab_Image.sprite = Computer_Menu_Header_Panel_Selected_Sprite;
 
-
+        if(!silent){
+            if(!Audio_Manager.instance.IsPlaying("UI_Computer_Mouse_Click")){
+                Audio_Manager.instance.Play("UI_Computer_Mouse_Click");
+            }
+        }
 
         shopDisplayed = false;
         exchangeDisplayed = true;
@@ -3178,9 +3201,10 @@ public class UI_Controller : MonoBehaviour
     public void onExchangeBuySellConfirmationBoxInputFieldNumEndEdit(){
 
         if(curExchangeBuySellConfirmationBoxInputFieldNum == null || 
-            curExchangeBuySellConfirmationBoxInputFieldNum == 0.0 ||
+            curExchangeBuySellConfirmationBoxInputFieldNum <= 0.0 ||
             exchangeBuySellConfirmationBoxInputField.text.Length == 0 ||
-            exchangeBuySellConfirmationBoxInputField.text[0] == '0'
+            exchangeBuySellConfirmationBoxInputField.text[0] == '0' ||
+            exchangeBuySellConfirmationBoxInputField.text[0] == '-'
             ){
             exchangeBuySellConfirmationBoxInputField.text = "";
             curExchangeBuySellConfirmationBoxInputFieldNum = 0;
@@ -3222,7 +3246,8 @@ public class UI_Controller : MonoBehaviour
         }
 
         string curExchangeBuySellConfirmationBoxValueText = Localization_Manager.instance.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Buy_Sell_Confirmation_Box.Value_Text");
-        curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{ncoins}", Number_String_Formatter.formatBuySellConfirmationValueCoins(Crypto_Manager.instance.activeCryptosToPrice[curExchangeBuySellConfirmationBoxCrypto] * (double)curExchangeBuySellConfirmationBoxInputFieldNum));
+        double coinValue = Math.Max(Crypto_Manager.instance.activeCryptosToPrice[curExchangeBuySellConfirmationBoxCrypto] * (double)curExchangeBuySellConfirmationBoxInputFieldNum, 0.0);
+        curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{ncoins}", Number_String_Formatter.formatBuySellConfirmationValueCoins(coinValue));
         curExchangeBuySellConfirmationBoxValueText = curExchangeBuySellConfirmationBoxValueText.Replace("{coinname}", Game_Manager.instance.coinName) + Localization_Manager.instance.GetLocalizedString(main_area_ui_table, "UI.General.Coin");
         exchangeBuySellConfirmationBoxValueText.text = curExchangeBuySellConfirmationBoxValueText;
         
@@ -3251,14 +3276,15 @@ public class UI_Controller : MonoBehaviour
     public void onExchangeBuySellConfirmButtonPressed(){
         Debug.Log(((bool)curExchangeBuySellConfirmationBoxBuying ? "BOUGHT: " : "SOLD: ")  + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
 
+        double finalBuySellNum = (double)curExchangeBuySellConfirmationBoxInputFieldNum;
         bool completedTransaction = false;
-        if((bool)curExchangeBuySellConfirmationBoxBuying){
+        if((bool)curExchangeBuySellConfirmationBoxBuying && finalBuySellNum > 0){
             // Buy
-            completedTransaction = Crypto_Manager.instance.buyCoin(curExchangeBuySellConfirmationBoxCrypto, (double)curExchangeBuySellConfirmationBoxInputFieldNum);
+            completedTransaction = Crypto_Manager.instance.buyCoin(curExchangeBuySellConfirmationBoxCrypto, finalBuySellNum);
         }
         else{
             // Sell
-            completedTransaction = Crypto_Manager.instance.sellCoin(curExchangeBuySellConfirmationBoxCrypto, (double)curExchangeBuySellConfirmationBoxInputFieldNum);
+            completedTransaction = Crypto_Manager.instance.sellCoin(curExchangeBuySellConfirmationBoxCrypto, finalBuySellNum);
         }
 
 
@@ -3317,6 +3343,13 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(exchangeBuySellConfirmationBox);
         EnableUIElement(Computer_Container_Panel, touchOnly:true);
         StartCoroutine(nudgeScrollRectNextFrame());
+    
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Crypto_Buy_Sell")){
+            Audio_Manager.instance.Play("UI_Button_Crypto_Buy_Sell");
+        }
+
+
+
     }
 
     // End Computer Button Handlers

@@ -532,8 +532,17 @@ MonoBehaviour:
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
+  - name: Bookshelf_Tapped
+    clip: {fileID: 8300000, guid: 7af6073985d4cea498db95bc7ae2601f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
   - name: UI_Computer_Off
-    clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
+    clip: {fileID: 8300000, guid: 9d6875e16ab6d054183fd5298c598d82, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -542,7 +551,7 @@ MonoBehaviour:
     origVolume: 0
     origPitch: 0
   - name: UI_Computer_On
-    clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
+    clip: {fileID: 8300000, guid: bb48da44c51617344af1aabe9b533c4c, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -625,6 +634,15 @@ MonoBehaviour:
   - name: UI_Transition_Out
     clip: {fileID: 8300000, guid: 9ecee9ca53ca6a949b123305a3dec4a2, type: 3}
     volume: 0.25
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Computer_Mouse_Click
+    clip: {fileID: 8300000, guid: 35b0a626b36630f47b815e212805b395, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     channel: 0

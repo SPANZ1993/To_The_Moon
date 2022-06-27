@@ -113,7 +113,7 @@ public class Experiments_Manager : MonoBehaviour
     private bool experiment7IsPersistent = true;
     private Denomination experiment7Denomination = Denomination.Coins;
     private double experiment7Price = 1000.0;
-    private Duration experiment7Duration = Duration.Three_Launches;
+    private Duration experiment7Duration = Duration.Permanent;
     [SerializeField]
     private Sprite experiment7Sprite;
     private Experiment experiment7;
