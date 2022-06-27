@@ -947,7 +947,7 @@ public class Game_Manager : MonoBehaviour
             // Call Equip on the Outfit That We Found
             IAP_Product_Robot_Outfit outfit = new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0];
             if(IAP_Product_Scriptable_Object.SpecialRequirementsMet(outfit)){
-                outfit.OnEquip();
+                outfit.OnEquip(silent:true);
             }
             else{
                 // Like if a patreon membership expired
@@ -978,7 +978,16 @@ public class Game_Manager : MonoBehaviour
             Debug.Log("HEY WE OWN THIS SKIN");
             //Ship_Skin_Manager.instance.setCurShipSkinId(skinId);
             // Call Equip on the Skin That We Found
-            new List<IAP_Product_Ship_Skin>(ownedShipSkinIAPs.Where(shipSkinIAP => shipSkinIAP.ShipSkin.SkinId == skinId))[0].OnEquip();
+            IAP_Product_Ship_Skin skin = new List<IAP_Product_Ship_Skin>(ownedShipSkinIAPs.Where(shipSkinIAP => shipSkinIAP.ShipSkin.SkinId == skinId))[0];
+            if(IAP_Product_Scriptable_Object.SpecialRequirementsMet(skin)){
+                skin.OnEquip(silent:true);
+            }
+            else{
+                // Like if a patreon membership expired
+                Debug.Log("We own this skin but don't meet the requirements");
+                ((IAP_Product_Ship_Skin)(System.Object)skin).OnUnequip();
+                initializeShipSkin(new SaveGameObject().CurShipSkinId);
+            }
         }
         else{
             Debug.Log("WE DON'T OWN THIS SKIN");

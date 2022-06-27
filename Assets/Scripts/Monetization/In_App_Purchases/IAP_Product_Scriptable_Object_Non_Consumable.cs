@@ -52,11 +52,17 @@ public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_
         }
     }
 
-    public void OnEquip(){
+    public void OnEquip(bool silent=false){
         _onEquip();
+        if(!silent && !Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+            Audio_Manager.instance.Play("UI_Button_Confirm");
+        }
         Equipped = true;
-        Debug.Log("A ARE WE EQUIPPED? " + Equipped + " " + ProductId);
         IAP_Manager.instance.updateAllShopPanels();
+    }
+
+    public void OnEquip(){
+        OnEquip(silent: false);
     }
 
     public virtual void OnUnequip(){
@@ -67,5 +73,6 @@ public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_
             throw new InvalidOperationException("Attempting to equip nonconsumable nonequippable product " + ProductId);
         }
     }
+
 }
 

@@ -570,7 +570,7 @@ MonoBehaviour:
     origPitch: 0
   - name: UI_Button_Process_Complete
     clip: {fileID: 8300000, guid: 57692a79057b4874ea21889f60a5c615, type: 3}
-    volume: 1
+    volume: 0.582
     pitch: 1
     loop: 0
     channel: 0
@@ -579,6 +579,15 @@ MonoBehaviour:
     origPitch: 0
   - name: UI_Button_Deny
     clip: {fileID: 8300000, guid: dafb0996c47654647aa3ab8076c44fcd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: UI_Button_Crypto_Buy_Sell
+    clip: {fileID: 8300000, guid: 93c1ae6c0b9318d4e98b89ad76034194, type: 3}
     volume: 1
     pitch: 1
     loop: 0

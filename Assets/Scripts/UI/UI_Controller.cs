@@ -508,6 +508,7 @@ public class UI_Controller : MonoBehaviour
             instance = this;
             instanceID = gameObject.GetInstanceID();
             DontDestroyOnLoad(this.gameObject);
+            //LeanTween.init(1000);
             
             //Debug.Log("NOT DESTROYING " + instance + " " + this.GetInstanceID());
             
@@ -1488,6 +1489,8 @@ public class UI_Controller : MonoBehaviour
 
             try{
                 UI.transform.localScale = currentLocalScales[UI];
+                //LeanTween.scale(rectTrans:UI.GetComponent<RectTransform>(), currentLocalScales[UI], 0.05f).setEase(LeanTweenType.easeInOutSine);
+
                 // if(UI.GetComponent<VerticalLayoutGroup>() != null){
                 //     UI.GetComponent<VerticalLayoutGroup>().enabled = true;
                 // }
@@ -1551,6 +1554,7 @@ public class UI_Controller : MonoBehaviour
         //     }
             if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                 UI.transform.localScale = new Vector3(0f, 0f, 0f);
+                //LeanTween.scale(rectTrans: UI.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), 0.05f).setEase(LeanTweenType.easeInOutSine);
                 // if(UI.GetComponent<VerticalLayoutGroup>() != null){
                 //     UI.GetComponent<VerticalLayoutGroup>().enabled = true;
                 // }
@@ -2328,7 +2332,6 @@ public class UI_Controller : MonoBehaviour
             if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
                 Audio_Manager.instance.Play("UI_Button_Confirm");
             }
-            // TODO: Do something here (Sound effect?)
             gameManager.playInterstitialAdOnMenuClose = true;
             enableActiveExperimentPanels();
         }
@@ -3160,6 +3163,9 @@ public class UI_Controller : MonoBehaviour
 
 
 
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Confirm")){
+            Audio_Manager.instance.Play("UI_Button_Confirm");
+        }
 
 
         
@@ -3258,9 +3264,29 @@ public class UI_Controller : MonoBehaviour
 
 
         if(completedTransaction){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_Crypto_Buy_Sell")){
+                Audio_Manager.instance.Play("UI_Button_Crypto_Buy_Sell");
+            }
+
+
+            IEnumerator nudgeScrollRectNextFrame(){
+                // Keeps scrollbar from resizing weirdly
+                DisableUIElement(GameObject.Find("Computer_Scrollbar_Handle"));
+                yield return new WaitForSeconds(0);
+                if(exchangeWindowPanelScrollRect.verticalNormalizedPosition >= 1){
+                    exchangeWindowPanelScrollRect.verticalNormalizedPosition = exchangeWindowPanelScrollRect.verticalNormalizedPosition - 0.001f;
+                }
+                else{
+                    exchangeWindowPanelScrollRect.verticalNormalizedPosition = exchangeWindowPanelScrollRect.verticalNormalizedPosition + 0.001f;
+                }
+                EnableUIElement(GameObject.Find("Computer_Scrollbar_Handle"));
+            }
+
             DisableUIElement(exchangeBuySellConfirmationBox);
             EnableUIElement(Computer_Container_Panel, touchOnly:true);
             Crypto_Manager.instance.updateAllExchangePanels();
+            gameManager.playInterstitialAdOnMenuClose = true;
+            StartCoroutine(nudgeScrollRectNextFrame());
         }
         else{
             // If we can't do the transaction
@@ -3273,8 +3299,24 @@ public class UI_Controller : MonoBehaviour
     
     public void onExchangeBuySellCancelButtonPressed(){
         Debug.Log("CANCELED " + ((bool)curExchangeBuySellConfirmationBoxBuying ? "BUY: " : "SELL: ") + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
+        
+
+        IEnumerator nudgeScrollRectNextFrame(){
+            // Keeps scrollbar from resizing weirdly
+            DisableUIElement(GameObject.Find("Computer_Scrollbar_Handle"));
+            yield return new WaitForSeconds(0);
+            if(exchangeWindowPanelScrollRect.verticalNormalizedPosition >= 1){
+                exchangeWindowPanelScrollRect.verticalNormalizedPosition = exchangeWindowPanelScrollRect.verticalNormalizedPosition - 0.001f;
+            }
+            else{
+                exchangeWindowPanelScrollRect.verticalNormalizedPosition = exchangeWindowPanelScrollRect.verticalNormalizedPosition + 0.001f;
+            }
+            EnableUIElement(GameObject.Find("Computer_Scrollbar_Handle"));
+        }
+
         DisableUIElement(exchangeBuySellConfirmationBox);
         EnableUIElement(Computer_Container_Panel, touchOnly:true);
+        StartCoroutine(nudgeScrollRectNextFrame());
     }
 
     // End Computer Button Handlers

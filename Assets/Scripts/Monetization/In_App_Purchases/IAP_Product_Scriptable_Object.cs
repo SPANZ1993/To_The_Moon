@@ -33,11 +33,17 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
 
     public virtual void OnPurchaseComplete(Product product){
         Debug.Log("We bought " + ProductId + " ... " + product.definition.id);
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Process_Complete")){
+            Audio_Manager.instance.Play("UI_Button_Process_Complete");
+        }
         IAP_Manager.instance.updateAllShopPanels();
     }
 
     public virtual void OnPurchaseFailed(Product product, PurchaseFailureReason reason){
         Debug.Log("PURCHASE OF: " + ProductId + " ... " + product.definition.id + " FAILED DUE TO... " + reason);
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
+            Audio_Manager.instance.Play("UI_Button_Deny");
+        }
     }
 
 
@@ -48,11 +54,9 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
     // If we have any products that have specific requirements in order for them to be active, put them here
     // For example, we only want to display Patron-Only Products if the User is a Patron
     public static bool SpecialRequirementsMet(IAP_Product_Scriptable_Object product){
-        if((product.ProductId == "com.eggkidgames.blockchainblastoff.robotOutfitPatron" || product.ProductId == "cacapeepee") && !Game_Manager.instance.isPatron){
-            Debug.Log("IN HERE");
+        if((product.ProductId == "com.eggkidgames.blockchainblastoff.robotOutfitPatron" || product.ProductId == "com.eggkidgames.blockchainblastoff.shipSkinPatron") && !Game_Manager.instance.isPatron){
             return false;
         }
-
         return true;
     }
 }
