@@ -99,7 +99,13 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     void OnLevelWasLoaded(){
         if (SceneManager.GetActiveScene().name == "Main_Area"){
-            showBannerAd();
+
+            IEnumerator __showBannerAd(){
+                yield return new WaitForSeconds(0.05f);
+                showBannerAd();
+            }
+
+            StartCoroutine(__showBannerAd()); // Wait a couple frames so we can initialize some things
             loadInterstitialAd();
         }
         else if (SceneManager.GetActiveScene().name == "Mine_Game"){
@@ -217,8 +223,23 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
  
     public void showBannerAd(BannerPosition pos=BannerPosition.BOTTOM_CENTER){
-        Advertisement.Banner.SetPosition(pos);
-        StartCoroutine(_showBannerAd());
+        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
+            Debug.Log("SHOWING BANNER AD");
+            foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
+                Debug.Log("BANNER: " + id);
+            }
+            Advertisement.Banner.SetPosition(pos);
+            StartCoroutine(_showBannerAd());
+        }
+        else{
+            Debug.Log("NOT SHOWING BANNER AD");
+            try{
+                hideBannerAd();
+            }
+            catch(System.Exception e){
+                Debug.Log("Couldn't hide banner ad");
+            }
+        }
     }
 
     IEnumerator _showBannerAd(){
@@ -258,26 +279,37 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     public void showInterstitialAd(){
 
-        string adUnitId = "";
-        switch(platform){
-            case Platforms.iOS:
-            {
-                adUnitId = "Interstitial_iOS";
-                break;
+        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
+            string adUnitId = "";
+            switch(platform){
+                case Platforms.iOS:
+                {
+                    adUnitId = "Interstitial_iOS";
+                    break;
+                }
+                case Platforms.Android:
+                {
+                    adUnitId = "Interstitial_Android";
+                    break;
+                }
+                default: break;
             }
-            case Platforms.Android:
-            {
-                adUnitId = "Interstitial_Android";
-                break;
-            }
-            default: break;
-        }
 
-        if (adUnitId != "" && timeSinceLastInterstialAd >= minTimeBetweenInterstitialAds){
-            if(InterstitalAdShowInfo != null){
-                InterstitalAdShowInfo();
+            if (adUnitId != "" && timeSinceLastInterstialAd >= minTimeBetweenInterstitialAds){
+                if(InterstitalAdShowInfo != null){
+                    InterstitalAdShowInfo();
+                }
+                Advertisement.Show(adUnitId, this);
             }
-            Advertisement.Show(adUnitId, this);
+        }
+        else{
+            // Just to make sure we hide the banner ad kind of quickly after we buy the upgrade
+            try{
+                hideBannerAd();
+            }
+            catch(System.Exception e){
+                Debug.Log("Couldn't hide banner ad");
+            }
         }
     }
 

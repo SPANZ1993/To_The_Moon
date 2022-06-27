@@ -16,10 +16,10 @@ MonoBehaviour:
   productTitle: Ol' Reliable
   productDescription: A gift from our friend Samson Shiba
   consumePurchase: 0
-  previewSprite: {fileID: 4265887189097787566, guid: 6386684758aa30f44b2f178169f18b97, type: 3}
+  previewSprite: {fileID: -862739383, guid: 59e8be971e271984c805249a7403efe6, type: 3}
   ownedByDefault: 1
   equippable: 1
-  equipped: 1
+  equipped: 0
   equipButtonString: Use This Rocket
   equippedButtonString: Using This Rocket
   shipSkin: {fileID: 11400000, guid: c0f0ff2b305580d40bcdd192b6e99ff8, type: 2}

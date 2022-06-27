@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba2967ccf5d9ab545b16c03f18ecf8e9, type: 3}
-  m_Name: IAP_Gem_Drop_5
+  m_Name: IAP_Gem_Drop_50
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.testconsumable
-  productTitle: Test Consumable
-  productDescription: It's a test of a consumable.
+  productId: com.eggkidgames.blockchainblastoff.gemDrop50
+  productTitle: Gem Wallet
+  productDescription: 50 Cosmic Gems Tucked In a Wallet!
   consumePurchase: 1
-  productType: 0
-  numGems: 5
+  previewSprite: {fileID: 673075156, guid: 8bfa5fa8a5e5efd4088021c0bea6c232, type: 3}
+  numGems: 50

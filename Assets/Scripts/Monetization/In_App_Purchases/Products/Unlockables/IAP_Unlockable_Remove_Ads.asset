@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14a4043b6f4b84d4188972a77484e9c0, type: 3}
-  m_Name: IAP_Unlockable_Test
+  m_Name: IAP_Unlockable_Remove_Ads
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.unlockableTest
-  productTitle: Unlockable Test
-  productDescription: It's a test of nonequippable nonconsumable
+  productId: com.eggkidgames.blockchainblastoff.unlockableRemoveAds
+  productTitle: Remove Ads
+  productDescription: Those ads sure are annoying. If only there were some way to
+    not watch them.
   consumePurchase: 0
+  previewSprite: {fileID: -690370623, guid: 8bfa5fa8a5e5efd4088021c0bea6c232, type: 3}
   ownedByDefault: 0
   equippable: 0
   equipped: 0

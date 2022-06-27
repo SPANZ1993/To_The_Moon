@@ -16,7 +16,7 @@ MonoBehaviour:
   productTitle: The Premier Cruiser
   productDescription: You have to be someone special to fly this.
   consumePurchase: 0
-  previewSprite: {fileID: 0}
+  previewSprite: {fileID: -784586301, guid: 59e8be971e271984c805249a7403efe6, type: 3}
   ownedByDefault: 1
   equippable: 1
   equipped: 0

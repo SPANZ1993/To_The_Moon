@@ -3344,8 +3344,8 @@ public class UI_Controller : MonoBehaviour
         EnableUIElement(Computer_Container_Panel, touchOnly:true);
         StartCoroutine(nudgeScrollRectNextFrame());
     
-        if(!Audio_Manager.instance.IsPlaying("UI_Button_Crypto_Buy_Sell")){
-            Audio_Manager.instance.Play("UI_Button_Crypto_Buy_Sell");
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect")){
+            Audio_Manager.instance.Play("UI_Button_No_Effect");
         }
 
 

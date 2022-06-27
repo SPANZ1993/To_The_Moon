@@ -16,7 +16,7 @@ MonoBehaviour:
   productTitle: Diamond Hands
   productDescription: You can't go to the moon without diamond hands!
   consumePurchase: 0
-  previewSprite: {fileID: 9056076809899198952, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
+  previewSprite: {fileID: 1776123187, guid: 59e8be971e271984c805249a7403efe6, type: 3}
   ownedByDefault: 0
   equippable: 1
   equipped: 0

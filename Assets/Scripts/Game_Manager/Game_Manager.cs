@@ -63,6 +63,9 @@ public class Game_Manager : MonoBehaviour
     // Patreon Stuff
     public bool isPatron = false;
 
+    // IAP Stuff
+    public bool removedAds = false;
+
 
     private bool initializedGame = false; // Is the game initiated?
     private bool initializeGameStarted = false; // Have we called the function that initializes the game?
@@ -667,6 +670,10 @@ public class Game_Manager : MonoBehaviour
 
         initializeShipSkin(loadedGame.CurShipSkinId);
 
+        foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
+            Debug.Log("GM BANNER: " + id);
+        }
+
         initializedGame = true;
     }
 
@@ -922,6 +929,12 @@ public class Game_Manager : MonoBehaviour
 
         // Remove dups
         IAP_Manager.instance.ownedNonConsumableProductsIds = IAP_Manager.instance.ownedNonConsumableProductsIds.Distinct().Where(pid => pid != null && pid != "").ToList();
+
+        // Make sure the Ads Manager is hiding the banner ad if we bought the remove ads product
+        // if(IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
+        //     Debug.Log("GAME MANAGER ")
+        //     Ads_Manager.instance.showBannerAd();
+        // }
 
     }
 

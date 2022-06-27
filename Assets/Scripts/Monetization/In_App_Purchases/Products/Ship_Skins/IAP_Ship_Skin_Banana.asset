@@ -16,10 +16,10 @@ MonoBehaviour:
   productTitle: The Nanner
   productDescription: Is that your rocket or are you just happy to see me?
   consumePurchase: 0
-  previewSprite: {fileID: 5404703936751759412, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
+  previewSprite: {fileID: -1853669530, guid: 59e8be971e271984c805249a7403efe6, type: 3}
   ownedByDefault: 0
   equippable: 1
-  equipped: 0
+  equipped: 1
   equipButtonString: Use This Rocket
   equippedButtonString: Using This Rocket
   shipSkin: {fileID: 11400000, guid: 86ef44b3c63ac0149aed31a4867abc6c, type: 2}

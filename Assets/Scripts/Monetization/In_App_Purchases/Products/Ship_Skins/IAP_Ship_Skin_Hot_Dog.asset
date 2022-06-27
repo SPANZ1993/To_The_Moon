@@ -16,7 +16,7 @@ MonoBehaviour:
   productTitle: The Glizzymobile
   productDescription: We're having a cookout in space!
   consumePurchase: 0
-  previewSprite: {fileID: -2143292936, guid: 9dee27117e18c864dbeaaafaa6e6545a, type: 3}
+  previewSprite: {fileID: 1517373401, guid: 59e8be971e271984c805249a7403efe6, type: 3}
   ownedByDefault: 0
   equippable: 1
   equipped: 0
