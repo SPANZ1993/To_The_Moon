@@ -11,7 +11,7 @@ public class Onboarding_Manager : MonoBehaviour
     private GameObject coinNameInputBox;
     private GameObject screenTint;
 
-
+    private Collider2D bookshelfCollider, computerCollider;
 
     private Collider2D mineshaftCollider, minecartCollider, robotCollider;
 
@@ -131,6 +131,14 @@ public class Onboarding_Manager : MonoBehaviour
     }
 
     IEnumerator _executeOnboarding(float delay){
+
+        UI_Controller.instance.DisableUIElement(GameObject.Find("Bookshelf_Menu"));
+        UI_Controller.instance.DisableUIElement(GameObject.Find("Computer_Menu"));
+
+
+        disableAllMainAreaColliders();
+
+
         yield return new WaitForSeconds(delay);
 
         nameInputBox = GameObject.Find("Name_Input_Box");
@@ -791,10 +799,12 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private void startGame(){
+        enableAllMainAreaColliders();
         enableAllMineAreaColliders();
         enableAllRocketAreaColliders();
         Touch_Detection.instance.enableReticle(immediately:true);
         Touch_Detection.instance.enableSwipes(immediately:true);
+        UI_Controller.instance.EnableUIElement(screenTint, touchOnly:true);
         Debug.Log("GAME STARTED!");
         Destroy(this);
     }
@@ -981,6 +991,33 @@ public class Onboarding_Manager : MonoBehaviour
         setDisplayNameFailed = true;
     }
 
+    
+
+    private void disableAllMainAreaColliders(){
+        if(computerCollider == null){
+            computerCollider = GameObject.Find("Computer").GetComponent<Collider2D>();
+        }
+        if(bookshelfCollider == null){
+            bookshelfCollider = GameObject.Find("Bookshelf").GetComponent<Collider2D>();
+        }
+        
+
+        computerCollider.enabled = false;
+        bookshelfCollider.enabled = false;
+    }
+
+    private void enableAllMainAreaColliders(){
+        if(computerCollider == null){
+            computerCollider = GameObject.Find("Computer").GetComponent<Collider2D>();
+        }
+        if(bookshelfCollider == null){
+            bookshelfCollider = GameObject.Find("Bookshelf").GetComponent<Collider2D>();
+        }
+
+        computerCollider.enabled = true;
+        bookshelfCollider.enabled = true;
+    }
+
 
     private void disableAllMineAreaColliders(){
         if(robotCollider == null){
@@ -1017,7 +1054,6 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private void disableAllRocketAreaColliders(){
-        Debug.Log("DISABLE COLLIDERS!");
         // Rocket Button
         // Rocket Building
         if(rocketButtonCollider == null){

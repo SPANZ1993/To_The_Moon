@@ -12,6 +12,9 @@ public class Crypto_Scriptable_Object : ScriptableObject
 
     public string FollowCoinName { get { return followCoinName; } private set { followCoinName = value; } }
     public string FollowCoinAbbrev { get { return followCoinAbbrev; } private set { followCoinAbbrev = value; } }
+
+    public Sprite DisplayImage { get { return displayImage; } private set { displayImage = value; } }
+
     
     [SerializeField]
     private string coinName;
@@ -25,9 +28,9 @@ public class Crypto_Scriptable_Object : ScriptableObject
     private string followCoinAbbrev;
     [SerializeField]
     private int coinId;
+    [SerializeField]
+    private Sprite displayImage;
 
-
-    public Image displayImage;
 
 
 

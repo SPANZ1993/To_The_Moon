@@ -905,7 +905,7 @@ public class UI_Controller : MonoBehaviour
         //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         //Debug.Log("STARTING UI CONTROLLER");
         OnLevelWasLoaded();
-        Invoke("displayExampleSpeech", 15);
+        //Invoke("displayExampleSpeech", 15);
     }
 
 
@@ -3137,6 +3137,7 @@ public class UI_Controller : MonoBehaviour
         Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)exchangePanel.GetComponent<ObjectHolder>().Obj;
         Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Coin_Name_Text").GetComponent<TextMeshProUGUI>().text = crypto.CoinName;
         Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Description_Text").GetComponent<TextMeshProUGUI>().text = crypto.CoinDescription;
+        Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Panel_Image").GetComponent<Image>().sprite = crypto.DisplayImage;
         updateExchangePanel(exchangePanel);
 
         

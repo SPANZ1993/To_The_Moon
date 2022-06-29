@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c16f5965209738244a4c41bfa0de27bb, type: 3}
-  m_Name: Plightcoin
+  m_Name: Totally_Legitcoin
   m_EditorClassIdentifier: 
-  coinName: Plightcoin
-  coinAbbrev: PLC
-  coinDescription: You might feel some plight if you invest in this one.
-  followCoinName: litecoin
-  followCoinAbbrev: LTC
-  coinId: 2
-  displayImage: {fileID: 0}
+  coinName: Totally Legitcoin
+  coinAbbrev: TLC
+  coinDescription: It's the future of money! Trust me bro!
+  followCoinName: bitcoin
+  followCoinAbbrev: BTC
+  coinId: 0
+  displayImage: {fileID: -1670695612, guid: da9d3edc5bc2ebf4eb7ee0e6b73c229a, type: 3}

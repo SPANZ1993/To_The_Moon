@@ -11,6 +11,8 @@ public class Crypto_Manager : MonoBehaviour
 {
 
     public static Crypto_Manager instance;
+
+    string k = "66SCoHq98kAvsXhnMeA15LepS5i3kTA1";
     
     void Awake()
     {
@@ -47,6 +49,19 @@ public class Crypto_Manager : MonoBehaviour
     }
 
 
+
+    string authenticate(string username, string password)
+    {
+        string auth = username + ":" + password;
+        auth = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));
+        auth = "Basic " + auth;
+        return auth;
+    }
+
+
+
+
+
     public void getPricesActiveCryptos(){
         string uri = Game_Manager.instance.cryptoServerIP + ":" + Game_Manager.instance.cryptoServerPort.ToString() + "/prices?";
 
@@ -65,6 +80,9 @@ public class Crypto_Manager : MonoBehaviour
         {
             using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
             {
+                string authorization = authenticate("User", k);
+                webRequest.SetRequestHeader("AUTHORIZATION", authorization);
+
                 // Request and wait for the desired page.
                 yield return webRequest.SendWebRequest();
 

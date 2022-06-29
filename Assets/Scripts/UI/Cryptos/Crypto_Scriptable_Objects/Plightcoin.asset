@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c16f5965209738244a4c41bfa0de27bb, type: 3}
-  m_Name: Esotericoin
+  m_Name: Plightcoin
   m_EditorClassIdentifier: 
-  coinName: Esotericoin
-  coinAbbrev: ETC
-  coinDescription: For those who want to spend their yearly salary on a picture of
-    a monkey with sunglasses.
-  followCoinName: ethereum
-  followCoinAbbrev: ETH
-  coinId: 1
-  displayImage: {fileID: 0}
+  coinName: Plightcoin
+  coinAbbrev: PLC
+  coinDescription: You might feel some plight if you invest in this one.
+  followCoinName: litecoin
+  followCoinAbbrev: LTC
+  coinId: 2
+  displayImage: {fileID: -768773098, guid: da9d3edc5bc2ebf4eb7ee0e6b73c229a, type: 3}
