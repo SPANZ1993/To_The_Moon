@@ -674,6 +674,10 @@ public class Game_Manager : MonoBehaviour
             Debug.Log("GM BANNER: " + id);
         }
 
+
+        initializeProgressionManager(loadedGame.SerializedEventsState);
+        
+
         initializedGame = true;
     }
 
@@ -864,6 +868,15 @@ public class Game_Manager : MonoBehaviour
             }
         }
     }
+
+
+    private void initializeProgressionManager(Dictionary<int, Dictionary<string, int>> SerializedEventsState){
+        Progression_Manager.instance.initializeEventsState(SerializedEventsState);
+    }
+
+
+
+
 
 
     private void initializeMineShaft(double MineGameLastPlayedUnix, double MineGameRefreshTime){

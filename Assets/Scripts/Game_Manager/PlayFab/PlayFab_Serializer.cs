@@ -122,7 +122,8 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     serializedCryptoAveragePrices: Crypto_Manager.instance.serializeCryptoAveragePrices(),
                                                     ownedNonConsumableProductsIds: IAP_Manager.instance.ownedNonConsumableProductsIds,
                                                     curRobotClothesId: Robot_Outfit_Manager.instance.CurOutfitID,
-                                                    curShipSkinId: Ship_Skin_Manager.instance.CurSkinID
+                                                    curShipSkinId: Ship_Skin_Manager.instance.CurSkinID,
+                                                    serializedEventsState: Progression_Manager.instance.serializeEventsState()
                                                 );   
     }
 

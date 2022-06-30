@@ -7,7 +7,8 @@ using System.Linq;
 
 public class Progression_Manager : MonoBehaviour
 {
-
+    // Don't do a damn thing if you haven't been initialized yet
+    public bool initialized = false;
 
     public Level_Scriptable_Object[] Levels { get { return levels; } private set { levels = value; } }
     public int CurrentLevelId { get { return currentLevelId; } private set { currentLevelId = value; } }
@@ -47,6 +48,7 @@ public class Progression_Manager : MonoBehaviour
             Debug.Assert(Events.Select(e => e.EventId).ToList().Count() == Events.Select(e => e.EventId).Distinct().ToList().Count());
             Debug.Assert(Levels.Select(l => l.LevelId).ToList().Count() == Levels.Select(e => e.LevelId).Distinct().ToList().Count());
 
+            initialized = false;
 
             CurrentLevelId = 0;
             HighestLevelId = 0;
@@ -79,20 +81,23 @@ public class Progression_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AddEventsToQueue();
-        StartNextEvent();
+        if(initialized){
+            AddEventsToQueue();
+            StartNextEvent();
+        }
     }
 
 
 
     public void OnLevelWasLoaded(){
-        foreach(Event_Trigger_Scriptable_Object e in Events){
-            EventIdToTimesTriggeredThisSceneOpen[e.EventId] = 0;
+        if(initialized){
+            foreach(Event_Trigger_Scriptable_Object e in Events){
+                EventIdToTimesTriggeredThisSceneOpen[e.EventId] = 0;
+            }
+
+            AddEventsToQueue(Events.Where(e => e.TriggerableUponLevelWasLoaded));
+            StartNextEvent();
         }
-
-        AddEventsToQueue(Events.Where(e => e.TriggerableUponLevelWasLoaded));
-        StartNextEvent();
-
     }
 
 
@@ -234,7 +239,8 @@ public class Progression_Manager : MonoBehaviour
             EventIdToTimesTriggeredThisSceneOpen[e.EventId] = 0;
             EventIdToTimesTriggeredThisGameOpen[e.EventId] = 0;
         }
-    }
 
+        initialized = true;
+    }
 
 }

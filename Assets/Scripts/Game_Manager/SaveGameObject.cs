@@ -78,6 +78,10 @@ public class SaveGameObject
 
     public int CurShipSkinId {get; set;}
 
+
+    public Dictionary<int, Dictionary<string, int>> SerializedEventsState {get; private set;}
+
+
     public SaveGameObject(){
         IsValid = true;
         IsNewGame = true;
@@ -127,6 +131,8 @@ public class SaveGameObject
         CurRobotClothesId = 0; // Mine outfit
 
         CurShipSkinId = 0; // Default Ship Skin
+
+        SerializedEventsState = new Dictionary<int, Dictionary<string, int>>(); // Progression manager should read this as no event has ever occured yet... which is what we want on a new game
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -181,7 +187,8 @@ public class SaveGameObject
                             Dictionary<int, double> serializedCryptoAveragePrices,
                             List<string> ownedNonConsumableProductsIds,
                             int curRobotClothesId,
-                            int curShipSkinId){
+                            int curShipSkinId,
+                            Dictionary<int, Dictionary<string, int>> serializedEventsState){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -232,6 +239,10 @@ public class SaveGameObject
         CurRobotClothesId = curRobotClothesId;
 
         CurShipSkinId = curShipSkinId;
+
+
+        SerializedEventsState = serializedEventsState;
+
     }
 
 }
