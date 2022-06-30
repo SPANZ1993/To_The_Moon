@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// using MathNet.Numerics.Distributions;
+// using MathNet.Numerics.Random;
+
 using System;
 
 [Serializable]
@@ -16,12 +20,14 @@ public class Metrics_Object
     public double maxAltAllTime; // Implemented
 
     // FLights
-    public int numNonAutopilotFlights {get; private set;} // Implemented
-    public double rocketGameTotalNonAutopilotGemsCollected {get; private set;} // Implemented
-    public double rocketGameTotalNonAutopilotGemsCollectedSquared {get; private set;} // Implemented
-    public int numAutopilotFlights {get; private set;} // Implemented
-    public double rocketGameTotalAutopilotGemsCollected {get; private set;} // Implemented 
-    public double rocketGameTotalAutopilotGemsCollectedSquared {get; private set;} // Implemented
+    public int numNonAutopilotFlights; // Implemented
+    public double rocketGameTotalNonAutopilotGemsCollected; // Implemented
+    public double rocketGameTotalNonAutopilotGemsCollectedSquared; // Implemented
+    public double rocketGameMaxNonAutopilotGemsCollected;
+    public int numAutopilotFlights; // Implemented
+    public double rocketGameTotalAutopilotGemsCollected; // Implemented 
+    public double rocketGameTotalAutopilotGemsCollectedSquared; // Implemented
+
 
 
     // Mine Game
@@ -55,6 +61,7 @@ public class Metrics_Object
         rocketGameTotalNonAutopilotGemsCollectedSquared = 0;
         rocketGameTotalAutopilotGemsCollected = 0;
         rocketGameTotalAutopilotGemsCollectedSquared = 0;
+        rocketGameMaxNonAutopilotGemsCollected = 0;
 
 
         // Mine Game
@@ -86,6 +93,7 @@ public class Metrics_Object
                 int NumAutopilotFlights,
                 double RocketGameTotalNonAutopilotGemsCollected,
                 double RocketGameTotalNonAutopilotGemsCollectedSquared,
+                double RocketGameMaxNonAutopilotGemsCollected,
                 double RocketGameTotalAutopilotGemsCollected,
                 double RocketGameTotalAutopilotGemsCollectedSquared,
                 // Mine Game
@@ -111,6 +119,7 @@ public class Metrics_Object
         numAutopilotFlights = NumAutopilotFlights;
         rocketGameTotalNonAutopilotGemsCollected = RocketGameTotalNonAutopilotGemsCollected;
         rocketGameTotalNonAutopilotGemsCollectedSquared = RocketGameTotalNonAutopilotGemsCollectedSquared;
+        rocketGameMaxNonAutopilotGemsCollected = RocketGameMaxNonAutopilotGemsCollected;
         rocketGameTotalAutopilotGemsCollected = RocketGameTotalAutopilotGemsCollected;
         rocketGameTotalAutopilotGemsCollectedSquared = RocketGameTotalAutopilotGemsCollectedSquared;
 
@@ -132,11 +141,13 @@ public class Metrics_Object
 
 
     public double getMeanRocketGameNonAutopilotGemsCollected(){
+        Debug.Log("METRICS: GC " + rocketGameTotalNonAutopilotGemsCollected + " " + numNonAutopilotFlights);
         return rocketGameTotalNonAutopilotGemsCollected / numNonAutopilotFlights;
     }
 
     // https://math.stackexchange.com/questions/198336/how-to-calculate-standard-deviation-with-streaming-inputs
     public double getStdRocketGameNonAutopilotGemsCollected(){
+        Debug.Log("METRICS: GC " + rocketGameTotalNonAutopilotGemsCollectedSquared + " " + numNonAutopilotFlights);
         return Math.Sqrt((rocketGameTotalNonAutopilotGemsCollectedSquared/numNonAutopilotFlights) - (Math.Pow(getMeanRocketGameNonAutopilotGemsCollected(), 2.0)/numNonAutopilotFlights));
     }
 
@@ -150,10 +161,21 @@ public class Metrics_Object
         }
         else{
             numNonAutopilotFlights++;
+            //Debug.Log("OLD FLIGHT GEMS: " + rocketGameTotalNonAutopilotGemsCollected);
             rocketGameTotalNonAutopilotGemsCollected += flightGems;
+            //Debug.Log("NEW FLIGHT GEMS: " + rocketGameTotalNonAutopilotGemsCollected);
+            //Debug.Log("OLD FLIGHT GEMS SQUARED: " + rocketGameTotalNonAutopilotGemsCollectedSquared);
             rocketGameTotalNonAutopilotGemsCollectedSquared += Math.Pow(flightGems, 2.0);
-            if (maxAltAllTime <= altitude){
-                maxAltAllTime = altitude;
+            //Debug.Log("NEW FLIGHT GEMS SQUARED: " + rocketGameTotalNonAutopilotGemsCollectedSquared);
+            
+            
+            // TODO: Make sure this can't be higher than the max altitude of the current level (If we are playing with a max altitude)
+            if (maxAltAllTime <= Math.Floor(altitude)){
+                maxAltAllTime = Math.Floor(altitude);
+            }
+
+            if(flightGems >= rocketGameMaxNonAutopilotGemsCollected){
+                rocketGameMaxNonAutopilotGemsCollected = flightGems;
             }
         }
     }

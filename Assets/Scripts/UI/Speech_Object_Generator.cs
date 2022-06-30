@@ -519,7 +519,7 @@ public class Speech_Object_Generator : MonoBehaviour
     private string SelectRandomStartKey(string keyStringBase){ // Given the base of a key string, choose a random key to start the speech object
         List<string> possibleStarts = new List<string>();
         foreach (string key in allKeysList){
-            Debug.Log("CHECKING KEY: " + key + " against " + keyStringBase);
+            //Debug.Log("CHECKING KEY: " + key + " against " + keyStringBase);
             if (key.StartsWith(keyStringBase) && key.EndsWith(".1")){
                 possibleStarts.Add(key);
             }

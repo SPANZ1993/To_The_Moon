@@ -13,6 +13,9 @@ public class Rocket_Game_Manager : MonoBehaviour
     private GameObject rocket;
     private GameObject rocketParticles;
 
+    [SerializeField]
+    private int maxAutopilotGems;
+
     private float rocketOrigGameHeight; // Measured in game coordinates
     public float rocketAltitude; // Measured in "Altitude"
     public float rocketMaxAltitude;
@@ -159,9 +162,6 @@ public class Rocket_Game_Manager : MonoBehaviour
         Gem_Collection_Controller.GemCollectedInfo -= onGemCollected;
         UI_Controller.AlertRewardedAdRejectedInfo -= onRewardedAdRejected;
     }
-
-
-
 
 
 
@@ -355,25 +355,105 @@ public class Rocket_Game_Manager : MonoBehaviour
     }
 
     public void RunAutopilotSimulation(){
-        
+
         if (upgradesManager == null){
             //upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>().instance;
             upgradesManager = Upgrades_Manager.instance;
         }
-        upgradesManager.autopilotHeight = 10.0;
-        
-        int gemSeed = UnityEngine.Random.Range(0,10);
-        if (gemSeed < 5){
+
+
+
+        if(Game_Manager.instance.metrics.numNonAutopilotFlights >= 10){
+            upgradesManager.autopilotHeight = 100.0;
+            try{
+                upgradesManager.autopilotHeight = Game_Manager.instance.metrics.maxAltAllTime - MathUtils.RandRange(Game_Manager.instance.metrics.maxAltAllTime*0.25, Game_Manager.instance.metrics.maxAltAllTime*0.75);
+            }
+            catch(System.Exception e){
+                Debug.Log("Error while setting autopilot height " + e);
+                upgradesManager.autopilotHeight = 100.0;
+            }
+            if(upgradesManager.autopilotHeight >= Game_Manager.instance.metrics.maxAltAllTime*0.75){
+                upgradesManager.autopilotHeight = Game_Manager.instance.metrics.maxAltAllTime*0.75;
+            }
+            else if(upgradesManager.autopilotHeight <= Game_Manager.instance.metrics.maxAltAllTime*0.25){
+                upgradesManager.autopilotHeight = Game_Manager.instance.metrics.maxAltAllTime*0.25;
+            }
+            // int gemSeed = UnityEngine.Random.Range(0,10);
+            // if (gemSeed < 5){
+            //     upgradesManager.autopilotGems = 0;
+            // }
+            // else if (gemSeed >= 5 && gemSeed < 8){
+            //     upgradesManager.autopilotGems = 1;
+            // }
+            // else if (gemSeed >= 8){
+            //     upgradesManager.autopilotGems = 10;
+            // }
+
+
+            double n_gems = 1; 
+            // for(int i=0; i<10; i++){
+            //     Debug.Log("MEAN GEMS COLLECTED :" + (float)Game_Manager.instance.metrics.getMeanRocketGameNonAutopilotGemsCollected());
+            //     Debug.Log("STD GEMS COLLECTED: " + (float)Game_Manager.instance.metrics.getStdRocketGameNonAutopilotGemsCollected());
+            //     n_gems = System.Math.Abs(RandomFromDistribution.RandomNormalDistribution((float)Game_Manager.instance.metrics.getMeanRocketGameNonAutopilotGemsCollected(), (float)Game_Manager.instance.metrics.getStdRocketGameNonAutopilotGemsCollected()));
+            //     Debug.Log("TESTING n_gems: " + n_gems);
+            // }
+
+            // Use this to scale the mean of our probability distribution... If we go higher, then we expect to find more gems, and vice, versa
+            double ratioOfMaxHeightAllTime = (double)upgradesManager.autopilotHeight / Game_Manager.instance.metrics.maxAltAllTime;
+            if(Game_Manager.instance.metrics.rocketGameMaxNonAutopilotGemsCollected >= 1){
+                if((System.Convert.ToDouble(System.Single.MaxValue) >= Game_Manager.instance.metrics.getMeanRocketGameNonAutopilotGemsCollected()) && (System.Convert.ToDouble(System.Single.MaxValue) >= Game_Manager.instance.metrics.getStdRocketGameNonAutopilotGemsCollected())){
+                    // We shouldn't encounter any overflows, proceed as normal
+                    try{
+                        // Don't want to award more gems than we ever have before
+                        int tries = 0;
+                        do{
+                            n_gems = (int)System.Math.Abs(RandomFromDistribution.RandomNormalDistribution((float)Game_Manager.instance.metrics.getMeanRocketGameNonAutopilotGemsCollected(), (float)Game_Manager.instance.metrics.getStdRocketGameNonAutopilotGemsCollected()));
+                            tries++;
+                        }while(n_gems > Game_Manager.instance.metrics.rocketGameMaxNonAutopilotGemsCollected && tries < 50);
+                        if(tries >= 50){
+                            n_gems = Game_Manager.instance.metrics.rocketGameMaxNonAutopilotGemsCollected;
+                        }
+
+                        //Debug.Log("FINAL n_gems: " + n_gems + " rounds to --> " + (int)n_gems);
+                    }
+                    catch(System.Exception e){
+                        // But just in case something goes screwy
+                        Debug.Log("Error in Calculating Autopilot gems" + e);
+                        n_gems = 0;
+                    }
+                }
+                else{
+                    // If Our values are too big then just award the max
+                    n_gems = maxAutopilotGems;
+                }
+            }
+            else{
+                n_gems = 0;
+                //Debug.Log("SETTING N GEMS TO ZERO  " + Game_Manager.instance.metrics.rocketGameMaxNonAutopilotGemsCollected);
+            }
+
+
+
+            if((int)n_gems >= maxAutopilotGems || (int)n_gems < 0){
+                n_gems = maxAutopilotGems;
+            }
+
+            //Debug.Log("FINAL N GEMS: " + (int)n_gems);
+            upgradesManager.autopilotGems = (int)n_gems;
+        }
+        // If we haven't had enough non-auto flights yet
+        else{
+            upgradesManager.autopilotHeight = MathUtils.RandRange(80, 120);
             upgradesManager.autopilotGems = 0;
         }
-        else if (gemSeed >= 5 && gemSeed < 8){
-            upgradesManager.autopilotGems = 1;
-        }
-        else if (gemSeed >= 8){
-            upgradesManager.autopilotGems = 10;
-        }
+
+
+
+
+
+
         upgradesManager.autopilotReturnState = AutopilotReturnState.Normal; // Could switch this up if we need to
-        Debug.Log("RUNNING AUTOPILOT SIMULATION " + upgradesManager.autopilotHeight + " " + upgradesManager.autopilotGems + " " + upgradesManager.autopilotReturnState);
+        //Debug.Log("RUNNING AUTOPILOT SIMULATION " + upgradesManager.autopilotHeight + " " + upgradesManager.autopilotGems + " " + upgradesManager.autopilotReturnState);
         if (gameManager == null){
             gameManager = Game_Manager.instance;
         }

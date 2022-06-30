@@ -48,7 +48,7 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
 
 
     public bool Equals(IAP_Product_Scriptable_Object other){
-        return ProductId == other.productId;
+        return ProductId == other.ProductId;
     }
 
     // If we have any products that have specific requirements in order for them to be active, put them here

@@ -10971,6 +10971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368dd5fd58101684a830feac2a27f355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAutopilotGems: 10
+  maxAutopilotAltitude: 100000
   rocketAltitude: 0
   rocketMaxAltitude: 0
   numGemsCollected: 0

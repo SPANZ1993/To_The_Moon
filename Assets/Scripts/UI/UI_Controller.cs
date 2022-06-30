@@ -2609,7 +2609,7 @@ public class UI_Controller : MonoBehaviour
     public void displayAutoPilotConfirmationBox(bool enable){
         if (enable){
             EnableUIElement(autopilotConfirmationBox);
-            autopilotConfirmationBoxText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text");
+            autopilotConfirmationBoxText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text").Replace("{robot}", characters2Names[UI_Characters.Characters.Robot]);;
             autopilotConfirmationBoxYesText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text.Yes");
             autopilotConfirmationBoxNoText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Autopilot.Confirmation_Box_Text.No");
         }
@@ -3403,7 +3403,7 @@ public class UI_Controller : MonoBehaviour
 
     private void updateFuelText(){
         //fuelText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Thrust") + "\n" + Number_String_Formatter.rocketFlightFormatThrustNumberText(rocketControl.thrust, decimals:3);
-        fuelText.text = Number_String_Formatter.rocketFlightFormatThrustNumberText(rocketControl.thrust, decimals:3);
+        fuelText.text = Number_String_Formatter.rocketFlightFormatThrustNumberText(Math.Max(rocketControl.thrust, 0.0), decimals:3);
     }
 
 
@@ -3455,7 +3455,7 @@ public class UI_Controller : MonoBehaviour
         // string s = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude") + "\n" + Number_String_Formatter.rocketFlightFormatAltitudeNumberText(rocketGameManager.rocketAltitude);
         // Debug.Log("HELLO: " + s);
         // Debug.Log("YELLO: " + altitudeText);
-        altitudeText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude") + "\n" + Number_String_Formatter.rocketFlightFormatAltitudeNumberText(rocketGameManager.rocketAltitude, decimals:3) + " " + localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude_Abbreviation");
+        altitudeText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude") + "\n" + Number_String_Formatter.rocketFlightFormatAltitudeNumberText(Math.Max(rocketGameManager.rocketAltitude, 0.0), decimals:3) + " " + localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude_Abbreviation");
     }
 
 

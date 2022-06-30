@@ -2040,6 +2040,13 @@ MonoBehaviour:
       secondsPlayed: 0
       maxCoinsAlltime: 0
       maxAltAllTime: 0
+      numNonAutopilotFlights: 0
+      rocketGameTotalNonAutopilotGemsCollected: 0
+      rocketGameTotalNonAutopilotGemsCollectedSquared: 0
+      rocketGameMaxNonAutopilotGemsCollected: 0
+      numAutopilotFlights: 0
+      rocketGameTotalAutopilotGemsCollected: 0
+      rocketGameTotalAutopilotGemsCollectedSquared: 0
       numMineGamePlays: 0
       mineGameCoinsCollected: 0
       minecartCoinsCollected: 0
@@ -2051,6 +2058,7 @@ MonoBehaviour:
     OwnedNonConsumableProductsIds:
     - com.eggkidgames.blockchainblastoff.robotMinerOutfit
   isPatron: 0
+  removedAds: 0
   coins: 0
   gems: 0
   maxLaunches: 3
@@ -2080,6 +2088,13 @@ MonoBehaviour:
     secondsPlayed: 0
     maxCoinsAlltime: 0
     maxAltAllTime: 0
+    numNonAutopilotFlights: 0
+    rocketGameTotalNonAutopilotGemsCollected: 0
+    rocketGameTotalNonAutopilotGemsCollectedSquared: 0
+    rocketGameMaxNonAutopilotGemsCollected: 0
+    numAutopilotFlights: 0
+    rocketGameTotalAutopilotGemsCollected: 0
+    rocketGameTotalAutopilotGemsCollectedSquared: 0
     numMineGamePlays: 0
     mineGameCoinsCollected: 0
     minecartCoinsCollected: 0
@@ -2434,6 +2449,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662109405}
   m_CullTransparentMesh: 1
+--- !u!1 &678189567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678189569}
+  - component: {fileID: 678189568}
+  m_Layer: 0
+  m_Name: Progression_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &678189568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678189567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28da97084a766724abafeb641fee7b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: 0d0c594996f86fe4989978882a19c643, type: 2}
+  currentLevelId: 0
+  highestLevelId: 0
+  events:
+  - {fileID: 11400000, guid: e7f6024cb0546824ebb8dd6d7ef9949e, type: 2}
+--- !u!4 &678189569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678189567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.110046, y: -12.991128, z: -0.7068098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778671864
 GameObject:
   m_ObjectHideFlags: 0

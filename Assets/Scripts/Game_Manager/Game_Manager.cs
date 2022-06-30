@@ -286,11 +286,11 @@ public class Game_Manager : MonoBehaviour
                     Handle_Autopilot_Return();
                 }
 
-                if(metrics.numGameStartups == 1 || userDisplayName == null || coinName == null){ 
-                    Debug.Log("THIS IS THE FIRST BABY!");
-                    Onboarding_Manager onboardingManager = gameObject.AddComponent<Onboarding_Manager>();
-                    onboardingManager.ExecuteOnboarding(2.5f);
-                }
+                // if(metrics.numGameStartups == 1 || userDisplayName == null || coinName == null){ 
+                //     Debug.Log("THIS IS THE FIRST BABY!");
+                //     Onboarding_Manager onboardingManager = gameObject.AddComponent<Onboarding_Manager>();
+                //     onboardingManager.ExecuteOnboarding(2.5f);
+                // }
             }
             else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
                 if (remainingLaunches == maxLaunches){

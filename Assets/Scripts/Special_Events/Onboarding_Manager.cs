@@ -799,6 +799,9 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private void startGame(){
+        if(OnboardingEndedInfo != null){
+            OnboardingEndedInfo();
+        }
         enableAllMainAreaColliders();
         enableAllMineAreaColliders();
         enableAllRocketAreaColliders();

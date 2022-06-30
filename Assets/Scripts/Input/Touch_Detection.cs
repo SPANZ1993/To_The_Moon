@@ -492,7 +492,7 @@ public class Touch_Detection : MonoBehaviour
             screenBoundingBox[i] = game_scaler.WorldToScreenPoint(bound);
         }
         reticleDisabledBoxes.Add(screenBoundingBox);
-        Debug.Log("ADDED BOUNDING BOX");
+        //Debug.Log("ADDED BOUNDING BOX");
         //Debug.Log("RETICLE DISABLED BOXES LEN: " + reticleDisabledBoxes.Count);
         foreach(Vector3[]bb in reticleDisabledBoxes){
             //foreach(Vector3 b in bb){
@@ -505,7 +505,7 @@ public class Touch_Detection : MonoBehaviour
         if (boundingBox.Length != 4){
             throw new ArgumentException("Bounding Box Must Contain 4 Vectors");
         }
-        Debug.Log("REMOVED BOUNDING BOX");
+        //Debug.Log("REMOVED BOUNDING BOX");
         Vector3[] screenBoundingBox = new Vector3[4];
         List<int> iToRemove = new List<int>();
         for(int i = 0; i < reticleDisabledBoxes.Count; i++){
