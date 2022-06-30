@@ -52,8 +52,8 @@ public class Robot_Controller : MonoBehaviour, ITappable
     [SerializeField]
     private GameObject Input_Detector;
     private Touch_Detection touchDetection;
-    private bool tapInitiated = false; // The current tap started on the minecart
-    private bool tapped = false; // The screen is held down currently on the minecart
+    private bool tapInitiated = false; // The current tap started on the roboot
+    private bool tapped = false; // The screen is held down currently on the robot
     private List<Vector2> curDragLocs = new List<Vector2>();
 
     private Game_Manager gameManager;
