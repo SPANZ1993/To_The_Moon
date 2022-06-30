@@ -5,18 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Onboarding_Event_Scriptable_Object", menuName = "ScriptableObjects/Events/Onboarding_Event_Scriptable_Object", order = 1)]
 public class Onboarding_Event_Trigger_Scriptable_Object : Event_Trigger_Scriptable_Object
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnEnable(){
         Onboarding_Manager.OnboardingEndedInfo += onOnboardingEnded;
     }

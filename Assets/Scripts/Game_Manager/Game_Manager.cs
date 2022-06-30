@@ -37,6 +37,8 @@ public class Game_Manager : MonoBehaviour
     private bool doneTryingServerTime = false;
     private bool gotServerTime = false;
 
+
+
     public bool initializeGameOnReturnToMainArea = false; // If this is true, when we enter the main area scene, try to query playfab to reinitialize the game
 
     // Upgrades Stuff
@@ -153,7 +155,7 @@ public class Game_Manager : MonoBehaviour
 
 
     // Crypto Stuff
-    public string cryptoServerIP = "http://127.0.0.1";
+    public string cryptoServerBaseURL = "http://127.0.0.1";
     public int cryptoServerPort = 5000; 
 
 
@@ -227,7 +229,7 @@ public class Game_Manager : MonoBehaviour
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
             if (SceneManager.GetActiveScene().name == "Main_Area"){
                 foreach(string k in titleData.Keys){
-                    Debug.Log(k + ": " + titleData[k]);
+                    Debug.Log("TITLE DATA --- " + k + ": " + titleData[k]);
                 }
 
 
@@ -676,7 +678,19 @@ public class Game_Manager : MonoBehaviour
 
 
         initializeProgressionManager(loadedGame.SerializedEventsState);
-        
+
+
+        // HANDLE TITLE DATA
+        if(titleData != null){
+            if(titleData.Keys.Contains("Crypto URL")){
+                cryptoServerBaseURL = "http://" + titleData["Crypto URL"];
+            }
+            if(titleData.Keys.Contains("Crypto Port")){
+                cryptoServerPort = Convert.ToInt16(titleData["Crypto Port"]);
+            }
+        }
+
+
 
         initializedGame = true;
     }

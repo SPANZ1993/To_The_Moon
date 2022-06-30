@@ -380,12 +380,13 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     void OnTitleDataReceieved(GetTitleDataResult result){
-       if (result.Data == null || result.Data.ContainsKey("Message") == false){
-           Debug.Log("PLAYFAB: NO MESSAGE!");
-           return;
+       if (result.Data != null){
+           Debug.Log("PLAYFAB: GOT TITLE DATA!");
+           //return;
        }
        else{
-            Debug.Log("PLAYFAB: GOT MESSAGE --- " + result.Data["Message"]);
+            Debug.Log("PLAYFAB: NO TITLE DATA!");
+            result.Data = new Dictionary<string, string>();
        }
 
        if(PlayFabGetTitleDataSuccessInfo != null){

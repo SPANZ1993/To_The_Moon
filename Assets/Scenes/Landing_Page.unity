@@ -2107,8 +2107,8 @@ MonoBehaviour:
   coinName: 
   musicSoundLevel: 0
   soundFxSoundLevel: 0
-  cryptoServerIP: http://127.0.0.1
-  cryptoServerPort: 5000
+  cryptoServerBaseURL: http://127.0.1.1
+  cryptoServerPort: 9000
   textSpeed: 0
   circleWipeOpenSize: {x: 0, y: 0, z: 0}
   playInterstitialAdOnMenuClose: 0
@@ -2478,6 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28da97084a766724abafeb641fee7b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   levels:
   - {fileID: 11400000, guid: 0d0c594996f86fe4989978882a19c643, type: 2}
   currentLevelId: 0
