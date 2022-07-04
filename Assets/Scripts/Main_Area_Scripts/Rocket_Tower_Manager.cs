@@ -63,7 +63,7 @@ public class Rocket_Tower_Manager : MonoBehaviour
                     retractClipLength = clip.length;
                 }
             }
-            Debug.Log(retractClipLength);
+            //Debug.Log(retractClipLength);
             StartCoroutine(_stopRetracting(retractClipLength));
             yield return new WaitForSeconds(Mathf.Max(alarmSound.clip.length, retractClipLength));
             StartCoroutine(_onLaunchInitiated(false));

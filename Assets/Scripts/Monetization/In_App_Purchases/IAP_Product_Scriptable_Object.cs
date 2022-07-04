@@ -32,7 +32,7 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
 
 
     public virtual void OnPurchaseComplete(Product product){
-        Debug.Log("We bought " + ProductId + " ... " + product.definition.id);
+        //Debug.Log("We bought " + ProductId + " ... " + product.definition.id);
         if(!Audio_Manager.instance.IsPlaying("UI_Button_Process_Complete")){
             Audio_Manager.instance.Play("UI_Button_Process_Complete");
         }
@@ -40,7 +40,7 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
     }
 
     public virtual void OnPurchaseFailed(Product product, PurchaseFailureReason reason){
-        Debug.Log("PURCHASE OF: " + ProductId + " ... " + product.definition.id + " FAILED DUE TO... " + reason);
+        Debug.LogError("PURCHASE OF: " + ProductId + " ... " + product.definition.id + " FAILED DUE TO... " + reason);
         if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
             Audio_Manager.instance.Play("UI_Button_Deny");
         }

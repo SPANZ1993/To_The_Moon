@@ -31,7 +31,7 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
     [SerializeField]
     private int eventPriority;
     [SerializeField]
-    private int numTimesTriggerable; // If it isn't infinitely triggerable, how many times is this event allowed to be triggered??
+    private int numTimesTriggerable;
     [SerializeField]
     private int numTimesTriggerablePerLevelOpen;
     [SerializeField]
@@ -71,21 +71,23 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
                 triggerable = true;
         }
 
+        
         if(!(triggerableLevelIds.Length == 0) && !triggerableLevelIds.Contains(Progression_Manager.instance.CurrentLevelId)){
             triggerable = false;
         }
+
       
         if(!triggerableSceneNames.Contains(SceneManager.GetActiveScene().name)){
             triggerable = false;
         }
       
       
-        if(triggerable){
-            Debug.Log("MADE IT OUT OF BASE SHOULD TRIGGER");
-        }
-        else{
-            Debug.Log("BASE THINKS NO SHOULD TRIGGER");
-        }
+        // if(triggerable){
+        //     Debug.Log("MADE IT OUT OF BASE SHOULD TRIGGER");
+        // }
+        // else{
+        //     Debug.Log("BASE THINKS NO SHOULD TRIGGER");
+        // }
 
         return triggerable;
     }

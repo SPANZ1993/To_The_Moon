@@ -112,12 +112,12 @@ public class Scene_Manager : MonoBehaviour
                         int oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
                         int oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
                         if (LeanTween.isTweening(oldWipeTweenIdEnter)){
-                            Debug.Log("CANCELING");
+                            //Debug.Log("CANCELING");
                             LeanTween.cancel(oldWipeTweenIdEnter);
                             Destroy(OldWipe);
                         }
                         if (LeanTween.isTweening(oldWipeTweenIdLeave)){
-                            Debug.Log("CANCELING");
+                            //Debug.Log("CANCELING");
                             LeanTween.cancel(oldWipeTweenIdLeave);
                             Destroy(OldWipe);
                         }
@@ -126,12 +126,12 @@ public class Scene_Manager : MonoBehaviour
                             oldWipeTweenIdEnter = OldWipe.enteringWipeTweenId;
                             oldWipeTweenIdLeave = OldWipe.leavingWipeTweenId;
                             if (LeanTween.isTweening(oldWipeTweenIdEnter)){
-                                Debug.Log("CANCELING");
+                                //Debug.Log("CANCELING");
                                 LeanTween.cancel(oldWipeTweenIdEnter);
                                 Destroy(OldWipe);
                             }
                             if (LeanTween.isTweening(oldWipeTweenIdLeave)){
-                                Debug.Log("CANCELING");
+                                //Debug.Log("CANCELING");
                                 LeanTween.cancel(oldWipeTweenIdLeave);
                                 Destroy(OldWipe);
                             }

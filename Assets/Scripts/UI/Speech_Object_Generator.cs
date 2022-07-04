@@ -7,6 +7,10 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.ResourceManagement;
 
+
+using Newtonsoft.Json;
+
+
 public class Speech_Object_Generator : MonoBehaviour
 {
 
@@ -539,9 +543,6 @@ public class Speech_Object_Generator : MonoBehaviour
         return null;
     }
 
-
-
-
     public string defaultStringFormatFunc(string inputStr){
         inputStr = inputStr.Replace("{gamename}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Game_Name"));
         inputStr = inputStr.Replace("{playername}", Game_Manager.instance.userDisplayName);
@@ -647,4 +648,211 @@ public class Speech_Object_Generator : MonoBehaviour
 
     
 
+
+    private UI_Characters.Characters jsonCharString2UI_Character(char c){
+        if(c == 'R'){
+            return UI_Characters.Characters.Robot;
+        }
+        else if(c == 'S'){
+            return UI_Characters.Characters.Guy;
+        }
+        else if(c == 'D'){
+            return UI_Characters.Characters.Dog;
+        }
+        else if (c == 'G'){
+            return UI_Characters.Characters.Gorilla;
+        }
+        return UI_Characters.Characters.Robot;
+    }
+
+    private UI_Characters.Emotions jsonEmotString2UI_Emotion(char c){
+        if(c == 'T'){
+            return UI_Characters.Emotions.Talking;
+        }
+        else if(c == 'H'){
+            return UI_Characters.Emotions.Happy;
+        }
+        else if(c == 'I'){
+            return UI_Characters.Emotions.Idle;
+        }
+        else if (c == 'S'){
+            return UI_Characters.Emotions.Sad;
+        }
+        return UI_Characters.Emotions.Talking;
+    }
+
+
+
+
+    public Speech_Object BuildSpeechObjectFromJSON(string json){
+        // #########HOW THIS WORKS###########
+        // ACCEPTS SOME JSON CONTAINING DATA TO BUILD A SPEECH OBJECT.. SHOULD HAVE A KEY "B" with Value 0 or 1 Denoting whether blocker or not
+        // The other keys should be of the form Sn and SCn, where n is the order of the text element in the speech object
+        // The value of the Sn keys is the actual speech text
+        // The value of the SCn key is a three letter code denoting the character, the emotion, and the post-emotion
+        // Possible characters are R, S, D, or G... Denoting Robot, Stonks, Dog, Gorilla
+        // Possible emotions are T, H, I, S... Denoting Talking, Happy, Idle, Sad
+        // Validation is done to ensure Sn/SCn keys go up in numerical order, and that the character information is valid (I.E. the given character has the given emotions)
+        // If a speech object can be built (i.e. the json is valid) it is returned, otherwise null is returned
+       
+        
+        if(ValidateSpeechObjectJson(json)){
+            try{
+                //return new Speech_Object();
+                Dictionary<string, string> speechJsonDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                bool isBlocker = speechJsonDict["B"] == "1";
+                List<string> Speech_Strings_List = new List<string>();
+                List<UI_Characters.Characters> Characters_List = new List<UI_Characters.Characters>();
+                List<UI_Characters.Emotions> Emotions_List = new List<UI_Characters.Emotions>();
+                List<UI_Characters.Emotions> Post_Emotions_List = new List<UI_Characters.Emotions>();
+
+                int curI = 1;
+                string curSpeech;
+                UI_Characters.Characters curCharacter;
+                UI_Characters.Emotions curEmotion;
+                UI_Characters.Emotions curPostEmotion;
+                string curCharStr;
+                while(speechJsonDict.Keys.Contains("S"+curI.ToString()) && speechJsonDict.Keys.Contains("SC"+curI.ToString())){
+                    curSpeech = speechJsonDict["S"+curI.ToString()];
+                    curCharStr = speechJsonDict["SC"+curI.ToString()];
+
+                    Speech_Strings_List.Add(defaultStringFormatFunc(curSpeech));
+                    Characters_List.Add(jsonCharString2UI_Character(curCharStr[0]));
+                    Emotions_List.Add(jsonEmotString2UI_Emotion(curCharStr[1]));
+                    Post_Emotions_List.Add(jsonEmotString2UI_Emotion(curCharStr[2]));
+                    
+                    
+                    curI++;
+                }
+
+                return new Speech_Object(isBlocker, Speech_Strings_List, Characters_List, Emotions_List, Post_Emotions_List);
+            }
+            catch(Exception e){
+                Debug.Log(e);
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public bool ValidateSpeechObjectJson(string json){
+        Dictionary<string, string> speechJsonDict = new Dictionary<string, string>();
+        try{
+            speechJsonDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+        }
+        catch(Exception e){
+            Debug.Log("SOMETHING IS WRONG WITH THE FORMATTING OF OUR SPEECH JSON");
+            return false;
+        }
+
+        if(speechJsonDict.Keys.Count < 3){
+            Debug.Log("NOT ENOUGH KEYS IN OUR SPEECH DICT");
+            return false;
+        }
+
+
+        bool foundB = false;
+        foreach(string k in speechJsonDict.Keys){
+            if(k == "B"){
+                if(speechJsonDict[k] != "0" && speechJsonDict[k] != "1"){
+                    Debug.Log("GOT IMPROPER VALUE FOR BLOCKER \"B\" Key " + speechJsonDict[k] + " OPTIONS ARE \"0\" and \"1\"");
+                    return false;
+                }
+                foundB = true;
+            }
+            else if(k.StartsWith("S") && !k.StartsWith("SC")){
+                if(k.Count(char.IsLetter) != 1 && !k.Select(c => c != 'S' && char.IsNumber(c)).All(r => r)){
+                    Debug.Log("GOT IMPROPER KEY IN OUR SPEECH DICT: " + k);
+                    return false;
+                }
+            }
+            else if(k.StartsWith("SC")){
+                if(speechJsonDict[k].Length != 3 || 
+                !"RSDG".Contains(speechJsonDict[k][0]) || 
+                !"THIS".Contains(speechJsonDict[k][1]) || 
+                !"THIS".Contains(speechJsonDict[k][2]) ||
+                !k.Replace("SC", "").Select(c => char.IsNumber(c)).All(r => r)){
+                    Debug.Log("IMPROPER VALUE FOR KEY " + k + " IN OUR SPEECH DICT: " + speechJsonDict[k]);
+                    return false;
+                }
+                else{
+                    UI_Characters.Characters curCharacter = jsonCharString2UI_Character(speechJsonDict[k][0]);
+                    UI_Characters.Emotions curEmotion = jsonEmotString2UI_Emotion(speechJsonDict[k][1]);
+                    UI_Characters.Emotions curPostEmotion = jsonEmotString2UI_Emotion(speechJsonDict[k][2]);
+                    if(curCharacter == null || curEmotion == null || curPostEmotion == null){
+                        Debug.Log("IMPROPER VALUE FOR KEY " + k + " IN OUR SPEECH DICT: " + speechJsonDict[k]);
+                        return false;
+                    }
+                    else{
+                        if(!characters2Emotions[curCharacter].Contains(curEmotion) || !characters2Emotions[curCharacter].Contains(curPostEmotion)){
+                            Debug.Log("IMPROPER CHARACTER EMOTIONS FOR KEY: " + k);
+                            return false;
+                        }
+                    }
+                }
+            }
+            else{
+                Debug.Log("GOT IMPROPER KEY IN OUR SPEECH DICT: " + k);
+                return false;
+            }
+        }
+
+        if(!foundB){
+            Debug.Log("SPEECH DICTIONARY DOESN'T CONTAIN AN IS BLOCKER \"B\" Key");
+            return false;
+        }
+
+        foreach(string k in speechJsonDict.Keys.Where(k => k.StartsWith("S") && !k.StartsWith("SC"))){
+            if(!speechJsonDict.Keys.Contains("SC" + k.Replace("S", ""))){
+                Debug.Log("SPEECH KEY " + k + " HAS NO CORRESPONDING CHARACTER INFORMATION KEY IN OUR SPEECH DICT");
+                return false;
+            }
+        }
+
+        foreach(string k in speechJsonDict.Keys.Where(k => k.StartsWith("SC"))){
+            if(!speechJsonDict.Keys.Contains("S" + k.Replace("SC", ""))){
+                Debug.Log("CHARACTER INFORMATION KEY " + k + " HAS NO CORRESPONDING SPEECH KEY IN OUR SPEECH DICT");
+                return false;
+            }
+        }
+
+        // Going to count up from 1 -> n until we no longer see Sn or SCn keys... if there are other keys in the dictionary that haven't been accounted
+        // for (other than "B"), then something is messed up
+        Dictionary<string, bool> speechKeyAccountingDict = new Dictionary<string, bool>();
+        foreach(string k in speechJsonDict.Keys){
+            if(k == "B"){
+                speechKeyAccountingDict[k] = true;
+            }
+            else{
+                speechKeyAccountingDict[k] = false;
+            }
+        }
+
+        int curI = 1;
+        while(speechJsonDict.Keys.Contains("S"+curI.ToString()) || speechJsonDict.Keys.Contains("SC"+curI.ToString())){
+            if(speechJsonDict.Keys.Contains("S"+curI.ToString())){
+                speechKeyAccountingDict["S"+curI.ToString()] = true;
+            }
+            else{
+                Debug.Log("SPEECH DICT MISSING KEY " + "S"+curI.ToString());
+                return false;
+            }
+            
+            if(speechJsonDict.Keys.Contains("SC"+curI.ToString())){
+                speechKeyAccountingDict["SC"+curI.ToString()] = true;
+            }
+            else{
+                Debug.Log("SPEECH DICT MISSING KEY " + "SC"+curI.ToString());
+                return false;
+            }
+            curI++;
+        }
+
+        if(!speechKeyAccountingDict.Values.All(v => v)){
+            Debug.Log("SOMETHING IS WRONG WITH THE KEY ORDERING IN THE SPEECH DICT.");
+            return false;
+        }
+
+        return true;
+    }
 }

@@ -64,7 +64,7 @@ public class Crypto_Manager : MonoBehaviour
 
     public void getPricesActiveCryptos(){
         string uri = Game_Manager.instance.cryptoServerBaseURL + ":" + Game_Manager.instance.cryptoServerPort.ToString() + "/prices?";
-        Debug.Log("REQUESTING : " + uri);
+        //Debug.Log("REQUESTING : " + uri);
 
         int symbolArgCount = 0;
         foreach(Crypto_Scriptable_Object crypto in activeCryptos){
@@ -133,12 +133,12 @@ public class Crypto_Manager : MonoBehaviour
         foreach(Crypto_Scriptable_Object crypto in activeCryptosToPrice.Keys){
             if(activeCryptosToPrice[crypto] != null){
                 if(!activeCryptosToExchangePanel.Keys.Contains(crypto) || activeCryptosToExchangePanel[crypto] == null){
-                    Debug.Log("ADDING NEW PANEL: " + crypto.CoinName);
+                    //Debug.Log("ADDING NEW PANEL: " + crypto.CoinName);
                     GameObject panel = UI_Controller.instance.addExchangePanel(crypto);
                     activeCryptosToExchangePanel[crypto] = panel;
                 }
                 else{
-                    Debug.Log("ADDING OLD PANEL: " + crypto.CoinName);
+                    //Debug.Log("ADDING OLD PANEL: " + crypto.CoinName);
                     GameObject panel = UI_Controller.instance.addExchangePanel(activeCryptosToExchangePanel[crypto]);
                     activeCryptosToExchangePanel[crypto] = panel;
                 }
@@ -189,7 +189,7 @@ public class Crypto_Manager : MonoBehaviour
                 activeCryptosToAveragePrice[coin] = getCoinPrice(coin);
             }
             activeCryptosToBalance[coin] += amount;
-            Debug.Log("BOUGHT " + amount + " " + coin.CoinName + " FROM CRYPTO MANAGER");
+            //Debug.Log("BOUGHT " + amount + " " + coin.CoinName + " FROM CRYPTO MANAGER");
         }
         return completedTransaction;
     }

@@ -961,12 +961,12 @@ public class UI_Controller : MonoBehaviour
             found = true;
         }
         if (found){
-            Debug.Log("ADDING EXPERIMENT: " + (ExperimentId)addedNum);
+            //Debug.Log("ADDING EXPERIMENT: " + (ExperimentId)addedNum);
             unlockedExperimentIds.Add(addedNum);
             experimentsManager.setUnlockedExperimentIds(unlockedExperimentIds);
         }
         else{
-            Debug.Log("COULDN'T ADD ANY MORE EXPERIMENTS");
+            //Debug.Log("COULDN'T ADD ANY MORE EXPERIMENTS");
         }
     }
 
@@ -1085,7 +1085,7 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(ScreenTintObj, touchOnly:true);
         string UIStringTable = "UI_Banner";
         
-        nameInputBoxHeaderText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Header");
+        nameInputBoxHeaderText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Header").Replace("{gamename}", "Blockchain Blastoff");
         nameInputBoxPromptText.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Prompt");
         nameEnterFieldPlaceholder.text = Localization_Manager.instance.GetLocalizedString(UIStringTable, "UI.Onboarding.Name_Input_Box.Default_Name");
         
@@ -1301,15 +1301,20 @@ public class UI_Controller : MonoBehaviour
 
 
     void onRobotTapped(){
-        if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed && !sceneManager.startedMineSceneTransition){
+        if(Robot_Manager.instance.messageQueue.Count == 0){
+            if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed && !sceneManager.startedMineSceneTransition){
 
-            EnableUIElement(RobotMenuObj);
-            EnableUIElement(ScreenTintObj);
-            selectMineUpgrade();
-            robotMenuDisplayed = true;
-            if (UIDisplayStartedInfo != null){
-                UIDisplayStartedInfo(new Vector3[0]);
+                EnableUIElement(RobotMenuObj);
+                EnableUIElement(ScreenTintObj);
+                selectMineUpgrade();
+                robotMenuDisplayed = true;
+                if (UIDisplayStartedInfo != null){
+                    UIDisplayStartedInfo(new Vector3[0]);
+                }
             }
+        }
+        else{
+            Display_Speech(Robot_Manager.instance.messageQueue.Dequeue());
         }
     }
 
@@ -2339,7 +2344,7 @@ public class UI_Controller : MonoBehaviour
             enableActiveExperimentPanels();
         }
         else{
-            Debug.Log("WE DIDN'T DO ANYTHING WITH EXPERIMENT : " + experimentId);
+            //Debug.Log("WE DIDN'T DO ANYTHING WITH EXPERIMENT : " + experimentId);
             // TODO: Do something here
             if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
                 Audio_Manager.instance.Play("UI_Button_Deny");
@@ -2935,7 +2940,7 @@ public class UI_Controller : MonoBehaviour
 
             if(!IAP_Manager.instance.checkNonConsumableProductForOwnership(productSub) && !productSub.OwnedByDefault){
                 // Proceed as normal with IAP Buy Button
-                Debug.Log("It's nonconsumable and we don't own it");
+                //Debug.Log("It's nonconsumable and we don't own it");
                 //IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
                 shopBuyButton.GetComponent<IAPButton>().enabled = true;
                 IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
@@ -2946,7 +2951,7 @@ public class UI_Controller : MonoBehaviour
                 Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = "Buy";
             }
             else{
-                Debug.Log("It's Nonconsumable and we own it");
+                //Debug.Log("It's Nonconsumable and we own it");
  
                 
 
@@ -2958,9 +2963,9 @@ public class UI_Controller : MonoBehaviour
                     shopBuyButtonComponent.interactable = false;
                     while(Game_Manager.instance.gameTimeUnix - IAP_Manager.instance.lastNonConsumableProductIdBuyTime <= 0.5){
                         yield return new WaitForEndOfFrame();
-                        Debug.Log("WAITING TO TURN BUTTON BACK ON");
+                        //Debug.Log("WAITING TO TURN BUTTON BACK ON");
                     }
-                    Debug.Log("OKAY TURNING IT BACK ON... But IAP Button is off time diff is " + (Game_Manager.instance.gameTimeUnix - IAP_Manager.instance.lastNonConsumableProductIdBuyTime));
+                    //Debug.Log("OKAY TURNING IT BACK ON... But IAP Button is off time diff is " + (Game_Manager.instance.gameTimeUnix - IAP_Manager.instance.lastNonConsumableProductIdBuyTime));
                     shopBuyButtonComponent.interactable = true;
                     shopBuyButton.GetComponent<IAPButton>().enabled = false;
                 }
@@ -2976,15 +2981,15 @@ public class UI_Controller : MonoBehaviour
 
                 if(productSub.Equippable){
                     // Turn the buy button into an equip button because we already own it
-                    Debug.Log("It's NONconsumable equippable And We Already Own It -- " + productSub.ProductId);
+                    //Debug.Log("It's NONconsumable equippable And We Already Own It -- " + productSub.ProductId);
                     shopBuyButtonComponent.onClick.RemoveAllListeners();
                     if(!productSub.Equipped){
-                        Debug.Log("OWN IT AND IT'S NOT EQUIPPED " + productSub.ProductId);
+                        //Debug.Log("OWN IT AND IT'S NOT EQUIPPED " + productSub.ProductId);
                         shopBuyButtonComponent.onClick.AddListener(productSub.OnEquip);
                         Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = productSub.EquipButtonString;
                     }
                     else{
-                        Debug.Log("OWN IT AND IT'S EQUIPPED");
+                        //Debug.Log("OWN IT AND IT'S EQUIPPED");
                         shopBuyButtonComponent.interactable = false;
                         shopBuyButtonComponent.onClick.AddListener(productSub.OnEquip);
                         Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = productSub.EquippedButtonString;
@@ -2992,7 +2997,7 @@ public class UI_Controller : MonoBehaviour
                 }
                 else{
                     // Pretty much just want to remove the button or say we already own it
-                    Debug.Log("It's NONconsumable NONequippable And We Already Own It -- " + productSub.ProductId);
+                    //Debug.Log("It's NONconsumable NONequippable And We Already Own It -- " + productSub.ProductId);
                     DisableUIElement(shopBuyButton);
                 }
             }
@@ -3000,7 +3005,7 @@ public class UI_Controller : MonoBehaviour
         else if(typeof(IAP_Product_Scriptable_Object_Consumable).IsAssignableFrom(product.GetType())){
             // If this is a consumable product
             // Proceed as normal with IAP Buy Button because you can buy as many of these as you want
-            Debug.Log("It's consumable -- " + product.ProductId);
+            //Debug.Log("It's consumable -- " + product.ProductId);
 
             IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
 
@@ -3090,12 +3095,12 @@ public class UI_Controller : MonoBehaviour
         // They will still be tracked by the Crypto_Manager so we can reference them later
         foreach(Transform t in exchangeScrollPanel.transform){
             if(t.gameObject.name != "Exchange_Logo_Panel"){
-                Debug.Log("DISABLING: " + t.gameObject.name);
+                //Debug.Log("DISABLING: " + t.gameObject.name);
                 DisableUIElement(t.gameObject);
                 t.SetParent(Crypto_Manager.instance.transform);
             }
             else{
-                Debug.Log("NOT MESSING WITH LOGO PANEL");
+                //Debug.Log("NOT MESSING WITH LOGO PANEL");
             }
         }
     }
@@ -3209,7 +3214,7 @@ public class UI_Controller : MonoBehaviour
             ){
             exchangeBuySellConfirmationBoxInputField.text = "";
             curExchangeBuySellConfirmationBoxInputFieldNum = 0;
-            Debug.Log("EE NUM IS NULL");
+            //Debug.Log("EE NUM IS NULL");
         }
         else{
             if((bool)curExchangeBuySellConfirmationBoxBuying && Crypto_Manager.instance.getCoinPrice(curExchangeBuySellConfirmationBoxCrypto) * curExchangeBuySellConfirmationBoxInputFieldNum > Game_Manager.instance.coins){
@@ -3237,8 +3242,8 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void onExchangeBuySellConfirmationBoxInputFieldNumValueChanged(){
-        Debug.Log(exchangeBuySellConfirmationBoxInputFieldText.text.GetType().ToString());
-        Debug.Log("TEXT IS: " + exchangeBuySellConfirmationBoxInputField.text + " " + exchangeBuySellConfirmationBoxInputField.text.All(char.IsNumber) + " " + Number_String_Formatter.IsNumeric(exchangeBuySellConfirmationBoxInputField.text));
+        //Debug.Log(exchangeBuySellConfirmationBoxInputFieldText.text.GetType().ToString());
+        //Debug.Log("TEXT IS: " + exchangeBuySellConfirmationBoxInputField.text + " " + exchangeBuySellConfirmationBoxInputField.text.All(char.IsNumber) + " " + Number_String_Formatter.IsNumeric(exchangeBuySellConfirmationBoxInputField.text));
         
         if(exchangeBuySellConfirmationBoxInputField.text.Length > 0 && Number_String_Formatter.IsNumeric(exchangeBuySellConfirmationBoxInputField.text)){
             if(exchangeBuySellConfirmationBoxInputField.text[0] != '0'){
@@ -3275,7 +3280,7 @@ public class UI_Controller : MonoBehaviour
     }
 
     public void onExchangeBuySellConfirmButtonPressed(){
-        Debug.Log(((bool)curExchangeBuySellConfirmationBoxBuying ? "BOUGHT: " : "SOLD: ")  + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
+        //Debug.Log(((bool)curExchangeBuySellConfirmationBoxBuying ? "BOUGHT: " : "SOLD: ")  + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
 
         double finalBuySellNum = (double)curExchangeBuySellConfirmationBoxInputFieldNum;
         bool completedTransaction = false;
@@ -3325,7 +3330,7 @@ public class UI_Controller : MonoBehaviour
 
     
     public void onExchangeBuySellCancelButtonPressed(){
-        Debug.Log("CANCELED " + ((bool)curExchangeBuySellConfirmationBoxBuying ? "BUY: " : "SELL: ") + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
+        //Debug.Log("CANCELED " + ((bool)curExchangeBuySellConfirmationBoxBuying ? "BUY: " : "SELL: ") + (curExchangeBuySellConfirmationBoxInputFieldNum ?? 0) + " " + curExchangeBuySellConfirmationBoxCrypto.CoinName);
         
 
         IEnumerator nudgeScrollRectNextFrame(){
@@ -3582,9 +3587,9 @@ public class UI_Controller : MonoBehaviour
         // }
         // onboardingManager.displayName = nameEnterField.text;
         // onboardingManager.displayName
-        Debug.Log("YO YO");
+        //Debug.Log("YO YO");
         if(NameInputBoxSubmitButtonPressedInfo != null){
-            Debug.Log("YO YO YO");
+            //Debug.Log("YO YO YO");
             NameInputBoxSubmitButtonPressedInfo(nameEnterField.text);
         }
     }
@@ -3599,10 +3604,10 @@ public class UI_Controller : MonoBehaviour
     // Coin Name Input Handlers
     public void onCoinNameSubmitButtonPressed(){
         
-        Debug.Log("Coin Name Submit Button Pressed From UI Manager");
+        //Debug.Log("Coin Name Submit Button Pressed From UI Manager");
         // Debug.Log("YO YO");
         if(CoinNameInputBoxSubmitButtonPressedInfo != null){
-            Debug.Log("YO YO YO");
+            //Debug.Log("YO YO YO");
             CoinNameInputBoxSubmitButtonPressedInfo(coinNameEnterField.text);
         }
     }

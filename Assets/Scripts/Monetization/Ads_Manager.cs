@@ -24,10 +24,10 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     private string bannerPlacementId = "Banner_Android";
     #endif
 
-    private Platforms platform = Platforms.iOS;
-    private string gameId = "4691388";
+    // private Platforms platform = Platforms.iOS;
+    // private string gameId = "4691388";
 
-    private string bannerPlacementId = "Banner_iOS";
+    // private string bannerPlacementId = "Banner_iOS";
 
 
     public bool testMode = true; // TODO: Switch this to false for production
@@ -122,10 +122,10 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     void Start(){
         if (platform == Platforms.iOS){
-            Debug.Log("IOS");
+            //Debug.Log("IOS");
         }
         else if (platform == Platforms.Android){
-            Debug.Log("ANDROID");
+            //Debug.Log("ANDROID");
         }
         Advertisement.Initialize(gameId, testMode);
         OnLevelWasLoaded();
@@ -224,15 +224,15 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
  
     public void showBannerAd(BannerPosition pos=BannerPosition.BOTTOM_CENTER){
         if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
-            Debug.Log("SHOWING BANNER AD");
-            foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
-                Debug.Log("BANNER: " + id);
-            }
+            //Debug.Log("SHOWING BANNER AD");
+            // foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
+            //     Debug.Log("BANNER: " + id);
+            // }
             Advertisement.Banner.SetPosition(pos);
             StartCoroutine(_showBannerAd());
         }
         else{
-            Debug.Log("NOT SHOWING BANNER AD");
+            //Debug.Log("NOT SHOWING BANNER AD");
             try{
                 hideBannerAd();
             }

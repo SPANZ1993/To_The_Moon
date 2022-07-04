@@ -28,14 +28,14 @@ public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_
 
     public override void OnPurchaseComplete(Product product){
         if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(base.ProductId)){
-            Debug.Log("ADDING: " + base.ProductId + " TO LIST OF OWNED NONCONSUMABLES");
+            //Debug.Log("ADDING: " + base.ProductId + " TO LIST OF OWNED NONCONSUMABLES");
             IAP_Manager.instance.ownedNonConsumableProductsIds.Add(base.ProductId);
             IAP_Manager.instance.lastNonConsumableProductIdBuyTime = Game_Manager.instance.gameTimeUnix;
         }
         else{
-            Debug.Log("Oh shit... we double bought");
+            Debug.LogError("Oh shit... we double bought");
         }
-        Debug.Log("IS THIS PRODUCT " + base.ProductId + " OWNED NOW? : " + IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(base.ProductId));
+        //Debug.Log("IS THIS PRODUCT " + base.ProductId + " OWNED NOW? : " + IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(base.ProductId));
         base.OnPurchaseComplete(product);
     }
 

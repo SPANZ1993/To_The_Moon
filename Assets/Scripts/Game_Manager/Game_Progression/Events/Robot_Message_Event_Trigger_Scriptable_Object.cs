@@ -6,21 +6,31 @@ using System;
 using System.Linq;
 
 
-[CreateAssetMenu(fileName = "Robot_Title_Data_Message_Event_Scriptable_Object", menuName = "ScriptableObjects/Events/Robot_Message_Event_Scriptable_Object", order = 2)]
-public class Robot_Message_Event_Trigger_Scriptable_Object : Event_Trigger_Scriptable_Object
+
+public abstract class Robot_Message_Event_Trigger_Scriptable_Object : Event_Trigger_Scriptable_Object
 {
+
+
+    protected abstract Speech_Object getMessage();
+
+
     public override bool shouldTrigger(){
         bool shouldTrigger = base.shouldTrigger();
-        if(shouldTrigger){
-            if(Game_Manager.instance.titleData != null && Game_Manager.instance.titleData.Keys.Contains("Robot Message")){ 
-                shouldTrigger = true;
+        bool bst = shouldTrigger;
+        if(shouldTrigger){ 
+            try{
+                if(getMessage() != null){
+                    shouldTrigger = true;
+                }
+                else{
+                    //Debug.Log("Get Message is NUll");
+                    shouldTrigger = false;
+                }
             }
-            else{
+            catch(Exception e){
+                Debug.Log(e);
                 shouldTrigger = false;
             }
-        }
-        if(shouldTrigger){
-            Debug.Log("Should trigger robot message");
         }
         return shouldTrigger;
     }
@@ -29,6 +39,13 @@ public class Robot_Message_Event_Trigger_Scriptable_Object : Event_Trigger_Scrip
 
     public override void _trigger(){    
         // Fill this in
+        try{
+            Robot_Manager.instance.messageQueue.Enqueue(getMessage());
+        }
+        catch(Exception e){
+            Debug.Log("TRIED TO ENQUEUE THE ROBOT TITLE SPEECH.. BUT RAN INTO AN ISSUE: " + e);
+        }
+        base._alertManagerOnEventEnd();
     }
 
 

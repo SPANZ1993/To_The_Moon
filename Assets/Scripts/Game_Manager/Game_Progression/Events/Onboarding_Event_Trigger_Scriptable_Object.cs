@@ -25,19 +25,19 @@ public class Onboarding_Event_Trigger_Scriptable_Object : Event_Trigger_Scriptab
             }
         }
         if(shouldTrigger){
-            Debug.Log("Should trigger onboarding sequence");
+            //Debug.Log("Should trigger onboarding sequence");
         }
         return shouldTrigger;
     }
 
     public override void _trigger(){
-        Debug.Log("TRIGGERING ONBOARDING SEQUENCE");
+        //Debug.Log("TRIGGERING ONBOARDING SEQUENCE");
         Onboarding_Manager onboardingManager = Game_Manager.instance.gameObject.AddComponent<Onboarding_Manager>();
         onboardingManager.ExecuteOnboarding(2.5f);
     }
 
     public void onOnboardingEnded(){
-        Debug.Log("ALERTING ONBOARDING SEQUENCE OVER");
+        //Debug.Log("ALERTING ONBOARDING SEQUENCE OVER");
         base._alertManagerOnEventEnd();
         // IEnumerable alertOnboardEnded(){
         //     yield return new WaitForSeconds(0.25f); // Wait just a smidge before starting another event if there is one

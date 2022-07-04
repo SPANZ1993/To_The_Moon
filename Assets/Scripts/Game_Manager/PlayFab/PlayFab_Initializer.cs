@@ -76,7 +76,7 @@ public class PlayFab_Initializer : MonoBehaviour
             StartingPlayFabInitiationInfo();
         }
 
-        Debug.Log("IS TITLE DATA NULL? " + (titleData == null));
+        //Debug.Log("IS TITLE DATA NULL? " + (titleData == null));
 
         playFabManager = GameObject.Find("PlayFab_Manager").GetComponent<PlayFab_Manager>();
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
@@ -123,6 +123,7 @@ public class PlayFab_Initializer : MonoBehaviour
             if(EndingPlayFabInitiationInfo != null){
                 EndingPlayFabInitiationInfo();
             }
+            Debug.Log("PLAYFAB INITIALIZER DESTROYED");
             Destroy(this);
         }
         else if (failedLogInPlayFabServer && !retryConnectBoxDisplayed && !waitingForResponsePlayFabLogin){

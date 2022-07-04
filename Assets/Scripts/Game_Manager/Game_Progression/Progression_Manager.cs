@@ -7,6 +7,8 @@ using System.Linq;
 
 public class Progression_Manager : MonoBehaviour
 {
+
+
     // Don't do a damn thing if you haven't been initialized yet
     public bool initialized = false;
 
@@ -23,6 +25,7 @@ public class Progression_Manager : MonoBehaviour
     private int highestLevelId = 0;
 
 
+    // TODO: IMPLEMENT GAMETIME SINCE EVENT && REALTIME SINCE EVENT FINISHED DICTS
     public Event_Trigger_Scriptable_Object[] Events {get { return events; } private set { events = value; } }
     public Dictionary<int, int> EventIdToTimesTriggered {get; private set;}
     public Dictionary<int, int> EventIdToTimesTriggeredThisLevelOpen {get; private set;}
@@ -57,6 +60,13 @@ public class Progression_Manager : MonoBehaviour
             EventIdToTimesTriggeredThisLevelOpen = new Dictionary<int, int>();
             EventIdToTimesTriggeredThisSceneOpen = new Dictionary<int, int>();
             EventIdToTimesTriggeredThisGameOpen = new Dictionary<int, int>();
+            foreach(int id in Events.Select(e => e.EventId)){
+                EventIdToTimesTriggered[id] = 0;
+                EventIdToTimesTriggeredThisLevelOpen[id] = 0;
+                EventIdToTimesTriggeredThisSceneOpen[id] = 0;
+                 EventIdToTimesTriggeredThisGameOpen[id] = 0;
+            }
+
 
             EventQueue = new Queue<Event_Trigger_Scriptable_Object>();
 
@@ -147,7 +157,7 @@ public class Progression_Manager : MonoBehaviour
             }
         }
         else{
-            Debug.Log("CURRENTLY IN AN EVENT... WAITING TO ADD EVENTS");
+            //Debug.Log("CURRENTLY IN AN EVENT... WAITING TO ADD EVENTS");
         }
     }
 

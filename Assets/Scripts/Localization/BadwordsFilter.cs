@@ -12,6 +12,9 @@ public class BadwordsFilter : MonoBehaviour
 
     public static BadwordsFilter instance;
 
+    [SerializeField]
+    private TextAsset BadWordsEnglish;
+
 
     void Awake(){
         if (!instance){
@@ -40,17 +43,58 @@ public class BadwordsFilter : MonoBehaviour
     }
 
 
+    // public bool checkWordContainsBadWords(string word){
+
+
+    //     List<string> getBadWordsList(Languages language){
+
+    //         string languageFile = "";
+    //         if(language == Languages.English){
+    //             languageFile = "Assets/Localization/Bad_Words_Lists/BadWordsEnglish.csv";
+    //         }
+    //         else if(language == Languages.Spanish){
+    //             Debug.Log("Spanish Bad Words Not Yet Implemented");
+    //             return new List<string>();
+    //         }
+    //         else{
+    //             Debug.Log("Couldn't get bad words for " + language);
+    //             return new List<string>();
+    //         }
+            
+            
+    //         List<string> badwords = new List<string>();
+    //         using(var reader = new StreamReader(languageFile))
+    //         {
+    //             while (!reader.EndOfStream)
+    //             {
+    //                 var line = reader.ReadLine();
+    //                 var values = line.Split(',');
+
+    //                 badwords.Add(values[1]);
+    //             }
+    //         }
+    //         badwords.RemoveAt(0);
+    //         return badwords;
+    //     }
+    //     Languages language = Localization_Manager.instance.currentLanguage;
+    //     List<string> badwords = getBadWordsList(language);
+    //     //Debug.Log(string.Join(", ", badwords));
+
+    //     return badwords.ToArray().Select(badword => word.ToLower().Contains(badword.ToLower())).ToArray().Any(result => result == true);
+    // }
+
+
     public bool checkWordContainsBadWords(string word){
 
 
         List<string> getBadWordsList(Languages language){
 
-            string languageFile = "";
+            TextAsset badWordsList = null;
             if(language == Languages.English){
-                languageFile = "Assets/Localization/Bad_Words_Lists/BadWordsEnglish.csv";
+                badWordsList = BadWordsEnglish;
             }
             else if(language == Languages.Spanish){
-                Debug.Log("Spanish Not Yet Implemented");
+                Debug.Log("Spanish Bad Words Not Yet Implemented");
                 return new List<string>();
             }
             else{
@@ -59,26 +103,44 @@ public class BadwordsFilter : MonoBehaviour
             }
             
             
-            List<string> badwords = new List<string>();
-            using(var reader = new StreamReader(languageFile))
-            {
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
+            
+            // using(var reader = new StreamReader(languageFile))
+            // {
+            //     while (!reader.EndOfStream)
+            //     {
+            //         var line = reader.ReadLine();
+            //         var values = line.Split(',');
 
-                    badwords.Add(values[1]);
-                }
+            //         badwords.Add(values[1]);
+            //     }
+            // }
+            
+            List<string> badwords = new List<string>();
+            foreach(string line in badWordsList.ToString().Split("\n")){
+                        string[] values = line.Split(',');
+                        if(values.Length > 1){
+                            badwords.Add(values[1]);
+                        }
             }
+
             badwords.RemoveAt(0);
             return badwords;
         }
+
+
+
+
+
+
+
         Languages language = Localization_Manager.instance.currentLanguage;
         List<string> badwords = getBadWordsList(language);
         //Debug.Log(string.Join(", ", badwords));
 
         return badwords.ToArray().Select(badword => word.ToLower().Contains(badword.ToLower())).ToArray().Any(result => result == true);
     }
+
+
 
     //speechStrs.Select(str => Audio_Manager.instance.GetSound(str)).ToArray();
 }

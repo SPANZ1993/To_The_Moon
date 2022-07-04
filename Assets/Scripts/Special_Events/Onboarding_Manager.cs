@@ -134,7 +134,14 @@ public class Onboarding_Manager : MonoBehaviour
 
         UI_Controller.instance.DisableUIElement(GameObject.Find("Bookshelf_Menu"));
         UI_Controller.instance.DisableUIElement(GameObject.Find("Computer_Menu"));
+        screenTint = GameObject.Find("Screen_Tint");
+        UI_Controller.instance.EnableUIElement(screenTint);
 
+
+
+
+        Touch_Detection.instance.disableReticle(disableswipes:true);
+        //Debug.Log("DISABLING SWIPES");
 
         disableAllMainAreaColliders();
 
@@ -143,7 +150,7 @@ public class Onboarding_Manager : MonoBehaviour
 
         nameInputBox = GameObject.Find("Name_Input_Box");
         coinNameInputBox = GameObject.Find("Coin_Name_Input_Box");
-        screenTint = GameObject.Find("Screen_Tint");
+
 
         UI_Controller.instance.displayNameInputBox();
 
@@ -177,19 +184,19 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private IEnumerator _waitForNameSubmit(){
-        yield return new WaitForSeconds(0);
         if(displayName == null || waitingForNameValidationResponse){
+            yield return new WaitForSeconds(0);
             StartCoroutine(_waitForNameSubmit());
         }
         else{
-            Debug.Log(displayName.Count(char.IsLetterOrDigit));
+            //Debug.Log(displayName.Count(char.IsLetterOrDigit));
             if(BadwordsFilter.instance.checkWordContainsBadWords(displayName)){
                 // Display Something About it having bad words
                 // foreach(Transform child in GameObject.Find("Name_Enter_Box_Hint_Text").transform){
                 //     Destroy(child.gameObject);
                 // }
                 UI_Controller.instance.displayNameInputBox(hint:Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.Onboarding.Name_Input_Box.Hint.Badwords"), potentialName:displayName);
-                Debug.Log("BAD WORDS BABBY");
+                //Debug.Log("BAD WORDS BABBY");
                 displayName = null;
                 displayNameValidated = false;
                 waitingForNameValidationResponse = false;
@@ -199,7 +206,7 @@ public class Onboarding_Manager : MonoBehaviour
             else if (displayName.Length < 3 || displayName.Count(char.IsLetterOrDigit) < 3){
                 UI_Controller.instance.displayNameInputBox(hint:Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.Onboarding.Name_Input_Box.Hint.Too_Short"), potentialName:displayName);
                 // Display Something About it Needing to Be Longer than 3 Characters
-                Debug.Log("2$HORT");
+                //Debug.Log("2$HORT");
                 displayName = null;
                 displayNameValidated = false;
                 waitingForNameValidationResponse = false;
@@ -216,17 +223,18 @@ public class Onboarding_Manager : MonoBehaviour
             else if(displayNameValidated && !nameIsUnique){
                 UI_Controller.instance.displayNameInputBox(hint:Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.Onboarding.Name_Input_Box.Hint.Taken"), potentialName:displayName);
                 //Display Something About it Being Taken
-                Debug.Log("TAKEN");
+                //Debug.Log("TAKEN");
                 displayName = null;
                 displayNameValidated = false;
                 waitingForNameValidationResponse = false;
                 StartCoroutine(_waitForNameSubmit());
             }
             else{
-                Debug.Log("MADE IT HERE");
+                //Debug.Log("MADE IT HERE");
                 UI_Controller.instance.DisableUIElement(screenTint);
                 UI_Controller.instance.DisableUIElement(nameInputBox);
                 Game_Manager.instance.userDisplayName = displayName;
+                Debug.Log("SETTING DISPLAY NAME TO: " + Game_Manager.instance.userDisplayName);
                 UI_Controller.instance.displayNameConfirmationBox(displayName);
                 //startOnboardSpeech(1);
             }
@@ -234,7 +242,7 @@ public class Onboarding_Manager : MonoBehaviour
     }
 
     private void promptForCoinName(){
-        Debug.Log("PROMPTING FOR COIN NAME!");
+        //Debug.Log("PROMPTING FOR COIN NAME!");
         StartCoroutine(_promptForCoinName(0.25f));
     }
 
@@ -249,6 +257,8 @@ public class Onboarding_Manager : MonoBehaviour
         if(selectedYes){
             UI_Controller.instance.DisableUIElement(GameObject.Find("Coin_Name_Input_Confirmation_Box"));
             UI_Controller.instance.DisableUIElement(screenTint);
+            //Game_Manager.instance.coinName = coinName;
+            //Debug.Log("SETTING COIN NAME TO: " + Game_Manager.instance.coinName);
             startOnboardSpeech(2);
         }
         else{
@@ -262,30 +272,31 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private IEnumerator _waitForCoinNameSubmit(){
-        yield return new WaitForSeconds(0);
         if(coinName == null){
+            yield return new WaitForSeconds(0);
             StartCoroutine(_waitForCoinNameSubmit());
         }
         else{
             if(BadwordsFilter.instance.checkWordContainsBadWords(coinName)){
                 // Display Something About it having bad words
                 UI_Controller.instance.displayCoinNameInputBox(hint:Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.Onboarding.Coin_Name_Input_Box.Hint.Badwords"), potentialCoinName:coinName);
-                Debug.Log("BAD WORDS BABBY");
+                //Debug.Log("BAD WORDS BABBY");
                 coinName = null;
                 StartCoroutine(_waitForCoinNameSubmit());
             }
             else if (coinName.Length < 3 || coinName.Count(char.IsLetterOrDigit) < 3){
                 // Display Something About it Needing to Be Longer than 3 Characters
                 UI_Controller.instance.displayCoinNameInputBox(hint:Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.Onboarding.Name_Input_Box.Hint.Too_Short"), potentialCoinName:coinName);
-                Debug.Log("2$HORT");
+                //Debug.Log("2$HORT");
                 coinName = null;
                 StartCoroutine(_waitForCoinNameSubmit());
             }
             else{
-                Debug.Log("MADE IT HERE COINS");
+                //Debug.Log("MADE IT HERE COINS");
                 UI_Controller.instance.DisableUIElement(screenTint);
                 UI_Controller.instance.DisableUIElement(coinNameInputBox);
                 Game_Manager.instance.coinName = coinName + Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.General.Coin").ToLower();
+                Debug.Log("SETTING COIN NAME TO: " + Game_Manager.instance.coinName);
                 //startOnboardSpeech(2);
                 UI_Controller.instance.displayCoinNameConfirmationBox(coinName + Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.General.Coin").ToLower());
             }
@@ -296,7 +307,7 @@ public class Onboarding_Manager : MonoBehaviour
     private void startTour(){
         
         
-        Debug.Log("Starting Tour!");
+        //Debug.Log("Starting Tour!");
         spriteHighlighter = gameObject.AddComponent<Sprite_Highlighter>();
         if(OnboardingDisableNonUITouchInfo != null){
             OnboardingDisableNonUITouchInfo();
@@ -808,7 +819,7 @@ public class Onboarding_Manager : MonoBehaviour
         Touch_Detection.instance.enableReticle(immediately:true);
         Touch_Detection.instance.enableSwipes(immediately:true);
         UI_Controller.instance.EnableUIElement(screenTint, touchOnly:true);
-        Debug.Log("GAME STARTED!");
+        //Debug.Log("GAME STARTED!");
         Destroy(this);
     }
 
@@ -920,38 +931,38 @@ public class Onboarding_Manager : MonoBehaviour
     }
 
     private void onNameSubmitButtonPressed(string enteredName){
-        Debug.Log("YO YO YO YO");
+        //Debug.Log("YO YO YO YO");
         displayName = enteredName;
         displayNameValidated = false;
     }
 
     private void onCoinNameSubmitButtonPressed(string enteredName){
-        Debug.Log("YO YO YO YO JOE");
+        //Debug.Log("YO YO YO YO JOE");
         coinName = enteredName;
     }
 
     private void onSwipedLeft(){
-        Debug.Log("LEFT!");
+        //Debug.Log("LEFT!");
         swipedLeftPrevFrame = true;
     }
 
     private void onSwipedRight(){
-        Debug.Log("RIGHT!");
+        //Debug.Log("RIGHT!");
         swipedRightPrevFrame = true;
     }
 
     private void onMinecartTapped(double coins){
-        Debug.Log("MINECART TAPPED");
+        //Debug.Log("MINECART TAPPED");
         minecartTappedPrevFrame = true;
     }
 
     private void onLidOpened(){
-        Debug.Log("OPENED LID");
+        //Debug.Log("OPENED LID");
         openedLidPrevFrame = true;
     }
 
     private void onLidClosed(){
-        Debug.Log("CLOSED LID");
+        //Debug.Log("CLOSED LID");
         closedLidPrevFrame = true;
     }
 
@@ -970,27 +981,27 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private void onPlayFabLoginSuccess(PlayFab.ClientModels.LoginResult result){
-        Debug.Log("Login Success OBM");
+        //Debug.Log("Login Success OBM");
         onPlayFabLoginSuccess();
     }
 
     private void onPlayFabLoginSuccess(){
-        Debug.Log("Login Success OBM");
+        //Debug.Log("Login Success OBM");
         loggedIn = true;
     }
 
     private void onPlayFabLoginFailure(){
-        Debug.Log("Login Fail OBM");
+        //Debug.Log("Login Fail OBM");
         loginFailed = true;
     }
 
     private void onPlayFabSetDisplayNameSuccess(PlayFab.ClientModels.UpdateUserTitleDisplayNameResult result){
-        Debug.Log("DisplayName Success OBM");
+        //Debug.Log("DisplayName Success OBM");
         displayNameSet = true;
     }
 
     private void onPlayFabSetDisplayNameFailure(){
-        Debug.Log("DisplayName Failure OBM");
+        //Debug.Log("DisplayName Failure OBM");
         setDisplayNameFailed = true;
     }
 

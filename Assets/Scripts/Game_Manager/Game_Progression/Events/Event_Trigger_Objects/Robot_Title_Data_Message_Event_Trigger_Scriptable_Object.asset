@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79708c6bdc3bdaf4da479d8d5823b0ea, type: 3}
+  m_Name: Robot_Title_Data_Message_Event_Trigger_Scriptable_Object
+  m_EditorClassIdentifier: 
+  eventId: 2
+  eventPriority: 1000
+  numTimesTriggerable: -1
+  numTimesTriggerablePerLevelOpen: -1
+  numTimesTriggerablePerSceneOpen: 1
+  numTimesTriggerablePerGameOpen: 1
+  triggerableUponLevelWasLoaded: 1
+  triggerableLevelIds: 00000000
+  triggerableSceneNames:
+  - Main_Area

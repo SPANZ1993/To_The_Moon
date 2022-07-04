@@ -131,14 +131,14 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     public void OnSetDisplayNameSuccess(UpdateUserTitleDisplayNameResult result){
-        Debug.Log("SET DISPLAY NAME!!");
+        //Debug.Log("SET DISPLAY NAME!!");
         if (PlayFabSetDisplayNameSuccessInfo != null){
             PlayFabSetDisplayNameSuccessInfo(result);
         }
     }
 
     public void OnSetDisplayNameError(PlayFabError error){
-        Debug.Log("SET DISPLAY NAME ERRROR!!");
+        //Debug.Log("SET DISPLAY NAME ERRROR!!");
         if (PlayFabSetDisplayNameFailureInfo != null){
             PlayFabSetDisplayNameFailureInfo();
         }
@@ -381,11 +381,11 @@ public class PlayFab_Manager : MonoBehaviour
 
     void OnTitleDataReceieved(GetTitleDataResult result){
        if (result.Data != null){
-           Debug.Log("PLAYFAB: GOT TITLE DATA!");
+           //Debug.Log("PLAYFAB: GOT TITLE DATA!");
            //return;
        }
        else{
-            Debug.Log("PLAYFAB: NO TITLE DATA!");
+            //Debug.Log("PLAYFAB: NO TITLE DATA!");
             result.Data = new Dictionary<string, string>();
        }
 

@@ -9,94 +9,85 @@ using UnityEngine.UI;
 public class Main_Area_Button_Handlers : MonoBehaviour
 {
 
-    UI_Controller uiController;
-    Game_Manager gameManager;
-
-    void Start(){
-        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
-        uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
-    }
-
-
     public void saveGame(){
-        gameManager.saveData(false, false, true);
+        Game_Manager.instance.saveData(false, false, true);
     }
 
     public void onButtonTmp(){
-        uiController.onButtonTmp();
+        UI_Controller.instance.onButtonTmp();
     }
 
     public void onButtonTmp2(){
-        uiController.onButtonTmp2();
+        UI_Controller.instance.onButtonTmp2();
     }
 
     public void onButtonTmp3(){
-        uiController.onButtonTmp3();
+        UI_Controller.instance.onButtonTmp3();
     }
 
     public void onButtonTmp4(){
-        uiController.onButtonTmp4();
+        UI_Controller.instance.onButtonTmp4();
     }
 
     public void onButtonTmp5(){
-        uiController.onButtonTmp5();
+        UI_Controller.instance.onButtonTmp5();
     }
 
     public void onButtonTmp6(){
-        uiController.onButtonTmp6();
+        UI_Controller.instance.onButtonTmp6();
     }
 
     public void onButtonTmp7(){
-        gameManager.onApplicationFocus();
+        Game_Manager.instance.onApplicationFocus();
     }
 
 
     public void closeMenus(){
-        uiController.closeMenus();
+        UI_Controller.instance.closeMenus();
     }
     
 
     public void researchersIdCardButtonHandler(GameObject IdCard){
-        uiController.researchersIdCardButtonHandler(IdCard);
+        UI_Controller.instance.researchersIdCardButtonHandler(IdCard);
     }
 
     public void selectExperiments(){
-        uiController.selectExperiments();
+        UI_Controller.instance.selectExperiments();
     }
 
     public void selectResearch(){
-        uiController.selectResearch();
+        UI_Controller.instance.selectResearch();
     }
 
     public void finishResearchButtonHandler(GameObject ResearchPanel){
-        uiController.finishResearchButtonHandler(ResearchPanel);
+        UI_Controller.instance.finishResearchButtonHandler(ResearchPanel);
     }
 
     public void researchPanelButtonHandler(GameObject ResearchPanel){
-        uiController.researchPanelButtonHandler(ResearchPanel);
+        UI_Controller.instance.researchPanelButtonHandler(ResearchPanel);
     }
 
 
     public void experimentPanelButtonHandler(GameObject ExperimentPanel){
-        uiController.experimentPanelButtonHandler(ExperimentPanel);
+        UI_Controller.instance.experimentPanelButtonHandler(ExperimentPanel);
     }
 
 
     public void researchersConfirmationBoxNoButtonHandler(){
-        uiController.researchersConfirmationBoxNoButtonHandler();
+        UI_Controller.instance.researchersConfirmationBoxNoButtonHandler();
     }
 
     public void researchersConfirmationBoxYesButtonHandler(){
-        uiController.researchersConfirmationBoxYesButtonHandler();
+        UI_Controller.instance.researchersConfirmationBoxYesButtonHandler();
     }
 
     public void onNotEnoughCoinsButtonPressed(){
-        uiController.onNotEnoughCoinsButtonPressed();
+        UI_Controller.instance.onNotEnoughCoinsButtonPressed();
     }
 
 
     public void onSpeechBannerButtonPressed(){
-        uiController.onSpeechBannerButtonPressed();
+        UI_Controller.instance.onSpeechBannerButtonPressed();
         // if(!UI_Controller.instance.speechIsDisplayed){
         //     UI_Controller.instance.displayExampleSpeech();
         // }
@@ -106,130 +97,130 @@ public class Main_Area_Button_Handlers : MonoBehaviour
   
 
     public void selectMineUpgrade(){
-        uiController.selectMineUpgrade();
+        UI_Controller.instance.selectMineUpgrade();
     }
 
     public void selectCartUpgrade(){
-        uiController.selectCartUpgrade();
+        UI_Controller.instance.selectCartUpgrade();
     }
 
 
 
 
     public void onHashingUpgradeButtonPressed(){
-        uiController.onHashingUpgradeButtonPressed();
+        UI_Controller.instance.onHashingUpgradeButtonPressed();
     }
 
     public void onBlockChainNetworkUpgradeButtonPressed(){
-        uiController.onBlockChainNetworkUpgradeButtonPressed();
+        UI_Controller.instance.onBlockChainNetworkUpgradeButtonPressed();
     }
 
     public void onGraphicsCardUpgradeButtonPressed(){
-        uiController.onGraphicsCardUpgradeButtonPressed();
+        UI_Controller.instance.onGraphicsCardUpgradeButtonPressed();
     }
 
     public void onColdStorageUpgradeButtonPressed(){
-        uiController.onColdStorageUpgradeButtonPressed();
+        UI_Controller.instance.onColdStorageUpgradeButtonPressed();
     }
 
 
 
 
     public void autopilotConfirmationBoxYesButtonHandler(){
-        uiController.autopilotConfirmationBoxYesButtonHandler();
+        UI_Controller.instance.autopilotConfirmationBoxYesButtonHandler();
     }
     
     public void autopilotConfirmationBoxNoButtonHandler(){
-        uiController.autopilotConfirmationBoxNoButtonHandler();
+        UI_Controller.instance.autopilotConfirmationBoxNoButtonHandler();
     }
 
 
     public void nameSubmitButtonPressed(){
-        Debug.Log("YO");
-        uiController.onNameSubmitButtonPressed();
+        //Debug.Log("YO");
+        UI_Controller.instance.onNameSubmitButtonPressed();
     }
 
     public void nameSubmitConfirmationButtonPressedYes(){
-        Debug.Log("Name Submit Yes");
-        uiController.onNameSubmitConfirmationButtonPressed(true);
+        //Debug.Log("Name Submit Yes");
+        UI_Controller.instance.onNameSubmitConfirmationButtonPressed(true);
     }
 
     public void nameSubmitConfirmationButtonPressedNo(){
-        Debug.Log("Name Submit No");
-        uiController.onNameSubmitConfirmationButtonPressed(false);
+        //Debug.Log("Name Submit No");
+        UI_Controller.instance.onNameSubmitConfirmationButtonPressed(false);
     }
 
     public void coinNameSubmitButtonPressed(){
-        Debug.Log("YO");
-        uiController.onCoinNameSubmitButtonPressed();
+        //Debug.Log("YO");
+        UI_Controller.instance.onCoinNameSubmitButtonPressed();
     }
 
     public void coinNameSubmitConfirmationButtonPressedYes(){
-        Debug.Log("Coin Name Submit Yes");
-        uiController.onCoinNameSubmitConfirmationButtonPressed(true);
+        //Debug.Log("Coin Name Submit Yes");
+        UI_Controller.instance.onCoinNameSubmitConfirmationButtonPressed(true);
     }
 
     public void coinNameSubmitConfirmationButtonPressedNo(){
-        Debug.Log("Coin Name Submit No");
-        uiController.onCoinNameSubmitConfirmationButtonPressed(false);
+        //Debug.Log("Coin Name Submit No");
+        UI_Controller.instance.onCoinNameSubmitConfirmationButtonPressed(false);
     }
 
 
     public void selectOptions(){
-        uiController.selectOptions();
+        UI_Controller.instance.selectOptions();
     }
 
     public void selectRecords(){
-        uiController.selectRecords();
+        UI_Controller.instance.selectRecords();
     }
 
     public void selectShop(){
-        uiController.selectShop();
+        UI_Controller.instance.selectShop();
     }
 
     public void selectExchange(){
-        uiController.selectExchange();
+        UI_Controller.instance.selectExchange();
     }
 
     public void onExchangeBuyButtonPressed(GameObject panel){
         Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
-        Debug.Log("BUYING: " + crypto.CoinName);
+        //Debug.Log("BUYING: " + crypto.CoinName);
         UI_Controller.instance.onBuySellCryptoButtonPressed(true, crypto);
     }
 
     public void onExchangeSellButtonPressed(GameObject panel){
         Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)panel.GetComponent<ObjectHolder>().Obj;
-        Debug.Log("SELLING: " + crypto.CoinName);
+        //Debug.Log("SELLING: " + crypto.CoinName);
         UI_Controller.instance.onBuySellCryptoButtonPressed(false, crypto);
     }
 
     public void onExchangeBuySellConfirmButtonPressed(){
-        Debug.Log("CONFIRM");
+        //Debug.Log("CONFIRM");
         UI_Controller.instance.onExchangeBuySellConfirmButtonPressed();
     }  
 
     public void onExchangeBuySellCancelButtonPressed(){
-        Debug.Log("CANCEL");
+        //Debug.Log("CANCEL");
         UI_Controller.instance.onExchangeBuySellCancelButtonPressed();
     }
 
     public void onExchangeBuySellConfirmationBoxInputFieldNumSelect(){
-        Debug.Log("SELECT");
+        //Debug.Log("SELECT");
         UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumSelect();
     }
 
     public void onExchangeBuySellConfirmationBoxInputFieldNumEndEdit(){
-        Debug.Log("END EDIT");
+        //Debug.Log("END EDIT");
         UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumEndEdit();
     }
 
     public void onExchangeBuySellConfirmationBoxInputFieldNumDeselect(){
-        Debug.Log("DESELECT");
+        //Debug.Log("DESELECT");
         UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumEndEdit();
     }
 
     public void onExchangeBuySellConfirmationBoxInputFieldNumValueChanged(){
-        Debug.Log("VALUE CHANGED");
+        //Debug.Log("VALUE CHANGED");
         UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumValueChanged();
     }
     

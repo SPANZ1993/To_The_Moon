@@ -20,9 +20,9 @@ public class Game_Manager : MonoBehaviour
     private DateTime localSessionStartTime; // The system time that this session started at
     private DateTime serverSessionStartTime; // The server time that this session started at
 
-    private double localSessionStartTimeUnix;
+    public double localSessionStartTimeUnix {get; private set;}
     private double serverSessionStartTimeUnix;
-    private DateTime localSessionCurrentTime;
+    public DateTime localSessionCurrentTime {get; private set;}
     private DateTime localSessionPrevFrameTime;
 
     private double frameCount = 0.0;
@@ -228,9 +228,9 @@ public class Game_Manager : MonoBehaviour
         if (instanceID == gameObject.GetInstanceID() && instance == this){
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
             if (SceneManager.GetActiveScene().name == "Main_Area"){
-                foreach(string k in titleData.Keys){
-                    Debug.Log("TITLE DATA --- " + k + ": " + titleData[k]);
-                }
+                // foreach(string k in titleData.Keys){
+                //     Debug.Log("TITLE DATA --- " + k + ": " + titleData[k]);
+                // }
 
 
                 uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
@@ -256,10 +256,10 @@ public class Game_Manager : MonoBehaviour
 
                 if(circleWipeOpenSize == null || circleWipeOpenSize.Equals(new Vector3())){
                     circleWipeOpenSize = GameObject.Find("Circle_Wipe_Iris").transform.localScale;
-                    Debug.Log("GOT CIRCLE WIPE SIZE: " + circleWipeOpenSize);
+                    //Debug.Log("GOT CIRCLE WIPE SIZE: " + circleWipeOpenSize);
                 }
                 else{
-                    Debug.Log("DIDNT GET IT: " + circleWipeOpenSize);
+                    //Debug.Log("DIDNT GET IT: " + circleWipeOpenSize);
                 }
 
 
@@ -502,10 +502,6 @@ public class Game_Manager : MonoBehaviour
 
     void OnApplicationFocus(){
 
-        // Debug.Log("APP FOCUS");
-        if(SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
-            initializeGameOnReturnToMainArea = true;
-        }
         if (frameCount != 0){
             DateTime curTime = DateTime.Now;
             double timeSinceLastFrame0 = (double)((DateTimeOffset)localSessionCurrentTime).ToUnixTimeSeconds() - (double)((DateTimeOffset)localSessionPrevFrameTime).ToUnixTimeSeconds();
@@ -518,16 +514,24 @@ public class Game_Manager : MonoBehaviour
                 gameTimeUnix += timeSinceLastFrame;
             }
             //initializeGame(); //?
+            //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused Added " + timeSinceLastFrame + " Seconds " + timeSinceLastFrameI + " --- " + DateTime.Now;
+        }
+        // else if(SceneManager.GetActiveScene().name == "Main_Area"){
+        //     try{
+        //         GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused FC0 --- " + DateTime.Now;
+        //     }
+        //     catch(System.Exception e){}
+        // }
+
+        // Debug.Log("APP FOCUS");
+        if(SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            initializeGameOnReturnToMainArea = true;
+        }
+        else if (gameObject.GetComponent<Onboarding_Manager>() == null && SceneManager.GetActiveScene().name == "Main_Area"){
             PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
             playFabInitializer.callBack = initializeGame;
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused Added " + timeSinceLastFrame + " Seconds " + timeSinceLastFrameI + " --- " + DateTime.Now;
         }
-        else if(SceneManager.GetActiveScene().name == "Main_Area"){
-            try{
-                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused FC0 --- " + DateTime.Now;
-            }
-            catch(System.Exception e){}
-        }
+
     }
 
     void OnApplicationPause(){
@@ -672,9 +676,9 @@ public class Game_Manager : MonoBehaviour
 
         initializeShipSkin(loadedGame.CurShipSkinId);
 
-        foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
-            Debug.Log("GM BANNER: " + id);
-        }
+        // foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
+        //     Debug.Log("GM BANNER: " + id);
+        // }
 
 
         initializeProgressionManager(loadedGame.SerializedEventsState);
@@ -967,22 +971,22 @@ public class Game_Manager : MonoBehaviour
 
     // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on
     private void initializeRobotOutfit(int outfitId){
-        Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
+        //Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
         // If the IAP Manager says we own the outfit that we are trying to wear
         List<IAP_Product_Robot_Outfit> ownedRobotOutfitIAPs = new List<IAP_Product_Robot_Outfit>();
 
-        Debug.Log(">>> " + string.Join(", ", IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id))));
-        Debug.Log("OUTFITS WE OWN: " + string.Join(", ", IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId)).Select(product => product.ProductId).ToList()));
+        //Debug.Log(">>> " + string.Join(", ", IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id))));
+        //Debug.Log("OUTFITS WE OWN: " + string.Join(", ", IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId)).Select(product => product.ProductId).ToList()));
 
 
         foreach(IAP_Product_Robot_Outfit outfitIAP in IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId))){
-            Debug.Log("ADDING: " + outfitIAP.ProductId);
+            //Debug.Log("ADDING: " + outfitIAP.ProductId);
             ownedRobotOutfitIAPs.Add((IAP_Product_Robot_Outfit)(System.Object)outfitIAP);
             ownedRobotOutfitIAPs[ownedRobotOutfitIAPs.Count-1].OnUnequip();
         }
 
         if(ownedRobotOutfitIAPs.Any(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId)){
-            Debug.Log("HEY WE OWN THIS OUTFIT");
+            //Debug.Log("HEY WE OWN THIS OUTFIT");
             //Robot_Outfit_Manager.instance.setCurRobotOutfitId(outfitId);
             // Call Equip on the Outfit That We Found
             IAP_Product_Robot_Outfit outfit = new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0];
@@ -991,13 +995,13 @@ public class Game_Manager : MonoBehaviour
             }
             else{
                 // Like if a patreon membership expired
-                Debug.Log("We own this outfit but don't meet the requirements");
+                //Debug.Log("We own this outfit but don't meet the requirements");
                 ((IAP_Product_Robot_Outfit)(System.Object)outfit).OnUnequip();
                 initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
             }
         }
         else{
-            Debug.Log("WE DON'T OWN THIS OUTFIT");
+            //Debug.Log("WE DON'T OWN THIS OUTFIT");
             initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
         }
     }
@@ -1007,7 +1011,7 @@ public class Game_Manager : MonoBehaviour
 
     // Initialize ship skin.. make sure we own the skin, and then equip it.. if we don't own it, just put the default skin on
     private void initializeShipSkin(int skinId){
-        Debug.Log("TRYING TO PUT ON SKIN: " + skinId);
+        //Debug.Log("TRYING TO PUT ON SKIN: " + skinId);
         // If the IAP Manager says we own the Skin that we are trying to wear
         List<IAP_Product_Ship_Skin> ownedShipSkinIAPs = new List<IAP_Product_Ship_Skin>();
         foreach(IAP_Product_Ship_Skin SkinIAP in IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Ship_Skin).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId))){
@@ -1015,7 +1019,7 @@ public class Game_Manager : MonoBehaviour
         }
 
         if(ownedShipSkinIAPs.Any(shipSkinIAP => shipSkinIAP.ShipSkin.SkinId == skinId)){
-            Debug.Log("HEY WE OWN THIS SKIN");
+            //Debug.Log("HEY WE OWN THIS SKIN");
             //Ship_Skin_Manager.instance.setCurShipSkinId(skinId);
             // Call Equip on the Skin That We Found
             IAP_Product_Ship_Skin skin = new List<IAP_Product_Ship_Skin>(ownedShipSkinIAPs.Where(shipSkinIAP => shipSkinIAP.ShipSkin.SkinId == skinId))[0];
@@ -1424,7 +1428,7 @@ public class Game_Manager : MonoBehaviour
     }
     
     private void onOnboardingDisableNonUITouch(){
-        Debug.Log("Disabling");
+        //Debug.Log("Disabling");
         disableNonUITouch();
     }
     

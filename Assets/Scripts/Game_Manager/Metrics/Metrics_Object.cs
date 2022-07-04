@@ -141,18 +141,18 @@ public class Metrics_Object
 
 
     public double getMeanRocketGameNonAutopilotGemsCollected(){
-        Debug.Log("METRICS: GC " + rocketGameTotalNonAutopilotGemsCollected + " " + numNonAutopilotFlights);
+        //Debug.Log("METRICS: GC " + rocketGameTotalNonAutopilotGemsCollected + " " + numNonAutopilotFlights);
         return rocketGameTotalNonAutopilotGemsCollected / numNonAutopilotFlights;
     }
 
     // https://math.stackexchange.com/questions/198336/how-to-calculate-standard-deviation-with-streaming-inputs
     public double getStdRocketGameNonAutopilotGemsCollected(){
-        Debug.Log("METRICS: GC " + rocketGameTotalNonAutopilotGemsCollectedSquared + " " + numNonAutopilotFlights);
+        //Debug.Log("METRICS: GC " + rocketGameTotalNonAutopilotGemsCollectedSquared + " " + numNonAutopilotFlights);
         return Math.Sqrt((rocketGameTotalNonAutopilotGemsCollectedSquared/numNonAutopilotFlights) - (Math.Pow(getMeanRocketGameNonAutopilotGemsCollected(), 2.0)/numNonAutopilotFlights));
     }
 
     public void updateFlights(double flightGems, bool autopilot, float altitude){
-        Debug.Log("UPDATING FLIGHT METRICS: " + flightGems + " GEMS --- AUTOPILOT? " + autopilot + " --- ALTITUDE: " + altitude);
+        //Debug.Log("UPDATING FLIGHT METRICS: " + flightGems + " GEMS --- AUTOPILOT? " + autopilot + " --- ALTITUDE: " + altitude);
         
         if (autopilot){
             numAutopilotFlights++;

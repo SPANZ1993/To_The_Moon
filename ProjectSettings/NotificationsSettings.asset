@@ -19,7 +19,7 @@
                 "True",
                 "7",
                 "False",
-                "False",
+                "True",
                 "-1",
                 "False",
                 "False"
@@ -32,7 +32,7 @@
                 "UnityNotificationAndroidCustomActivityString"
             ],
             "m_Values": [
-                "False",
+                "True",
                 "False",
                 "com.unity3d.player.UnityPlayerActivity"
             ]

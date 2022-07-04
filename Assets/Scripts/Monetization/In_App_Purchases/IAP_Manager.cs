@@ -78,12 +78,12 @@ public class IAP_Manager : MonoBehaviour
         // Do it this way to maintain ordering in the UI
         foreach(IAP_Product_Scriptable_Object product in allProducts.Where(product => activeProducts.Contains(product)).Where(product => IAP_Product_Scriptable_Object.SpecialRequirementsMet(product))){
             if(!activeProductsToShopPanel.Keys.Contains(product) || activeProductsToShopPanel[product] == null){
-                Debug.Log("ADDING SHOP NEW PANEL: " + product.ProductTitle);
+                //Debug.Log("ADDING SHOP NEW PANEL: " + product.ProductTitle);
                 GameObject panel = UI_Controller.instance.addShopPanel(product);
                 activeProductsToShopPanel[product] = panel;
             }
             else{
-                Debug.Log("ADDING SHOP OLD PANEL: " + product.ProductTitle);
+                //Debug.Log("ADDING SHOP OLD PANEL: " + product.ProductTitle);
                 GameObject panel = UI_Controller.instance.addShopPanel(activeProductsToShopPanel[product]);
                 activeProductsToShopPanel[product] = panel;
             }

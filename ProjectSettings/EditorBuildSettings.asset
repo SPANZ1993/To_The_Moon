@@ -18,5 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Mine_Game.unity
     guid: ed5fedd60fa556d4797679a1763b6338
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 7ae7cd9e12c150a4798e65a3bc37133c, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 78040c87b8baaca4188019f5f33ca1da, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d4211a98ba09eeb4b938ca7181e638c6, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: e55c20349aaa3114482a1074dd7ec3c8, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 593b367e86b525149adc3648230826c7, type: 2}

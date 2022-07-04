@@ -41,6 +41,10 @@ public class Touch_Detection : MonoBehaviour
     [HideInInspector]
     public List<Vector2> dragLocs = new List<Vector2>();
     [HideInInspector]
+    public List<TouchPhase> touchPhases = new List<TouchPhase>(); // Correspond to draglocs
+    [HideInInspector]
+    public int touchId {get; private set;} // Just increment every time we start a new touch
+    [HideInInspector]
     public double dragStartTime;
     [HideInInspector]
     public double dragEndTime;
@@ -119,6 +123,22 @@ public class Touch_Detection : MonoBehaviour
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+
+            enabledSwipes = new Dictionary<Swipe, bool>(){
+                {Swipe.UPSWIPE, true},
+                {Swipe.DOWNSWIPE, true},
+                {Swipe.LEFTSWIPE, true},
+                {Swipe.RIGHTSWIPE, true}
+            };
+
+            enableSwipesAfterCurTap = new Dictionary<Swipe, bool>(){
+                {Swipe.UPSWIPE, false},
+                {Swipe.DOWNSWIPE, false},
+                {Swipe.LEFTSWIPE, false},
+                {Swipe.RIGHTSWIPE, false}
+            };
+            touchId = 0;
         }
         else{
             Destroy(this.gameObject);
@@ -150,19 +170,7 @@ public class Touch_Detection : MonoBehaviour
         reticleRenderer = reticle.GetComponent<SpriteRenderer>();
         reticleCollider = reticle.GetComponent<CircleCollider2D>();
 
-        enabledSwipes = new Dictionary<Swipe, bool>(){
-            {Swipe.UPSWIPE, true},
-            {Swipe.DOWNSWIPE, true},
-            {Swipe.LEFTSWIPE, true},
-            {Swipe.RIGHTSWIPE, true}
-        };
 
-        enableSwipesAfterCurTap = new Dictionary<Swipe, bool>(){
-            {Swipe.UPSWIPE, false},
-            {Swipe.DOWNSWIPE, false},
-            {Swipe.LEFTSWIPE, false},
-            {Swipe.RIGHTSWIPE, false}
-        };
 
 
         cam = GameObject.Find("Main Camera");
@@ -177,10 +185,10 @@ public class Touch_Detection : MonoBehaviour
         enableSwipes(immediately:true);
     }
 
+    public Touch touch {get; private set;}
     // Update is called once per frame
     void Update()
     {
-
 
         //Update the Text on the screen depending on current TouchPhase, and the current direction vector
         m_Text = "Touch : " + message + "in direction" + direction;
@@ -191,7 +199,7 @@ public class Touch_Detection : MonoBehaviour
         {
             tapInProgress = true;
 
-            Touch touch = Input.GetTouch(0);
+            touch = Input.GetTouch(0);
 
 
             // Handle finger movements based on TouchPhase
@@ -203,6 +211,8 @@ public class Touch_Detection : MonoBehaviour
                     // Record initial touch position.
                     startPos = touch.position;
                     dragLocs.Add(touch.position);
+                    touchPhases.Add(TouchPhase.Began);
+                    touchId = (touchId + 1) % 10;
                     dragStartTime = Time.timeAsDouble;
                     message = "Begun ";
                     if (RenderReticle){
@@ -222,6 +232,7 @@ public class Touch_Detection : MonoBehaviour
                     // Determine direction by comparing the current touch position with the initial one
                     direction = touch.position - startPos;
                     dragLocs.Add(touch.position);
+                    touchPhases.Add(TouchPhase.Moved);
                     message = "Moving ";
                     if (!reticleDisabled && !reticleInsideDisabledBox(touch.position)){
                         reticleCollider.enabled = true;
@@ -242,7 +253,7 @@ public class Touch_Detection : MonoBehaviour
                     swipeval = DetectSwipe(dragLocs, dragStartTime, dragEndTime);
                     if (swipeval != Swipe.NOSWIPE){
                         if (DebugMode)
-                            Debug.Log("SWIPE!!!");
+                            Debug.Log("SWIPE FROM TD!!!");
                         if (swipeval == Swipe.UPSWIPE && enabledSwipes[Swipe.UPSWIPE] == true &&  SwipedUpInfo != null){
                             //Debug.Log("UTD");
                             SwipedUpInfo();
@@ -276,6 +287,7 @@ public class Touch_Detection : MonoBehaviour
                     }
                     foreach(Swipe pos_swipe in new Swipe[] {Swipe.UPSWIPE, Swipe.DOWNSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE}){
                         if(enableSwipesAfterCurTap[pos_swipe]){
+                            //Debug.Log("REENEABLING FROM ENABLE AFTER CUR TAP");
                             enabledSwipes[pos_swipe] = true;
                             enableSwipesAfterCurTap[pos_swipe] = false;
                         }
@@ -472,6 +484,7 @@ public class Touch_Detection : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
         //Debug.Log("DISABLING " + swipe);
+        //Debug.Log(swipe + " DISABLED");
         enabledSwipes[swipe] = false;
         enableSwipesAfterCurTap[swipe] = false;
     }

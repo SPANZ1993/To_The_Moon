@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 using System;
 
+
+public enum RobotStates {
+    idle,
+    thinking,
+    pickax,
+    alert
+};
 
 public class Robot_Manager : MonoBehaviour
 {
@@ -15,34 +22,53 @@ public class Robot_Manager : MonoBehaviour
     private Animator robotAnimator;
     private Animator screenAnimator;
 
+    // So we can monitor whether the mine game is ready
+    private Mine_Shaft_Controller mineShaftController;
 
 
-    public enum RobotStates {
-        idle,
-        thinking,
-        pickax,
-        alert
-    };
 
-    public RobotStates RobotState;
+    public RobotStates RobotState {get; private set;}
 
-    
+    public Queue<Speech_Object> messageQueue;
         
     public delegate void RobotTapped();
     public static event RobotTapped RobotTappedInfo;
 
 
+    public static Robot_Manager instance;
 
-     void OnEnable()
+
+    void Awake(){
+        if (!instance){
+            instance = this;
+            messageQueue = new Queue<Speech_Object>();
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else{
+            Destroy(this.gameObject);
+        }
+
+
+    }
+
+
+
+    void OnEnable()
     {
         Robot_Controller._RobotTappedInfo += onRobotTapped;
-        Mine_Shaft_Controller.MineGameReadyInfo += onMineGameReady;
+        //Mine_Shaft_Controller.MineGameReadyInfo += onMineGameReady;
     }
 
     void OnDisable()
     {
         Robot_Controller._RobotTappedInfo -= onRobotTapped;
-        Mine_Shaft_Controller.MineGameReadyInfo -= onMineGameReady;
+        //Mine_Shaft_Controller.MineGameReadyInfo -= onMineGameReady;
+    }
+
+    void OnLevelWasLoaded(){
+        if(SceneManager.GetActiveScene().name == "Main_Area"){
+            Start();
+        }
     }
 
     // Start is called before the first frame update
@@ -50,20 +76,24 @@ public class Robot_Manager : MonoBehaviour
     {
         RobotState = RobotStates.idle;
 
-        robotController = transform.GetChild(0).gameObject.GetComponent<Robot_Controller>();
-        robotAnimator = transform.GetChild(0).gameObject.GetComponent<Animator>();
-        screenAnimator = transform.GetChild(1).gameObject.GetComponent<Animator>();
+        GameObject robot = GameObject.Find("Robot");
+        robotController = robot.GetComponent<Robot_Controller>();
+        robotAnimator = robot.GetComponent<Animator>();
+        screenAnimator = GameObject.Find("Robot_Screen").GetComponent<Animator>();
+        mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
     
-        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
+        gameManager = Game_Manager.instance;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        updateScreenAnimation();
-        updateRobotAnimation();
-
+        if(SceneManager.GetActiveScene().name == "Main_Area"){
+            updateRobotState();
+            updateScreenAnimation();
+            updateRobotAnimation();
+        }
     }
 
 
@@ -107,15 +137,28 @@ public class Robot_Manager : MonoBehaviour
             Audio_Manager.instance.Play("Robot_Tapped");
         }
         //Debug.Log("ROBOT TAPPED FROM MANAGER... STATE IS: " + Enum.GetName(typeof(RobotStates), RobotState));
-        RobotTappedInfo();
-    }
-
-
-    void onMineGameReady(){
-        if (RobotState == RobotStates.idle){
-            RobotState = RobotStates.pickax;
+        if(RobotTappedInfo != null){
+            RobotTappedInfo();
         }
     }
 
+
+    // void onMineGameReady(){
+    //     if (RobotState == RobotStates.idle){
+    //         RobotState = RobotStates.pickax;
+    //     }
+    // }
+
+
+    void updateRobotState(){
+        if(messageQueue.Count != 0){
+            RobotState = RobotStates.alert;
+        }
+        else if(mineShaftController != null && mineShaftController.mineGameIsReady){
+            RobotState = RobotStates.pickax;
+        }
+
+        else RobotState = RobotStates.idle;
+    }
 
 }
