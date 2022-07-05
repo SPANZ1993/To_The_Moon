@@ -89,7 +89,7 @@ public class Tap_Object_Controller : MonoBehaviour, ITappable
     }
 
 
-    public void onTapEnd()
+    public void onTapEnd(bool wasFirst)
     {
         // If we lifted our finger, else if we dragged off the object
         StartCoroutine(_onTapEnd(true));

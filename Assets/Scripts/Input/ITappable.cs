@@ -6,5 +6,5 @@ public interface ITappable
 {
     void onTapStart();
     void onTapStay();
-    void onTapEnd();
+    void onTapEnd(bool wasFirst);
 }

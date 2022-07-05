@@ -52,6 +52,10 @@ public class Rocket_Game_Manager : MonoBehaviour
     //private TextMeshProUGUI Altitude_Text;
     private TextMeshProUGUI Time_Text;
 
+
+    private Background_Controller backgroundController;
+
+
     [SerializeField]
     private Camera cam;
     // [SerializeField]
@@ -91,6 +95,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         //Time_Text = GameObject.Find("Time_Text").GetComponent<TextMeshProUGUI>();
         spaceJunkSpawner = GameObject.Find("Junk_Spawner").GetComponent<Space_Junk_Spawner>();
 
+        backgroundController = GameObject.Find("Background_Manager").GetComponent<Background_Controller>();
 
         // cam.orthographicSize = camOrthographicSize;
         firstFrameGameStarted = true;
@@ -127,6 +132,10 @@ public class Rocket_Game_Manager : MonoBehaviour
             }
         }
         
+        if(spaceJunkSpawner.frameRate <= 20){
+            backgroundController.disableFog();
+        }
+
 
         // if(curSize < 0){
         //     curSize = cam.orthographicSize;

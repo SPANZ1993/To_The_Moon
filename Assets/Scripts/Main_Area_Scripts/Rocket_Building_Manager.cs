@@ -86,11 +86,13 @@ public class Rocket_Building_Manager : MonoBehaviour, ITappable
     }
 
 
-    public void onTapEnd()
+    public void onTapEnd(bool wasFirst)
     {
         // Debug.Log("LBC END");
         // If we lifted our finger, else if we dragged off the object
-        StartCoroutine(_onTapEnd(true));
+        if(wasFirst){
+            StartCoroutine(_onTapEnd(true));
+        }
     }
 
 

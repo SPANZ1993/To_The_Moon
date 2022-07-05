@@ -108,7 +108,7 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     // We want to do this so we can do different things when the user taps and drags off the sprite
     // and when the user taps and lets go on the sprite
     // (Both of these events call onTapEnd())
-    IEnumerator _onTapEnd(bool first)
+    IEnumerator _onTapEnd(bool first, bool wasFirst) // Was this the origin of the tap?
     {
         yield return new WaitForSeconds(0);
         if(touchDetection.tapInProgress){
@@ -116,12 +116,12 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
             if (first){
                 buttonPressed = false;
             }
-            StartCoroutine(_onTapEnd(false));
+            StartCoroutine(_onTapEnd(false, wasFirst));
         }
         else
         {
             //Debug.Log("Finger Lifted");
-            if (coverOpen && buttonPressStarted && buttonPressed){
+            if (wasFirst && coverOpen && buttonPressStarted && buttonPressed){
                 // Check if we pressed the button
                 if (gameManager.remainingLaunches >= 1 && buttonEnabled && !UI_Controller.instance.speechIsDisplayed){
                     //Debug.Log("LAUNCH TIME BABY!");
@@ -154,12 +154,12 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     }
 
 
-    public void onTapEnd()
+    public void onTapEnd(bool wasFirst)
     {
         if (!launched && !UI_Controller.instance.speechIsDisplayed){
             // Debug.Log("LBC END");
             // If we lifted our finger, else if we dragged off the object
-            StartCoroutine(_onTapEnd(true));
+            StartCoroutine(_onTapEnd(true, wasFirst));
         }
     }
 

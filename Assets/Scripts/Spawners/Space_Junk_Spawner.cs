@@ -31,7 +31,7 @@ public class Space_Junk_Spawner : MonoBehaviour
     [SerializeField]
     private int prevFramesToExamine = 10;
     [SerializeField]
-    private float frameRate = 0.0f;
+    public float frameRate = 1000.0f;
     [SerializeField]
     private List<Vector2> spawnObjAltitudeRanges;
     private List<int> possibleSpawnObjIndices = new List<int>();
@@ -92,6 +92,7 @@ public class Space_Junk_Spawner : MonoBehaviour
                 Spawn();
             }
         }
+
     }
 
 

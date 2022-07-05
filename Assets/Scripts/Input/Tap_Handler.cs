@@ -45,10 +45,10 @@ public class Tap_Handler : MonoBehaviour
         }
     }
 
-    void TapEndListener(GameObject other)
+    void TapEndListener(GameObject other, bool wasFirst)
     {
         if(other == this.gameObject){
-            tappable.onTapEnd();
+            tappable.onTapEnd(wasFirst);
         }
     }
 }

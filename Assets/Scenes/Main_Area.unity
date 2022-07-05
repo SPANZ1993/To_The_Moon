@@ -16315,7 +16315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07723d6ed4e1e740891d784f0700fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_game_object: {fileID: 0}
+  current_start_game_object: {fileID: 0}
+  current_touch_id: 0
 --- !u!1 &610649027
 GameObject:
   m_ObjectHideFlags: 0
@@ -25307,12 +25308,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380b3362b643d0e4581ca9736a3987f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMode: 1
+  DebugMode: 0
   RenderReticle: 1
   m_Text: 
   m_Text_Pos: 
   message: 
   dragLocs: []
+  touchPhases: 
   dragStartTime: 0
   dragEndTime: 0
   reticleDisabled: 0

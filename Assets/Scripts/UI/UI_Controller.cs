@@ -1038,19 +1038,18 @@ public class UI_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        frame_count++;
         //setActiveResearch(new int[] {1, 2, 3});
         //setActiveResearchers(new int[] {1, 2, 4, 5});
         if (SceneManager.GetActiveScene().name == "Main_Area"){
             if (ThrustTextObj != null){ // Just Making Sure We Have A Reference To The Banner
                 updateBannerUI();
-                frame_count++;
             }
         }
         
         else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
             // DO SOME STUFF
-            if ((fuelNeedle != null && fuelNeedle != null) || fuelNeedleFull != null){
+            if (frame_count % 20 == 0 && (fuelNeedle != null && fuelNeedle != null) || fuelNeedleFull != null){
                 updateFuelNeedle();
                 updateAltitudeBar();
                 updateFuelText();

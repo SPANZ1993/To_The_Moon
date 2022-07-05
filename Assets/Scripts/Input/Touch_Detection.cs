@@ -110,7 +110,7 @@ public class Touch_Detection : MonoBehaviour
     public delegate void TapStay(GameObject other);
     public static event TapStay TapStayInfo;
 
-    public delegate void TapEnd(GameObject other);
+    public delegate void TapEnd(GameObject other, bool wasFirst); // Did the tap originate on this gameobject?
     public static event TapEnd TapEndInfo;
 
 
@@ -606,9 +606,9 @@ public class Touch_Detection : MonoBehaviour
             TapStayInfo(other);
     }
 
-    void TapEndListener(GameObject other){
+    void TapEndListener(GameObject other, bool wasFirst){
         if (TapEndInfo != null && !reticleDisabled)
-            TapEndInfo(other);
+            TapEndInfo(other, wasFirst);
     }
 
 }

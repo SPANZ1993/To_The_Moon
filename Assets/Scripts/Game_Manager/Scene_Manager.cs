@@ -27,6 +27,7 @@ public class Scene_Manager : MonoBehaviour
     private Mine_Shaft_Controller mineShaftController;
 
 
+
     public static Scene_Manager instance;
 
 

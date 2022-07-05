@@ -181,7 +181,12 @@ public class Game_Manager : MonoBehaviour
 
         if (!instance){
 
-            Application.targetFrameRate = 120;
+            //Application.targetFrameRate = 120;
+            Application.targetFrameRate = -1;
+
+            if(Application.isMobilePlatform)
+                QualitySettings.vSyncCount = 0;
+
 
             mineGameRefreshTime = 3600.0;
             launchRefreshTime = 1800.0;

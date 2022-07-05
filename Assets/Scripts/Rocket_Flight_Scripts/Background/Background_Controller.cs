@@ -41,6 +41,23 @@ public class Background_Controller : MonoBehaviour
 
     public List<float> BackgroundAlts;
     public List<Color> BackgroundColors;
+
+
+    private GameObject rocket;
+
+    public Material fogMaterial;
+    public List<float> fogAlts;
+    public List<Color> fogColors;
+    public List<float> fogSizes;
+    [HideInInspector]
+    public bool fogActivated = true;
+
+
+
+    private Dictionary<float, Color> fog_height_color_map;
+    List<float> fog_height_color_size_map_sorted_keys;
+    private Dictionary<float, float> fog_height_size_map;
+
     private Dictionary<float, Color> height_color_map;
     // private Dictionary<float, Color> height_color_map = new Dictionary<float, Color>()
     // {
@@ -60,6 +77,20 @@ public class Background_Controller : MonoBehaviour
             height_color_map[BackgroundAlts[i]] = new Color(BackgroundColors[i].r* 255f, BackgroundColors[i].g* 255f, BackgroundColors[i].b * 255f, 255);
             //Debug.Log("HCM[" + BackgroundAlts[i] + "] = " + height_color_map[BackgroundAlts[i]]);
         }
+
+        Debug.Assert(fogAlts.Count == fogColors.Count);
+        Debug.Assert(fogAlts.Count == fogSizes.Count);
+
+        fog_height_color_map = new Dictionary<float, Color>();
+        fog_height_size_map = new Dictionary<float, float>();
+        for (int i=0; i<fogAlts.Count; i++){
+            fog_height_color_map[fogAlts[i]] = new Color(fogColors[i].r* 255f, fogColors[i].g* 255f, fogColors[i].b * 255f, fogColors[i].a * 255f);
+            fog_height_size_map[fogAlts[i]] = fogSizes[i];
+        }
+
+        
+        fogMaterial = GameObject.Find("Fog").GetComponent<SpriteRenderer>().material;
+        rocket = GameObject.Find("Rocket");
     }
 
 
@@ -93,9 +124,14 @@ public class Background_Controller : MonoBehaviour
         height_color_map_sorted_keys = height_color_map.Keys.ToList();
         height_color_map_sorted_keys = height_color_map_sorted_keys.OrderBy(x => x).ToList();
 
+
+        fog_height_color_size_map_sorted_keys = fog_height_color_map.Keys.ToList();
+        fog_height_color_size_map_sorted_keys = fog_height_color_size_map_sorted_keys.OrderBy(x => x).ToList();
+
         //Debug.Log("HCMSK: " + height_color_map_sorted_keys[2] + " --- " + height_color_map[height_color_map_sorted_keys[2]]);
 
         normalizeColors();
+        normalizeFogColors();
 
         cam_start_loc = cam.transform.position;
         //GameObject seed_chunk = (GameObject)Instantiate(Background_Chunk_Prefab, new Vector3(0.0f, 0.0f, 0.0f), new Quaternion());
@@ -128,6 +164,7 @@ public class Background_Controller : MonoBehaviour
         if (frameCount%updateOn==0.0)
             //Debug.Log("CHECK " + (int)(frameCount/updateOn) + ": " + ActiveChunks.Count() + " ACTIVE CHUNKS");
             updateBackgroundChunks();
+            updateFog();
         frameCount++;
 
     }
@@ -156,6 +193,18 @@ public class Background_Controller : MonoBehaviour
             float b = height_color_map[k].b/255.0f;
             float a = height_color_map[k].a/255.0f;
             height_color_map[k] = new Color(r, g, b, a);
+        }
+    }
+
+    private void normalizeFogColors(){
+        // Simply divide all of our original color values by 255.0f
+        // This just makes it easier so we can transcribe exact color values from the editor
+        foreach (float k in fog_height_color_size_map_sorted_keys){
+            float r = fog_height_color_map[k].r/255.0f;
+            float g = fog_height_color_map[k].g/255.0f;
+            float b = fog_height_color_map[k].b/255.0f;
+            float a = fog_height_color_map[k].a/255.0f;
+            fog_height_color_map[k] = new Color(r, g, b, a);
         }
     }
 
@@ -318,6 +367,7 @@ public class Background_Controller : MonoBehaviour
     }
 
 
+
     void updateBackgroundChunks(){
 
         void _destroyFarChunks(){
@@ -427,6 +477,153 @@ public class Background_Controller : MonoBehaviour
         //     Debug.Log("ADDING CHUNKS");
         //     ActiveChunks.Add(cur_chunk);
         // }
+    }
+
+
+
+
+
+
+    public Dictionary<string, float> getFogColorAndSize(Vector3 spriteLoc){
+        // Given a vector defining the location of a background chunk sprite, return the three colors
+        // for the sprite
+
+        Dictionary<string, float> _chooseColorandSize(float height, float height_lower, float height_higher){
+            // When we know the two keys in our color dict that encase our current height,
+            // interpolate a color based on the color values
+
+            if (height == height_lower || height == height_higher){
+                return new Dictionary<string, float>(){
+                    {"r", fog_height_color_map[height].r},
+                    {"g", fog_height_color_map[height].g},
+                    {"b", fog_height_color_map[height].b},
+                    {"a", fog_height_color_map[height].a},
+                    {"s", fog_height_size_map[height]}
+                    };
+            }
+            else{
+                //Debug.Log("Height: " + height + "LOWER: " + height_lower + " -- " + height_color_map[height_lower] + " HIGHER: " +  height_higher + " -- " + height_color_map[height_higher]);
+                float lr = fog_height_color_map[height_lower].r;
+                float lg = fog_height_color_map[height_lower].g;
+                float lb = fog_height_color_map[height_lower].b;
+                float la = fog_height_color_map[height_lower].a;
+                float hr = fog_height_color_map[height_higher].r;
+                float hg = fog_height_color_map[height_higher].g;
+                float hb = fog_height_color_map[height_higher].b;
+                float ha = fog_height_color_map[height_higher].a;
+
+                float ls = fog_height_size_map[height_lower];
+                float hs = fog_height_size_map[height_higher];
+
+                float percent_between = 1.0f-((height_higher-height)/(height_higher-height_lower));
+
+                float nr = ((hr-lr)*percent_between)+lr;
+                float ng = ((hg-lg)*percent_between)+lg;
+                float nb = ((hb-lb)*percent_between)+lb;
+                float na = ((ha-la)*percent_between)+la;
+
+                float ns = ((hs-ls)*percent_between)+ls;
+
+                //Debug.Log("Height: " + height + " LOWER: " + height_lower + " -- " + height_color_map[height_lower] + " HIGHER: " +  height_higher + " -- " + height_color_map[height_higher] + " NEW: " + new Color(nr, ng, nb, na));
+                return new Dictionary<string, float>(){
+                    {"r", nr},
+                    {"g", ng},
+                    {"b", nb},
+                    {"a", na},
+                    {"s", ns}
+                };
+            }
+
+        }
+
+
+        //float height = gameScaler.Scale_Value_To_Screen_Height(spriteLoc.y);
+        float height;
+        try{
+            if(rocketGameManager == null){
+                rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
+            }
+            height = rocketGameManager.calculateAltitude(spriteLoc.y);
+            //Debug.Log("HEIGHT IS: " + height);
+        }
+        catch(Exception e){
+            //Debug.Log("PROBLEM CALCULATING HEIGHT :(    :" + e + ")");
+            height = 0.0f;
+        }
+
+        //Debug.Log("YEET " + height_color_map_sorted_keys[0]);
+        float closest_lower = fog_height_color_size_map_sorted_keys[0];
+        float closest_higher = fog_height_color_size_map_sorted_keys[fog_height_color_size_map_sorted_keys.Count-1];
+
+        //Debug.Log("HEIGHT: " + height);
+        //Debug.Log("LOWER: " + closest_lower);
+        //Debug.Log("HIGHER: " + closest_higher);
+
+        Dictionary<string, float> chosenColorSize = new Dictionary<string,float>(){
+            {"r", fog_height_color_map[closest_lower].r},
+            {"g", fog_height_color_map[closest_lower].g},
+            {"b", fog_height_color_map[closest_lower].b},
+            {"a", fog_height_color_map[closest_lower].a},
+            {"s", fog_height_size_map[closest_lower]}
+        };
+        bool color_size_found = false;
+
+
+        if (height <= closest_lower){
+            color_size_found = true;
+            // Debug.Log("POO -- CHOSE LOWER -> " + closest_lower + " --- " + height + " -- " + chosen_color);
+        }
+        else if (height >= closest_higher){
+            chosenColorSize = new Dictionary<string,float>(){
+                {"r", fog_height_color_map[closest_higher].r},
+                {"g", fog_height_color_map[closest_higher].g},
+                {"b", fog_height_color_map[closest_higher].b},
+                {"a", fog_height_color_map[closest_higher].a},
+                {"s", fog_height_size_map[closest_higher]}
+            };
+            color_size_found = true;
+            // Debug.Log("POO -- CHOSE HIGHER");
+        }
+
+
+        if (!color_size_found){
+            foreach (float heightk in fog_height_color_size_map_sorted_keys){
+                if (heightk <= height){
+                    closest_lower = heightk;
+                }
+                if (heightk >= height && closest_higher == fog_height_color_size_map_sorted_keys[fog_height_color_size_map_sorted_keys.Count-1]){
+                    closest_higher = heightk;
+                }
+                //Debug.Log("POO --" + height + " LOW: " + closest_lower + " HIGH: " + closest_higher);
+            }
+
+
+            chosenColorSize = _chooseColorandSize(height, closest_lower, closest_higher);
+            // Debug.Log("POO -- COLOR: " + chosen_color);
+
+        }
+
+        return chosenColorSize;
+    }
+
+
+
+
+
+    private Dictionary<string, float> currentColorSize = new Dictionary<string, float>(); // Just saving on initialization costs
+    void updateFog(){
+        if(fogActivated){
+            currentColorSize = getFogColorAndSize(rocket.transform.position);
+            fogMaterial.SetFloat("_Fog_Size", currentColorSize["s"]);    
+            fogMaterial.SetColor("_Fog_Color", new Color(currentColorSize["r"], currentColorSize["g"], currentColorSize["b"], currentColorSize["a"]));
+        
+        }
+    }
+
+    public void disableFog(){
+        fogActivated = false;
+        fogMaterial.SetFloat("_Fog_Size", 0);
+        fogMaterial.SetColor("_Fog_Color", Color.white);
     }
 
 }
