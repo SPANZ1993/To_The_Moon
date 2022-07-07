@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03155473e325a5f44b9483830bc6a027, type: 3}
+  m_Name: Level_End_Event_Scriptable_Object_Moon
+  m_EditorClassIdentifier: 
+  eventId: 4
+  eventPriority: 1000
+  numTimesTriggerable: 2
+  numTimesTriggerablePerLevelOpen: -1
+  numTimesTriggerablePerSceneOpen: 1
+  numTimesTriggerablePerGameOpen: -1
+  triggerableUponLevelWasLoaded: 1
+  triggerableLevelIds: 0100000002000000
+  triggerableSceneNames:
+  - Main_Area
+  LevelId: 1

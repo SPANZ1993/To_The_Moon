@@ -2684,6 +2684,9 @@ public class UI_Controller : MonoBehaviour
     bool monitoring = false;
     public void selectOptions(){
 
+        if(bookshelfMenuDisplayed && !Audio_Manager.instance.IsPlaying("Bookshelf_Tapped") && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_1")){
+            Audio_Manager.instance.Play("UI_Select_Pane_1");
+        }
 
         Options_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;
         Records_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
@@ -2743,6 +2746,11 @@ public class UI_Controller : MonoBehaviour
 
 
     public void selectRecords(){
+
+        if(bookshelfMenuDisplayed && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_2")){
+            Audio_Manager.instance.Play("UI_Select_Pane_2");
+        }
+
 
         Options_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
         Records_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;

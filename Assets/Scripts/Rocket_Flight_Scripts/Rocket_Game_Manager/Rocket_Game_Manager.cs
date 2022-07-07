@@ -124,6 +124,7 @@ public class Rocket_Game_Manager : MonoBehaviour
             }
             //Debug.Log("REACHED TARGET ALTITUDE: " + reachedTargetAltitude);
             if(rocketAltitude >= targetAltitude){
+                Progression_Manager.instance.setRecentlyCompletedLevelIdToCurLevel();
                 reachedTargetAltitude = true;
                 rocketControl.reachedTargetAltitude = true;
                 if(!startedRocketControlSpiral){

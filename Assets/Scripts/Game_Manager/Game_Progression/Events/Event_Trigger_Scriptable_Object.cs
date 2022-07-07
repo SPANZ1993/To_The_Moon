@@ -26,7 +26,7 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
 
     // NOTE: -1 for Any of the NumTimesTriggerable+ variables means we can trigger as many times as we want in that context
     [SerializeField]
-    private int eventId;
+    protected int eventId;
     // NOTE: Higher priority events will trigger first, if same priority, no guarantee of ordering
     [SerializeField]
     private int eventPriority;
@@ -70,14 +70,39 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
             {
                 triggerable = true;
         }
+        else{
+            if(EventId == 3){
+                Debug.Log("FALSE BECAUSE DIDNT PASS CHECKS");
+                if((NumTimesTriggerablePerSceneOpen == -1 ||
+                    !Progression_Manager.instance.EventIdToTimesTriggeredThisSceneOpen.Keys.Contains(EventId) || 
+                    Progression_Manager.instance.EventIdToTimesTriggeredThisSceneOpen[EventId] < NumTimesTriggerablePerSceneOpen)){
+                        Debug.Log("FALSE BECAUSE DIDNT PASS SCENE OPEN");
+                    }
+                if((NumTimesTriggerable == -1 ||
+            !Progression_Manager.instance.EventIdToTimesTriggered.Keys.Contains(EventId) || 
+            Progression_Manager.instance.EventIdToTimesTriggered[EventId] < NumTimesTriggerable)){
+                Debug.Log("FALSE BECAUSE DIDNT PASS TOTAL CHECK");
+            }
+            }
+        }
 
         
         if(!(triggerableLevelIds.Length == 0) && !triggerableLevelIds.Contains(Progression_Manager.instance.CurrentLevelId)){
+            if(EventId == 3){
+                Debug.Log("FALSE BECAUSE BAD LEVEL ID");
+            }
             triggerable = false;
         }
 
       
-        if(!triggerableSceneNames.Contains(SceneManager.GetActiveScene().name)){
+        string tmpScene = SceneManager.GetActiveScene().name;
+        if(!triggerableSceneNames.Contains(tmpScene)){
+            if(EventId == 3){
+                Debug.Log("FALSE BECAUSE BAD SCENE NAME");
+                foreach(string scene in triggerableSceneNames){
+                    Debug.Log("SCENE: " + scene + " =?= " + tmpScene + " -- " + (scene == tmpScene) + " _____ " + (!triggerableSceneNames.Contains(tmpScene)));
+                }
+            }
             triggerable = false;
         }
       

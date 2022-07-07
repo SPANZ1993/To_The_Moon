@@ -93,6 +93,7 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     isNewGame: false, 
                                                     coins: gameManager.coins,
                                                     gems: gameManager.gems,
+                                                    thrust: gameManager.thrust,
                                                     coinName: gameManager.coinName,
                                                     offLineMode: gameManager.offLineMode, 
                                                     cartLastEmptiedTimeUnix: gameManager.mineCartLastEmptiedTimeUnix,
@@ -123,7 +124,9 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     ownedNonConsumableProductsIds: IAP_Manager.instance.ownedNonConsumableProductsIds,
                                                     curRobotClothesId: Robot_Outfit_Manager.instance.CurOutfitID,
                                                     curShipSkinId: Ship_Skin_Manager.instance.CurSkinID,
-                                                    serializedEventsState: Progression_Manager.instance.serializeEventsState()
+                                                    serializedEventsState: Progression_Manager.instance.serializeEventsState(),
+                                                    currentLevelId: Progression_Manager.instance.CurrentLevelId,
+                                                    highestLevelId: Progression_Manager.instance.HighestLevelId
                                                 );   
     }
 

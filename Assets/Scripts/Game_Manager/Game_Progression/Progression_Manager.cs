@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using System;
 using System.Linq;
@@ -23,6 +24,10 @@ public class Progression_Manager : MonoBehaviour
     private int currentLevelId = 0;
     [SerializeField]
     private int highestLevelId = 0;
+
+
+    // If we finish a Rocket Game by winning, what level was it??  Resets to -1 on each return to main area
+    public int recentlyCompletedLevelId {get; private set;}
 
 
     // TODO: IMPLEMENT GAMETIME SINCE EVENT && REALTIME SINCE EVENT FINISHED DICTS
@@ -70,6 +75,8 @@ public class Progression_Manager : MonoBehaviour
 
             EventQueue = new Queue<Event_Trigger_Scriptable_Object>();
 
+            recentlyCompletedLevelId = -1;
+
             instance = this;
         }
         else
@@ -92,7 +99,7 @@ public class Progression_Manager : MonoBehaviour
     void Update()
     {
         if(initialized){
-            AddEventsToQueue();
+            AddEventsToQueue(Events.Where(e => !e.TriggerableUponLevelWasLoaded));
             StartNextEvent();
         }
     }
@@ -107,6 +114,13 @@ public class Progression_Manager : MonoBehaviour
 
             AddEventsToQueue(Events.Where(e => e.TriggerableUponLevelWasLoaded));
             StartNextEvent();
+        }
+
+
+
+
+        if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            recentlyCompletedLevelId = -1;
         }
     }
 
@@ -131,7 +145,26 @@ public class Progression_Manager : MonoBehaviour
         return getLevelById(highestLevelId);
     }
 
+    public void Set_Current_Level(int levelId, bool updateEventCounts = true){
+        if(Levels.Select(l => l.LevelId).Contains(levelId)){
+            currentLevelId = levelId;
+            highestLevelId = levelId > HighestLevelId ? levelId : HighestLevelId;
+        
+            if(updateEventCounts){
+                List<int> keys = EventIdToTimesTriggeredThisLevelOpen.Keys.ToList();
+                foreach(int k in keys){
+                    //Debug.Log("KEY: " + k);
+                    EventIdToTimesTriggeredThisLevelOpen[k] = 0;
+                }
+            }
+        }
+    }
 
+    public void Set_Highest_Level(int levelId){
+        if(levelId <= Levels.Select(l => l.LevelId).OrderByDescending(id => id).ToList()[0]){
+            highestLevelId = levelId;
+        }
+    }
 
 
 
@@ -150,9 +183,10 @@ public class Progression_Manager : MonoBehaviour
 
     public void AddEventsToQueue(IEnumerable<Event_Trigger_Scriptable_Object> PossibleEvents){
         if(CurrentEventIdInProgress == null){
-            foreach(Event_Trigger_Scriptable_Object e in PossibleEvents.OrderBy(e=>e.EventPriority)){
+            foreach(Event_Trigger_Scriptable_Object e in PossibleEvents.OrderByDescending(e=>e.EventPriority)){
                 if(e.shouldTrigger() && !EventQueue.Contains(e) && CurrentEventIdInProgress == null){
                     EventQueue.Enqueue(e);
+                    Debug.Log("ADDING EVENT TO QUEUE: " + e.EventId);
                 }
             }
         }
@@ -166,17 +200,21 @@ public class Progression_Manager : MonoBehaviour
 
     public void StartNextEvent(){
         if(EventQueue.Count != 0){
-            EventQueue = new Queue<Event_Trigger_Scriptable_Object>(EventQueue.OrderBy(e => e.EventPriority).ToList());
+            EventQueue = new Queue<Event_Trigger_Scriptable_Object>(EventQueue.OrderByDescending(e => e.EventPriority).ToList());
             Event_Trigger_Scriptable_Object curEvent = EventQueue.Dequeue();
             // If we should still trigger the event then trigger it
-            if(curEvent.shouldTrigger()){
+            if(curEvent.shouldTrigger() && CurrentEventIdInProgress == null){
+                Debug.Log("TRIGGERING EVENT: " + curEvent.EventId);
+                CurrentEventIdInProgress = curEvent.EventId;
                 curEvent.trigger();
             }
         }
     }
 
 
-
+    public void setRecentlyCompletedLevelIdToCurLevel(){
+        recentlyCompletedLevelId = currentLevelId;
+    }
 
 
 
@@ -252,5 +290,8 @@ public class Progression_Manager : MonoBehaviour
 
         initialized = true;
     }
+
+
+
 
 }

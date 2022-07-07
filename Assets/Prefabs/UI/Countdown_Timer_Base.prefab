@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7385877162568267324}
   - component: {fileID: 7385877162568267314}
   - component: {fileID: 7385877162568267315}
+  - component: {fileID: 4191356870786224963}
+  - component: {fileID: 1435677214704114275}
   m_Layer: 5
   m_Name: Countdown_Timer_Base
   m_TagString: Untagged
@@ -78,6 +80,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4191356870786224963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385877162568267325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
+--- !u!114 &1435677214704114275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385877162568267325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &610809369662535188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885281592236481847, guid: 0ef6b7eaf98cdee4c8b4543a42613938, type: 3}
       propertyPath: m_fontSize
-      value: 127.45
+      value: 127.35
       objectReference: {fileID: 0}
     - target: {fileID: 4885281592236481847, guid: 0ef6b7eaf98cdee4c8b4543a42613938, type: 3}
       propertyPath: m_margin.z

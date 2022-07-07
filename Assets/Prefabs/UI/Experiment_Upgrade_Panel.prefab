@@ -381,6 +381,8 @@ GameObject:
   - component: {fileID: 5687726979359593350}
   - component: {fileID: 5687726979359593345}
   - component: {fileID: 1198783556649694694}
+  - component: {fileID: 3332473736205490753}
+  - component: {fileID: 235861842942409990}
   m_Layer: 5
   m_Name: Experiment_Upgrade_Panel
   m_TagString: Untagged
@@ -471,6 +473,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b1826f76f39b044b2f08a4c8235f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3332473736205490753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979359593347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &235861842942409990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979359593347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &5687726979369589410
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +512,8 @@ GameObject:
   - component: {fileID: 5687726979369589411}
   - component: {fileID: 5687726979369589409}
   - component: {fileID: 5687726979369589408}
+  - component: {fileID: 7466886305921725673}
+  - component: {fileID: 167692193431453529}
   m_Layer: 5
   m_Name: Upgrade_Image_Border
   m_TagString: Untagged
@@ -547,6 +579,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7466886305921725673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979369589410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
+--- !u!114 &167692193431453529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979369589410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5687726979376695736
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +618,8 @@ GameObject:
   - component: {fileID: 5687726979376695737}
   - component: {fileID: 5687726979376695743}
   - component: {fileID: 5687726979376695742}
+  - component: {fileID: 2493106433578099116}
+  - component: {fileID: 4066122214353209112}
   m_Layer: 5
   m_Name: Upgrade_Image
   m_TagString: Untagged
@@ -623,6 +685,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2493106433578099116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979376695736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4066122214353209112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979376695736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &5687726979663371504
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +860,8 @@ GameObject:
   - component: {fileID: 5687726979990893868}
   - component: {fileID: 5687726979990893871}
   - component: {fileID: 5687726979990893870}
+  - component: {fileID: 7902514388962710998}
+  - component: {fileID: 6115795624184315091}
   m_Layer: 5
   m_Name: Upgrade_Button
   m_TagString: Untagged
@@ -892,6 +984,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7902514388962710998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979990893864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
+--- !u!114 &6115795624184315091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726979990893864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5687726980079559004
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +1023,8 @@ GameObject:
   - component: {fileID: 5687726980079559005}
   - component: {fileID: 5687726980079558995}
   - component: {fileID: 5687726980079558994}
+  - component: {fileID: 5659270064547306574}
+  - component: {fileID: 2041813520120974341}
   m_Layer: 5
   m_Name: Upgrade_Text_Separator_Panel
   m_TagString: Untagged
@@ -968,6 +1090,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5659270064547306574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726980079559004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
+--- !u!114 &2041813520120974341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726980079559004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5687726980616288816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1534,8 @@ GameObject:
   - component: {fileID: 5687726981191479923}
   - component: {fileID: 5687726981191479921}
   - component: {fileID: 5687726981191479920}
+  - component: {fileID: 2618441298793567804}
+  - component: {fileID: 6967520127287090416}
   m_Layer: 5
   m_Name: Coins_Title_Text_Separator_Panel
   m_TagString: Untagged
@@ -1449,6 +1601,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2618441298793567804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726981191479922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 4
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
+--- !u!114 &6967520127287090416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687726981191479922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33448b0d8b08e43b1444dc1d3f6d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7541259962314909609
 GameObject:
   m_ObjectHideFlags: 0

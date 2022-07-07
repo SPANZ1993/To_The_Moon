@@ -587,6 +587,7 @@ public class Game_Manager : MonoBehaviour
         coins = loadedGame.Coins;
         gems = loadedGame.Gems;
         coinName = loadedGame.CoinName;
+        thrust = loadedGame.Thrust;
         //Debug.Log("SETTING LAUNCHES REMAINING TO: " + loadedGame.LaunchesRemaining);
         remainingLaunches = loadedGame.LaunchesRemaining + Convert.ToInt32(Math.Max(Math.Floor((gameTimeUnix - loadedGame.LastLaunchTimeUnix)/launchRefreshTime), 0.0));
         if(remainingLaunches > maxLaunches){ // NOT SURE WHY IT'S DOING THIS BUT...
@@ -686,7 +687,7 @@ public class Game_Manager : MonoBehaviour
         // }
 
 
-        initializeProgressionManager(loadedGame.SerializedEventsState);
+        initializeProgressionManager(loadedGame.SerializedEventsState, loadedGame.CurrentLevelId , loadedGame.HighestLevelId);
 
 
         // HANDLE TITLE DATA
@@ -893,8 +894,10 @@ public class Game_Manager : MonoBehaviour
     }
 
 
-    private void initializeProgressionManager(Dictionary<int, Dictionary<string, int>> SerializedEventsState){
+    private void initializeProgressionManager(Dictionary<int, Dictionary<string, int>> SerializedEventsState, int currentLevelId, int highestLevelId){
         Progression_Manager.instance.initializeEventsState(SerializedEventsState);
+        Progression_Manager.instance.Set_Highest_Level(highestLevelId);
+        Progression_Manager.instance.Set_Current_Level(currentLevelId);
     }
 
 

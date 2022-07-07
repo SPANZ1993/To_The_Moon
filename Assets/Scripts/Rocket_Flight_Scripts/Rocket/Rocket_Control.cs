@@ -37,6 +37,8 @@ public class Rocket_Control : MonoBehaviour
 
     private int hitCount = 0;
 
+
+    private float bounceTime = 0.3f;
     private bool isBouncing = false;
     public bool reachedTargetAltitude = false;
     public bool startedSpiral = false;
@@ -55,6 +57,9 @@ public class Rocket_Control : MonoBehaviour
     public static event AlertFuelEmpty AlertFuelEmptyInfo;
 
 
+
+    Material rocketMaterial;
+
     GameObject cam;
 
 
@@ -67,6 +72,7 @@ public class Rocket_Control : MonoBehaviour
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
         upgradesManager = Upgrades_Manager.instance;
 
+        rocketMaterial = gameObject.GetComponent<Renderer>().material;
         maxInstThrust = gameScaler.Scale_Value_To_Screen_Width(maxInstThrust); // SCALE TO HEIGHT???
         maxVertSpeed = gameScaler.Scale_Value_To_Screen_Height(maxVertSpeed);
         // if(upgradesManager.upgradesUnlockedDict[Upgrade.Lateral_Boosters]){
@@ -317,6 +323,31 @@ public class Rocket_Control : MonoBehaviour
 
 
 
+    void displayHitAnimation(){
+        
+        void displayHitAnimationIn(){
+            _displayHitAnimation(0, 1, () => displayHitAnimationOut());
+        }
+
+        void displayHitAnimationOut(){
+            _displayHitAnimation(1, 0);
+        }
+
+        void _displayHitAnimation(float startHitEffectBlendVal, float endHitEffectBlendVal, System.Action nextAction = null){
+                LeanTween.value(gameObject, startHitEffectBlendVal, endHitEffectBlendVal, bounceTime/2f).setEase(LeanTweenType.easeInOutSine).setOnUpdate(
+                    (value) =>
+                    {
+                        rocketMaterial.SetFloat("_HitEffectBlend", value);
+                    }
+                ).setOnComplete(nextAction != null ? nextAction : ()=>{});
+        }
+
+
+        displayHitAnimationIn();
+
+    }
+
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -342,7 +373,8 @@ public class Rocket_Control : MonoBehaviour
                 shipRb.AddForce(new Vector2(0.0f, bounceDir.y));
                 isBouncing = true;
                 thrust -= initialThrust * 0.05;
-                Invoke("StopBounce", 0.3f);
+                displayHitAnimation();
+                Invoke("StopBounce", bounceTime);
             }
             hitCount++;
         }

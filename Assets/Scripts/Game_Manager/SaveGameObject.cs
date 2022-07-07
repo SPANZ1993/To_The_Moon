@@ -30,6 +30,7 @@ public class SaveGameObject
     public bool IsNewGame {get; set;}
     public double Coins {get; set;}
     public double Gems {get; set;}
+    public double Thrust {get; set;}
     public bool OffLineMode {get; set;}
     public string CoinName {get; set;}
 
@@ -80,6 +81,8 @@ public class SaveGameObject
 
 
     public Dictionary<int, Dictionary<string, int>> SerializedEventsState {get; private set;}
+    public int CurrentLevelId;
+    public int HighestLevelId;
 
 
     public SaveGameObject(){
@@ -90,6 +93,7 @@ public class SaveGameObject
 
         Coins = 0.0;
         Gems = 0.0;
+        Thrust = 100.0;
 
         CartLastEmptiedTimeUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() - (31536000*10); // 10 years ago
         CartCurCoins = 0.0;
@@ -133,6 +137,8 @@ public class SaveGameObject
         CurShipSkinId = 0; // Default Ship Skin
 
         SerializedEventsState = new Dictionary<int, Dictionary<string, int>>(); // Progression manager should read this as no event has ever occured yet... which is what we want on a new game
+        CurrentLevelId = 0;
+        HighestLevelId = 0;
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -158,6 +164,7 @@ public class SaveGameObject
                             bool isNewGame, 
                             double coins,
                             double gems,
+                            double thrust,
                             bool offLineMode,
                             string coinName,
                             double cartLastEmptiedTimeUnix,
@@ -188,7 +195,9 @@ public class SaveGameObject
                             List<string> ownedNonConsumableProductsIds,
                             int curRobotClothesId,
                             int curShipSkinId,
-                            Dictionary<int, Dictionary<string, int>> serializedEventsState){
+                            Dictionary<int, Dictionary<string, int>> serializedEventsState,
+                            int currentLevelId,
+                            int highestLevelId){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -196,6 +205,7 @@ public class SaveGameObject
 
         Coins = coins;
         Gems = gems;
+        Thrust = thrust;
         CoinName = coinName;
         
         CartLastEmptiedTimeUnix = cartLastEmptiedTimeUnix;
@@ -242,7 +252,8 @@ public class SaveGameObject
 
 
         SerializedEventsState = serializedEventsState;
-
+        CurrentLevelId = currentLevelId;
+        HighestLevelId = highestLevelId;
     }
 
 }

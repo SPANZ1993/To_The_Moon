@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelId: 0
   levelName: Earth
+  nextLevelId: 1
+  onLevelCompleteEvent: {fileID: 11400000, guid: 4afbc5284a4a7dd42862ef6a12dcdc99, type: 2}
+  rocketGameInitializationObject:
+    thrustAltitudeMultiplier: 1
