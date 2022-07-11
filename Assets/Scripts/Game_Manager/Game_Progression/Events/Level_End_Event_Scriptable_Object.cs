@@ -55,7 +55,6 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
                 // If we are the highest level ID, but there is not another level yet
                 Debug.Log("LEVEL END: THERE ARE NO MORE LEVELS RODNEY");
                 executeLevelCompleteNextLevelNotReady();
-
             }
             else if(
                     (Progression_Manager.instance.EventIdToTimesTriggered[base.eventId] <= 1 && Progression_Manager.instance.Levels.Select(l=>l.LevelId).Contains(Progression_Manager.instance.Levels.Where(l => l.LevelId == LevelId).ToList()[0].NextLevelId))
@@ -74,9 +73,41 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
     }
 
 
-    public void onEventEnded(){
+    public void onEventEnded(bool nextLevelWasReady){
         //Debug.Log("ALERTING ONBOARDING SEQUENCE OVER");
         base._alertManagerOnEventEnd();
+    
+        // If the next level was ready then no need to go into free play mode, otherwise, go into free play mode
+        Progression_Manager.instance.RocketGameFreePlayMode = !nextLevelWasReady;
+
+        // If we made it to the next level, then unlock all the stuff that completing this level unlocks
+        if(nextLevelWasReady){
+            // UNLOCK NEW EXPERIMENTS/RESEARCH/RESEARCHERS ASSOCIATED WITH THIS LEVEL
+            Level_Scriptable_Object Level = Progression_Manager.instance.getLevelById(LevelId);
+            
+            // Experiments
+            List<ExperimentId> newUnlockedExperimentIds = new List<ExperimentId>(Experiments_Manager.instance.getUnlockedExperimentIds());
+            foreach(ExperimentId expId in Level.UnlockedExperimentIds){
+                newUnlockedExperimentIds.Add(expId);
+            }
+            Experiments_Manager.instance.setUnlockedExperimentIds(newUnlockedExperimentIds.Distinct().ToList(), alertExperimentsUpdated:true);
+            
+            // Research
+            List<int> newUnlockedResearchIds = new List<int>(Research_Manager.instance.getUnlockedResearchIds());
+            foreach(int researchId in Level.UnlockedResearchIds){
+                newUnlockedResearchIds.Add(researchId);
+            }
+            Research_Manager.instance.setUnlockedResearchIds(newUnlockedResearchIds.Distinct().ToList(), alertResearchersUpdated:true);
+            
+            // Researchers
+            List<int> newUnlockedResearchersIds = new List<int>(Researcher_Manager.instance.getUnlockedResearchersIds());
+            foreach(int researcherId in Level.UnlockedResearcherIds){
+                newUnlockedResearchersIds.Add(researcherId);
+            }
+            Researcher_Manager.instance.setUnlockedResearchersIds(newUnlockedResearchersIds.Distinct().ToList());
+        }
+
+
         // IEnumerable alertOnboardEnded(){
         //     yield return new WaitForSeconds(0.25f); // Wait just a smidge before starting another event if there is one
         //     base._alertManagerOnEventEnd();

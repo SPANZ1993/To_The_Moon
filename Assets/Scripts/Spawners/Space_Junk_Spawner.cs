@@ -33,7 +33,7 @@ public class Space_Junk_Spawner : MonoBehaviour
     [SerializeField]
     public float frameRate = 1000.0f;
     [SerializeField]
-    private List<Vector2> spawnObjAltitudeRanges;
+    public List<Vector2> spawnObjAltitudeRanges;
     private List<int> possibleSpawnObjIndices = new List<int>();
     [SerializeField]
     private float timeToRefreshSpawnIndices = 0.25f;
@@ -79,20 +79,24 @@ public class Space_Junk_Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         CalculateFrameRate();
         CalculatePotentialSpawnArea();
-        if(rocketGameManager.gameStarted){
-            timeToRefreshSpawnIndicesLeft -= Time.deltaTime;
-            if (timeToRefreshSpawnIndicesLeft <= 0.0f){
-                CalculatePotentialSpawnObjIndices();
-                timeToRefreshSpawnIndicesLeft = timeToRefreshSpawnIndices;
-            }
-            if (RollForSpawn() && !paused){
-                Spawn();
+        if(spawnObjectPool.initialized){
+            if(rocketGameManager.gameStarted){
+                timeToRefreshSpawnIndicesLeft -= Time.deltaTime;
+                if (timeToRefreshSpawnIndicesLeft <= 0.0f){
+                    CalculatePotentialSpawnObjIndices();
+                    timeToRefreshSpawnIndicesLeft = timeToRefreshSpawnIndices;
+                }
+                bool shouldSpawn = RollForSpawn();
+                if (shouldSpawn && !paused){
+                    Spawn();
+                }
+                else if(shouldSpawn){
+                    Debug.Log("STILL NOT SPAWNING????");
+                }
             }
         }
-
     }
 
 
@@ -191,6 +195,13 @@ public class Space_Junk_Spawner : MonoBehaviour
 
         //Instantiate(spawnObjList[Random.Range(0, spawnObjList.Count)], new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
         //spawnObjectPool.spawnPoolObj(Random.Range(0, spawnObjectPool.poolObjList.Count), new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
+
+        if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Cow")){
+            Debug.Log("TRYING TO SPAWN SPACE JUNK FLYER");
+        }
+
+
+
         if (possibleSpawnObjIndices.Count > 0){
             spawnPoolObj(possibleSpawnObjIndices[Random.Range(0, possibleSpawnObjIndices.Count)], new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
         }
@@ -239,10 +250,19 @@ public class Space_Junk_Spawner : MonoBehaviour
             }
         }
         
+        Debug.Log("POSSIBLE INDICES: " + string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])));
+
         //Debug.Log("Calculating Potential Spawn Indices Altitude is " + rocketAltitude +  " Indices: " + System.String.Join(" ", possibleSpawnObjIndices));
     }
 
     void onPause(bool Paused){
+        if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Cow")){
+            Debug.Log("SPAWNER PAUSED? " + Paused);
+        }
+        else if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Star")){
+            Debug.Log("BACKGROUND SPAWNER PAUSED? " + Paused);
+        }
+
         paused = Paused;
     }
 

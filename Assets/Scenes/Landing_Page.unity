@@ -527,7 +527,7 @@ MonoBehaviour:
     origVolume: 0
     origPitch: 0
   - name: Rocket_Launch_Alarm
-    clip: {fileID: 8300000, guid: b33c9eb2cb7e72f439252bd1dc26d554, type: 3}
+    clip: {fileID: 8300000, guid: 40e37db0bee487a44b0a1aa0030d6233, type: 3}
     volume: 1
     pitch: 1
     loop: 0

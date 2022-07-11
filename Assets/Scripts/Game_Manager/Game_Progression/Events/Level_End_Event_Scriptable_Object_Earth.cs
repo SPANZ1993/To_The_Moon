@@ -9,12 +9,12 @@ public class Level_End_Event_Scriptable_Object_Earth : Level_End_Event_Scriptabl
 {
     public override void executeLevelCompleteNextLevelNotReady(){
         Debug.Log("LEVEL END EARTH: Earth Completed And Not Ready");
-        base.onEventEnded();
+        base.onEventEnded(nextLevelWasReady:false);
     }
 
     public override void executeLevelCompleteNextLevelReady(){
         Debug.Log("LEVEL END EARTH: Earth Completed And Ready");
-        base.onEventEnded();
+        base.onEventEnded(nextLevelWasReady:true);
     }
 
 }

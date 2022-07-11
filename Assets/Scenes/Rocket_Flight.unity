@@ -666,15 +666,7 @@ MonoBehaviour:
   maxSpawnY: 0
   prevFramesToExamine: 10
   frameRate: 0
-  spawnObjAltitudeRanges:
-  - {x: 150, y: 0}
-  - {x: 0, y: 175}
-  - {x: 150, y: 0}
-  - {x: 0, y: 175}
-  - {x: 0, y: 175}
-  - {x: 0, y: 175}
-  - {x: 150, y: 0}
-  - {x: 150, y: 0}
+  spawnObjAltitudeRanges: []
   timeToRefreshSpawnIndices: 0.25
 --- !u!114 &77314585
 MonoBehaviour:
@@ -688,17 +680,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea17eebab91120c40b3abe73ba03616a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObjList:
-  - {fileID: 8192452084279125922, guid: bfc18b8581595b9409c2ed8e23fba17e, type: 3}
-  - {fileID: 8192452084279125922, guid: 8dc2a02f2aa246a4d874c0c80fa68a03, type: 3}
-  - {fileID: 8192452084279125922, guid: 80efc032c78c4d9429ff2de7dbd5d941, type: 3}
-  - {fileID: 8192452084279125922, guid: bf8fec90960fbcf40852d2b201652a1d, type: 3}
-  - {fileID: 8192452084279125922, guid: 2bf90072ec699e14c8302f9e00e61125, type: 3}
-  - {fileID: 105904489240291154, guid: 53cadab628fd9c847b45930373517aee, type: 3}
-  - {fileID: 8192452084279125922, guid: ac185bb8cc0915e4c998ca6a3147cb3c, type: 3}
-  - {fileID: 8192452084279125922, guid: fc4af44561e3f1a4e9efa270c1d3363a, type: 3}
-  numToSpawnList: 1900000019000000190000001900000019000000190000001900000019000000
-  shouldExpandList: 0101010101010101
+  poolObjList: []
+  numToSpawnList: 
+  shouldExpandList: 
   ScaleObjects: 1
 --- !u!114 &77314586
 MonoBehaviour:
@@ -10776,34 +10760,12 @@ MonoBehaviour:
   cam: {fileID: 556583563}
   renderDist: 80
   updateOn: 10
-  BackgroundAlts:
-  - 0
-  - 150
-  - 250
-  - 300
-  - 300
-  BackgroundColors:
-  - {r: 0.20784314, g: 0.2901961, b: 0.69803923, a: 0}
-  - {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 0.98039216}
-  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
-  - {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
-  - {r: 0.29803923, g: 0.3254902, b: 0.45490196, a: 0}
+  BackgroundAlts: []
+  BackgroundColors: []
   fogMaterial: {fileID: 0}
-  fogAlts:
-  - 0
-  - 100
-  - 150
-  - 200
-  fogColors:
-  - {r: 0.019607842, g: 0.50326794, b: 0.59607846, a: 1}
-  - {r: 0.019607842, g: 0.44705883, b: 0.59607846, a: 1}
-  - {r: 0.019607842, g: 0.44705883, b: 0.59607846, a: 1}
-  - {r: 0.006674961, g: 0.35148802, b: 0.4716981, a: 1}
-  fogSizes:
-  - 25
-  - 1
-  - 0
-  - 0
+  fogAlts: []
+  fogColors: []
+  fogSizes: []
   fogActivated: 1
 --- !u!114 &1166424095
 MonoBehaviour:
@@ -12767,7 +12729,7 @@ MonoBehaviour:
   rocketAltitude: 0
   rocketMaxAltitude: 0
   numGemsCollected: 0
-  targetAltitude: 325
+  targetAltitude: 0
   reachedTargetAltitude: 0
   cam: {fileID: 556583563}
 --- !u!1 &1757507376
@@ -13280,14 +13242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea17eebab91120c40b3abe73ba03616a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObjList:
-  - {fileID: 8192452084279125922, guid: 548959a54dbf63c4ca763a2d325fc4f9, type: 3}
-  - {fileID: 8192452084279125922, guid: 4df973ab04175b34aad373d385441afd, type: 3}
-  - {fileID: 1496229526285054402, guid: 3a179b99dc7aea24da15a43322c2a80e, type: 3}
-  - {fileID: 1496229526285054402, guid: c0050f0ca450ded408e36eb1d6c5ac5e, type: 3}
-  - {fileID: 1496229526285054402, guid: a75c342cb26479d4c9117bb2f0c0410c, type: 3}
-  numToSpawnList: 1900000019000000190000001900000019000000
-  shouldExpandList: 0101010101
+  poolObjList: []
+  numToSpawnList: 
+  shouldExpandList: 
   ScaleObjects: 1
 --- !u!114 &1873516825
 MonoBehaviour:
@@ -13315,12 +13272,7 @@ MonoBehaviour:
   maxSpawnY: 0
   prevFramesToExamine: 10
   frameRate: 0
-  spawnObjAltitudeRanges:
-  - {x: 0, y: 175}
-  - {x: 0, y: 175}
-  - {x: 175, y: 0}
-  - {x: 175, y: 0}
-  - {x: 175, y: 0}
+  spawnObjAltitudeRanges: []
   timeToRefreshSpawnIndices: 0.25
 --- !u!4 &1873516826
 Transform:
@@ -15546,6 +15498,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 442347443144565531, guid: 4991a378f39b9ec4fb4383dd17c94d36, type: 3}
+      propertyPath: rocketBotAlt
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442347443144565531, guid: 4991a378f39b9ec4fb4383dd17c94d36, type: 3}
+      propertyPath: rocketTopAlt
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442347443144565531, guid: 4991a378f39b9ec4fb4383dd17c94d36, type: 3}
       propertyPath: objectLeftRightPos
       value: 0
       objectReference: {fileID: 0}
@@ -15669,11 +15629,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057384906660982326, guid: b44e6f20e60ba52418dc881e0adc4557, type: 3}
       propertyPath: m_Name
-      value: Earth
+      value: Leaving_Planet
       objectReference: {fileID: 0}
     - target: {fileID: 9057384906660982327, guid: b44e6f20e60ba52418dc881e0adc4557, type: 3}
       propertyPath: objectBotPos
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057384906660982327, guid: b44e6f20e60ba52418dc881e0adc4557, type: 3}
+      propertyPath: rocketBotAlt
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057384906660982327, guid: b44e6f20e60ba52418dc881e0adc4557, type: 3}
+      propertyPath: rocketTopAlt
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b44e6f20e60ba52418dc881e0adc4557, type: 3}

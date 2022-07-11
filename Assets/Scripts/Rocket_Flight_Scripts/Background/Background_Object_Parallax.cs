@@ -11,7 +11,8 @@ public class Background_Object_Parallax : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private float rocketBotAlt, objectBotPos, objectTopPos;
+    private float objectBotPos, objectTopPos;
+    public float rocketBotAlt;
     public float rocketTopAlt;
     private float rocketAltDiff;
 
@@ -23,7 +24,7 @@ public class Background_Object_Parallax : MonoBehaviour
 
     private float camWidth, camHeight;
 
-    bool firstEnabled = false;
+    public bool firstEnabled = false;
     
     Vector3 pos;
     
@@ -44,7 +45,7 @@ public class Background_Object_Parallax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!firstEnabled && rocketGameManager.gameStarted && rocketGameManager.rocketAltitude >= rocketBotAlt){
+        if(firstEnabled && rocketGameManager.gameStarted && rocketGameManager.rocketAltitude >= rocketBotAlt){
             spriteRenderer.enabled = true;
         }
         

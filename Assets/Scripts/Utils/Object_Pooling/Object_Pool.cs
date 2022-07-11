@@ -20,6 +20,8 @@ public class Object_Pool : MonoBehaviour
     private bool ScaleObjects;
     private Game_Scaler gameScaler;
 
+    public bool initialized {get; private set;}
+
     // void Awake(){
     //     if (ScaleObjects){
     //         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
@@ -32,14 +34,10 @@ public class Object_Pool : MonoBehaviour
     // }
 
     void Awake(){
-        if (ScaleObjects){
-            gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
-            for (int i=0; i < poolObjList.Count; i++){
-                GameObject cur_obj = Instantiate(poolObjList[i], new Vector3(), new Quaternion());
-                cur_obj.transform.localScale = new Vector3(gameScaler.Scale_Value_To_Screen_Width(cur_obj.transform.localScale.x), gameScaler.Scale_Value_To_Screen_Height(cur_obj.transform.localScale.y), cur_obj.transform.localScale.z);
-                poolObjList[i] = cur_obj;
-                cur_obj.SetActive(false);
-            }
+        initialized = false;
+        // If we weren't supplied a pool object list in the editor, then wait for one
+        if (poolObjList == null){
+            poolObjList = new List<GameObject>();
         }
     }
 
@@ -49,14 +47,35 @@ public class Object_Pool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        VerifyAllPoolObjects();
-        InstantiateAllPoolObjects();
+        StartCoroutine(_LateStart());
     }
 
+    IEnumerator _LateStart(){
+        while(poolObjList.Count == 0){
+            Debug.Log("OBJECT POOL NOT INITIALIZED");
+            yield return new WaitForSeconds(0);
+        }
+        if (ScaleObjects){
+            gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
+            for (int i=0; i < poolObjList.Count; i++){
+                GameObject cur_obj = Instantiate(poolObjList[i], new Vector3(), new Quaternion());
+                cur_obj.transform.localScale = new Vector3(gameScaler.Scale_Value_To_Screen_Width(cur_obj.transform.localScale.x), gameScaler.Scale_Value_To_Screen_Height(cur_obj.transform.localScale.y), cur_obj.transform.localScale.z);
+                poolObjList[i] = cur_obj;
+                cur_obj.SetActive(false);
+            }
+        }
+
+        VerifyAllPoolObjects();
+        InstantiateAllPoolObjects();
+        initialized = true;
+        Debug.Log("OBJECT POOL INITIALIZED");
+    }
+
+    bool firstFrame = true;
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 

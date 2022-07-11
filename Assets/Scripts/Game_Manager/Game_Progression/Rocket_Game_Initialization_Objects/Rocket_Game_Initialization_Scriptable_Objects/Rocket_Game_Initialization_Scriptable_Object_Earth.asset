@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a822b4866d8b1c34680670fce38e16d1, type: 3}
+  m_Name: Rocket_Game_Initialization_Scriptable_Object_Earth
+  m_EditorClassIdentifier: 
+  thrustAltMultiplier: 1
+  targetAltitude: 325
+  fogAlts:
+  - 0
+  - 100
+  - 150
+  - 200
+  fogColors:
+  - {r: 0.019607844, g: 0.5019608, b: 0.59607846, a: 1}
+  - {r: 0.019607844, g: 0.44705883, b: 0.59607846, a: 1}
+  - {r: 0.019607844, g: 0.44705883, b: 0.59607846, a: 1}
+  - {r: 0.007843138, g: 0.3529412, b: 0.47058824, a: 1}
+  fogSizes:
+  - 25
+  - 1
+  - 0
+  - 0
+  BackgroundAlts:
+  - 0
+  - 150
+  - 200
+  - 300
+  - 300
+  BackgroundColors:
+  - {r: 0.38959593, g: 0.48738897, b: 0.9716981, a: 0}
+  - {r: 0.20784314, g: 0.2901961, b: 0.69803923, a: 0}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
+  - {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  - {r: 0.29803923, g: 0.3254902, b: 0.45490196, a: 0}
+  poolObjList:
+  - {fileID: 8192452084279125922, guid: bfc18b8581595b9409c2ed8e23fba17e, type: 3}
+  - {fileID: 8192452084279125922, guid: 8dc2a02f2aa246a4d874c0c80fa68a03, type: 3}
+  - {fileID: 8192452084279125922, guid: 80efc032c78c4d9429ff2de7dbd5d941, type: 3}
+  - {fileID: 8192452084279125922, guid: bf8fec90960fbcf40852d2b201652a1d, type: 3}
+  - {fileID: 8192452084279125922, guid: 2bf90072ec699e14c8302f9e00e61125, type: 3}
+  - {fileID: 105904489240291154, guid: 53cadab628fd9c847b45930373517aee, type: 3}
+  - {fileID: 8192452084279125922, guid: ac185bb8cc0915e4c998ca6a3147cb3c, type: 3}
+  - {fileID: 8192452084279125922, guid: fc4af44561e3f1a4e9efa270c1d3363a, type: 3}
+  numToSpawnList: 1900000019000000190000001900000019000000190000001900000019000000
+  shouldExpandList: 0101010101010101
+  spawnObjAltitudeRanges:
+  - {x: 150, y: 0}
+  - {x: 0, y: 175}
+  - {x: 150, y: 0}
+  - {x: 0, y: 175}
+  - {x: 0, y: 175}
+  - {x: 0, y: 175}
+  - {x: 150, y: 0}
+  - {x: 150, y: 0}
+  poolObjListBackground:
+  - {fileID: 8192452084279125922, guid: 548959a54dbf63c4ca763a2d325fc4f9, type: 3}
+  - {fileID: 8192452084279125922, guid: 4df973ab04175b34aad373d385441afd, type: 3}
+  - {fileID: 1496229526285054402, guid: 3a179b99dc7aea24da15a43322c2a80e, type: 3}
+  - {fileID: 1496229526285054402, guid: c0050f0ca450ded408e36eb1d6c5ac5e, type: 3}
+  - {fileID: 1496229526285054402, guid: a75c342cb26479d4c9117bb2f0c0410c, type: 3}
+  numToSpawnListBackground: 1900000019000000190000001900000019000000
+  shouldExpandListBackground: 0101010101
+  spawnObjAltitudeRangesBackground:
+  - {x: 0, y: 175}
+  - {x: 0, y: 175}
+  - {x: 175, y: 0}
+  - {x: 175, y: 0}
+  - {x: 175, y: 0}
+  leavingPlanetSprite: {fileID: -67371933, guid: 3bab1129679fd084ca73708b49239253, type: 3}
+  leavingPlanetBotParallaxRocketAlt: 0
+  leavingPlanetTopParallaxRocketAlt: 100
+  arrivingPlanetSprite: {fileID: -825518015, guid: 3bab1129679fd084ca73708b49239253, type: 3}
+  arrivingPlanetBotParallaxRocketAlt: 250
+  arrivingPlanetTopParallaxRocketAlt: 300

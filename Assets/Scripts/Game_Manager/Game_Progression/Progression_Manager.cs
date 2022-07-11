@@ -16,6 +16,10 @@ public class Progression_Manager : MonoBehaviour
     public Level_Scriptable_Object[] Levels { get { return levels; } private set { levels = value; } }
     public int CurrentLevelId { get { return currentLevelId; } private set { currentLevelId = value; } }
     public int HighestLevelId { get {return highestLevelId;} private set { highestLevelId = value; } }
+    // public int HighestRocketGameCompleted { get {return highestRocketGameCompleted;} private set { highestRocketGameCompleted = value; } }
+
+
+    public bool RocketGameFreePlayMode = false; // Should we initialize the rocket game into free play mode, or not?
 
 
     [SerializeField]
@@ -24,6 +28,9 @@ public class Progression_Manager : MonoBehaviour
     private int currentLevelId = 0;
     [SerializeField]
     private int highestLevelId = 0;
+
+    // [SerializeField]
+    // private int highestRocketGameCompleted = 0;
 
 
     // If we finish a Rocket Game by winning, what level was it??  Resets to -1 on each return to main area
@@ -49,6 +56,15 @@ public class Progression_Manager : MonoBehaviour
 
     public static Progression_Manager instance;
 
+
+    IEnumerator validateLevel(Level_Scriptable_Object level){
+        while(SceneManager.GetActiveScene().name != "Main_Area"){
+            yield return new WaitForSeconds(0f);
+        }
+        yield return new WaitForSeconds(0.1f);
+        level.Validate();
+    }
+
     void Awake()
     {
 
@@ -56,7 +72,11 @@ public class Progression_Manager : MonoBehaviour
             Debug.Assert(Events.Select(e => e.EventId).ToList().Count() == Events.Select(e => e.EventId).Distinct().ToList().Count());
             Debug.Assert(Levels.Select(l => l.LevelId).ToList().Count() == Levels.Select(e => e.LevelId).Distinct().ToList().Count());
 
-            initialized = false;
+            foreach(Level_Scriptable_Object level in Levels){
+                StartCoroutine(validateLevel(level));
+            }
+
+            
 
             CurrentLevelId = 0;
             HighestLevelId = 0;
@@ -76,6 +96,11 @@ public class Progression_Manager : MonoBehaviour
             EventQueue = new Queue<Event_Trigger_Scriptable_Object>();
 
             recentlyCompletedLevelId = -1;
+
+
+
+            initialized = false;
+
 
             instance = this;
         }
@@ -121,6 +146,7 @@ public class Progression_Manager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
             recentlyCompletedLevelId = -1;
+            getLevelById(currentLevelId).initializeRocketGame(freePlayMode:RocketGameFreePlayMode);
         }
     }
 

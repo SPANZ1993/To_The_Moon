@@ -16,7 +16,9 @@ public class Onboarding_Event_Trigger_Scriptable_Object : Event_Trigger_Scriptab
 
     public override bool shouldTrigger(){
         bool shouldTrigger = base.shouldTrigger();
+        Debug.Log("SHOULD WE TRIGGER ONBOARDING EVENT HERE?: " + shouldTrigger);
         if(shouldTrigger){
+
             if(Game_Manager.instance.metrics.numGameStartups == 1 || Game_Manager.instance.userDisplayName == null || Game_Manager.instance.coinName == null){ 
                 shouldTrigger = true;
             }

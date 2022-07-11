@@ -31,7 +31,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     private bool firstFrameGameStarted = false; // Is it the first frame since the game started?
 
 
-
+    public bool freePlayMode = false;
     private float gameTimer;
 
 
@@ -123,7 +123,7 @@ public class Rocket_Game_Manager : MonoBehaviour
                 rocketMaxAltitude = rocketAltitude;
             }
             //Debug.Log("REACHED TARGET ALTITUDE: " + reachedTargetAltitude);
-            if(rocketAltitude >= targetAltitude){
+            if(rocketAltitude >= targetAltitude && !freePlayMode){
                 Progression_Manager.instance.setRecentlyCompletedLevelIdToCurLevel();
                 reachedTargetAltitude = true;
                 rocketControl.reachedTargetAltitude = true;
@@ -290,7 +290,13 @@ public class Rocket_Game_Manager : MonoBehaviour
         // If we watched a rewarded ad, continue the game and refill the ship's fuel
         rocketControl.thrust = gameManager.thrust * .25;
         rocketControl.alertedFuelEmpty = false; // This will make sure the rocket alerts again when it is out of fuel
-        SendAlertPause(false);
+        
+        // For some reason the listeners don't get this message if we don't delay it for a sec
+        IEnumerator unpause(){
+            yield return new WaitForSeconds(0.1f);
+            SendAlertPause(false);
+        }
+        StartCoroutine(unpause());
     }
 
     private void EndSceneAfterRewardedAd(){
@@ -350,7 +356,12 @@ public class Rocket_Game_Manager : MonoBehaviour
     }
 
     public void SendAlertPause(bool paused){
-        //Debug.Log("PAUSING GAME");
+        // Have to do it in this order so we enable the spawners before
+        // We unpause them and disable them after we pause them
+        if(!paused){
+            LeanTween.resumeAll();
+            spaceJunkSpawner.enabled = true;
+        }
         if (PauseLaunchSceneInfo != null){
             PauseLaunchSceneInfo(paused);
         }
@@ -358,10 +369,7 @@ public class Rocket_Game_Manager : MonoBehaviour
             LeanTween.pauseAll();
             spaceJunkSpawner.enabled = false;
         }
-        else{
-            LeanTween.resumeAll();
-            spaceJunkSpawner.enabled = true;
-        }
+
     }
 
     public void RunAutopilotSimulation(){

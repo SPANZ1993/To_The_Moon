@@ -149,7 +149,8 @@ public class Serializer : MonoBehaviour, ISerialization_Manager
                                                     curShipSkinId: Ship_Skin_Manager.instance.CurSkinID,
                                                     serializedEventsState: Progression_Manager.instance.serializeEventsState(),
                                                     currentLevelId: Progression_Manager.instance.CurrentLevelId,
-                                                    highestLevelId: Progression_Manager.instance.HighestLevelId
+                                                    highestLevelId: Progression_Manager.instance.HighestLevelId,
+                                                    rocketGameFreePlayMode: Progression_Manager.instance.RocketGameFreePlayMode
                                                 );   
     }
 

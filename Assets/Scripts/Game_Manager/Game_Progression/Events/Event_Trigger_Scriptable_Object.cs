@@ -113,6 +113,8 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
         // else{
         //     Debug.Log("BASE THINKS NO SHOULD TRIGGER");
         // }
+        Debug.Log("TRIGGER EVENT " + eventId + "? " + triggerable);
+
 
         return triggerable;
     }

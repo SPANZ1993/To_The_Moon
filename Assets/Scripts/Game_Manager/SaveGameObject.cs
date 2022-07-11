@@ -83,6 +83,7 @@ public class SaveGameObject
     public Dictionary<int, Dictionary<string, int>> SerializedEventsState {get; private set;}
     public int CurrentLevelId;
     public int HighestLevelId;
+    public bool RocketGameFreePlayMode;
 
 
     public SaveGameObject(){
@@ -139,6 +140,7 @@ public class SaveGameObject
         SerializedEventsState = new Dictionary<int, Dictionary<string, int>>(); // Progression manager should read this as no event has ever occured yet... which is what we want on a new game
         CurrentLevelId = 0;
         HighestLevelId = 0;
+        RocketGameFreePlayMode = false;
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -197,7 +199,8 @@ public class SaveGameObject
                             int curShipSkinId,
                             Dictionary<int, Dictionary<string, int>> serializedEventsState,
                             int currentLevelId,
-                            int highestLevelId){
+                            int highestLevelId,
+                            bool rocketGameFreePlayMode){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -254,6 +257,7 @@ public class SaveGameObject
         SerializedEventsState = serializedEventsState;
         CurrentLevelId = currentLevelId;
         HighestLevelId = highestLevelId;
+        RocketGameFreePlayMode = rocketGameFreePlayMode;
     }
 
 }

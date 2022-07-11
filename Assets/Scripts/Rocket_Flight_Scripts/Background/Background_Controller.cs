@@ -15,6 +15,7 @@ public class Background_Controller : MonoBehaviour
     // private int numChunksToLoad = 50;
     // private List<GameObject> InactiveChunks = new List<GameObject>();
 
+    bool initialized = false;
 
     private Object_Pool Chunks_Pool;
 
@@ -71,6 +72,86 @@ public class Background_Controller : MonoBehaviour
 
 
     void Awake(){
+        // If we didn't supply the info in the editor... then we wait until we get it (See _LateStart())
+        if(BackgroundAlts == null){
+            BackgroundAlts = new List<float>();
+        }
+        // Debug.Assert(BackgroundAlts.Count == BackgroundColors.Count);
+        // height_color_map = new Dictionary<float, Color>();
+        // for (int i=0; i<BackgroundColors.Count; i++){
+        //     height_color_map[BackgroundAlts[i]] = new Color(BackgroundColors[i].r* 255f, BackgroundColors[i].g* 255f, BackgroundColors[i].b * 255f, 255);
+        //     //Debug.Log("HCM[" + BackgroundAlts[i] + "] = " + height_color_map[BackgroundAlts[i]]);
+        // }
+
+        // Debug.Assert(fogAlts.Count == fogColors.Count);
+        // Debug.Assert(fogAlts.Count == fogSizes.Count);
+
+        // fog_height_color_map = new Dictionary<float, Color>();
+        // fog_height_size_map = new Dictionary<float, float>();
+        // for (int i=0; i<fogAlts.Count; i++){
+        //     fog_height_color_map[fogAlts[i]] = new Color(fogColors[i].r* 255f, fogColors[i].g* 255f, fogColors[i].b * 255f, fogColors[i].a * 255f);
+        //     fog_height_size_map[fogAlts[i]] = fogSizes[i];
+        // }
+
+        
+        // fogMaterial = GameObject.Find("Fog").GetComponent<SpriteRenderer>().material;
+        // rocket = GameObject.Find("Rocket");
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Chunks_Pool = GetComponent<Object_Pool>();
+        // //Debug.Log("CHUNKS POOL: " + Chunks_Pool);
+        // gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
+        // rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
+        // // Debug.Log("RGMO: " + GameObject.Find("Rocket_Game_Manager"));
+        // // Debug.Log("RGM: " + GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>());
+        // // Object_Info_Getter oig = new Object_Info_Getter();
+        // // oig.ListComponents(GameObject.Find("Rocket_Game_Manager"), "RGM");
+
+
+        // // REMOVED
+        // // for (int i = 0; i < numChunksToLoad; i++){
+        // //     GameObject cur_inactive_chunk = (GameObject)Instantiate(Background_Chunk_Prefab, new Vector3(0.0f, 0.0f, 0.0f), new Quaternion());
+        // //     cur_inactive_chunk.transform.localScale = new Vector3(gameScaler.Scale_Value_To_Screen_Width(cur_inactive_chunk.transform.localScale.x), gameScaler.Scale_Value_To_Screen_Height(cur_inactive_chunk.transform.localScale.y), cur_inactive_chunk.transform.localScale.z);
+        // //     cur_inactive_chunk.SetActive(false);
+        // //     InactiveChunks.Add(cur_inactive_chunk);
+        // // }
+
+
+        
+
+        // scale_height_color_map();
+        
+
+        // height_color_map_sorted_keys = height_color_map.Keys.ToList();
+        // height_color_map_sorted_keys = height_color_map_sorted_keys.OrderBy(x => x).ToList();
+
+
+        // fog_height_color_size_map_sorted_keys = fog_height_color_map.Keys.ToList();
+        // fog_height_color_size_map_sorted_keys = fog_height_color_size_map_sorted_keys.OrderBy(x => x).ToList();
+
+        // //Debug.Log("HCMSK: " + height_color_map_sorted_keys[2] + " --- " + height_color_map[height_color_map_sorted_keys[2]]);
+
+        // normalizeColors();
+        // normalizeFogColors();
+
+        // cam_start_loc = cam.transform.position;
+        // //GameObject seed_chunk = (GameObject)Instantiate(Background_Chunk_Prefab, new Vector3(0.0f, 0.0f, 0.0f), new Quaternion());
+        Chunks_Pool = GetComponent<Object_Pool>();
+        StartCoroutine(_LateStart());
+    }
+
+    IEnumerator _LateStart(){
+
+        // Still waiting to be initialized
+        while(BackgroundAlts.Count == 0 || !Chunks_Pool.initialized){
+            yield return new WaitForSeconds(0);
+        }
+
+
         Debug.Assert(BackgroundAlts.Count == BackgroundColors.Count);
         height_color_map = new Dictionary<float, Color>();
         for (int i=0; i<BackgroundColors.Count; i++){
@@ -91,13 +172,13 @@ public class Background_Controller : MonoBehaviour
         
         fogMaterial = GameObject.Find("Fog").GetComponent<SpriteRenderer>().material;
         rocket = GameObject.Find("Rocket");
-    }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Chunks_Pool = GetComponent<Object_Pool>();
+        /////////////////////////////////
+
+
+
+        
         //Debug.Log("CHUNKS POOL: " + Chunks_Pool);
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
         rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
@@ -135,11 +216,14 @@ public class Background_Controller : MonoBehaviour
 
         cam_start_loc = cam.transform.position;
         //GameObject seed_chunk = (GameObject)Instantiate(Background_Chunk_Prefab, new Vector3(0.0f, 0.0f, 0.0f), new Quaternion());
-        StartCoroutine(_LateStart());
-    }
 
-    IEnumerator _LateStart(){
-        yield return new WaitForSeconds(0);
+
+
+
+        //////////////////////////////////////////
+
+
+
         Get_Background_Chunk_Prefab_Size();
         //Debug.Log("BC PREFAB SIZE BOUNDS: " + bounds);
         //Debug.Log("BC PREFAB SIZE EXTENTS: " + extents);
@@ -156,15 +240,17 @@ public class Background_Controller : MonoBehaviour
             newActive = ActiveChunks.Count;
         }
         //throw new ArgumentException("YO");
+        initialized = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (frameCount%updateOn==0.0)
+        if (frameCount%updateOn==0.0 && initialized){
             //Debug.Log("CHECK " + (int)(frameCount/updateOn) + ": " + ActiveChunks.Count() + " ACTIVE CHUNKS");
             updateBackgroundChunks();
             updateFog();
+        }
         frameCount++;
 
     }
