@@ -30,13 +30,18 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
     private Sprite previewSprite;
 
 
-
-    public virtual void OnPurchaseComplete(Product product){
+    public void onPurchaseComplete(Product product, bool silent=false){
         //Debug.Log("We bought " + ProductId + " ... " + product.definition.id);
-        if(!Audio_Manager.instance.IsPlaying("UI_Button_Process_Complete")){
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_Process_Complete") && !silent){
             Audio_Manager.instance.Play("UI_Button_Process_Complete");
         }
+        Debug.Log("PURCHASE COMPLETE FOR PRODUCT: " + product);
         IAP_Manager.instance.updateAllShopPanels();
+    }
+
+
+    public virtual void OnPurchaseComplete(Product product){
+        onPurchaseComplete(product, false);
     }
 
     public virtual void OnPurchaseFailed(Product product, PurchaseFailureReason reason){

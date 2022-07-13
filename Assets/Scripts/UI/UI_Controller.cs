@@ -2716,6 +2716,18 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(GameObject.Find("Records_Scroll_Panel"));
         EnableUIElement(GameObject.Find("Options_Scroll_Panel"));
 
+        if (Application.platform == RuntimePlatform.IPhonePlayer ||
+            Application.platform == RuntimePlatform.OSXPlayer || 
+            Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            Debug.Log("We're on Apple");
+            //IAP_Manager.instance.clearActiveProductsToShopPanel(); // Do this so that only the buttons in IAP_Manager.instance.tmpIAPButtonsObj remain
+            
+        }
+        else{
+            Debug.Log("We're not on Apple");
+            DisableUIElement(GameObject.Find("Restore_Purchases_Panel"));
+        }
 
         //optionsScrollRect.verticalNormalizedPosition = 1f;
         //Debug.Log(optionsScrollRect.verticalNormalizedPosition);
@@ -2868,7 +2880,7 @@ public class UI_Controller : MonoBehaviour
 
 
 
-    public GameObject addShopPanel(IAP_Product_Scriptable_Object product){
+    public GameObject addShopPanel(IAP_Product_Scriptable_Object product, GameObject parent=null){
         GameObject shopPanel = Instantiate(shopPanelPrefab, new Vector3(0, 0 , 0), Quaternion.identity);
         GameObject buyButtonObj = Object_Finder.findChildObjectByName(shopPanel, "Shop_Buy_Button");
         shopPanel.GetComponent<ObjectHolder>().Obj = product;
@@ -2887,10 +2899,10 @@ public class UI_Controller : MonoBehaviour
         //mainAreaLocalScales[shopPanel] = shopPanel.transform.localScale;
         _indexUIElementSizes(mainAreaLocalScales, shopPanel);
         
-        return addShopPanel(shopPanel);
+        return addShopPanel(shopPanel, parent);
     }  
 
-    public GameObject addShopPanel(GameObject shopPanel){
+    public GameObject addShopPanel(GameObject shopPanel, GameObject parent=null){
         // The product manager will hold these, so if we've already got them created just make them children of the menu
         // And Update Them
         IAP_Product_Scriptable_Object product = (IAP_Product_Scriptable_Object)shopPanel.GetComponent<ObjectHolder>().Obj;
@@ -2901,8 +2913,12 @@ public class UI_Controller : MonoBehaviour
         //updateShopPanel(shopPanel); // OLD
 
         
-
-        shopPanel.transform.SetParent(shopScrollPanel.transform);
+        if(parent == null){
+            shopPanel.transform.SetParent(shopScrollPanel.transform);
+        }
+        else{
+            shopPanel.transform.SetParent(parent.transform);
+        }
         //shopPanel.transform.localScale = mainAreaLocalScales[shopPanel];
         
         EnableUIElement(shopPanel);
