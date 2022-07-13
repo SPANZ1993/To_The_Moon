@@ -127,6 +127,16 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
         Arriving_Planet.GetComponent<SpriteRenderer>().sprite = arrivingPlanetSprite;
         arrivingObjectParallax.rocketBotAlt = arrivingPlanetBotParallaxRocketAlt;
         arrivingObjectParallax.rocketTopAlt = arrivingPlanetTopParallaxRocketAlt;
+
+        // Make it so we pass the arriving planet
+        if(freePlayMode){
+            float rocketNewTopAltRatio = (arrivingObjectParallax.objectTopPos-(-arrivingObjectParallax.objectBotPos))/(arrivingObjectParallax.objectBotPos-arrivingObjectParallax.objectTopPos);
+            arrivingObjectParallax.objectTopPos = -arrivingObjectParallax.objectBotPos;
+            arrivingObjectParallax.rocketTopAlt = arrivingObjectParallax.rocketTopAlt + (rocketNewTopAltRatio*(arrivingObjectParallax.rocketTopAlt-arrivingObjectParallax.rocketBotAlt));
+            //Debug.Log("NEW PARALLAX POS PLANET: " + arrivingObjectParallax.objectTopPos +  " --- " +  arrivingObjectParallax.objectBotPos);
+            //Debug.Log("NEW PARALLAX ALT ROCKET: " + arrivingObjectParallax.rocketBotAlt + " --- " + arrivingObjectParallax.rocketTopAlt);
+        }
+
         arrivingObjectParallax.firstEnabled = true;
     }
 }

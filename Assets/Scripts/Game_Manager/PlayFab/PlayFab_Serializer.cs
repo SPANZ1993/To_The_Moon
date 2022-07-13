@@ -127,7 +127,8 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     serializedEventsState: Progression_Manager.instance.serializeEventsState(),
                                                     currentLevelId: Progression_Manager.instance.CurrentLevelId,
                                                     highestLevelId: Progression_Manager.instance.HighestLevelId,
-                                                    rocketGameFreePlayMode: Progression_Manager.instance.RocketGameFreePlayMode
+                                                    rocketGameFreePlayMode: Progression_Manager.instance.RocketGameFreePlayMode,
+                                                    rocketGameFreePlayModeManuallySet: Progression_Manager.instance.RocketGameFreePlayModeManuallySet
                                                 );   
     }
 

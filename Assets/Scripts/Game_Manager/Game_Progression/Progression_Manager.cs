@@ -13,6 +13,7 @@ public class Progression_Manager : MonoBehaviour
     // Don't do a damn thing if you haven't been initialized yet
     public bool initialized = false;
 
+
     public Level_Scriptable_Object[] Levels { get { return levels; } private set { levels = value; } }
     public int CurrentLevelId { get { return currentLevelId; } private set { currentLevelId = value; } }
     public int HighestLevelId { get {return highestLevelId;} private set { highestLevelId = value; } }
@@ -20,6 +21,7 @@ public class Progression_Manager : MonoBehaviour
 
 
     public bool RocketGameFreePlayMode = false; // Should we initialize the rocket game into free play mode, or not?
+    public bool RocketGameFreePlayModeManuallySet = false; // Did we force the player into free play mode, or did they set it that way?
 
 
     [SerializeField]
@@ -136,7 +138,7 @@ public class Progression_Manager : MonoBehaviour
             foreach(Event_Trigger_Scriptable_Object e in Events){
                 EventIdToTimesTriggeredThisSceneOpen[e.EventId] = 0;
             }
-
+            //Debug.Log("ADDING ITEMS TO QUEUE ON LEVEL WAS LOADED!");
             AddEventsToQueue(Events.Where(e => e.TriggerableUponLevelWasLoaded));
             StartNextEvent();
         }
@@ -212,7 +214,7 @@ public class Progression_Manager : MonoBehaviour
             foreach(Event_Trigger_Scriptable_Object e in PossibleEvents.OrderByDescending(e=>e.EventPriority)){
                 if(e.shouldTrigger() && !EventQueue.Contains(e) && CurrentEventIdInProgress == null){
                     EventQueue.Enqueue(e);
-                    Debug.Log("ADDING EVENT TO QUEUE: " + e.EventId);
+                    //Debug.Log("ADDING EVENT TO QUEUE: " + e.EventId);
                 }
             }
         }
@@ -225,15 +227,25 @@ public class Progression_Manager : MonoBehaviour
 
 
     public void StartNextEvent(){
-        if(EventQueue.Count != 0){
-            EventQueue = new Queue<Event_Trigger_Scriptable_Object>(EventQueue.OrderByDescending(e => e.EventPriority).ToList());
-            Event_Trigger_Scriptable_Object curEvent = EventQueue.Dequeue();
-            // If we should still trigger the event then trigger it
-            if(curEvent.shouldTrigger() && CurrentEventIdInProgress == null){
-                Debug.Log("TRIGGERING EVENT: " + curEvent.EventId);
-                CurrentEventIdInProgress = curEvent.EventId;
-                curEvent.trigger();
+        if(EventQueue.Count != 0 && CurrentEventIdInProgress == null){
+            List<Event_Trigger_Scriptable_Object> tmpEventList = new List<Event_Trigger_Scriptable_Object>(EventQueue.OrderByDescending(e => e.EventPriority).ToList());
+            // Loop over events so that if the highest priority event can no longer be triggered, it doesn't block the lower priority events
+            int curEventAttempti = 0;
+            int origEventQueueCount = EventQueue.Count;
+            while (curEventAttempti < origEventQueueCount){
+                //EventQueue = new Queue<Event_Trigger_Scriptable_Object>(EventQueue.OrderByDescending(e => e.EventPriority).ToList());
+                Event_Trigger_Scriptable_Object curEvent = tmpEventList[curEventAttempti];
+                // If we should still trigger the event then remove it from the queue and trigger it
+                if(curEvent.shouldTrigger() && CurrentEventIdInProgress == null){
+                    //Debug.Log("TRIGGERING EVENT: " + curEvent.EventId);
+                    CurrentEventIdInProgress = curEvent.EventId;
+                    curEvent.trigger();
+                    tmpEventList.RemoveAt(curEventAttempti);
+                    curEventAttempti = origEventQueueCount;
+                }
+                curEventAttempti++;
             }
+            EventQueue = new Queue<Event_Trigger_Scriptable_Object>(tmpEventList);
         }
     }
 

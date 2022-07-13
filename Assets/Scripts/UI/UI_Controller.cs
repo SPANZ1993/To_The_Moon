@@ -905,7 +905,7 @@ public class UI_Controller : MonoBehaviour
         //gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
         //Debug.Log("STARTING UI CONTROLLER");
         OnLevelWasLoaded();
-        //Invoke("displayExampleSpeech", 15);
+        //Invoke("displayExampleSpeech", 10);
     }
 
 

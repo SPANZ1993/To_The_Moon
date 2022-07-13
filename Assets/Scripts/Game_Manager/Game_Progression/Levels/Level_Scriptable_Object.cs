@@ -21,7 +21,9 @@ public class Level_Scriptable_Object :  ScriptableObject
     public int[] UnlockedResearchIds { get { return unlockedResearchIds; } private set { unlockedResearchIds = value; } }
     public int[] UnlockedResearcherIds { get { return unlockedResearcherIds; } private set { unlockedResearcherIds = value; } }
 
-    public Level_End_Event_Scriptable_Object OnLevelCompleteEvent { get { return onLevelCompleteEvent; } private set { onLevelCompleteEvent = value;} }
+    public Level_End_Event_Scriptable_Object OnLevelCompleteEvent { get { return onLevelCompleteEvent; } private set { onLevelCompleteEvent = value; } }
+    // TODO: IMPLEMENT THIS
+    //public Next_Level_Ready_Event_Scriptable_Object OnNextLevelReadyEvent { get { return onNextLevelReadyEvent; } private set { onnNextLevelReadyEvent = value; } }
 
     public Rocket_Game_Initialization_Scriptable_Object RocketGameInitializationObject { get { return rocketGameInitializationObject; } private set { rocketGameInitializationObject = value;} }
     
@@ -47,6 +49,9 @@ public class Level_Scriptable_Object :  ScriptableObject
 
     [SerializeField]
     private Level_End_Event_Scriptable_Object onLevelCompleteEvent; // The event that plays after we beat the level
+
+    // [SerializeField]
+    // private Next_Level_Ready_Event_Scriptable_Object onNextLevelReadyEvent;
 
     [SerializeField]
     private Rocket_Game_Initialization_Scriptable_Object rocketGameInitializationObject;

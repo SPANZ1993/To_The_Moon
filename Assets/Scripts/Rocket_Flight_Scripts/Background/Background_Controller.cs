@@ -698,7 +698,16 @@ public class Background_Controller : MonoBehaviour
 
     private Dictionary<string, float> currentColorSize = new Dictionary<string, float>(); // Just saving on initialization costs
     void updateFog(){
-        if(fogActivated){
+
+
+
+        if (fogMaterial == null){
+            fogMaterial = GameObject.Find("Fog").GetComponent<SpriteRenderer>().material;
+            Debug.LogError("CANT FIND FOG MATERIAL??");
+        }
+
+
+        if(fogActivated && fogMaterial != null){
             currentColorSize = getFogColorAndSize(rocket.transform.position);
             fogMaterial.SetFloat("_Fog_Size", currentColorSize["s"]);    
             fogMaterial.SetColor("_Fog_Color", new Color(currentColorSize["r"], currentColorSize["g"], currentColorSize["b"], currentColorSize["a"]));
@@ -707,9 +716,18 @@ public class Background_Controller : MonoBehaviour
     }
 
     public void disableFog(){
-        fogActivated = false;
-        fogMaterial.SetFloat("_Fog_Size", 0);
-        fogMaterial.SetColor("_Fog_Color", Color.white);
+
+        if (fogMaterial == null){
+            fogMaterial = GameObject.Find("Fog").GetComponent<SpriteRenderer>().material;
+            Debug.LogError("CANT FIND FOG MATERIAL??");
+        }
+
+
+        if (fogMaterial != null){
+            fogActivated = false;
+            fogMaterial.SetFloat("_Fog_Size", 0);
+            fogMaterial.SetColor("_Fog_Color", Color.white);
+        }
     }
 
 }

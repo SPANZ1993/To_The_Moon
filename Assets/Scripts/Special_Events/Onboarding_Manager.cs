@@ -132,13 +132,24 @@ public class Onboarding_Manager : MonoBehaviour
 
     IEnumerator _executeOnboarding(float delay){
 
-        UI_Controller.instance.DisableUIElement(GameObject.Find("Bookshelf_Menu"));
-        UI_Controller.instance.DisableUIElement(GameObject.Find("Computer_Menu"));
-        screenTint = GameObject.Find("Screen_Tint");
-        UI_Controller.instance.EnableUIElement(screenTint);
+        IEnumerator disableUIOnboardingStart(){
+            bool passed = true;
+            try{
+                UI_Controller.instance.DisableUIElement(GameObject.Find("Bookshelf_Menu"));
+                UI_Controller.instance.DisableUIElement(GameObject.Find("Computer_Menu"));
+                screenTint = GameObject.Find("Screen_Tint");
+                UI_Controller.instance.EnableUIElement(screenTint);
+            }
+            catch(System.Exception e){
+                passed = false;
+            }
+            if(!passed){
+                yield return new WaitForSeconds(0);
+                StartCoroutine(disableUIOnboardingStart());
+            }
+        }
 
-
-
+        StartCoroutine(disableUIOnboardingStart());
 
         Touch_Detection.instance.disableReticle(disableswipes:true);
         //Debug.Log("DISABLING SWIPES");
@@ -448,7 +459,6 @@ public class Onboarding_Manager : MonoBehaviour
 
 
     private void startMineshaftExplanation(){
-        Debug.Log("IN HERE MOGGO");
         disableAllMineAreaColliders();
         Touch_Detection.instance.disableReticle(disableswipes:true);
         
@@ -584,7 +594,6 @@ public class Onboarding_Manager : MonoBehaviour
 
 
    private void startRocketExplanation(){
-        Debug.Log("IN HERE MOGGORIFFIC");
         disableAllRocketAreaColliders();
         Touch_Detection.instance.disableReticle(disableswipes:true);
         
@@ -819,6 +828,11 @@ public class Onboarding_Manager : MonoBehaviour
         Touch_Detection.instance.enableReticle(immediately:true);
         Touch_Detection.instance.enableSwipes(immediately:true);
         UI_Controller.instance.EnableUIElement(screenTint, touchOnly:true);
+
+
+        // Sometimes the detection on the button gets a little wonky so hopefully this should make sure it's in a valid state
+        GameObject.Find("Rocket_Button").GetComponent<Launch_Button_Controller>().reset();
+
         //Debug.Log("GAME STARTED!");
         Destroy(this);
     }

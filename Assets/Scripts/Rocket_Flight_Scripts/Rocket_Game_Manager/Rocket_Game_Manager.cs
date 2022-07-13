@@ -219,7 +219,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     private void endGameOnFailure(){
         // End this scene as if the rocket did not reach the destination
         uiController.rocketFlightDisableRewardedAdConfirmationBox();
-        gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude);
+        gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude, freePlayMode:freePlayMode);
         SendAlertEndScene();
     }
 

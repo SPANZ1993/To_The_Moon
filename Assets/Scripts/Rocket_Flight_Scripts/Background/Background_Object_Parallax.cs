@@ -11,7 +11,7 @@ public class Background_Object_Parallax : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private float objectBotPos, objectTopPos;
+    public float objectBotPos, objectTopPos;
     public float rocketBotAlt;
     public float rocketTopAlt;
     private float rocketAltDiff;

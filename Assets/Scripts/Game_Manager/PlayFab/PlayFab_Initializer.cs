@@ -145,6 +145,10 @@ public class PlayFab_Initializer : MonoBehaviour
         }
     }
 
+
+
+    //IF WE ARE IN THE LANDING PAGE AND (AN ACCOUNT WAS CREATED OR THE ACCOUNT DOESN'T HAVE A DISPLAY NAME) THEN SET PROGRESSION MANAGER TO INITIALIZED SO IT RUNS THE ONBOARDING SEQUENCE
+
     void onPlayFabAccountCreate(){
         loggedInPlayFabServer = true;
         failedLogInPlayFabServer = false;
@@ -152,6 +156,7 @@ public class PlayFab_Initializer : MonoBehaviour
         loadedData = new SaveGameObject();
         if (SceneManager.GetActiveScene().name == "Landing_Page"){ // It should always be this scene if we are creating a user
             loadedData.Metrics.numGameStartups = 0;
+            Progression_Manager.instance.initialized = true;
         }
     }
     
@@ -163,6 +168,10 @@ public class PlayFab_Initializer : MonoBehaviour
         if (result.InfoResultPayload.PlayerProfile != null){
             displayName = result.InfoResultPayload.PlayerProfile.DisplayName;
         }
+        if(displayName == null || displayName == "" && SceneManager.GetActiveScene().name == "Landing_Page"){
+            Progression_Manager.instance.initialized = true;
+        }
+
     }
 
     void onPlayFabLoginFailure(){
@@ -203,6 +212,7 @@ public class PlayFab_Initializer : MonoBehaviour
 
     void onGetTitleDataSuccess(Dictionary<string, string> TitleData){
         titleData = TitleData;
+        Debug.Log("GOT TITLE DATA: " + titleData["Robot Message"]);
     }
 
     void onGetTitleDataFailure(){

@@ -483,7 +483,7 @@ public class Touch_Detection : MonoBehaviour
         while(enabledSwipes == null){
             yield return new WaitForSeconds(0);
         }
-        //Debug.Log("DISABLING " + swipe);
+        Debug.Log("DISABLING " + swipe);
         //Debug.Log(swipe + " DISABLED");
         enabledSwipes[swipe] = false;
         enableSwipesAfterCurTap[swipe] = false;

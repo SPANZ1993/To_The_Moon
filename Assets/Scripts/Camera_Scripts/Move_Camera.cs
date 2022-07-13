@@ -231,6 +231,12 @@ public class Move_Camera : MonoBehaviour
     // public bool startedRocketSceneTransition {get; private set;}
     // public bool startedMineSceneTransition {get; private set;}
 
+    public void setToLocation(int loci){
+        cur_i = loci;
+        cur_dest_i = loci;
+        gameObject.transform.position = locs[loci];
+    }
+
 
     bool isFrozen(){
         //Debug.Log("UHHH: " + !(!uiController.rocketBuildingMenuDisplayed && !uiController.researchMenuDisplayed && !sceneManager.startedRocketSceneTransition && !sceneManager.startedMineSceneTransition));

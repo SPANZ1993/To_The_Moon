@@ -151,7 +151,7 @@ public class Metrics_Object
         return Math.Sqrt((rocketGameTotalNonAutopilotGemsCollectedSquared/numNonAutopilotFlights) - (Math.Pow(getMeanRocketGameNonAutopilotGemsCollected(), 2.0)/numNonAutopilotFlights));
     }
 
-    public void updateFlights(double flightGems, bool autopilot, float altitude){
+    public void updateFlights(double flightGems, bool autopilot, float altitude, bool freePlayMode=false){
         //Debug.Log("UPDATING FLIGHT METRICS: " + flightGems + " GEMS --- AUTOPILOT? " + autopilot + " --- ALTITUDE: " + altitude);
         
         if (autopilot){
@@ -160,21 +160,25 @@ public class Metrics_Object
             rocketGameTotalAutopilotGemsCollectedSquared += Math.Pow(flightGems, 2.0);
         }
         else{
-            numNonAutopilotFlights++;
-            //Debug.Log("OLD FLIGHT GEMS: " + rocketGameTotalNonAutopilotGemsCollected);
-            rocketGameTotalNonAutopilotGemsCollected += flightGems;
-            //Debug.Log("NEW FLIGHT GEMS: " + rocketGameTotalNonAutopilotGemsCollected);
-            //Debug.Log("OLD FLIGHT GEMS SQUARED: " + rocketGameTotalNonAutopilotGemsCollectedSquared);
-            rocketGameTotalNonAutopilotGemsCollectedSquared += Math.Pow(flightGems, 2.0);
-            //Debug.Log("NEW FLIGHT GEMS SQUARED: " + rocketGameTotalNonAutopilotGemsCollectedSquared);
-            
+
+            // The gems and altitude we achieve in free play mode shouldn't affect the metrics which are used to
+            // Do autopilot simulations
+            if(!freePlayMode){
+                numNonAutopilotFlights++;
+                //Debug.Log("OLD FLIGHT GEMS: " + rocketGameTotalNonAutopilotGemsCollected);
+                rocketGameTotalNonAutopilotGemsCollected += flightGems;
+                //Debug.Log("NEW FLIGHT GEMS: " + rocketGameTotalNonAutopilotGemsCollected);
+                //Debug.Log("OLD FLIGHT GEMS SQUARED: " + rocketGameTotalNonAutopilotGemsCollectedSquared);
+                rocketGameTotalNonAutopilotGemsCollectedSquared += Math.Pow(flightGems, 2.0);
+                //Debug.Log("NEW FLIGHT GEMS SQUARED: " + rocketGameTotalNonAutopilotGemsCollectedSquared);
+            }
             
             // TODO: Make sure this can't be higher than the max altitude of the current level (If we are playing with a max altitude)
             if (maxAltAllTime <= Math.Floor(altitude)){
                 maxAltAllTime = Math.Floor(altitude);
             }
 
-            if(flightGems >= rocketGameMaxNonAutopilotGemsCollected){
+            if(flightGems >= rocketGameMaxNonAutopilotGemsCollected && !freePlayMode){
                 rocketGameMaxNonAutopilotGemsCollected = flightGems;
             }
         }

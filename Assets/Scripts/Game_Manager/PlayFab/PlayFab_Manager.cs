@@ -98,8 +98,12 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     void OnLoginSuccess(LoginResult result){
+        Debug.Log("LOGGED IN");
         //Debug.Log("PLAYFAB: Successful login/account create! ID: " + result.PlayFabId + " NEW ACCOUNT: " + result.NewlyCreated);
         if (result != null && result.PlayFabId != null && result.NewlyCreated != null){
+            if(result.NewlyCreated){
+                Debug.Log("CREATED AN ACCOUNT");
+            }
             if(result.NewlyCreated == true && PlayFabAccountCreateSuccessInfo != null){
                 PlayFabAccountCreateSuccessInfo();
             }

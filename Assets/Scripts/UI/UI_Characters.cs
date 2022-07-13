@@ -203,7 +203,7 @@ namespace UI_Characters
                     break;
 
                 case Characters.Guy:
-                    if(e == Emotions.Idle){
+                    if(e == Emotions.Talking){
                         speechStrs = new string[]{
                             "Speech_Beep_Stonks_Neutral_0",
                             "Speech_Beep_Stonks_Neutral_1",
@@ -248,7 +248,7 @@ namespace UI_Characters
                     break;
 
                 case Characters.Dog:
-                    if(e == Emotions.Idle){
+                    if(e == Emotions.Talking){
                         speechStrs = new string[]{
                             "Speech_Beep_Dog_Neutral_0",
                             "Speech_Beep_Dog_Neutral_1",
@@ -293,7 +293,7 @@ namespace UI_Characters
                     break;
 
                 case Characters.Gorilla:
-                    if(e == Emotions.Idle){
+                    if(e == Emotions.Talking){
                         speechStrs = new string[]{
                             "Speech_Beep_Gorilla_Neutral_0",
                             "Speech_Beep_Gorilla_Neutral_1",

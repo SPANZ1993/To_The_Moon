@@ -77,21 +77,35 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
     }
 
 
+    public void reset(){
+        coverOpen = false;
+        buttonPressed = false;
+        buttonPressStarted = false;
+
+    // Just track the previous vals so we can easily play sound effects
+        coverOpenPrevFrame = null;
+        buttonPressedPrevFrame = null;
+        buttonPressStartedPrevFrame = null;
+
+        enable();
+    }
+
     public void onTapStart()
     {
         if (!launched){
             // Debug.Log("LBC START");
             double dragStartTime = touchDetection.dragStartTime;
 
+            Debug.Log("STARTED TAPPING: " + coverOpen + " --- " + (curDragLocs.Count > 1) + " --- " + buttonPressStarted);
             if (coverOpen && curDragLocs.Count > 1){
-                // Debug.Log("Dragged On");
+                Debug.Log("Dragged On");
                 // Animate the button press again if we drag off then back onto the sprite
                 if (buttonPressStarted){
                     buttonPressed = true;
                 }
             }
             else if (coverOpen){
-                // Debug.Log("Pressed On");
+                Debug.Log("Pressed On");
                 buttonPressStarted = true;
                 buttonPressed = true;
             }
@@ -120,6 +134,7 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
         }
         else
         {
+            Debug.Log("YA TAPPED IT  --- " + wasFirst + " --- " + coverOpen + " --- " +  buttonPressStarted + " --- " + buttonPressed);
             //Debug.Log("Finger Lifted");
             if (wasFirst && coverOpen && buttonPressStarted && buttonPressed){
                 // Check if we pressed the button

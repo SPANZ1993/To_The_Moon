@@ -15,7 +15,6 @@ public class Speech_Object_Generator : MonoBehaviour
 {
 
     public static Speech_Object_Generator instance;
-    private Localization_Manager localizationManager;
 
     private UI_Characters.Characters2Names characters2Names;
     private UI_Characters.Characters2DisplayNames characters2DisplayNames;
@@ -35,6 +34,9 @@ public class Speech_Object_Generator : MonoBehaviour
         if (!instance){
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            characters2Emotions = new UI_Characters.Characters2Emotions();
+            characters2Names = new UI_Characters.Characters2Names();
+            characters2DisplayNames = new UI_Characters.Characters2DisplayNames();
         }
         else{
             Destroy(this.gameObject);
@@ -42,11 +44,9 @@ public class Speech_Object_Generator : MonoBehaviour
     }
 
     void Start(){
-        localizationManager = Localization_Manager.instance;
+        
 
-        characters2Emotions = new UI_Characters.Characters2Emotions();
-        characters2Names = new UI_Characters.Characters2Names();
-        characters2DisplayNames = new UI_Characters.Characters2DisplayNames();
+
 
         script2Character = new Dictionary<string, UI_Characters.Characters>(){
             // Robot
@@ -186,6 +186,39 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.21.6", UI_Characters.Characters.Robot}, // 104
             {"Events_Script.Onboarding.21.7", UI_Characters.Characters.Robot}, // 105
             // End Onboarding
+
+
+            // NextLevelNotReadyEarth
+            {"Events_Script.NextLevelNotReady.Earth.1.1", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.1.2", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.1.3", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.1.4", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.1.5", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.1.6", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.1", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.2", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.3", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.4", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.5", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.6", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.7", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.8", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.9", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.10", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.11", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.12", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.13", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.14", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.15", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.16", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.17", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.18", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelNotReady.Earth.2.19", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.20", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Earth.2.21", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.22", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Earth.2.23", UI_Characters.Characters.Dog},
+            // End NextLevelNotReadyEarth
         };
         script2Emotion = new Dictionary<string, UI_Characters.Emotions>(){
             // Robot
@@ -324,6 +357,39 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.21.6", UI_Characters.Emotions.Talking}, // 104
             {"Events_Script.Onboarding.21.7", UI_Characters.Emotions.Talking}, // 105
             // End Onboarding
+
+
+            // NextLevelNotReadyEarth
+            {"Events_Script.NextLevelNotReady.Earth.1.1", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.2", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.3", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.4", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.5", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.6", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.1", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.2", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.3", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.4", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.5", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.6", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.7", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.8", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.9", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.10", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.11", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.12", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.13", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.14", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.15", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.16", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.17", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.18", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.19", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.20", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.21", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.22", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.23", UI_Characters.Emotions.Talking},
+            // End NextLevelNotReadyEarth
         };
         script2PostEmotion = new Dictionary<string, UI_Characters.Emotions>(){
             // Robot
@@ -461,6 +527,39 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.21.6", UI_Characters.Emotions.Idle}, // 104
             {"Events_Script.Onboarding.21.7", UI_Characters.Emotions.Idle}, // 105
             // End Onboarding
+        
+            // NextLevelNotReadyEarth
+            {"Events_Script.NextLevelNotReady.Earth.1.1", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.1.2", UI_Characters.Emotions.Sad},
+            {"Events_Script.NextLevelNotReady.Earth.1.3", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.4", UI_Characters.Emotions.Sad},
+            {"Events_Script.NextLevelNotReady.Earth.1.5", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.1.6", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.1", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.2.2", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.2.3", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.2.4", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.5", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.6", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.7", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.8", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.9", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.2.10", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.11", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.12", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.13", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.2.14", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.15", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.16", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.17", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Earth.2.18", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.19", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.20", UI_Characters.Emotions.Sad},
+            {"Events_Script.NextLevelNotReady.Earth.2.21", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.22", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Earth.2.23", UI_Characters.Emotions.Happy},
+            // End NextLevelNotReadyEarth
+
         };
 
         allKeysList = getAllKeys();
@@ -503,11 +602,11 @@ public class Speech_Object_Generator : MonoBehaviour
 
             string curStringTableName = "";
             if(key.StartsWith("Robot_Script")){
-                localizedStrTemp = localizationManager.GetLocalizedString(robotStringTableName, key);
+                localizedStrTemp = Localization_Manager.instance.GetLocalizedString(robotStringTableName, key);
                 curStringTableName = robotStringTableName;
             }
             else if(key.StartsWith("Events_Script")){
-                localizedStrTemp = localizationManager.GetLocalizedString(eventsScriptTableName, key);
+                localizedStrTemp = Localization_Manager.instance.GetLocalizedString(eventsScriptTableName, key);
                 curStringTableName = eventsScriptTableName;
             }
             else{
@@ -544,11 +643,11 @@ public class Speech_Object_Generator : MonoBehaviour
     }
 
     public string defaultStringFormatFunc(string inputStr){
-        inputStr = inputStr.Replace("{gamename}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Game_Name"));
+        inputStr = inputStr.Replace("{gamename}", Localization_Manager.instance.GetLocalizedString(main_area_ui_table_name, "UI.General.Game_Name"));
         inputStr = inputStr.Replace("{playername}", Game_Manager.instance.userDisplayName);
         inputStr = inputStr.Replace("{coinname}", Game_Manager.instance.coinName);
-        inputStr = inputStr.Replace("{gemname_singular}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Gem_Name_Singular"));
-        inputStr = inputStr.Replace("{gemname_plural}", localizationManager.GetLocalizedString(main_area_ui_table_name, "UI.General.Gem_Name_Plural"));
+        inputStr = inputStr.Replace("{gemname_singular}", Localization_Manager.instance.GetLocalizedString(main_area_ui_table_name, "UI.General.Gem_Name_Singular"));
+        inputStr = inputStr.Replace("{gemname_plural}", Localization_Manager.instance.GetLocalizedString(main_area_ui_table_name, "UI.General.Gem_Name_Plural"));
         inputStr = inputStr.Replace("{robot}", characters2Names[UI_Characters.Characters.Robot]);
         inputStr = inputStr.Replace("{robotDisplay}", characters2DisplayNames[UI_Characters.Characters.Robot]);
         inputStr = inputStr.Replace("{stonks}", characters2Names[UI_Characters.Characters.Guy]);
@@ -584,7 +683,7 @@ public class Speech_Object_Generator : MonoBehaviour
         int curKeyStringConversationIndex = 0;
         int count = 1000; // Don't think we'll ever need to load a convo 1000 strings long
         while (stringsRemaining && count != 0){
-            curString = localizationManager.GetLocalizedString(stringTable, keyString);
+            curString = Localization_Manager.instance.GetLocalizedString(stringTable, keyString);
             if (formatFunc != null){
                 curString = formatFunc(curString);
             }
@@ -784,9 +883,17 @@ public class Speech_Object_Generator : MonoBehaviour
                         return false;
                     }
                     else{
-                        if(!characters2Emotions[curCharacter].Contains(curEmotion) || !characters2Emotions[curCharacter].Contains(curPostEmotion)){
-                            Debug.Log("IMPROPER CHARACTER EMOTIONS FOR KEY: " + k);
-                            return false;
+                        try{
+                            if(!characters2Emotions[curCharacter].Contains(curEmotion) || !characters2Emotions[curCharacter].Contains(curPostEmotion)){
+                                Debug.Log("IMPROPER CHARACTER EMOTIONS FOR KEY: " + k);
+                                return false;
+                            }
+                        }
+                        catch(System.Exception e){
+                            Debug.Log("WTF: " + curCharacter);
+                            Debug.Log("WTF: " + curEmotion);
+                            Debug.Log("WTF: " + curPostEmotion); 
+                            throw e;
                         }
                     }
                 }

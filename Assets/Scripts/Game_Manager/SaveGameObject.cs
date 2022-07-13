@@ -84,6 +84,7 @@ public class SaveGameObject
     public int CurrentLevelId;
     public int HighestLevelId;
     public bool RocketGameFreePlayMode;
+    public bool RocketGameFreePlayModeManuallySet;
 
 
     public SaveGameObject(){
@@ -141,6 +142,7 @@ public class SaveGameObject
         CurrentLevelId = 0;
         HighestLevelId = 0;
         RocketGameFreePlayMode = false;
+        RocketGameFreePlayModeManuallySet = false;
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -200,7 +202,9 @@ public class SaveGameObject
                             Dictionary<int, Dictionary<string, int>> serializedEventsState,
                             int currentLevelId,
                             int highestLevelId,
-                            bool rocketGameFreePlayMode){
+                            bool rocketGameFreePlayMode,
+                            bool rocketGameFreePlayModeManuallySet
+                            ){
 
         IsValid = isValid;
         IsNewGame = isNewGame;
@@ -258,6 +262,7 @@ public class SaveGameObject
         CurrentLevelId = currentLevelId;
         HighestLevelId = highestLevelId;
         RocketGameFreePlayMode = rocketGameFreePlayMode;
+        RocketGameFreePlayModeManuallySet = rocketGameFreePlayModeManuallySet;
     }
 
 }

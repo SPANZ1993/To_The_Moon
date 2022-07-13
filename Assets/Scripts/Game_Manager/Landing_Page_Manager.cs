@@ -63,6 +63,15 @@ public class Landing_Page_Manager : MonoBehaviour
             }
         }
 
+
+        // THIS NEEDS TO HAPPEN BEFORE THE MAIN AREA IS LOADED ON GAME STARTUP
+        Game_Manager.instance.initializeProgressionManager(
+            Game_Manager.instance.loadedGame.SerializedEventsState, 
+            Game_Manager.instance.loadedGame.CurrentLevelId, 
+            Game_Manager.instance.loadedGame.HighestLevelId, 
+            Game_Manager.instance.loadedGame.RocketGameFreePlayMode,
+            Game_Manager.instance.loadedGame.RocketGameFreePlayModeManuallySet);
+
         StartCoroutine(waitForSceneDisplayTime());
     }
 }

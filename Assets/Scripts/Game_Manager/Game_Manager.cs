@@ -687,7 +687,7 @@ public class Game_Manager : MonoBehaviour
         // }
 
 
-        initializeProgressionManager(loadedGame.SerializedEventsState, loadedGame.CurrentLevelId , loadedGame.HighestLevelId, loadedGame.RocketGameFreePlayMode);
+        //initializeProgressionManager(loadedGame.SerializedEventsState, loadedGame.CurrentLevelId , loadedGame.HighestLevelId, loadedGame.RocketGameFreePlayMode);
 
 
         // HANDLE TITLE DATA
@@ -894,11 +894,14 @@ public class Game_Manager : MonoBehaviour
     }
 
 
-    private void initializeProgressionManager(Dictionary<int, Dictionary<string, int>> SerializedEventsState, int currentLevelId, int highestLevelId, bool rocketGameFreePlayMode){
+    public void initializeProgressionManager(Dictionary<int, Dictionary<string, int>> SerializedEventsState, int currentLevelId, int highestLevelId, bool rocketGameFreePlayMode, bool rocketGameFreePlayModeManuallySet){
         Progression_Manager.instance.initializeEventsState(SerializedEventsState);
         Progression_Manager.instance.Set_Highest_Level(highestLevelId);
         Progression_Manager.instance.Set_Current_Level(currentLevelId);
         Progression_Manager.instance.RocketGameFreePlayMode = rocketGameFreePlayMode;
+        Progression_Manager.instance.RocketGameFreePlayModeManuallySet = rocketGameFreePlayModeManuallySet;
+        Debug.Log("GAME MANAGER INITIALIZING PROGRESSION MANAGER " + SceneManager.GetActiveScene().name);
+        Progression_Manager.instance.initialized = true;
     }
 
 
