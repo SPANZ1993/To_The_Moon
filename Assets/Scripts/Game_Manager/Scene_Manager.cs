@@ -258,12 +258,17 @@ public class Scene_Manager : MonoBehaviour
     IEnumerator _onEndMineScene()
     {
 
-        if (gameObject.GetComponent<Circle_Wipe>() == null){
-            gameObject.AddComponent<Circle_Wipe>();
+        // if (gameObject.GetComponent<Circle_Wipe>() == null){
+        //     gameObject.AddComponent<Circle_Wipe>();
+        // }
+
+        if (gameObject.GetComponent<Wipe>() == null){
+            gameObject.AddComponent<Wipe>();
         }
 
         if(!gameManager.currentlySerializing){ // If we wanna wait for some stuff put it here
-            Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
+            Scene_Transition wipe = gameObject.GetComponent<Wipe>();
+            //Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
             if (wipe != null){
                 wipe.BeginLeavingScene(nextScene: "Main_Area");
                 scene_name = "Main_Area";
@@ -288,9 +293,12 @@ public class Scene_Manager : MonoBehaviour
         if(true){ // If we wanna wait for some stuff put it here
             //SceneManager.LoadScene("Mine_Game");
             //scene_name = "Mine_Game";
-            gameObject.AddComponent<Circle_Wipe>();
-            Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
+            //gameObject.AddComponent<Circle_Wipe>();
+            gameObject.AddComponent<Wipe>();
+            // CIRCLE WIPE IS OFF THE TABLE RIGHT NOW... GONNA REQUIRE SOME SERIOUS RENDERING FUCKERY
+            //Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
             //Scene_Transition wipe = new Wipe();
+            Scene_Transition wipe = gameObject.GetComponent<Wipe>();
             wipe.BeginLeavingScene(nextScene: "Mine_Game");
         }
         else{

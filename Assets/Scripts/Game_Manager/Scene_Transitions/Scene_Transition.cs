@@ -45,7 +45,7 @@ public abstract class Scene_Transition: MonoBehaviour
         if (uiController != null){
             if (Wipe_Rect != null){
                 //Wipe_Rect.GetComponent<Image>().enabled = false;
-                uiController.DisableUIElement(Wipe_Rect);
+                //uiController.DisableUIElement(Wipe_Rect);
             }
         }
     }
