@@ -69,7 +69,7 @@ public class Level_Scriptable_Object :  ScriptableObject
         Debug.Assert(UnlockedResearchIds.Select(id => Research_Manager.instance.researchList.Select(r => r.researchId).Contains(id)).All(v => v));
         Debug.Assert(UnlockedResearcherIds.Select(id => Researcher_Manager.instance.researchersList.Select(r => r.researcherId).Contains(id)).All(v => v));
         rocketGameInitializationObject.Validate();
-        Debug.Log("VALIDATED LEVEL: " + LevelName);
+        //Debug.Log("VALIDATED LEVEL: " + LevelName);
     }
 
 }

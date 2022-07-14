@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a822b4866d8b1c34680670fce38e16d1, type: 3}
   m_Name: Rocket_Game_Initialization_Scriptable_Object_Earth
   m_EditorClassIdentifier: 
-  thrustAltMultiplier: 1
+  thrustAltMultiplier: 25
   targetAltitude: 325
   fogAlts:
   - 0

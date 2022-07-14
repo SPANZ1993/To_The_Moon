@@ -68,7 +68,7 @@ public class Object_Pool : MonoBehaviour
         VerifyAllPoolObjects();
         InstantiateAllPoolObjects();
         initialized = true;
-        Debug.Log("OBJECT POOL INITIALIZED");
+        //Debug.Log("OBJECT POOL INITIALIZED");
     }
 
     bool firstFrame = true;

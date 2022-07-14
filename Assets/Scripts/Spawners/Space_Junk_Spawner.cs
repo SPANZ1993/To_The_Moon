@@ -93,7 +93,7 @@ public class Space_Junk_Spawner : MonoBehaviour
                     Spawn();
                 }
                 else if(shouldSpawn){
-                    Debug.Log("STILL NOT SPAWNING????");
+                    //Debug.Log("STILL NOT SPAWNING????");
                 }
             }
         }
@@ -196,11 +196,6 @@ public class Space_Junk_Spawner : MonoBehaviour
         //Instantiate(spawnObjList[Random.Range(0, spawnObjList.Count)], new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
         //spawnObjectPool.spawnPoolObj(Random.Range(0, spawnObjectPool.poolObjList.Count), new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
 
-        if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Cow")){
-            Debug.Log("TRYING TO SPAWN SPACE JUNK FLYER");
-        }
-
-
 
         if (possibleSpawnObjIndices.Count > 0){
             spawnPoolObj(possibleSpawnObjIndices[Random.Range(0, possibleSpawnObjIndices.Count)], new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
@@ -250,17 +245,17 @@ public class Space_Junk_Spawner : MonoBehaviour
             }
         }
         
-        Debug.Log("POSSIBLE INDICES: " + string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])));
+        //Debug.Log("POSSIBLE INDICES: " + string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])));
 
         //Debug.Log("Calculating Potential Spawn Indices Altitude is " + rocketAltitude +  " Indices: " + System.String.Join(" ", possibleSpawnObjIndices));
     }
 
     void onPause(bool Paused){
         if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Cow")){
-            Debug.Log("SPAWNER PAUSED? " + Paused);
+            //Debug.Log("SPAWNER PAUSED? " + Paused);
         }
         else if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Star")){
-            Debug.Log("BACKGROUND SPAWNER PAUSED? " + Paused);
+            //Debug.Log("BACKGROUND SPAWNER PAUSED? " + Paused);
         }
 
         paused = Paused;

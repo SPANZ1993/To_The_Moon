@@ -75,12 +75,16 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
     }
 
     public void initializeRocketGame(bool freePlayMode){
-        Debug.Log("INITIALIZING ROCKET GAME");
+        //Debug.Log("INITIALIZING ROCKET GAME");
 
         Rocket_Game_Manager rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
         rocketGameManager.targetAltitude = targetAltitude;
         rocketGameManager.freePlayMode = freePlayMode;
+        rocketGameManager.thrustAltMultiplier = thrustAltMultiplier;
         // TODO: THRUST ALT MULTIPLIER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        Rocket_Control rocketControl =  GameObject.Find("Rocket").GetComponent<Rocket_Control>();
+        rocketControl.thrustAltMultiplier = thrustAltMultiplier;
 
         Background_Controller backgroundController = GameObject.Find("Background_Manager").GetComponent<Background_Controller>();
         backgroundController.fogAlts = new List<float>(fogAlts);
@@ -136,6 +140,7 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
             //Debug.Log("NEW PARALLAX POS PLANET: " + arrivingObjectParallax.objectTopPos +  " --- " +  arrivingObjectParallax.objectBotPos);
             //Debug.Log("NEW PARALLAX ALT ROCKET: " + arrivingObjectParallax.rocketBotAlt + " --- " + arrivingObjectParallax.rocketTopAlt);
         }
+
 
         arrivingObjectParallax.firstEnabled = true;
     }

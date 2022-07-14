@@ -20,6 +20,11 @@ public class Rocket_Game_Manager : MonoBehaviour
     public float rocketAltitude; // Measured in "Altitude"
     public float rocketMaxAltitude;
 
+
+    public float? thrustAltMultiplier; // New
+    public float rocketDisplayAltitude; // New
+    public float rocketMaxDisplayAltitude; // New
+
     public int numGemsCollected = 0;
     private GameObject arrivingPlanet;
     //public double rocketAltitude;
@@ -71,8 +76,6 @@ public class Rocket_Game_Manager : MonoBehaviour
     public static event PauseLaunchScene PauseLaunchSceneInfo;
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -106,19 +109,20 @@ public class Rocket_Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameStarted = true; // Remove.. set this to true once you gain control of the rocket
+        gameStarted = true; // NEED THIS HERE OR THE SPACE JUNK SPAWNERS AND PARALLAX CANT INITIALIZE.. NOT SURE WHY
 
-        if (firstFrameGameStarted && gameStarted){
+        if (firstFrameGameStarted){
             rocketOrigGameHeight = rocket.transform.position.y;
             firstFrameGameStarted = false;
             gameTimer = 0f;
         }
-        else if (!firstFrameGameStarted && gameStarted){
-            gameTimer += Time.deltaTime;
-            //updateUI();
-        }
+        // else if (!firstFrameGameStarted && gameStarted){
+        //     gameTimer += Time.deltaTime;
+        //     //updateUI();
+        // }
         if (gameStarted){
             rocketAltitude = calculateAltitude(rocket);
+            rocketDisplayAltitude = rocketAltitude * (float)thrustAltMultiplier;
             if ((rocketMaxAltitude == -1 || rocketAltitude > rocketMaxAltitude) && !startedRocketControlSpiral){
                 rocketMaxAltitude = rocketAltitude;
             }
@@ -160,6 +164,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         Ads_Manager.AdShowErrorInfo += onAdShowError;
         Gem_Collection_Controller.GemCollectedInfo += onGemCollected;
         UI_Controller.AlertRewardedAdRejectedInfo += onRewardedAdRejected;
+        Scene_Transition.EnteringSceneCompleteInfo += startGame;
     }
 
     void OnDisable()
@@ -171,6 +176,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         Ads_Manager.AdShowErrorInfo -= onAdShowError;
         Gem_Collection_Controller.GemCollectedInfo -= onGemCollected;
         UI_Controller.AlertRewardedAdRejectedInfo -= onRewardedAdRejected;
+        Scene_Transition.EnteringSceneCompleteInfo += startGame;
     }
 
 
@@ -219,7 +225,7 @@ public class Rocket_Game_Manager : MonoBehaviour
     private void endGameOnFailure(){
         // End this scene as if the rocket did not reach the destination
         uiController.rocketFlightDisableRewardedAdConfirmationBox();
-        gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude, freePlayMode:freePlayMode);
+        gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude*(float)thrustAltMultiplier, freePlayMode:freePlayMode);
         SendAlertEndScene();
     }
 
@@ -480,5 +486,14 @@ public class Rocket_Game_Manager : MonoBehaviour
         //gameManager.Handle_Autopilot_Return();
     }
 
+
+    void startGame(){
+        IEnumerator givePlayerControl(){
+            while(thrustAltMultiplier == null){
+                yield return new WaitForSeconds(0);
+            }
+            gameStarted = true;
+        }
+    }
 
 }

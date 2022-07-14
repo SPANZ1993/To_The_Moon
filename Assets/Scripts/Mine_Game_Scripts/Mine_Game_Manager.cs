@@ -134,7 +134,7 @@ public class Mine_Game_Manager : MonoBehaviour
         //TimerText = TimerTextObj.GetComponent<TextMeshProUGUI>();
 
         score = 0.0;
-        timer = 15.0;
+        timer = 60.0;
         gameOver = false;
 
         LeanTween = GetComponent<LeanTween>();

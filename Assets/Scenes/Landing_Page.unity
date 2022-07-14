@@ -3962,7 +3962,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f295b1435076404c88b0f625b43627e, type: 2}
   - {fileID: 11400000, guid: 56d44de6835c20241993df3d097f5a77, type: 2}
   - {fileID: 11400000, guid: 27a331c3e3cee18468d14e25d0e3edad, type: 2}
-  - {fileID: 11400000, guid: 694979fd3e6df1a44a9f18a8b6e901ba, type: 2}
   activeProducts:
   - {fileID: 11400000, guid: d032ee0d989a8b7419c490e6a1a50c13, type: 2}
   - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}

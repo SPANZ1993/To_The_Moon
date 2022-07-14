@@ -13,7 +13,7 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
 
     public override bool shouldTrigger(){
         bool shouldTrigger = base.shouldTrigger();
-        Debug.Log("LEVEL END -- IS THE RECENTLY COMPLETED LEVEL ID EQUAL TO THIS LEVEL ID? " + (Progression_Manager.instance.recentlyCompletedLevelId == LevelId) + " ... SHOULD WE TRIGGER OTHERWISE? " + shouldTrigger + " TIMES TRIGGERED " + Progression_Manager.instance.EventIdToTimesTriggered[base.eventId]);
+        //Debug.Log("LEVEL END -- IS THE RECENTLY COMPLETED LEVEL ID EQUAL TO THIS LEVEL ID? " + (Progression_Manager.instance.recentlyCompletedLevelId == LevelId) + " ... SHOULD WE TRIGGER OTHERWISE? " + shouldTrigger + " TIMES TRIGGERED " + Progression_Manager.instance.EventIdToTimesTriggered[base.eventId]);
         if(shouldTrigger){
             if(Progression_Manager.instance.recentlyCompletedLevelId != LevelId){
                 shouldTrigger = false;

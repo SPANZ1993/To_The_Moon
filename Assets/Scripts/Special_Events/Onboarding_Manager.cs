@@ -245,7 +245,7 @@ public class Onboarding_Manager : MonoBehaviour
                 UI_Controller.instance.DisableUIElement(screenTint);
                 UI_Controller.instance.DisableUIElement(nameInputBox);
                 Game_Manager.instance.userDisplayName = displayName;
-                Debug.Log("SETTING DISPLAY NAME TO: " + Game_Manager.instance.userDisplayName);
+                //Debug.Log("SETTING DISPLAY NAME TO: " + Game_Manager.instance.userDisplayName);
                 UI_Controller.instance.displayNameConfirmationBox(displayName);
                 //startOnboardSpeech(1);
             }
@@ -307,7 +307,7 @@ public class Onboarding_Manager : MonoBehaviour
                 UI_Controller.instance.DisableUIElement(screenTint);
                 UI_Controller.instance.DisableUIElement(coinNameInputBox);
                 Game_Manager.instance.coinName = coinName + Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.General.Coin").ToLower();
-                Debug.Log("SETTING COIN NAME TO: " + Game_Manager.instance.coinName);
+                //Debug.Log("SETTING COIN NAME TO: " + Game_Manager.instance.coinName);
                 //startOnboardSpeech(2);
                 UI_Controller.instance.displayCoinNameConfirmationBox(coinName + Localization_Manager.instance.GetLocalizedString("UI_Banner", "UI.General.Coin").ToLower());
             }
@@ -395,7 +395,7 @@ public class Onboarding_Manager : MonoBehaviour
         }
 
         Touch_Detection.instance.disableSwipes();
-        Debug.Log("AT THE MINES BABBY");
+        //Debug.Log("AT THE MINES BABBY");
         StartCoroutine(_startMinecartSpeech(.5f));
     }
 
@@ -426,7 +426,7 @@ public class Onboarding_Manager : MonoBehaviour
             }
             else if(minecartTappedPrevFrame){
                 // Disable Everything
-                Debug.Log("OKAY");
+                //Debug.Log("OKAY");
                 disableAllMineAreaColliders();
                 startMineshaftExplanation();
                 minecartTappedPrevFrame = false;

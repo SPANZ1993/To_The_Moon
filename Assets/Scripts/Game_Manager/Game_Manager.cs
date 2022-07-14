@@ -900,7 +900,7 @@ public class Game_Manager : MonoBehaviour
         Progression_Manager.instance.Set_Current_Level(currentLevelId);
         Progression_Manager.instance.RocketGameFreePlayMode = rocketGameFreePlayMode;
         Progression_Manager.instance.RocketGameFreePlayModeManuallySet = rocketGameFreePlayModeManuallySet;
-        Debug.Log("GAME MANAGER INITIALIZING PROGRESSION MANAGER " + SceneManager.GetActiveScene().name);
+        //Debug.Log("GAME MANAGER INITIALIZING PROGRESSION MANAGER " + SceneManager.GetActiveScene().name);
         Progression_Manager.instance.initialized = true;
     }
 

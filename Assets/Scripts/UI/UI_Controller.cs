@@ -2720,12 +2720,12 @@ public class UI_Controller : MonoBehaviour
             Application.platform == RuntimePlatform.OSXPlayer || 
             Application.platform == RuntimePlatform.WindowsEditor)
         {
-            Debug.Log("We're on Apple");
+            //Debug.Log("We're on Apple");
             //IAP_Manager.instance.clearActiveProductsToShopPanel(); // Do this so that only the buttons in IAP_Manager.instance.tmpIAPButtonsObj remain
             
         }
         else{
-            Debug.Log("We're not on Apple");
+            //Debug.Log("We're not on Apple");
             DisableUIElement(GameObject.Find("Restore_Purchases_Panel"));
         }
 
@@ -3483,7 +3483,7 @@ public class UI_Controller : MonoBehaviour
         // string s = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude") + "\n" + Number_String_Formatter.rocketFlightFormatAltitudeNumberText(rocketGameManager.rocketAltitude);
         // Debug.Log("HELLO: " + s);
         // Debug.Log("YELLO: " + altitudeText);
-        altitudeText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude") + "\n" + Number_String_Formatter.rocketFlightFormatAltitudeNumberText(Math.Max(rocketGameManager.rocketAltitude, 0.0), decimals:3) + " " + localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude_Abbreviation");
+        altitudeText.text = localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude") + "\n" + Number_String_Formatter.rocketFlightFormatAltitudeNumberText(Math.Max(rocketGameManager.rocketDisplayAltitude, 0.0), decimals:3) + " " + localizationManager.GetLocalizedString(ui_rocket_flight_table, "UI.Rocket_Flight.Altitude_Abbreviation");
     }
 
 

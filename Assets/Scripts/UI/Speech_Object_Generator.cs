@@ -449,35 +449,35 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.13.3", UI_Characters.Emotions.Idle}, // 38
             {"Events_Script.Onboarding.13.4", UI_Characters.Emotions.Idle}, // 39
             {"Events_Script.Onboarding.13.5", UI_Characters.Emotions.Idle}, // 40
-            {"Events_Script.Onboarding.13.6", UI_Characters.Emotions.Idle}, // 41
-            {"Events_Script.Onboarding.13.7", UI_Characters.Emotions.Idle}, // 42
-            {"Events_Script.Onboarding.13.8", UI_Characters.Emotions.Idle}, // 42b
-            {"Events_Script.Onboarding.13.9", UI_Characters.Emotions.Idle}, // 43
-            {"Events_Script.Onboarding.13.10", UI_Characters.Emotions.Idle}, // 44
+            {"Events_Script.Onboarding.13.6", UI_Characters.Emotions.Talking}, // 41
+            {"Events_Script.Onboarding.13.7", UI_Characters.Emotions.Talking}, // 42
+            {"Events_Script.Onboarding.13.8", UI_Characters.Emotions.Talking}, // 42b
+            {"Events_Script.Onboarding.13.9", UI_Characters.Emotions.Talking}, // 43
+            {"Events_Script.Onboarding.13.10", UI_Characters.Emotions.Talking}, // 44
             {"Events_Script.Onboarding.13.11", UI_Characters.Emotions.Idle}, // 45
             {"Events_Script.Onboarding.13.12", UI_Characters.Emotions.Happy}, // 46
-            {"Events_Script.Onboarding.13.13", UI_Characters.Emotions.Idle}, // 46b
-            {"Events_Script.Onboarding.13.14", UI_Characters.Emotions.Idle}, // 47
-            {"Events_Script.Onboarding.13.15", UI_Characters.Emotions.Idle}, // 48
-            {"Events_Script.Onboarding.13.16", UI_Characters.Emotions.Idle}, // 49
+            {"Events_Script.Onboarding.13.13", UI_Characters.Emotions.Talking}, // 46b
+            {"Events_Script.Onboarding.13.14", UI_Characters.Emotions.Talking}, // 47
+            {"Events_Script.Onboarding.13.15", UI_Characters.Emotions.Talking}, // 48
+            {"Events_Script.Onboarding.13.16", UI_Characters.Emotions.Talking}, // 49
             {"Events_Script.Onboarding.13.17", UI_Characters.Emotions.Happy}, // 50
-            {"Events_Script.Onboarding.13.18", UI_Characters.Emotions.Idle}, // 51
+            {"Events_Script.Onboarding.13.18", UI_Characters.Emotions.Talking}, // 51
             {"Events_Script.Onboarding.13.19", UI_Characters.Emotions.Sad}, // 52
             {"Events_Script.Onboarding.13.20", UI_Characters.Emotions.Idle}, // 53
-            {"Events_Script.Onboarding.13.21", UI_Characters.Emotions.Idle}, // 54
+            {"Events_Script.Onboarding.13.21", UI_Characters.Emotions.Talking}, // 54
             {"Events_Script.Onboarding.13.22", UI_Characters.Emotions.Sad}, // 55
-            {"Events_Script.Onboarding.13.23", UI_Characters.Emotions.Idle}, // 56
-            {"Events_Script.Onboarding.13.24", UI_Characters.Emotions.Idle}, // 57
-            {"Events_Script.Onboarding.13.25", UI_Characters.Emotions.Idle}, // 58
-            {"Events_Script.Onboarding.13.26", UI_Characters.Emotions.Idle}, // 59
+            {"Events_Script.Onboarding.13.23", UI_Characters.Emotions.Talking}, // 56
+            {"Events_Script.Onboarding.13.24", UI_Characters.Emotions.Talking}, // 57
+            {"Events_Script.Onboarding.13.25", UI_Characters.Emotions.Talking}, // 58
+            {"Events_Script.Onboarding.13.26", UI_Characters.Emotions.Talking}, // 59
             {"Events_Script.Onboarding.13.27", UI_Characters.Emotions.Idle}, // 60
             {"Events_Script.Onboarding.13.28", UI_Characters.Emotions.Happy}, // 61
             {"Events_Script.Onboarding.13.29", UI_Characters.Emotions.Idle}, // 62
-            {"Events_Script.Onboarding.13.30", UI_Characters.Emotions.Idle}, // 63
-            {"Events_Script.Onboarding.13.31", UI_Characters.Emotions.Idle}, // 63b
+            {"Events_Script.Onboarding.13.30", UI_Characters.Emotions.Talking}, // 63
+            {"Events_Script.Onboarding.13.31", UI_Characters.Emotions.Talking}, // 63b
             {"Events_Script.Onboarding.13.32", UI_Characters.Emotions.Idle}, // 64
-            {"Events_Script.Onboarding.13.33", UI_Characters.Emotions.Idle}, // 65
-            {"Events_Script.Onboarding.13.34", UI_Characters.Emotions.Idle}, // 66
+            {"Events_Script.Onboarding.13.33", UI_Characters.Emotions.Talking}, // 65
+            {"Events_Script.Onboarding.13.34", UI_Characters.Emotions.Talking}, // 66
             {"Events_Script.Onboarding.13.35", UI_Characters.Emotions.Idle}, // 67
             {"Events_Script.Onboarding.13.36", UI_Characters.Emotions.Idle}, // 68
             {"Events_Script.Onboarding.13.37", UI_Characters.Emotions.Idle}, // 69

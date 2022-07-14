@@ -35,7 +35,7 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
         if(!Audio_Manager.instance.IsPlaying("UI_Button_Process_Complete") && !silent){
             Audio_Manager.instance.Play("UI_Button_Process_Complete");
         }
-        Debug.Log("PURCHASE COMPLETE FOR PRODUCT: " + product);
+        //Debug.Log("PURCHASE COMPLETE FOR PRODUCT: " + product);
         IAP_Manager.instance.updateAllShopPanels();
     }
 

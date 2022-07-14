@@ -123,7 +123,7 @@ public class PlayFab_Initializer : MonoBehaviour
             if(EndingPlayFabInitiationInfo != null){
                 EndingPlayFabInitiationInfo();
             }
-            Debug.Log("PLAYFAB INITIALIZER DESTROYED");
+            //Debug.Log("PLAYFAB INITIALIZER DESTROYED");
             Destroy(this);
         }
         else if (failedLogInPlayFabServer && !retryConnectBoxDisplayed && !waitingForResponsePlayFabLogin){
@@ -212,7 +212,7 @@ public class PlayFab_Initializer : MonoBehaviour
 
     void onGetTitleDataSuccess(Dictionary<string, string> TitleData){
         titleData = TitleData;
-        Debug.Log("GOT TITLE DATA: " + titleData["Robot Message"]);
+        //Debug.Log("GOT TITLE DATA: " + titleData["Robot Message"]);
     }
 
     void onGetTitleDataFailure(){

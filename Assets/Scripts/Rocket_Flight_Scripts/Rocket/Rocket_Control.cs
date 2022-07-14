@@ -35,6 +35,9 @@ public class Rocket_Control : MonoBehaviour
     private float thrustDecrementRate = 1.0f; // How much thrust to decrement per second (At max thrust being applied)
 
 
+
+    public float? thrustAltMultiplier; // New
+
     private int hitCount = 0;
 
 
@@ -57,7 +60,7 @@ public class Rocket_Control : MonoBehaviour
     public static event AlertFuelEmpty AlertFuelEmptyInfo;
 
 
-
+    Rocket_Game_Manager rocketGameManager;
     Material rocketMaterial;
 
     GameObject cam;
@@ -91,6 +94,10 @@ public class Rocket_Control : MonoBehaviour
         rocketCollider = GetComponent<CapsuleCollider2D>();
         forceComponents = new Vector2(0.0f, maxInstThrust);
 
+        rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
+
+        //thrustAltMultiplier = 1;
+
         cam = GameObject.Find("Main Camera");
     }
 
@@ -110,7 +117,7 @@ public class Rocket_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (thrustInitialized){ // Game_Manager_Will_Set_This
+        if (thrustInitialized && thrustAltMultiplier != null){ // Game_Manager_Will_Set_This
             if (thrust > 0.0 && userHasControl){
                 if(reachedTargetAltitude && !startedSpiral){
                     //Debug.Log("Reached Target Altitude.. We're Chilling");
@@ -263,7 +270,10 @@ public class Rocket_Control : MonoBehaviour
 
 
     void DecrementThrust(Vector2 forceComponents){
-        thrust -= (forceComponents.magnitude/maxInstThrust) * (Time.deltaTime/(1.0f/thrustDecrementRate));
+        if (thrustAltMultiplier != null && rocketGameManager.gameStarted){
+            //Debug.Log("DECREMENTING THRUST... " + thrustAltMultiplier);
+            thrust -= ((forceComponents.magnitude/maxInstThrust) * (Time.deltaTime/(1.0f/thrustDecrementRate)))*(float) thrustAltMultiplier;
+        }
         if (thrust <= 0){
             thrust = 0;
         }
