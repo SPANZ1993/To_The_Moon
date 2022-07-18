@@ -2131,7 +2131,7 @@ Material:
     - _OutlineDistortTexXSpeed: 1
     - _OutlineDistortTexYSpeed: 1
     - _OutlineGlow: 4
-    - _OutlinePixelWidth: 2
+    - _OutlinePixelWidth: 1.5
     - _OutlineTexXSpeed: 0
     - _OutlineTexYSpeed: 0
     - _OutlineWidth: 0.004
@@ -5581,6 +5581,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1699834714
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AllIn1SpriteShader/AllIn1SpriteShader
+  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1713856070
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,6 +7726,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1027338904050810435, guid: 4ee997fa8997a354ba0c17c59a370cb6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1699834714}
     - target: {fileID: 1027338904050810436, guid: 4ee997fa8997a354ba0c17c59a370cb6, type: 3}
       propertyPath: m_Name
       value: Block
@@ -7731,7 +7778,8 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1634884777
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8112924653119689582, guid: 4ee997fa8997a354ba0c17c59a370cb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ee997fa8997a354ba0c17c59a370cb6, type: 3}
 --- !u!1 &1027338904197786368 stripped
 GameObject:
@@ -7877,7 +7925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderTypes: 4
+  shaderTypes: 0
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0

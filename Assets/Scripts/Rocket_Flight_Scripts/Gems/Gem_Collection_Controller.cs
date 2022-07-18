@@ -27,10 +27,13 @@ public class Gem_Collection_Controller : MonoBehaviour
     {
         if (col.gameObject.name == "Rocket"){
             if (GemCollectedInfo != null){
+                if(!Audio_Manager.instance.IsPlaying("Space_Gem_Collect")){
+                    Audio_Manager.instance.Play("Space_Gem_Collect");
+                }
                 GemCollectedInfo();
                 Destroy(gameObject);
             }
         }
-    
+
     }
 }

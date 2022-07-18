@@ -232,13 +232,26 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         Audio_Manager.instance.UpdateChannelVolumes();
     }
 
+    
+    public void onSoundFXSliderEndDrag(){
+        Audio_Manager.instance.Play("UI_Sound_FX_Slider_Beep");
+    }
+
     public void onMusicSliderChanged(GameObject sliderObj){
         Game_Manager.instance.musicSoundLevel = sliderObj.GetComponent<Slider>().value;
         Audio_Manager.instance.UpdateChannelVolumes();
     }
 
+    public void onMusicSliderEndDrag(){
+        Audio_Manager.instance.Play("UI_Music_Slider_Beep");
+    }
+
+
     public void selectTextSpeed(GameObject ToggleObj){
         Game_Manager.instance.textSpeed = ToggleObj.GetComponent<TextSpeedHolder>().textSpeed;
+        if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect")){
+            Audio_Manager.instance.Play("UI_Button_No_Effect");
+        }
     }
     //
 }

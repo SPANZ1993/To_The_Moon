@@ -63,8 +63,8 @@ public class Crypto_Manager : MonoBehaviour
 
 
     public void getPricesActiveCryptos(){
-        string uri = Game_Manager.instance.cryptoServerBaseURL + ":" + Game_Manager.instance.cryptoServerPort.ToString() + "/prices?";
-        //Debug.Log("REQUESTING : " + uri);
+        string uri = Game_Manager.instance.cryptoServerBaseURL + "/prices?";
+        Debug.Log("REQUESTING : " + uri);
 
         int symbolArgCount = 0;
         foreach(Crypto_Scriptable_Object crypto in activeCryptos){

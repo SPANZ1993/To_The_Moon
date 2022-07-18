@@ -156,7 +156,6 @@ public class Game_Manager : MonoBehaviour
 
     // Crypto Stuff
     public string cryptoServerBaseURL = "http://127.0.0.1";
-    public int cryptoServerPort = 5000; 
 
 
     // Text Stuff
@@ -694,9 +693,6 @@ public class Game_Manager : MonoBehaviour
         if(titleData != null){
             if(titleData.Keys.Contains("Crypto URL")){
                 cryptoServerBaseURL = "http://" + titleData["Crypto URL"];
-            }
-            if(titleData.Keys.Contains("Crypto Port")){
-                cryptoServerPort = Convert.ToInt16(titleData["Crypto Port"]);
             }
         }
 
