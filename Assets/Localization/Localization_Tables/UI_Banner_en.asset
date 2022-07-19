@@ -18,132 +18,162 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 86438137504096275
+  - m_Id: 96299335519199257
     m_Localized: Is this correct?
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096274
-    m_Localized: 'Your name is: {potentialPlayerName}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096273
-    m_Localized: Someone else already has that name. Try something different.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096272
-    m_Localized: Your name must be at least 3 characters long.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096271
-    m_Localized: "Your name can\u2019t have any bad words in it."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096270
-    m_Localized: Other people might see this so be nice!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096269
-    m_Localized: Name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096268
-    m_Localized: What is your name?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096276
-    m_Localized: What is your cryptocurrency called?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096277
-    m_Localized: Coin Name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096267
-    m_Localized: Welcome to {gamename}!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096266
-    m_Localized: Name
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096265
-    m_Localized: GameyMcGameyPants
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096264
-    m_Localized: Cosmic Gems
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096263
-    m_Localized: Cosmic Gem
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096262
-    m_Localized: Coin
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096261
-    m_Localized: No
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096260
-    m_Localized: Yes
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096259
-    m_Localized: 'Let {robot} pilot the ship? '
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096258
-    m_Localized: 'Coins:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096257
-    m_Localized: 'Gems:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096278
-    m_Localized: Coin
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096256
-    m_Localized: 'Launches:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137478930432
-    m_Localized: 'Thrust:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096279
+  - m_Id: 96299335519199256
     m_Localized: 'Your cryptocurrency is called: {potentialCoinName}'
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096280
+  - m_Id: 96299335519199255
+    m_Localized: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199254
+    m_Localized: Coin Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199253
+    m_Localized: What is your cryptocurrency called?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199252
     m_Localized: Is this correct?
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096281
+  - m_Id: 96299335519199251
+    m_Localized: 'Your name is: {potentialPlayerName}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199250
+    m_Localized: Someone else already has that name. Try something different.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199258
     m_Localized: "Your coin name can\u2019t have any bad words in it."
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096282
+  - m_Id: 96299335519199259
     m_Localized: Your coin name must be at least 3 characters long.
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096283
+  - m_Id: 96299335519199249
+    m_Localized: Your name must be at least 3 characters long.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199248
+    m_Localized: "Your name can\u2019t have any bad words in it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199247
+    m_Localized: Other people might see this so be nice!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199246
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199245
+    m_Localized: What is your name?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199244
+    m_Localized: Welcome to {gamename}!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199243
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199242
+    m_Localized: GameyMcGameyPants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199241
+    m_Localized: Cosmic Gems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199240
+    m_Localized: Cosmic Gem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199239
+    m_Localized: Coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199260
+    m_Localized: Dicey DeFi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199238
+    m_Localized: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199237
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199261
+    m_Localized: '{exchangeName} is a place where you can invest your {coinname}coin.
+      Use your {coinname}coin to buy other cryptos low and sell high for even more
+      {coinname}coin!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393536
+    m_Localized: "The cryptos in {exchangeName} track the real-time prices of actual
+      cryptocurrencies, but owning cryptocurrencies in {exchangeName} does not mean
+      you own them in real life. It\u2019s just a game!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393537
     m_Localized: Buy
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096284
+  - m_Id: 96299335523393538
     m_Localized: Sell
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096285
+  - m_Id: 96299335523393539
     m_Localized: How many {cryptoname} do you want to {buysell}?
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096286
+  - m_Id: 96299335523393540
     m_Localized: 'Value: {ncoins} {coinname}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393541
+    m_Localized: Bit Bazaar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393542
+    m_Localized: '{shopName} has all your crypto-related shopping needs! Buy in-game
+      rewards with real money! Be sure to stop back often to see if any new items
+      are listed!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199236
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199235
+    m_Localized: 'Let {robot} pilot the ship? '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199234
+    m_Localized: 'Coins:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199233
+    m_Localized: 'Gems:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199232
+    m_Localized: 'Launches:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335284318208
+    m_Localized: 'Thrust:'
     m_Metadata:
       m_Items: []
   references:

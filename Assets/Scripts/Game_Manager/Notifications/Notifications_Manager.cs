@@ -138,23 +138,90 @@ public class Notifications_Manager : MonoBehaviour
     }
 
 
+    string chooseNotificationFromPrefix(string prefix){
+        // TODO: Make this randomly choose a notification from the table based on the prefix
+        return prefix + ".1";
+    }
+
+
 
     // Should probably only return 1 or 0 of these, but we'll make it a list just in case
     List<PlatformAgnosticNotification> chooseRetentionNotifications(){
+
+
+        string formatRetentionNotificationText(string inputStr){
+            inputStr = inputStr.Replace("{coinname}", Game_Manager.instance.coinName);
+            inputStr = inputStr.Replace("{robot}", new UI_Characters.Characters2DisplayNames()[UI_Characters.Characters.Robot]);
+            return inputStr;
+        }
+
+
+
+
+
         List<PlatformAgnosticNotification> retentionNotifications = new List<PlatformAgnosticNotification>();
 
 
         int tmpId = -1;
         // If there is some open ID in our range of retention ids
         if(Enumerable.Range(retentionIdRange[0], retentionIdRange[1]).Where(i => !notificationsToScheduleOnAppClose.Select(n => n.id).Contains(i)).ToList().Count > 0){
-            retentionNotifications.Add(
-                new PlatformAgnosticNotification(
-                    ID: Enumerable.Range(retentionIdRange[0], retentionIdRange[1]).Where(i => !notificationsToScheduleOnAppClose.Select(n => n.id).Contains(i)).ToList()[0], // The first open Retention Id in our defined range
-                    Category: NotificationCategories.Retention,
-                    PlatformTimeToFire: Game_Manager.instance.localSessionCurrentTime.AddSeconds(60), // THIS WILL CHANGE DEPENDING ON WHAT WE ARE ALERTING ON... i.e. mine cooldown done, ship cooldown done, etc.
-                    Message: "I LIKE BEANS N' SUCH... SCHEDULED AT " + DateTime.Now.ToString()
-                )
-            );       
+
+            bool notificationChosen = false;
+            float secondsUntilNotification = -1;
+            string notificationMessage = "";
+            if(Game_Manager.instance.remainingLaunches != Game_Manager.instance.maxLaunches){
+                secondsUntilNotification = (float)(((Game_Manager.instance.prevLaunchTimeUnix + Game_Manager.instance.launchRefreshTime) - Game_Manager.instance.gameTimeUnix) + ((double)((Game_Manager.instance.maxLaunches-1)-Game_Manager.instance.remainingLaunches)*Game_Manager.instance.launchRefreshTime));
+                if(secondsUntilNotification >= 60){
+                    notificationChosen = true;
+                    notificationMessage = formatRetentionNotificationText(Localization_Manager.instance.GetLocalizedString("Notifications", chooseNotificationFromPrefix("Notifications.Retention.Launches.Full")));
+                }
+            }
+
+            if(!notificationChosen && (Game_Manager.instance.mineGameLastPlayedUnix + Game_Manager.instance.mineGameRefreshTime) > Game_Manager.instance.gameTimeUnix){
+                secondsUntilNotification = (float)((Game_Manager.instance.mineGameLastPlayedUnix + Game_Manager.instance.mineGameRefreshTime) - Game_Manager.instance.gameTimeUnix);
+                if(secondsUntilNotification >= 60){
+                    notificationChosen = true;
+                    notificationMessage = formatRetentionNotificationText(Localization_Manager.instance.GetLocalizedString("Notifications", chooseNotificationFromPrefix("Notifications.Retention.Mineshaft.Ready")));
+                }
+            }
+
+
+            if(!notificationChosen && !Minecart_Manager.instance.isFull){
+                secondsUntilNotification = (float)(Minecart_Manager.instance.nextFullTimeUnix - Game_Manager.instance.gameTimeUnix);
+                if(secondsUntilNotification >= 60){
+                    notificationChosen = true;
+                    notificationMessage = formatRetentionNotificationText(Localization_Manager.instance.GetLocalizedString("Notifications", chooseNotificationFromPrefix("Notifications.Retention.Minecart.Full")));
+                }
+            }
+
+
+            if(!notificationChosen){
+                secondsUntilNotification = 3600;
+                notificationChosen = true;
+                notificationMessage = formatRetentionNotificationText(Localization_Manager.instance.GetLocalizedString("Notifications", chooseNotificationFromPrefix("Notifications.Retention.Default")));
+            }
+
+
+
+
+            //REMOVE
+            // if(notificationChosen){
+            //     Debug.Log("NOTIFICATION CHOSEN: " + notificationMessage + " --- " + secondsUntilNotification + " SECONDS FROM NOW");
+            // }
+
+
+
+
+            if(notificationChosen){
+                retentionNotifications.Add(
+                    new PlatformAgnosticNotification(
+                        ID: Enumerable.Range(retentionIdRange[0], retentionIdRange[1]).Where(i => !notificationsToScheduleOnAppClose.Select(n => n.id).Contains(i)).ToList()[0], // The first open Retention Id in our defined range
+                        Category: NotificationCategories.Retention,
+                        PlatformTimeToFire: Game_Manager.instance.localSessionCurrentTime.AddSeconds(secondsUntilNotification), // THIS WILL CHANGE DEPENDING ON WHAT WE ARE ALERTING ON... i.e. mine cooldown done, ship cooldown done, etc.
+                        Message: notificationMessage
+                    )
+                );       
+            }
         }
         
         return retentionNotifications;

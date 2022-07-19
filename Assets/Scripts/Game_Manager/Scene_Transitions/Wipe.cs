@@ -77,6 +77,7 @@ public class Wipe : Scene_Transition
 
 
     private void wipeStart(string nextScene){
+        //Debug.Log("STARTING WIPE");
         string transitionClipName = "UI_Transition_Out";
         if(!Audio_Manager.instance.IsPlaying(transitionClipName)){
             Audio_Manager.instance.Play(transitionClipName);
@@ -96,7 +97,7 @@ public class Wipe : Scene_Transition
         leavingWipeTweenId = LeanTween.value(Wipe_Rect, 0f, 1f, wipeTime).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(
             (value) => 
             {
-                Debug.Log("WIPE START --- SETTING FILL AMOUNT TO: " +  value);
+                //Debug.Log("WIPE START --- SETTING FILL AMOUNT TO: " +  value);
                 Wipe_Image.fillAmount = value;
             }
         ).id;
@@ -172,7 +173,7 @@ public class Wipe : Scene_Transition
         enteringWipeTweenId = LeanTween.value(Wipe_Rect, 1f, 0f, wipeTime).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(
             (value) => 
             {
-                Debug.Log("WIPE END --- SETTING FILL AMOUNT TO: " + value);
+                //Debug.Log("WIPE END --- SETTING FILL AMOUNT TO: " + value);
                 Wipe_Image.fillAmount = value;
             }
         ).id;

@@ -337,10 +337,19 @@ public class UI_Controller : MonoBehaviour
     private GameObject shopWindowPanel;
     private GameObject shopScrollPanel;
     private ScrollRect shopWindowPanelScrollRect;
+    private TextMeshProUGUI shopLogoText;
+    private TextMeshProUGUI shopLogoDescriptionText;
 
     private GameObject exchangeWindowPanel;
     private GameObject exchangeScrollPanel;
     private ScrollRect exchangeWindowPanelScrollRect;
+    private TextMeshProUGUI exchangeLogoText;
+    private TextMeshProUGUI exchangeLogoDescriptionText;
+    private TextMeshProUGUI exchangeLogoDisclaimerText;
+
+
+    private TextMeshProUGUI headerPanelExchangeTabText;
+    private TextMeshProUGUI headerPanelShopTabText;
 
 
     private Scrollbar computerScrollbar;
@@ -784,6 +793,16 @@ public class UI_Controller : MonoBehaviour
 
             shopScrollPanel = GameObject.Find("Shop_Scroll_Panel");
             exchangeScrollPanel = GameObject.Find("Exchange_Scroll_Panel");
+            shopLogoText = GameObject.Find("Shop_Logo_Text").GetComponent<TextMeshProUGUI>();
+            shopLogoDescriptionText = GameObject.Find("Shop_Logo_Description_Text").GetComponent<TextMeshProUGUI>();
+
+            exchangeLogoText = GameObject.Find("Exchange_Logo_Text").GetComponent<TextMeshProUGUI>();
+            exchangeLogoDescriptionText = GameObject.Find("Exchange_Logo_Description_Text").GetComponent<TextMeshProUGUI>();
+            exchangeLogoDisclaimerText = GameObject.Find("Exchange_Logo_Disclaimer_Text").GetComponent<TextMeshProUGUI>();
+
+            headerPanelExchangeTabText = GameObject.Find("Computer_Menu_Header_Panel_Exchange_Tab_Text").GetComponent<TextMeshProUGUI>();
+            headerPanelShopTabText = GameObject.Find("Computer_Menu_Header_Panel_Shop_Tab_Text").GetComponent<TextMeshProUGUI>();
+
 
             shopWindowPanel = GameObject.Find("Shop_Window_Panel");
             shopWindowPanelScrollRect = shopWindowPanel.GetComponent<ScrollRect>();
@@ -2829,6 +2848,10 @@ public class UI_Controller : MonoBehaviour
             //selectOptions();
             selectShop(silent:true);
 
+            headerPanelExchangeTabText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Name");
+            headerPanelShopTabText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Shop.Name");
+
+
             Crypto_Manager.instance.getPricesActiveCryptos();
         }
     }
@@ -2865,6 +2888,16 @@ public class UI_Controller : MonoBehaviour
         Computer_Menu_Header_Panel_Shop_Tab.transform.SetParent(Computer_Menu_Header_Panel.transform);
         Computer_Menu_Header_Panel_Shop_Tab_Image.sprite = Computer_Menu_Header_Panel_Selected_Sprite;
         Computer_Menu_Header_Panel_Exchange_Tab_Image.sprite = Computer_Menu_Header_Panel_Unselected_Sprite;
+
+        
+        string formatShopLogoText(string inputStr){
+            inputStr = inputStr.Replace("{shopName}", localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Shop.Name"));
+            return inputStr;
+        }
+        
+        shopLogoText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Shop.Name");
+        shopLogoDescriptionText.text = formatShopLogoText(localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Shop.Description"));
+
 
 
         if(!silent){
@@ -3101,6 +3134,20 @@ public class UI_Controller : MonoBehaviour
         Computer_Menu_Header_Panel_Exchange_Tab.transform.SetParent(Computer_Menu_Header_Panel.transform);
         Computer_Menu_Header_Panel_Shop_Tab_Image.sprite = Computer_Menu_Header_Panel_Unselected_Sprite;
         Computer_Menu_Header_Panel_Exchange_Tab_Image.sprite = Computer_Menu_Header_Panel_Selected_Sprite;
+
+
+        string formatExchangeLogoText(string inputStr){
+            inputStr = inputStr.Replace("{exchangeName}", localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Name"));
+            inputStr = inputStr.Replace("{coinname}", Game_Manager.instance.coinName);
+            return inputStr;
+        }
+
+        exchangeLogoText.text = formatExchangeLogoText(localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Name"));
+        exchangeLogoDescriptionText.text = formatExchangeLogoText(localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Description"));
+        exchangeLogoDisclaimerText.text = formatExchangeLogoText(localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Disclaimer"));
+
+
+
 
         if(!silent){
             if(!Audio_Manager.instance.IsPlaying("UI_Computer_Mouse_Click")){
@@ -3475,8 +3522,8 @@ public class UI_Controller : MonoBehaviour
         //altitudeBarProgress.GetComponent<RectTransform>().GetWorldCorners(v4);
         altitudeBarProgress.GetComponent<RectTransform>().GetLocalCorners(v4);
         //Debug.Log("Local Corners: " + SerializeVector3Array(v4) + " SIZE VECTOR: " + sv2 + " POS VECTOR: " + sv3);
-        altitudeBarProgressLight.color = altitudeBarProgressLightColor; // Maybe explicitly setting the color to the original each frame will fix the wrong color issue?
-        _altitudeBarProgressLightShapePath.SetValue(altitudeBarProgressLight, v4);
+        //altitudeBarProgressLight.color = altitudeBarProgressLightColor; // Maybe explicitly setting the color to the original each frame will fix the wrong color issue?
+        //_altitudeBarProgressLightShapePath.SetValue(altitudeBarProgressLight, v4);
     }
     
     private void updateAltitudeText(){

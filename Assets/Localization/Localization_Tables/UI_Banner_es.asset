@@ -18,47 +18,51 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 86438137504096263
+  - m_Id: 96299335519199240
     m_Localized: Gemas Cosmica
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096262
+  - m_Id: 96299335519199239
+    m_Localized: Monedas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199238
     m_Localized: Moneda
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096261
+  - m_Id: 96299335519199237
     m_Localized: No
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096260
+  - m_Id: 96299335519199236
     m_Localized: Si
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096259
+  - m_Id: 96299335519199235
     m_Localized: "\xBFDejar que {robot} pilotee la nave? "
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096258
+  - m_Id: 96299335519199234
     m_Localized: 'Monedas:'
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096257
+  - m_Id: 96299335519199233
     m_Localized: 'Gemas:'
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096256
-    m_Localized: 'Lanzamientos:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 86438137504096264
+  - m_Id: 96299335519199241
     m_Localized: Gema Cosmica
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096265
+  - m_Id: 96299335519199242
     m_Localized: El Gamey Game
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137478930432
+  - m_Id: 96299335519199232
+    m_Localized: 'Lanzamientos:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335284318208
     m_Localized: 'Empuje:'
     m_Metadata:
       m_Items: []

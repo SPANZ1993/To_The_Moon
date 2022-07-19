@@ -253,7 +253,7 @@ public class Game_Manager : MonoBehaviour
                 Save_Indicator.GetComponent<SpriteRenderer>().enabled = false;
                 //Debug.Log("HELLO FROM START: " + serverSessionStartTime);
 
-                minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
+                //minecartManager = GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>();
                 robotManager = GameObject.Find("Robot_Manager").GetComponent<Robot_Manager>();
                 mineShaftController = GameObject.Find("Mine_Shaft").GetComponent<Mine_Shaft_Controller>();
                 //Debug.Log("PREV SCENE: " + sceneManager.prev_scene_name);

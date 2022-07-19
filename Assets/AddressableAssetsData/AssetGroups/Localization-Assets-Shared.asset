@@ -53,6 +53,10 @@ MonoBehaviour:
     m_Address: Assets/Localization/Localization_Tables/Events_Script Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 06861f8fadf393441999cf084c527b58
+    m_Address: Assets/Localization/Localization_Tables/Notifications Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 077cb2ec913c0e54fa2f3a74b8468389, type: 2}
   m_SchemaSet:

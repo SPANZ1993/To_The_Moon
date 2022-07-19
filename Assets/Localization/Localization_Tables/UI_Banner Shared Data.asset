@@ -15,132 +15,156 @@ MonoBehaviour:
   m_TableCollectionName: UI_Banner
   m_TableCollectionNameGuidString: 0173973f80785514680b9af482672ffa
   m_Entries:
-  - m_Id: 86438137478930432
+  - m_Id: 96299335284318208
     m_Key: UI.Banner.Thrust_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096256
+  - m_Id: 96299335519199232
     m_Key: UI.Banner.Launches_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096257
+  - m_Id: 96299335519199233
     m_Key: UI.Banner.Gems_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096258
+  - m_Id: 96299335519199234
     m_Key: UI.Banner.Coins_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096259
+  - m_Id: 96299335519199235
     m_Key: UI.Autopilot.Confirmation_Box_Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096260
+  - m_Id: 96299335519199236
     m_Key: UI.Autopilot.Confirmation_Box_Text.Yes
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096261
+  - m_Id: 96299335519199237
     m_Key: UI.Autopilot.Confirmation_Box_Text.No
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096262
+  - m_Id: 96299335519199238
     m_Key: UI.General.Coin
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096263
+  - m_Id: 96299335519199239
+    m_Key: UI.General.Coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199240
     m_Key: UI.General.Gem_Name_Singular
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096264
+  - m_Id: 96299335519199241
     m_Key: UI.General.Gem_Name_Plural
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096265
+  - m_Id: 96299335519199242
     m_Key: UI.General.Game_Name
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096266
+  - m_Id: 96299335519199243
     m_Key: UI.Onboarding.Name_Default
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096267
+  - m_Id: 96299335519199244
     m_Key: UI.Onboarding.Name_Input_Box.Header
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096268
+  - m_Id: 96299335519199245
     m_Key: UI.Onboarding.Name_Input_Box.Prompt
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096269
+  - m_Id: 96299335519199246
     m_Key: UI.Onboarding.Name_Input_Box.Default_Name
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096270
+  - m_Id: 96299335519199247
     m_Key: UI.Onboarding.Name_Input_Box.Hint.Default
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096271
+  - m_Id: 96299335519199248
     m_Key: UI.Onboarding.Name_Input_Box.Hint.Badwords
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096272
+  - m_Id: 96299335519199249
     m_Key: UI.Onboarding.Name_Input_Box.Hint.Too_Short
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096273
+  - m_Id: 96299335519199250
     m_Key: UI.Onboarding.Name_Input_Box.Hint.Taken
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096274
+  - m_Id: 96299335519199251
     m_Key: UI.Onboarding.Name_Confirmation_Box.Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096275
+  - m_Id: 96299335519199252
     m_Key: UI.Onboarding.Name_Confirmation_Box.Prompt
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096276
+  - m_Id: 96299335519199253
     m_Key: UI.Onboarding.Coin_Name_Input_Box.Prompt
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096277
+  - m_Id: 96299335519199254
     m_Key: UI.Onboarding.Coin_Name_Input_Box.Default_Name
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096278
+  - m_Id: 96299335519199255
     m_Key: UI.Onboarding.Coin_Name_Input_Box.Coin
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096279
+  - m_Id: 96299335519199256
     m_Key: UI.Onboarding.Coin_Name_Confirmation_Box.Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096280
+  - m_Id: 96299335519199257
     m_Key: UI.Onboarding.Coin_Name_Confirmation_Box.Prompt
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096281
+  - m_Id: 96299335519199258
     m_Key: UI.Onboarding.Coin_Name_Input_Box.Hint.Badwords
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096282
+  - m_Id: 96299335519199259
     m_Key: UI.Onboarding.Coin_Name_Input_Box.Hint.Too_Short
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096283
+  - m_Id: 96299335519199260
+    m_Key: UI.Computer.Exchange.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335519199261
+    m_Key: UI.Computer.Exchange.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393536
+    m_Key: UI.Computer.Exchange.Disclaimer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393537
     m_Key: UI.Computer.Exchange.Buy
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096284
+  - m_Id: 96299335523393538
     m_Key: UI.Computer.Exchange.Sell
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096285
+  - m_Id: 96299335523393539
     m_Key: UI.Computer.Exchange.Buy_Sell_Confirmation_Box.Text
     m_Metadata:
       m_Items: []
-  - m_Id: 86438137504096286
+  - m_Id: 96299335523393540
     m_Key: UI.Computer.Exchange.Buy_Sell_Confirmation_Box.Value_Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393541
+    m_Key: UI.Computer.Shop.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96299335523393542
+    m_Key: UI.Computer.Shop.Description
     m_Metadata:
       m_Items: []
   m_Metadata:

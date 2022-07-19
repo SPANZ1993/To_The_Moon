@@ -49,6 +49,16 @@ public class Crypto_Manager : MonoBehaviour
     }
 
 
+    public void OnLevelWasLoaded(){
+        if(activeCryptosToExchangePanel != null && activeCryptosToExchangePanel.Count != 0){
+            List<Crypto_Scriptable_Object> exchangePanelCryptos = new List<Crypto_Scriptable_Object>(activeCryptosToExchangePanel.Keys);
+            foreach(Crypto_Scriptable_Object k in exchangePanelCryptos){
+                activeCryptosToExchangePanel.Remove(k);
+            }
+        }
+    }
+
+
 
     string authenticate(string username, string password)
     {
@@ -64,7 +74,7 @@ public class Crypto_Manager : MonoBehaviour
 
     public void getPricesActiveCryptos(){
         string uri = Game_Manager.instance.cryptoServerBaseURL + "/prices?";
-        Debug.Log("REQUESTING : " + uri);
+        //Debug.Log("REQUESTING : " + uri);
 
         int symbolArgCount = 0;
         foreach(Crypto_Scriptable_Object crypto in activeCryptos){
