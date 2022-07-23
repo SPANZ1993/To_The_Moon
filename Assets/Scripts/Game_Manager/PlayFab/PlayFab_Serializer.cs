@@ -128,7 +128,8 @@ public class PlayFab_Serializer : MonoBehaviour, ISerialization_Manager
                                                     currentLevelId: Progression_Manager.instance.CurrentLevelId,
                                                     highestLevelId: Progression_Manager.instance.HighestLevelId,
                                                     rocketGameFreePlayMode: Progression_Manager.instance.RocketGameFreePlayMode,
-                                                    rocketGameFreePlayModeManuallySet: Progression_Manager.instance.RocketGameFreePlayModeManuallySet
+                                                    rocketGameFreePlayModeManuallySet: Progression_Manager.instance.RocketGameFreePlayModeManuallySet,
+                                                    isPatron: Game_Manager.instance.isPatron
                                                 );   
     }
 

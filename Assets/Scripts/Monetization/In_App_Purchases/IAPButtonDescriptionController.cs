@@ -26,17 +26,24 @@ public class IAPButtonDescriptionController : MonoBehaviour
  
     public void Initialize()
     {
-        //Debug.Log("INITIALIZING HERE " + attachedButton.productId);
-        var product = CodelessIAPStoreListener.Instance.GetProduct(attachedButton.productId);
- 
-        if (priceText != null)
-            priceText.SetText(product.metadata.localizedPriceString);
+        try{
+            //Debug.Log("INITIALIZING HERE " + attachedButton.productId);
+            var product = CodelessIAPStoreListener.Instance.GetProduct(attachedButton.productId);
+    
+            if (priceText != null)
+                priceText.SetText(product.metadata.localizedPriceString);
 
-        if (titleText != null)
-            titleText.SetText(product.metadata.localizedTitle);
- 
-        if (descriptionText != null)
-            descriptionText.SetText(product.metadata.localizedDescription);
+            if (titleText != null)
+                titleText.SetText(product.metadata.localizedTitle);
+    
+            if (descriptionText != null)
+                descriptionText.SetText(product.metadata.localizedDescription);
+        }
+        catch(System.Exception e){
+            // if(GameObject.Find("App_State_Text")!=null){
+            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += e.ToString();
+            // }
+        }
     }
 
     public void Initialize(TextMeshProUGUI PriceText, TextMeshProUGUI TitleText, TextMeshProUGUI DescriptionText){

@@ -176,6 +176,7 @@ public class Metrics_Object
             // TODO: Make sure this can't be higher than the max altitude of the current level (If we are playing with a max altitude)
             if (maxAltAllTime <= Math.Floor(altitude)){
                 maxAltAllTime = Math.Floor(altitude);
+                //Debug.Log("MAX ALT ALL TIME: " + maxAltAllTime);
             }
 
             if(flightGems >= rocketGameMaxNonAutopilotGemsCollected && !freePlayMode){

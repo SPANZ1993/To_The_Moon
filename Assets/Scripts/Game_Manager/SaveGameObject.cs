@@ -87,6 +87,8 @@ public class SaveGameObject
     public bool RocketGameFreePlayModeManuallySet;
 
 
+    public bool IsPatron;
+
     public SaveGameObject(){
         IsValid = true;
         IsNewGame = true;
@@ -143,6 +145,8 @@ public class SaveGameObject
         HighestLevelId = 0;
         RocketGameFreePlayMode = false;
         RocketGameFreePlayModeManuallySet = false;
+
+        IsPatron = false;
     }
 
     private Dictionary<Upgrade, bool> generateUpgradesUnlockedDict(){
@@ -203,7 +207,8 @@ public class SaveGameObject
                             int currentLevelId,
                             int highestLevelId,
                             bool rocketGameFreePlayMode,
-                            bool rocketGameFreePlayModeManuallySet
+                            bool rocketGameFreePlayModeManuallySet,
+                            bool isPatron
                             ){
 
         IsValid = isValid;
@@ -263,6 +268,8 @@ public class SaveGameObject
         HighestLevelId = highestLevelId;
         RocketGameFreePlayMode = rocketGameFreePlayMode;
         RocketGameFreePlayModeManuallySet = rocketGameFreePlayModeManuallySet;
+
+        IsPatron = isPatron;
     }
 
 }

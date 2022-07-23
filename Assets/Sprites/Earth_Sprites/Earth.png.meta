@@ -373,7 +373,7 @@ TextureImporter:
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
-    borderMipMap: 1
+    borderMipMap: 0
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.9
     mipMapFadeDistanceStart: 0
@@ -401,7 +401,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -430,7 +430,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 8192
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 0
     compressionQuality: 50
@@ -503,7 +503,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GrassA_1
+      name: GrassA_1_Old
       rect:
         serializedVersion: 2
         x: 1
@@ -524,7 +524,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassA_2
+      name: GrassA_2_Old
       rect:
         serializedVersion: 2
         x: 19
@@ -545,7 +545,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassB_1
+      name: GrassB_1_Old
       rect:
         serializedVersion: 2
         x: 38
@@ -566,7 +566,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassB_2
+      name: GrassB_2_Old
       rect:
         serializedVersion: 2
         x: 56
@@ -587,7 +587,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trophy_PedestalA
+      name: Trophy_PedestalA_Old
       rect:
         serializedVersion: 2
         x: 75
@@ -608,7 +608,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Trophy_PedestalB
+      name: Trophy_PedestalB_Old
       rect:
         serializedVersion: 2
         x: 101
@@ -629,7 +629,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Logo
+      name: Logo_Old
       rect:
         serializedVersion: 2
         x: 127
@@ -650,7 +650,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Logo_Trash
+      name: Logo_Trash_Old
       rect:
         serializedVersion: 2
         x: 150
@@ -671,7 +671,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plane1
+      name: Plane1_Old
       rect:
         serializedVersion: 2
         x: 174
@@ -692,7 +692,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plane2
+      name: Plane2_Old
       rect:
         serializedVersion: 2
         x: 271
@@ -713,7 +713,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower_Orange1
+      name: Flower_Orange1_Old
       rect:
         serializedVersion: 2
         x: 367
@@ -734,7 +734,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower_Orange2
+      name: Flower_Orange2_Old
       rect:
         serializedVersion: 2
         x: 389
@@ -755,7 +755,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower_Pink1
+      name: Flower_Pink1_Old
       rect:
         serializedVersion: 2
         x: 409
@@ -776,7 +776,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower_Pink2
+      name: Flower_Pink2_Old
       rect:
         serializedVersion: 2
         x: 431
@@ -797,7 +797,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower_Purple1
+      name: Flower_Purple1_Old
       rect:
         serializedVersion: 2
         x: 451
@@ -818,7 +818,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower_Purple2
+      name: Flower_Purple2_Old
       rect:
         serializedVersion: 2
         x: 473
@@ -839,7 +839,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockA_1
+      name: RockA_1_Old
       rect:
         serializedVersion: 2
         x: 493
@@ -860,7 +860,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockA_2
+      name: RockA_2_Old
       rect:
         serializedVersion: 2
         x: 541
@@ -881,7 +881,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Rings1
+      name: Robot_Rings1_Old
       rect:
         serializedVersion: 2
         x: 589
@@ -902,7 +902,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Rings2
+      name: Robot_Rings2_Old
       rect:
         serializedVersion: 2
         x: 629
@@ -923,7 +923,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fuel_Tank
+      name: Fuel_Tank_Old
       rect:
         serializedVersion: 2
         x: 665
@@ -944,7 +944,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockB_1
+      name: RockB_1_Old
       rect:
         serializedVersion: 2
         x: 736
@@ -965,7 +965,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockB_2
+      name: RockB_2_Old
       rect:
         serializedVersion: 2
         x: 809
@@ -986,7 +986,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen1
+      name: Keyboard_Screen1_Old
       rect:
         serializedVersion: 2
         x: 882
@@ -1007,7 +1007,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen2
+      name: Keyboard_Screen2_Old
       rect:
         serializedVersion: 2
         x: 912
@@ -1028,7 +1028,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen4
+      name: Keyboard_Screen4_Old
       rect:
         serializedVersion: 2
         x: 972
@@ -1049,7 +1049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen5
+      name: Keyboard_Screen5_Old
       rect:
         serializedVersion: 2
         x: 1002
@@ -1070,7 +1070,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plant1
+      name: Plant1_Old
       rect:
         serializedVersion: 2
         x: 1032
@@ -1091,7 +1091,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plant2
+      name: Plant2_Old
       rect:
         serializedVersion: 2
         x: 1062
@@ -1112,7 +1112,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coffee1
+      name: Coffee1_Old
       rect:
         serializedVersion: 2
         x: 1092
@@ -1133,7 +1133,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cofee2
+      name: Cofee2_Old
       rect:
         serializedVersion: 2
         x: 1137
@@ -1154,7 +1154,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poster
+      name: Poster_Old
       rect:
         serializedVersion: 2
         x: 1182
@@ -1175,7 +1175,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table
+      name: Table_Old
       rect:
         serializedVersion: 2
         x: 1255
@@ -1196,7 +1196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Building
+      name: Rocket_Building_Old
       rect:
         serializedVersion: 2
         x: 1367
@@ -1217,7 +1217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mouse
+      name: Mouse_Old
       rect:
         serializedVersion: 2
         x: 1439
@@ -1238,11 +1238,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard
+      name: Keyboard_Old
       rect:
         serializedVersion: 2
-        x: 1478
-        y: 2006
+        x: 1477
+        y: 2007
         width: 128
         height: 73
       alignment: 0
@@ -1259,7 +1259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudA
+      name: CloudA_Old
       rect:
         serializedVersion: 2
         x: 1607
@@ -1280,7 +1280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Startup3
+      name: Robot_Screen_Startup3_Old
       rect:
         serializedVersion: 2
         x: 251
@@ -1301,7 +1301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen6
+      name: Keyboard_Screen6_Old
       rect:
         serializedVersion: 2
         x: 882
@@ -1322,7 +1322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen7
+      name: Keyboard_Screen7_Old
       rect:
         serializedVersion: 2
         x: 912
@@ -1343,7 +1343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen9
+      name: Keyboard_Screen9_Old
       rect:
         serializedVersion: 2
         x: 972
@@ -1364,7 +1364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen10
+      name: Keyboard_Screen10_Old
       rect:
         serializedVersion: 2
         x: 1002
@@ -1385,7 +1385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer_Screen2
+      name: Computer_Screen2_Old
       rect:
         serializedVersion: 2
         x: 441
@@ -1393,7 +1393,7 @@ TextureImporter:
         width: 152
         height: 94
       alignment: 9
-      pivot: {x: 0.9276308, y: 0.8724729}
+      pivot: {x: 0.927655, y: 0.8725586}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1406,7 +1406,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen11
+      name: Keyboard_Screen11_Old
       rect:
         serializedVersion: 2
         x: 882
@@ -1427,7 +1427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen12
+      name: Keyboard_Screen12_Old
       rect:
         serializedVersion: 2
         x: 912
@@ -1448,7 +1448,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen14
+      name: Keyboard_Screen14_Old
       rect:
         serializedVersion: 2
         x: 972
@@ -1469,7 +1469,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen15
+      name: Keyboard_Screen15_Old
       rect:
         serializedVersion: 2
         x: 1002
@@ -1490,7 +1490,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen16
+      name: Keyboard_Screen16_Old
       rect:
         serializedVersion: 2
         x: 882
@@ -1511,7 +1511,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen17
+      name: Keyboard_Screen17_Old
       rect:
         serializedVersion: 2
         x: 912
@@ -1532,7 +1532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen19
+      name: Keyboard_Screen19_Old
       rect:
         serializedVersion: 2
         x: 972
@@ -1553,7 +1553,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen20
+      name: Keyboard_Screen20_Old
       rect:
         serializedVersion: 2
         x: 1002
@@ -1574,7 +1574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Window
+      name: Window_Old
       rect:
         serializedVersion: 2
         x: 1
@@ -1595,7 +1595,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Empty
+      name: Robot_Screen_Empty_Old
       rect:
         serializedVersion: 2
         x: 138
@@ -1616,7 +1616,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Startup1
+      name: Robot_Screen_Startup1_Old
       rect:
         serializedVersion: 2
         x: 175
@@ -1637,7 +1637,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Startup2
+      name: Robot_Screen_Startup2_Old
       rect:
         serializedVersion: 2
         x: 214
@@ -1658,7 +1658,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer_Screen1
+      name: Computer_Screen1_Old
       rect:
         serializedVersion: 2
         x: 288
@@ -1666,7 +1666,7 @@ TextureImporter:
         width: 152
         height: 94
       alignment: 9
-      pivot: {x: 0.92765504, y: 0.8725586}
+      pivot: {x: 0.927655, y: 0.8725586}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1679,7 +1679,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Miner
+      name: Robot_Miner_Old
       rect:
         serializedVersion: 2
         x: 1053
@@ -1700,7 +1700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CloudB
+      name: CloudB_Old
       rect:
         serializedVersion: 2
         x: 1092
@@ -1721,7 +1721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Launch_Cover2
+      name: Launch_Cover2_Old
       rect:
         serializedVersion: 2
         x: 1345
@@ -1742,7 +1742,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Shaft1
+      name: Mine_Shaft1_Old
       rect:
         serializedVersion: 2
         x: 1557
@@ -1750,7 +1750,7 @@ TextureImporter:
         width: 105
         height: 138
       alignment: 9
-      pivot: {x: 0.104771204, y: 0.8624878}
+      pivot: {x: 0.1047712, y: 0.8624878}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1763,7 +1763,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Shaft2
+      name: Mine_Shaft2_Old
       rect:
         serializedVersion: 2
         x: 1665
@@ -1771,7 +1771,7 @@ TextureImporter:
         width: 105
         height: 138
       alignment: 9
-      pivot: {x: 0.10457822, y: 0.862486}
+      pivot: {x: 0.1047712, y: 0.8624878}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1784,7 +1784,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Startup4
+      name: Robot_Screen_Startup4_Old
       rect:
         serializedVersion: 2
         x: 138
@@ -1805,7 +1805,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Pickax
+      name: Robot_Screen_Pickax_Old
       rect:
         serializedVersion: 2
         x: 176
@@ -1826,7 +1826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Exclamation
+      name: Robot_Screen_Exclamation_Old
       rect:
         serializedVersion: 2
         x: 214
@@ -1847,7 +1847,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Loading2
+      name: Robot_Screen_Loading2_Old
       rect:
         serializedVersion: 2
         x: 138
@@ -1868,7 +1868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Loading3
+      name: Robot_Screen_Loading3_Old
       rect:
         serializedVersion: 2
         x: 176
@@ -1889,7 +1889,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Loading4
+      name: Robot_Screen_Loading4_Old
       rect:
         serializedVersion: 2
         x: 214
@@ -1910,7 +1910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Hill1
+      name: Mine_Hill1_Old
       rect:
         serializedVersion: 2
         x: 1
@@ -1931,7 +1931,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Hill2
+      name: Mine_Hill2_Old
       rect:
         serializedVersion: 2
         x: 415
@@ -1952,7 +1952,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer
+      name: Computer_Old
       rect:
         serializedVersion: 2
         x: 829
@@ -1973,7 +1973,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Ground
+      name: Rocket_Ground_Old
       rect:
         serializedVersion: 2
         x: 1031
@@ -1994,7 +1994,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Room_Ground
+      name: Room_Ground_Old
       rect:
         serializedVersion: 2
         x: 1
@@ -2015,10 +2015,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Ground
+      name: Mine_Ground_Old
       rect:
         serializedVersion: 2
-        x: 420
+        x: 423
         y: 1299
         width: 610
         height: 332
@@ -2036,7 +2036,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower1
+      name: Rocket_Tower1_Old
       rect:
         serializedVersion: 2
         x: 1643
@@ -2057,7 +2057,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower2
+      name: Rocket_Tower2_Old
       rect:
         serializedVersion: 2
         x: 1708
@@ -2078,7 +2078,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower4
+      name: Rocket_Tower4_Old
       rect:
         serializedVersion: 2
         x: 1643
@@ -2099,7 +2099,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower5
+      name: Rocket_Tower5_Old
       rect:
         serializedVersion: 2
         x: 1706
@@ -2120,7 +2120,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower8
+      name: Rocket_Tower8_Old
       rect:
         serializedVersion: 2
         x: 1824
@@ -2141,13 +2141,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Room_Wall
+      name: Room_Wall_Old
       rect:
         serializedVersion: 2
-        x: 1
-        y: 774
-        width: 418
-        height: 431
+        x: 2
+        y: 775
+        width: 416
+        height: 428
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2162,16 +2162,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base1
+      name: Robot_Base1_Old
       rect:
         serializedVersion: 2
-        x: 420
-        y: 1095
-        width: 127
-        height: 108
+        x: 421
+        y: 1096
+        width: 125
+        height: 107
       alignment: 9
-      pivot: {x: 0.46428603, y: 0.97236466}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0.46400002, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2183,16 +2183,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base2
+      name: Robot_Base2_Old
       rect:
         serializedVersion: 2
-        x: 548
-        y: 1095
-        width: 125
-        height: 108
+        x: 549
+        y: 1096
+        width: 123
+        height: 107
       alignment: 9
-      pivot: {x: 0.47198877, y: 0.97245735}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0.47154468, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2204,16 +2204,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base3
+      name: Robot_Base3_Old
       rect:
         serializedVersion: 2
-        x: 674
-        y: 1095
-        width: 125
-        height: 108
+        x: 675
+        y: 1097
+        width: 123
+        height: 107
       alignment: 9
-      pivot: {x: 0.47202638, y: 0.97239065}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0.47154468, y: 0.9626168}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2225,16 +2225,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base4
+      name: Robot_Base4_Old
       rect:
         serializedVersion: 2
-        x: 799
-        y: 1095
-        width: 124
-        height: 108
+        x: 801
+        y: 1096
+        width: 122
+        height: 107
       alignment: 9
-      pivot: {x: 0.483774, y: 0.9721295}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0.4754098, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2246,16 +2246,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base5
+      name: Robot_Base5_Old
       rect:
         serializedVersion: 2
-        x: 924
-        y: 1095
-        width: 124
-        height: 108
+        x: 926
+        y: 1096
+        width: 122
+        height: 107
       alignment: 9
-      pivot: {x: 0.48391575, y: 0.9721657}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0.4754098, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2267,7 +2267,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart1
+      name: Mine_Cart1_Old
       rect:
         serializedVersion: 2
         x: 1050
@@ -2288,7 +2288,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart2
+      name: Mine_Cart2_Old
       rect:
         serializedVersion: 2
         x: 1188
@@ -2309,7 +2309,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart3
+      name: Mine_Cart3_Old
       rect:
         serializedVersion: 2
         x: 1326
@@ -2330,7 +2330,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart4
+      name: Mine_Cart4_Old
       rect:
         serializedVersion: 2
         x: 1464
@@ -2351,7 +2351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower10
+      name: Rocket_Tower10_Old
       rect:
         serializedVersion: 2
         x: 1696
@@ -2372,15 +2372,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base6
+      name: Robot_Base6_Old
       rect:
         serializedVersion: 2
-        x: 419
+        x: 421
         y: 986
-        width: 123
+        width: 121
         height: 107
       alignment: 9
-      pivot: {x: 0.4877406, y: 0.97215426}
+      pivot: {x: 0.47933882, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2393,15 +2393,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base7
+      name: Robot_Base7_Old
       rect:
         serializedVersion: 2
-        x: 544
+        x: 545
         y: 986
-        width: 119
+        width: 117
         height: 107
       alignment: 9
-      pivot: {x: 0.4958486, y: 0.97214174}
+      pivot: {x: 0.49572653, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2414,15 +2414,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base8
+      name: Robot_Base8_Old
       rect:
         serializedVersion: 2
-        x: 664
-        y: 986
-        width: 119
+        x: 665
+        y: 987
+        width: 117
         height: 107
       alignment: 9
-      pivot: {x: 0.4284786, y: 0.9721349}
+      pivot: {x: 0.42735046, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2435,15 +2435,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base9
+      name: Robot_Base9_Old
       rect:
         serializedVersion: 2
-        x: 784
-        y: 986
-        width: 117
+        x: 785
+        y: 987
+        width: 115
         height: 107
       alignment: 9
-      pivot: {x: 0.43578318, y: 0.9721953}
+      pivot: {x: 0.4347826, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2456,15 +2456,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base10
+      name: Robot_Base10_Old
       rect:
         serializedVersion: 2
-        x: 902
-        y: 986
-        width: 117
+        x: 903
+        y: 987
+        width: 115
         height: 107
       alignment: 9
-      pivot: {x: 0.43572998, y: 0.97217596}
+      pivot: {x: 0.4347826, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2477,7 +2477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart6
+      name: Mine_Cart6_Old
       rect:
         serializedVersion: 2
         x: 1050
@@ -2498,7 +2498,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart7
+      name: Mine_Cart7_Old
       rect:
         serializedVersion: 2
         x: 1188
@@ -2519,7 +2519,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart8
+      name: Mine_Cart8_Old
       rect:
         serializedVersion: 2
         x: 1326
@@ -2540,7 +2540,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart9
+      name: Mine_Cart9_Old
       rect:
         serializedVersion: 2
         x: 1464
@@ -2561,7 +2561,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart10
+      name: Mine_Cart10_Old
       rect:
         serializedVersion: 2
         x: 1602
@@ -2582,15 +2582,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base11
+      name: Robot_Base11_Old
       rect:
         serializedVersion: 2
-        x: 421
-        y: 876
+        x: 420
+        y: 877
         width: 114
         height: 107
       alignment: 9
-      pivot: {x: 0.4384822, y: 0.97243035}
+      pivot: {x: 0.4473684, y: 0.9626168}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2603,15 +2603,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base12
+      name: Robot_Base12_Old
       rect:
         serializedVersion: 2
-        x: 537
+        x: 538
         y: 876
-        width: 116
+        width: 114
         height: 107
       alignment: 9
-      pivot: {x: 0.43948892, y: 0.97232085}
+      pivot: {x: 0.4385965, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2624,15 +2624,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base13
+      name: Robot_Base13_Old
       rect:
         serializedVersion: 2
-        x: 654
+        x: 655
         y: 876
-        width: 116
+        width: 114
         height: 107
       alignment: 9
-      pivot: {x: 0.50839126, y: 0.9721075}
+      pivot: {x: 0.50877196, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2645,15 +2645,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base14
+      name: Robot_Base14_Old
       rect:
         serializedVersion: 2
-        x: 770
-        y: 876
-        width: 115
+        x: 772
+        y: 877
+        width: 113
         height: 107
       alignment: 9
-      pivot: {x: 0.4521803, y: 0.9721606}
+      pivot: {x: 0.44247788, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2666,15 +2666,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base15
+      name: Robot_Base15_Old
       rect:
         serializedVersion: 2
-        x: 887
+        x: 888
         y: 876
-        width: 115
+        width: 113
         height: 107
       alignment: 9
-      pivot: {x: 0.5128742, y: 0.9720071}
+      pivot: {x: 0.5132743, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2687,7 +2687,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart11
+      name: Mine_Cart11_Old
       rect:
         serializedVersion: 2
         x: 1050
@@ -2708,7 +2708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart12
+      name: Mine_Cart12_Old
       rect:
         serializedVersion: 2
         x: 1188
@@ -2729,7 +2729,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart13
+      name: Mine_Cart13_Old
       rect:
         serializedVersion: 2
         x: 1326
@@ -2750,7 +2750,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart14
+      name: Mine_Cart14_Old
       rect:
         serializedVersion: 2
         x: 1464
@@ -2771,10 +2771,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart15
+      name: Mine_Cart15_Old
       rect:
         serializedVersion: 2
-        x: 1602
+        x: 1601
         y: 872
         width: 137
         height: 110
@@ -2792,7 +2792,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background
+      name: Background_Old
       rect:
         serializedVersion: 2
         x: 3
@@ -2813,15 +2813,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base16
+      name: Robot_Base16_Old
       rect:
         serializedVersion: 2
-        x: 420
+        x: 421
         y: 766
-        width: 114
+        width: 112
         height: 107
       alignment: 9
-      pivot: {x: 0.51735944, y: 0.97218853}
+      pivot: {x: 0.5178572, y: 0.9719626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2834,15 +2834,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base17
+      name: Robot_Base17_Old
       rect:
         serializedVersion: 2
-        x: 535
+        x: 536
         y: 766
-        width: 111
+        width: 109
         height: 107
       alignment: 9
-      pivot: {x: 0.45931154, y: 0.9720385}
+      pivot: {x: 0.4587156, y: 0.97196263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2855,15 +2855,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base18
+      name: Robot_Base18_Old
       rect:
         serializedVersion: 2
-        x: 645
-        y: 767
-        width: 108
+        x: 648
+        y: 766
+        width: 106
         height: 107
       alignment: 9
-      pivot: {x: 0.4906639, y: 0.962533}
+      pivot: {x: 0.4716981, y: 0.97196263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2876,15 +2876,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base19
+      name: Robot_Base19_Old
       rect:
         serializedVersion: 2
-        x: 756
+        x: 757
         y: 766
-        width: 107
+        width: 105
         height: 107
       alignment: 9
-      pivot: {x: 0.47647065, y: 0.97195005}
+      pivot: {x: 0.47619048, y: 0.97196263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2897,15 +2897,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Base20
+      name: Robot_Base20_Old
       rect:
         serializedVersion: 2
-        x: 864
+        x: 865
         y: 766
-        width: 106
+        width: 104
         height: 107
       alignment: 9
-      pivot: {x: 0.48109233, y: 0.9722798}
+      pivot: {x: 0.48076922, y: 0.97196263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2918,7 +2918,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_R
+      name: Wall_R_Old
       rect:
         serializedVersion: 2
         x: 1754
@@ -2939,7 +2939,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen3
+      name: Keyboard_Screen3_Old
       rect:
         serializedVersion: 2
         x: 942
@@ -2960,7 +2960,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen8
+      name: Keyboard_Screen8_Old
       rect:
         serializedVersion: 2
         x: 942
@@ -2981,7 +2981,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen13
+      name: Keyboard_Screen13_Old
       rect:
         serializedVersion: 2
         x: 942
@@ -3002,7 +3002,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_Screen18
+      name: Keyboard_Screen18_Old
       rect:
         serializedVersion: 2
         x: 942
@@ -3023,7 +3023,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Robot_Screen_Loading1
+      name: Robot_Screen_Loading1_Old
       rect:
         serializedVersion: 2
         x: 252
@@ -3044,7 +3044,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer_Screen3
+      name: Computer_Screen3_Old
       rect:
         serializedVersion: 2
         x: 594
@@ -3052,7 +3052,7 @@ TextureImporter:
         width: 152
         height: 94
       alignment: 9
-      pivot: {x: 0.9276111, y: 0.87248456}
+      pivot: {x: 0.927655, y: 0.8725586}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3065,7 +3065,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer_Screen4
+      name: Computer_Screen4_Old
       rect:
         serializedVersion: 2
         x: 747
@@ -3073,7 +3073,7 @@ TextureImporter:
         width: 152
         height: 94
       alignment: 9
-      pivot: {x: 0.9275505, y: 0.8726573}
+      pivot: {x: 0.927655, y: 0.8725586}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3086,7 +3086,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Computer_Screen5
+      name: Computer_Screen5_Old
       rect:
         serializedVersion: 2
         x: 900
@@ -3107,15 +3107,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Launch_Cover1
+      name: Launch_Cover1_Old
       rect:
         serializedVersion: 2
-        x: 1345
+        x: 1347
         y: 1928
         width: 111
         height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.74950093}
+      pivot: {x: 0.5, y: 0.7495009}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3128,7 +3128,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Book_Shelf
+      name: Book_Shelf_Old
       rect:
         serializedVersion: 2
         x: 1459
@@ -3149,7 +3149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Desk
+      name: Desk_Old
       rect:
         serializedVersion: 2
         x: 1009
@@ -3170,7 +3170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket
+      name: Rocket_Old
       rect:
         serializedVersion: 2
         x: 1280
@@ -3191,7 +3191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Button1
+      name: Rocket_Button1_Old
       rect:
         serializedVersion: 2
         x: 1343
@@ -3212,7 +3212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Button2
+      name: Rocket_Button2_Old
       rect:
         serializedVersion: 2
         x: 1457
@@ -3233,7 +3233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower3
+      name: Rocket_Tower3_Old
       rect:
         serializedVersion: 2
         x: 1773
@@ -3254,7 +3254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower6
+      name: Rocket_Tower6_Old
       rect:
         serializedVersion: 2
         x: 1838
@@ -3275,7 +3275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower7
+      name: Rocket_Tower7_Old
       rect:
         serializedVersion: 2
         x: 1767
@@ -3296,7 +3296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rocket_Tower9
+      name: Rocket_Tower9_Old
       rect:
         serializedVersion: 2
         x: 1643
@@ -3317,7 +3317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart5
+      name: Mine_Cart5_Old
       rect:
         serializedVersion: 2
         x: 1602
@@ -3338,7 +3338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart16
+      name: Mine_Cart16_Old
       rect:
         serializedVersion: 2
         x: 1051
@@ -3359,7 +3359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart17
+      name: Mine_Cart17_Old
       rect:
         serializedVersion: 2
         x: 1188
@@ -3380,7 +3380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart18
+      name: Mine_Cart18_Old
       rect:
         serializedVersion: 2
         x: 1326
@@ -3401,7 +3401,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_Cart19
+      name: Mine_Cart19_Old
       rect:
         serializedVersion: 2
         x: 1464
@@ -3422,7 +3422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_L
+      name: Wall_L_Old
       rect:
         serializedVersion: 2
         x: 1713
@@ -3453,145 +3453,147 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Logo: -7412046891123592334
-      Flower_Orange1: -5289550111512436940
-      RockA_1: 9056076809899198952
-      Room_Wall: -1940839700508095722
-      Robot_Base20: -7041636846575625800
-      Keyboard_Screen14: -8453159333546367710
-      Robot_Base15: 7053551051603303297
-      Mine_Cart18: -1535549643591290113
-      Robot_Base10: 2252545063349228790
-      Rocket_Ground: 333042181394269626
-      Mine_Cart15: -3416233263828025068
-      Robot_Rings2: 5845033532405958961
-      Mine_Cart14: -2958868818829734912
-      Keyboard_Screen13: -3845980586290801778
-      Mine_Cart13: -737408880243906024
-      Fuel_Tank: 5050210848853395841
-      Keyboard_Screen6: -4771805855972453191
-      Plane1: -6314728025926759367
-      Mine_Cart16: 3867520474982032328
-      Keyboard_Screen2: -4131956043310619117
-      Plane2: 7902158703860476486
-      Robot_Base8: -1514556899488527408
-      Rocket_Button1: -1461461491057902164
-      Desk: -3445957006421620523
-      Mine_Cart2: 5140004021397483017
-      Background: 2753524791736967975
-      Robot_Base4: -7841782963002435219
-      Keyboard_Screen15: -1849922374741344692
-      CloudB: -9005775866314377051
-      GrassA_2: -3086602609980112195
-      Cofee2: 3053304957686523090
-      Computer_Screen1: -5847428952939010971
-      Robot_Base7: 3667598157409500007
-      Robot_Screen_Loading4: -78688082753830527
-      Rocket_Button2: -1611042220432592643
-      Keyboard: -8100296154135606261
-      Robot_Screen_Startup3: 7767473661887639448
-      Mouse: 5117889508594249501
-      Keyboard_Screen20: 1085811771701131270
-      Robot_Base16: 580044052579557962
-      Robot_Base17: -3578069379124988539
-      Mine_Cart7: -8379535045852413486
-      Robot_Base11: 7467323891196551648
-      Rocket_Tower6: 747210698664643828
-      Keyboard_Screen11: -3139694988686388838
-      Robot_Base2: -8659451703381833691
-      Mine_Cart10: -5350145261029912546
-      Robot_Base18: -4353581607334584552
-      Wall_R: -7979445981126881994
-      Robot_Screen_Loading1: 3383049437380755243
-      Keyboard_Screen9: -5558251259107726959
-      Logo_Trash: 3775956329943443878
-      CloudA: 9175095644114033106
-      Keyboard_Screen7: -7725531992882583122
-      Mine_Cart19: 7909351653937851178
-      Mine_Shaft1: 2626839459393084993
-      Robot_Screen_Startup2: 773261281204210858
-      Flower_Orange2: 8917927153200763621
-      Mine_Cart3: -607999193065115162
-      Robot_Screen_Startup1: 3115718290111480859
-      Poster: 5404703936751759412
-      Computer_Screen4: 5550154907140929604
-      Coffee1: -65715871781885684
-      Keyboard_Screen1: -387120296438937512
-      Robot_Base14: 7874956283656454431
-      Rocket_Tower8: 7237903369837469591
-      Plant1: 4090802850771672748
-      Flower_Purple1: 5361631257420472715
-      Rocket_Tower9: -3445667636606178291
-      Keyboard_Screen8: 1892821218243490644
-      RockB_2: -5046839083263976945
-      Keyboard_Screen10: -5393079636168667110
-      Keyboard_Screen12: 8966586311442186067
-      Window: 1585641402652771794
-      Mine_Cart4: 8834033887300994707
-      Plant2: 2243237344338328031
-      Mine_Cart12: 6913933625444747107
-      Robot_Screen_Startup4: 3428491173251122526
-      GrassB_1: 6924314980402435031
+      Rocket_Tower8_Old: 7237903369837469591
+      Robot_Miner_Old: 9222530763774365840
+      Book_Shelf_Old: 8965776249528167994
+      Mine_Hill2_Old: 4027447983487812613
+      Robot_Base7_Old: 3667598157409500007
+      Desk_Old: -3445957006421620523
+      Mine_Cart5_Old: -6299857102846281307
+      RockB_1_Old: -5046839083263976945
+      Mine_Ground_Old: 7810780092824436414
+      RockB_2_Old: -387120296438937512
+      Robot_Screen_Exclamation_Old: 3383049437380755243
+      Keyboard_Screen14_Old: -1849922374741344692
+      Launch_Cover2_Old: 1772166368771238176
+      Robot_Base19_Old: 3996960499831143542
+      Mine_Cart16_Old: 3867520474982032328
+      Mine_Cart6_Old: -8480571167284963237
+      Keyboard_Screen19_Old: 1085811771701131270
+      CloudB_Old: -9005775866314377051
+      Keyboard_Screen8_Old: -5558251259107726959
+      Robot_Screen_Pickax_Old: -1710825386507771198
+      GrassA_1_Old: 6924314980402435031
+      Mine_Cart17_Old: -9157916143068711143
+      Rocket_Tower1_Old: -7494289540377265527
+      Mine_Cart15_Old: -3416233263828025068
+      Robot_Base12_Old: 6842488206505755015
+      Robot_Base8_Old: -1514556899488527408
+      Robot_Screen_Loading2_Old: -7117012198108766654
+      Rocket_Tower9_Old: -3445667636606178291
+      Fuel_Tank_Old: 7979187214594251000
+      Robot_Screen_Startup1_Old: 773261281204210858
+      Robot_Rings1_Old: 5845033532405958961
+      RockA_2_Old: -6451319951707577422
+      Keyboard_Screen12_Old: -3845980586290801778
+      Keyboard_Old: 9175095644114033106
+      Robot_Base17_Old: -3578069379124988539
+      Robot_Base20_Old: -7041636846575625800
+      Logo_Old: 3775956329943443878
+      Keyboard_Screen7_Old: 1892821218243490644
+      Robot_Base13_Old: -8636966842280493821
+      Keyboard_Screen2_Old: -1479756206100183629
+      Keyboard_Screen11_Old: 8966586311442186067
+      Robot_Screen_Loading3_Old: -7117012198108766654
+      Robot_Screen_Loading1_Old: 6968424497549060531
+      Room_Wall_Old: -1940839700508095722
+      GrassA_2_Old: 8294369937034324297
+      Mine_Cart10_Old: -5350145261029912546
+      Mine_Cart11_Old: -7082951207174037898
+      GrassB_1_Old: 5955687731921373103
+      Computer_Old: 6044167298760183922
+      Launch_Cover1_Old: -5482994674613328101
+      Robot_Screen_Empty_Old: 3115718290111480859
+      Flower_Pink2_Old: 5361631257420472715
+      Rocket_Button2_Old: -1611042220432592643
+      Mine_Cart4_Old: 8834033887300994707
+      Robot_Base2_Old: -8659451703381833691
+      Robot_Base16_Old: 580044052579557962
+      Logo_Trash_Old: -6314728025926759367
+      Rocket_Tower7_Old: -1694370585520503453
+      Mine_Cart8_Old: 8287290193985857623
+      Rocket_Tower10_Old: 6172449252521616356
+      Keyboard_Screen9_Old: -5393079636168667110
+      Robot_Screen_Loading4_Old: -78688082753830527
+      Trophy_PedestalA_Old: 7385045655152147662
+      Robot_Base1_Old: 4031952903650303505
+      Flower_Orange2_Old: -2524328396890630821
+      Keyboard_Screen10_Old: -3139694988686388838
+      Window_Old: 8722271842803289840
+      Poster_Old: 1192844576016094557
+      Robot_Base14_Old: 7874956283656454431
+      Rocket_Tower2_Old: 3577476227537652358
+      Robot_Base4_Old: -7841782963002435219
+      Robot_Base5_Old: 8740543175143956395
+      Keyboard_Screen20_Old: 4090802850771672748
+      Table_Old: 9178570626457300377
+      Keyboard_Screen1_Old: -4131956043310619117
+      Mine_Cart1_Old: -4051419926227991977
+      Keyboard_Screen5_Old: -4771805855972453191
       Earth_41: -4185284398289417087
-      Flower_Purple2: 1228465305477970562
-      Mine_Cart9: 284371763737423165
-      Robot_Base6: -8192757476834351087
-      Keyboard_Screen4: 3654806145904711751
-      Rocket_Tower5: 7694803890362208338
-      Flower_Pink2: -5332350200267198914
-      Table: 1192844576016094557
-      Keyboard_Screen3: -1479756206100183629
-      Book_Shelf: 8965776249528167994
-      Keyboard_Screen5: -2995070078877894131
-      Robot_Screen_Empty: 8722271842803289840
-      Robot_Base9: 4294241880578142434
-      Robot_Screen_Pickax: -357963421316838327
-      Wall_L: 5735966784705046917
-      Robot_Base3: 9205127480332610405
-      Rocket_Tower4: -5606347995224241632
-      Mine_Hill1: -4095676495126173018
-      Keyboard_Screen19: -1589417829670063743
-      Flower_Pink1: -2524328396890630821
-      Robot_Base5: 8740543175143956395
-      Computer_Screen2: -1403075918087427084
-      RockB_1: 7979187214594251000
-      Robot_Base13: -8636966842280493821
-      Mine_Cart5: -6299857102846281307
-      Mine_Cart1: -4051419926227991977
-      Mine_Cart6: -8480571167284963237
-      Robot_Rings1: -6451319951707577422
-      Robot_Base12: 6842488206505755015
-      Keyboard_Screen17: -5951496265300578705
-      Mine_Cart17: -9157916143068711143
-      Mine_Cart8: 8287290193985857623
-      Room_Ground: 5363733841854348253
-      Launch_Cover2: 1772166368771238176
-      Robot_Base1: 4031952903650303505
-      Launch_Cover1: -5482994674613328101
-      Computer_Screen3: -911993029377046377
-      Trophy_PedestalB: 7385045655152147662
-      GrassA_1: 6423806749927177598
-      Robot_Screen_Loading3: -7117012198108766654
-      Mine_Ground: 7810780092824436414
-      Trophy_PedestalA: 5955687731921373103
-      Computer_Screen5: -3366420888529365811
-      Robot_Screen_Exclamation: -1710825386507771198
-      Robot_Base19: 3996960499831143542
-      Mine_Shaft2: 6217692495055333485
-      Rocket_Tower7: -1694370585520503453
-      Rocket_Building: 9178570626457300377
-      Rocket_Tower10: 6172449252521616356
-      Mine_Hill2: 4027447983487812613
-      Robot_Miner: 9222530763774365840
-      Robot_Screen_Loading2: 6968424497549060531
-      Keyboard_Screen18: -6879691812619920712
-      Rocket_Tower1: -7494289540377265527
-      Rocket_Tower2: 3577476227537652358
-      Mine_Cart11: -7082951207174037898
-      RockA_2: 1568976944791875497
-      Computer: 6044167298760183922
-      GrassB_2: 8294369937034324297
-      Keyboard_Screen16: 4787422732180281619
+      Wall_R_Old: -7979445981126881994
+      Rocket_Tower3_Old: -2979762655070652362
+      Rocket_Tower5_Old: 7694803890362208338
+      Background_Old: 2753524791736967975
+      Wall_L_Old: 5735966784705046917
+      Keyboard_Screen6_Old: -7725531992882583122
+      Robot_Screen_Startup3_Old: 3428491173251122526
+      Plane2_Old: -5289550111512436940
+      Mine_Shaft1_Old: 2626839459393084993
+      Cofee2_Old: 5404703936751759412
+      Computer_Screen4_Old: 5550154907140929604
+      Plant2_Old: -65715871781885684
+      Plant1_Old: 2243237344338328031
+      Computer_Screen2_Old: -1403075918087427084
+      Robot_Base15_Old: 7053551051603303297
+      Mine_Hill1_Old: -4095676495126173018
+      Flower_Orange1_Old: 8917927153200763621
+      Mine_Cart18_Old: -1535549643591290113
+      Robot_Base6_Old: -8192757476834351087
+      GrassB_2_Old: 5955687731921373103
+      Robot_Screen_Startup2_Old: 7767473661887639448
+      Robot_Base9_Old: 4294241880578142434
+      Coffee1_Old: 3053304957686523090
+      Rocket_Building_Old: 5117889508594249501
+      CloudA_Old: 1585641402652771794
+      RockA_1_Old: 1568976944791875497
+      Mine_Cart12_Old: 6913933625444747107
+      Plane1_Old: 7902158703860476486
+      Robot_Rings2_Old: 5050210848853395841
+      Keyboard_Screen16_Old: -5951496265300578705
+      Trophy_PedestalB_Old: -7412046891123592334
+      Mine_Cart14_Old: -2958868818829734912
+      Robot_Base3_Old: 9205127480332610405
+      Rocket_Button1_Old: -1461461491057902164
+      Mouse_Old: -8100296154135606261
+      Mine_Cart7_Old: -8379535045852413486
+      Keyboard_Screen13_Old: -8453159333546367710
+      Rocket_Tower4_Old: -5606347995224241632
+      Robot_Base11_Old: 7467323891196551648
+      Flower_Purple1_Old: 1228465305477970562
+      Rocket_Tower6_Old: 747210698664643828
+      Mine_Cart19_Old: 7909351653937851178
+      Mine_Cart3_Old: -607999193065115162
+      Rocket_Ground_Old: 333042181394269626
+      Mine_Cart2_Old: 5140004021397483017
+      Keyboard_Screen3_Old: 3654806145904711751
+      Keyboard_Screen18_Old: -1589417829670063743
+      Computer_Screen3_Old: -911993029377046377
+      Flower_Purple2_Old: 9056076809899198952
+      Mine_Shaft2_Old: 6217692495055333485
+      Room_Ground_Old: 5363733841854348253
+      Mine_Cart9_Old: 284371763737423165
+      Keyboard_Screen4_Old: -2995070078877894131
+      Robot_Base10_Old: 2252545063349228790
+      Rocket_Old: -733502893692333445
+      Computer_Screen1_Old: -5847428952939010971
+      Robot_Base18_Old: -4353581607334584552
+      Flower_Pink1_Old: -5332350200267198914
+      Keyboard_Screen17_Old: -6879691812619920712
+      Keyboard_Screen15_Old: 4787422732180281619
+      Computer_Screen5_Old: -3366420888529365811
+      Mine_Cart13_Old: -737408880243906024
+      Robot_Screen_Startup4_Old: -357963421316838327
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

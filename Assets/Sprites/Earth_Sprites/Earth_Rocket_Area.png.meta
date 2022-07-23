@@ -1,0 +1,784 @@
+fileFormatVersion: 2
+guid: 6b8e9067f6c42d74792f815d315d07f0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 52
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rocket_Ground
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 685
+        width: 608
+        height: 332
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a5971651368cf4eb41b5be4477d0b9
+      internalID: 1426672163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Button1
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 795
+        width: 111
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5764a23ebaa5c4248a3ae8533fc2539b
+      internalID: -91199359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Button2
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 795
+        width: 111
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdd98fc0fa758e4f9979d589dc69c5f
+      internalID: 685750703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 839
+        width: 60
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec69f5189c64cf4bb8534fd60ab30d4
+      internalID: -329774271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower1
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 877
+        width: 62
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a62e9345f954842906eb492753b2a6
+      internalID: -783299792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower3
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 641
+        width: 62
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05eb13ffa41be684da08fc1b08d36f5e
+      internalID: 1630422579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower5
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 641
+        width: 58
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3eba83f717ba74992f70be41bd809e
+      internalID: 1083357121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower6
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 641
+        width: 55
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1349dc507e9cc4fad257f92ebc22a4
+      internalID: 300494397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Orange_1
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 752
+        width: 17
+        height: 29
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296e750b802813548b3fc799923910dc
+      internalID: 2007212915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower4
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 685
+        width: 60
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0697496fdf9549843a6a99083fc03b49
+      internalID: 2138775905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower2
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 723
+        width: 62
+        height: 139
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7206f4cd3294cc342b32156a81ef97be
+      internalID: 234526042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Pink_1
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 709
+        width: 17
+        height: 29
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670d0ade69eb11043937e9cc602475a9
+      internalID: 278026137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassA_1
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 685
+        width: 15
+        height: 10
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3019411a0b79f14a950bdf80033a672
+      internalID: -684370662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower7
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 569
+        width: 54
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57aa4642e69c31c499b2abfc74883fcc
+      internalID: -197900475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Launch_Cover1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 603
+        width: 111
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7495009}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a441e278a66224aab22bb7b587b107
+      internalID: -1835030148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower8
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 531
+        width: 52
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e273b0ee30c519478109809f9eef636
+      internalID: 1577501713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower9
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 531
+        width: 50
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa339fd4328de6449a66787179d8466
+      internalID: -1237183124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Tower10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 531
+        width: 48
+        height: 140
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d710fe26257baac489670323ef0752aa
+      internalID: -723364523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Launch_Cover2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 618
+        width: 111
+        height: 53
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3798864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75492a6e34f429d4db94bb3b8bdadbbc
+      internalID: -1042119799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rocket_Building
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 606
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db54b40ca8fb9549be2e606c168b4b9
+      internalID: 1529139275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuel_Tank
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 641
+        width: 68
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b79865e6d9f7214bbb36c779543136c
+      internalID: -1488140323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Orange_2
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 642
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.57894737, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60bba92bee763144a1073b3ae2fb091
+      internalID: 1065264374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Pink_2
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 642
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.57894737, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0dd78db4d6528439774dfe81d6dcd9
+      internalID: 935869632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Purple_2
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 642
+        width: 19
+        height: 29
+      alignment: 9
+      pivot: {x: 0.57894737, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca11459c70ef9943afc7d3713de77bc
+      internalID: 199994657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassB_2
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 615
+        width: 16
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.083333336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b41b34599413c848aa0ebfb527474c5
+      internalID: 233936291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassA_2
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 618
+        width: 16
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11111111}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8500248fd312fb41ad06f81d3e6e4df
+      internalID: -291346637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower_Purple_1
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 599
+        width: 17
+        height: 29
+      alignment: 9
+      pivot: {x: 0.47058824, y: 0.03448276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29207d5d2d3a384fa2074b8bd710c77
+      internalID: 1765614737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 608
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbc86fb372dce346aad7fed132dbeda
+      internalID: -730148861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GrassB_1
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 615
+        width: 15
+        height: 13
+      alignment: 9
+      pivot: {x: 0.53333336, y: 0.07692308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ff6a22d16d35b4f99f046a06748f85
+      internalID: -851206729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Logo: -730148861
+      Rocket_Tower8: 1577501713
+      Rocket_Tower9: -1237183124
+      Flower_Orange_2: 1065264374
+      Flower_Purple_2: 199994657
+      Rocket_Ground: 1426672163
+      Rocket_Tower6: 300494397
+      GrassB_1: -851206729
+      Launch_Cover2: -1042119799
+      Launch_Cover1: -1835030148
+      Fuel_Tank: -1488140323
+      Rocket_Tower5: 1083357121
+      GrassA_1: -684370662
+      Flower_Orange_1: 2007212915
+      Flower_Purple_1: 1765614737
+      Rocket_Button1: -91199359
+      Rocket_Tower7: -197900475
+      Rocket_Building: 1529139275
+      Rocket_Tower10: -723364523
+      Rocket: -329774271
+      Rocket_Tower1: -783299792
+      Flower_Pink_1: 278026137
+      Rocket_Tower2: 234526042
+      Rocket_Button2: 685750703
+      GrassA_2: -291346637
+      Flower_Pink_2: 935869632
+      GrassB_2: 233936291
+      Rocket_Tower4: 2138775905
+      Rocket_Tower3: 1630422579
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

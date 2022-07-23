@@ -131,7 +131,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Green_Button_Pressed
+      name: UI_Green_Button_Pressed_Old
       rect:
         serializedVersion: 2
         x: 1
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Green_Button_Unpressed
+      name: UI_Green_Button_Unpressed_Old
       rect:
         serializedVersion: 2
         x: 374
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Mini_Img_Frame
+      name: UI_Mini_Img_Frame_Old
       rect:
         serializedVersion: 2
         x: 748
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Outline
+      name: UI_Outline_Old
       rect:
         serializedVersion: 2
         x: 1121
@@ -215,7 +215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Red_Button_Pressed
+      name: UI_Red_Button_Pressed_Old
       rect:
         serializedVersion: 2
         x: 1494
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Red_Button_Unpressed
+      name: UI_Red_Button_Unpressed_Old
       rect:
         serializedVersion: 2
         x: 2
@@ -257,7 +257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Pane
+      name: UI_Pane_Old
       rect:
         serializedVersion: 2
         x: 375
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Selected
+      name: UI_Selected_Old
       rect:
         serializedVersion: 2
         x: 748
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Unselected
+      name: UI_Unselected_Old
       rect:
         serializedVersion: 2
         x: 1121
@@ -330,15 +330,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Green_Button_Pressed: -1557013538026691241
-      UI_Red_Button_Unpressed: 8160775752198118580
-      UI_Outline: -9136572144232859775
-      UI_Pane: 7448113381798972013
-      UI_Unselected: -6595680761151332689
-      UI_Red_Button_Pressed: 8586885197115800619
-      UI_Selected: 7843416716369364892
-      UI_Mini_Img_Frame: 1080825480604336155
-      UI_Green_Button_Unpressed: 82707731993968007
+      UI_Red_Button_Unpressed_Old: 8160775752198118580
+      UI_Red_Button_Pressed_Old: 8586885197115800619
+      UI_Pane_Old: 7448113381798972013
+      UI_Mini_Img_Frame_Old: 1080825480604336155
+      UI_Green_Button_Unpressed_Old: 82707731993968007
+      UI_Unselected_Old: -6595680761151332689
+      UI_Green_Button_Pressed_Old: -1557013538026691241
+      UI_Selected_Old: 7843416716369364892
+      UI_Outline_Old: -9136572144232859775
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

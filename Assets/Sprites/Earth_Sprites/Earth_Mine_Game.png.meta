@@ -1,0 +1,1470 @@
+fileFormatVersion: 2
+guid: 199463fd01c51554b90591f159e7d871
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 52
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mine_Hill1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 880
+        width: 411
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9671d9c66281e42a9b1bfe89a15fa4
+      internalID: 251453257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Hill2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 880
+        width: 411
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4afdaf99664bb1240b9fcc45dff06730
+      internalID: 1287981839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart7
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 909
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6afb389af61fd304b93a0c1f937e338d
+      internalID: 701933607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart15
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 758
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc182e7306972348a6564d8b1373718
+      internalID: 1164414337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart16
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 758
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8bd2df58e6a5c44bb35697de5af4097
+      internalID: 604026462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart17
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 758
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc662041a487fb4582813c83858ba72
+      internalID: -216624185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart18
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 758
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b36f4718513cf6e4481c7157685fcfc5
+      internalID: -252224984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart1
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 758
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3358bfa61e2a2da44a97fe052534f9e3
+      internalID: 204667712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockB_1
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 834
+        width: 70
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6415520105652724285627df9e39fad4
+      internalID: 856438301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart14
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 787
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afac08e391d344c4ca6dc74bf0366dba
+      internalID: -313641688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockB_2
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 788
+        width: 70
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1646dbdaa81685e43b8ffa3ad090b58a
+      internalID: 254980837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart3
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 636
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964e7a4277d20964ebf207753552b0df
+      internalID: -284649241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 636
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eb88260737875041920752c3ce3e615
+      internalID: -167726292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart5
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 636
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d10d0d79b58d144adf874df549e915
+      internalID: -158521863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart6
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 636
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6237875723727f4459bf25161a4d277e
+      internalID: -1960660412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart19
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 636
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8437392f2f1a37a4db8db35a40aa377f
+      internalID: -887495449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart2
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 665
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4486c52e368038847bf3c856eeebe7ec
+      internalID: -1587230590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Shaft1
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 637
+        width: 105
+        height: 136
+      alignment: 9
+      pivot: {x: 0.104761906, y: 0.86764705}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92119a079a3c1824bace1b02a9ac4da3
+      internalID: 1129538657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 514
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f3cb89dc590a341bbc790af0862ef5
+      internalID: -1458799822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart10
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 514
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f515492f73e71e04eae85b65c044be09
+      internalID: 1888057214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart11
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 514
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df435c7ac1a21144f899a4c4fa886f3f
+      internalID: 766637209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart12
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 514
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20149386f146dd1429c226e9a0dd6205
+      internalID: -493451587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart13
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 514
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e9d83b851c4bf428d3ed2fef3afd18
+      internalID: -1681520265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minecart8
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 543
+        width: 135
+        height: 108
+      alignment: 9
+      pivot: {x: 0.78518516, y: 0.0925926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b84a4d45f9a4584baf861239630fb2a
+      internalID: -1657495465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mine_Shaft2
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 487
+        width: 105
+        height: 136
+      alignment: 9
+      pivot: {x: 0.104761906, y: 0.86764705}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90d6024874033c47aab36b44dc291f8
+      internalID: -1358152712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base2
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 393
+        width: 123
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47154468, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e97cb5a24332c4f98461c992246ec2
+      internalID: -705863636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 393
+        width: 123
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47154468, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01bf9873d104ff842af30771a2610198
+      internalID: -380712603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base5
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 393
+        width: 122
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4754098, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264c739dd98fefb4587d4e7c2b5148b1
+      internalID: -1285908332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base4
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 393
+        width: 122
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4754098, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16b99ebb04acdc41b017fc5628d4f60
+      internalID: -1650384988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base6
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 393
+        width: 121
+        height: 107
+      alignment: 9
+      pivot: {x: 0.47933882, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4d1894fa339da4eb91ef7bc4f922ab
+      internalID: -997489662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockA_1
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 471
+        width: 45
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06926463d7862a94a93bec67daffef8a
+      internalID: 1768442026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base1
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 422
+        width: 125
+        height: 107
+      alignment: 9
+      pivot: {x: 0.46400002, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26965a440c597b44d8efe4c6d5c0307e
+      internalID: -315537234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base8
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 366
+        width: 117
+        height: 107
+      alignment: 9
+      pivot: {x: 0.42735046, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37951ec77af5104ca1dcc05231d1c00
+      internalID: 1675291599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockA_2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 428
+        width: 45
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd652d4b9fbb51d49b140481daca1169
+      internalID: -1832807835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base7
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 301
+        width: 117
+        height: 107
+      alignment: 9
+      pivot: {x: 0.49572653, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900fc712b78ab744b9013858e6764cba
+      internalID: -1058143705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Rings1
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 377
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8924ed9b12f20784aa3fdea865b7431f
+      internalID: -2121300491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 272
+        width: 115
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969bda8b4f24cfd4e8d02b12edb2a52d
+      internalID: -593442279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base10
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 272
+        width: 115
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4347826, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d7e84630128574bb84554ac56a80ea
+      internalID: -1056281405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base11
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 272
+        width: 114
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4385965, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2f89613c10cb243957ebcd8d125fae
+      internalID: 214163774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base12
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 272
+        width: 114
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4385965, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caec11f8ad46f9243a4ecfc1fd2a0881
+      internalID: -615769482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base13
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 272
+        width: 114
+        height: 107
+      alignment: 9
+      pivot: {x: 0.50877196, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a289b63ab0ffec647ae921a89095705e
+      internalID: 1094163843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base14
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 245
+        width: 113
+        height: 107
+      alignment: 9
+      pivot: {x: 0.44247788, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3300dd4c07df9e94788b329ba13fb793
+      internalID: -1165080298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Rings2
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 323
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3391a1ec0dfc6254987ccca932b44695
+      internalID: -496347959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base15
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 180
+        width: 113
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5132743, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 557cc2d0032da4744890c4128b534628
+      internalID: -2027476371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Empty
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 283
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ab46e16a0de074b8e0f609c5cc5e60
+      internalID: 290662057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 151
+        width: 112
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5178572, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28333a6e2f3ea4a4ab2769ef0d987fdc
+      internalID: -1339957094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 151
+        width: 109
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4587156, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a44ef88d54756e4d887781a25ddd688
+      internalID: 1137061707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 151
+        width: 106
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4716981, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c26e811e4bf95438ca0b8400b33bd9
+      internalID: -35555662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base19
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 151
+        width: 105
+        height: 107
+      alignment: 9
+      pivot: {x: 0.4761905, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a9f10037322114b83d96c3ecf77994
+      internalID: 824088767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Base20
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 151
+        width: 104
+        height: 107
+      alignment: 9
+      pivot: {x: 0.48076925, y: 0.9719626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ff17529a2a8964b9c77edb1d67ae13
+      internalID: -2136199943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup1
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 243
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bb593f7fc985b4499884121c45f6ea
+      internalID: -2083181803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup2
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 205
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 003421b0b6e90ca4190bbfae305b42db
+      internalID: 1348124773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup3
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 205
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc6117999ed3d241903e4ae088dc5c9
+      internalID: 84724604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Startup4
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 205
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97295b4259f09947a33f2e23a0a165c
+      internalID: -1652867624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Pickax
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 203
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3dad5cea3a98448844243e657450fe
+      internalID: 331280575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Exclamation
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 203
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ae61788ea5c8a468d264a303700ea6
+      internalID: 1504833679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading1
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 165
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3ba49a9a693f64aa5263b4ebd76d87
+      internalID: 1951775661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading2
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 165
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98dd33592f396dd4cace5285f27b5ae7
+      internalID: -134690524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading3
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 165
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6486f10ec17866b46b80fe4863c3451a
+      internalID: -1564398054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Robot_Screen_Loading4
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 163
+        width: 35
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21db72883891764a8f6322a0e549cea
+      internalID: -1810382223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4ea4dcc7df1800049900a0125ea34408
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Minecart18: -252224984
+      Minecart13: -1681520265
+      RockA_1: 1768442026
+      RockB_2: 254980837
+      Robot_Base20: -2136199943
+      Mine_Game_Earth_36: 350404100
+      Minecart16: 604026462
+      Minecart4: -167726292
+      Robot_Screen_Startup4: -1652867624
+      Robot_Base10: -1056281405
+      Robot_Base15: -2027476371
+      Robot_Rings2: -496347959
+      Minecart10: 1888057214
+      Minecart5: -158521863
+      Robot_Base6: -997489662
+      Minecart11: 766637209
+      Minecart7: 701933607
+      Robot_Base8: 1675291599
+      Minecart2: -1587230590
+      Robot_Base4: -1650384988
+      Mine_Game_Earth_42: -614824264
+      Robot_Screen_Empty: 290662057
+      Robot_Screen_Pickax: 331280575
+      Robot_Base9: -593442279
+      Robot_Base3: -380712603
+      Robot_Base7: -1058143705
+      Robot_Screen_Loading4: -1810382223
+      Mine_Hill1: 251453257
+      Robot_Base5: -1285908332
+      RockB_1: 856438301
+      Robot_Base13: 1094163843
+      Mine_Game_Earth_46: 1326457079
+      Robot_Screen_Startup3: 84724604
+      Minecart9: -1458799822
+      Robot_Rings1: -2121300491
+      Robot_Base12: -615769482
+      Robot_Base16: -1339957094
+      Robot_Base17: 1137061707
+      Robot_Base11: 214163774
+      Robot_Base1: -315537234
+      Robot_Base2: -705863636
+      Robot_Base18: -35555662
+      Robot_Screen_Loading3: -1564398054
+      Robot_Screen_Loading1: 1951775661
+      Minecart3: -284649241
+      Minecart15: 1164414337
+      Robot_Screen_Exclamation: 1504833679
+      Robot_Base19: 824088767
+      Minecart8: -1657495465
+      Minecart1: 204667712
+      Mine_Game_Earth_45: 1881803366
+      Minecart14: -313641688
+      Mine_Shaft1: 1129538657
+      Mine_Shaft2: -1358152712
+      Minecart17: -216624185
+      Minecart12: -493451587
+      Robot_Screen_Startup2: 1348124773
+      Mine_Hill2: 1287981839
+      RockA_2: -1832807835
+      Robot_Screen_Startup1: -2083181803
+      Robot_Screen_Loading2: -134690524
+      Minecart19: -887495449
+      Minecart6: -1960660412
+      Robot_Base14: -1165080298
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

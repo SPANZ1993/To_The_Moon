@@ -140,6 +140,10 @@ public class Background_Controller : MonoBehaviour
 
         // cam_start_loc = cam.transform.position;
         // //GameObject seed_chunk = (GameObject)Instantiate(Background_Chunk_Prefab, new Vector3(0.0f, 0.0f, 0.0f), new Quaternion());
+        // If we have less than 1GB of graphic memory then turn the fog off
+        if(SystemInfo.graphicsMemorySize < 1000){
+            disableFog();
+        }
         Chunks_Pool = GetComponent<Object_Pool>();
         StartCoroutine(_LateStart());
     }

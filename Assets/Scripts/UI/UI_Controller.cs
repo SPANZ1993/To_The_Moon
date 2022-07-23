@@ -239,6 +239,7 @@ public class UI_Controller : MonoBehaviour
     // Researcher Menu
     private GameObject ResearchersMenu;
     private GameObject ResearchersConfirmationBox;
+    private TextMeshProUGUI ResearchersConfirmationBoxText;
     private GameObject researchersMenuMidPanel;
     private UnityEngine.UI.ScrollRect researchersMenuMidPanelScrollRect;
 
@@ -294,9 +295,11 @@ public class UI_Controller : MonoBehaviour
 
     private GameObject Options_Selection_Panel;
     private TextMeshProUGUI Options_Selection_Panel_Text;
+    private VerticalLayoutGroup Options_Vertical_Layout_Group;
     //private ScrollRect optionsScrollRect;
     private GameObject Records_Selection_Panel;
     private TextMeshProUGUI Records_Selection_Panel_Text;
+    private VerticalLayoutGroup Records_Vertical_Layout_Group;
 
     private TextMeshProUGUI Highest_Altitude_Value_Text;
     private TextMeshProUGUI Most_Coins_Value_Text;
@@ -704,6 +707,7 @@ public class UI_Controller : MonoBehaviour
             // Researchers Menu
             ResearchersMenu = GameObject.Find("Researcher_Menu");
             ResearchersConfirmationBox = GameObject.Find("Research_Confirmation_Box");
+            ResearchersConfirmationBoxText = GameObject.Find("Research_Confirmation_Text").GetComponent<TextMeshProUGUI>();
             researchersMenuMidPanel = GameObject.Find("Researcher_Menu_Mid_Panel");
             researchersMenuMidPanelScrollRect = researchersMenuMidPanel.GetComponent<UnityEngine.UI.ScrollRect>();
             researchersMenuContainerPanel = GameObject.Find("Researcher_Menu_Container_Panel");
@@ -756,6 +760,11 @@ public class UI_Controller : MonoBehaviour
             Records_Selection_Panel_Text = GameObject.Find("Records_Selection_Panel_Text").GetComponent<TextMeshProUGUI>();
             //Records_Container_Panel = GameObject.Find("Records_Container_Panel");
             //recordsScrollRect = GameObject.Find("Records_Container_Panel").GetComponent<ScrollRect>();
+
+            Options_Vertical_Layout_Group = GameObject.Find("Options_Scroll_Panel").GetComponent<VerticalLayoutGroup>();
+            Records_Vertical_Layout_Group = GameObject.Find("Records_Scroll_Panel").GetComponent<VerticalLayoutGroup>();
+            Options_Vertical_Layout_Group.enabled = false;
+            Records_Vertical_Layout_Group.enabled = false;
 
             musicLevelSlider = GameObject.Find("Music_Slider").GetComponent<Slider>();
             soundFxLevelSlider = GameObject.Find("Sound_FX_Slider").GetComponent<Slider>();
@@ -1339,15 +1348,27 @@ public class UI_Controller : MonoBehaviour
 
     void onRocketBuildingTapped(){
         if (!robotMenuDisplayed && !rocketBuildingMenuDisplayed && !sceneManager.startedRocketSceneTransition){
-
-            EnableUIElement(RocketBuildingMenuObj);
-            //IEnumerator tmpIE(){
-                //yield return new WaitForSeconds(0);
-                //researchManager.refreshAllResearchPanels();
-            //}
-            //StartCoroutine(tmpIE());
-            //researchManager.refreshAllResearchPanels(); // THIS DOESN'T WORK BUT THE ABOVE DOES.... PROBABLY GOING TO HAVE TO CHANGE ENABLEUIELEMENT() CODE A BIT
-            EnableUIElement(ScreenTintObj);
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Tapped Rocket Building";
+            }
+            try{
+                EnableUIElement(RocketBuildingMenuObj);
+                //IEnumerator tmpIE(){
+                    //yield return new WaitForSeconds(0);
+                    //researchManager.refreshAllResearchPanels();
+                //}
+                //StartCoroutine(tmpIE());
+                //researchManager.refreshAllResearchPanels(); // THIS DOESN'T WORK BUT THE ABOVE DOES.... PROBABLY GOING TO HAVE TO CHANGE ENABLEUIELEMENT() CODE A BIT
+                EnableUIElement(ScreenTintObj);
+            }
+            catch(Exception e){
+                if(GameObject.Find("App_State_Text")!=null){
+                    GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "\n" + e.ToString();
+                }
+            }
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nAnd here...";
+            }
             //AUDIO
             selectResearch();
             rocketBuildingMenuDisplayed = true;
@@ -1410,6 +1431,8 @@ public class UI_Controller : MonoBehaviour
         if(bookshelfMenuDisplayed){
             DisableUIElement(bookshelfMenu);
             DisableUIElement(ScreenTintObj);
+            Options_Vertical_Layout_Group.enabled = false;
+            Records_Vertical_Layout_Group.enabled = false;
             bookshelfMenuDisplayed = false;
         }
 
@@ -1441,17 +1464,18 @@ public class UI_Controller : MonoBehaviour
 
         selectedResearchPanel = null;
         selectedResearcherPanel = null;
+        Game_Manager.instance.WaitThenSave();
     }
 
 
 
 
 
-    public void EnableUIElement(GameObject UI, bool touchOnly=false, Dictionary<GameObject,Vector3> localScalesDict=null){
+    public void EnableUIElement(GameObject UI, bool touchOnly=false, Dictionary<GameObject,Vector3> localScalesDict=null, bool first=true){
         for(int i = 0; i < UI.transform.childCount; i++)
         {
             GameObject child = UI.transform.GetChild(i).gameObject;
-            EnableUIElement(child, touchOnly: touchOnly);
+            EnableUIElement(child, touchOnly: touchOnly, first:false);
         }
 
         if (touchOnly){
@@ -1515,6 +1539,10 @@ public class UI_Controller : MonoBehaviour
 
             try{
                 UI.transform.localScale = currentLocalScales[UI];
+                if(GameObject.Find("App_State_Text")!=null && UI.name == "Bookshelf_Menu"){
+                    GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "\nEnabled: " + UI.name + " --- " + UI.transform.localScale;
+                }
+
                 //LeanTween.scale(rectTrans:UI.GetComponent<RectTransform>(), currentLocalScales[UI], 0.05f).setEase(LeanTweenType.easeInOutSine);
 
                 // if(UI.GetComponent<VerticalLayoutGroup>() != null){
@@ -1522,12 +1550,15 @@ public class UI_Controller : MonoBehaviour
                 // }
             }
             catch(Exception e){
-                Debug.LogWarning(gameObject.GetInstanceID() + " MESSED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
+                //Debug.LogWarning(gameObject.GetInstanceID() + " MESSED UP LSCALE ON " + UI + " " + UI.GetInstanceID());
                 //Debug.Log(mainAreaLocalScales[UI] + "...?");
-                if(UI.name.StartsWith("TMP SubMeshUI")){
+                if(UI.name.StartsWith("TMP SubMeshUI") || UI.name.StartsWith("TMP UI SubObject")){
                     Destroy(UI);
                 }
                 else{
+                    if(GameObject.Find("App_State_Text")!=null && first){
+                        GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n" + e.ToString();
+                    }
                     throw e;
                 }
             }
@@ -2455,7 +2486,11 @@ public class UI_Controller : MonoBehaviour
         }
 
         EnableUIElement(ResearchersConfirmationBox);
+        
         selectedResearcherPanel = IDCard;
+        Debug.Log("TEXT: " + ResearchersConfirmationBoxText.text);
+        ResearchersConfirmationBoxText.text = ResearchersConfirmationBoxText.text.Replace("<research>", ((Research)(System.Object)selectedResearchPanel.GetComponent<ObjectHolder>().Obj).researchName);
+        ResearchersConfirmationBoxText.text = ResearchersConfirmationBoxText.text.Replace("<researcher>", ((Researcher)(System.Object)selectedResearcherPanel.GetComponent<ObjectHolder>().Obj).name);
         researchersConfirmationBoxDisplayed = true;
         DisableUIElement(RocketBuildingMenuObj, touchOnly: true);
         DisableUIElement(ResearchersMenu, touchOnly: true);
@@ -2684,19 +2719,29 @@ public class UI_Controller : MonoBehaviour
     public void onBookshelfTapped(){
         if (!bookshelfMenuDisplayed && !computerMenuDisplayed){
             
-            if(!Audio_Manager.instance.IsPlaying("Bookshelf_Tapped")){
-                Audio_Manager.instance.Play("Bookshelf_Tapped");
-            }
 
 
 
+
+            // if(GameObject.Find("App_State_Text")!=null){
+            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf Before...";
+            // }
             EnableUIElement(bookshelfMenu);
+            // if(GameObject.Find("App_State_Text")!=null){
+            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf After...";
+            // }
             EnableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = true;
 
             Touch_Detection.instance.disableReticle(disableswipes:true);
 
             selectOptions();
+
+
+            if(!Audio_Manager.instance.IsPlaying("Bookshelf_Tapped")){
+                Audio_Manager.instance.Play("Bookshelf_Tapped");
+            }
+
         } 
     }
 
@@ -2706,6 +2751,10 @@ public class UI_Controller : MonoBehaviour
         if(bookshelfMenuDisplayed && !Audio_Manager.instance.IsPlaying("Bookshelf_Tapped") && !Audio_Manager.instance.IsPlaying("UI_Select_Pane_1")){
             Audio_Manager.instance.Play("UI_Select_Pane_1");
         }
+
+        Options_Vertical_Layout_Group.enabled = true;
+        Records_Vertical_Layout_Group.enabled = false;
+
 
         Options_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;
         Records_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
@@ -2782,6 +2831,8 @@ public class UI_Controller : MonoBehaviour
             Audio_Manager.instance.Play("UI_Select_Pane_2");
         }
 
+        Options_Vertical_Layout_Group.enabled = false;
+        Records_Vertical_Layout_Group.enabled = true;
 
         Options_Selection_Panel.GetComponent<Image>().sprite = unselectedSprite;
         Records_Selection_Panel.GetComponent<Image>().sprite = selectedSprite;
@@ -2845,14 +2896,24 @@ public class UI_Controller : MonoBehaviour
 
             Touch_Detection.instance.disableReticle(disableswipes:true);
 
-            //selectOptions();
-            selectShop(silent:true);
+            try{
+                //selectOptions();
+                selectShop(silent:true);
 
-            headerPanelExchangeTabText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Name");
-            headerPanelShopTabText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Shop.Name");
+                headerPanelExchangeTabText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Exchange.Name");
+                headerPanelShopTabText.text = localizationManager.GetLocalizedString(main_area_ui_table, "UI.Computer.Shop.Name");
 
 
-            Crypto_Manager.instance.getPricesActiveCryptos();
+                Crypto_Manager.instance.getPricesActiveCryptos();
+            }
+            catch(Exception e){
+                if(GameObject.Find("App_State_Text")!=null){
+                    GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += e.ToString();
+                }
+            }
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nGRAPHICS: " + SystemInfo.graphicsMemorySize.ToString();
+            }
         }
     }
 

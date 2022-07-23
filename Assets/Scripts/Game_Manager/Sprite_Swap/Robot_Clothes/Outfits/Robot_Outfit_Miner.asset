@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Robot_Outfit_Miner
   m_EditorClassIdentifier: 
   outfitId: 0
-  robotOutfitSprite: {fileID: 9222530763774365840, guid: 5e650ccf72a6e46469a5d87b62e6e06c, type: 3}
+  robotOutfitSprite: {fileID: 1222647360, guid: e25b7536d55a9e9468d893908e500ab1, type: 3}
