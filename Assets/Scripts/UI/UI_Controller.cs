@@ -319,6 +319,24 @@ public class UI_Controller : MonoBehaviour
 
     // End Bookshelf Menu
 
+    // Leaderboard Menu
+    private string curLeaderboardStatisticName;
+    [SerializeField]
+    private int nRowsLeaderboard = 10;
+    private int? currentLeaderboardStartRow;
+    private bool currentlyWaitingForLeaderboardData = false;
+    private Dictionary<int, Dictionary<string, string>> curLeaderboardData;
+    private float leaderboardTimeoutTime = 3f; // If it takes more than 3 seconds to load the leaderboard then give up
+    private bool leaderboardDisplayed = false;
+    private GameObject LeaderboardMenu;
+    [SerializeField]
+    private GameObject LeaderboardRowPrefab;
+    private GameObject LeaderboardScoresTablePanel;
+
+    private TextMeshProUGUI LeaderboardTitleText; 
+    // End Leaderboard Menu
+
+
     // Computer Menu
     private GameObject computerMenu;
     private bool computerMenuDisplayed = false;
@@ -498,6 +516,8 @@ public class UI_Controller : MonoBehaviour
         Robot_Manager.RobotTappedInfo += onRobotTapped;
         Rocket_Building_Manager.RocketBuildingTappedInfo += onRocketBuildingTapped;
         Researcher_Manager.ResearchersRefreshedInfo += onResearchersRefreshed;
+        PlayFab_Manager.PlayFabGetLeaderboardSuccessInfo += onPlayFabGetLeaderboardSuccess;
+        PlayFab_Manager.PlayFabGetLeaderboardFailureInfo += onPlayFabGetLeaderboardFailure;
     }
 
     void OnDisable()
@@ -506,6 +526,8 @@ public class UI_Controller : MonoBehaviour
         Robot_Manager.RobotTappedInfo -= onRobotTapped;
         Rocket_Building_Manager.RocketBuildingTappedInfo -= onRocketBuildingTapped;
         Researcher_Manager.ResearchersRefreshedInfo -= onResearchersRefreshed;
+        PlayFab_Manager.PlayFabGetLeaderboardSuccessInfo -= onPlayFabGetLeaderboardSuccess;
+        PlayFab_Manager.PlayFabGetLeaderboardFailureInfo -= onPlayFabGetLeaderboardFailure;
     }
 
     void Awake()
@@ -785,6 +807,16 @@ public class UI_Controller : MonoBehaviour
 
             // End Bookshelf Menu
 
+
+
+            // Leaderboard Menu
+            LeaderboardMenu = GameObject.Find("Leaderboard_Menu");
+            LeaderboardScoresTablePanel = GameObject.Find("Leaderboard_Scores_Table_Panel");
+            LeaderboardTitleText = GameObject.Find("Leaderboard_Title_Text").GetComponent<TextMeshProUGUI>();
+            // End Leaderboard Menu
+
+
+
             // Computer Menu
             computerMenu = GameObject.Find("Computer_Menu");
 
@@ -845,6 +877,10 @@ public class UI_Controller : MonoBehaviour
             DisableUIElement(coinNameInputBox);
             DisableUIElement(coinNameInputConfirmationBox);
             DisableUIElement(bookshelfMenu);
+            DisableUIElement(LeaderboardMenu);
+            foreach(Transform child in LeaderboardScoresTablePanel.transform){
+                Destroy(child.gameObject);
+            }
             DisableUIElement(computerMenu);
             DisableUIElement(exchangeBuySellConfirmationBox);
             DisableUIElement(leftSwipeArrow);
@@ -1383,11 +1419,13 @@ public class UI_Controller : MonoBehaviour
 
     public void closeMenus(){
         bool sendUIEndAlert = false;
+        bool disableScreenTint = false;
 
         if (robotMenuDisplayed){
             DisableUIElement(RobotMenuObj);
             robotMenuDisplayed = false;
-            DisableUIElement(ScreenTintObj);
+            //DisableUIElement(ScreenTintObj);
+            disableScreenTint = true;
 
             sendUIEndAlert = true;
         }
@@ -1396,7 +1434,8 @@ public class UI_Controller : MonoBehaviour
 
             rocketBuildingMenuDisplayed = false;
 
-            DisableUIElement(ScreenTintObj);
+            //DisableUIElement(ScreenTintObj);
+            disableScreenTint = true;
 
             sendUIEndAlert = true;
         }
@@ -1407,7 +1446,8 @@ public class UI_Controller : MonoBehaviour
             rocketBuildingMenuDisplayed = false;
             researchersMenuDisplayed = false;
 
-            DisableUIElement(ScreenTintObj);
+            //DisableUIElement(ScreenTintObj);
+            disableScreenTint = true;
 
             sendUIEndAlert = true;
         }
@@ -1420,7 +1460,8 @@ public class UI_Controller : MonoBehaviour
             researchersMenuDisplayed = false;
             researchersConfirmationBoxDisplayed = false;
             
-            DisableUIElement(ScreenTintObj);
+            //DisableUIElement(ScreenTintObj);
+            disableScreenTint = true;
 
             EnableUIElement(RocketBuildingMenuObj, touchOnly: true);
             EnableUIElement(ResearchersMenu, touchOnly: true);
@@ -1428,17 +1469,32 @@ public class UI_Controller : MonoBehaviour
             sendUIEndAlert = true;
         }
 
-        if(bookshelfMenuDisplayed){
+        if(bookshelfMenuDisplayed && !leaderboardDisplayed){
             DisableUIElement(bookshelfMenu);
-            DisableUIElement(ScreenTintObj);
+            //DisableUIElement(ScreenTintObj);
+            disableScreenTint = true;
             Options_Vertical_Layout_Group.enabled = false;
             Records_Vertical_Layout_Group.enabled = false;
             bookshelfMenuDisplayed = false;
         }
+        else if(leaderboardDisplayed){
+            curLeaderboardStatisticName = null;
+            currentLeaderboardStartRow = null;
+
+
+            foreach(Transform child in LeaderboardScoresTablePanel.transform){
+                Destroy(child.gameObject);
+            }
+            //DisableUIElement(LeaderboardMenu);
+            DisableUIElement(LeaderboardMenu);
+            disableScreenTint = false;
+            leaderboardDisplayed = false;
+        }
 
         if(computerMenuDisplayed){
             DisableUIElement(computerMenu);
-            DisableUIElement(ScreenTintObj);
+            //DisableUIElement(ScreenTintObj);
+            disableScreenTint = true;
             removeAllExchangePanels();
             computerMenuDisplayed = false;
             shopDisplayed = false;
@@ -1452,6 +1508,14 @@ public class UI_Controller : MonoBehaviour
 
         if (NotEnoughCoinsBoxDisplayed){
             DisableUIElement(NotEnoughCoinsBox);
+            disableScreenTint = false;
+        }
+
+
+
+
+        if(disableScreenTint){
+            DisableUIElement(ScreenTintObj);
         }
 
 
@@ -1559,7 +1623,7 @@ public class UI_Controller : MonoBehaviour
                     if(GameObject.Find("App_State_Text")!=null && first){
                         GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n" + e.ToString();
                     }
-                    throw e;
+                    //throw e;
                 }
             }
 
@@ -2195,7 +2259,7 @@ public class UI_Controller : MonoBehaviour
 
     private string getResearchPanelName(GameObject researchPanel){
         if (researchPanel.transform.parent.gameObject.name != "Research_Container_Panel"){
-            throw new ArgumentException("Must pass a Research UI Panel to getResearchPanelName()... got " + researchPanel);
+            Debug.LogError("Must pass a Research UI Panel to getResearchPanelName()... got " + researchPanel);
         }
         foreach (Transform child in researchPanel.transform){
             //Debug.Log("CHILD NAME: " + child.gameObject.name);
@@ -2717,6 +2781,13 @@ public class UI_Controller : MonoBehaviour
 
     // Bookshelf Menu Button Handlers
     public void onBookshelfTapped(){
+
+        // Do this so the leaderboards will be up to date
+        try{
+            Game_Manager.instance.saveData(disableTouch: false, displayIndicator: false, serially: true);
+        }
+        catch(Exception e){}
+
         if (!bookshelfMenuDisplayed && !computerMenuDisplayed){
             
 
@@ -2880,7 +2951,143 @@ public class UI_Controller : MonoBehaviour
         
     }
 
+
+
+    public void onHighestAltitudeViewLeaderboardButtonPressed(){
+        leaderboardDisplayed = true;
+        EnableUIElement(LeaderboardMenu);
+        LeaderboardTitleText.text = "Highest Altitude";
+        //populateLeaderboard("Highest Launch", startPosition:0, maxCount:nRowsLeaderboard);
+        populateLeaderboard("Highest Launch", startPosition:null, maxCount:nRowsLeaderboard);
+    }
+
+
+    public void onMostCoinsViewLeaderboardButtonPressed(){
+        leaderboardDisplayed = true;
+        EnableUIElement(LeaderboardMenu);
+        LeaderboardTitleText.text = "Most Coins";
+        //populateLeaderboard("Most Coins", startPosition:0, maxCount:nRowsLeaderboard);
+        populateLeaderboard("Most Coins", startPosition:null, maxCount:nRowsLeaderboard);
+    }
+
+
     // End Bookshelf Button Handlers
+
+
+
+    private void populateLeaderboard(string statisticName, int? startPosition=null, int maxCount=10){
+        curLeaderboardStatisticName = statisticName;
+        
+        curLeaderboardData = null;
+        currentlyWaitingForLeaderboardData = true;
+        if(startPosition != null){
+            PlayFab_Manager.instance.GetLeaderboard(statisticName, (int)startPosition, maxCount);
+        }
+        else{
+            PlayFab_Manager.instance.GetLeaderboardAroundPlayer(statisticName, maxCount*2);
+        }
+        IEnumerator waitForLeaderboardResult(){
+            float timer = 0f;
+            while(currentlyWaitingForLeaderboardData && curLeaderboardData == null && timer <= leaderboardTimeoutTime){
+                //Debug.Log("WAITING.." + timer.ToString());
+                timer += Time.deltaTime;
+                yield return new WaitForSeconds(0);
+            }
+
+            currentlyWaitingForLeaderboardData = false;
+            if(curLeaderboardData != null && currentlyWaitingForLeaderboardData == false && curLeaderboardData.Count != 0){
+                foreach(Transform child in LeaderboardScoresTablePanel.transform){
+                    if(child.name != ""){
+                        Destroy(child.gameObject);
+                    }
+                }
+                List<int> ranks = new List<int>(curLeaderboardData.Keys);
+                ranks.Sort();
+
+                //Find the first number in ranks that is divisible by maxCount
+                // AND the user's record is within maxCount values from that record
+                //Then start the page there
+                int? minDivisibleValue = null;
+                int? playerRank = null;
+                try{
+                    playerRank = new List<int>(ranks.Where(r => curLeaderboardData[r]["DisplayName"] == Game_Manager.instance.userDisplayName))[0];
+                }
+                catch(Exception e){
+                    if(startPosition == null){
+                        Debug.LogError("COULDN'T FIND PLAYER RANK");
+                    }
+                }
+                foreach(int rank in ranks){
+                    if(minDivisibleValue == null && rank%maxCount==0 && playerRank != null && rank+maxCount >= (int)playerRank){
+                        minDivisibleValue = rank;
+                    }
+                }
+
+
+                
+
+                if(minDivisibleValue != null){
+                    ranks = new List<int>(ranks.Where(r => r >= (int)minDivisibleValue && r < ((int)minDivisibleValue)+maxCount));
+                    foreach(int rank in ranks){
+                        GameObject curNewRow = Instantiate(LeaderboardRowPrefab, LeaderboardScoresTablePanel.transform);
+                        TextMeshProUGUI[] curNewRowTMPs = curNewRow.GetComponentsInChildren<TextMeshProUGUI>();
+                        curNewRowTMPs[0].text = (rank+1).ToString();
+                        curNewRowTMPs[1].text = curLeaderboardData[rank]["DisplayName"];
+                        curNewRowTMPs[2].text = Number_String_Formatter.formatScoreForLeaderboard(Convert.ToDouble(curLeaderboardData[rank]["StatValue"])*1000.0);
+                    }
+                }
+                else{
+                    if(startPosition == null){
+                        Debug.LogError("Couldn't figure out where to start the page of ranks");
+                    }
+                    minDivisibleValue = ranks.Min();
+                    ranks = new List<int>(ranks.Where(r => r >= (int)minDivisibleValue && r < ((int)minDivisibleValue)+maxCount));
+                    foreach(int rank in ranks){
+                        GameObject curNewRow = Instantiate(LeaderboardRowPrefab, LeaderboardScoresTablePanel.transform);
+                        TextMeshProUGUI[] curNewRowTMPs = curNewRow.GetComponentsInChildren<TextMeshProUGUI>();
+                        curNewRowTMPs[0].text = (rank+1).ToString();
+                        curNewRowTMPs[1].text = curLeaderboardData[rank]["DisplayName"];
+                        curNewRowTMPs[2].text = Number_String_Formatter.formatScoreForLeaderboard(Convert.ToDouble(curLeaderboardData[rank]["StatValue"])*1000.0);
+                    }
+                }
+                currentLeaderboardStartRow = minDivisibleValue;
+            }
+        }
+        StartCoroutine(waitForLeaderboardResult());
+    }
+
+    public void onPlayFabGetLeaderboardSuccess(Dictionary<int, Dictionary<string, string>> leaderboardData){
+        curLeaderboardData = leaderboardData;
+        currentlyWaitingForLeaderboardData = false;
+    }
+    
+    public void onPlayFabGetLeaderboardFailure(){
+        currentlyWaitingForLeaderboardData = false;
+    }
+
+    // Leaderboard Button Handlers
+    public void onLeaderBoardPreviousButtonPressed(){
+        if(!currentlyWaitingForLeaderboardData){
+            populateLeaderboard(curLeaderboardStatisticName, (int)currentLeaderboardStartRow-nRowsLeaderboard, nRowsLeaderboard);
+        }
+    }
+
+    public void onLeaderBoardNextButtonPressed(){
+        if(!currentlyWaitingForLeaderboardData){
+            populateLeaderboard(curLeaderboardStatisticName, (int)currentLeaderboardStartRow+nRowsLeaderboard, nRowsLeaderboard);
+        }
+    }
+
+    public void onLeaderBoardToTopButtonPressed(){
+        if(!currentlyWaitingForLeaderboardData){
+            populateLeaderboard(curLeaderboardStatisticName, 0, nRowsLeaderboard);
+        }
+    }
+    // End Leaderboard Button Handlers
+
+
+
+
 
     // Computer Button Handlers
     public void onComputerTapped(){
@@ -3138,7 +3345,7 @@ public class UI_Controller : MonoBehaviour
 
         }
         else{
-            throw new ArgumentException("WHAT IS GOING ON WITH THIS PRODUCT: " + product.ProductTitle + " IT ISN'T CONSUMABLE OR NON-CONSUMABLE... GetType() " + product.GetType().ToString());
+            Debug.LogError("WHAT IS GOING ON WITH THIS PRODUCT: " + product.ProductTitle + " IT ISN'T CONSUMABLE OR NON-CONSUMABLE... GetType() " + product.GetType().ToString());
         }
     }
 

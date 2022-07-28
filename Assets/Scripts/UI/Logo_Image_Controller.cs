@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
- using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
+
+using TMPro;
 
 public class Logo_Image_Controller : MonoBehaviour
 {
@@ -77,6 +79,9 @@ public class Logo_Image_Controller : MonoBehaviour
                     {
                         //transform.localScale = new Vector3(value, transform.localScale.y, transform.localScale.z);
                         logoImageMaterial.SetFloat("_FadeAmount", value);
+                         if(GameObject.Find("App_State_Text")!=null){
+                            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "FADE: "  + value.ToString();
+                        }
                     }
                 ).setOnComplete(transitionScene).id;
     }

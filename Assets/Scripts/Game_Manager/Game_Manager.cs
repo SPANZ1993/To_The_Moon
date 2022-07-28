@@ -217,16 +217,17 @@ public class Game_Manager : MonoBehaviour
 
 
     void getCryptos(){
-        Crypto_Manager.instance.getPricesActiveCryptos();
+        if(Crypto_Manager.instance != null){
+            Crypto_Manager.instance.getPricesActiveCryptos();
+        }
     }
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-
         Invoke("getCryptos", 20);
-
     }
 
     float timeBetweenWaitThenSaves = 30f;
@@ -235,7 +236,7 @@ public class Game_Manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if(SceneManager.GetActiveScene().name=="Main_Area" && curTimeBetweenWaitThenSaves >= timeBetweenWaitThenSaves){
             saveData(disableTouch: false, displayIndicator: false, serially: true);
-            Debug.Log("SAVED");
+            //Debug.Log("SAVED");
             curTimeBetweenWaitThenSaves = 0f;
         }
     }
@@ -285,7 +286,7 @@ public class Game_Manager : MonoBehaviour
 
 
                 
-                if(initializeGameOnReturnToMainArea){
+                if(initializeGameOnReturnToMainArea && gameObject.GetComponent<PlayFab_Initializer>() == null){
                     PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
                     playFabInitializer.callBack = initializeGame;
                     initializeGameOnReturnToMainArea = false;
@@ -316,6 +317,7 @@ public class Game_Manager : MonoBehaviour
                 // }
             }
             else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
+                //initializeGameOnReturnToMainArea = true;
                 if (remainingLaunches == maxLaunches){
                     prevLaunchTimeUnix = gameTimeUnix;
                 }
@@ -547,8 +549,9 @@ public class Game_Manager : MonoBehaviour
         // Debug.Log("APP FOCUS");
         if(SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
             initializeGameOnReturnToMainArea = true;
+            //Debug.Log("INITIALIZE ON RETURN");
         }
-        else if (gameObject.GetComponent<Onboarding_Manager>() == null && SceneManager.GetActiveScene().name == "Main_Area"){
+        else if (gameObject.GetComponent<Onboarding_Manager>() == null && SceneManager.GetActiveScene().name == "Main_Area" && gameObject.GetComponent<PlayFab_Initializer>() == null){
             PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
             playFabInitializer.callBack = initializeGame;
         }
@@ -560,6 +563,9 @@ public class Game_Manager : MonoBehaviour
             // Debug.Log("WOOP: Application Paused --- " + DateTime.Now);
             //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nPaused --- " + DateTime.Now;
             saveData(disableTouch: false, displayIndicator: false, serially: true);
+        }
+        else if(SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            initializeGameOnReturnToMainArea = true;
         }
         else if(SceneManager.GetActiveScene().name == "Main_Area"){
             try{
@@ -1001,7 +1007,7 @@ public class Game_Manager : MonoBehaviour
 
     // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on
     private void initializeRobotOutfit(int outfitId){
-        Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
+        //Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
         // If the IAP Manager says we own the outfit that we are trying to wear
         List<IAP_Product_Robot_Outfit> ownedRobotOutfitIAPs = new List<IAP_Product_Robot_Outfit>();
 
@@ -1010,13 +1016,13 @@ public class Game_Manager : MonoBehaviour
 
 
         foreach(IAP_Product_Robot_Outfit outfitIAP in IAP_Manager.instance.ownedNonConsumableProductsIds.Select(id => IAP_Manager.instance.getProductObjectByID(id)).Where(product => typeof(IAP_Product_Robot_Outfit).IsAssignableFrom(product.GetType()) && IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(product.ProductId))){
-            Debug.Log("ADDING: " + outfitIAP.ProductId);
+            //Debug.Log("ADDING: " + outfitIAP.ProductId);
             ownedRobotOutfitIAPs.Add((IAP_Product_Robot_Outfit)(System.Object)outfitIAP);
             ownedRobotOutfitIAPs[ownedRobotOutfitIAPs.Count-1].OnUnequip();
         }
 
         if(ownedRobotOutfitIAPs.Any(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId)){
-            Debug.Log("HEY WE OWN THIS OUTFIT");
+            //Debug.Log("HEY WE OWN THIS OUTFIT");
             //Robot_Outfit_Manager.instance.setCurRobotOutfitId(outfitId);
             // Call Equip on the Outfit That We Found
             IAP_Product_Robot_Outfit outfit = new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0];

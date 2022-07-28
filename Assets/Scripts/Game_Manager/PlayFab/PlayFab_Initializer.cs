@@ -7,6 +7,8 @@ using PlayFab;
 using PlayFab.ClientModels;
 using Newtonsoft.Json;
 
+using TMPro;
+
 public class PlayFab_Initializer : MonoBehaviour
 {
     PlayFab_Manager playFabManager;
@@ -41,6 +43,17 @@ public class PlayFab_Initializer : MonoBehaviour
     public static event EndingPlayFabInitiation EndingPlayFabInitiationInfo;
 
     void OnEnable(){
+
+        if(GameObject.Find("App_State_Text")!=null){
+            string text = string.Empty;
+            foreach(var component in gameObject.GetComponents(typeof(Component)))
+            {
+                text += component.GetType().ToString() + " ";
+            }
+
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nCOMPONENTS: " + text;
+        }
+
         PlayFab_Manager.PlayFabAccountCreateSuccessInfo += onPlayFabAccountCreate;
         PlayFab_Manager.PlayFabLoginSuccessInfo += onPlayFabLoginSuccess;
         PlayFab_Manager.PlayFabLoginFailureInfo += onPlayFabLoginFailure;
@@ -78,6 +91,10 @@ public class PlayFab_Initializer : MonoBehaviour
 
         //Debug.Log("IS TITLE DATA NULL? " + (titleData == null));
 
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Initializing...";
+        }
+
         playFabManager = GameObject.Find("PlayFab_Manager").GetComponent<PlayFab_Manager>();
         uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
         gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
@@ -95,6 +112,10 @@ public class PlayFab_Initializer : MonoBehaviour
 
     
     public void Login(){
+        loggedInPlayFabServer = false;
+        serverTime = null;
+        titleData = null;
+
         playFabManager.Login();
 
         uiController.disableRetryConnectBox();
@@ -119,6 +140,10 @@ public class PlayFab_Initializer : MonoBehaviour
             gameManager.userDisplayName = displayName;
             gameManager.titleData = titleData;
             gameManager.doneLoading = true;
+
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Done Initializing!";
+            }
             callBack();
             if(EndingPlayFabInitiationInfo != null){
                 EndingPlayFabInitiationInfo();
@@ -177,6 +202,7 @@ public class PlayFab_Initializer : MonoBehaviour
     void onPlayFabLoginFailure(){
         failedLogInPlayFabServer = true;
         waitingForResponsePlayFabLogin = false;
+        retryConnectBoxDisplayed = false;
     }
 
     void onGetServerTimeSuccess(double unixTime){
@@ -187,6 +213,7 @@ public class PlayFab_Initializer : MonoBehaviour
 
     void onGetServerTimeFailure(){
         //Debug.Log("FAILED UNIX TIME HERE");
+        //failedLogInPlayFabServer = true; // NEW 7/24
         waitingForResponsePlayFabTime = false;
     }
 
@@ -216,7 +243,7 @@ public class PlayFab_Initializer : MonoBehaviour
     }
 
     void onGetTitleDataFailure(){
-
+        onPlayFabLoginFailure();
     }
 
 

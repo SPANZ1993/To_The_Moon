@@ -223,7 +223,29 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         //Debug.Log("VALUE CHANGED");
         UI_Controller.instance.onExchangeBuySellConfirmationBoxInputFieldNumValueChanged();
     }
+
+
+    public void onHighestAltitudeViewLeaderboardButtonPressed(){
+        UI_Controller.instance.onHighestAltitudeViewLeaderboardButtonPressed();
+    }
+
+    public void onMostCoinsViewLeaderboardButtonPressed(){
+        UI_Controller.instance.onMostCoinsViewLeaderboardButtonPressed();
+    }
+
+    public void onLeaderBoardPreviousButtonPressed(){
+        UI_Controller.instance.onLeaderBoardPreviousButtonPressed();
+    }
+
+    public void onLeaderBoardNextButtonPressed(){
+        UI_Controller.instance.onLeaderBoardNextButtonPressed();
+    }
     
+
+    
+    public void onLeaderBoardToTopButtonPressed(){
+        UI_Controller.instance.onLeaderBoardToTopButtonPressed();
+    }
     //public void 
 
     // Not a button handler... but... whatever

@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 using System;
+using System.Reflection;
+using System.Linq;
+using Newtonsoft.Json;
 
+using UnityEngine;
 
 [Serializable]
 public class ResearchAssignmentObject{
@@ -272,4 +276,24 @@ public class SaveGameObject
         IsPatron = isPatron;
     }
 
+
+    // Can't do this because PlayFab Only Lets you Send 10 Keys at a Time :c
+    // public Dictionary<string, string> ToStringDict(){
+
+    //     Type[] nonJsonTypes = new Type[]{typeof(string), typeof(double), typeof(int), typeof(float)};
+
+    //     Dictionary<string, string> D = new Dictionary<string, string>();
+    //     PropertyInfo[] properties = typeof(SaveGameObject).GetProperties();
+    //     foreach (PropertyInfo property in properties)
+    //     {
+    //         if(nonJsonTypes.Contains(property.PropertyType)){
+    //             D[property.Name] = property.GetValue(this).ToString();
+    //         }
+    //         else{
+    //             D[property.Name] = JsonConvert.SerializeObject(property.GetValue(this));
+    //         }
+    //     }
+
+    //     return D;
+    // }
 }

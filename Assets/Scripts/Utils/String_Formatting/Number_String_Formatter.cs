@@ -199,6 +199,16 @@ public class Number_String_Formatter
     }
     // End Countdown Timer Stuff
 
+    // Leaderboard Stuff
+    public static string formatScoreForLeaderboard(double secs){
+        return defaultNumberFormat(secs, 3);
+    }
+
+    public static string formatScoreForLeaderboard(float secs){
+        return defaultNumberFormat(secs, 3);
+    }
+    // End Leaderbaord Stuff
+
 
     // Computer Stuff
     public static string formatBuySellConfirmationNumCoins(double nCoins){

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -73,6 +74,13 @@ public class PlayFab_Manager : MonoBehaviour
     public delegate void PlayFabGetTitleDataFailure(); // We failed to get the title data
     public static event PlayFabGetTitleDataFailure PlayFabGetTitleDataFailureInfo;
 
+    public delegate void PlayFabGetLeaderboardSuccess(Dictionary<int, Dictionary<string, string>> leaderboardData);
+    public static event PlayFabGetLeaderboardSuccess PlayFabGetLeaderboardSuccessInfo;
+
+    public delegate void PlayFabGetLeaderboardFailure();
+    public static event PlayFabGetLeaderboardFailure PlayFabGetLeaderboardFailureInfo;
+
+
     void Awake(){
         if (!instance){
             instance = this;
@@ -94,7 +102,7 @@ public class PlayFab_Manager : MonoBehaviour
                 GetPlayerProfile = true
             }
         };
-        PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnError);
+        PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginError);
     }
 
     void OnLoginSuccess(LoginResult result){
@@ -120,6 +128,7 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     void OnLoginError(PlayFabError error){
+        //Debug.Log("ERROR LOGGING IN");
         if (PlayFabLoginFailureInfo != null){
             PlayFabLoginFailureInfo();
         }
@@ -158,13 +167,51 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     public void SaveData(SaveGameObject s){
-        // SaveGameObject s = new SaveGameObject();
-        var request = new UpdateUserDataRequest {
-            Data = new Dictionary<string, string>{
-                {"Saved Game", JsonConvert.SerializeObject(s)}
+        if(Game_Manager.instance.userDisplayName != null){
+            var request = new UpdateUserDataRequest {
+                Data = new Dictionary<string, string>{
+                    // The "Saved Game" data is the single source of truth
+                    {"Saved Game", JsonConvert.SerializeObject(s)},
+                    // The Stuff Below is Purely For Leaderboards... You shouldn't ever
+                    // Have to Change these manually in PlayFab
+                    {"User Display Name", Game_Manager.instance.userDisplayName},
+                    {"Coin Name", s.CoinName},
+                    {"Is Patron", s.IsPatron.ToString()},
+                    {"Max Coins All Time", s.Metrics.maxCoinsAlltime.ToString()},
+                    {"Max Altitude All Time", s.Metrics.maxAltAllTime.ToString()}
+                }
+            };
+            PlayFabClientAPI.UpdateUserData(request, OnSaveDataSend, OnError);
+        
+        
+            // Send Leaderboard Stuff
+            // Leaderboard has to be integers... So we are going to do everything in intervals of 1000
+            // So a 200 on the leaderboard translates to a value of 200,000
+            Int32 maxLeaderBoardVal = Int32.MaxValue;
+            Int32 leaderboardCoins = Convert.ToInt32(0);
+            if(s.Coins/1000.0 >= maxLeaderBoardVal){
+                leaderboardCoins = Int32.MaxValue;
             }
-        };
-        PlayFabClientAPI.UpdateUserData(request, OnSaveDataSend, OnError);
+            else{
+                leaderboardCoins = Convert.ToInt32(Math.Floor(s.Coins/1000.0));
+            }
+            SendLeaderboard("Most Coins", leaderboardCoins);
+
+
+            Int32 leaderboardAlt = Convert.ToInt32(0);
+            if(s.Metrics.maxAltAllTime/1000.0 >= maxLeaderBoardVal){
+                leaderboardAlt = Int32.MaxValue;
+            }
+            else{
+                leaderboardAlt = Convert.ToInt32(Math.Floor(s.Metrics.maxAltAllTime/1000.0));
+            }
+            SendLeaderboard("Highest Launch", leaderboardAlt);
+
+
+        }
+        else{
+            Debug.Log("Skipped saving because we don't have a name yet");
+        }
     }
 
 
@@ -244,6 +291,7 @@ public class PlayFab_Manager : MonoBehaviour
         //Invoke("GetUnixTimeServer", 15);
         //GetTitleDataTest();
         //Invoke("Login", 10);
+        //GetLeaderboardTest();
     }
 
 
@@ -255,39 +303,72 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     void OnError(PlayFabError error){
-        Debug.Log("PLAYFAB: Error while performing PlayFab function \n" + error.GenerateErrorReport());
+        Debug.Log("PLAYFAB: Error while performing PlayFab function: " + error.GenerateErrorReport());
     }
 
-    public void SendLeaderboard(int score){
+    public void SendLeaderboard(string statisticName, Int32 value){
         var request = new UpdatePlayerStatisticsRequest{
             Statistics = new List<StatisticUpdate> {
                 new StatisticUpdate {
-                    StatisticName = "Highest Launch",
-                    Value = score
+                    //StatisticName = "Highest Launch",
+                    StatisticName = statisticName,
+                    Value = value
                 }
             }
         };
         PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
     }
-
+    
     void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result){
        // Debug.Log("PLAYFAB: Leaderboard Updated!");
     }
 
-    public void GetLeaderboard(){
+    public void GetLeaderboard(string statisticName, int startPosition=0, int maxCount=10){
         var request = new GetLeaderboardRequest {
-            StatisticName = "Highest Launch",
-            StartPosition = 0,
-            MaxResultsCount = 10
+            StatisticName = statisticName,
+            StartPosition = startPosition,
+            MaxResultsCount = maxCount
         };
-        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnLeaderboardGetError);
+    }
+
+    void OnLeaderboardGetError(PlayFabError error){
+        //Debug.Log("PLAYFAB: Failed to get leaderboard");
+        if (PlayFabGetLeaderboardFailureInfo != null){
+            PlayFabGetLeaderboardFailureInfo();
+        }
     }
 
 
     void OnLeaderboardGet(GetLeaderboardResult result){
+        Dictionary<int, Dictionary<string, string>> LeaderBoardDataDict = new Dictionary<int, Dictionary<string, string>>();
         foreach (var item in result.Leaderboard){
-            //Debug.Log("PLAYFAB: " + item.Position + " " + item.PlayFabId + " " + item.StatValue);
+            //Debug.Log("PLAYFAB: " + item.Position +  " " + item.DisplayName + " " + item.PlayFabId + " " + item.StatValue);
+            LeaderBoardDataDict[item.Position] = new Dictionary<string, string>(){ {"DisplayName", item.DisplayName}, {"PlayFabId", item.PlayFabId.ToString()}, {"StatValue", item.StatValue.ToString()}};
         }
+        if(PlayFabGetLeaderboardSuccessInfo != null){
+            PlayFabGetLeaderboardSuccessInfo(LeaderBoardDataDict);
+        }
+    }
+
+    void OnLeaderboardAroundPlayerGet(GetLeaderboardAroundPlayerResult result){
+        Dictionary<int, Dictionary<string, string>> LeaderBoardDataDict = new Dictionary<int, Dictionary<string, string>>();
+        foreach (var item in result.Leaderboard){
+            //Debug.Log("PLAYFAB: " + item.Position +  " " + item.DisplayName + " " + item.PlayFabId + " " + item.StatValue);
+            LeaderBoardDataDict[item.Position] = new Dictionary<string, string>(){ {"DisplayName", item.DisplayName}, {"PlayFabId", item.PlayFabId.ToString()}, {"StatValue", item.StatValue.ToString()}};
+        }
+        if(PlayFabGetLeaderboardSuccessInfo != null){
+            PlayFabGetLeaderboardSuccessInfo(LeaderBoardDataDict);
+        }
+    }
+
+
+    public void GetLeaderboardAroundPlayer(string statisticName, int maxCount=10){
+        var request = new GetLeaderboardAroundPlayerRequest {
+            StatisticName = statisticName,
+            MaxResultsCount = maxCount
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, OnLeaderboardAroundPlayerGet, OnLeaderboardGetError);
     }
 
 
@@ -323,7 +404,7 @@ public class PlayFab_Manager : MonoBehaviour
                 StartCoroutine(_LeaderboardTest());
             }
             else{
-                SendLeaderboard(100);
+                SendLeaderboard("Beans", 100);
             }
         }
         StartCoroutine(_LeaderboardTest());
@@ -331,16 +412,10 @@ public class PlayFab_Manager : MonoBehaviour
 
     // Remove
     void GetLeaderboardTest(){
-        float time = 0;
         IEnumerator _LeaderboardTest(){
-            yield return new WaitForSeconds(0);
-            if(time < 15){
-                time += Time.deltaTime;
-                StartCoroutine(_LeaderboardTest());
-            }
-            else{
-                GetLeaderboard();
-            }
+            yield return new WaitForSeconds(45);
+            GetLeaderboard("Highest Launch", 0, 10);
+            GetLeaderboard("Most Coins", 0, 10);
         }
         StartCoroutine(_LeaderboardTest());
     }
@@ -379,7 +454,7 @@ public class PlayFab_Manager : MonoBehaviour
     // }
 
     public void GetTitleData(){
-        PlayFabClientAPI.GetTitleData(new GetTitleDataRequest(), OnTitleDataReceieved, OnError);
+        PlayFabClientAPI.GetTitleData(new GetTitleDataRequest(), OnTitleDataReceieved, onGetTitleDataError);
     }
 
 

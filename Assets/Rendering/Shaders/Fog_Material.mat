@@ -38,6 +38,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _Fog_Size: 25
+    - _Horizontal: 0
+    - _Radius: 0
+    - _RadiusSpeed: 1
+    - _Vertical: 0
     m_Colors:
     - _Fog_Color: {r: 0.019624433, g: 0.50159657, b: 0.5943396, a: 1}
     - _Fog_Speed: {r: 0.2, g: 0.2, b: 0, a: 0}

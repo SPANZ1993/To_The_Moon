@@ -66,7 +66,7 @@ public class Landing_Page_Manager : MonoBehaviour
         updateLogoAction = _updateLogo;
 
 
-        tweenBackgroundColor();
+        //tweenBackgroundColor();
         tweenLogoPosition();
 
         Invoke("InitializeGamePlayFab", 3f);
@@ -77,10 +77,10 @@ public class Landing_Page_Manager : MonoBehaviour
     void Update(){
         minRemainingSceneDisplayTime -= Time.deltaTime;
         
-        if(firstUpdate){
-            tweenBackgroundColor();
-            firstUpdate = false;
-        }
+        // if(firstUpdate){
+        //     tweenBackgroundColor();
+        //     firstUpdate = false;
+        // }
     }
 
     
