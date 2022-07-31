@@ -153,6 +153,9 @@ public class PlayFab_Initializer : MonoBehaviour
         }
         else if (failedLogInPlayFabServer && !retryConnectBoxDisplayed && !waitingForResponsePlayFabLogin){
             //Debug.Log("TRYING TO ENABLE CONNECTION BOX");
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "TRYING TO ENABLE CONNECTION BOX";
+            }
             uiController.enableRetryConnectBox();
             retryConnectBoxDisplayed = true;
         }
@@ -213,7 +216,7 @@ public class PlayFab_Initializer : MonoBehaviour
 
     void onGetServerTimeFailure(){
         //Debug.Log("FAILED UNIX TIME HERE");
-        //failedLogInPlayFabServer = true; // NEW 7/24
+        failedLogInPlayFabServer = true; // NEW 7/24
         waitingForResponsePlayFabTime = false;
     }
 
@@ -231,7 +234,7 @@ public class PlayFab_Initializer : MonoBehaviour
     }
 
     void onGetSaveDataFailure(){
-        //Debug.Log("FAILED SAVE DATA HERE");
+        //Debug.Log("FAILED GET SAVE DATA HERE");
         loadedData = new SaveGameObject();
         waitingForResponsePlayFabData = false;
     }

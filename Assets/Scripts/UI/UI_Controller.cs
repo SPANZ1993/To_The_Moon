@@ -376,6 +376,7 @@ public class UI_Controller : MonoBehaviour
     private Scrollbar computerScrollbar;
 
     private GameObject exchangeBuySellConfirmationBox;
+    private bool exchangeBuySellConfirmationBoxDisplayed = false;
     private TextMeshProUGUI exchangeBuySellConfirmationBoxText;
     private TMP_InputField exchangeBuySellConfirmationBoxInputField;
     private TextMeshProUGUI exchangeBuySellConfirmationBoxValueText;
@@ -1492,15 +1493,21 @@ public class UI_Controller : MonoBehaviour
         }
 
         if(computerMenuDisplayed){
-            DisableUIElement(computerMenu);
-            //DisableUIElement(ScreenTintObj);
-            disableScreenTint = true;
-            removeAllExchangePanels();
-            computerMenuDisplayed = false;
-            shopDisplayed = false;
-            exchangeDisplayed = false;
-            if(!Audio_Manager.instance.IsPlaying("UI_Computer_Off")){
-                Audio_Manager.instance.Play("UI_Computer_Off");
+            if(!exchangeBuySellConfirmationBoxDisplayed){
+                DisableUIElement(computerMenu);
+                //DisableUIElement(ScreenTintObj);
+                disableScreenTint = true;
+                removeAllExchangePanels();
+                computerMenuDisplayed = false;
+                shopDisplayed = false;
+                exchangeDisplayed = false;
+                if(!Audio_Manager.instance.IsPlaying("UI_Computer_Off")){
+                    Audio_Manager.instance.Play("UI_Computer_Off");
+                }
+            }
+            else{
+                onExchangeBuySellCancelButtonPressed();
+                disableScreenTint = false;
             }
         }
 
@@ -1623,10 +1630,10 @@ public class UI_Controller : MonoBehaviour
                     if(GameObject.Find("App_State_Text")!=null && first){
                         GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n" + e.ToString();
                     }
+                    Debug.LogError(e);
                     //throw e;
                 }
             }
-
         }
     }
 
@@ -1673,14 +1680,18 @@ public class UI_Controller : MonoBehaviour
         //     if (button != null){
         //         button.enabled = false;
         //     }
-            if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
-                UI.transform.localScale = new Vector3(0f, 0f, 0f);
-                //LeanTween.scale(rectTrans: UI.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), 0.05f).setEase(LeanTweenType.easeInOutSine);
-                // if(UI.GetComponent<VerticalLayoutGroup>() != null){
-                //     UI.GetComponent<VerticalLayoutGroup>().enabled = true;
-                // }
+            try{
+                if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
+                    UI.transform.localScale = new Vector3(0f, 0f, 0f);
+                    //LeanTween.scale(rectTrans: UI.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), 0.05f).setEase(LeanTweenType.easeInOutSine);
+                    // if(UI.GetComponent<VerticalLayoutGroup>() != null){
+                    //     UI.GetComponent<VerticalLayoutGroup>().enabled = true;
+                    // }
+                }
             }
-
+            catch (Exception e){
+                Debug.LogError(e.ToString());
+            }
         }
     }
 
@@ -3130,6 +3141,7 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(exchangeWindowPanel);
         EnableUIElement(shopWindowPanel);
         DisableUIElement(exchangeBuySellConfirmationBox);
+        exchangeBuySellConfirmationBoxDisplayed = false;
 
         if(shopWindowPanelScrollRect.verticalScrollbar == null){
             shopWindowPanelScrollRect.verticalScrollbar = exchangeWindowPanelScrollRect.verticalScrollbar;
@@ -3269,7 +3281,11 @@ public class UI_Controller : MonoBehaviour
                 shopBuyButton.GetComponent<IAPButton>().enabled = true;
                 IAP_Manager.instance.initializeIAPButton(shopBuyButton, product);
 
-                shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
+                bool initializeSucceeded = shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
+
+                if(!initializeSucceeded){
+                    // TODO: ... WHAT DO??
+                }
 
                 // TODO: Localize
                 Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = "Buy";
@@ -3335,7 +3351,11 @@ public class UI_Controller : MonoBehaviour
 
             shopBuyButton.GetComponent<IAPButton>().enabled = true;
             
-            shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
+            bool initializeSucceeded = shopBuyButtonDescriptionController.Initialize(priceText, titleText, descriptionText);
+
+            if(!initializeSucceeded){
+                // TODO: ... WHAT DO??
+            }
 
             // TODO: Localize
             Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button_Text").GetComponent<TextMeshProUGUI>().text = "Buy";
@@ -3374,6 +3394,7 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(shopWindowPanel);
         EnableUIElement(exchangeWindowPanel);
         DisableUIElement(exchangeBuySellConfirmationBox);
+        exchangeBuySellConfirmationBoxDisplayed = false;
 
 
         if(exchangeWindowPanelScrollRect.verticalScrollbar == null){
@@ -3539,6 +3560,7 @@ public class UI_Controller : MonoBehaviour
         DisableUIElement(Computer_Container_Panel, touchOnly:true);
         EnableUIElement(exchangeBuySellConfirmationBox);
         EnableUIElement(exchangeBuySellConfirmationBox, touchOnly:true);
+        exchangeBuySellConfirmationBoxDisplayed = true;
     }
 
 
@@ -3653,6 +3675,7 @@ public class UI_Controller : MonoBehaviour
             }
 
             DisableUIElement(exchangeBuySellConfirmationBox);
+            exchangeBuySellConfirmationBoxDisplayed = false;
             EnableUIElement(Computer_Container_Panel, touchOnly:true);
             Crypto_Manager.instance.updateAllExchangePanels();
             gameManager.playInterstitialAdOnMenuClose = true;
@@ -3685,6 +3708,7 @@ public class UI_Controller : MonoBehaviour
         }
 
         DisableUIElement(exchangeBuySellConfirmationBox);
+        exchangeBuySellConfirmationBoxDisplayed = false;
         EnableUIElement(Computer_Container_Panel, touchOnly:true);
         StartCoroutine(nudgeScrollRectNextFrame());
     

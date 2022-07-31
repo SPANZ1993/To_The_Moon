@@ -24,32 +24,56 @@ public class IAPButtonDescriptionController : MonoBehaviour
         descriptionText = null;
     }
  
-    public void Initialize()
+    public bool Initialize()
     {
+        bool passed = true;
+        Product product = null;
         try{
             //Debug.Log("INITIALIZING HERE " + attachedButton.productId);
-            var product = CodelessIAPStoreListener.Instance.GetProduct(attachedButton.productId);
-    
-            if (priceText != null)
-                priceText.SetText(product.metadata.localizedPriceString);
+            try{
+                product = CodelessIAPStoreListener.Instance.GetProduct(attachedButton.productId);
+            }
+            catch(System.Exception e){
+                passed = false;
+            }
 
-            if (titleText != null)
-                titleText.SetText(product.metadata.localizedTitle);
-    
-            if (descriptionText != null)
-                descriptionText.SetText(product.metadata.localizedDescription);
+            try{
+                if (priceText != null)
+                    priceText.SetText(product.metadata.localizedPriceString);
+            }
+            catch(System.Exception e){
+                passed = false;
+            }
+
+            try{
+                if (titleText != null)
+                    titleText.SetText(product.metadata.localizedTitle);
+            }
+            catch(System.Exception e){
+                passed = false;
+            }
+
+            try{
+                if (descriptionText != null)
+                    descriptionText.SetText(product.metadata.localizedDescription);
+            }
+            catch(System.Exception e){
+                passed = false;
+            }
         }
         catch(System.Exception e){
             // if(GameObject.Find("App_State_Text")!=null){
             //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += e.ToString();
             // }
+            passed = false;
         }
+        return passed;
     }
 
-    public void Initialize(TextMeshProUGUI PriceText, TextMeshProUGUI TitleText, TextMeshProUGUI DescriptionText){
+    public bool Initialize(TextMeshProUGUI PriceText, TextMeshProUGUI TitleText, TextMeshProUGUI DescriptionText){
         priceText = PriceText;
         titleText = TitleText;
         descriptionText = DescriptionText;
-        Initialize();
+        return Initialize();
     }
 }

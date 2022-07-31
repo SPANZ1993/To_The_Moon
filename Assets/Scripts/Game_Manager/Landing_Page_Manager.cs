@@ -66,7 +66,7 @@ public class Landing_Page_Manager : MonoBehaviour
         updateLogoAction = _updateLogo;
 
 
-        //tweenBackgroundColor();
+        tweenBackgroundColor();
         tweenLogoPosition();
 
         Invoke("InitializeGamePlayFab", 3f);
@@ -117,7 +117,7 @@ public class Landing_Page_Manager : MonoBehaviour
         LeanTween.value(Logo, updateLogoAction, 0f, 1f, 3f).setEase(logoEaseType).setOnUpdate(
             updateLogoAction
         );
-        LeanTween.move(Logo, new Vector2(0f,0f), 3f).setEase(logoEaseType);
+        LeanTween.move(Logo.GetComponent<RectTransform>(), new Vector2(0f,0f), 3f).setEase(logoEaseType);
     }
 
     float prevVal = -1;

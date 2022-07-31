@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using System;
 using System.Collections;
@@ -122,7 +123,7 @@ public class Notifications_Manager : MonoBehaviour
 
 
     void OnApplicationQuit(){
-        if(clearedOldNotifications){
+        if(clearedOldNotifications && !new string[]{"Studio_Logo", "Landing Page"}.Contains(SceneManager.GetActiveScene().name)){
             List<PlatformAgnosticNotification> retentionNotifications = chooseRetentionNotifications();
             foreach(PlatformAgnosticNotification retentionNotification in retentionNotifications){
                 //Debug.Log("TRYING TO ADD NOTIFICATION WITH MESSAGE " + retentionNotification.message);
