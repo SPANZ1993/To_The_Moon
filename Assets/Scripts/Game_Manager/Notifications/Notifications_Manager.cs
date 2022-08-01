@@ -253,7 +253,9 @@ public class Notifications_Manager : MonoBehaviour
                 }
             };
 
-            iOSNotificationCenter.ScheduleNotification(notification);
+            if(Game_Manager.instance.userDisplayName != null){
+                iOSNotificationCenter.ScheduleNotification(notification);
+            }
             //Debug.Log("JUST SCHEDULED A NOTIFICATION ON IOS");
             
         }
@@ -274,7 +276,9 @@ public class Notifications_Manager : MonoBehaviour
                 notification.Text = agnosticNotification.message;
                 notification.FireTime = agnosticNotification.platformTimeToFire;
 
-                AndroidNotificationCenter.SendNotification(notification, "Default");
+                if(Game_Manager.instance.userDisplayName != null){
+                    AndroidNotificationCenter.SendNotification(notification, "Default");
+                }
             }
             catch(Exception e){
                 Debug.Log("Error trying to schedule Android Notification " + e);

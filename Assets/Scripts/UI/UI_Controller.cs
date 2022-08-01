@@ -1053,8 +1053,17 @@ public class UI_Controller : MonoBehaviour
     void indexUIElementSizes(){
         string curScene = SceneManager.GetActiveScene().name;
         if (curScene == "Landing_Page"){
-            landingPageLocalScales = new Dictionary<GameObject, Vector3>();
-            _indexUIElementSizes(landingPageLocalScales, GameObject.Find("Canvas"));
+            // Only want to do this once
+            if(landingPageLocalScales == null || !landingPageLocalScales.Keys.Contains(GameObject.Find("Retry_Connect_Box"))){
+                landingPageLocalScales = new Dictionary<GameObject, Vector3>();
+                //Debug.Log("INDEXING LANDING PAGE UI");
+                _indexUIElementSizes(landingPageLocalScales, GameObject.Find("Canvas"));
+            }
+            else{
+                if(GameObject.Find("App_State_Text")!=null){
+                    GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += " -SKIPPING INDEX-";
+                }
+            }
         }
         else if (curScene == "Main_Area"){ //&& mainAreaLocalScales is null){
             //Debug.Log("INDEXING MAIN AREA");
@@ -1515,7 +1524,9 @@ public class UI_Controller : MonoBehaviour
 
         if (NotEnoughCoinsBoxDisplayed){
             DisableUIElement(NotEnoughCoinsBox);
-            disableScreenTint = false;
+            EnableUIElement(RocketBuildingMenuObj, touchOnly: true);
+            EnableUIElement(ResearchersMenu, touchOnly: true);
+            EnableUIElement(RobotMenuObj, touchOnly: true);
         }
 
 
@@ -2805,13 +2816,13 @@ public class UI_Controller : MonoBehaviour
 
 
 
-            // if(GameObject.Find("App_State_Text")!=null){
-            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf Before...";
-            // }
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf Before...";
+            }
             EnableUIElement(bookshelfMenu);
-            // if(GameObject.Find("App_State_Text")!=null){
-            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf After...";
-            // }
+            if(GameObject.Find("App_State_Text")!=null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf After..." + bookshelfMenu.GetComponent<RectTransform>().localScale;
+            }
             EnableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = true;
 
@@ -3025,12 +3036,26 @@ public class UI_Controller : MonoBehaviour
                 }
                 catch(Exception e){
                     if(startPosition == null){
-                        Debug.LogError("COULDN'T FIND PLAYER RANK");
+                        //Debug.LogError("COULDN'T FIND PLAYER RANK");
                     }
                 }
-                foreach(int rank in ranks){
-                    if(minDivisibleValue == null && rank%maxCount==0 && playerRank != null && rank+maxCount >= (int)playerRank){
-                        minDivisibleValue = rank;
+                if(playerRank >= maxCount*2){
+                    foreach(int rank in ranks){
+                        //Debug.Log("CHECKING RANK: " + rank);
+                        if(minDivisibleValue == null && rank%maxCount==0 && playerRank != null && rank+maxCount >= (int)playerRank){
+                            minDivisibleValue = rank;
+                            //Debug.Log("SETTING RANK: " + rank);
+                        }
+                    }
+                }
+                else if(playerRank != null){
+                    //Debug.Log("Player Rank Close To Top");
+                    int playerRankTmp = (int)playerRank;
+                    while(playerRankTmp >= 0 && minDivisibleValue == null){
+                        if(playerRankTmp%maxCount==0){
+                            minDivisibleValue = playerRankTmp;
+                        }
+                        playerRankTmp--;
                     }
                 }
 
@@ -3469,7 +3494,7 @@ public class UI_Controller : MonoBehaviour
         Crypto_Scriptable_Object crypto = (Crypto_Scriptable_Object)exchangePanel.GetComponent<ObjectHolder>().Obj;
         if(Crypto_Manager.instance.activeCryptosToBalance.Keys.Contains(crypto)){
             Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Balance_Text").GetComponent<TextMeshProUGUI>().text = "Balance: " + Number_String_Formatter.formatCryptoBalanceCoins(Crypto_Manager.instance.getCoinBalance(crypto));
-            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Value_Text").GetComponent<TextMeshProUGUI>().text = "Value: " + Number_String_Formatter.formatCryptoValue(Math.Floor(Crypto_Manager.instance.getCoinBalance(crypto)*Crypto_Manager.instance.getCoinPrice(crypto))) + " " + Game_Manager.instance.coinName;
+            Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Value_Text").GetComponent<TextMeshProUGUI>().text = "Value: " + Number_String_Formatter.formatCryptoValue(Math.Floor(Crypto_Manager.instance.getCoinBalance(crypto)*Crypto_Manager.instance.getCoinPrice(crypto))) + " " + Game_Manager.instance.coinName + "coin";
         }
         else{
             Object_Finder.findChildObjectByName(exchangePanel, "Exchange_Balance_Text").GetComponent<TextMeshProUGUI>().text = "Balance: 0";
@@ -3924,6 +3949,9 @@ public class UI_Controller : MonoBehaviour
     public void disableRetryConnectBox(){
         // Debug.Log("DISABLING BOX -- " + System.DateTime.Now);
         DisableUIElement(Retry_Connect_Box);
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += " -DRC-";
+        }
         timeSinceLastDisplayedRetryConnectBox = 0f;
     }
     //End Landing Page UI

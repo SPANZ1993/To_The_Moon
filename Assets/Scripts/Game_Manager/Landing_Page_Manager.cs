@@ -116,7 +116,7 @@ public class Landing_Page_Manager : MonoBehaviour
     void tweenLogoPosition(){
         LeanTween.value(Logo, updateLogoAction, 0f, 1f, 3f).setEase(logoEaseType).setOnUpdate(
             updateLogoAction
-        );
+        ).setOnComplete(() => Audio_Manager.instance.ResetVolume("UI_Logo_Thud"));
         LeanTween.move(Logo.GetComponent<RectTransform>(), new Vector2(0f,0f), 3f).setEase(logoEaseType);
     }
 
@@ -131,6 +131,7 @@ public class Landing_Page_Manager : MonoBehaviour
                 Audio_Manager.instance.SetVolume("UI_Logo_Thud", Audio_Manager.instance.GetVolume("UI_Logo_Thud")-bounceVolumeDecrements[bounceCount]);
             }
             Audio_Manager.instance.Play("UI_Logo_Thud");
+            Audio_Manager.instance.SetVolume("UI_Logo_Thud", Audio_Manager.instance.GetVolume("UI_Logo_Thud") * 0.75f);
             bounceCount++;
         }
         prevPrevVal = prevVal;

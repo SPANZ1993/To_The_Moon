@@ -286,7 +286,7 @@ public class Game_Manager : MonoBehaviour
 
 
                 
-                if(initializeGameOnReturnToMainArea && gameObject.GetComponent<PlayFab_Initializer>() == null){
+                if(initializeGameOnReturnToMainArea && gameObject.GetComponent<PlayFab_Initializer>() == null && false){
                     PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
                     playFabInitializer.callBack = initializeGame;
                     initializeGameOnReturnToMainArea = false;
@@ -317,7 +317,7 @@ public class Game_Manager : MonoBehaviour
                 // }
             }
             else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
-                //initializeGameOnReturnToMainArea = true;
+                initializeGameOnReturnToMainArea = true;
                 if (remainingLaunches == maxLaunches){
                     prevLaunchTimeUnix = gameTimeUnix;
                 }
@@ -363,6 +363,11 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Debug.Log("LOCAL START TIME: " + localSessionStartTime);
+        // Debug.Log("SERVER START TIME: " + serverSessionStartTime);
+        // Debug.Log("Server Start Time: " + serverSessionStartTimeUnix);
+        // Debug.Log("Local Start Time Unix: " + localSessionStartTimeUnix);
 
         curTimeBetweenWaitThenSaves += Time.deltaTime;
 
@@ -524,6 +529,7 @@ public class Game_Manager : MonoBehaviour
     }
 
     void OnApplicationFocus(){
+        //Debug.Log("ON APPLICATION FOCUS");
 
         if (frameCount != 0){
             DateTime curTime = DateTime.Now;
@@ -534,8 +540,23 @@ public class Game_Manager : MonoBehaviour
             double timeSinceLastFrameI = ltmp.IndexOf(ltmp.Max());
             double timeSinceLastFrame = ltmp.Max();
             if (timeSinceLastFrame >= 2.0){
+                //Debug.Log("UPDATING GAME TIME UNIX");
+                //Debug.Log("WAS: " + DateTimeOffset.FromUnixTimeSeconds((long)gameTimeUnix).UtcDateTime);
                 gameTimeUnix += timeSinceLastFrame;
+                //Debug.Log("IS: " + DateTimeOffset.FromUnixTimeSeconds((long)gameTimeUnix).UtcDateTime);
             }
+
+
+            foreach (Research currentResearch in Research_Manager.instance.researchList){
+                //currentResearch = (Research)researchPanel.GetComponent<ObjectHolder>().Obj;
+                //Debug.Log("GENERATING RESEARCH ASSIGNMENT OBJECTS" + " RESEARCH ID : " + currentResearch.researchId + " HAS RESEARCHER? " + currentResearch.isResearcherAssigned());
+                if (currentResearch.isResearcherAssigned()){
+                    currentResearch.timeLeft = currentResearch.timeLeft - timeSinceLastFrame;
+                }
+            }
+
+
+
             //initializeGame(); //?
             //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text + "\nFocused Added " + timeSinceLastFrame + " Seconds " + timeSinceLastFrameI + " --- " + DateTime.Now;
         }
@@ -548,8 +569,9 @@ public class Game_Manager : MonoBehaviour
 
         // Debug.Log("APP FOCUS");
         if(SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight"){
-            initializeGameOnReturnToMainArea = true;
+            //initializeGameOnReturnToMainArea = true;
             //Debug.Log("INITIALIZE ON RETURN");
+            //reinitializeGameOnFocus();
         }
         else if (gameObject.GetComponent<Onboarding_Manager>() == null && SceneManager.GetActiveScene().name == "Main_Area" && gameObject.GetComponent<PlayFab_Initializer>() == null){
             PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
@@ -597,7 +619,33 @@ public class Game_Manager : MonoBehaviour
 
 
 
+    // private void reinitializeGameOnFocus(){
+    //     Debug.Log("REINITIALIZING AFTER FOCUS");
+    //     double curLocalSessionPrevFrameTime = (double)((DateTimeOffset)localSessionPrevFrameTime).ToUnixTimeSeconds();
+    //     double curLocalSessionTime = (double)((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+    //     double refocusOffsetTime = curLocalSessionTime - curLocalSessionPrevFrameTime;
 
+    //     //gameTimeUnix += refocusOffsetTime;
+    //     // Research
+    //     // DONE?
+    //     foreach (Research currentResearch in Research_Manager.instance.researchList){
+    //         //currentResearch = (Research)researchPanel.GetComponent<ObjectHolder>().Obj;
+    //         //Debug.Log("GENERATING RESEARCH ASSIGNMENT OBJECTS" + " RESEARCH ID : " + currentResearch.researchId + " HAS RESEARCHER? " + currentResearch.isResearcherAssigned());
+    //         if (currentResearch.isResearcherAssigned()){
+    //             currentResearch.timeLeft = currentResearch.timeLeft - refocusOffsetTime;
+    //         }
+    //     }
+
+    //     // Launch
+    //     // DONE? ---  SHOULD BE FIXED BY UPDATING GAMETIMEUNIX
+
+    //     // Mineshaft
+    //     // Done? --- SHOULD BE FIXED BY UPDATING GAMETIMEUNIX
+
+
+    //     // Minecart
+    //     // Done? -- SHOULD BE FIXED BY GAMETIMEUNIX
+    //}
 
 
     private void initializeGame(){
@@ -1211,6 +1259,8 @@ public class Game_Manager : MonoBehaviour
             //Debug.Log("Playing Intestitial Ad");
             adsManager.showInterstitialAd();
             playInterstitialAdOnMenuClose = false;
+            // Sometimes the menu doesn't close exactly right so hopefully this will fix that
+            UI_Controller.instance.closeMenus();
         }
     }
     
@@ -1307,7 +1357,7 @@ public class Game_Manager : MonoBehaviour
             }
             coins -= mineCartCoinsPerSecondUpgradePrice;
             mineCartCoinsPerSecond = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradeValue(mineCartCoinsPerSecond);
-            Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
+            //Debug.Log("GRAPHICS CARD UPGRADE BUTTON PRESSED --- MINE CART COINS PER SECOND: " + mineCartCoinsPerSecond);
             mineCartCoinsPerSecondUpgradePrice = Progression_Multiplier_Generator.generateMineCartCoinsPerSecondUpgradePriceValue(mineCartCoinsPerSecondUpgradePrice);
             Minecart_Manager.instance.coinsPerSecond = mineCartCoinsPerSecond;
             Minecart_Manager.instance.calculateNextFullTime();
@@ -1401,7 +1451,13 @@ public class Game_Manager : MonoBehaviour
         {
             case "Main_Area":
                 //Debug.Log("ENABLING TOUCH");
-                enableNonUITouch();
+                // Don't want this randomly enabling touch if we are in the middle of an event
+                if(gameObject.GetComponent<IEvent>() == null){
+                    enableNonUITouch();
+                }
+                else{
+                    Debug.Log("SKIPPING ENABLE NON UI TOUCH BECAUSE IN EVENT");
+                }
                 break;
             case "Mine_Game":
                 break;

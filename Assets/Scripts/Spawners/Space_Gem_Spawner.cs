@@ -86,7 +86,7 @@ public class Space_Gem_Spawner : MonoBehaviour
         int numGems;
         System.Random rnd = new System.Random();
         if(true){ // If we don't have a history
-            numGems = rnd.Next(1, 5);
+            numGems = rnd.Next(5, 10);
             for(int i=0; i<numGems; i++){
                 spawningAltitudes.Add(UnityEngine.Random.Range(rocketGameManager.targetAltitude*0.01f, rocketGameManager.targetAltitude*0.9f)); // 10% to target through 90% to target
                 hasSpawned.Add(false);

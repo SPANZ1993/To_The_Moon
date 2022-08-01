@@ -24,6 +24,10 @@ MonoBehaviour:
     - Locale-en
     - default
     - Locale-es
+  - m_GUID: 7d8eeaa96d220714380f5b2d6f45ab49
+    m_Address: Assets/Rendering/Shaders/Fog_Material.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 077cb2ec913c0e54fa2f3a74b8468389, type: 2}
   m_SchemaSet:

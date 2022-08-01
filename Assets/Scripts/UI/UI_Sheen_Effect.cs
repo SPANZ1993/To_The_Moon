@@ -15,8 +15,18 @@ public class UI_Sheen_Effect : MonoBehaviour
     float highSheenVal;
     float lowSheenVal;
 
+    bool flipped = false;
+
     void Awake(){
-        UIMaterial = gameObject.GetComponent<Image>().material;
+        if(gameObject.GetComponent<Image>() != null){
+            UIMaterial = gameObject.GetComponent<Image>().material;
+        }
+        else{
+            UIMaterial = gameObject.GetComponent<SpriteRenderer>().material;
+            if(gameObject.GetComponent<SpriteRenderer>().flipX){
+                flipped = true;
+            }
+        }
         //sheenEaseType = LeanTweenType.easeOutCirc;
         sheenWipeId = -1;
         sheenWipeLength = 3;
@@ -53,10 +63,11 @@ public class UI_Sheen_Effect : MonoBehaviour
         }
 
 
+
         LeanTween.value(gameObject, startSheenLoc, endSheenLoc, sheenWipeLength).setEase(sheenEaseType).setOnUpdate(
                     (value) =>
                     {
-                        UIMaterial.SetFloat("_ShineLocation", value);
+                        UIMaterial.SetFloat("_ShineLocation", !flipped ? value : 1f-(1f-value));
                     }
                 ).setOnComplete(startSheenWipe);
     }

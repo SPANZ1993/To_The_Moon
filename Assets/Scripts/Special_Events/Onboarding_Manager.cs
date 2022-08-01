@@ -4,7 +4,7 @@ using UnityEngine;
 
 using System.Linq;
 
-public class Onboarding_Manager : MonoBehaviour
+public class Onboarding_Manager : MonoBehaviour, IEvent
 {
 
     private GameObject nameInputBox;
@@ -133,20 +133,18 @@ public class Onboarding_Manager : MonoBehaviour
     IEnumerator _executeOnboarding(float delay){
 
         IEnumerator disableUIOnboardingStart(){
-            bool passed = true;
-            try{
-                UI_Controller.instance.DisableUIElement(GameObject.Find("Bookshelf_Menu"));
-                UI_Controller.instance.DisableUIElement(GameObject.Find("Computer_Menu"));
-                screenTint = GameObject.Find("Screen_Tint");
-                UI_Controller.instance.EnableUIElement(screenTint);
-            }
-            catch(System.Exception e){
-                passed = false;
-            }
-            if(!passed){
+            while(UI_Controller.instance.mainAreaLocalScales == null || 
+            !UI_Controller.instance.mainAreaLocalScales.Keys.Contains(GameObject.Find("Bookshelf_Menu")) || 
+            !UI_Controller.instance.mainAreaLocalScales.Keys.Contains(GameObject.Find("Computer_Menu")) ||
+            !UI_Controller.instance.mainAreaLocalScales.Keys.Contains(GameObject.Find("Screen_Tint"))){
                 yield return new WaitForSeconds(0);
-                StartCoroutine(disableUIOnboardingStart());
             }
+
+            UI_Controller.instance.DisableUIElement(GameObject.Find("Bookshelf_Menu"));
+            UI_Controller.instance.DisableUIElement(GameObject.Find("Computer_Menu"));
+            screenTint = GameObject.Find("Screen_Tint");
+            UI_Controller.instance.EnableUIElement(screenTint);
+            UI_Controller.instance.DisableUIElement(screenTint, touchOnly:true);
         }
 
         StartCoroutine(disableUIOnboardingStart());
@@ -834,9 +832,14 @@ public class Onboarding_Manager : MonoBehaviour
         GameObject.Find("Rocket_Button").GetComponent<Launch_Button_Controller>().reset();
 
         //Debug.Log("GAME STARTED!");
-        Destroy(this);
+        StartCoroutine(_waitThenSaveAndDestroy());
     }
 
+    IEnumerator _waitThenSaveAndDestroy(){
+        yield return new WaitForSeconds(0.1f);
+        Game_Manager.instance.saveData(disableTouch: false, displayIndicator: false, serially: true);
+        Destroy(this);
+    }
 
 
 

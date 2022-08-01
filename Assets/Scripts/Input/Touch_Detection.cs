@@ -190,6 +190,8 @@ public class Touch_Detection : MonoBehaviour
     void Update()
     {
 
+
+
         //Update the Text on the screen depending on current TouchPhase, and the current direction vector
         m_Text = "Touch : " + message + "in direction" + direction;
         m_Text_Pos = "Pos: " + curPos;
@@ -390,6 +392,7 @@ public class Touch_Detection : MonoBehaviour
         //reticleCollider.enabled = true;
         //reticleDisabled = false;
         //Debug.Log("ENABLING RETICLE TD");
+        //throw new System.Exception("WHAT THE FUCK");
         if(!immediately){
             enableReticleAfterCurTap = true;
         }
@@ -456,6 +459,7 @@ public class Touch_Detection : MonoBehaviour
 
 
     public void disableSwipes(){
+        //Debug.Log("SWIPES DISABLED");
         disableSwipes(new Swipe[] {Swipe.UPSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE, Swipe.DOWNSWIPE});
     }
 

@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
-public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
+public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
+
+    private bool initialized = false;
+
     private enum Platforms{
         iOS,
         Android
@@ -127,7 +130,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         else if (platform == Platforms.Android){
             //Debug.Log("ANDROID");
         }
-        Advertisement.Initialize(gameId, testMode);
+        Initialize();
         OnLevelWasLoaded();
     }
 
@@ -135,7 +138,21 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
         timeSinceLastInterstialAd += Time.deltaTime;
     }
 
+    public void Initialize()
+    {
+        testMode = testMode || IsTestLab();
+        Advertisement.Initialize(gameId, testMode, this);
+    }
 
+    void IUnityAdsInitializationListener.OnInitializationComplete()
+    {
+        initialized = true;
+    }
+    
+    void IUnityAdsInitializationListener.OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        initialized = false;
+    }
 
 
 
@@ -216,8 +233,22 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
 
 
-
-
+    // Is this a Google Firebase Test?? If so, we don't want real ads
+    public bool IsTestLab()
+    {   
+        try{
+            using (var actClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            {
+                var context = actClass.GetStatic<AndroidJavaObject>("currentActivity");
+                var systemGlobal = new AndroidJavaClass("android.provider.Settings$System");
+                var testLab = systemGlobal.CallStatic<string>("getString", context.Call<AndroidJavaObject>("getContentResolver"), "firebase.test.lab");
+                return testLab == "true";
+            }
+        }
+        catch(System.Exception e){
+            return false;
+        }
+    }
 
 
 
@@ -278,37 +309,38 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     }
 
     public void showInterstitialAd(){
+        if(initialized){
+            if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
+                string adUnitId = "";
+                switch(platform){
+                    case Platforms.iOS:
+                    {
+                        adUnitId = "Interstitial_iOS";
+                        break;
+                    }
+                    case Platforms.Android:
+                    {
+                        adUnitId = "Interstitial_Android";
+                        break;
+                    }
+                    default: break;
+                }
 
-        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
-            string adUnitId = "";
-            switch(platform){
-                case Platforms.iOS:
-                {
-                    adUnitId = "Interstitial_iOS";
-                    break;
+                if (adUnitId != "" && timeSinceLastInterstialAd >= minTimeBetweenInterstitialAds){
+                    if(InterstitalAdShowInfo != null){
+                        InterstitalAdShowInfo();
+                    }
+                    Advertisement.Show(adUnitId, this);
                 }
-                case Platforms.Android:
-                {
-                    adUnitId = "Interstitial_Android";
-                    break;
+            }
+            else{
+                // Just to make sure we hide the banner ad kind of quickly after we buy the upgrade
+                try{
+                    hideBannerAd();
                 }
-                default: break;
-            }
-
-            if (adUnitId != "" && timeSinceLastInterstialAd >= minTimeBetweenInterstitialAds){
-                if(InterstitalAdShowInfo != null){
-                    InterstitalAdShowInfo();
+                catch(System.Exception e){
+                    Debug.Log("Couldn't hide banner ad");
                 }
-                Advertisement.Show(adUnitId, this);
-            }
-        }
-        else{
-            // Just to make sure we hide the banner ad kind of quickly after we buy the upgrade
-            try{
-                hideBannerAd();
-            }
-            catch(System.Exception e){
-                Debug.Log("Couldn't hide banner ad");
             }
         }
     }

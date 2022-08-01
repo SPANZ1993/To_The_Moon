@@ -61,6 +61,7 @@ MonoBehaviour:
   - {x: 0, y: 175}
   - {x: 150, y: 0}
   - {x: 150, y: 0}
+  spawnRate: 5
   poolObjListBackground:
   - {fileID: 8192452084279125922, guid: 548959a54dbf63c4ca763a2d325fc4f9, type: 3}
   - {fileID: 8192452084279125922, guid: 4df973ab04175b34aad373d385441afd, type: 3}
@@ -75,6 +76,7 @@ MonoBehaviour:
   - {x: 175, y: 0}
   - {x: 175, y: 0}
   - {x: 175, y: 0}
+  backgroundSpawnRate: 10
   leavingPlanetSprite: {fileID: -67371933, guid: 3bab1129679fd084ca73708b49239253, type: 3}
   leavingPlanetBotParallaxRocketAlt: 0
   leavingPlanetTopParallaxRocketAlt: 100

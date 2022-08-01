@@ -817,8 +817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Eh, its a pretty good crypto. It has blockchains and doesn't afraid of
-    anything.
+  m_text: Its a pretty good crypto. Eh has blockchains and doesn't afraid of anything.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -845,7 +844,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.8
+  m_fontSize: 40.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

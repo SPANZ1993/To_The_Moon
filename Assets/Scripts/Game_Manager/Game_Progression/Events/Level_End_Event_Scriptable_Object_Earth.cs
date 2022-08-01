@@ -14,7 +14,7 @@ public class Level_End_Event_Scriptable_Object_Earth : Level_End_Event_Scriptabl
     }
 
     public void alertEventEndedNotReady(){
-        Debug.Log("SO EVENT OVER!!!");
+        //Debug.Log("SO EVENT OVER!!!");
         base.onEventEnded(nextLevelWasReady:false);
         Next_Level_Not_Ready_Event_Earth.EventEndedInfo -= alertEventEndedNotReady; 
     }
@@ -25,7 +25,7 @@ public class Level_End_Event_Scriptable_Object_Earth : Level_End_Event_Scriptabl
 
 
     public override void executeLevelCompleteNextLevelReady(){
-        Debug.Log("LEVEL END EARTH: Earth Completed And Ready");
+        //Debug.Log("LEVEL END EARTH: Earth Completed And Ready");
         base.onEventEnded(nextLevelWasReady:true);
     }
 

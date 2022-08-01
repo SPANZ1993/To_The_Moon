@@ -172,8 +172,13 @@ public class IAP_Manager : MonoBehaviour
 
 
     public void updateAllShopPanels(){
-        foreach(GameObject panel in activeProductsToShopPanel.Values){
-            UI_Controller.instance.updateShopPanel(panel);
+        try{
+            foreach(GameObject panel in activeProductsToShopPanel.Values){
+                UI_Controller.instance.updateShopPanel(panel);
+            }
+        }
+        catch(Exception e){
+            Debug.LogError("COULDN'T UPDATE SHOP PANELS");
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Next_Level_Not_Ready_Event_Earth : MonoBehaviour
+public class Next_Level_Not_Ready_Event_Earth : MonoBehaviour, IEvent
 {
 
 
@@ -16,7 +16,15 @@ public class Next_Level_Not_Ready_Event_Earth : MonoBehaviour
     }
 
     void startNotReadySpeech(){
+
         IEnumerator _waitThenSpeak(){
+            float t = 0f;
+            while(t<0.5f){
+                Touch_Detection.instance.disableReticle();
+                Touch_Detection.instance.disableSwipes();
+                yield return new WaitForEndOfFrame();
+                t += Time.deltaTime;
+            }
             yield return new WaitForSeconds(2.5f);
             startNextLevelNotReadySpeech(1);
         }
@@ -52,7 +60,15 @@ public class Next_Level_Not_Ready_Event_Earth : MonoBehaviour
     }
 
     void startSecondNotReadySpeechAfterDelay(){
+
         IEnumerator _waitThenSpeak(){
+            float t = 0f;
+            while(t<0.5f){
+                Touch_Detection.instance.disableReticle();
+                Touch_Detection.instance.disableSwipes();
+                yield return new WaitForEndOfFrame();
+                t += Time.deltaTime;
+            }
             yield return new WaitForSeconds(2f);
             startNextLevelNotReadySpeech(2);
         }
@@ -64,6 +80,9 @@ public class Next_Level_Not_Ready_Event_Earth : MonoBehaviour
         if(EventEndedInfo != null){
             EventEndedInfo();
         }
+
+        Touch_Detection.instance.enableReticle(immediately:true);
+        Touch_Detection.instance.enableSwipes(immediately:true);
         Destroy(this);
     }
 
@@ -72,11 +91,11 @@ public class Next_Level_Not_Ready_Event_Earth : MonoBehaviour
         string keystring = "";
         if(nextLevelNotReadySpeechNum == 1){
             keystring = "Events_Script.NextLevelNotReady.Earth.1.1";
-            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:startSecondNotReadySpeechAfterDelay);
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:true, keyString:keystring, formatFunc:null), callBack:startSecondNotReadySpeechAfterDelay);
         }
         else if (nextLevelNotReadySpeechNum == 2){
             keystring = "Events_Script.NextLevelNotReady.Earth.2.1";
-            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:resumeAfterNotReadyEvent);
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:true, keyString:keystring, formatFunc:null), callBack:resumeAfterNotReadyEvent);
         }
 
     }

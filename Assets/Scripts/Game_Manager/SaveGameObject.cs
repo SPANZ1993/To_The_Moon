@@ -106,7 +106,7 @@ public class SaveGameObject
         CartLastEmptiedTimeUnix = (double)((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds() - (31536000*10); // 10 years ago
         CartCurCoins = 0.0;
         CartCoinsPerSecond = 1.0;
-        CartCapacity = 100.0;
+        CartCapacity = 10.0;
         CartCoinsPerSecondUpgradePrice = 100.0;
         CartCoinsCapacityUpgradePrice = 100.0;
 

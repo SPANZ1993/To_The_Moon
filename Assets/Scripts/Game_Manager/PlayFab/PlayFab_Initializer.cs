@@ -11,9 +11,6 @@ using TMPro;
 
 public class PlayFab_Initializer : MonoBehaviour
 {
-    PlayFab_Manager playFabManager;
-    Game_Manager gameManager;
-    UI_Controller uiController;
 
     bool loggedInPlayFabServer = false;
     public double? serverTime {get; private set;}
@@ -51,7 +48,7 @@ public class PlayFab_Initializer : MonoBehaviour
                 text += component.GetType().ToString() + " ";
             }
 
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nCOMPONENTS: " + text;
+            //GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nCOMPONENTS: " + text;
         }
 
         PlayFab_Manager.PlayFabAccountCreateSuccessInfo += onPlayFabAccountCreate;
@@ -95,10 +92,6 @@ public class PlayFab_Initializer : MonoBehaviour
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Initializing...";
         }
 
-        playFabManager = GameObject.Find("PlayFab_Manager").GetComponent<PlayFab_Manager>();
-        uiController = GameObject.Find("UI_Controller").GetComponent<UI_Controller>();
-        gameManager = GameObject.Find("Game_Manager").GetComponent<Game_Manager>();
-
         StartCoroutine(_firstLoginAttempt());
         //Invoke("_EndLandingPageScene", 100000f);
     }
@@ -116,13 +109,16 @@ public class PlayFab_Initializer : MonoBehaviour
         serverTime = null;
         titleData = null;
 
-        playFabManager.Login();
+        failedLogInPlayFabServer = false; // NEW 7/31
 
-        uiController.disableRetryConnectBox();
+        PlayFab_Manager.instance.Login();
+
+        UI_Controller.instance.disableRetryConnectBox();
         retryConnectBoxDisplayed = false;
         waitingForResponsePlayFabLogin = true;
     }
 
+    bool addedStartup = false;
 
     // Update is called once per frame
     void Update()
@@ -130,16 +126,17 @@ public class PlayFab_Initializer : MonoBehaviour
         // Debug.Log("LOADED DATA: " + loadedData);
         // Debug.Log("SERVER TIME: " + serverTime);
         if (loggedInPlayFabServer && serverTime != null && loadedData != null && titleData != null){
-            if (SceneManager.GetActiveScene().name == "Landing_Page"){ // It should always be this scene if we are creating a user
+            if (SceneManager.GetActiveScene().name == "Landing_Page" && !addedStartup){ // It should always be this scene if we are creating a user
                 loadedData.Metrics.numGameStartups += 1;
+                addedStartup = true;
             }
-            gameManager.loadedGame = loadedData;
-            gameManager.metrics = loadedData.Metrics;
-            gameManager.gameTimeUnix = serverTime ?? 0;
-            gameManager.gameStartTimeUnix = serverTime ?? 0;
-            gameManager.userDisplayName = displayName;
-            gameManager.titleData = titleData;
-            gameManager.doneLoading = true;
+            Game_Manager.instance.loadedGame = loadedData;
+            Game_Manager.instance.metrics = loadedData.Metrics;
+            Game_Manager.instance.gameTimeUnix = serverTime ?? 0;
+            Game_Manager.instance.gameStartTimeUnix = serverTime ?? 0;
+            Game_Manager.instance.userDisplayName = displayName;
+            Game_Manager.instance.titleData = titleData;
+            Game_Manager.instance.doneLoading = true;
 
             if(GameObject.Find("App_State_Text")!=null){
                 GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Done Initializing!";
@@ -153,22 +150,24 @@ public class PlayFab_Initializer : MonoBehaviour
         }
         else if (failedLogInPlayFabServer && !retryConnectBoxDisplayed && !waitingForResponsePlayFabLogin){
             //Debug.Log("TRYING TO ENABLE CONNECTION BOX");
+
+            UI_Controller.instance.enableRetryConnectBox();
+
             if(GameObject.Find("App_State_Text")!=null){
-                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "TRYING TO ENABLE CONNECTION BOX";
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "TRYING TO ENABLE CONNECTION BOX  --- " + GameObject.Find("Retry_Connect_Box").GetComponent<RectTransform>().localScale;
             }
-            uiController.enableRetryConnectBox();
             retryConnectBoxDisplayed = true;
         }
         if (loggedInPlayFabServer && serverTime == null && !waitingForResponsePlayFabTime){
-            playFabManager.GetServerTime();
+            PlayFab_Manager.instance.GetServerTime();
             waitingForResponsePlayFabTime = true;
         }
         if (loggedInPlayFabServer && loadedData == null && !waitingForResponsePlayFabData){
-            playFabManager.LoadData();
+            PlayFab_Manager.instance.LoadData();
             waitingForResponsePlayFabData = true;
         }
         if (loggedInPlayFabServer && titleData == null && !waitingForResponsePlayFabTitleData){
-            playFabManager.GetTitleData();
+            PlayFab_Manager.instance.GetTitleData();
             waitingForResponsePlayFabTitleData = true;
         }
     }

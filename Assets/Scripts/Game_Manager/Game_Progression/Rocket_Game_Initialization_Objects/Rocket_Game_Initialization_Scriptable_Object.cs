@@ -37,6 +37,8 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
     public List<bool> shouldExpandList;
     [SerializeField]
     private List<Vector2> spawnObjAltitudeRanges;
+    [SerializeField]
+    private float spawnRate;
 
 
 
@@ -49,7 +51,8 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
     public List<bool> shouldExpandListBackground;
     [SerializeField]
     private List<Vector2> spawnObjAltitudeRangesBackground;
-
+    [SerializeField]
+    private float backgroundSpawnRate;
 
 
     // TODO: SET THIS UP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -98,6 +101,7 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
         Space_Junk_Spawner spaceJunkSpawner = Space_Junk_Spawner_Obj.GetComponent<Space_Junk_Spawner>();
         Object_Pool spaceJunkObjectPool = Space_Junk_Spawner_Obj.GetComponent<Object_Pool>();
 
+        spaceJunkSpawner.spawnRate = spawnRate;
         spaceJunkSpawner.spawnObjAltitudeRanges = new List<Vector2>(spawnObjAltitudeRanges);
         spaceJunkObjectPool.poolObjList = new List<GameObject>(poolObjList);
         spaceJunkObjectPool.numToSpawnList = new List<int>(numToSpawnList);
@@ -110,6 +114,7 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
         Space_Junk_Spawner backgroundSpaceJunkSpawner = Background_Space_Junk_Spawner_Obj.GetComponent<Space_Junk_Spawner>();
         Object_Pool backgroundSpaceJunkObjectPool = Background_Space_Junk_Spawner_Obj.GetComponent<Object_Pool>();
 
+        backgroundSpaceJunkSpawner.spawnRate = backgroundSpawnRate;
         backgroundSpaceJunkSpawner.spawnObjAltitudeRanges = new List<Vector2>(spawnObjAltitudeRangesBackground);
         backgroundSpaceJunkObjectPool.poolObjList = new List<GameObject>(poolObjListBackground);
         backgroundSpaceJunkObjectPool.numToSpawnList = new List<int>(numToSpawnListBackground);

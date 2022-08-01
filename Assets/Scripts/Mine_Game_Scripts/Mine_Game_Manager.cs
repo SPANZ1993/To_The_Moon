@@ -134,7 +134,7 @@ public class Mine_Game_Manager : MonoBehaviour
         //TimerText = TimerTextObj.GetComponent<TextMeshProUGUI>();
 
         score = 0.0;
-        timer = 60.0;
+        timer = 30.0;
         gameOver = false;
 
         LeanTween = GetComponent<LeanTween>();
@@ -302,6 +302,7 @@ public class Mine_Game_Manager : MonoBehaviour
                 updateRobotArms();
                 updateRobotScreen(false);
                 updatePickax(PickaxState.Up);
+                HitIndicatorAnim.SetBool("Swing", false);
                 Left_Tap_Button.GetComponent<BoxCollider2D>().enabled = false;
                 Right_Tap_Button.GetComponent<BoxCollider2D>().enabled = false;
                 Tap_Button.GetComponent<CircleCollider2D>().enabled = false;

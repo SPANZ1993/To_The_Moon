@@ -606,19 +606,19 @@ public class Research_Manager : MonoBehaviour
         //Research currentResearch;
         Researcher currentAssignedResearcher;
         foreach (Research currentResearch in researchList){
-                //currentResearch = (Research)researchPanel.GetComponent<ObjectHolder>().Obj;
-                //Debug.Log("GENERATING RESEARCH ASSIGNMENT OBJECTS" + " RESEARCH ID : " + currentResearch.researchId + " HAS RESEARCHER? " + currentResearch.isResearcherAssigned());
-                if (currentResearch.isResearcherAssigned()){
-                    currentAssignedResearcher = currentResearch.assignedResearcher;
-                    //Debug.Log("GENERATING RESEARCH ASSIGNMENT OBJECTS" + " RESEARCH ID: " + currentResearch.researchId + " HAS RESEARCHER: " + currentAssignedResearcher.researcherId + " ASSIGNED");
-                    researchAssignmentObjects.Add(new ResearchAssignmentObject( researchId: currentResearch.researchId, 
-                                                                                researcherId: currentAssignedResearcher.researcherId, 
-                                                                                assignedTime: currentResearch.assignedTime, 
-                                                                                timeLeft: currentResearch.timeLeft, 
-                                                                                thrustReward: currentResearch.thrustReward
-                                                                                ));
-                }
+            //currentResearch = (Research)researchPanel.GetComponent<ObjectHolder>().Obj;
+            //Debug.Log("GENERATING RESEARCH ASSIGNMENT OBJECTS" + " RESEARCH ID : " + currentResearch.researchId + " HAS RESEARCHER? " + currentResearch.isResearcherAssigned());
+            if (currentResearch.isResearcherAssigned()){
+                currentAssignedResearcher = currentResearch.assignedResearcher;
+                //Debug.Log("GENERATING RESEARCH ASSIGNMENT OBJECTS" + " RESEARCH ID: " + currentResearch.researchId + " HAS RESEARCHER: " + currentAssignedResearcher.researcherId + " ASSIGNED");
+                researchAssignmentObjects.Add(new ResearchAssignmentObject( researchId: currentResearch.researchId, 
+                                                                            researcherId: currentAssignedResearcher.researcherId, 
+                                                                            assignedTime: currentResearch.assignedTime, 
+                                                                            timeLeft: currentResearch.timeLeft, 
+                                                                            thrustReward: currentResearch.thrustReward
+                                                                            ));
             }
+        }
         return researchAssignmentObjects;
     }
 

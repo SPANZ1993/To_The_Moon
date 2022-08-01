@@ -489,7 +489,7 @@ MonoBehaviour:
     origPitch: 0
   - name: UI_Transition_In
     clip: {fileID: 8300000, guid: 62a1acdbd7605cf4d80bdc097763ed7b, type: 3}
-    volume: 0.25
+    volume: 0.15
     pitch: 1
     loop: 0
     channel: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
     origPitch: 0
   - name: UI_Transition_Out
     clip: {fileID: 8300000, guid: 9ecee9ca53ca6a949b123305a3dec4a2, type: 3}
-    volume: 0.25
+    volume: 0.15
     pitch: 1
     loop: 0
     channel: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_0
     clip: {fileID: 8300000, guid: cc6588d52ff7c2a419095abbd9cd7472, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_1
     clip: {fileID: 8300000, guid: 384efefbd06c9a2449c6233012bcd003, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -723,7 +723,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_2
     clip: {fileID: 8300000, guid: dcf93482b3d45d94ab82efa706d47b1a, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_3
     clip: {fileID: 8300000, guid: e2637495f74ad484cb5caf50b56c66f7, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -741,7 +741,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_4
     clip: {fileID: 8300000, guid: aa45808daa0c071428afc60a7a0ee1c8, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -750,7 +750,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_5
     clip: {fileID: 8300000, guid: 7a4919d0595265f4d9472dbd77d77465, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_6
     clip: {fileID: 8300000, guid: f0f18bdc6d3a89045a1f2ae69a89130c, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_7
     clip: {fileID: 8300000, guid: 3c44b6a737280164b9713d580a55339c, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -777,7 +777,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_8
     clip: {fileID: 8300000, guid: 615bb4a32d252da4d8ead0acb3a89b24, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Neutral_9
     clip: {fileID: 8300000, guid: f4121b8bcd67be844b75a9247a79a29a, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_0
     clip: {fileID: 8300000, guid: d1ddeab45567e6c459dd72bc70ff946d, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_1
     clip: {fileID: 8300000, guid: d2b8a2edc9141734c9403f622fd78310, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -813,7 +813,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_2
     clip: {fileID: 8300000, guid: 928f2086eac238c489fb646108ffd0d0, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -822,7 +822,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_3
     clip: {fileID: 8300000, guid: 47538f9de84978f4faa45cfc95afa2df, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -831,7 +831,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_4
     clip: {fileID: 8300000, guid: 6c85a521963db004a8ce1793dede527c, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -840,7 +840,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_5
     clip: {fileID: 8300000, guid: 8247fa3bf1a82234287750257d008d3c, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -849,7 +849,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_6
     clip: {fileID: 8300000, guid: c7dd9b3a7dd1e194c8a18fa977cad9af, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_7
     clip: {fileID: 8300000, guid: c32c4e5da5c0dbf418a3b1e8c28677f4, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_8
     clip: {fileID: 8300000, guid: 04c256dc53bc98a438e0bb4932263e2b, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Happy_9
     clip: {fileID: 8300000, guid: 27ede66f07915cf438caebcda72acb75, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -885,7 +885,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_0
     clip: {fileID: 8300000, guid: 805aab0c3d33a5a4e90c293eba004658, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -894,7 +894,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_1
     clip: {fileID: 8300000, guid: bf785f34e20a8b848bd12652305f86e6, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_2
     clip: {fileID: 8300000, guid: df5a67fefaf3802449fefd0cd4923010, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -912,7 +912,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_3
     clip: {fileID: 8300000, guid: 49be9c762e1e70d4fa245908a1af4b41, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -921,7 +921,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_4
     clip: {fileID: 8300000, guid: c5d17e9a46c81d84b874ad79d578a9c7, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -930,7 +930,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_5
     clip: {fileID: 8300000, guid: ba11fc03fe3d7354dbab114ec0fc86e9, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_6
     clip: {fileID: 8300000, guid: a520e8fadde24104bada9a8f2079f8b8, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -948,7 +948,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_7
     clip: {fileID: 8300000, guid: 312d864be759f3040a31b3599abb8895, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_8
     clip: {fileID: 8300000, guid: 21ee2fa2f29041c4a926bcf6b0749058, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -966,7 +966,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Gorilla_Sad_9
     clip: {fileID: 8300000, guid: 56a5b10f4aee31645b8fd4c1cc8e8095, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1245,7 +1245,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_0
     clip: {fileID: 8300000, guid: 77dd5eb2a4490ac479224b9793f7a384, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1254,7 +1254,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_1
     clip: {fileID: 8300000, guid: 6ade72bad651ff84d9478c3b4405b236, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1263,7 +1263,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_2
     clip: {fileID: 8300000, guid: c6e13aa64824b6947a65c72a71289caa, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1272,7 +1272,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_3
     clip: {fileID: 8300000, guid: 089c17684563b2b4fa2f442162126515, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1281,7 +1281,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_4
     clip: {fileID: 8300000, guid: c52df4b766360144fa33d62677378c57, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1290,7 +1290,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_5
     clip: {fileID: 8300000, guid: 79f94318fc1bca84c84c208d79bf06ee, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1299,7 +1299,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_6
     clip: {fileID: 8300000, guid: e680480562719c74eb1b4afeee26de82, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1308,7 +1308,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_7
     clip: {fileID: 8300000, guid: 9c5902ca16e09ca4c9e79e5f66c727d6, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1317,7 +1317,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_8
     clip: {fileID: 8300000, guid: 71021c28f876f34479d513861664d9c2, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Neutral_9
     clip: {fileID: 8300000, guid: 0b6eb477e40a2e34d94e93510146df20, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1335,7 +1335,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_0
     clip: {fileID: 8300000, guid: 8d5c865a235071b459f11193c83a64d2, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1344,7 +1344,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_1
     clip: {fileID: 8300000, guid: b2c9a7ff287825445a2866397f9be236, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1353,7 +1353,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_2
     clip: {fileID: 8300000, guid: a6a37b217b59ba04a8d7b210b2ef68db, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1362,7 +1362,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_3
     clip: {fileID: 8300000, guid: b7855e435d561594883f848cc5713303, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1371,7 +1371,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_4
     clip: {fileID: 8300000, guid: e3e4251d4c7bf8441a2d6f12fcdd4d1f, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1380,7 +1380,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_5
     clip: {fileID: 8300000, guid: 3f8e8bab3b4d74a48b69eafb267b59a3, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1389,7 +1389,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_6
     clip: {fileID: 8300000, guid: 07bb03bf7f441314abe573036cc71133, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1398,7 +1398,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_7
     clip: {fileID: 8300000, guid: 1980d6def69cff642b2d91fb5a0cb3f0, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1407,7 +1407,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_8
     clip: {fileID: 8300000, guid: cd7487bfc8174554e89b44314bd3b94e, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1416,7 +1416,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Happy_9
     clip: {fileID: 8300000, guid: 14770f329e878ab4b9e5a42d2a146a2e, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1425,7 +1425,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_0
     clip: {fileID: 8300000, guid: a852dc12d88b9ba4db72e6d7dbfa1ad9, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1434,7 +1434,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_1
     clip: {fileID: 8300000, guid: 2ee3bedbbabaf2f41b667d4ebe9ca151, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1443,7 +1443,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_2
     clip: {fileID: 8300000, guid: ebd55f91a1ba0bb4cae51cc1d6656fb6, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1452,7 +1452,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_3
     clip: {fileID: 8300000, guid: 4f57913150a307f4aa72784a491460f4, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_4
     clip: {fileID: 8300000, guid: eaac86301fba249418ff223eb00bb07b, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1470,7 +1470,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_5
     clip: {fileID: 8300000, guid: 4ed6a9827fef06c4483db988e1e0e96c, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1479,7 +1479,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_6
     clip: {fileID: 8300000, guid: e3fcfdc38d4065944be8cdea339db2a0, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1488,7 +1488,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_7
     clip: {fileID: 8300000, guid: 9aeca10c184490b4499b1adb1182f44e, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1497,7 +1497,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_8
     clip: {fileID: 8300000, guid: 8d847aecab998bd4fa78e5ed0c8f6900, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -1506,7 +1506,7 @@ MonoBehaviour:
     origPitch: 0
   - name: Speech_Beep_Dog_Sad_9
     clip: {fileID: 8300000, guid: 7ab033195827f68469f9440086dce4f1, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     loop: 0
     channel: 0
@@ -2394,7 +2394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderTypes: 0
+  shaderTypes: 2
   normalStrength: 5
   normalSmoothing: 1
   computingNormal: 0
