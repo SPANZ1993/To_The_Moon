@@ -121,12 +121,18 @@ public class Rocket_Controller_Main_Area : MonoBehaviour
         // );
 
     }
-    
+
+    private void disableRocketParticles(){
+        rocketParticleSystem.Stop(true);
+    }
+
+
     IEnumerator _onRocketLaunchStarted(float shakeTime){
         yield return new WaitForSeconds(shakeTime*.75f);
         
         
-        rocketTweenId = LeanTween.moveY(gameObject, rocketLaunchWaypoint.transform.position.y, 4f).setEase(LeanTweenType.easeInQuad).id;
+        rocketTweenId = LeanTween.moveY(gameObject, rocketLaunchWaypoint.transform.position.y, 4f).setEase(LeanTweenType.easeInQuad).setOnComplete(disableRocketParticles).id;
+        //LeanTween.descr(rocketTweenId).setOnComplete(disableRocketParticles);
         rocketScaleTweenId = LeanTween.scale(gameObject, new Vector3(0.5f, 0.5f, 0.5f), 4f).setEase(LeanTweenType.easeInQuad).id;
         LeanTween.scale(rocketParticleSystemObj, new Vector3(0.5f, 0.5f, 0.5f), 4f).setEase(LeanTweenType.easeInQuad);
         LeanTween.scale(rocketLogo, new Vector3(0.5f, 0.5f, 0.5f), 4f).setEase(LeanTweenType.easeInQuad);
