@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a4043b6f4b84d4188972a77484e9c0, type: 3}
   m_Name: IAP_Unlockable_Remove_Ads
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.unlockableRemoveAds
+  productId: com.eggkidgames.blockchainblastoff.unlockableremoveads
   productTitle: Remove Ads
   productDescription: Those ads sure are annoying. If only there were some way to
     not watch them.

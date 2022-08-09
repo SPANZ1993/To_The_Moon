@@ -254,7 +254,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
 
  
     public void showBannerAd(BannerPosition pos=BannerPosition.BOTTOM_CENTER){
-        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
+        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableremoveads")){
             //Debug.Log("SHOWING BANNER AD");
             // foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
             //     Debug.Log("BANNER: " + id);
@@ -310,7 +310,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
 
     public void showInterstitialAd(){
         if(initialized){
-            if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableRemoveAds")){
+            if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableremoveads")){
                 string adUnitId = "";
                 switch(platform){
                     case Platforms.iOS:

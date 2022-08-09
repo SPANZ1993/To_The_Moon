@@ -1316,31 +1316,31 @@ public class UI_Controller : MonoBehaviour
         //Debug.Log("2: " + LaunchIndicator2);
         //Debug.Log("3: " + LaunchIndicator3);
 
-        if (gameManager.remainingLaunches == 0){
+        if (Game_Manager.instance.remainingLaunches == 0){
             updateRemainingLaunchIndicator(LaunchIndicator1, false);
             updateRemainingLaunchIndicator(LaunchIndicator2, false);
             updateRemainingLaunchIndicator(LaunchIndicator3, false);
         }
-        else if (gameManager.remainingLaunches == 1){
+        else if (Game_Manager.instance.remainingLaunches == 1){
             updateRemainingLaunchIndicator(LaunchIndicator1, true);
             updateRemainingLaunchIndicator(LaunchIndicator2, false);
             updateRemainingLaunchIndicator(LaunchIndicator3, false);
         }
-        else if (gameManager.remainingLaunches == 2){
+        else if (Game_Manager.instance.remainingLaunches == 2){
             updateRemainingLaunchIndicator(LaunchIndicator1, true);
             updateRemainingLaunchIndicator(LaunchIndicator2, true);
             updateRemainingLaunchIndicator(LaunchIndicator3, false);
         }
-        else if (gameManager.remainingLaunches == 3){
+        else if (Game_Manager.instance.remainingLaunches == 3){
             updateRemainingLaunchIndicator(LaunchIndicator1, true);
             updateRemainingLaunchIndicator(LaunchIndicator2, true);
             updateRemainingLaunchIndicator(LaunchIndicator3, true);
         }
 
 
-        updateThrustText(ThrustTextObj, gameManager.thrust);
-        updateCoinsText(CoinsTextObj, gameManager.coins);
-        updateGemsText(GemsTextObj, gameManager.gems);
+        updateThrustText(ThrustTextObj, Game_Manager.instance.thrust);
+        updateCoinsText(CoinsTextObj, Game_Manager.instance.coins);
+        updateGemsText(GemsTextObj, Game_Manager.instance.gems);
     }
 
     void updateRemainingLaunchIndicator(GameObject launchIndicator, bool enable){
@@ -1546,6 +1546,7 @@ public class UI_Controller : MonoBehaviour
 
         selectedResearchPanel = null;
         selectedResearcherPanel = null;
+        Game_Manager.instance.recentlyHitIAPButton = false;
         Game_Manager.instance.WaitThenSave();
     }
 
@@ -1650,6 +1651,7 @@ public class UI_Controller : MonoBehaviour
 
 
     public void DisableUIElement(GameObject UI, bool touchOnly = false){
+        //Debug.Log("DISABLING: " + UI.name);
         for(int i = 0; i < UI.transform.childCount; i++)
         {
             GameObject child = UI.transform.GetChild(i).gameObject;
@@ -2820,9 +2822,9 @@ public class UI_Controller : MonoBehaviour
                 GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf Before...";
             }
             EnableUIElement(bookshelfMenu);
-            if(GameObject.Find("App_State_Text")!=null){
-                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf After..." + bookshelfMenu.GetComponent<RectTransform>().localScale;
-            }
+            // if(GameObject.Find("App_State_Text")!=null){
+            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "Bookshelf After..." + bookshelfMenu.GetComponent<RectTransform>().localScale;
+            // }
             EnableUIElement(ScreenTintObj);
             bookshelfMenuDisplayed = true;
 
@@ -2881,6 +2883,7 @@ public class UI_Controller : MonoBehaviour
             Application.platform == RuntimePlatform.OSXPlayer || 
             Application.platform == RuntimePlatform.WindowsEditor)
         {
+            GameObject.Find("Restore_Purchases_Panel").GetComponent<Button>().onClick.AddListener(GameObject.Find("UI").GetComponent<Main_Area_Button_Handlers>().onShopBuyButtonPressed);
             //Debug.Log("We're on Apple");
             //IAP_Manager.instance.clearActiveProductsToShopPanel(); // Do this so that only the buttons in IAP_Manager.instance.tmpIAPButtonsObj remain
             
@@ -3154,9 +3157,9 @@ public class UI_Controller : MonoBehaviour
                     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += e.ToString();
                 }
             }
-            if(GameObject.Find("App_State_Text")!=null){
-                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nGRAPHICS: " + SystemInfo.graphicsMemorySize.ToString();
-            }
+            // if(GameObject.Find("App_State_Text")!=null){
+            //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nGRAPHICS: " + SystemInfo.graphicsMemorySize.ToString();
+            // }
         }
     }
 
@@ -3226,7 +3229,8 @@ public class UI_Controller : MonoBehaviour
         IAP_Manager.instance.initializeIAPButton(buyButtonObj, product);
         
         // Since we don't actually add owned by default products to the catalog
-        if(!(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) && ((IAP_Product_Scriptable_Object_Nonconsumable)shopPanel.GetComponent<ObjectHolder>().Obj).OwnedByDefault)){
+        if(!(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) && 
+        ((IAP_Product_Scriptable_Object_Nonconsumable)shopPanel.GetComponent<ObjectHolder>().Obj).OwnedByDefault)){
             buyButtonObj.GetComponent<IAPButtonDescriptionController>().Initialize();
         }
         // TODO: FOR ONES THAT ARE OWNED BY DEFAULT WE NEED TO SET THE TEXT MANUALLY
@@ -3291,6 +3295,9 @@ public class UI_Controller : MonoBehaviour
         Button shopBuyButtonComponent = shopBuyButton.GetComponent<Button>();
         
         shopBuyButtonComponent.interactable = true;
+
+        
+        shopBuyButtonComponent.onClick.AddListener(GameObject.Find("UI").GetComponent<Main_Area_Button_Handlers>().onShopBuyButtonPressed);
 
 
         if(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType())){
@@ -3949,9 +3956,9 @@ public class UI_Controller : MonoBehaviour
     public void disableRetryConnectBox(){
         // Debug.Log("DISABLING BOX -- " + System.DateTime.Now);
         DisableUIElement(Retry_Connect_Box);
-        if(GameObject.Find("App_State_Text")!=null){
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += " -DRC-";
-        }
+        // if(GameObject.Find("App_State_Text")!=null){
+        //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += " -DRC-";
+        // }
         timeSinceLastDisplayedRetryConnectBox = 0f;
     }
     //End Landing Page UI

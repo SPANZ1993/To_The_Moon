@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db5dcf949378684daea1637ed276afb, type: 3}
   m_Name: IAP_Ship_Skin_Hot_Dog
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.shipSkinHotDog
+  productId: com.eggkidgames.blockchainblastoff.shipskinhotdog
   productTitle: The Glizzymobile
   productDescription: We're having a cookout in space!
   consumePurchase: 0

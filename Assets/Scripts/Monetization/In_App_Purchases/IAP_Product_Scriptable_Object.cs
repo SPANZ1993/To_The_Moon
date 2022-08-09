@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Purchasing;
 
 
+using TMPro; // REMOVE
+
 
 public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.IEquatable<IAP_Product_Scriptable_Object>
 {
@@ -37,6 +39,13 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
         }
         //Debug.Log("PURCHASE COMPLETE FOR PRODUCT: " + product);
         IAP_Manager.instance.updateAllShopPanels();
+        
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: FALSE";
+        }
+
+
+        Game_Manager.instance.recentlyHitIAPButton = false;
     }
 
 
@@ -49,6 +58,13 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
         if(!Audio_Manager.instance.IsPlaying("UI_Button_Deny")){
             Audio_Manager.instance.Play("UI_Button_Deny");
         }
+
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: FALSE";
+        }
+
+
+        Game_Manager.instance.recentlyHitIAPButton = false;
     }
 
 
@@ -59,7 +75,7 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
     // If we have any products that have specific requirements in order for them to be active, put them here
     // For example, we only want to display Patron-Only Products if the User is a Patron
     public static bool SpecialRequirementsMet(IAP_Product_Scriptable_Object product){
-        if((product.ProductId == "com.eggkidgames.blockchainblastoff.robotOutfitPatron" || product.ProductId == "com.eggkidgames.blockchainblastoff.shipSkinPatron") && !Game_Manager.instance.isPatron){
+        if((product.ProductId == "com.eggkidgames.blockchainblastoff.robotoutfitpatron" || product.ProductId == "com.eggkidgames.blockchainblastoff.shipskinpatron") && !Game_Manager.instance.isPatron){
             return false;
         }
         return true;

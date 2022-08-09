@@ -4,6 +4,8 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
+using TMPro; // REMOVE
+
 // UNITY IS REALLY COOL AND DOESN'T WORK IF YOU SET THE ONCLICK FUNCTION OF A BUTTON TO A SINGLETON... SO WE'RE JUST GONNA GET A REFERENCE TO THE UI HANDLER AND
 // CALL THE FUNCTIONS WE NEED FROM HERE...
 public class Main_Area_Button_Handlers : MonoBehaviour
@@ -11,6 +13,16 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
     public void saveGame(){
         Game_Manager.instance.saveData(false, false, true);
+    }
+
+    public void clearAppStateText(){
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text = "";
+        }
+    }
+
+    public void sayHello(){
+        Debug.Log("HELLO");
     }
 
     public void onButtonTmp(){
@@ -43,6 +55,7 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
 
     public void closeMenus(){
+        //Debug.Log("CLOSING MENUS");
         UI_Controller.instance.closeMenus();
     }
     
@@ -176,6 +189,15 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
     public void selectShop(){
         UI_Controller.instance.selectShop();
+    }
+
+    public void onShopBuyButtonPressed(){
+
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: TRUE";
+        }
+
+        Game_Manager.instance.recentlyHitIAPButton = true;
     }
 
     public void selectExchange(){

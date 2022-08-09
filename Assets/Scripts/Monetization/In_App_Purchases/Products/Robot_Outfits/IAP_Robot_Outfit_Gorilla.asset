@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ff02ea3033fda4eb66ebec2ee6edcb, type: 3}
   m_Name: IAP_Robot_Outfit_Gorilla
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.robotOutfitGorilla
+  productId: com.eggkidgames.blockchainblastoff.robotoutfitgorilla
   productTitle: Ape
   productDescription: Together strong!
   consumePurchase: 0

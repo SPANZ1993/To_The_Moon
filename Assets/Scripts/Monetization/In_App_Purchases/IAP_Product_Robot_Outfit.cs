@@ -34,7 +34,9 @@ public class IAP_Product_Robot_Outfit : IAP_Product_Scriptable_Object_Nonconsuma
             }
         }
         else{
-            // TODO: Nothing happened doot
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect")){
+                Audio_Manager.instance.Play("UI_Button_No_Effect");
+            }
         }
     }
 

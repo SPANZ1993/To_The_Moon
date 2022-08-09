@@ -6,6 +6,8 @@ using UnityEngine.Purchasing;
 using System;
 using System.Linq;
 
+using TMPro; // REMOVE
+
 public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_Scriptable_Object
 {
 
@@ -29,7 +31,17 @@ public abstract class IAP_Product_Scriptable_Object_Nonconsumable : IAP_Product_
     public override void OnPurchaseComplete(Product product){
         if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(base.ProductId)){
             //Debug.Log("ADDING: " + base.ProductId + " TO LIST OF OWNED NONCONSUMABLES");
+            if(GameObject.Find("App_State_Text") != null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nADDING " + base.ProductId.ToString() + " TO PRODUCTS.";
+            }
+
+
+
             IAP_Manager.instance.ownedNonConsumableProductsIds.Add(base.ProductId);
+
+            if(GameObject.Find("App_State_Text") != null){
+                GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\nIS " + base.ProductId.ToString() + " IN THERE NOW? --- " + IAP_Manager.instance.ownedNonConsumableProductsIds.Contains(base.ProductId);
+            }
             IAP_Manager.instance.lastNonConsumableProductIdBuyTime = Game_Manager.instance.gameTimeUnix;
         }
         else{

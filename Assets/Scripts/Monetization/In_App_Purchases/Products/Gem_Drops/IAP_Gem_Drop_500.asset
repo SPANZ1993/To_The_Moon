@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2967ccf5d9ab545b16c03f18ecf8e9, type: 3}
   m_Name: IAP_Gem_Drop_500
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.gemDrop500
-  productTitle: Gem Box
-  productDescription: A Box With 500 Cosmic Gems!
+  productId: com.eggkidgames.blockchainblastoff.gemdrop500
+  productTitle: Gem Chest
+  productDescription: A Chest With 500 Gems! That Should Hold You Over! \n Best Value!
   consumePurchase: 1
-  previewSprite: {fileID: -2005667756, guid: 8bfa5fa8a5e5efd4088021c0bea6c232, type: 3}
+  previewSprite: {fileID: -101152546, guid: 8bfa5fa8a5e5efd4088021c0bea6c232, type: 3}
   numGems: 500

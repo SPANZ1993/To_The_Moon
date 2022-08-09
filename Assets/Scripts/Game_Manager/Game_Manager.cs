@@ -67,6 +67,7 @@ public class Game_Manager : MonoBehaviour
 
     // IAP Stuff
     public bool removedAds = false;
+    public bool recentlyHitIAPButton = false; // Have we pressed an IAP Button recently 
 
 
     private bool initializedGame = false; // Is the game initiated?
@@ -246,9 +247,19 @@ public class Game_Manager : MonoBehaviour
     }
 
     void OnLevelWasLoaded(){
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n On Level Was Loaded";
+        }
         if (instanceID == gameObject.GetInstanceID() && instance == this){
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
             if (SceneManager.GetActiveScene().name == "Main_Area"){
+
+                recentlyHitIAPButton = false;
+
+                if(GameObject.Find("App_State_Text") != null){
+                    GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "HELLO";
+                }
+
                 WaitThenSave();
                 // foreach(string k in titleData.Keys){
                 //     Debug.Log("TITLE DATA --- " + k + ": " + titleData[k]);
@@ -531,6 +542,10 @@ public class Game_Manager : MonoBehaviour
     void OnApplicationFocus(){
         //Debug.Log("ON APPLICATION FOCUS");
 
+        if(GameObject.Find("App_State_Text")!=null){
+            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n On App Focus";
+        }
+
         if (frameCount != 0){
             DateTime curTime = DateTime.Now;
             double timeSinceLastFrame0 = (double)((DateTimeOffset)localSessionCurrentTime).ToUnixTimeSeconds() - (double)((DateTimeOffset)localSessionPrevFrameTime).ToUnixTimeSeconds();
@@ -573,7 +588,10 @@ public class Game_Manager : MonoBehaviour
             //Debug.Log("INITIALIZE ON RETURN");
             //reinitializeGameOnFocus();
         }
-        else if (gameObject.GetComponent<Onboarding_Manager>() == null && SceneManager.GetActiveScene().name == "Main_Area" && gameObject.GetComponent<PlayFab_Initializer>() == null){
+        else if (gameObject.GetComponent<Onboarding_Manager>() == null && 
+            SceneManager.GetActiveScene().name == "Main_Area" && 
+            gameObject.GetComponent<PlayFab_Initializer>() == null &&
+            !recentlyHitIAPButton){
             PlayFab_Initializer playFabInitializer = gameObject.AddComponent<PlayFab_Initializer>();
             playFabInitializer.callBack = initializeGame;
         }

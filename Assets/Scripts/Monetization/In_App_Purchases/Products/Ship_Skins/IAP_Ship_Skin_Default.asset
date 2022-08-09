@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db5dcf949378684daea1637ed276afb, type: 3}
   m_Name: IAP_Ship_Skin_Default
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.shipSkinDefault
+  productId: com.eggkidgames.blockchainblastoff.shipskindefault
   productTitle: Ol' Reliable
   productDescription: A gift from our friend Samson Shiba
   consumePurchase: 0
   previewSprite: {fileID: -862739383, guid: 59e8be971e271984c805249a7403efe6, type: 3}
   ownedByDefault: 1
   equippable: 1
-  equipped: 0
+  equipped: 1
   equipButtonString: Use This Rocket
   equippedButtonString: Using This Rocket
   shipSkin: {fileID: 11400000, guid: c0f0ff2b305580d40bcdd192b6e99ff8, type: 2}

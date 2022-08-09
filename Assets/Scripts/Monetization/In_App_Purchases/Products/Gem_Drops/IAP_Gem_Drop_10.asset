@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2967ccf5d9ab545b16c03f18ecf8e9, type: 3}
   m_Name: IAP_Gem_Drop_10
   m_EditorClassIdentifier: 
-  productId: com.eggkidgames.blockchainblastoff.gemDrop10
+  productId: com.eggkidgames.blockchainblastoff.gemdrop10
   productTitle: Gem Drop
   productDescription: 10 Cosmic Gems Fall From The Sky!
   consumePurchase: 1
