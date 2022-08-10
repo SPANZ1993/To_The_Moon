@@ -561,6 +561,7 @@ public class UI_Controller : MonoBehaviour
         if (this != instance){
             return;
         }
+        Game_Manager.instance.recentlyHitIAPButton = false;
         sceneManager = Scene_Manager.instance; // This is not the Unity SceneManager... this is our custom class
         //Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
         speechIsDisplayed = false;

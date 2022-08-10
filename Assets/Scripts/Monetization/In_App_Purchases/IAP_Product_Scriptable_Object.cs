@@ -40,9 +40,9 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
         //Debug.Log("PURCHASE COMPLETE FOR PRODUCT: " + product);
         IAP_Manager.instance.updateAllShopPanels();
         
-        if(GameObject.Find("App_State_Text")!=null){
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: FALSE";
-        }
+        // if(GameObject.Find("App_State_Text")!=null){
+        //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: FALSE";
+        // }
 
 
         Game_Manager.instance.recentlyHitIAPButton = false;
@@ -59,9 +59,9 @@ public abstract class IAP_Product_Scriptable_Object : ScriptableObject, System.I
             Audio_Manager.instance.Play("UI_Button_Deny");
         }
 
-        if(GameObject.Find("App_State_Text")!=null){
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: FALSE";
-        }
+        // if(GameObject.Find("App_State_Text")!=null){
+        //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: FALSE";
+        // }
 
 
         Game_Manager.instance.recentlyHitIAPButton = false;

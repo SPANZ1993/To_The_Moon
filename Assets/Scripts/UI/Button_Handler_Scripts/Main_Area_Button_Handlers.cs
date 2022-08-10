@@ -193,9 +193,9 @@ public class Main_Area_Button_Handlers : MonoBehaviour
 
     public void onShopBuyButtonPressed(){
 
-        if(GameObject.Find("App_State_Text")!=null){
-            GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: TRUE";
-        }
+        // if(GameObject.Find("App_State_Text")!=null){
+        //     GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Setting Recently Hit: TRUE";
+        // }
 
         Game_Manager.instance.recentlyHitIAPButton = true;
     }

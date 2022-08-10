@@ -186,11 +186,16 @@ public class Move_Camera : MonoBehaviour
             }
             //moveTowards(this.transform.position, locs[cur_dest_i], panSpeed * Time.deltaTime);
             if (!LeanTween.isTweening(movingTweenId)){
-                movingTweenId = LeanTween.move(this.gameObject, locs[cur_dest_i], panSpeed).setEase(LeanTweenType.easeInOutSine).id;
+                closeMenusOnSwipe();
+                movingTweenId = LeanTween.move(this.gameObject, locs[cur_dest_i], panSpeed).setEase(LeanTweenType.easeInOutSine).setOnComplete(closeMenusOnSwipe).id;
             }
             if (locs.Contains(this.transform.position))
                 cur_i = cur_dest_i;
         }
+    }
+
+    void closeMenusOnSwipe(){
+        UI_Controller.instance.closeMenus();
     }
 
     void moveTowards(Vector3 location, Vector3 destination, float speed)
