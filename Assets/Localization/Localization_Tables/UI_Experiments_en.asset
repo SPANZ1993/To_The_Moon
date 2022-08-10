@@ -18,92 +18,88 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 32241246208
-    m_Localized: Autopilot System
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412032
-    m_Localized: Robo McTwist Pilots Ship (Skips Rocket Launch Game)
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412033
-    m_Localized: Lateral Boosters
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412034
-    m_Localized: Makes Rocket Control More Responsive
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412035
-    m_Localized: Particle Shield
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412036
-    m_Localized: Allows Rocket to Pass Through Dark Matter
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412037
-    m_Localized: Cow Catcher
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412038
-    m_Localized: Rocket Withstands 3 Hits Without Losing Fuel
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412039
-    m_Localized: Turbo Boost
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412040
-    m_Localized: Rocket Moves 1.5x Faster
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412041
-    m_Localized: Da Bomb
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412042
-    m_Localized: Destroys All Obstacles
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412043
-    m_Localized: Gem Magnet
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412044
+  - m_Id: 42977445065416723
     m_Localized: Pulls Gems Towards the Rocket
     m_Metadata:
       m_Items: []
-  - m_Id: 421537529880576
-    m_Localized: Price
+  - m_Id: 42977445065416722
+    m_Localized: Gem Magnet
     m_Metadata:
       m_Items: []
-  - m_Id: 421537546657792
-    m_Localized: Duration
+  - m_Id: 42977445065416721
+    m_Localized: Destroys All Obstacles
     m_Metadata:
       m_Items: []
-  - m_Id: 421537546657793
-    m_Localized: Launches
+  - m_Id: 42977445065416720
+    m_Localized: Da Bomb
     m_Metadata:
       m_Items: []
-  - m_Id: 421537546657794
-    m_Localized: Buy
+  - m_Id: 42977445065416719
+    m_Localized: Rocket Moves 1.5x Faster
     m_Metadata:
       m_Items: []
-  - m_Id: 421537550852096
-    m_Localized: Permanent
+  - m_Id: 42977445065416718
+    m_Localized: Turbo Boost
     m_Metadata:
       m_Items: []
-  - m_Id: 421537550852097
-    m_Localized: Three Launches
+  - m_Id: 42977445065416717
+    m_Localized: Rocket Withstands 3 Hits Without Losing Fuel
     m_Metadata:
       m_Items: []
-  - m_Id: 421537550852098
+  - m_Id: 42977445065416716
+    m_Localized: Cow Catcher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416715
+    m_Localized: Allows Rocket to Pass Through Dark Matter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416714
+    m_Localized: Particle Shield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416713
+    m_Localized: Makes Rocket Control More Responsive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416712
+    m_Localized: Lateral Boosters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416711
+    m_Localized: O.S.C.A.R. Pilots Ship (Skips Rocket Launch Game)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416710
+    m_Localized: Autopilot System
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416709
     m_Localized: Three Uses
     m_Metadata:
       m_Items: []
-  - m_Id: 422062933565440
+  - m_Id: 42977445065416708
+    m_Localized: Three Launches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416707
+    m_Localized: Permanent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416706
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416705
+    m_Localized: Launches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416704
     m_Localized: Duration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445019279360
+    m_Localized: Price
     m_Metadata:
       m_Items: []
   references:

@@ -18,95 +18,91 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 32241246208
-    m_Localized: "Piloto Autom\xE1tico"
+  - m_Id: 42977445065416723
+    m_Localized: Tira Gemas Hacia el Cohete
     m_Metadata:
       m_Items: []
-  - m_Id: 32266412032
-    m_Localized: 'Robo McTwist Pilota el Cohete (
+  - m_Id: 42977445065416722
+    m_Localized: "Im\xE1n De Gemas "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416721
+    m_Localized: "Destruye Todos los Obst\xE1culos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416720
+    m_Localized: La Bomba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416719
+    m_Localized: "El Cohete se Mueve 1,5 Veces M\xE1s R\xE1pido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416718
+    m_Localized: Turbo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416717
+    m_Localized: Rocket Resiste 3 Golpes Sin Perder Combustible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416716
+    m_Localized: Atrapador de vacas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416715
+    m_Localized: Permite que Rocket Atraviese la Materia Oscura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416714
+    m_Localized: "Escudo de part\xEDculas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416713
+    m_Localized: "Hace que Rocket Control Sea M\xE1s Receptivo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416712
+    m_Localized: 'Impulsores Laterales '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416711
+    m_Localized: 'O.S.C.A.R Pilota el Cohete (
 
       Salta el juego de lanzamiento
       de cohetes) '
     m_Metadata:
       m_Items: []
-  - m_Id: 32266412033
-    m_Localized: 'Impulsores Laterales '
+  - m_Id: 42977445065416710
+    m_Localized: "Piloto Autom\xE1tico"
     m_Metadata:
       m_Items: []
-  - m_Id: 32266412034
-    m_Localized: "Hace que Rocket Control Sea M\xE1s Receptivo"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412035
-    m_Localized: "Escudo de part\xEDculas"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412036
-    m_Localized: Permite que Rocket Atraviese la Materia Oscura
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412037
-    m_Localized: Atrapador de vacas
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412038
-    m_Localized: Rocket Resiste 3 Golpes Sin Perder Combustible
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412039
-    m_Localized: Turbo
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412040
-    m_Localized: "El Cohete se Mueve 1,5 Veces M\xE1s R\xE1pido"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412041
-    m_Localized: La Bomba
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412042
-    m_Localized: "Destruye Todos los Obst\xE1culos"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412043
-    m_Localized: "Im\xE1n De Gemas "
-    m_Metadata:
-      m_Items: []
-  - m_Id: 32266412044
-    m_Localized: Tira Gemas Hacia el Cohete
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537529880576
-    m_Localized: Precio
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537546657792
-    m_Localized: "Duraci\xF3n"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537546657793
-    m_Localized: Lanzamientos
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537546657794
-    m_Localized: 'Comprar '
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537550852096
-    m_Localized: Permanente
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537550852097
-    m_Localized: Tres Lanzamientos
-    m_Metadata:
-      m_Items: []
-  - m_Id: 421537550852098
+  - m_Id: 42977445065416709
     m_Localized: 'Tres Usos '
     m_Metadata:
       m_Items: []
-  - m_Id: 422062933565440
+  - m_Id: 42977445065416708
+    m_Localized: Tres Lanzamientos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416707
+    m_Localized: Permanente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416706
+    m_Localized: 'Comprar '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416705
+    m_Localized: Lanzamientos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445065416704
     m_Localized: "Duraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42977445019279360
+    m_Localized: Precio
     m_Metadata:
       m_Items: []
   references:

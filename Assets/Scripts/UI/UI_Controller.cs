@@ -2884,7 +2884,7 @@ public class UI_Controller : MonoBehaviour
             Application.platform == RuntimePlatform.OSXPlayer || 
             Application.platform == RuntimePlatform.WindowsEditor)
         {
-            GameObject.Find("Restore_Purchases_Panel").GetComponent<Button>().onClick.AddListener(GameObject.Find("UI").GetComponent<Main_Area_Button_Handlers>().onShopBuyButtonPressed);
+            GameObject.Find("Restore_Purchases_Button").GetComponent<Button>().onClick.AddListener(GameObject.Find("UI").GetComponent<Main_Area_Button_Handlers>().onShopBuyButtonPressed);
             //Debug.Log("We're on Apple");
             //IAP_Manager.instance.clearActiveProductsToShopPanel(); // Do this so that only the buttons in IAP_Manager.instance.tmpIAPButtonsObj remain
             
