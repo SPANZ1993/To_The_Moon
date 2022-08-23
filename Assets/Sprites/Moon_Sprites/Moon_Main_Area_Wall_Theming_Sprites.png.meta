@@ -1,0 +1,666 @@
+fileFormatVersion: 2
+guid: 5305d793d004b39498ce57f89214c51d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 647
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fca95dad3073a498b6aa95e0577a3f
+      internalID: 1418644183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 648
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764243b4ecbdb4d43aaf2a7cb924eb9b
+      internalID: -1272864207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_3
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 647
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c98d25f5f7a5e34e9bed55f2fbcbc0a
+      internalID: 1643285343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_4
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 647
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9a50f4896eb734c8449a451d23b982
+      internalID: -973813282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 518
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7627c0943a1f3324687be8a3b8dba765
+      internalID: -268290771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 518
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ed35d392016ce49a8e185dacd701cc
+      internalID: 1640235988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_7
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 518
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc84f6c4bad7ce94f968040979982280
+      internalID: -1887940548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_8
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 519
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91925c0cdf30c94187c58808154ba4c
+      internalID: 465683714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_9
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 389
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2d4bd8303610a43a6ec458a78563fc
+      internalID: 646883062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_10
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 389
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175a4b6a4b069104b9d15dddd9b9dace
+      internalID: 107654539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_11
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 260
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4634946970eb0934a9d85ffa8d6cfaa6
+      internalID: 1828259153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_12
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 260
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5644099fb4134ad48814ac4cd2e5dde9
+      internalID: 924965967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 131
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e1c62afca56aa419c7b5b7d6808919
+      internalID: -1874257696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_16
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 131
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c91675357e67843a348fafc4dd904e
+      internalID: 274950165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_18
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 131
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae4366e4a138364a9a5be7f10458dde
+      internalID: 1438850422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_19
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d80db614ca0883439e4dee53d14ea8f
+      internalID: -1693772851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_20
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 2
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 329b90b2165e3f046847d85f71da319b
+      internalID: 1899579487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_13
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 260
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b91f4d4034e184f890843aad8610d3
+      internalID: 1723712763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_14
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 260
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575af2632708eb4469a68586779c0931
+      internalID: 193346186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall_Theming_17
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 131
+        width: 236
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9c9a02c1187eb44962cda74b3a2cdb
+      internalID: 1287588564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 43d584e8e22c00b498ecd0a9dba35b12
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Moon_Main_Area_Wall_Theming_Sprites_24: 1546251293
+      Moon_Main_Area_Wall_Theming_Sprites_46: 103519063
+      Moon_Main_Area_Wall_Theming_Sprites_76: -944516137
+      Moon_Main_Area_Wall_Theming_Sprites_36: -680422279
+      Moon_Main_Area_Wall_Theming_Sprites_42: 1270893718
+      Moon_Main_Area_Wall_Theming_Sprites_29: -258999655
+      Moon_Main_Area_Wall_Theming_Sprites_81: 396643791
+      Moon_Main_Area_Wall_Theming_Sprites_61: -1823033348
+      Moon_Main_Area_Wall_Theming_Sprites_64: 314076371
+      Moon_Wall_Theming_15: -1874257696
+      Moon_Main_Area_Wall_Theming_Sprites_8: 1191298039
+      Moon_Main_Area_Wall_Theming_Sprites_30: -736216599
+      Moon_Main_Area_Wall_Theming_Sprites_79: -1630727103
+      Moon_Main_Area_Wall_Theming_Sprites_74: -778497246
+      Moon_Main_Area_Wall_Theming_Sprites_68: 1105747376
+      Moon_Wall_Theming_12: 924965967
+      Moon_Main_Area_Wall_Theming_Sprites_94: 2077103157
+      Moon_Main_Area_Wall_Theming_Sprites_72: -871100147
+      Moon_Main_Area_Wall_Theming_Sprites_31: -958813950
+      Moon_Main_Area_Wall_Theming_Sprites_5: -1830108893
+      Moon_Main_Area_Wall_Theming_Sprites_70: 901288416
+      Moon_Main_Area_Wall_Theming_Sprites_88: 718547372
+      Moon_Wall_Theming_18: 1438850422
+      Moon_Main_Area_Wall_Theming_Sprites_7: -229044873
+      Moon_Main_Area_Wall_Theming_Sprites_91: -267020377
+      Moon_Main_Area_Wall_Theming_Sprites_43: -860306364
+      Moon_Main_Area_Wall_Theming_Sprites_18: 1149045112
+      Moon_Main_Area_Wall_Theming_Sprites_59: 133073203
+      Moon_Main_Area_Wall_Theming_Sprites_67: -878853434
+      Moon_Main_Area_Wall_Theming_Sprites_75: 1678004068
+      Moon_Main_Area_Wall_Theming_Sprites_73: 153757399
+      Moon_Main_Area_Wall_Theming_Sprites_9: 813541693
+      Moon_Main_Area_Wall_Theming_Sprites_21: -283467047
+      Moon_Main_Area_Wall_Theming_Sprites_66: 1659778327
+      Moon_Main_Area_Wall_Theming_Sprites_95: -1638882824
+      Moon_Main_Area_Wall_Theming_Sprites_28: -109595551
+      Moon_Main_Area_Wall_Theming_Sprites_77: -1551490953
+      Moon_Main_Area_Wall_Theming_Sprites_96: 888528070
+      Moon_Main_Area_Wall_Theming_Sprites_4: 2037463278
+      Moon_Main_Area_Wall_Theming_Sprites_50: 1313024939
+      Moon_Wall_Theming_10: 107654539
+      Moon_Main_Area_Wall_Theming_Sprites_38: -1451721223
+      Moon_Wall_Theming_9: 646883062
+      Moon_Wall_Theming_2: -1272864207
+      Moon_Wall_Theming_20: 1899579487
+      Moon_Main_Area_Wall_Theming_Sprites_52: 1391816975
+      Moon_Main_Area_Wall_Theming_Sprites_22: 1367476152
+      Moon_Main_Area_Wall_Theming_Sprites_14: 1641507838
+      Moon_Wall_Theming_7: -1887940548
+      Moon_Wall_Theming_19: -1693772851
+      Moon_Main_Area_Wall_Theming_Sprites_41: -1679312411
+      Moon_Main_Area_Wall_Theming_Sprites_34: -1199106981
+      Moon_Main_Area_Wall_Theming_Sprites_23: -1908277812
+      Moon_Main_Area_Wall_Theming_Sprites_78: 1584080901
+      Moon_Main_Area_Wall_Theming_Sprites_10: 2113414470
+      Moon_Main_Area_Wall_Theming_Sprites_3: 1085355028
+      Moon_Wall_Theming_16: 274950165
+      Moon_Wall_Theming_11: 1828259153
+      Moon_Main_Area_Wall_Theming_Sprites_92: -1261714579
+      Moon_Main_Area_Wall_Theming_Sprites_86: 983815456
+      Moon_Main_Area_Wall_Theming_Sprites_71: -632436943
+      Moon_Main_Area_Wall_Theming_Sprites_58: 895110303
+      Moon_Main_Area_Wall_Theming_Sprites_44: -1554554712
+      Moon_Wall_Theming_5: -268290771
+      Moon_Main_Area_Wall_Theming_Sprites_16: -179791361
+      Moon_Main_Area_Wall_Theming_Sprites_93: -444578087
+      Moon_Main_Area_Wall_Theming_Sprites_51: -263535321
+      Moon_Main_Area_Wall_Theming_Sprites_45: -1990692105
+      Moon_Main_Area_Wall_Theming_Sprites_32: -1751411802
+      Moon_Main_Area_Wall_Theming_Sprites_11: 1899024448
+      Moon_Wall_Theming_6: 1640235988
+      Moon_Wall_Theming_8: 465683714
+      Moon_Main_Area_Wall_Theming_Sprites_6: -1090860170
+      Moon_Main_Area_Wall_Theming_Sprites_60: 2110122253
+      Moon_Wall_Theming_1: 1418644183
+      Moon_Main_Area_Wall_Theming_Sprites_40: -1267293625
+      Moon_Main_Area_Wall_Theming_Sprites_25: -2116208047
+      Moon_Main_Area_Wall_Theming_Sprites_12: -1781595303
+      Moon_Main_Area_Wall_Theming_Sprites_27: 541206006
+      Moon_Main_Area_Wall_Theming_Sprites_90: 2137020287
+      Moon_Main_Area_Wall_Theming_Sprites_62: -396981133
+      Moon_Main_Area_Wall_Theming_Sprites_84: -876666243
+      Moon_Main_Area_Wall_Theming_Sprites_82: -798260868
+      Moon_Wall_Theming_3: 1643285343
+      Moon_Wall_Theming_4: -973813282
+      Moon_Wall_Theming_17: 1287588564
+      Moon_Main_Area_Wall_Theming_Sprites_87: -849702689
+      Moon_Main_Area_Wall_Theming_Sprites_55: -1207624805
+      Moon_Main_Area_Wall_Theming_Sprites_54: 1891870783
+      Moon_Main_Area_Wall_Theming_Sprites_57: 1523045210
+      Moon_Main_Area_Wall_Theming_Sprites_20: 92019463
+      Moon_Main_Area_Wall_Theming_Sprites_48: 1508921713
+      Moon_Main_Area_Wall_Theming_Sprites_56: -1371086111
+      Moon_Main_Area_Wall_Theming_Sprites_69: 1027230014
+      Moon_Main_Area_Wall_Theming_Sprites_80: -529577941
+      Moon_Main_Area_Wall_Theming_Sprites_98: 958975026
+      Moon_Wall_Theming_14: 193346186
+      Moon_Main_Area_Wall_Theming_Sprites_53: -1612895747
+      Moon_Wall_Theming_13: 1723712763
+      Moon_Main_Area_Wall_Theming_Sprites_26: 289963107
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

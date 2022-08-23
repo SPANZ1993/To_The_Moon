@@ -1,0 +1,764 @@
+fileFormatVersion: 2
+guid: dbdd6d65c65b3294a93b5ea9d62bff8a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Moon_Crater_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 768
+        width: 43
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00aa0b4356828e24792a72a47aad4e03
+      internalID: 1278706969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_TEmt
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 760
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519643917923ea547b871a7f40aaaa13
+      internalID: 1747256353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Crater_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 758
+        width: 91
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f82e3316d4524240aed63f2150024f5
+      internalID: -1830167667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Desk_TEmt
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 753
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5599739e1475a4f96e16e74ea6db06
+      internalID: -456583699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Rocket_TEmt
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 746
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07547b8f38ab7f44bb7c90d3f2e0adde
+      internalID: 643661971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Poster
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 737
+        width: 76
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4179605e04bde9348afdd77a7471d93f
+      internalID: 619023723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Table
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 726
+        width: 110
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ce62f6c329cf24498298e854716e10
+      internalID: 1352928590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Rocket_Building
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 721
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b3b2711a6b17044a9ddd003dec7b96
+      internalID: -1491516828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Window
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 704
+        width: 133
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01fb91a07ccd90f41a25f583d8336e81
+      internalID: 599672847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Crater_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 753
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844635ad1cb2edd4da11a22e12e3aaf7
+      internalID: -1799289031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_A
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 590
+        width: 135
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7a303dca94c804889702dc71b3a88f
+      internalID: 1792822880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_B
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 590
+        width: 135
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55f05f1bf585d94db2f6bf2041bab69
+      internalID: 873707412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Mine_Hill
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 579
+        width: 610
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b5f20fff579aa41a91421bb753fd6c
+      internalID: 144454961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 527
+        width: 99
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8db82a11171a64d93d814ce7f5934a
+      internalID: 680362073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 530
+        width: 99
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238bfc04ee6581d4d9e8406ae7a77d1f
+      internalID: 797956619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_9
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 530
+        width: 99
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78565c0c82969184bb1b317c4e9e5d70
+      internalID: -1820007400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Bookshelf
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 440
+        width: 95
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3806ac7dd3e5f4884cff9537169b29
+      internalID: -1805221739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Mineshaft_A
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 436
+        width: 105
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df78a24063a30454db651c3e764d7dc5
+      internalID: 1511220321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Mineshaft_B
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 436
+        width: 105
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fb4eb0a2e708dc44946496a4989ebca
+      internalID: -1610377588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 489
+        width: 99
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8b300b79a47ef40b2751870edcaee2
+      internalID: -1808108019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_7
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 484
+        width: 99
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a558173a9fe2c4188eb8141c056f8b
+      internalID: 994619668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_6
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 488
+        width: 99
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25abb2b479543df408f29a8e8091f4d8
+      internalID: -500759987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 455
+        width: 99
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e1f060e5164f8458c518e86f219342
+      internalID: -1347156294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_2
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 461
+        width: 99
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6769416ef5f64d346bb4994d5a9758cd
+      internalID: -968738438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 458
+        width: 99
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2b5fe7227157f42953e14378e8f60a
+      internalID: -710770893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Minecart_Fill_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 445
+        width: 99
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e593c0306537b3949b4f43b10d4c062c
+      internalID: 93907333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Desk
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 270
+        width: 268
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d600aee8e3b09224db2b8d6f7676c932
+      internalID: 550924569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moon_Wall
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 2
+        width: 416
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef06e323c4c2b642896ce1ca849337b
+      internalID: 140587659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: eba85ac4eae824f4da4467dd5bf9e7ba
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Moon_Rocket_TEmt: 643661971
+      Moon_Wall: 140587659
+      Moon_Minecart_B: 873707412
+      Moon_Minecart_Fill_3: -710770893
+      Moon_Window: 599672847
+      Moon_Table: 1352928590
+      Moon_Minecart_Fill_8: 797956619
+      Moon_Main_Area_Sprites_10: -1596615501
+      Moon_Minecart_Fill_7: 994619668
+      Moon_Minecart_Fill_5: -1808108019
+      Moon_Bookshelf: -1805221739
+      Moon_Minecart_Fill_2: -968738438
+      Moon_Crater_1: -1830167667
+      Moon_TEmt: 1747256353
+      Moon_Crater_2: 1278706969
+      Moon_Mine_Hill: 144454961
+      Moon_Main_Area_Sprites_9: 66752012
+      Moon_Minecart_Fill_9: -1820007400
+      Moon_Mineshaft_B: -1610377588
+      Moon_Minecart_A: 1792822880
+      Moon_Mineshaft_A: 1511220321
+      Moon_Crater_3: -1799289031
+      Moon_Rocket_Building: -1491516828
+      Moon_Minecart_Fill_1: 93907333
+      Moon_Minecart_Fill_6: -500759987
+      Moon_Minecart_Fill_10: 680362073
+      Moon_Desk: 550924569
+      Moon_Minecart_Fill_4: -1347156294
+      Moon_Desk_TEmt: -456583699
+      Moon_Poster: 619023723
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
