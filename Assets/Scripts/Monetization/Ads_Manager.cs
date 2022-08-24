@@ -254,13 +254,13 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
 
  
     public void showBannerAd(BannerPosition pos=BannerPosition.BOTTOM_CENTER){
-        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableremoveads")){
+        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableremoveads") || !IAP_Manager.instance.initialized){
             //Debug.Log("SHOWING BANNER AD");
             // foreach(string id in IAP_Manager.instance.ownedNonConsumableProductsIds){
             //     Debug.Log("BANNER: " + id);
             // }
-            Advertisement.Banner.SetPosition(pos);
-            StartCoroutine(_showBannerAd());
+            //Advertisement.Banner.SetPosition(pos);
+            StartCoroutine(_showBannerAd(pos));
         }
         else{
             //Debug.Log("NOT SHOWING BANNER AD");
@@ -273,11 +273,24 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
         }
     }
 
-    IEnumerator _showBannerAd(){
-        while(!Advertisement.isInitialized){
+    IEnumerator _showBannerAd(BannerPosition pos){
+        while(!Advertisement.isInitialized || !IAP_Manager.instance.initialized){
             yield return new WaitForSeconds(0);
         }
-        Advertisement.Banner.Show(bannerPlacementId);
+        if(!IAP_Manager.instance.ownedNonConsumableProductsIds.Contains("com.eggkidgames.blockchainblastoff.unlockableremoveads")){
+            Advertisement.Banner.SetPosition(pos);
+            Advertisement.Banner.Show(bannerPlacementId);
+        }
+        else{
+            // If The IAP Manager Gets Initialized And We Realize We Have Ads Turned Off... 
+            try{
+                Debug.Log("OOPS WE HAD ADS TURNED OFF");
+                hideBannerAd();
+            }
+            catch(System.Exception e){
+                Debug.Log("Couldn't hide banner ad");
+            }
+        }
     }
 
     public void hideBannerAd(){

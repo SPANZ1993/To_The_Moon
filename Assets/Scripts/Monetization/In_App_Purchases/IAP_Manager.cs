@@ -35,6 +35,9 @@ public class IAP_Manager : MonoBehaviour
 
     // TODO... MAKE SURE WE ADD THE PRODUCTS WE ALREADY OWN TO THE ACTIVE PRODUCTS WHEN WE INITIALIZE THIS FROM A LOADED GAME
 
+
+    public bool initialized = false; // Will be set by Game_Manager upon initialization
+
     public static IAP_Manager instance;
 
     

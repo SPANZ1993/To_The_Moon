@@ -1069,6 +1069,8 @@ public class Game_Manager : MonoBehaviour
         //     Ads_Manager.instance.showBannerAd();
         // }
 
+        IAP_Manager.instance.initialized = true;
+
     }
 
     // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on

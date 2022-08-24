@@ -14,7 +14,7 @@ public class IAP_Product_Unlockable : IAP_Product_Scriptable_Object_Nonconsumabl
 
 
     public override void OnPurchaseComplete(Product product){
-        Debug.Log("UNLOCKED: " + UnlockableId);
+        //Debug.Log("UNLOCKED: " + UnlockableId);
         base.OnPurchaseComplete(product); // Do this at the end
     }
 
