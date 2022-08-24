@@ -7,6 +7,8 @@ using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityEngine.SceneManagement;
+
 
 public class Researcher_Manager : MonoBehaviour
 {
@@ -139,8 +141,7 @@ public class Researcher_Manager : MonoBehaviour
 
     void OnLevelWasLoaded(){
         if (instanceID == gameObject.GetInstanceID()){
-            Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
-            if (sceneManager.scene_name == "Main_Area"){
+            if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
                 //Debug.Log("CALLING START RESEARCHER MANAGER.");
                 Start();
             }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement; // REMOVE
 using TMPro; // REMOVE
 
 // UNITY IS REALLY COOL AND DOESN'T WORK IF YOU SET THE ONCLICK FUNCTION OF A BUTTON TO A SINGLETON... SO WE'RE JUST GONNA GET A REFERENCE TO THE UI HANDLER AND
@@ -298,4 +299,11 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         }
     }
     //
+
+
+
+    public void moveToMoonTmp(){
+        
+        SceneManager.LoadScene(sceneName: "Main_Area_Moon");
+    }
 }

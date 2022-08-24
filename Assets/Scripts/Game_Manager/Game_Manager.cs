@@ -252,7 +252,7 @@ public class Game_Manager : MonoBehaviour
         }
         if (instanceID == gameObject.GetInstanceID() && instance == this){
             sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
-            if (SceneManager.GetActiveScene().name == "Main_Area"){
+            if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
 
                 recentlyHitIAPButton = false;
 

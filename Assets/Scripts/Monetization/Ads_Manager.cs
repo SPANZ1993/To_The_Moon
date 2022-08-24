@@ -101,7 +101,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
 
 
     void OnLevelWasLoaded(){
-        if (SceneManager.GetActiveScene().name == "Main_Area"){
+        if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
 
             IEnumerator __showBannerAd(){
                 yield return new WaitForSeconds(0.05f);
@@ -111,12 +111,12 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
             StartCoroutine(__showBannerAd()); // Wait a couple frames so we can initialize some things
             loadInterstitialAd();
         }
-        else if (SceneManager.GetActiveScene().name == "Mine_Game"){
+        else if (SceneManager.GetActiveScene().name.StartsWith("Mine_Game")){
             //showBannerAd();
             hideBannerAd();
             loadRewardedAd();
         }
-        else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
+        else if (SceneManager.GetActiveScene().name.StartsWith("Rocket_Flight")){
             //showBannerAd(pos:BannerPosition.TOP_CENTER);
             hideBannerAd();
             loadRewardedAd();

@@ -333,7 +333,7 @@ public class Experiments_Manager : MonoBehaviour
 
     void OnLevelWasLoaded(){
         if (instance == this){
-            if (SceneManager.GetActiveScene().name == "Main_Area"){
+            if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
                 experimentPanelsList = new List<GameObject>();
  
                 Experiment_Panel1 = GameObject.Find("Experiment_Upgrade_Panel_1");

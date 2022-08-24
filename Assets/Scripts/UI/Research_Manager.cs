@@ -132,7 +132,7 @@ public class Research_Manager : MonoBehaviour
     
     void OnLevelWasLoaded(){
         if (instance == this){
-            if (SceneManager.GetActiveScene().name == "Main_Area"){
+            if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
                 researchPanelsList = new List<GameObject>();
  
                 Research_Panel1 = GameObject.Find("Research_Panel_1");

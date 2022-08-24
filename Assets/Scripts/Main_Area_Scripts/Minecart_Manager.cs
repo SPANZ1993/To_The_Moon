@@ -62,7 +62,7 @@ public class Minecart_Manager : MonoBehaviour
 
 
     void OnLevelWasLoaded(){
-        if (SceneManager.GetActiveScene().name == "Main_Area"){
+        if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             minecartAnimator = GameObject.Find("Minecart").GetComponent<Animator>();
             //Debug.Log("MCA: " + GameObject.Find("Minecart") + " -- " + minecartAnimator);
         }
@@ -85,7 +85,7 @@ public class Minecart_Manager : MonoBehaviour
     {
         // If it hasn't yet been initialized by the game manager, then just chill
         //Debug.Log("NEXT FULL TIME: " + nextFullTimeUnix + " --- MCA: " + minecartAnimator);
-        if (SceneManager.GetActiveScene().name == "Main_Area" && nextFullTimeUnix != 0 && minecartAnimator != null){
+        if (SceneManager.GetActiveScene().name.StartsWith("Main_Area") && nextFullTimeUnix != 0 && minecartAnimator != null){
             //Debug.Log("IN HERE YINZO");
             calculateCurCoins();
             updateAnimation();

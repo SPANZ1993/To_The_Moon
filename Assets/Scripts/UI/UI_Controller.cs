@@ -573,7 +573,7 @@ public class UI_Controller : MonoBehaviour
             Retry_Connect_Box = GameObject.Find("Retry_Connect_Box");
             DisableUIElement(Retry_Connect_Box);
         }
-        else if (SceneManager.GetActiveScene().name == "Main_Area"){
+        else if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             ThrustTextObj = null;
             //Debug.Log("INDEXING FROM LEVEL LOADED");
             indexUIElementSizes();
@@ -1066,7 +1066,7 @@ public class UI_Controller : MonoBehaviour
                 }
             }
         }
-        else if (curScene == "Main_Area"){ //&& mainAreaLocalScales is null){
+        else if (curScene.StartsWith("Main_Area")){ //&& mainAreaLocalScales is null){
             //Debug.Log("INDEXING MAIN AREA");
             mainAreaLocalScales = new Dictionary<GameObject, Vector3>();
             _indexUIElementSizes(mainAreaLocalScales, GameObject.Find("Canvas"));
@@ -1116,7 +1116,7 @@ public class UI_Controller : MonoBehaviour
         frame_count++;
         //setActiveResearch(new int[] {1, 2, 3});
         //setActiveResearchers(new int[] {1, 2, 4, 5});
-        if (SceneManager.GetActiveScene().name == "Main_Area"){
+        if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             if (ThrustTextObj != null){ // Just Making Sure We Have A Reference To The Banner
                 updateBannerUI();
             }
@@ -1605,7 +1605,7 @@ public class UI_Controller : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "Landing_Page"){
                     currentLocalScales = landingPageLocalScales;
                 }
-                else if(SceneManager.GetActiveScene().name == "Main_Area"){
+                else if(SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
                     //Debug.Log("TRYING TO ENABLE: " + UI.name);
                     //Debug.Log("TRYING TO ENABLE: " + UI.name + " WITH SCALE " + mainAreaLocalScales[UI]);
                     currentLocalScales = mainAreaLocalScales;
@@ -1695,7 +1695,7 @@ public class UI_Controller : MonoBehaviour
         //         button.enabled = false;
         //     }
             try{
-                if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
+                if(SceneManager.GetActiveScene().name.StartsWith("Main_Area") || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                     UI.transform.localScale = new Vector3(0f, 0f, 0f);
                     //LeanTween.scale(rectTrans: UI.GetComponent<RectTransform>(), new Vector3(0f, 0f, 0f), 0.05f).setEase(LeanTweenType.easeInOutSine);
                     // if(UI.GetComponent<VerticalLayoutGroup>() != null){
@@ -1730,7 +1730,7 @@ public class UI_Controller : MonoBehaviour
             }
         }
         else{
-            if(SceneManager.GetActiveScene().name == "Main_Area" || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
+            if(SceneManager.GetActiveScene().name.StartsWith("Main_Area") || SceneManager.GetActiveScene().name == "Mine_Game" || SceneManager.GetActiveScene().name == "Rocket_Flight" || SceneManager.GetActiveScene().name == "Landing_Page"){
                 if(!UI.transform.localScale.Equals(new Vector3(0f, 0f, 0f))){
                     isEnabled = true;
                 }
