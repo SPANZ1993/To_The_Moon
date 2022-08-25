@@ -8159,7 +8159,7 @@ MonoBehaviour:
   BlockCollector: {fileID: 18476594}
   CartCollector: {fileID: 50747253}
   curBlock: {fileID: 1027338904197786368}
-  curCart: {fileID: 0}
+  curCart: {fileID: 3170094959122714426}
   minTimeBetweenRobotSounds: 3
   robotSoundLikelihood: 0.2
   robotSoundStrings:
@@ -21131,3 +21131,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a6976ce2e409b44ea28db90e043d2ef, type: 3}
+--- !u!1 &3170094959122714426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8629773322938199036, guid: 4a6976ce2e409b44ea28db90e043d2ef, type: 3}
+  m_PrefabInstance: {fileID: 3170094959122714425}
+  m_PrefabAsset: {fileID: 0}

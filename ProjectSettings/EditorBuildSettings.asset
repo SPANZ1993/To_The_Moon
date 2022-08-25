@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main_Area_Moon.unity
     guid: 32db731e1686d184c9e0ab6a71bc66a0
+  - enabled: 1
+    path: Assets/Scenes/Mine_Game_Moon.unity
+    guid: 650ae9867092ae642a3b7dc1ade02b46
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 7ae7cd9e12c150a4798e65a3bc37133c, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 78040c87b8baaca4188019f5f33ca1da, type: 2}

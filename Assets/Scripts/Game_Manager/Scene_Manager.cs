@@ -299,7 +299,8 @@ public class Scene_Manager : MonoBehaviour
             //Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
             //Scene_Transition wipe = new Wipe();
             Scene_Transition wipe = gameObject.GetComponent<Wipe>();
-            wipe.BeginLeavingScene(nextScene: "Mine_Game");
+            // Move to the next Mine Game Scene That Corresponds to the Current Main Area Scene
+            wipe.BeginLeavingScene(nextScene: "Mine_Game" + SceneManager.GetActiveScene().name.Substring("Main_Area".Length));
         }
         else{
             yield return new WaitForSeconds(0.0f);
