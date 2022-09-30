@@ -72,16 +72,16 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
         }
         else{
             if(EventId == 3){
-                //Debug.Log("FALSE BECAUSE DIDNT PASS CHECKS");
+                Debug.Log("FALSE BECAUSE DIDNT PASS CHECKS");
                 if((NumTimesTriggerablePerSceneOpen == -1 ||
                     !Progression_Manager.instance.EventIdToTimesTriggeredThisSceneOpen.Keys.Contains(EventId) || 
                     Progression_Manager.instance.EventIdToTimesTriggeredThisSceneOpen[EventId] < NumTimesTriggerablePerSceneOpen)){
-                        //Debug.Log("FALSE BECAUSE DIDNT PASS SCENE OPEN");
+                        Debug.Log("FALSE BECAUSE DIDNT PASS SCENE OPEN");
                     }
                 if((NumTimesTriggerable == -1 ||
             !Progression_Manager.instance.EventIdToTimesTriggered.Keys.Contains(EventId) || 
             Progression_Manager.instance.EventIdToTimesTriggered[EventId] < NumTimesTriggerable)){
-                //Debug.Log("FALSE BECAUSE DIDNT PASS TOTAL CHECK");
+                Debug.Log("FALSE BECAUSE DIDNT PASS TOTAL CHECK");
             }
             }
         }
@@ -89,7 +89,7 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
         
         if(!(triggerableLevelIds.Length == 0) && !triggerableLevelIds.Contains(Progression_Manager.instance.CurrentLevelId)){
             if(EventId == 3){
-                //Debug.Log("FALSE BECAUSE BAD LEVEL ID");
+                Debug.Log("FALSE BECAUSE BAD LEVEL ID");
             }
             triggerable = false;
         }
@@ -98,9 +98,9 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
         string tmpScene = SceneManager.GetActiveScene().name;
         if(!triggerableSceneNames.Contains(tmpScene)){
             if(EventId == 3){
-                //Debug.Log("FALSE BECAUSE BAD SCENE NAME");
+                Debug.Log("FALSE BECAUSE BAD SCENE NAME");
                 foreach(string scene in triggerableSceneNames){
-                    //Debug.Log("SCENE: " + scene + " =?= " + tmpScene + " -- " + (scene == tmpScene) + " _____ " + (!triggerableSceneNames.Contains(tmpScene)));
+                    Debug.Log("SCENE: " + scene + " =?= " + tmpScene + " -- " + (scene == tmpScene) + " _____ " + (!triggerableSceneNames.Contains(tmpScene)));
                 }
             }
             triggerable = false;

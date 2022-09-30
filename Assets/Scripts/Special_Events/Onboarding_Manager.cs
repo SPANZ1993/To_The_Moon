@@ -153,6 +153,7 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         //Debug.Log("DISABLING SWIPES");
 
         disableAllMainAreaColliders();
+        disableAllMineAreaColliders(); // New
 
 
         yield return new WaitForSeconds(delay);

@@ -99,7 +99,7 @@ public class Scene_Manager : MonoBehaviour
             startedMineSceneTransition = false;
             scene_name = SceneManager.GetActiveScene().name;
             StartCoroutine(setPrevScene());
-            if (scene_name == "Main_Area"){
+            if (scene_name.StartsWith("Main_Area")){
                 upgradesManager = GameObject.Find("Upgrades_Manager").GetComponent<Upgrades_Manager>();
                 tinyScientistsManager = GameObject.Find("Tiny_Scientists_Manager").GetComponent<Tiny_Scientists_Manager>();
                 rocketTowerManager = GameObject.Find("Rocket_Tower").GetComponent<Rocket_Tower_Manager>();
@@ -197,7 +197,7 @@ public class Scene_Manager : MonoBehaviour
                 if (gameObject.GetComponent<Wipe>() == null){
                     gameObject.AddComponent<Wipe>();
                     Scene_Transition wipe = gameObject.GetComponent<Wipe>();
-                //Scene_Transition wipe = new Wipe();
+                    //Scene_Transition wipe = new Wipe();
                     wipe.BeginLeavingScene(nextScene: "Rocket_Flight");
                 }
             }
@@ -227,8 +227,36 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
+    private string getEndRocketGameNextScene(){
+        Debug.Log("GETTING NEXT SCENE");
+        Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
+        int nextLevelId = curLevelSO.NextLevelId;
+        Level_Scriptable_Object nextLevelSO = Progression_Manager.instance.getLevelById(nextLevelId);
+        Debug.Log("NEXT LEVEL: " + nextLevelSO.LevelName);
+        if(nextLevelSO == null){
+            nextLevelSO = curLevelSO;
+            Debug.Log("COULDNT GET NEXT SCENE");
+        }
+        string nextSceneName = "Main_Area_" + nextLevelSO.LevelName;
+        Progression_Manager.instance.Set_Current_Level(nextLevelSO.LevelId);
+        return nextSceneName;
+    }
 
-    IEnumerator _onEndLaunchScene()
+    private string getEndRocketGameCurScene(){
+        Debug.Log("GETTING CURRENT SCENE");
+        Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
+        string nextSceneName = "Main_Area_" + curLevelSO.LevelName;
+
+        if(nextSceneName == "Main_Area_Earth"){
+            nextSceneName = "Main_Area";
+        }
+
+        Progression_Manager.instance.Set_Current_Level(curLevelSO.LevelId);
+        return nextSceneName;
+    }
+
+
+    IEnumerator _onEndLaunchScene(bool reachedDestination = false)
     {
         if (gameObject.GetComponent<Wipe>() == null){
             gameObject.AddComponent<Wipe>();
@@ -237,8 +265,17 @@ public class Scene_Manager : MonoBehaviour
             //SceneManager.LoadScene("Main_Area");
             Scene_Transition wipe = gameObject.GetComponent<Wipe>();
             if (wipe != null){
-                wipe.BeginLeavingScene(nextScene: "Main_Area");
-                scene_name = "Main_Area";
+                //Debug.Log("ENDING LAUNCH SCENE");
+                // TODO: PICK WHICH LEVEL WE ARE GOING TO LOAD HERE
+                string nextScene = "";
+                if(reachedDestination){
+                    nextScene = getEndRocketGameNextScene();
+                }
+                else{
+                    nextScene = getEndRocketGameCurScene();
+                }
+                wipe.BeginLeavingScene(nextScene: nextScene);
+                scene_name = nextScene; // Main area???
             }
         }
         else{
@@ -249,8 +286,8 @@ public class Scene_Manager : MonoBehaviour
 
 
 
-    void onEndLaunchScene(){
-        StartCoroutine(_onEndLaunchScene());
+    void onEndLaunchScene(bool reachedDestination = false){
+        StartCoroutine(_onEndLaunchScene(reachedDestination));
     }
 
 
@@ -354,7 +391,12 @@ public class Scene_Manager : MonoBehaviour
                 gameObject.AddComponent<Wipe>();
                 Scene_Transition wipe = gameObject.GetComponent<Wipe>();
             //Scene_Transition wipe = new Wipe();
-                wipe.BeginLeavingScene(nextScene: "Main_Area");
+                //wipe.BeginLeavingScene(nextScene: "Main_Area");
+                string nextScene = "Main_Area_" + Progression_Manager.instance.getCurrentLevel().LevelName;
+                if (nextScene == "Main_Area_Earth"){
+                    nextScene = "Main_Area";
+                }
+                wipe.BeginLeavingScene(nextScene: nextScene);
             }
         }
         else{

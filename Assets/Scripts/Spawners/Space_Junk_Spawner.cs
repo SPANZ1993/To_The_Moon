@@ -39,6 +39,12 @@ public class Space_Junk_Spawner : MonoBehaviour
     private float timeToRefreshSpawnIndices = 0.25f;
     private float timeToRefreshSpawnIndicesLeft = 0.0f;
 
+    [SerializeField]
+    public List<GameObject> oneOffSpawnObjects;
+    [SerializeField]
+    public List<float> oneOffSpawnAltitudes;
+    public List<bool> oneOffDidSpawnObjects;
+
 
     private bool paused = false; // Is the game paused currently, if so we don't want to spawn
 
@@ -96,10 +102,25 @@ public class Space_Junk_Spawner : MonoBehaviour
                     //Debug.Log("STILL NOT SPAWNING????");
                 }
             }
+
+
+            // Check to see if we need to spawn any one off objects
+            spawnOneOffObjects();
+
         }
     }
 
-
+    void spawnOneOffObjects(){
+        float rocketAltitude = rocketGameManager.calculateAltitude(rocketObj);
+        //Debug.Log("CHECKING SPAWN ... ROCKET ALT: " + rocketAltitude);
+        for (int i = 0; i < oneOffSpawnObjects.Count; i++){
+            if(!oneOffDidSpawnObjects[i] && oneOffSpawnAltitudes[i] <= rocketAltitude+30.0f){
+                Debug.Log("SPAWNING!!!");
+                Instantiate(oneOffSpawnObjects[i], new Vector3(rocketObj.transform.position.x, oneOffSpawnAltitudes[i], 0.0f), new Quaternion());
+                oneOffDidSpawnObjects[i] = true;
+            }
+        }
+    }
     
     // void preInstantiateSpawnObjs(){
     //     foreach (GameObject g in spawnObjList){
@@ -251,13 +272,6 @@ public class Space_Junk_Spawner : MonoBehaviour
     }
 
     void onPause(bool Paused){
-        if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Cow")){
-            //Debug.Log("SPAWNER PAUSED? " + Paused);
-        }
-        else if (string.Join(", ", possibleSpawnObjIndices.ToArray().Select(i => spawnObjectPool.poolObjList[i])).Contains("Star")){
-            //Debug.Log("BACKGROUND SPAWNER PAUSED? " + Paused);
-        }
-
         paused = Paused;
     }
 

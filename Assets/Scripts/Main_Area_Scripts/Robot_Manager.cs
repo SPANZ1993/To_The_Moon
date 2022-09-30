@@ -66,7 +66,7 @@ public class Robot_Manager : MonoBehaviour
     }
 
     void OnLevelWasLoaded(){
-        if(SceneManager.GetActiveScene().name == "Main_Area"){
+        if(SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             Start();
         }
     }

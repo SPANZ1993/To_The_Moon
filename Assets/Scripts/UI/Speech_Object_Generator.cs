@@ -219,6 +219,12 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelNotReady.Earth.2.22", UI_Characters.Characters.Dog},
             {"Events_Script.NextLevelNotReady.Earth.2.23", UI_Characters.Characters.Dog},
             // End NextLevelNotReadyEarth
+            
+            // NextlevelReadyEarth
+            {"Events_Script.NextLevelReady.Earth.1.1", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelReady.Earth.1.2", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelReady.Earth.1.3", UI_Characters.Characters.Guy}
+            // End NextlevelReadyEarth
         };
         script2Emotion = new Dictionary<string, UI_Characters.Emotions>(){
             // Robot
@@ -390,6 +396,12 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelNotReady.Earth.2.22", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelNotReady.Earth.2.23", UI_Characters.Emotions.Talking},
             // End NextLevelNotReadyEarth
+
+            // NextlevelReadyEarth
+            {"Events_Script.NextLevelReady.Earth.1.1", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.2", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.3", UI_Characters.Emotions.Talking}
+            // End NextlevelReadyEarth
         };
         script2PostEmotion = new Dictionary<string, UI_Characters.Emotions>(){
             // Robot
@@ -560,6 +572,11 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelNotReady.Earth.2.23", UI_Characters.Emotions.Happy},
             // End NextLevelNotReadyEarth
 
+            // NextlevelReadyEarth
+            {"Events_Script.NextLevelReady.Earth.1.1", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.2", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.3", UI_Characters.Emotions.Talking}
+            // End NextlevelReadyEarth
         };
 
         allKeysList = getAllKeys();

@@ -68,7 +68,7 @@ public class Rocket_Game_Manager : MonoBehaviour
 
 
 
-    public delegate void EndLaunchScene();
+    public delegate void EndLaunchScene(bool reachedDestination);
     public static event EndLaunchScene EndLaunchSceneInfo;
 
 
@@ -128,7 +128,9 @@ public class Rocket_Game_Manager : MonoBehaviour
             }
             //Debug.Log("REACHED TARGET ALTITUDE: " + reachedTargetAltitude);
             if(rocketAltitude >= targetAltitude && !freePlayMode){
-                Progression_Manager.instance.setRecentlyCompletedLevelIdToCurLevel();
+                if(!reachedTargetAltitude){ // THIS WAS DOING THIS MULTIPLE TIMES AND SET IT TO THE NEXT LEVEL... TRY THIS
+                    Progression_Manager.instance.setRecentlyCompletedLevelIdToCurLevel();
+                }
                 reachedTargetAltitude = true;
                 rocketControl.reachedTargetAltitude = true;
                 if(!startedRocketControlSpiral){
@@ -188,8 +190,8 @@ public class Rocket_Game_Manager : MonoBehaviour
     //     Time_Text.text = gameTimer.ToString();
     // }
 
-    public float calculateGameYPos(float height){ // Calculate Game Y Position From Altitude (Inverse of CalculateAltitude)
-        return (height/gameScaler.ScaleY) - rocketOrigGameHeight;
+    public float calculateGameYPos(float altitude){ // Calculate Game Y Position From Altitude (Inverse of CalculateAltitude)
+        return (altitude/gameScaler.ScaleY) - rocketOrigGameHeight;
     }
 
     public float calcAlt(float ypos){
@@ -222,11 +224,20 @@ public class Rocket_Game_Manager : MonoBehaviour
 
     }
 
-    private void endGameOnFailure(){
-        // End this scene as if the rocket did not reach the destination
+    private void endRocketGameReachedDestination(){
+        endRocketGame(true);
+    }
+
+    // C# Won't Let us Invoke this unless we do it this way
+    private void endRocketGame(){
+        endRocketGame(false);
+    }
+
+    private void endRocketGame(bool reachedDestination = false){
+        // End this scene
         uiController.rocketFlightDisableRewardedAdConfirmationBox();
         gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude*(float)thrustAltMultiplier, freePlayMode:freePlayMode);
-        SendAlertEndScene();
+        SendAlertEndScene(reachedDestination);
     }
 
     private void endGameOnSuccess(GameObject destinationObject){
@@ -263,7 +274,7 @@ public class Rocket_Game_Manager : MonoBehaviour
                 }
             }
 
-            Spiral_Around.startSpiralAround(rocket, destinationObject, targetDistance, 180f, 0.1f, 1.5f, endGameOnFailure);
+            Spiral_Around.startSpiralAround(rocket, destinationObject, targetDistance, 180f, 0.1f, 1.5f, endRocketGameReachedDestination);
             StartCoroutine(ScaleRocketDuringSpiral());
         }
 
@@ -313,7 +324,7 @@ public class Rocket_Game_Manager : MonoBehaviour
 
         SendAlertPause(false);
         StartCoroutine(dropRocket()); // Not sure why we need to do it like this but we do
-        Invoke("endGameOnFailure", 3f);
+        Invoke("endRocketGame", 3f);
     }
 
     
@@ -345,7 +356,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         //Debug.Log("FUEL EMPTY FROM RGM");
         if(rewardedAdAttempted){
             rocketControl.dropRocket();
-            Invoke("endGameOnFailure", 5f);
+            Invoke("endRocketGame", 5f);
         }
         else{
             uiController.rocketFlightEnableRewardedAdConfirmationBox();
@@ -355,9 +366,9 @@ public class Rocket_Game_Manager : MonoBehaviour
 
 
 
-    private void SendAlertEndScene(){
+    private void SendAlertEndScene(bool reachedDestination = false){
         if (EndLaunchSceneInfo != null){
-            EndLaunchSceneInfo();
+            EndLaunchSceneInfo(reachedDestination);
         }
     }
 

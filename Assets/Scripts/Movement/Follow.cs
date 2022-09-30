@@ -20,7 +20,7 @@ public class Follow : MonoBehaviour
     private Vector3 curPosition;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         curPosition = new Vector3();
         if (scaleToScreenSize){
@@ -41,7 +41,7 @@ public class Follow : MonoBehaviour
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected void FixedUpdate()
     {
         Vector3 posX = new Vector3(transform.position.x, 0.0f, 0.0f);
         Vector3 posY = new Vector3(0.0f, transform.position.y, 0.0f);
@@ -60,7 +60,7 @@ public class Follow : MonoBehaviour
             curPosition += smoothedPositionX;
         }
         else{
-            curPosition.y += transform.position.x;
+            curPosition.x += transform.position.x;
         }
         if (followY){
             curPosition += smoothedPositionY;

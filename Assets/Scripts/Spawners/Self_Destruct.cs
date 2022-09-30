@@ -26,7 +26,12 @@ public class Self_Destruct : MonoBehaviour
     {
         if (isFar()){
             //Destroy(gameObject);
-            spaceJunkSpawner.despawnPoolObj(gameObject);
+            try{
+                spaceJunkSpawner.despawnPoolObj(gameObject);
+            }
+            catch(System.Exception e){
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -44,8 +49,12 @@ public class Self_Destruct : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.rigidbody.gameObject.tag == "Kill Plane"){
-            //Destroy(gameObject);
-            spaceJunkSpawner.despawnPoolObj(gameObject);
+            try{
+                spaceJunkSpawner.despawnPoolObj(gameObject);
+            }
+            catch(System.Exception){
+                Destroy(gameObject);
+            }
         }
     
     }

@@ -62,6 +62,8 @@ MonoBehaviour:
   - {x: 150, y: 0}
   - {x: 150, y: 0}
   spawnRate: 5
+  oneOffSpawnList: []
+  oneOffSpawnAltitudesList: []
   poolObjListBackground:
   - {fileID: 8192452084279125922, guid: 548959a54dbf63c4ca763a2d325fc4f9, type: 3}
   - {fileID: 8192452084279125922, guid: 4df973ab04175b34aad373d385441afd, type: 3}

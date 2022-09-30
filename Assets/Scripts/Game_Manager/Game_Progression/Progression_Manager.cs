@@ -48,6 +48,8 @@ public class Progression_Manager : MonoBehaviour
     private Queue<Event_Trigger_Scriptable_Object> EventQueue;
     public int? CurrentEventIdInProgress; // If not null, means an event is happening right now
 
+    // During The Next OnLevelWasLoaded, if the scene name starts with the value, then the event with id key will be added to the eventqueue
+    private Dictionary<int, string> eventIdsToAddNextSceneTransition;  // TODO: Implement this
 
     [SerializeField]
     private Event_Trigger_Scriptable_Object[] events;
@@ -60,7 +62,7 @@ public class Progression_Manager : MonoBehaviour
 
 
     IEnumerator validateLevel(Level_Scriptable_Object level){
-        while(SceneManager.GetActiveScene().name != "Main_Area"){
+        while(!SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             yield return new WaitForSeconds(0f);
         }
         yield return new WaitForSeconds(0.1f);
@@ -148,7 +150,8 @@ public class Progression_Manager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
             recentlyCompletedLevelId = -1;
-            getLevelById(currentLevelId).initializeRocketGame(freePlayMode:RocketGameFreePlayMode);
+            Debug.Log("INITIALIZING ROCKET GAME WITH: " + getLevelById(CurrentLevelId).LevelName);
+            getLevelById(CurrentLevelId).initializeRocketGame(freePlayMode:RocketGameFreePlayMode);
         }
     }
 
@@ -166,17 +169,17 @@ public class Progression_Manager : MonoBehaviour
     }
 
     public Level_Scriptable_Object getCurrentLevel(){
-        return getLevelById(currentLevelId);
+        return getLevelById(CurrentLevelId);
     }
 
     public Level_Scriptable_Object getHighestLevel(){
-        return getLevelById(highestLevelId);
+        return getLevelById(HighestLevelId);
     }
 
     public void Set_Current_Level(int levelId, bool updateEventCounts = true){
         if(Levels.Select(l => l.LevelId).Contains(levelId)){
-            currentLevelId = levelId;
-            highestLevelId = levelId > HighestLevelId ? levelId : HighestLevelId;
+            CurrentLevelId = levelId;
+            HighestLevelId = levelId > HighestLevelId ? levelId : HighestLevelId;
         
             if(updateEventCounts){
                 List<int> keys = EventIdToTimesTriggeredThisLevelOpen.Keys.ToList();
@@ -186,11 +189,12 @@ public class Progression_Manager : MonoBehaviour
                 }
             }
         }
+        Debug.Log("CURRENT LEVEL SET TO: " + CurrentLevelId + " --- HIGHEST: " + HighestLevelId);
     }
 
     public void Set_Highest_Level(int levelId){
         if(levelId <= Levels.Select(l => l.LevelId).OrderByDescending(id => id).ToList()[0]){
-            highestLevelId = levelId;
+            HighestLevelId = levelId;
         }
     }
 
@@ -251,7 +255,9 @@ public class Progression_Manager : MonoBehaviour
 
 
     public void setRecentlyCompletedLevelIdToCurLevel(){
+        Debug.Log("SETTING RECENTLY COMPLETED LEVEL: " + currentLevelId);
         recentlyCompletedLevelId = currentLevelId;
+        
     }
 
 

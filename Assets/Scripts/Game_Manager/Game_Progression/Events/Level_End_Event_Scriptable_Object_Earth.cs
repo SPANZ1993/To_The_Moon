@@ -8,7 +8,8 @@ using System.Linq;
 public class Level_End_Event_Scriptable_Object_Earth : Level_End_Event_Scriptable_Object
 {
     public override void executeLevelCompleteNextLevelNotReady(){
-        // Position Camera On Rocket Area'
+        // Position Camera On Rocket Area
+        Debug.Log("LEVEL END EARTH: Earth Completed Not Ready");
         Game_Manager.instance.gameObject.AddComponent(typeof(Next_Level_Not_Ready_Event_Earth));
         Next_Level_Not_Ready_Event_Earth.EventEndedInfo += alertEventEndedNotReady; 
     }
@@ -25,12 +26,18 @@ public class Level_End_Event_Scriptable_Object_Earth : Level_End_Event_Scriptabl
 
 
     public override void executeLevelCompleteNextLevelReady(){
-        //Debug.Log("LEVEL END EARTH: Earth Completed And Ready");
+        Debug.Log("LEVEL END EARTH: Earth Completed And Ready");
         base.onEventEnded(nextLevelWasReady:true);
+        Game_Manager.instance.gameObject.AddComponent(typeof(Next_Level_Ready_Event_Earth));
+        Next_Level_Ready_Event_Earth.EventEndedInfo += alertEventEndedReady; 
     }
 
 
-
+    public void alertEventEndedReady(){
+        //Debug.Log("SO EVENT OVER!!!");
+        base.onEventEnded(nextLevelWasReady:true);
+        Next_Level_Ready_Event_Earth.EventEndedInfo -= alertEventEndedReady; 
+    }
 
 
 

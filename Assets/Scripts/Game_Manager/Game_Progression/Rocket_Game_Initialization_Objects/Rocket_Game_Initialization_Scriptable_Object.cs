@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using System.Linq;
+
 [CreateAssetMenu(fileName = "Rocket_Game_Initialization_Scriptable_Object", menuName = "ScriptableObjects/Rocket_Game_Initialization_Object", order = 6)]
 public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
 {
@@ -39,7 +41,10 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
     private List<Vector2> spawnObjAltitudeRanges;
     [SerializeField]
     private float spawnRate;
-
+    [SerializeField]
+    private List<GameObject> oneOffSpawnList;
+    [SerializeField]
+    private List<float> oneOffSpawnAltitudesList;
 
 
     // Background Junk Spawner Stuff
@@ -75,6 +80,7 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
         Debug.Assert(BackgroundAlts.Count == BackgroundColors.Count);
         Debug.Assert(poolObjList.Count == numToSpawnList.Count && numToSpawnList.Count == shouldExpandList.Count && shouldExpandList.Count == spawnObjAltitudeRanges.Count);
         Debug.Assert(poolObjListBackground.Count == numToSpawnListBackground.Count && numToSpawnListBackground.Count == shouldExpandListBackground.Count && shouldExpandListBackground.Count == spawnObjAltitudeRangesBackground.Count);
+        Debug.Assert(oneOffSpawnList.Count == oneOffSpawnAltitudesList.Count);
     }
 
     public void initializeRocketGame(bool freePlayMode){
@@ -108,6 +114,9 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
         spaceJunkObjectPool.shouldExpandList = new List<bool>(shouldExpandList);
 
 
+        spaceJunkSpawner.oneOffSpawnObjects = new List<GameObject>(oneOffSpawnList);
+        spaceJunkSpawner.oneOffSpawnAltitudes = new List<float>(oneOffSpawnAltitudesList);
+        spaceJunkSpawner.oneOffDidSpawnObjects = new List<bool>(Enumerable.Repeat(false, oneOffSpawnList.Count));
 
 
         GameObject Background_Space_Junk_Spawner_Obj = GameObject.Find("Background_Junk_Spawner");

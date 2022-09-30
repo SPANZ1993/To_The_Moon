@@ -320,18 +320,16 @@ MonoBehaviour:
     m_Localized: "You\u2019ve just about seen it all."
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165249
-    m_Localized: "Remember that I, and the rest of your employees will be hard at
-      work even when you\u2019re sleeping."
+  - m_Id: 30688504580825126
+    m_Localized: MEEEEEH
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165250
-    m_Localized: In fact, most things will have timers next to them showing when
-      they are ready for use.
+  - m_Id: 30688504580825125
+    m_Localized: Am Doggo
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165251
-    m_Localized: Be on the lookout for those!
+  - m_Id: 30688504580825124
+    m_Localized: Nice job Reg! You made it!
     m_Metadata:
       m_Items: []
   - m_Id: 21622311374970910
@@ -339,133 +337,133 @@ MonoBehaviour:
       to swipe. Remember?
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165252
-    m_Localized: Things will be much more efficient around here with your guidance,
-      however.
+  - m_Id: 30688504580825123
+    m_Localized: "Let\u2019s show {stonks} the power of crypto!"
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165253
-    m_Localized: Be sure to check in often!
+  - m_Id: 30688504580825122
+    m_Localized: "{playername}, you keep working on that rocket. I\u2019m gonna get
+      your moonbase ready."
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165254
-    m_Localized: Good luck, {playername}!
+  - m_Id: 30688504580825121
+    m_Localized: "Yeah he\u2019s a total creep\u2026 stuck in 1999."
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165257
-    m_Localized: '{playername}! You really did it! I had all the faith that you could
-      make it to the moon!'
+  - m_Id: 30688504580825120
+    m_Localized: I may need to recalibrate my sensors but I did not get a good vibe
+      from that guy.
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311379165258
-    m_Localized: "Unfortunately, I wasn\u2019t expecting you to make it there so
-      fast."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165259
-    m_Localized: "I\u2019m working as quickly as possible to get a moon base set
-      up, so you can continue your operations there."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165260
-    m_Localized: "It isn\u2019t quite ready yet, though."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165261
-    m_Localized: "In the meantime, why don\u2019t you keep upgrading your rocket
-      and collecting resources?"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165262
-    m_Localized: "We might need them if we plan on figuring out what {stonks} is
-      up to\u2026."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165263
-    m_Localized: Waaaaaah!! Did I hear someone speak my name?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165264
-    m_Localized: '{dog}!'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165265
-    m_Localized: "It\u2019s been too long. I haven\u2019t seen you since the billionaire\u2019s
-      conference in Saint-Tropez."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165266
-    m_Localized: '{stonks}!'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165267
-    m_Localized: What kind of dastardly plans are you harboring? Why are you on the
-      moon?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311379165268
-    m_Localized: "Now now, {dog}, let\u2019s not be too presumptuous."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359488
-    m_Localized: "You\u2019ll just have to get in your rocket and come meet me up
-      there."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359489
-    m_Localized: "Oh wait\u2026 I nearly forgot\u2026"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359490
-    m_Localized: "You don\u2019t have any rockets that can make it to the moon!"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359491
-    m_Localized: "That may be so\u2026 but {playername} does."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359492
-    m_Localized: Oh really? And who is this {playername} might I ask?
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359493
-    m_Localized: "They\u2019re only the next crypto billionaire in the making\u2026"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359494
-    m_Localized: "and they\u2019re going to stop you from doing whatever you\u2019re
-      up to."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359495
-    m_Localized: "You don\u2019t say? Well\u2026"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359496
-    m_Localized: "It\u2019s a pleasure to make your acquaintance {playername}."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359497
-    m_Localized: I look forward to your visit.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359498
-    m_Localized: However
-    m_Metadata:
-      m_Items:
-      - rid: 3951647032854183938
-  - m_Id: 21622311383359499
-    m_Localized: Until next time, {dog} and {playername}.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 21622311383359500
+  - m_Id: 30688504580825119
     m_Localized: "Ugh literal piles of money? Doesn\u2019t he know everything is
       digital now?"
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311383359501
-    m_Localized: I may need to recalibrate my sensors but I did not get a good vibe
-      from that guy.
+  - m_Id: 30688504580825118
+    m_Localized: Until next time, {dog} and {playername}.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825117
+    m_Localized: However
+    m_Metadata:
+      m_Items:
+      - rid: 3951647524505780226
+  - m_Id: 30688504580825116
+    m_Localized: I look forward to your visit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825115
+    m_Localized: "It\u2019s a pleasure to make your acquaintance {playername}."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825114
+    m_Localized: "You don\u2019t say? Well\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825113
+    m_Localized: "and they\u2019re going to stop you from doing whatever you\u2019re
+      up to."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825112
+    m_Localized: "They\u2019re only the next crypto billionaire in the making\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825111
+    m_Localized: Oh really? And who is this {playername} might I ask?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825110
+    m_Localized: "That may be so\u2026 but {playername} does."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825109
+    m_Localized: "You don\u2019t have any rockets that can make it to the moon!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825108
+    m_Localized: "Oh wait\u2026 I nearly forgot\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825107
+    m_Localized: "You\u2019ll just have to get in your rocket and come meet me up
+      there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825106
+    m_Localized: "Now now, {dog}, let\u2019s not be too presumptuous."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825105
+    m_Localized: What kind of dastardly plans are you harboring? Why are you on the
+      moon?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825104
+    m_Localized: '{stonks}!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825103
+    m_Localized: "It\u2019s been too long. I haven\u2019t seen you since the billionaire\u2019s
+      conference in Saint-Tropez."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825102
+    m_Localized: '{dog}!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825101
+    m_Localized: Waaaaaah!! Did I hear someone speak my name?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825100
+    m_Localized: "We might need them if we plan on figuring out what {stonks} is
+      up to\u2026."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825099
+    m_Localized: "In the meantime, why don\u2019t you keep upgrading your rocket
+      and collecting resources?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825098
+    m_Localized: "It isn\u2019t quite ready yet, though."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825097
+    m_Localized: "I\u2019m working as quickly as possible to get a moon base set
+      up, so you can continue your operations there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825096
+    m_Localized: "Unfortunately, I wasn\u2019t expecting you to make it there so
+      fast."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825095
+    m_Localized: '{playername}! You really did it! I had all the faith that you could
+      make it to the moon!'
     m_Metadata:
       m_Items: []
   - m_Id: 21622311374970909
@@ -477,17 +475,17 @@ MonoBehaviour:
       Invest wisely and you\u2019ll be raking in the coins in no time!"
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311383359502
-    m_Localized: "Yeah he\u2019s a total creep\u2026 stuck in 1999."
+  - m_Id: 30688504580825092
+    m_Localized: Good luck, {playername}!
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311383359503
-    m_Localized: "{playername}, you keep working on that rocket. I\u2019m gonna get
-      your moonbase ready."
+  - m_Id: 30688504580825091
+    m_Localized: Be sure to check in often!
     m_Metadata:
       m_Items: []
-  - m_Id: 21622311383359504
-    m_Localized: "Let\u2019s show {stonks} the power of crypto!"
+  - m_Id: 30688504580825090
+    m_Localized: Things will be much more efficient around here with your guidance,
+      however.
     m_Metadata:
       m_Items: []
   - m_Id: 21622311374970907
@@ -629,10 +627,24 @@ MonoBehaviour:
       empire is really taking off!
     m_Metadata:
       m_Items: []
+  - m_Id: 30688504580825089
+    m_Localized: Be on the lookout for those!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504580825088
+    m_Localized: In fact, most things will have timers next to them showing when
+      they are ready for use.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30688504555659264
+    m_Localized: "Remember that I, and the rest of your employees will be hard at
+      work even when you\u2019re sleeping."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
-    - rid: 3951647032854183938
+    - rid: 3951647524505780226
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
         m_CommentText: ' I need to get back to counting my huge piles of MONEY!'

@@ -21,6 +21,10 @@ TagManager:
   - Space_Junk_Background_Star_1
   - Space_Junk_Background_Star_2
   - Space_Junk_Background_Star_3
+  - Space_Junk_Sputnik
+  - Space_Junk_Golf
+  - Space_Junk_Golf_Ball
+  - Dark_Matter
   layers:
   - Default
   - TransparentFX

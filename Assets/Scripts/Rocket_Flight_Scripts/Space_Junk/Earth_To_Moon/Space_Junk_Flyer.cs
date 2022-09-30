@@ -13,20 +13,23 @@ public class Space_Junk_Flyer : Space_Junk_Base
     private float maxSpriteRotation; // Visually, how much can we rotate the sprite (Must be less than or equal to max rotation)
     //protected Rigidbody2D rb;
     protected SpriteRenderer rend;
-    protected bool goingRight;
-    protected float offsetAngle;
+    public bool goingRight;
+    public float offsetAngle;
     [SerializeField]
     private float minPossibleThrust, maxPossibleThrust;
-    private float thrust; // = 0.5f;
+    public float thrust; // = 0.5f;
     [SerializeField]
-    private float minPossibleTopSpeed, maxPossibleTopSpeed;
-    protected float topSpeed; // = 2.0f;
+    public float minPossibleTopSpeed, maxPossibleTopSpeed;
+    public float topSpeed; // = 2.0f;
 
 
     [SerializeField]
     protected bool shouldFlipSprite;
+    [SerializeField]
+    protected DefaultDirs defaultDir = DefaultDirs.Right;
     bool spriteFlipped = false;
 
+    [SerializeField]
     protected float speed = 0.0f;
 
     protected bool hitHappened = false;
@@ -36,10 +39,19 @@ public class Space_Junk_Flyer : Space_Junk_Base
 
     protected Game_Scaler gameScaler;
 
+
+    protected enum DefaultDirs
+    {
+        Left,
+        Right
+    }
+
+
     void Awake(){
 
     }
 
+    
 
     protected virtual void OnEnable()
     {
@@ -70,8 +82,8 @@ public class Space_Junk_Flyer : Space_Junk_Base
         topSpeed = Random.Range(minPossibleTopSpeed, maxPossibleTopSpeed);
 
 
-        if (rb is null){
-            rb = GetComponent<Rigidbody2D>();
+        if (base.rb is null){
+            base.rb = GetComponent<Rigidbody2D>();
         }
 
         //Debug.Log("VECTOR3 ZERO: " + Vector3.zero + " ... " + rb.velocity + " ... " + rb.angularVelocity);
@@ -85,9 +97,9 @@ public class Space_Junk_Flyer : Space_Junk_Base
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, -Mathf.Min(Mathf.Abs(offsetAngle), maxSpriteRotation));
         }
         CalculateXYMovementComponents(offsetAngle, goingRight);
-        thrustVec = new Vector2(thrust, thrust);
-        thrustVec = thrustVec * ForceComponents;
-
+        //thrustVec = new Vector2(thrust, thrust);
+        //thrustVec = thrustVec * ForceComponents;
+        CalculateThrustVec();
         // if (!goingRight && shouldFlipSprite && !spriteFlipped){
         //     Debug.Log("FLIPPED SPRITE FROM ENABLE");
         //     flipSprite();
@@ -134,7 +146,7 @@ public class Space_Junk_Flyer : Space_Junk_Base
     protected virtual void Update()
     {
         if (!hitHappened){
-            if (gameScaler is null){
+            if (gameScaler != null){ // NEW
                 accelerationMult = 1 - (rb.velocity.magnitude / gameScaler.Scale_Value_To_Screen_Width(topSpeed));
             }
             else{
@@ -145,11 +157,16 @@ public class Space_Junk_Flyer : Space_Junk_Base
                 rb.AddForce(thrustVec * accelerationMult);
             }
             if (shouldFlipSprite){
-                if (ForceComponents.x < 0 && !spriteFlipped){//!rend.flipX){
+                //print(ForceComponents.x);
+                if ((defaultDir == DefaultDirs.Right && ForceComponents.x < 0
+                    || defaultDir == DefaultDirs.Left && ForceComponents.x >= 0)
+                    && !spriteFlipped){//!rend.flipX){
                     flipSprite();
                     //rend.flipX = true;
                 }
-                else if (ForceComponents.x >= 0 && spriteFlipped){// rend.flipX){
+                else if ((defaultDir == DefaultDirs.Right && ForceComponents.x >= 0
+                    || defaultDir == DefaultDirs.Left && ForceComponents.x < 0)
+                    && spriteFlipped){// rend.flipX){
                     flipSprite();
                     //rend.flipX = false;
                 }
@@ -158,7 +175,7 @@ public class Space_Junk_Flyer : Space_Junk_Base
     }
 
 
-    private void CalculateXYMovementComponents(float angle, bool goingRight){
+    public void CalculateXYMovementComponents(float angle, bool goingRight){
         float xComp = Mathf.Cos(Mathf.Abs(angle  * Mathf.Deg2Rad));
         float yComp = Mathf.Sin(Mathf.Abs(angle  * Mathf.Deg2Rad));
 
@@ -180,6 +197,11 @@ public class Space_Junk_Flyer : Space_Junk_Base
         }
     }
 
+    public void CalculateThrustVec(){
+        thrustVec = new Vector2(thrust, thrust);
+        thrustVec = thrustVec * ForceComponents;
+    }
+
 
     private void onSpaceJunkCollision(GameObject obj){
         if (GameObject.ReferenceEquals(gameObject, obj)){
@@ -188,6 +210,7 @@ public class Space_Junk_Flyer : Space_Junk_Base
     }
 
     private void flipSprite(){
+        //print("Flipping");
         Vector3 curScale = transform.localScale;
         transform.localScale = new Vector3(curScale.x * -1f, curScale.y, curScale.z);
         spriteFlipped = !spriteFlipped;

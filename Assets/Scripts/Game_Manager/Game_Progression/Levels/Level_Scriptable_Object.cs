@@ -65,9 +65,24 @@ public class Level_Scriptable_Object :  ScriptableObject
 
 
     public void Validate(){
-        Debug.Assert(UnlockedExperimentIds.Select(id => Experiments_Manager.instance.experimentsList.Select(e => e.experimentId).Contains(id)).All(v => v));
-        Debug.Assert(UnlockedResearchIds.Select(id => Research_Manager.instance.researchList.Select(r => r.researchId).Contains(id)).All(v => v));
-        Debug.Assert(UnlockedResearcherIds.Select(id => Researcher_Manager.instance.researchersList.Select(r => r.researcherId).Contains(id)).All(v => v));
+        try{
+            Debug.Assert(UnlockedExperimentIds.Select(id => Experiments_Manager.instance.experimentsList.Select(e => e.experimentId).Contains(id)).All(v => v));
+        }
+        catch(System.Exception e){
+            Debug.LogError("Unlocked Experiments Incorrect on Level " + levelName);
+        }
+        try{
+            Debug.Assert(UnlockedResearchIds.Select(id => Research_Manager.instance.researchList.Select(r => r.researchId).Contains(id)).All(v => v));
+        }
+        catch(System.Exception e){
+            Debug.LogError("Unlocked Research Incorrect on Level " + levelName);
+        }
+        try{
+            Debug.Assert(UnlockedResearcherIds.Select(id => Researcher_Manager.instance.researchersList.Select(r => r.researcherId).Contains(id)).All(v => v));
+        }
+        catch(System.Exception e){
+            Debug.LogError("Unlocked Researchers Incorrect on Level " + levelName);
+        }
         rocketGameInitializationObject.Validate();
         //Debug.Log("VALIDATED LEVEL: " + LevelName);
     }

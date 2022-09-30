@@ -711,11 +711,14 @@ public class Background_Controller : MonoBehaviour
         }
 
 
-        if(fogActivated && fogMaterial != null){
+        if(fogActivated && fogMaterial != null && fogAlts.Count > 0){
             currentColorSize = getFogColorAndSize(rocket.transform.position);
             fogMaterial.SetFloat("_Fog_Size", currentColorSize["s"]);    
             fogMaterial.SetColor("_Fog_Color", new Color(currentColorSize["r"], currentColorSize["g"], currentColorSize["b"], currentColorSize["a"]));
         
+        }
+        else if (fogActivated && fogAlts.Count <= 0){
+            GameObject.Find("Fog").GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 

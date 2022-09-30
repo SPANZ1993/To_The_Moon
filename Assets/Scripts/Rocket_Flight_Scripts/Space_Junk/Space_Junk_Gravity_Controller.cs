@@ -18,7 +18,8 @@ public class Space_Junk_Gravity_Controller : MonoBehaviour
     Rigidbody2D rb;
     Collider2D collider;
     //private LeanTween leanTween;
-    private bool collisionInitiated = false;
+    public bool collisionInitiated {get; private set;}
+    //private bool collisionInitiated = false;
     private int xScaleId, yScaleId;
 
     private bool firstInstance = true;
@@ -33,6 +34,7 @@ public class Space_Junk_Gravity_Controller : MonoBehaviour
 
 
     void OnEnable(){
+        collisionInitiated = false;
 
         if (collider is null){
             if (GetComponent<CapsuleCollider2D>() != null){
@@ -94,7 +96,12 @@ public class Space_Junk_Gravity_Controller : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Space Junk");
         //Debug.Log("WERE ON LAYER: " + LayerMask.LayerToName(gameObject.layer));
 
-        spaceJunkSpawner = GameObject.Find("Junk_Spawner").GetComponent<Space_Junk_Spawner>();
+        try{
+            spaceJunkSpawner = GameObject.Find("Junk_Spawner").GetComponent<Space_Junk_Spawner>();
+        }
+        catch{
+            Debug.LogError("CAN'T FIND SPAWNER");
+        }
     }
 
     // Update is called once per frame
@@ -102,8 +109,13 @@ public class Space_Junk_Gravity_Controller : MonoBehaviour
     {
         if (collisionInitiated){
             if (!LeanTween.isTweening(xScaleId) && !LeanTween.isTweening(yScaleId)){
-                //Destroy(gameObject);
-                spaceJunkSpawner.despawnPoolObj(gameObject);
+                //Destroy(gameObject);\
+                try{
+                    spaceJunkSpawner.despawnPoolObj(gameObject);
+                }
+                catch{
+                    Destroy(gameObject);
+                }
             }
         }
         
