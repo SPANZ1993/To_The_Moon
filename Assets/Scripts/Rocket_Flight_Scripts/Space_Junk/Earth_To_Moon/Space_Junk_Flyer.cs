@@ -55,6 +55,7 @@ public class Space_Junk_Flyer : Space_Junk_Base
 
     protected virtual void OnEnable()
     {
+        Debug.Assert(!hitHappened);
         base.OnEnable();
         Space_Junk_Gravity_Controller.Space_Junk_Collision_Occurred_Info += onSpaceJunkCollision;
 
@@ -108,7 +109,6 @@ public class Space_Junk_Flyer : Space_Junk_Base
     }
 
     void OnDisable(){
-
         base.OnDisable();
 
         Space_Junk_Gravity_Controller.Space_Junk_Collision_Occurred_Info -= onSpaceJunkCollision;
@@ -119,7 +119,6 @@ public class Space_Junk_Flyer : Space_Junk_Base
         // }
 
         
-
         if (spriteFlipped){
             flipSprite();
             //Debug.Log("FLIPPED SPRITE FROM DISABLE");
@@ -200,6 +199,7 @@ public class Space_Junk_Flyer : Space_Junk_Base
     public void CalculateThrustVec(){
         thrustVec = new Vector2(thrust, thrust);
         thrustVec = thrustVec * ForceComponents;
+        //Debug.Log("THRUST VEC: " + thrustVec);
     }
 
 

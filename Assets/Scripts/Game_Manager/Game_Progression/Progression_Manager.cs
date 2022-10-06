@@ -48,9 +48,6 @@ public class Progression_Manager : MonoBehaviour
     private Queue<Event_Trigger_Scriptable_Object> EventQueue;
     public int? CurrentEventIdInProgress; // If not null, means an event is happening right now
 
-    // During The Next OnLevelWasLoaded, if the scene name starts with the value, then the event with id key will be added to the eventqueue
-    private Dictionary<int, string> eventIdsToAddNextSceneTransition;  // TODO: Implement this
-
     [SerializeField]
     private Event_Trigger_Scriptable_Object[] events;
 
@@ -73,14 +70,18 @@ public class Progression_Manager : MonoBehaviour
     {
 
         if (instance == null){
-            Debug.Assert(Events.Select(e => e.EventId).ToList().Count() == Events.Select(e => e.EventId).Distinct().ToList().Count());
-            Debug.Assert(Levels.Select(l => l.LevelId).ToList().Count() == Levels.Select(e => e.LevelId).Distinct().ToList().Count());
+            if(!(Events.Select(e => e.EventId).ToList().Count() == Events.Select(e => e.EventId).Distinct().ToList().Count())){
+                throw new ArgumentException("Event Ids Are Not Distinct");
+            }
+            if(!(Levels.Select(l => l.LevelId).ToList().Count() == Levels.Select(e => e.LevelId).Distinct().ToList().Count())){
+                throw new ArgumentException("Level Ids Are Not Distinct");
+            }
+            
 
             foreach(Level_Scriptable_Object level in Levels){
                 StartCoroutine(validateLevel(level));
             }
 
-            
 
             CurrentLevelId = 0;
             HighestLevelId = 0;
@@ -93,7 +94,7 @@ public class Progression_Manager : MonoBehaviour
                 EventIdToTimesTriggered[id] = 0;
                 EventIdToTimesTriggeredThisLevelOpen[id] = 0;
                 EventIdToTimesTriggeredThisSceneOpen[id] = 0;
-                 EventIdToTimesTriggeredThisGameOpen[id] = 0;
+                EventIdToTimesTriggeredThisGameOpen[id] = 0;
             }
 
 
@@ -154,7 +155,6 @@ public class Progression_Manager : MonoBehaviour
             getLevelById(CurrentLevelId).initializeRocketGame(freePlayMode:RocketGameFreePlayMode);
         }
     }
-
 
 
 

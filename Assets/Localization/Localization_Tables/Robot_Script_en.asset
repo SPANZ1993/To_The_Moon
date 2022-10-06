@@ -18,24 +18,39 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 56728632320004
-    m_Localized: "I also found {gems} gems! Let\u2019s go!"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 56728632320003
+  - m_Id: 55486282074841088
     m_Localized: Hey bro! I was able to fly {height} miles!
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320002
+  - m_Id: 55486282091618304
+    m_Localized: Hey bro! I was able to fly {height} miles!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618305
     m_Localized: "I also found a gem! Let\u2019s go!"
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320001
+  - m_Id: 55486282091618306
     m_Localized: Hey bro! I was able to fly {height} miles!
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320000
-    m_Localized: Hey bro! I was able to fly {height} miles!
+  - m_Id: 55486282091618307
+    m_Localized: "I also found {gems} gems! Let\u2019s go!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618308
+    m_Localized: '{playername}, do you suppose that was the dark matter that {stonks}
+      was talking about?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618309
+    m_Localized: "I\u2019ve performed over 69 trillion calculations, and cannot devise
+      a way to get past."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618310
+    m_Localized: Perhaps we should fund the {particleshield} experiment that {dog}
+      was talking about.
     m_Metadata:
       m_Items: []
   references:

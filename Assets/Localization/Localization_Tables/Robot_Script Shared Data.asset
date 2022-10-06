@@ -15,24 +15,36 @@ MonoBehaviour:
   m_TableCollectionName: Robot_Script_Table
   m_TableCollectionNameGuidString: 1034f138fbf66a94385fdc817c5a6247
   m_Entries:
-  - m_Id: 56728632320000
+  - m_Id: 55486282074841088
     m_Key: Robot_Script.Autopilot_Return.Normal.No_Gems.1.1
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320001
+  - m_Id: 55486282091618304
     m_Key: Robot_Script.Autopilot_Return.Normal.Single_Gem.1.1
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320002
+  - m_Id: 55486282091618305
     m_Key: Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320003
+  - m_Id: 55486282091618306
     m_Key: Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1
     m_Metadata:
       m_Items: []
-  - m_Id: 56728632320004
+  - m_Id: 55486282091618307
     m_Key: Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618308
+    m_Key: Robot_Script.Hint_Dark_Matter.1.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618309
+    m_Key: Robot_Script.Hint_Dark_Matter.1.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55486282091618310
+    m_Key: Robot_Script.Hint_Dark_Matter.1.3
     m_Metadata:
       m_Items: []
   m_Metadata:

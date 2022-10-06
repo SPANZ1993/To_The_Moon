@@ -9,19 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3174aae1733c5ae4aac80d20f84e8c10, type: 3}
-  m_Name: Level_End_Event_Scriptable_Object_Earth
+  m_Script: {fileID: 11500000, guid: b09e8ea8db2f4874db543fb81c877fb0, type: 3}
+  m_Name: Game_Hint_Event_Dark_Matter
   m_EditorClassIdentifier: 
-  eventId: 3
-  eventName: Level_End_Event_Earth
+  eventId: 105
+  eventName: Game_Hint_Event_Dark_Matter
   eventPriority: 1001
-  numTimesTriggerable: 2
+  numTimesTriggerable: -1
   numTimesTriggerablePerLevelOpen: -1
   numTimesTriggerablePerSceneOpen: 1
   numTimesTriggerablePerGameOpen: -1
   triggerableUponLevelWasLoaded: 1
-  triggerableLevelIds: 0000000001000000
+  triggerableLevelIds: 
   triggerableSceneNames:
   - Main_Area
   - Main_Area_Moon
-  LevelId: 0
+  - Main_Area_Mars
+  hintKeyString: Robot_Script.Hint_Dark_Matter.1.1
+  hintWaitTime: 1.5

@@ -12,9 +12,9 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
 
     public override bool shouldTrigger(){
         bool shouldTrigger = base.shouldTrigger();
-        Debug.Log("LEVEL END -- IS THE RECENTLY COMPLETED LEVEL ID EQUAL TO THIS LEVEL ID? " + (Progression_Manager.instance.recentlyCompletedLevelId == LevelId) + " ... SHOULD WE TRIGGER OTHERWISE? " + shouldTrigger + " TIMES TRIGGERED " + Progression_Manager.instance.EventIdToTimesTriggered[base.eventId]);
-        Debug.Log("RECENT: " + Progression_Manager.instance.recentlyCompletedLevelId);
-        Debug.Log("LOOKING FOR: " + LevelId);
+        //Debug.Log("LEVEL END -- IS THE RECENTLY COMPLETED LEVEL ID EQUAL TO THIS LEVEL ID? " + (Progression_Manager.instance.recentlyCompletedLevelId == LevelId) + " ... SHOULD WE TRIGGER OTHERWISE? " + shouldTrigger + " TIMES TRIGGERED " + Progression_Manager.instance.EventIdToTimesTriggered[base.eventId]);
+        //Debug.Log("RECENT: " + Progression_Manager.instance.recentlyCompletedLevelId);
+        //Debug.Log("LOOKING FOR: " + LevelId);
         if(shouldTrigger){
             if(Progression_Manager.instance.recentlyCompletedLevelId != LevelId){
                 shouldTrigger = false;
@@ -37,11 +37,11 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
                   shouldTrigger = true;  
                 }
                 else{
-                    bool a = Progression_Manager.instance.EventIdToTimesTriggered.Keys.Contains(base.eventId);
-                    bool b = Progression_Manager.instance.HighestLevelId == LevelId;
-                    bool c = (Progression_Manager.instance.EventIdToTimesTriggered[base.eventId] == 0  && !Progression_Manager.instance.Levels.Select(l=>l.LevelId).Contains(Progression_Manager.instance.Levels.Where(l => l.LevelId == LevelId).ToList()[0].NextLevelId));
-                    bool d = (Progression_Manager.instance.EventIdToTimesTriggered[base.eventId] <= 1 && Progression_Manager.instance.Levels.Select(l=>l.LevelId).Contains(Progression_Manager.instance.Levels.Where(l => l.LevelId == LevelId).ToList()[0].NextLevelId));
-                    Debug.Log("NEVERMIND " + a + "  " + b);
+                    //bool a = Progression_Manager.instance.EventIdToTimesTriggered.Keys.Contains(base.eventId);
+                    //bool b = Progression_Manager.instance.HighestLevelId == LevelId;
+                    //bool c = (Progression_Manager.instance.EventIdToTimesTriggered[base.eventId] == 0  && !Progression_Manager.instance.Levels.Select(l=>l.LevelId).Contains(Progression_Manager.instance.Levels.Where(l => l.LevelId == LevelId).ToList()[0].NextLevelId));
+                    //bool d = (Progression_Manager.instance.EventIdToTimesTriggered[base.eventId] <= 1 && Progression_Manager.instance.Levels.Select(l=>l.LevelId).Contains(Progression_Manager.instance.Levels.Where(l => l.LevelId == LevelId).ToList()[0].NextLevelId));
+                    //Debug.Log("NEVERMIND " + a + "  " + b);
                     shouldTrigger = false;
                 }
             }

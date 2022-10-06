@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Robot_Title_Data_Message_Event_Trigger_Scriptable_Object
   m_EditorClassIdentifier: 
   eventId: 2
+  eventName: Robot_Title_Data_Message_Event
   eventPriority: 1000
   numTimesTriggerable: -1
   numTimesTriggerablePerLevelOpen: -1

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Linq;
+
 public class Rocket_Control : MonoBehaviour
 {
 
@@ -362,6 +364,18 @@ public class Rocket_Control : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isBouncing){
+            // Log that we bumped this object
+            try{
+                if(Game_Manager.instance.rocketGameBumpCounts.Keys.Contains(collision.gameObject.name)){
+                    Game_Manager.instance.rocketGameBumpCounts[collision.gameObject.name]++;
+                }
+                else{
+                    Game_Manager.instance.rocketGameBumpCounts[collision.gameObject.name] = 1;
+                }
+            }
+            catch(System.Exception e){
+                Debug.Log("COULDN'T LOG BUMP OF " + collision.gameObject);
+            }
             try{
                 // Try to play the object we hit's bump sound if we can
                 Space_Junk_Base sj = collision.gameObject.GetComponent<Space_Junk_Base>();

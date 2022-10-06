@@ -111,6 +111,10 @@ public class Game_Manager : MonoBehaviour
     public double mineGameSolveCoinsUpgradePrice; // How much will the next upgrade cost to the minGameSolveCoins
         
 
+    //Rocket Game Info
+    public Dictionary<string, int> rocketGameBumpCounts; // How many times did the rocket bump into each object during the last rocket game?
+
+
     //Launch Info
     public double prevLaunchTimeUnix;
     [SerializeField]
@@ -327,8 +331,9 @@ public class Game_Manager : MonoBehaviour
                 //     onboardingManager.ExecuteOnboarding(2.5f);
                 // }
             }
-            else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
+            else if (SceneManager.GetActiveScene().name.StartsWith("Rocket_Flight")){
                 initializeGameOnReturnToMainArea = true;
+                rocketGameBumpCounts = new Dictionary<string, int>();
                 if (remainingLaunches == maxLaunches){
                     prevLaunchTimeUnix = gameTimeUnix;
                 }
@@ -343,7 +348,7 @@ public class Game_Manager : MonoBehaviour
                 }
             }
             else if (SceneManager.GetActiveScene().name == "Mine_Game"){
-
+                rocketGameBumpCounts = new Dictionary<string, int>(); // Just make sure old counts aren't lingering around
             }
         }
     }

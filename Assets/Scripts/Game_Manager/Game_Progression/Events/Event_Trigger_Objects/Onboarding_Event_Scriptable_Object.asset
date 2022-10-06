@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Onboarding_Event_Scriptable_Object
   m_EditorClassIdentifier: 
   eventId: 1
+  eventName: Onboarding_Event
   eventPriority: 100000
   numTimesTriggerable: 1
   numTimesTriggerablePerLevelOpen: 1

@@ -1743,8 +1743,20 @@ public class UI_Controller : MonoBehaviour
     // Speech Banner
 
 
+    IEnumerator Display_Speech_Delayed(Speech_Object speech_object, System.Action callBack=null){
+        yield return new WaitForEndOfFrame();
+        Display_Speech(speech_object:speech_object, callBack=callBack);
+    }
+
     // This code is very good and makes sense
     public void Display_Speech(Speech_Object speech_object, System.Action callBack=null){
+
+        //If We don't have the speech banner yet
+        if(SpeechBanner == null){
+            StartCoroutine(Display_Speech_Delayed(speech_object:speech_object, callBack:callBack));
+            return;
+        }
+    
 
         // Going to just treat every speech object as a blocker...
         bool block = true;

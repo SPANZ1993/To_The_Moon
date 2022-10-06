@@ -21,9 +21,9 @@ public class Space_Junk_Golf : Space_Junk_Flyer
         gravControl = GetComponent<Space_Junk_Gravity_Controller>();
     }
 
-    void OnDisable(){
-        base.OnDisable();
-    }
+    // void OnDisable(){
+    //     base.OnDisable();
+    // }
 
     // Start is called before the first frame update
     void Start()

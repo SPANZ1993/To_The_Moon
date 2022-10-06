@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Level_End_Event_Scriptable_Object_Moon
   m_EditorClassIdentifier: 
   eventId: 4
-  eventPriority: 1000
+  eventName: Level_End_Event_Moon
+  eventPriority: 1001
   numTimesTriggerable: 2
   numTimesTriggerablePerLevelOpen: -1
   numTimesTriggerablePerSceneOpen: 1

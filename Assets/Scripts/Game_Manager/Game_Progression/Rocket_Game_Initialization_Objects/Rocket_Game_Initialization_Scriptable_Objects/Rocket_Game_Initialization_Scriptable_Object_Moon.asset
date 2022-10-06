@@ -30,13 +30,11 @@ MonoBehaviour:
   - {r: 0.38823533, g: 0.48627454, b: 0.9725491, a: 0}
   - {r: 0.38823533, g: 0.48627454, b: 0.9725491, a: 0}
   poolObjList:
-  - {fileID: 3010153211176201378, guid: b5ab7aea1634e504fb8a8f0fb77ec6a1, type: 3}
   - {fileID: 6468328627867421136, guid: 11abf94f072c854499f344d1577f9995, type: 3}
-  numToSpawnList: 1900000019000000
-  shouldExpandList: 0101
+  numToSpawnList: 01000000
+  shouldExpandList: 00
   spawnObjAltitudeRanges:
-  - {x: 0, y: 150}
-  - {x: 0, y: 150}
+  - {x: 0, y: 500}
   spawnRate: 5
   oneOffSpawnList:
   - {fileID: 4346968360787525324, guid: 55f14775b798c604c92afc628a2a4b5f, type: 3}
@@ -57,7 +55,7 @@ MonoBehaviour:
   - {x: 175, y: 0}
   - {x: 175, y: 0}
   backgroundSpawnRate: 10
-  leavingPlanetSprite: {fileID: -67371933, guid: 3bab1129679fd084ca73708b49239253, type: 3}
+  leavingPlanetSprite: {fileID: -825518015, guid: 3bab1129679fd084ca73708b49239253, type: 3}
   leavingPlanetBotParallaxRocketAlt: 0
   leavingPlanetTopParallaxRocketAlt: 100
   arrivingPlanetSprite: {fileID: -825518015, guid: 3bab1129679fd084ca73708b49239253, type: 3}
