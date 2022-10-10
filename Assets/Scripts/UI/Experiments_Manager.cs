@@ -34,6 +34,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite  experiment1Sprite;
     private Experiment experiment1;
+    //private Upgrade experiment1Upgrade;
 
     
     //2
@@ -47,7 +48,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite experiment2Sprite;
     private Experiment experiment2;
-
+    //private Upgrade experiment2Upgrade;
 
 
     //3
@@ -61,7 +62,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite experiment3Sprite;
     private Experiment experiment3;
-
+    //private Upgrade experiment3Upgrade;
 
     
     //4
@@ -75,7 +76,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite experiment4Sprite;
     private Experiment experiment4;
-
+    //private Upgrade experiment4Upgrade;
 
 
     //5
@@ -89,7 +90,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite experiment5Sprite;
     private Experiment experiment5;
-
+    //private Upgrade experiment5Upgrade;
 
     
     //6
@@ -103,7 +104,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite experiment6Sprite;
     private Experiment experiment6;
-
+    //private Upgrade experiment6Upgrade;
 
 
     //7
@@ -117,6 +118,7 @@ public class Experiments_Manager : MonoBehaviour
     [SerializeField]
     private Sprite experiment7Sprite;
     private Experiment experiment7;
+    //private Upgrade experiment7Upgrade;
 
 
     //#########################################################################################
@@ -543,6 +545,23 @@ public class Experiments_Manager : MonoBehaviour
         return unlockedExperimentIDs;
     }
 
+    public Experiment GetExperimentByExperimentNumber(int n){
+        foreach(Experiment exp in experimentsList){
+            if((int)exp.experimentId == n){
+                return exp;
+            }
+        }
+        throw new KeyNotFoundException("Can't find experiment with ID: " + n.ToString());
+    }
+
+    public bool ExperimentNumExists(int n){
+        foreach(Experiment exp in experimentsList){
+            if((int)exp.experimentId == n){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

@@ -400,6 +400,9 @@ public class Rocket_Control : MonoBehaviour
                 displayHitAnimation();
                 Invoke("StopBounce", bounceTime);
             }
+            else{
+                Debug.Log("SKIPPING BC COW CATCHER");
+            }
             hitCount++;
         }
     }

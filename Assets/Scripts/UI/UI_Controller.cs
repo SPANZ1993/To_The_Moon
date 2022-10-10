@@ -2461,24 +2461,31 @@ public class UI_Controller : MonoBehaviour
 
 
         bool transactionExecuted = false; // Did pressing the button result in the Experiment being purchased
-        
+        int upgradeAddNum = 1; // How many instances of the upgrade do we add?
+
         //Debug.Log("YOYOYO WE CLICKED EXPERIMENT: " + experimentId);
         // If our experiment has a corresponding upgrade
         if(Enum.GetValues(typeof(Upgrade)).Cast<int>().ToList().IndexOf((int)experimentId) != -1){
             Upgrade upgradeId = upgradesManager.experimentId2Upgrade[experimentId];
             if(upgradesManager.upgradesUnlockedDict[upgradeId] == false || (upgradesManager.upgradesNumberDict[upgradeId] < upgradesManager.upgradesMaxNumberDict[upgradeId])){
+                upgradeAddNum = Upgrades_Manager.instance.getUpgradeAddNumber(upgradeId);
                 if(experimentDenomination == Denomination.Gems && gameManager.gems >= price){
-                    upgradesManager.upgradesUnlockedDict[upgradeId] = true;
-                    upgradesManager.upgradesNumberDict[upgradeId] += 1;
-                    gameManager.gems -= price;
-                    transactionExecuted = true;
+                    // upgradesManager.upgradesUnlockedDict[upgradeId] = true;
+                    // upgradesManager.upgradesNumberDict[upgradeId] += 1;
+                    transactionExecuted = upgradesManager.addUpgrade(upgradeId, upgradeAddNum);
+                    if(transactionExecuted){
+                        gameManager.gems -= price;
+                    }
+                    //transactionExecuted = true;
                 }
                 else if(experimentDenomination == Denomination.Coins && gameManager.coins >= price){
-                    upgradesManager.upgradesUnlockedDict[upgradeId] = true;
-                    upgradesManager.upgradesNumberDict[upgradeId] += 1;
-                    gameManager.coins -= price;
-                    gameManager.playInterstitialAdOnMenuClose = true;
-                    transactionExecuted = true;
+                    // upgradesManager.upgradesUnlockedDict[upgradeId] = true;
+                    // upgradesManager.upgradesNumberDict[upgradeId] += 1;
+                    transactionExecuted = upgradesManager.addUpgrade(upgradeId, upgradeAddNum);
+                    if(transactionExecuted){
+                        gameManager.coins -= price;
+                    }
+                    //transactionExecuted = true;
                 }
             }
         }

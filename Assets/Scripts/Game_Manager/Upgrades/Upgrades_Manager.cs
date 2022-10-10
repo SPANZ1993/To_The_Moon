@@ -30,6 +30,7 @@ public class Upgrades_Manager : MonoBehaviour
     public Dictionary<Upgrade, bool> upgradesUnlockedDict {get; set;} // Have we acquired this upgrade
     public Dictionary<Upgrade, int> upgradesNumberDict  {get; set;}
     public Dictionary<Upgrade, int> upgradesMaxNumberDict  {get; private set;}
+
     
     public Dictionary<Upgrade, ExperimentId> upgrade2ExperimentId {get; private set;}
     public Dictionary<ExperimentId, Upgrade> experimentId2Upgrade {get; private set;}
@@ -161,7 +162,7 @@ public class Upgrades_Manager : MonoBehaviour
                         upgradesMaxNumberDict[upgrade] = 1; // TODO: Make Some Visual Representation of This
                         break;
                     case Upgrade.Cow_Catcher:
-                        upgradesMaxNumberDict[upgrade] = 1;
+                        upgradesMaxNumberDict[upgrade] = 3;
                         break;
                     case Upgrade.Turbo_Boost:
                         upgradesMaxNumberDict[upgrade] = 1;
@@ -192,6 +193,10 @@ public class Upgrades_Manager : MonoBehaviour
     }
 
     public bool canAddUpgrade(Upgrade upgrade, int number){
+        Debug.Log("HEY");
+        print("A: " + number);
+        print("B: " + upgradesMaxNumberDict[upgrade]);
+        print("C: " + upgradesNumberDict[upgrade]);
         if (upgradesNumberDict[upgrade] <= upgradesMaxNumberDict[upgrade] - number){
             return true;
         }
@@ -200,13 +205,41 @@ public class Upgrades_Manager : MonoBehaviour
         }
     }
 
-    public void addUpgrade(Upgrade upgrade, int number){
+    public bool addUpgrade(Upgrade upgrade, int number){
         if(canAddUpgrade(upgrade, number)){
             upgradesUnlockedDict[upgrade] = true;
             upgradesNumberDict[upgrade] += number;
+            return true;
         }
         else{
             Debug.Log("Tried to add upgrade " + upgrade + " but couldn't");
+            return false;
         }
+    }
+
+
+    public int getUpgradeAddNumber(Upgrade upgrade){
+        int upgradeNum = 1;
+        if(Experiments_Manager.instance.ExperimentNumExists((int)upgrade)){
+            Experiment exp = Experiments_Manager.instance.GetExperimentByExperimentNumber((int)upgrade);
+            Duration dur = exp.duration;
+            switch(dur){
+                case Duration.Permanent:
+                    upgradeNum = 1;
+                    break;
+
+                case Duration.Three_Launches:
+                    upgradeNum = 3;
+                    break;
+
+                case Duration.Three_Uses:
+                    upgradeNum = 3;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        return upgradeNum;
     }
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-
 using TMPro;
+
+using System;
+
 
 public class Rocket_Game_Manager : MonoBehaviour
 {
@@ -237,6 +239,7 @@ public class Rocket_Game_Manager : MonoBehaviour
         // End this scene
         uiController.rocketFlightDisableRewardedAdConfirmationBox();
         gameManager.metrics.updateFlights(numGemsCollected, false, rocketMaxAltitude*(float)thrustAltMultiplier, freePlayMode:freePlayMode);
+        updateUpgradesDictsAfterRocketFlight();
         SendAlertEndScene(reachedDestination);
     }
 
@@ -506,5 +509,29 @@ public class Rocket_Game_Manager : MonoBehaviour
             gameStarted = true;
         }
     }
+
+
+
+    void updateUpgradesDictsAfterRocketFlight(){
+
+        // COW CATCHER
+        try{
+            if(Upgrades_Manager.instance.upgradesNumberDict[Upgrade.Cow_Catcher] >= 1){
+                Upgrades_Manager.instance.upgradesNumberDict[Upgrade.Cow_Catcher]--;
+                if(Upgrades_Manager.instance.upgradesNumberDict[Upgrade.Cow_Catcher] == 0){
+                   Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Cow_Catcher] = false; 
+                }
+            }
+        }
+        catch(Exception e){
+            Debug.LogError("Problem Updating Cow Catcher Upgrade");
+        }
+        // END COW CATCHER
+    }
+
+
+
+
+
 
 }

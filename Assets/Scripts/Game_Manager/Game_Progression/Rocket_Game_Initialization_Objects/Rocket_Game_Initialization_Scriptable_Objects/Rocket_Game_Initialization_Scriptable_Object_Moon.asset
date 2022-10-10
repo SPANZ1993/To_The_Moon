@@ -31,7 +31,7 @@ MonoBehaviour:
   - {r: 0.38823533, g: 0.48627454, b: 0.9725491, a: 0}
   poolObjList:
   - {fileID: 6468328627867421136, guid: 11abf94f072c854499f344d1577f9995, type: 3}
-  numToSpawnList: 01000000
+  numToSpawnList: 19000000
   shouldExpandList: 00
   spawnObjAltitudeRanges:
   - {x: 0, y: 500}
