@@ -43,7 +43,7 @@ public class Rocket_Control : MonoBehaviour
     private int hitCount = 0;
 
 
-    private float bounceTime = 0.3f;
+    private float bounceTime = 0.5f; // 0.3f??
     private bool isBouncing = false;
     public bool reachedTargetAltitude = false;
     public bool startedSpiral = false;
@@ -64,6 +64,17 @@ public class Rocket_Control : MonoBehaviour
 
     Rocket_Game_Manager rocketGameManager;
     Material rocketMaterial;
+
+
+
+    Cow_Catcher_Controller cowCatcherController;
+
+    GameObject Cow_Catcher_1;
+    GameObject Cow_Catcher_2;
+    GameObject Cow_Catcher_3;
+
+
+
 
     GameObject cam;
 
@@ -101,6 +112,24 @@ public class Rocket_Control : MonoBehaviour
         //thrustAltMultiplier = 1;
 
         cam = GameObject.Find("Main Camera");
+
+
+
+        // Display Cow Catcher Sprites If We Have the Cow Catcher Enabled
+
+        cowCatcherController = GameObject.Find("Cow_Catcher").GetComponent<Cow_Catcher_Controller>();
+        Cow_Catcher_1 = GameObject.Find("Cow_Catcher_1");
+        Cow_Catcher_2 = GameObject.Find("Cow_Catcher_2");
+        Cow_Catcher_3 = GameObject.Find("Cow_Catcher_3");
+
+        if(!upgradesManager.upgradesUnlockedDict[Upgrade.Cow_Catcher]){
+            Cow_Catcher_1.GetComponent<SpriteRenderer>().enabled = false;
+            Cow_Catcher_2.GetComponent<SpriteRenderer>().enabled = false;
+            Cow_Catcher_3.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+
+
     }
 
 
@@ -399,11 +428,20 @@ public class Rocket_Control : MonoBehaviour
                 thrust -= initialThrust * 0.05;
                 displayHitAnimation();
                 Invoke("StopBounce", bounceTime);
+                hitCount++;
+                Debug.Log("WE HIT: " + collision.gameObject);
             }
-            else{
+            else if(bounceDir.y < 0.0f && (upgradesManager.upgradesUnlockedDict[Upgrade.Cow_Catcher] && hitCount < 3)){
                 Debug.Log("SKIPPING BC COW CATCHER");
+                cowCatcherController.Fade(hitCount+1);
+                isBouncing = true;
+                Invoke("StopBounce", bounceTime);
+                hitCount++;
+                Debug.Log("WE HIT: " + collision.gameObject);
             }
-            hitCount++;
+        }
+        else{
+            Debug.Log("SKIPPING BC BOUNCING");
         }
     }
 

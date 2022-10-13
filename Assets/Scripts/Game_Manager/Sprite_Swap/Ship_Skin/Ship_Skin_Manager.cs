@@ -37,6 +37,10 @@ public class Ship_Skin_Manager : MonoBehaviour
         return skin;
     }
 
+    public Ship_Skin_Scriptable_Object getCurSkin(){
+        return getSkinById(CurSkinID);
+    }
+
 
     // Set ship skin whenever we change the skin Id
     public void setCurShipSkinId(int skinId){
@@ -60,12 +64,12 @@ public class Ship_Skin_Manager : MonoBehaviour
         catch(Exception e){
             Debug.Log("Couldn't find skin with id " + skinId);
         }
-        if (SceneManager.GetActiveScene().name == "Main_Area"){
+        if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             if(skin != null){
                 GameObject.Find("Rocket").GetComponent<SpriteRenderer>().sprite = skin.ShipSkinSprite;
             }
         }
-        else if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
+        else if(SceneManager.GetActiveScene().name.StartsWith("Rocket_Flight")){
             GameObject.Find("Rocket").GetComponent<SpriteRenderer>().sprite = skin.ShipSkinSprite;
         }
 

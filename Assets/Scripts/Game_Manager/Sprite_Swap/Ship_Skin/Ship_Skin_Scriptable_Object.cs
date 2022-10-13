@@ -6,6 +6,7 @@ using UnityEngine;
 public class Ship_Skin_Scriptable_Object : ScriptableObject
 {
     public Sprite ShipSkinSprite { get { return shipSkinSprite; } private set { shipSkinSprite = value; } }
+    public Sprite ParticleShieldSprite { get { return particleShieldSprite; } private set { particleShieldSprite = value; } }
     public int SkinId { get { return skinId; } private set {skinId = value;}}    
 
     [SerializeField]
@@ -14,5 +15,7 @@ public class Ship_Skin_Scriptable_Object : ScriptableObject
     [SerializeField]
     private Sprite shipSkinSprite;
 
+    [SerializeField]
+    private Sprite particleShieldSprite;
 
 }

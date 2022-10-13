@@ -11,6 +11,12 @@ public class Space_Junk_Dark_Matter : Space_Junk_Base
 
     // Rocket_Game_Manager rocketGameManager;
 
+    public delegate void AlertDarkMatterEnabled(GameObject DarkMatter);
+    public static event AlertDarkMatterEnabled AlertDarkMatterEnabledInfo;
+
+
+    public delegate void AlertDarkMatterDisabled(GameObject DarkMatter);
+    public static event AlertDarkMatterDisabled AlertDarkMatterDisabledInfo;
 
     // float altitudeLoc;
 
@@ -21,11 +27,23 @@ public class Space_Junk_Dark_Matter : Space_Junk_Base
         // rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
         
         // altitudeLoc = rocketGameManager.calculateAltitude(gameObject.transform.position.y);
-
+        base.OnEnable();
 
         Debug.Log("DO WE HAVE THE SHIELD UNLOCKED? " + Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Particle_Shield]);
         if(Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Particle_Shield]){
             GetComponent<Collider2D>().enabled = false;
+        }
+        if(AlertDarkMatterEnabledInfo != null){
+            AlertDarkMatterEnabledInfo(gameObject);
+        }
+    }
+
+    void OnDisable(){
+        base.OnDisable();
+
+        //Rocket_Game_Manager.PauseLaunchSceneInfo -= onGamePause;
+        if(AlertDarkMatterDisabledInfo != null){
+            AlertDarkMatterDisabledInfo(gameObject);
         }
     }
 

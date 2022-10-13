@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinId: 4
   shipSkinSprite: {fileID: -1606059424, guid: 9ccfd13a63d66a24db6de45c46cf8389, type: 3}
+  particleShieldSprite: {fileID: 1068201939, guid: c97cb252793413d44b64a3af1e481b29, type: 3}
