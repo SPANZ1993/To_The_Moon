@@ -9,8 +9,14 @@ public class Space_Junk_Base : MonoBehaviour
     [SerializeField]
     private string bumpSound;
 
+    [SerializeField]
+    private GameObject TeamRocketObject;
+
 
     protected void OnEnable(){
+
+        Debug.Assert(TeamRocketObject != null);
+
         rb = GetComponent<Rigidbody2D>();
 
         //Debug.Log("GOT RB: " + gameObject.name);
@@ -20,6 +26,7 @@ public class Space_Junk_Base : MonoBehaviour
 
     protected void OnDisable(){
         Rocket_Game_Manager.PauseLaunchSceneInfo -= onGamePause;
+        SpawnTeamRocket(); // TODO: ONLY DO THIS IF WE AREN'T DONE WITH THE ROCKET GAME
     }
 
     void onGamePause(bool paused){
@@ -36,5 +43,10 @@ public class Space_Junk_Base : MonoBehaviour
 
     public string getBumpSound(){
         return bumpSound;
+    }
+
+    
+    private void SpawnTeamRocket(){
+        Instantiate(TeamRocketObject, transform.position, transform.rotation);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 using System.Linq;
 
@@ -145,6 +146,9 @@ public class Rocket_Game_Initialization_Scriptable_Object : ScriptableObject
         Arriving_Planet.GetComponent<SpriteRenderer>().sprite = arrivingPlanetSprite;
         arrivingObjectParallax.rocketBotAlt = arrivingPlanetBotParallaxRocketAlt;
         arrivingObjectParallax.rocketTopAlt = arrivingPlanetTopParallaxRocketAlt;
+
+
+        GameObject.Find("Altitude_Bar_Top_Image").GetComponent<Image>().sprite = arrivingPlanetSprite;
 
         // Make it so we pass the arriving planet
         if(freePlayMode){

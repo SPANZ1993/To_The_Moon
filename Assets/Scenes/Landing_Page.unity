@@ -289,6 +289,15 @@ MonoBehaviour:
     source: {fileID: 0}
     origVolume: 0
     origPitch: 0
+  - name: Main_Area_Theme_Moon
+    clip: {fileID: 8300000, guid: d905b28f8f7a44c49ac2005dd3acb7d4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    channel: 1
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
   - name: Rocket_Theme_Earth
     clip: {fileID: 8300000, guid: 1b7816bbf71936146a4642841490524c, type: 3}
     volume: 0.6
@@ -624,6 +633,60 @@ MonoBehaviour:
     origPitch: 0
   - name: Space_Junk_Satellite_Bump
     clip: {fileID: 8300000, guid: f8994698f151a5a43be6a41ce35641fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Golf_Bump
+    clip: {fileID: 8300000, guid: 3c9fa7209b87b51428d5750570884803, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Golf_Ball_Bump
+    clip: {fileID: 8300000, guid: 1a0661704668eec45b5ac1255d99ba10, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Comet_Bump
+    clip: {fileID: 8300000, guid: c0dc2975f3713714f880fe25a1b0d548, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Dark_Matter_Ambient
+    clip: {fileID: 8300000, guid: 46183ac6628fc704aa6783c5a68f6ccb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Dark_Matter_Bump
+    clip: {fileID: 8300000, guid: 3ca69219f4e164c4dbc1927450b820a4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    channel: 0
+    source: {fileID: 0}
+    origVolume: 0
+    origPitch: 0
+  - name: Space_Junk_Comet_Bump
+    clip: {fileID: 8300000, guid: 2c9bd907a977e634e8af193d9e080b77, type: 3}
     volume: 1
     pitch: 1
     loop: 0

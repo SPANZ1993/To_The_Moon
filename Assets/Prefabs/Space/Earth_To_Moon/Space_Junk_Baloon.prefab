@@ -202,5 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bumpSound: Space_Junk_Baloon_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   thrustVert: 1.5
   topSpeedVert: 0.5

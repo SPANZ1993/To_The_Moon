@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bumpSound: Space_Junk_UFO_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   DebugMode: 1
   maxRotation: 8
   wiggleTime: 0.18

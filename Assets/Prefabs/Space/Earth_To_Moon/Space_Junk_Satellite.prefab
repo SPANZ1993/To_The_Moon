@@ -309,14 +309,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bumpSound: Space_Junk_Satellite_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   DebugMode: 0
   maxRotation: 80
   maxSpriteRotation: 80
+  goingRight: 0
+  offsetAngle: 0
   minPossibleThrust: 1.2
   maxPossibleThrust: 1.3
+  thrust: 0
   minPossibleTopSpeed: 1.1
   maxPossibleTopSpeed: 1.2
+  topSpeed: 0
   shouldFlipSprite: 0
+  defaultDir: 1
+  speed: 0
   dishPivotDegrees: 15
   dishPivotTime: 0.175
 --- !u!1 &8285076793867790853

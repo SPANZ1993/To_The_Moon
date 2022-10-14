@@ -39,9 +39,9 @@ public class Cow_Catcher_Controller : MonoBehaviour
     GameObject CowCatcher3;
 
 
-    Material cowCatcherFillMaterMaterial1;
-    Material cowCatcherFillMaterMaterial2;
-    Material cowCatcherFillMaterMaterial3;
+    Material cowCatcherFillMaterial1;
+    Material cowCatcherFillMaterial2;
+    Material cowCatcherFillMaterial3;
 
     int cowCatcherFillGlowId1;
     int cowCatcherFillGlowId2;
@@ -61,10 +61,21 @@ public class Cow_Catcher_Controller : MonoBehaviour
         CowCatcher3 = GameObject.Find("Cow_Catcher_3");
 
 
+        if(!Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Cow_Catcher]){
+            GameObject.Find("Cow_Catcher_1_Fill").GetComponent<Renderer>().enabled = false;
+            GameObject.Find("Cow_Catcher_2_Fill").GetComponent<Renderer>().enabled = false;
+            GameObject.Find("Cow_Catcher_3_Fill").GetComponent<Renderer>().enabled = false;
+            
+            GameObject.Find("Cow_Catcher_1_Outline").GetComponent<Renderer>().enabled = false;
+            GameObject.Find("Cow_Catcher_2_Outline").GetComponent<Renderer>().enabled = false;
+            GameObject.Find("Cow_Catcher_3_Outline").GetComponent<Renderer>().enabled = false;
+        }
 
-        cowCatcherFillMaterMaterial1 = GameObject.Find("Cow_Catcher_1_Fill").GetComponent<Renderer>().material;
-        cowCatcherFillMaterMaterial2 = GameObject.Find("Cow_Catcher_2_Fill").GetComponent<Renderer>().material;
-        cowCatcherFillMaterMaterial3 = GameObject.Find("Cow_Catcher_3_Fill").GetComponent<Renderer>().material;
+
+
+        cowCatcherFillMaterial1 = GameObject.Find("Cow_Catcher_1_Fill").GetComponent<Renderer>().material;
+        cowCatcherFillMaterial2 = GameObject.Find("Cow_Catcher_2_Fill").GetComponent<Renderer>().material;
+        cowCatcherFillMaterial3 = GameObject.Find("Cow_Catcher_3_Fill").GetComponent<Renderer>().material;
 
         //Glow();
         StartCoroutine(StartGlow());
@@ -96,15 +107,15 @@ public class Cow_Catcher_Controller : MonoBehaviour
 
     void Glow(int glowNum){
 
-        Material glowMaterial = cowCatcherFillMaterMaterial1;
+        Material glowMaterial = cowCatcherFillMaterial1;
         if(glowNum == 1){
-            glowMaterial = cowCatcherFillMaterMaterial1;
+            glowMaterial = cowCatcherFillMaterial1;
         }
         else if(glowNum == 2){
-            glowMaterial = cowCatcherFillMaterMaterial2;
+            glowMaterial = cowCatcherFillMaterial2;
         }
         else if(glowNum == 3){
-            glowMaterial = cowCatcherFillMaterMaterial3;
+            glowMaterial = cowCatcherFillMaterial3;
         }
 
         int _glow(Material glowMaterial, float startGlowLerpVal, float endGlowLerpVal, System.Action onComplete){
@@ -152,17 +163,17 @@ public class Cow_Catcher_Controller : MonoBehaviour
         Material glowMaterial;
         if(fadeNum == 1){
             FadeObject = GameObject.Find("Cow_Catcher_1");
-            glowMaterial = cowCatcherFillMaterMaterial1;
+            glowMaterial = cowCatcherFillMaterial1;
             LeanTween.cancel(cowCatcherFillGlowId1);
         }
         else if(fadeNum == 2){
             FadeObject = GameObject.Find("Cow_Catcher_2");
-            glowMaterial = cowCatcherFillMaterMaterial2;
+            glowMaterial = cowCatcherFillMaterial2;
             LeanTween.cancel(cowCatcherFillGlowId2);
         }
         else if(fadeNum == 3){
             FadeObject = GameObject.Find("Cow_Catcher_3");
-            glowMaterial = cowCatcherFillMaterMaterial3;
+            glowMaterial = cowCatcherFillMaterial3;
             LeanTween.cancel(cowCatcherFillGlowId3);
         }
         else{

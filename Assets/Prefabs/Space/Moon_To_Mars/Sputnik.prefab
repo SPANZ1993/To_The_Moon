@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bumpSound: Space_Junk_Airplane_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   DebugMode: 0
   maxRotation: 15
   maxSpriteRotation: 15
@@ -198,3 +199,4 @@ MonoBehaviour:
   topSpeed: 0
   shouldFlipSprite: 1
   defaultDir: 0
+  speed: 0

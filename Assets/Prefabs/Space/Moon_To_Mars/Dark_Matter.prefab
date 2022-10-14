@@ -205,4 +205,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9163147563160489713dfbf95e804b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpSound: 
+  bumpSound: Space_Junk_Dark_Matter_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}

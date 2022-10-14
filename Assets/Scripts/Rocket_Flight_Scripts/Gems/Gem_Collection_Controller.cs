@@ -5,6 +5,8 @@ using UnityEngine;
 public class Gem_Collection_Controller : MonoBehaviour
 {
 
+    [SerializeField]
+    public GameObject TeamRocketStar;
 
     public delegate void GemCollected();
     public static event GemCollected GemCollectedInfo;
@@ -30,10 +32,20 @@ public class Gem_Collection_Controller : MonoBehaviour
                 if(!Audio_Manager.instance.IsPlaying("Space_Gem_Collect")){
                     Audio_Manager.instance.Play("Space_Gem_Collect");
                 }
-                GemCollectedInfo();
-                Destroy(gameObject);
+                OnCollect();
+                //GemCollectedInfo();
+                //Destroy(gameObject);
             }
         }
+    }
 
+    void OnCollect(){
+        GemCollectedInfo();
+        LeanTween.scale(gameObject, new Vector3(), .5f).setOnComplete(SpawnTeamRocket);
+    }
+
+    void SpawnTeamRocket(){
+        Instantiate(TeamRocketStar, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

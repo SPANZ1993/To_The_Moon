@@ -20,6 +20,9 @@ public class Space_Junk_Dark_Matter : Space_Junk_Base
 
     // float altitudeLoc;
 
+    float timeSinceLastRocketCollision = 0f;
+
+
     void OnEnable(){
         // camObj = GameObject.Find("Main Camera");
         // cam = camObj.GetComponent<Camera>();
@@ -56,9 +59,20 @@ public class Space_Junk_Dark_Matter : Space_Junk_Base
     // Update is called once per frame
     void Update()
     {
+        timeSinceLastRocketCollision += Time.deltaTime;
         // setLocation();
     }
 
+
+    void OnCollisionEnter2D(Collision2D collision){
+        GameObject other = collision.gameObject;
+        if (other.name == "Rocket"){
+            if(timeSinceLastRocketCollision <= 5f){
+                other.GetComponent<Rigidbody2D>().AddForce(new Vector3(0f, -150f, 0f));
+            }
+            timeSinceLastRocketCollision = 0f;
+        }
+    }
 
     // void setLocation(){
     //     Vector2 pos = gameObject.transform.position;

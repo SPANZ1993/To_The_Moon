@@ -68,6 +68,9 @@ public partial class Audio_Manager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Main_Area"){
             Play("Main_Area_Theme_Earth");
         }
+        else if (SceneManager.GetActiveScene().name == "Main_Area_Moon"){
+            Play("Main_Area_Theme_Moon");
+        }
         else if (SceneManager.GetActiveScene().name == "Rocket_Flight"){
             Play("Rocket_Flight_Thrusters");
             Play("Rocket_Theme_Earth");

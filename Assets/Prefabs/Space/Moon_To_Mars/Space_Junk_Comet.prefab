@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 448028459, guid: 361a3e991506495448e45ff3cf5b3ade, type: 3}
+      objectReference: {fileID: 948060119, guid: 14b054652b0f9db439c6eee8e43f75aa, type: 3}
     - target: {fileID: 8192452084279125920, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -45,11 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.1
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.1
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 8192452084279125921, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8192452084279125922, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_Name
-      value: Space_Junk_Plane
+      value: Space_Junk_Comet
       objectReference: {fileID: 0}
     - target: {fileID: 8192452084279125922, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
       propertyPath: m_TagString
@@ -115,13 +115,52 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.02933415
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8897121206944072077, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
 --- !u!1 &105904489240291154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8192452084279125922, guid: 94c46bc75d89dc24c9e74a10035b2125, type: 3}
   m_PrefabInstance: {fileID: 8127115313664016624}
   m_PrefabAsset: {fileID: 0}
+--- !u!60 &-6781045185175064246
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105904489240291154}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.01, y: 0.31}
+    newSize: {x: 1.8653846, y: 0.53846157}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.49499997, y: 0.095}
+      - {x: 0.445, y: 0.145}
+      - {x: 0.24499999, y: 0.145}
+      - {x: -0.0034956057, y: 0.1060409}
+      - {x: -0.29207295, y: 0.061338022}
+      - {x: -0.49499997, y: 0.024999999}
+      - {x: -0.49499997, y: -0.015}
+      - {x: -0.48499998, y: -0.024999999}
+      - {x: -0.415, y: -0.055}
+      - {x: 0.015, y: -0.13499999}
+      - {x: 0.255, y: -0.145}
+      - {x: 0.42499998, y: -0.145}
+      - {x: 0.49499997, y: -0.074999996}
 --- !u!95 &8127453855697842306
 Animator:
   serializedVersion: 4
@@ -154,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee91ae03fc650f44a2bd5214fb49386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpSound: Space_Junk_Airplane_Bump
+  bumpSound: Space_Junk_Comet_Bump
   TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   DebugMode: 0
   maxRotation: 15

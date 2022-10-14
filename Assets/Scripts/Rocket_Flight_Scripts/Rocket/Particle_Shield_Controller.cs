@@ -12,6 +12,8 @@ public class Particle_Shield_Controller : MonoBehaviour
 
     [SerializeField]
     private float displayScreenHeightMultiplier = 1f;
+        [SerializeField]
+    private float displayScreenHeightMultiplierAudio = 1f;
 
     private SpriteRenderer rend;
 
@@ -23,6 +25,7 @@ public class Particle_Shield_Controller : MonoBehaviour
     private float GlowEaseTime = 1;
     private int glowTweenId;
 
+    private SpriteRenderer ParticleShieldRenderer;
     private Material ParticleShieldMaterial;
 
 
@@ -38,17 +41,22 @@ public class Particle_Shield_Controller : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         //Set Sprite
         if(curShipSkin != null && curShipSkin.ParticleShieldSprite != null){
-            rend.sprite =curShipSkin.ParticleShieldSprite;
+            rend.sprite = curShipSkin.ParticleShieldSprite;
         }
         else{
             rend.sprite = defaultSprite;
         }
 
-        ParticleShieldMaterial = GetComponent<SpriteRenderer>().material;
+        ParticleShieldRenderer = GetComponent<SpriteRenderer>();
+        if(!Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Particle_Shield]){
+            ParticleShieldRenderer.enabled = false;
+        }
+        ParticleShieldMaterial = ParticleShieldRenderer.material;
 
         //Set Alpha to 0
         UpdateSprite();
         Glow();
+        PlayAmbientSound();
         ParticleShieldMaterial.SetFloat("_OutlineAlpha", 0f);
     }
 
@@ -71,6 +79,7 @@ public class Particle_Shield_Controller : MonoBehaviour
     void Update(){
         UpdateDistances();
         UpdateSprite();
+        SetAmbientSoundVolume();
     }
 
     void OnDarkMatterEnabled(GameObject DarkMatter){
@@ -108,7 +117,7 @@ public class Particle_Shield_Controller : MonoBehaviour
         else{
             float minDist = DarkMatterObjectsDict.Values.Min();
             if(minDist <= ScreenHeight*displayScreenHeightMultiplier){
-                Debug.Log("SETTING ALPHA TO: " + Mathf.Lerp(0f, 1f, ((ScreenHeight*displayScreenHeightMultiplier)-minDist)/(ScreenHeight*displayScreenHeightMultiplier))); // GET THIS CALCULATION (RATIO) CORRECT
+                //Debug.Log("SETTING ALPHA TO: " + Mathf.Lerp(0f, 1f, ((ScreenHeight*displayScreenHeightMultiplier)-minDist)/(ScreenHeight*displayScreenHeightMultiplier))); // GET THIS CALCULATION (RATIO) CORRECT
                 SetAlpha(Mathf.Lerp(0f, 1f, ((ScreenHeight*displayScreenHeightMultiplier)-minDist)/(ScreenHeight*displayScreenHeightMultiplier)));
             }
             else{
@@ -122,7 +131,7 @@ public class Particle_Shield_Controller : MonoBehaviour
         Color tmp = rend.color;
         tmp.a = alpha;
         rend.color = tmp;
-        if(alpha >= 0.15f){
+        if(alpha >= 0.25f){
             ParticleShieldMaterial.SetFloat("_OutlineAlpha", 1f);
         }
         else{
@@ -151,6 +160,36 @@ public class Particle_Shield_Controller : MonoBehaviour
         }
 
         _glowUp();
+    }
+
+    void PlayAmbientSound(){
+        Audio_Manager.instance.Play("Space_Junk_Dark_Matter_Ambient");
+        SetAmbientSoundVolume();
+    }   
+
+    void SetAmbientSoundVolume(){
+        if(DarkMatterObjectsDict.Count == 0){
+            Audio_Manager.instance.SetVolume("Space_Junk_Dark_Matter_Ambient", 0f);
+            Audio_Manager.instance.SetVolume("Rocket_Theme_Earth", 1f);
+        }
+        else{
+            float minDist = DarkMatterObjectsDict.Values.Min();
+            if(minDist <= ScreenHeight*displayScreenHeightMultiplierAudio){
+                float soundVol = Mathf.Lerp(0f, 1f, ((ScreenHeight*displayScreenHeightMultiplierAudio)-minDist)/(ScreenHeight*displayScreenHeightMultiplierAudio));
+                Debug.Log("SETTING SOUND TO: " + soundVol); // GET THIS CALCULATION (RATIO) CORRECT
+                Audio_Manager.instance.SetVolume("Space_Junk_Dark_Matter_Ambient", soundVol);
+                if(1f-soundVol >= .4){
+                    Audio_Manager.instance.SetVolume("Rocket_Theme_Earth", 1f-soundVol);
+                }
+                else{
+                    Audio_Manager.instance.SetVolume("Rocket_Theme_Earth", 0f);
+                }
+            }
+            else{
+                Audio_Manager.instance.SetVolume("Space_Junk_Dark_Matter_Ambient", 0f);
+                Audio_Manager.instance.SetVolume("Rocket_Theme_Earth", 1f);
+            }
+        }
     }
 
 }

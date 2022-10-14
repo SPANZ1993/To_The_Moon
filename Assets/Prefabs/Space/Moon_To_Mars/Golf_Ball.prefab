@@ -180,7 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee91ae03fc650f44a2bd5214fb49386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpSound: 
+  bumpSound: Space_Junk_Golf_Ball_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   DebugMode: 0
   maxRotation: 15
   maxSpriteRotation: 0
@@ -194,3 +195,4 @@ MonoBehaviour:
   topSpeed: 0
   shouldFlipSprite: 0
   defaultDir: 1
+  speed: 0

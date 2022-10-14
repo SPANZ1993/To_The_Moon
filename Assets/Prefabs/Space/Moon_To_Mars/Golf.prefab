@@ -286,7 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b4dcb79a0ef0a428a801a02889831f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpSound: 
+  bumpSound: Space_Junk_Golf_Bump
+  TeamRocketObject: {fileID: 8316492111903318995, guid: 4b21813588b9edf48bb5527ef55b875d, type: 3}
   DebugMode: 0
   maxRotation: 10
   maxSpriteRotation: 10
@@ -300,6 +301,7 @@ MonoBehaviour:
   topSpeed: 0
   shouldFlipSprite: 1
   defaultDir: 1
+  speed: 0
   Golf_Ball_Prefab: {fileID: 2326414503948295874, guid: 1320f322f4647e243b347c626c513d42, type: 3}
 --- !u!95 &6468328627867421132
 Animator:
