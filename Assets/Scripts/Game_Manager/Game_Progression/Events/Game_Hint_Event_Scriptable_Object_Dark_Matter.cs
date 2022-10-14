@@ -16,10 +16,11 @@ public class Game_Hint_Event_Scriptable_Object_Dark_Matter : Game_Hint_Event_Scr
     private float hintWaitTime = 1.5f;
 
     public override bool shouldTrigger(){
+        float time = Time.time;
         bool shouldTrigger = base.shouldTrigger();
         Dictionary<string, int> rocketGameBumpCounts = Game_Manager.instance.rocketGameBumpCounts;
         string rocketGameBumpCountsDarkMatterKey = "";
-        if(rocketGameBumpCounts == null || !rocketGameBumpCounts.Keys.Select(k => k.StartsWith("Dark_Matter")).Any()){
+        if(rocketGameBumpCounts == null || !rocketGameBumpCounts.Keys.Where(k => k.StartsWith("Dark_Matter")).Any()){
             shouldTrigger = false;
         }
         return shouldTrigger;

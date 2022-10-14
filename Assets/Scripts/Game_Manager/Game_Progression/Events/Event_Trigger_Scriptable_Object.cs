@@ -130,6 +130,7 @@ public abstract class Event_Trigger_Scriptable_Object : ScriptableObject, System
 
     // Has to be called from child class once it's done running
     public void _alertManagerOnEventEnd(){
+        Debug.Log("EVENT OVER!");
         Progression_Manager.instance.CurrentEventIdInProgress = null;
 
         if(Progression_Manager.instance.EventIdToTimesTriggered.Keys.Contains(EventId)){
