@@ -485,5 +485,8 @@ public class Rocket_Control : MonoBehaviour
         }
     }
 
+    public float getIntAngle(){
+        return int_angle;
+    }
 
 }
