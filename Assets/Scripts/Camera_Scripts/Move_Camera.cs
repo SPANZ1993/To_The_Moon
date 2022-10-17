@@ -195,7 +195,12 @@ public class Move_Camera : MonoBehaviour
     }
 
     void closeMenusOnSwipe(){
-        UI_Controller.instance.closeMenus();
+        if(Game_Manager.instance.gameObject.GetComponent<IEvent>() == null){
+            UI_Controller.instance.closeMenus();
+        }
+        else{
+            Debug.Log("SKIPPING CLOSE MENUS BC IN EVENT");
+        }
     }
 
     void moveTowards(Vector3 location, Vector3 destination, float speed)

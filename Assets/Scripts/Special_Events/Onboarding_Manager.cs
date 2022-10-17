@@ -150,7 +150,7 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         StartCoroutine(disableUIOnboardingStart());
 
         Touch_Detection.instance.disableReticle(disableswipes:true);
-        //Debug.Log("DISABLING SWIPES");
+        Debug.Log("DISABLING SWIPES");
 
         disableAllMainAreaColliders();
         disableAllMineAreaColliders(); // New
@@ -383,6 +383,7 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
         UI_Controller.instance.EnableUIElement(GameObject.Find("Left_Swipe_Arrow"));
         Touch_Detection.instance.enableSwipes(Swipe.LEFTSWIPE, true);
+        
         //Debug.Log("WAITING FOR SWIPE");
         StartCoroutine(waitForSwipe(0f));
     }

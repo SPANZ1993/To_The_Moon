@@ -290,7 +290,12 @@ public class Scene_Manager : MonoBehaviour
         StartCoroutine(_onEndLaunchScene(reachedDestination));
     }
 
-
+    private string getEndMineGameNextScene(){
+        Debug.Log("GETTING NEXT SCENE");
+        Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
+        string nextSceneName = "Main_Area_" + curLevelSO.LevelName;
+        return nextSceneName;
+    }
 
     IEnumerator _onEndMineScene()
     {
@@ -304,11 +309,13 @@ public class Scene_Manager : MonoBehaviour
         }
 
         if(!gameManager.currentlySerializing){ // If we wanna wait for some stuff put it here
+            // Get Current Scene Name
+            string nextScene = getEndMineGameNextScene();
             Scene_Transition wipe = gameObject.GetComponent<Wipe>();
             //Scene_Transition wipe = gameObject.GetComponent<Circle_Wipe>();
             if (wipe != null){
-                wipe.BeginLeavingScene(nextScene: "Main_Area");
-                scene_name = "Main_Area";
+                wipe.BeginLeavingScene(nextScene: nextScene);
+                scene_name = nextScene;
             }
         }
         else{

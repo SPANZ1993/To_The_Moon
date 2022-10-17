@@ -181,15 +181,33 @@ public class Touch_Detection : MonoBehaviour
     void OnLevelWasLoaded(){
         cam = GameObject.Find("Main Camera");
         cam_transform = cam.GetComponent<Transform>();
-        enableReticle(immediately:true);
-        enableSwipes(immediately:true);
+        disableReticle(disableswipes:true);
+        WaitThenEnable(1f);
     }
+
+
+    IEnumerator WaitThenEnable(float delay){
+        yield return new WaitForSeconds(delay);
+        if(Game_Manager.instance.gameObject.GetComponent<IEvent>() == null){
+            enableReticle(immediately:true);
+            enableSwipes(immediately:true);
+        }
+        else{
+            Debug.Log("SKIPPING ENABLE TOUCH BC IN EVENT");
+        }
+    }
+
+
+
 
     public Touch touch {get; private set;}
     // Update is called once per frame
     void Update()
     {
 
+        foreach(Swipe s in new [] {Swipe.UPSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE, Swipe.DOWNSWIPE}){
+            Debug.Log(s + " ENABLED: " + enabledSwipes[s] + " ...  AFTER CUR TAP?: " + enableSwipesAfterCurTap[s]);
+        }
 
 
         //Update the Text on the screen depending on current TouchPhase, and the current direction vector
@@ -257,19 +275,19 @@ public class Touch_Detection : MonoBehaviour
                         if (DebugMode)
                             Debug.Log("SWIPE FROM TD!!!");
                         if (swipeval == Swipe.UPSWIPE && enabledSwipes[Swipe.UPSWIPE] == true &&  SwipedUpInfo != null){
-                            //Debug.Log("UTD");
+                            Debug.Log("UTD");
                             SwipedUpInfo();
                         }
                         else if (swipeval == Swipe.DOWNSWIPE && enabledSwipes[Swipe.DOWNSWIPE] == true && SwipedDownInfo != null){
-                            //Debug.Log("DTD");
+                            Debug.Log("DTD");
                             SwipedDownInfo();
                         }
                         else if (swipeval == Swipe.LEFTSWIPE && enabledSwipes[Swipe.LEFTSWIPE] == true && SwipedLeftInfo != null){
-                            //Debug.Log("LTD");
+                            Debug.Log("LTD");
                             SwipedLeftInfo();
                         }
                         else if (swipeval == Swipe.RIGHTSWIPE && enabledSwipes[Swipe.RIGHTSWIPE] == true && SwipedRightInfo != null){
-                            //Debug.Log("RTD");
+                            Debug.Log("RTD");
                             SwipedRightInfo();
                         }
                     }
@@ -289,7 +307,7 @@ public class Touch_Detection : MonoBehaviour
                     }
                     foreach(Swipe pos_swipe in new Swipe[] {Swipe.UPSWIPE, Swipe.DOWNSWIPE, Swipe.LEFTSWIPE, Swipe.RIGHTSWIPE}){
                         if(enableSwipesAfterCurTap[pos_swipe]){
-                            //Debug.Log("REENEABLING FROM ENABLE AFTER CUR TAP");
+                            Debug.Log("REENEABLING FROM ENABLE AFTER CUR TAP");
                             enabledSwipes[pos_swipe] = true;
                             enableSwipesAfterCurTap[pos_swipe] = false;
                         }
@@ -429,9 +447,11 @@ public class Touch_Detection : MonoBehaviour
         if(enableSwipesAfterCurTap != null){
             //Debug.Log("ENABLING " + swipe);
             if(!immediately){
+                Debug.Log("WHY THE FUCK ARE WE CALLING THIS? A");
                 enableSwipesAfterCurTap[swipe] = true;
             }
             else{
+                Debug.Log("WHY THE FUCK ARE WE CALLING THIS? D");
                 enabledSwipes[swipe] = true;
                 enableSwipesAfterCurTap[swipe] = false;
             }
@@ -448,9 +468,11 @@ public class Touch_Detection : MonoBehaviour
         }
         //Debug.Log("ENABLING " + swipe);
         if(!immediately){
+            Debug.Log("WHY THE FUCK ARE WE CALLING THIS? B");
             enableSwipesAfterCurTap[swipe] = true;
         }
         else{
+            Debug.Log("WHY THE FUCK ARE WE CALLING THIS? C");
             enabledSwipes[swipe] = true;
             enableSwipesAfterCurTap[swipe] = false;
         }
@@ -475,7 +497,7 @@ public class Touch_Detection : MonoBehaviour
 
     public void disableSwipes(Swipe swipe){
         if(enabledSwipes != null){
-            //Debug.Log("DISABLING " + swipe);
+            Debug.Log("DISABLING " + swipe);
             enabledSwipes[swipe] = false;
             enableSwipesAfterCurTap[swipe] = false;
         }

@@ -89,7 +89,7 @@ public class Robot_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "Main_Area"){
+        if(SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             updateRobotState();
             updateScreenAnimation();
             updateRobotAnimation();
