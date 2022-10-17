@@ -61,7 +61,7 @@ public class Robot_Outfit_Manager : MonoBehaviour
             Debug.Log("Couldn't find outfit with id " + outfitId + " just returning the first outfit we have");
             outfit = allOutfits[0];
         }
-        if (SceneManager.GetActiveScene().name == "Main_Area"){
+        if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             if(outfit != null){
                 GameObject.Find("Robot_Clothes").GetComponent<SpriteRenderer>().sprite = outfit.RobotOutfitSprite;
             }

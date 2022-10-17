@@ -20,6 +20,7 @@ public class Level_Scriptable_Object :  ScriptableObject
     public ExperimentId[] UnlockedExperimentIds { get { return unlockedExperimentIds; } private set { unlockedExperimentIds = value; } }
     public int[] UnlockedResearchIds { get { return unlockedResearchIds; } private set { unlockedResearchIds = value; } }
     public int[] UnlockedResearcherIds { get { return unlockedResearcherIds; } private set { unlockedResearcherIds = value; } }
+    public IAP_Product_Robot_Outfit UnlockedRobotOutfit { get { return unlockedRobotOutfit; } private set { unlockedRobotOutfit = value; } }
 
     public Level_End_Event_Scriptable_Object OnLevelCompleteEvent { get { return onLevelCompleteEvent; } private set { onLevelCompleteEvent = value; } }
     // TODO: IMPLEMENT THIS
@@ -46,6 +47,9 @@ public class Level_Scriptable_Object :  ScriptableObject
 
     [SerializeField]
     private int[] unlockedResearcherIds;
+
+    [SerializeField]
+    private IAP_Product_Robot_Outfit unlockedRobotOutfit;
 
     [SerializeField]
     private Level_End_Event_Scriptable_Object onLevelCompleteEvent; // The event that plays after we beat the level

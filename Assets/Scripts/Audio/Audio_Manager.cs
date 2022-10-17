@@ -92,11 +92,13 @@ public partial class Audio_Manager : MonoBehaviour
 
     public void Play(string name)
     {
+        //Debug.Log("PLAYING: " + name);
         GetAudioSource(name).Play();
     }
 
     public void Play(Sound s)
     {
+        //Debug.Log("PLAYING: " + s);
         GetAudioSource(s).Play();
     }
 

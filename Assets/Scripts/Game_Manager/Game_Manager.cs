@@ -773,6 +773,11 @@ public class Game_Manager : MonoBehaviour
         
         initializeIAPManager(loadedGame.OwnedNonConsumableProductsIds);
 
+
+        // Look at the previous levels we have been to, and ensure we have any robot outfits, or ship skins given as level rewards unlocked
+        initializeLevelUnlockables(loadedGame.HighestLevelId);
+        
+
         initializeRobotOutfit(loadedGame.CurRobotClothesId);
         //Robot_Outfit_Manager.instance.setCurRobotOutfitId(loadedGame.CurRobotClothesId);
 
@@ -1078,9 +1083,25 @@ public class Game_Manager : MonoBehaviour
 
     }
 
+
+
+    private void initializeLevelUnlockables(int highestLevelId){
+        // TODO: DO THIS WITH SHIP SKINS AS WELL... CURRENTLY ONLY OUTFITS ARE UNLOCKED AS LEVEL REWARDS
+        List<Level_Scriptable_Object> seenLevels = Progression_Manager.instance.Levels.Where(l => l.LevelId < highestLevelId).ToList();
+
+        foreach(Level_Scriptable_Object l in seenLevels){
+            if(l.UnlockedRobotOutfit != null){
+                IAP_Manager.instance.addActiveProduct(l.UnlockedRobotOutfit);
+            }
+        }
+    }
+
+
+
+
     // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on
     private void initializeRobotOutfit(int outfitId){
-        //Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
+        Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
         // If the IAP Manager says we own the outfit that we are trying to wear
         List<IAP_Product_Robot_Outfit> ownedRobotOutfitIAPs = new List<IAP_Product_Robot_Outfit>();
 
@@ -1095,7 +1116,7 @@ public class Game_Manager : MonoBehaviour
         }
 
         if(ownedRobotOutfitIAPs.Any(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId)){
-            //Debug.Log("HEY WE OWN THIS OUTFIT");
+            Debug.Log("HEY WE OWN THIS OUTFIT");
             //Robot_Outfit_Manager.instance.setCurRobotOutfitId(outfitId);
             // Call Equip on the Outfit That We Found
             IAP_Product_Robot_Outfit outfit = new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0];
@@ -1110,7 +1131,7 @@ public class Game_Manager : MonoBehaviour
             }
         }
         else{
-            //Debug.Log("WE DON'T OWN THIS OUTFIT");
+            Debug.Log("WE DON'T OWN THIS OUTFIT");
             initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
         }
     }

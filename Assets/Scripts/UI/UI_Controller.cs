@@ -396,7 +396,7 @@ public class UI_Controller : MonoBehaviour
 
 
     private bool exchangeDisplayed = false;
-    private bool shopDisplayed = false;
+    public bool shopDisplayed {get; private set;}
     // End Computer Menu
 
 
@@ -565,6 +565,7 @@ public class UI_Controller : MonoBehaviour
         sceneManager = Scene_Manager.instance; // This is not the Unity SceneManager... this is our custom class
         //Scene_Manager sceneManager = GameObject.Find("Scene_Manager").GetComponent<Scene_Manager>();
         speechIsDisplayed = false;
+        shopDisplayed = false;
         Retry_Connect_Box = null;
         canvas = GameObject.Find("Canvas");
         if (SceneManager.GetActiveScene().name == "Landing_Page"){

@@ -18,5 +18,6 @@ MonoBehaviour:
   unlockedExperimentIds: 0300000004000000
   unlockedResearchIds: 03000000
   unlockedResearcherIds: 03000000
+  unlockedRobotOutfit: {fileID: 11400000, guid: d3e05ed340d2afd4781d472664450768, type: 2}
   onLevelCompleteEvent: {fileID: 11400000, guid: 4afbc5284a4a7dd42862ef6a12dcdc99, type: 2}
   rocketGameInitializationObject: {fileID: 11400000, guid: a70f19ac0718c3e4c9d3abeb7b7a9564, type: 2}

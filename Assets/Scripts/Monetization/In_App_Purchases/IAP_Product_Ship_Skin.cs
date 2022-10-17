@@ -34,7 +34,7 @@ public class IAP_Product_Ship_Skin : IAP_Product_Scriptable_Object_Nonconsumable
             }
         }
         else{
-            if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect")){
+            if(!Audio_Manager.instance.IsPlaying("UI_Button_No_Effect") && UI_Controller.instance.shopDisplayed){
                 Audio_Manager.instance.Play("UI_Button_No_Effect");
             }
         }

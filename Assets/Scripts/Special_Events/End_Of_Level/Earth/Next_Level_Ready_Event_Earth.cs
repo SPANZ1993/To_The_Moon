@@ -73,14 +73,18 @@ public class Next_Level_Ready_Event_Earth : MonoBehaviour
     }
 
 
-
+    string SpeechFormatFunc(string inputStr){
+        inputStr = Speech_Object_Generator.instance.defaultStringFormatFunc(inputStr);
+        inputStr = inputStr.Replace("{catresearcher}", Localization_Manager.instance.GetLocalizedString("UI_Researchers", "UI.Researcher.Researcher3.Name"));
+        return inputStr;    
+    }
 
 
     private void startNextLevelNotReadySpeech(int nextLevelNotReadySpeechNum){
         string keystring = "";
         if(nextLevelNotReadySpeechNum == 1){
             keystring = "Events_Script.NextLevelReady.Earth.1.1";
-            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:true, keyString:keystring, formatFunc:null), callBack:resumeAfterReadyEvent);
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:true, keyString:keystring, formatFunc:SpeechFormatFunc), callBack:resumeAfterReadyEvent);
         }
         // else if (nextLevelNotReadySpeechNum == 2){
         //     keystring = "Events_Script.NextLevelNotReady.Earth.2.1";

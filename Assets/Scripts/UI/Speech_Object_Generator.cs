@@ -265,12 +265,16 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.42", UI_Characters.Characters.Dog},
             {"Events_Script.NextLevelReady.Earth.1.43", UI_Characters.Characters.Dog},
             {"Events_Script.NextLevelReady.Earth.1.44", UI_Characters.Characters.Dog},
-            {"Events_Script.NextLevelReady.Earth.1.45", UI_Characters.Characters.Robot},
-            {"Events_Script.NextLevelReady.Earth.1.46", UI_Characters.Characters.Robot},
-            {"Events_Script.NextLevelReady.Earth.1.47", UI_Characters.Characters.Robot},
-            {"Events_Script.NextLevelReady.Earth.1.48", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelReady.Earth.1.45", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelReady.Earth.1.46", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelReady.Earth.1.47", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelReady.Earth.1.48", UI_Characters.Characters.Dog},
             {"Events_Script.NextLevelReady.Earth.1.49", UI_Characters.Characters.Robot},
-            {"Events_Script.NextLevelReady.Earth.1.50", UI_Characters.Characters.Guy},
+            {"Events_Script.NextLevelReady.Earth.1.50", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelReady.Earth.1.51", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelReady.Earth.1.52", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelReady.Earth.1.53", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelReady.Earth.1.54", UI_Characters.Characters.Dog},
             // End NextlevelReadyEarth
 
             // Robot Dark Matter Hint
@@ -504,6 +508,10 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.48", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.49", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.50", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.51", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.52", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.53", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.54", UI_Characters.Emotions.Talking},
             // End NextlevelReadyEarth
 
             // Robot Dark Matter Hint
@@ -708,8 +716,8 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.24", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.25", UI_Characters.Emotions.Happy},
             {"Events_Script.NextLevelReady.Earth.1.26", UI_Characters.Emotions.Talking},
-            {"Events_Script.NextLevelReady.Earth.1.27", UI_Characters.Emotions.Talking},
-            {"Events_Script.NextLevelReady.Earth.1.28", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.27", UI_Characters.Emotions.Sad},
+            {"Events_Script.NextLevelReady.Earth.1.28", UI_Characters.Emotions.Sad},
             {"Events_Script.NextLevelReady.Earth.1.29", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.30", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.31", UI_Characters.Emotions.Happy},
@@ -726,12 +734,16 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.42", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.43", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.44", UI_Characters.Emotions.Talking},
-            {"Events_Script.NextLevelReady.Earth.1.45", UI_Characters.Emotions.Idle},
-            {"Events_Script.NextLevelReady.Earth.1.46", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelReady.Earth.1.45", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelReady.Earth.1.46", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.47", UI_Characters.Emotions.Talking},
             {"Events_Script.NextLevelReady.Earth.1.48", UI_Characters.Emotions.Talking},
-            {"Events_Script.NextLevelReady.Earth.1.49", UI_Characters.Emotions.Talking},
-            {"Events_Script.NextLevelReady.Earth.1.50", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelReady.Earth.1.49", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelReady.Earth.1.50", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelReady.Earth.1.51", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelReady.Earth.1.52", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelReady.Earth.1.53", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelReady.Earth.1.54", UI_Characters.Emotions.Happy},
             // End NextlevelReadyEarth
         
             // Robot Dark Matter Hint

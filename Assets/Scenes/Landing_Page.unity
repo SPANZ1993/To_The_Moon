@@ -4660,6 +4660,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b4215a5300c77c4da611540b78807f5, type: 2}
   - {fileID: 11400000, guid: 1827c8f1df839a8419afc2e436fd1fd5, type: 2}
   - {fileID: 11400000, guid: d22574ba9b44050428ae2cbafb7ac45d, type: 2}
+  - {fileID: 11400000, guid: 0654683d98d946846b377962019860b9, type: 2}
   curOutfitID: 0
 --- !u!4 &1957729076
 Transform:
@@ -4834,6 +4835,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0127e74cf918ba4488315400f3fa16c8, type: 2}
   - {fileID: 11400000, guid: 36a199983297cba43bf3bc80c66f3693, type: 2}
   - {fileID: 11400000, guid: 24bfc81eee8e8d34fb3933c3ee152104, type: 2}
+  - {fileID: 11400000, guid: d3e05ed340d2afd4781d472664450768, type: 2}
   - {fileID: 11400000, guid: 69efb3132ebfb064780cb3833aec796c, type: 2}
   - {fileID: 11400000, guid: a5e59fae036fb68498475137796614e1, type: 2}
   - {fileID: 11400000, guid: b4080c27f59f58d47afaa8a67b20e8dc, type: 2}

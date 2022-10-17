@@ -198,5 +198,30 @@ public class IAP_Manager : MonoBehaviour
     //     activeProductsToShopPanel = new Dictionary<IAP_Product_Scriptable_Object, GameObject>();
     // }
 
+    public bool addActiveProduct(IAP_Product_Scriptable_Object product){
+        bool canAdd = true;
+        if(!allProducts.Select(prod => prod.ProductId).Contains(product.ProductId)){
+            canAdd = false;
+            Debug.LogError("Can't add product with id: " + product.ProductId + " bc it is not in allproducts");
+        }
+        if(activeProducts.Select(prod => prod.ProductId).Contains(product.ProductId)){
+            canAdd = false;
+            Debug.LogError("Can't add product with id: " + product.ProductId + " bc it is already in activeproducts");
+        }
+        
+        if(canAdd){
+            List<IAP_Product_Scriptable_Object> tmp = activeProducts.ToList();
+            tmp.Add(product);
+            activeProducts = tmp.ToArray();
+            Debug.Log("Added: " + product.ProductId);
+            if(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) &&
+                ((IAP_Product_Scriptable_Object_Nonconsumable)(System.Object)product).OwnedByDefault &&
+                !ownedNonConsumableProductsIds.Contains(product.ProductId)){
+                    ownedNonConsumableProductsIds.Add(product.ProductId);
+            }
+        }
+        return canAdd;
+    }
+
 }
 

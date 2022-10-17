@@ -112,6 +112,14 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
                 newUnlockedResearchersIds.Add(researcherId);
             }
             Researcher_Manager.instance.setUnlockedResearchersIds(newUnlockedResearchersIds.Distinct().ToList());
+
+            // Outfits
+            if(Level.UnlockedRobotOutfit != null){
+                Debug.Log("ADDING NEW OUTFIT: " + Level.UnlockedRobotOutfit.ProductId);
+                IAP_Manager.instance.addActiveProduct(Level.UnlockedRobotOutfit);
+                Debug.Log("EQUIPPING NEW OUTFIT: " + Level.UnlockedRobotOutfit.ProductId);
+                Level.UnlockedRobotOutfit.OnEquip();
+            }
         }
 
 
