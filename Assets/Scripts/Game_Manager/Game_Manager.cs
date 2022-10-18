@@ -439,6 +439,9 @@ public class Game_Manager : MonoBehaviour
         }
         //Debug.Log(gameTimeUnix);
         frameCount++;
+        if(frameCount%90 == 0){
+            gameManagerEventChecker();
+        }
         localSessionPrevFrameTime = localSessionCurrentTime;
         localSessionCurrentTime = DateTime.Now;
     }
@@ -1576,6 +1579,20 @@ public class Game_Manager : MonoBehaviour
     // End Onboarding
 
 
+    private void gameManagerEventChecker(){
+        //Periodically make sure all the components attached to the Game_Manager object are either the Game_Manager component, or events
+        Component[] components = gameObject.GetComponents(typeof(Component));
+        foreach(Component comp in components){
+            if(!(
+                typeof(Game_Manager).IsAssignableFrom(comp.GetType()) ||
+                typeof(IEvent).IsAssignableFrom(comp.GetType()) ||
+                typeof(Transform).IsAssignableFrom(comp.GetType()) ||
+                typeof(Sprite_Highlighter).IsAssignableFrom(comp.GetType())
+               )){
+                throw new System.Exception("Component " + comp + " on game manager does not implement IEvent");
+             }
+        }
+    }
 
     // End Special Events
 }

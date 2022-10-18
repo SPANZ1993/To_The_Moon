@@ -4,7 +4,7 @@ using UnityEngine;
 
 using System;
 
-public class Game_Hint_Event : MonoBehaviour
+public class Game_Hint_Event : MonoBehaviour, IEvent
 {
 
     public string hintSpeechObjectKeystring = "";

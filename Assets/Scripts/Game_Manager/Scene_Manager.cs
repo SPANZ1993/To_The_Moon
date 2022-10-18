@@ -294,6 +294,9 @@ public class Scene_Manager : MonoBehaviour
         Debug.Log("GETTING NEXT SCENE");
         Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
         string nextSceneName = "Main_Area_" + curLevelSO.LevelName;
+        if(nextSceneName == "Main_Area_Earth"){
+            nextSceneName = "Main_Area";
+        }
         return nextSceneName;
     }
 

@@ -55,6 +55,7 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2", UI_Characters.Characters.Robot}, // 3
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1", UI_Characters.Characters.Robot }, // 4
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Characters.Robot}, // 5
+            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.3", UI_Characters.Characters.Robot}, //5a
             // End Robot
 
             // Onboarding
@@ -293,6 +294,7 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2", UI_Characters.Emotions.Talking}, // 3
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1", UI_Characters.Emotions.Talking}, // 4
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Emotions.Talking}, // 5
+            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.3", UI_Characters.Emotions.Talking}, //5a
             // End Robot
 
             // Onboarding
@@ -527,6 +529,7 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Robot_Script.Autopilot_Return.Normal.Single_Gem.1.2", UI_Characters.Emotions.Idle}, // 3
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.1", UI_Characters.Emotions.Idle}, // 4
             {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.2", UI_Characters.Emotions.Idle}, // 5
+            {"Robot_Script.Autopilot_Return.Normal.Multiple_Gems.1.3", UI_Characters.Emotions.Sad}, //5a
 
             // Onboarding
             {"Events_Script.Onboarding.1.1", UI_Characters.Emotions.Idle}, // 6

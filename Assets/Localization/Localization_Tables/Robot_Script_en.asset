@@ -18,37 +18,42 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 55486282074841088
-    m_Localized: Hey bro! I was able to fly {height} miles!
+  - m_Id: 60133782060687360
+    m_Localized: I was able to fly {height} miles! I am a marvel of modern engineering!
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618304
-    m_Localized: Hey bro! I was able to fly {height} miles!
+  - m_Id: 60133783314784256
+    m_Localized: I was able to fly {height} miles! My algorithms are always improving!
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618305
-    m_Localized: "I also found a gem! Let\u2019s go!"
+  - m_Id: 60133783314784257
+    m_Localized: I was also able to procure a cosmic gem!
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618306
-    m_Localized: Hey bro! I was able to fly {height} miles!
+  - m_Id: 60133783314784258
+    m_Localized: My automated systems achieved a height of {height} miles on that
+      flight!
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618307
-    m_Localized: "I also found {gems} gems! Let\u2019s go!"
+  - m_Id: 60133783314784259
+    m_Localized: I also found {gems} gems! Maybe I should be the pilot from now on.
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618308
+  - m_Id: 60133783314784260
+    m_Localized: "\u2026 No\u2026 Okay\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60133783318978560
     m_Localized: '{playername}, do you suppose that was the dark matter that {stonks}
-      was talking about?'
+      mentioned?'
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618309
+  - m_Id: 60133783318978561
     m_Localized: "I\u2019ve performed over 69 trillion calculations, and cannot devise
       a way to get past."
     m_Metadata:
       m_Items: []
-  - m_Id: 55486282091618310
+  - m_Id: 60133783318978562
     m_Localized: Perhaps we should fund the {particleshield} experiment that {dog}
       was talking about.
     m_Metadata:

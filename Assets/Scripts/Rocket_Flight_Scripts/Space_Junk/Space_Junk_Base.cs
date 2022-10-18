@@ -12,8 +12,16 @@ public class Space_Junk_Base : MonoBehaviour
     [SerializeField]
     private GameObject TeamRocketObject;
 
+    private Rocket_Control rocketControl;
+    private Rocket_Game_Manager rocketGameManager;
 
     protected void OnEnable(){
+        if(rocketControl == null){
+            rocketControl = GameObject.Find("Rocket").GetComponent<Rocket_Control>();
+        }
+        if(rocketGameManager == null){
+            rocketGameManager = GameObject.Find("Rocket_Game_Manager").GetComponent<Rocket_Game_Manager>();
+        }
 
         Debug.Assert(TeamRocketObject != null);
 
@@ -26,7 +34,12 @@ public class Space_Junk_Base : MonoBehaviour
 
     protected void OnDisable(){
         Rocket_Game_Manager.PauseLaunchSceneInfo -= onGamePause;
-        SpawnTeamRocket(); // TODO: ONLY DO THIS IF WE AREN'T DONE WITH THE ROCKET GAME
+        if(rocketControl != null &&
+            rocketGameManager != null &&
+            rocketControl.getUserHasControl() &&
+            !rocketGameManager.reachedTargetAltitude){
+                SpawnTeamRocket(); // TODO: ONLY DO THIS IF WE AREN'T DONE WITH THE ROCKET GAME
+            }
     }
 
     void onGamePause(bool paused){
@@ -47,6 +60,7 @@ public class Space_Junk_Base : MonoBehaviour
 
     
     private void SpawnTeamRocket(){
+        Debug.Log("SPAWING TEAM ROCKET FROM: " + gameObject.name);
         Instantiate(TeamRocketObject, transform.position, transform.rotation);
     }
 }

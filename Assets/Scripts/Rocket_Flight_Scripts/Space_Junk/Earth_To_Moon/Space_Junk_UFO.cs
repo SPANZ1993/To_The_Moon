@@ -41,6 +41,7 @@ public class Space_Junk_UFO : Space_Junk_Base
 
     void OnEnable()
     {
+        base.OnEnable();
         Space_Junk_Gravity_Controller.Space_Junk_Collision_Occurred_Info += onSpaceJunkCollision;
 
         transform.rotation = new Quaternion();
@@ -53,6 +54,8 @@ public class Space_Junk_UFO : Space_Junk_Base
     }
 
     void OnDisable(){
+        base.OnDisable(); // New
+
         Space_Junk_Gravity_Controller.Space_Junk_Collision_Occurred_Info -= onSpaceJunkCollision;
 
 
@@ -63,6 +66,7 @@ public class Space_Junk_UFO : Space_Junk_Base
         if (LeanTween.isTweening(moveTweenId)){
             LeanTween.cancel(moveTweenId);
         }
+        
     }
 
 

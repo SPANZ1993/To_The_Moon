@@ -84,6 +84,7 @@ public class Rocket_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        
 
         gameScaler = GameObject.Find("Game_Scaler").GetComponent<Game_Scaler>();
         upgradesManager = Upgrades_Manager.instance;
@@ -487,6 +488,10 @@ public class Rocket_Control : MonoBehaviour
 
     public float getIntAngle(){
         return int_angle;
+    }
+
+    public bool getUserHasControl(){
+        return userHasControl;
     }
 
 }

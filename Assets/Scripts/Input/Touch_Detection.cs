@@ -182,7 +182,7 @@ public class Touch_Detection : MonoBehaviour
         cam = GameObject.Find("Main Camera");
         cam_transform = cam.GetComponent<Transform>();
         disableReticle(disableswipes:true);
-        WaitThenEnable(1f);
+        StartCoroutine(WaitThenEnable(1f));
     }
 
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Next_Level_Ready_Event_Earth : MonoBehaviour
+public class Next_Level_Ready_Event_Earth : MonoBehaviour, IEvent
 {
 
     public delegate void EventEnded();
