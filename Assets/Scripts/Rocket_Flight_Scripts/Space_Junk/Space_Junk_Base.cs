@@ -60,7 +60,7 @@ public class Space_Junk_Base : MonoBehaviour
 
     
     private void SpawnTeamRocket(){
-        Debug.Log("SPAWING TEAM ROCKET FROM: " + gameObject.name);
+        // Debug.Log("SPAWNING TEAM ROCKET FROM: " + gameObject.name);
         Instantiate(TeamRocketObject, transform.position, transform.rotation);
     }
 }

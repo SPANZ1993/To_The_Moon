@@ -23,4 +23,5 @@ MonoBehaviour:
   triggerableLevelIds: 0100000002000000
   triggerableSceneNames:
   - Main_Area_Moon
+  - Main_Area_Mars
   LevelId: 1

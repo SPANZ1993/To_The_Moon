@@ -232,7 +232,9 @@ public class Scene_Manager : MonoBehaviour
         Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
         int nextLevelId = curLevelSO.NextLevelId;
         Level_Scriptable_Object nextLevelSO = Progression_Manager.instance.getLevelById(nextLevelId);
-        Debug.Log("NEXT LEVEL: " + nextLevelSO.LevelName);
+        if(nextLevelSO != null){
+            Debug.Log("NEXT LEVEL: " + nextLevelSO.LevelName);
+        }
         if(nextLevelSO == null){
             nextLevelSO = curLevelSO;
             Debug.Log("COULDNT GET NEXT SCENE");

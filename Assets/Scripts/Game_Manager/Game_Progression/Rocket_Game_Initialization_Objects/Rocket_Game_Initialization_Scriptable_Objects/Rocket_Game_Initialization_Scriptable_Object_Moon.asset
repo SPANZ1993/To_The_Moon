@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rocket_Game_Initialization_Scriptable_Object_Moon
   m_EditorClassIdentifier: 
   thrustAltMultiplier: 100
-  targetAltitude: 500
+  targetAltitude: 550
   fogAlts: []
   fogColors: []
   fogSizes: []
@@ -22,42 +22,66 @@ MonoBehaviour:
   - 150
   - 200
   - 300
-  - 300
+  - 400
+  - 500
+  - 550
+  - 600
+  - 650
+  - 750
+  - 1000
   BackgroundColors:
   - {r: 0.29803923, g: 0.3254902, b: 0.45490196, a: 0}
   - {r: 0.11764707, g: 0.11764707, b: 0.11764707, a: 0}
-  - {r: 0.20784315, g: 0.2901961, b: 0.69803923, a: 0}
-  - {r: 0.38823533, g: 0.48627454, b: 0.9725491, a: 0}
-  - {r: 0.38823533, g: 0.48627454, b: 0.9725491, a: 0}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 0}
+  - {r: 0.2392157, g: 0.050980397, b: 0.03529412, a: 0}
+  - {r: 0.5019608, g: 0.20392159, b: 0.06666667, a: 0}
+  - {r: 0.75294125, g: 0.30980393, b: 0.10980393, a: 0}
+  - {r: 0.8352942, g: 0.47058827, b: 0.16470589, a: 0}
+  - {r: 0.75294125, g: 0.30980393, b: 0.10980393, a: 0}
+  - {r: 0.5019608, g: 0.20392159, b: 0.06666667, a: 0}
+  - {r: 0.2392157, g: 0.050980397, b: 0.03529412, a: 0}
+  - {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 0}
   poolObjList:
+  - {fileID: 8192452084279125922, guid: 80efc032c78c4d9429ff2de7dbd5d941, type: 3}
+  - {fileID: 8192452084279125922, guid: fc4af44561e3f1a4e9efa270c1d3363a, type: 3}
   - {fileID: 105904489240291154, guid: 22ae3f311146b234598192a6e56d4cb4, type: 3}
-  numToSpawnList: 19000000
-  shouldExpandList: 00
+  - {fileID: 8192452084279125922, guid: bfc18b8581595b9409c2ed8e23fba17e, type: 3}
+  - {fileID: 6468328627867421136, guid: 11abf94f072c854499f344d1577f9995, type: 3}
+  - {fileID: 3010153211176201378, guid: b5ab7aea1634e504fb8a8f0fb77ec6a1, type: 3}
+  numToSpawnList: 190000001900000019000000190000001900000019000000
+  shouldExpandList: 010101010101
   spawnObjAltitudeRanges:
-  - {x: 0, y: 500}
+  - {x: 0, y: 200}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 200, y: 0}
+  - {x: 200, y: 0}
   spawnRate: 5
   oneOffSpawnList:
   - {fileID: 4346968360787525324, guid: 55f14775b798c604c92afc628a2a4b5f, type: 3}
   oneOffSpawnAltitudesList:
-  - 275
+  - 500
   poolObjListBackground:
-  - {fileID: 8192452084279125922, guid: 548959a54dbf63c4ca763a2d325fc4f9, type: 3}
-  - {fileID: 8192452084279125922, guid: 4df973ab04175b34aad373d385441afd, type: 3}
   - {fileID: 1496229526285054402, guid: 3a179b99dc7aea24da15a43322c2a80e, type: 3}
   - {fileID: 1496229526285054402, guid: c0050f0ca450ded408e36eb1d6c5ac5e, type: 3}
   - {fileID: 1496229526285054402, guid: a75c342cb26479d4c9117bb2f0c0410c, type: 3}
-  numToSpawnListBackground: 1900000019000000190000001900000019000000
-  shouldExpandListBackground: 0101010101
+  - {fileID: 1496229526285054402, guid: 9981f76d5d4245e43bcb4caf0a71f1cd, type: 3}
+  - {fileID: 1496229526285054402, guid: eac7ce28fdb1c1d48ab3db20c131239a, type: 3}
+  - {fileID: 1496229526285054402, guid: 2d0e01d9fd9826a4ab19b87c5d451852, type: 3}
+  numToSpawnListBackground: 190000001900000019000000190000001900000019000000
+  shouldExpandListBackground: 010101010101
   spawnObjAltitudeRangesBackground:
-  - {x: 0, y: 175}
-  - {x: 0, y: 175}
-  - {x: 175, y: 0}
-  - {x: 175, y: 0}
-  - {x: 175, y: 0}
+  - {x: 0, y: 400}
+  - {x: 0, y: 400}
+  - {x: 0, y: 400}
+  - {x: 650, y: 0}
+  - {x: 650, y: 0}
+  - {x: 650, y: 0}
   backgroundSpawnRate: 10
   leavingPlanetSprite: {fileID: -825518015, guid: 3bab1129679fd084ca73708b49239253, type: 3}
   leavingPlanetBotParallaxRocketAlt: 0
   leavingPlanetTopParallaxRocketAlt: 100
   arrivingPlanetSprite: {fileID: 21300000, guid: 95192371b74b93042ad22d4dfa052797, type: 3}
-  arrivingPlanetBotParallaxRocketAlt: 250
-  arrivingPlanetTopParallaxRocketAlt: 300
+  arrivingPlanetBotParallaxRocketAlt: 400
+  arrivingPlanetTopParallaxRocketAlt: 500

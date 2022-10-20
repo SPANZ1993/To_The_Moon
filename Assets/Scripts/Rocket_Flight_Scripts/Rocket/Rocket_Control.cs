@@ -404,7 +404,7 @@ public class Rocket_Control : MonoBehaviour
                 }
             }
             catch(System.Exception e){
-                Debug.Log("COULDN'T LOG BUMP OF " + collision.gameObject);
+                Debug.LogError("COULDN'T LOG BUMP OF " + collision.gameObject);
             }
             try{
                 // Try to play the object we hit's bump sound if we can
@@ -414,7 +414,7 @@ public class Rocket_Control : MonoBehaviour
                 }
             }
             catch(System.Exception e){
-                Debug.Log("No Bump Sound For " + collision.gameObject);
+                Debug.LogError("No Bump Sound For " + collision.gameObject);
             }
 
             if(!Audio_Manager.instance.IsPlaying("Rocket_Flight_Hit_Thud")){
@@ -430,15 +430,15 @@ public class Rocket_Control : MonoBehaviour
                 displayHitAnimation();
                 Invoke("StopBounce", bounceTime);
                 hitCount++;
-                Debug.Log("WE HIT: " + collision.gameObject);
+                //Debug.Log("WE HIT: " + collision.gameObject);
             }
             else if(bounceDir.y < 0.0f && (upgradesManager.upgradesUnlockedDict[Upgrade.Cow_Catcher] && hitCount < 3)){
-                Debug.Log("SKIPPING BC COW CATCHER");
+                //Debug.Log("SKIPPING BC COW CATCHER");
                 cowCatcherController.Fade(hitCount+1);
                 isBouncing = true;
                 Invoke("StopBounce", bounceTime);
                 hitCount++;
-                Debug.Log("WE HIT: " + collision.gameObject);
+                //Debug.Log("WE HIT: " + collision.gameObject);
             }
         }
         else{

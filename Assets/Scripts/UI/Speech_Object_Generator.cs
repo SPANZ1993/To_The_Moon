@@ -278,6 +278,38 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.54", UI_Characters.Characters.Dog},
             // End NextlevelReadyEarth
 
+
+            // Start NextLevelNotReadyMoon
+            {"Events_Script.NextLevelNotReady.Moon.1.1", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.2", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.3", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.4", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.5", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.6", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.7", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.8", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.9", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.10", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.11", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.12", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.13", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.14", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.15", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.16", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.17", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.18", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.19", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.20", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.21", UI_Characters.Characters.Robot},
+            {"Events_Script.NextLevelNotReady.Moon.1.22", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.23", UI_Characters.Characters.Dog},
+            {"Events_Script.NextLevelNotReady.Moon.1.24", UI_Characters.Characters.Robot},
+            // End NextLevelNotReadyMoon
+
+            // Start NextLevelReadyMoon
+            {"Events_Script.NextLevelReady.Moon.1.1", UI_Characters.Characters.Dog},
+            // End NextLevelReadyMoon
+
             // Robot Dark Matter Hint
             {"Robot_Script.Hint_Dark_Matter.1.1", UI_Characters.Characters.Robot},
             {"Robot_Script.Hint_Dark_Matter.1.2", UI_Characters.Characters.Robot},
@@ -516,6 +548,37 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.54", UI_Characters.Emotions.Talking},
             // End NextlevelReadyEarth
 
+            // Start NextLevelNotReadyMoon
+            {"Events_Script.NextLevelNotReady.Moon.1.1", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.2", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.3", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.4", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.5", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.6", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.7", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.8", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.9", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.10", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.11", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.12", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.13", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.14", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.15", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.16", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.17", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.18", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.19", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.20", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.21", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.22", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.23", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.24", UI_Characters.Emotions.Talking},
+            // End NextLevelNotReadyMoon
+
+            // Start NextLevelReadyMoon
+            {"Events_Script.NextLevelReady.Moon.1.1", UI_Characters.Emotions.Talking},
+            // End NextLevelReadyMoon
+
             // Robot Dark Matter Hint
             {"Robot_Script.Hint_Dark_Matter.1.1", UI_Characters.Emotions.Talking},
             {"Robot_Script.Hint_Dark_Matter.1.2", UI_Characters.Emotions.Talking},
@@ -748,6 +811,39 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.NextLevelReady.Earth.1.53", UI_Characters.Emotions.Idle},
             {"Events_Script.NextLevelReady.Earth.1.54", UI_Characters.Emotions.Happy},
             // End NextlevelReadyEarth
+
+
+            // Start NextLevelNotReadyMoon
+            {"Events_Script.NextLevelNotReady.Moon.1.1", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Moon.1.2", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.3", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.4", UI_Characters.Emotions.Sad},
+            {"Events_Script.NextLevelNotReady.Moon.1.5", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.6", UI_Characters.Emotions.Sad},
+            {"Events_Script.NextLevelNotReady.Moon.1.7", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.8", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.9", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.10", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.11", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.12", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.13", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.14", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.15", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.16", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.17", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.18", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.19", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.20", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.21", UI_Characters.Emotions.Idle},
+            {"Events_Script.NextLevelNotReady.Moon.1.22", UI_Characters.Emotions.Talking},
+            {"Events_Script.NextLevelNotReady.Moon.1.23", UI_Characters.Emotions.Happy},
+            {"Events_Script.NextLevelNotReady.Moon.1.24", UI_Characters.Emotions.Idle},
+            // End NextLevelNotReadyMoon
+
+            // Start NextLevelReadyMoon
+            {"Events_Script.NextLevelReady.Moon.1.1", UI_Characters.Emotions.Happy},
+            // End NextLevelReadyMoon
+
         
             // Robot Dark Matter Hint
             {"Robot_Script.Hint_Dark_Matter.1.1", UI_Characters.Emotions.Idle},

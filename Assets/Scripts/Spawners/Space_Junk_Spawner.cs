@@ -54,6 +54,7 @@ public class Space_Junk_Spawner : MonoBehaviour
     }
 
     void OnDisable(){
+        Debug.Log("DISABLING SPAWNER");
         Rocket_Game_Manager.PauseLaunchSceneInfo -= onPause;
     }
 
@@ -102,11 +103,17 @@ public class Space_Junk_Spawner : MonoBehaviour
                     //Debug.Log("STILL NOT SPAWNING????");
                 }
             }
+            else{
+                //Debug.Log("NOT SPAWNING BC GAME NOT STARTED");
+            }
 
 
             // Check to see if we need to spawn any one off objects
             spawnOneOffObjects();
 
+        }
+        else{
+            //Debug.Log("NOT SPAWNING BC POOL NOT INITIALIZED");
         }
     }
 
@@ -115,7 +122,7 @@ public class Space_Junk_Spawner : MonoBehaviour
         //Debug.Log("CHECKING SPAWN ... ROCKET ALT: " + rocketAltitude);
         for (int i = 0; i < oneOffSpawnObjects.Count; i++){
             if(!oneOffDidSpawnObjects[i] && oneOffSpawnAltitudes[i] <= rocketAltitude+30.0f){
-                Debug.Log("SPAWNING!!!");
+                //Debug.Log("SPAWNING!!!");
                 Instantiate(oneOffSpawnObjects[i], new Vector3(rocketObj.transform.position.x, oneOffSpawnAltitudes[i], 0.0f), new Quaternion());
                 oneOffDidSpawnObjects[i] = true;
             }
@@ -153,6 +160,7 @@ public class Space_Junk_Spawner : MonoBehaviour
         }
 
         float roll = Random.Range(0.0f, frameRate);
+        //Debug.Log("ROLLIN: " + Time.time);
         return roll <= spawnRate;
     }
 
@@ -220,6 +228,9 @@ public class Space_Junk_Spawner : MonoBehaviour
 
         if (possibleSpawnObjIndices.Count > 0){
             spawnPoolObj(possibleSpawnObjIndices[Random.Range(0, possibleSpawnObjIndices.Count)], new Vector3(spawnPosX, spawnPosY, 0.0f), new Quaternion());
+        }
+        else{
+            //Debug.Log("NO SPAWN INDICES");
         }
     }
 
