@@ -150,7 +150,7 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         StartCoroutine(disableUIOnboardingStart());
 
         Touch_Detection.instance.disableReticle(disableswipes:true);
-        Debug.Log("DISABLING SWIPES");
+        // Debug.Log("DISABLING SWIPES");
 
         disableAllMainAreaColliders();
         disableAllMineAreaColliders(); // New

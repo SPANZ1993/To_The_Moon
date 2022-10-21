@@ -109,12 +109,12 @@ public class IAP_Manager : MonoBehaviour
 
     public void OnPurchaseComplete(Product product){
         IAP_Product_Scriptable_Object product_scriptable_obj = getProductObjectByID(product.definition.id);
-        Debug.Log("PRODUCT IS: " + product_scriptable_obj.ProductTitle);
+        // Debug.Log("PRODUCT IS: " + product_scriptable_obj.ProductTitle);
         
     }
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason reason){
-        Debug.Log("PURCHASE OF: " + product.definition.id + " FAILED DUE TO... " + reason);
+        Debug.LogError("PURCHASE OF: " + product.definition.id + " FAILED DUE TO... " + reason);
 
     }
 
@@ -213,7 +213,7 @@ public class IAP_Manager : MonoBehaviour
             List<IAP_Product_Scriptable_Object> tmp = activeProducts.ToList();
             tmp.Add(product);
             activeProducts = tmp.ToArray();
-            Debug.Log("Added: " + product.ProductId);
+            // Debug.Log("Added: " + product.ProductId);
             if(typeof(IAP_Product_Scriptable_Object_Nonconsumable).IsAssignableFrom(product.GetType()) &&
                 ((IAP_Product_Scriptable_Object_Nonconsumable)(System.Object)product).OwnedByDefault &&
                 !ownedNonConsumableProductsIds.Contains(product.ProductId)){

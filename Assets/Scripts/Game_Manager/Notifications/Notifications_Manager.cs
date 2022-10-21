@@ -96,7 +96,7 @@ public class Notifications_Manager : MonoBehaviour
                 notificationChannelRegistered = true;
             }
             catch(Exception e){
-                Debug.Log("Couldn't register Android notification channel " + e);
+                Debug.LogError("Couldn't register Android notification channel " + e.ToString());
             }
             #endif
             //NotificationCenter.clearNotifications();
@@ -260,7 +260,7 @@ public class Notifications_Manager : MonoBehaviour
             
         }
         catch(Exception e){
-            Debug.Log("Error trying to schedule iOS Notification " + e);
+            Debug.LogError("Error trying to schedule iOS Notification " + e.ToString());
         }
     }
     #elif UNITY_ANDROID
@@ -281,11 +281,11 @@ public class Notifications_Manager : MonoBehaviour
                 }
             }
             catch(Exception e){
-                Debug.Log("Error trying to schedule Android Notification " + e);
+                Debug.LogError("Error trying to schedule Android Notification " + e.ToString());
             }
         }
         else{
-            Debug.Log("Tried to schedule notification before registering channel");
+            Debug.LogError("Tried to schedule notification before registering channel");
         }
     }
     #endif
@@ -309,7 +309,7 @@ public class Notifications_Manager : MonoBehaviour
                 //Debug.Log("Removed Scheduled Notification: " + id.ToString());
             }
             catch(Exception e){
-                Debug.Log("No Scheduled Notification with id: " + id.ToString());
+                Debug.LogError("No Scheduled Notification with id: " + id.ToString());
             }
 
             try{
@@ -317,7 +317,7 @@ public class Notifications_Manager : MonoBehaviour
                 //Debug.Log("Removed Delivered Notification: " + id.ToString());
             }
             catch(Exception e){
-                Debug.Log("No Delivered Notification with id: " + id.ToString());
+                Debug.LogError("No Delivered Notification with id: " + id.ToString());
             }
             clearedOldNotifications = true;
         }
@@ -338,7 +338,7 @@ public class Notifications_Manager : MonoBehaviour
                 //Debug.Log("Removed Scheduled Notification: " + id.ToString());
             }
             catch(Exception e){
-                Debug.Log("No Scheduled Notification with id: " + id.ToString());
+                Debug.LogError("No Scheduled Notification with id: " + id.ToString());
             }
 
             try{
@@ -346,7 +346,7 @@ public class Notifications_Manager : MonoBehaviour
                 //Debug.Log("Removed Delivered Notification: " + id.ToString());
             }
             catch(Exception e){
-                Debug.Log("No Delivered Notification with id: " + id.ToString());
+                Debug.LogError("No Delivered Notification with id: " + id.ToString());
             }
         }
         clearedOldNotifications = true;

@@ -217,7 +217,7 @@ public class Game_Scaler : MonoBehaviour
 
 
     void ScaleUIObject(GameObject obj){
-        Debug.Log("SCALING UI: " + obj.name);
+        // Debug.Log("SCALING UI: " + obj.name);
         if (obj.GetComponent<TextMeshProUGUI>() != null){
             //Debug.Log("GOT A TMP FOR THIS");
             TextMeshProUGUI TextMeshPro = obj.GetComponent<TextMeshProUGUI>();

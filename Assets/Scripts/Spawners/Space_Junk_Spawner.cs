@@ -54,7 +54,7 @@ public class Space_Junk_Spawner : MonoBehaviour
     }
 
     void OnDisable(){
-        Debug.Log("DISABLING SPAWNER");
+        // Debug.Log("DISABLING SPAWNER");
         Rocket_Game_Manager.PauseLaunchSceneInfo -= onPause;
     }
 

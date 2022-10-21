@@ -268,7 +268,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
                 hideBannerAd();
             }
             catch(System.Exception e){
-                Debug.Log("Couldn't hide banner ad");
+                Debug.LogError("Couldn't hide banner ad ... " + e.ToString());
             }
         }
     }
@@ -284,11 +284,11 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
         else{
             // If The IAP Manager Gets Initialized And We Realize We Have Ads Turned Off... 
             try{
-                Debug.Log("OOPS WE HAD ADS TURNED OFF");
+                Debug.LogError("OOPS WE HAD ADS TURNED OFF BUT IAP MANAGER GOT INITIALIZED ANYWAY... HIDING BANNER AD");
                 hideBannerAd();
             }
             catch(System.Exception e){
-                Debug.Log("Couldn't hide banner ad");
+                Debug.LogError("Couldn't hide banner ad ... " + e.ToString());
             }
         }
     }
@@ -352,7 +352,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
                     hideBannerAd();
                 }
                 catch(System.Exception e){
-                    Debug.Log("Couldn't hide banner ad");
+                    Debug.LogError("Couldn't hide banner ad... " + e.ToString());
                 }
             }
         }

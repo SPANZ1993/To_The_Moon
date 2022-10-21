@@ -62,7 +62,7 @@ public class Ship_Skin_Manager : MonoBehaviour
                 skin = getSkinById(CurSkinID);
         }
         catch(Exception e){
-            Debug.Log("Couldn't find skin with id " + skinId);
+            Debug.LogError("Couldn't find skin with id " + skinId);
         }
         if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){
             if(skin != null){

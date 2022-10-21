@@ -18,7 +18,7 @@ public class Robot_Title_Data_Message_Event_Trigger_Scriptable_Object : Robot_Me
             }
         }
         catch(Exception e){
-            Debug.Log("ERROR IN GET MESSAGE " + e);
+            Debug.LogError("ERROR IN GET MESSAGE " + e.ToString());
             return null;
         }
         return null;

@@ -52,7 +52,7 @@ public class Object_Pool : MonoBehaviour
 
     IEnumerator _LateStart(){
         while(poolObjList.Count == 0){
-            Debug.Log("OBJECT POOL NOT INITIALIZED");
+            Debug.LogError("OBJECT POOL NOT INITIALIZED");
             yield return new WaitForSeconds(0);
         }
         if (ScaleObjects){
@@ -177,7 +177,7 @@ public class Object_Pool : MonoBehaviour
                 }
                 // Otherwise pass... This probably means the queue emptied after the peek. No problem.
                 else{
-                    Debug.Log("SKIPPING A");
+                    // Debug.Log("SKIPPING A");
                     return null;
                 }
             }
@@ -186,7 +186,7 @@ public class Object_Pool : MonoBehaviour
             return Instantiate(poolObjList[poolTagToId[tag]], loc, rot);
         }
         else{
-            Debug.Log("SKIPPING B");
+            // Debug.Log("SKIPPING B");
             return null;
         }
     }

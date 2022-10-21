@@ -210,7 +210,7 @@ public class PlayFab_Manager : MonoBehaviour
 
         }
         else{
-            Debug.Log("Skipped saving because we don't have a name yet");
+            Debug.LogError("Skipped saving because we don't have a name yet");
         }
     }
 
@@ -303,7 +303,7 @@ public class PlayFab_Manager : MonoBehaviour
 
 
     void OnError(PlayFabError error){
-        Debug.Log("PLAYFAB: Error while performing PlayFab function: " + error.GenerateErrorReport());
+        Debug.LogError("PLAYFAB: Error while performing PlayFab function: " + error.GenerateErrorReport());
     }
 
     public void SendLeaderboard(string statisticName, Int32 value){

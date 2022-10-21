@@ -442,7 +442,7 @@ public class Rocket_Control : MonoBehaviour
             }
         }
         else{
-            Debug.Log("SKIPPING BC BOUNCING");
+            // Debug.Log("SKIPPING BC BOUNCING");
         }
     }
 

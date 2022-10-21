@@ -249,7 +249,6 @@ public class Move_Camera : MonoBehaviour
 
 
     bool isFrozen(){
-        //Debug.Log("UHHH: " + !(!uiController.rocketBuildingMenuDisplayed && !uiController.researchMenuDisplayed && !sceneManager.startedRocketSceneTransition && !sceneManager.startedMineSceneTransition));
         return uiController.rocketBuildingMenuDisplayed || uiController.researchMenuDisplayed || sceneManager.startedRocketSceneTransition || sceneManager.startedMineSceneTransition;
     }
 

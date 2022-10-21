@@ -32,7 +32,7 @@ public class Space_Junk_Dark_Matter : Space_Junk_Base
         // altitudeLoc = rocketGameManager.calculateAltitude(gameObject.transform.position.y);
         base.OnEnable();
 
-        Debug.Log("DO WE HAVE THE SHIELD UNLOCKED? " + Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Particle_Shield]);
+        // Debug.Log("DO WE HAVE THE SHIELD UNLOCKED? " + Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Particle_Shield]);
         if(Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Particle_Shield]){
             GetComponent<Collider2D>().enabled = false;
         }

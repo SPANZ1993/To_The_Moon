@@ -94,11 +94,11 @@ public class BadwordsFilter : MonoBehaviour
                 badWordsList = BadWordsEnglish;
             }
             else if(language == Languages.Spanish){
-                Debug.Log("Spanish Bad Words Not Yet Implemented");
+                Debug.LogError("Spanish Bad Words Not Yet Implemented");
                 return new List<string>();
             }
             else{
-                Debug.Log("Couldn't get bad words for " + language);
+                Debug.LogError("Couldn't get bad words for " + language);
                 return new List<string>();
             }
             

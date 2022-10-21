@@ -917,7 +917,7 @@ public class Speech_Object_Generator : MonoBehaviour
                 possibleStarts.Add(key);
             }
         }
-        Debug.Log("Possible Starts: " + string.Join(", ",  possibleStarts));
+        // Debug.Log("Possible Starts: " + string.Join(", ",  possibleStarts));
         return possibleStarts[UnityEngine.Random.Range(0, possibleStarts.Count-1)];
     }
 
@@ -1117,7 +1117,7 @@ public class Speech_Object_Generator : MonoBehaviour
                 return new Speech_Object(isBlocker, Speech_Strings_List, Characters_List, Emotions_List, Post_Emotions_List);
             }
             catch(Exception e){
-                Debug.Log(e);
+                Debug.LogError(e.ToString());
                 return null;
             }
         }
@@ -1130,12 +1130,12 @@ public class Speech_Object_Generator : MonoBehaviour
             speechJsonDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
         }
         catch(Exception e){
-            Debug.Log("SOMETHING IS WRONG WITH THE FORMATTING OF OUR SPEECH JSON");
+            Debug.LogError("SOMETHING IS WRONG WITH THE FORMATTING OF OUR SPEECH JSON");
             return false;
         }
 
         if(speechJsonDict.Keys.Count < 3){
-            Debug.Log("NOT ENOUGH KEYS IN OUR SPEECH DICT");
+            Debug.LogError("NOT ENOUGH KEYS IN OUR SPEECH DICT");
             return false;
         }
 
@@ -1144,14 +1144,14 @@ public class Speech_Object_Generator : MonoBehaviour
         foreach(string k in speechJsonDict.Keys){
             if(k == "B"){
                 if(speechJsonDict[k] != "0" && speechJsonDict[k] != "1"){
-                    Debug.Log("GOT IMPROPER VALUE FOR BLOCKER \"B\" Key " + speechJsonDict[k] + " OPTIONS ARE \"0\" and \"1\"");
+                    Debug.LogError("GOT IMPROPER VALUE FOR BLOCKER \"B\" Key " + speechJsonDict[k] + " OPTIONS ARE \"0\" and \"1\"");
                     return false;
                 }
                 foundB = true;
             }
             else if(k.StartsWith("S") && !k.StartsWith("SC")){
                 if(k.Count(char.IsLetter) != 1 && !k.Select(c => c != 'S' && char.IsNumber(c)).All(r => r)){
-                    Debug.Log("GOT IMPROPER KEY IN OUR SPEECH DICT: " + k);
+                    Debug.LogError("GOT IMPROPER KEY IN OUR SPEECH DICT: " + k);
                     return false;
                 }
             }
@@ -1161,7 +1161,7 @@ public class Speech_Object_Generator : MonoBehaviour
                 !"THIS".Contains(speechJsonDict[k][1]) || 
                 !"THIS".Contains(speechJsonDict[k][2]) ||
                 !k.Replace("SC", "").Select(c => char.IsNumber(c)).All(r => r)){
-                    Debug.Log("IMPROPER VALUE FOR KEY " + k + " IN OUR SPEECH DICT: " + speechJsonDict[k]);
+                    Debug.LogError("IMPROPER VALUE FOR KEY " + k + " IN OUR SPEECH DICT: " + speechJsonDict[k]);
                     return false;
                 }
                 else{
@@ -1169,46 +1169,44 @@ public class Speech_Object_Generator : MonoBehaviour
                     UI_Characters.Emotions curEmotion = jsonEmotString2UI_Emotion(speechJsonDict[k][1]);
                     UI_Characters.Emotions curPostEmotion = jsonEmotString2UI_Emotion(speechJsonDict[k][2]);
                     if(curCharacter == null || curEmotion == null || curPostEmotion == null){
-                        Debug.Log("IMPROPER VALUE FOR KEY " + k + " IN OUR SPEECH DICT: " + speechJsonDict[k]);
+                        Debug.LogError("IMPROPER VALUE FOR KEY " + k + " IN OUR SPEECH DICT: " + speechJsonDict[k]);
                         return false;
                     }
                     else{
                         try{
                             if(!characters2Emotions[curCharacter].Contains(curEmotion) || !characters2Emotions[curCharacter].Contains(curPostEmotion)){
-                                Debug.Log("IMPROPER CHARACTER EMOTIONS FOR KEY: " + k);
+                                Debug.LogError("IMPROPER CHARACTER EMOTIONS FOR KEY: " + k);
                                 return false;
                             }
                         }
                         catch(System.Exception e){
-                            Debug.Log("WTF: " + curCharacter);
-                            Debug.Log("WTF: " + curEmotion);
-                            Debug.Log("WTF: " + curPostEmotion); 
+                            Debug.LogError(e.ToString());
                             throw e;
                         }
                     }
                 }
             }
             else{
-                Debug.Log("GOT IMPROPER KEY IN OUR SPEECH DICT: " + k);
+                Debug.LogError("GOT IMPROPER KEY IN OUR SPEECH DICT: " + k);
                 return false;
             }
         }
 
         if(!foundB){
-            Debug.Log("SPEECH DICTIONARY DOESN'T CONTAIN AN IS BLOCKER \"B\" Key");
+            Debug.LogError("SPEECH DICTIONARY DOESN'T CONTAIN AN IS BLOCKER \"B\" Key");
             return false;
         }
 
         foreach(string k in speechJsonDict.Keys.Where(k => k.StartsWith("S") && !k.StartsWith("SC"))){
             if(!speechJsonDict.Keys.Contains("SC" + k.Replace("S", ""))){
-                Debug.Log("SPEECH KEY " + k + " HAS NO CORRESPONDING CHARACTER INFORMATION KEY IN OUR SPEECH DICT");
+                Debug.LogError("SPEECH KEY " + k + " HAS NO CORRESPONDING CHARACTER INFORMATION KEY IN OUR SPEECH DICT");
                 return false;
             }
         }
 
         foreach(string k in speechJsonDict.Keys.Where(k => k.StartsWith("SC"))){
             if(!speechJsonDict.Keys.Contains("S" + k.Replace("SC", ""))){
-                Debug.Log("CHARACTER INFORMATION KEY " + k + " HAS NO CORRESPONDING SPEECH KEY IN OUR SPEECH DICT");
+                Debug.LogError("CHARACTER INFORMATION KEY " + k + " HAS NO CORRESPONDING SPEECH KEY IN OUR SPEECH DICT");
                 return false;
             }
         }
@@ -1231,7 +1229,7 @@ public class Speech_Object_Generator : MonoBehaviour
                 speechKeyAccountingDict["S"+curI.ToString()] = true;
             }
             else{
-                Debug.Log("SPEECH DICT MISSING KEY " + "S"+curI.ToString());
+                Debug.LogError("SPEECH DICT MISSING KEY " + "S"+curI.ToString());
                 return false;
             }
             
@@ -1239,14 +1237,14 @@ public class Speech_Object_Generator : MonoBehaviour
                 speechKeyAccountingDict["SC"+curI.ToString()] = true;
             }
             else{
-                Debug.Log("SPEECH DICT MISSING KEY " + "SC"+curI.ToString());
+                Debug.LogError("SPEECH DICT MISSING KEY " + "SC"+curI.ToString());
                 return false;
             }
             curI++;
         }
 
         if(!speechKeyAccountingDict.Values.All(v => v)){
-            Debug.Log("SOMETHING IS WRONG WITH THE KEY ORDERING IN THE SPEECH DICT.");
+            Debug.LogError("SOMETHING IS WRONG WITH THE KEY ORDERING IN THE SPEECH DICT.");
             return false;
         }
 

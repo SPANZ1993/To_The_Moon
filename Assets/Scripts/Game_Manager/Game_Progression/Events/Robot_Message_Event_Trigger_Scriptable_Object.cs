@@ -28,7 +28,7 @@ public abstract class Robot_Message_Event_Trigger_Scriptable_Object : Event_Trig
                 }
             }
             catch(Exception e){
-                Debug.Log(e);
+                Debug.LogError(e.ToString());
                 shouldTrigger = false;
             }
         }
@@ -43,7 +43,7 @@ public abstract class Robot_Message_Event_Trigger_Scriptable_Object : Event_Trig
             Robot_Manager.instance.messageQueue.Enqueue(getMessage());
         }
         catch(Exception e){
-            Debug.Log("TRIED TO ENQUEUE THE ROBOT TITLE SPEECH.. BUT RAN INTO AN ISSUE: " + e);
+            Debug.LogError("TRIED TO ENQUEUE THE ROBOT TITLE SPEECH.. BUT RAN INTO AN ISSUE: " + e.ToString());
         }
         base._alertManagerOnEventEnd();
     }

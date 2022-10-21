@@ -17,7 +17,7 @@ public class Spiral_Around_Test : MonoBehaviour
     float radialAcceleration=1.1f;
 
     void CB(){
-        Debug.Log("DONE!");
+        //Debug.Log("DONE!");
     }
 
 

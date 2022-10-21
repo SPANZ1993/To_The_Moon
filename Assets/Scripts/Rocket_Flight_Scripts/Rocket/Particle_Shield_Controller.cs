@@ -176,7 +176,7 @@ public class Particle_Shield_Controller : MonoBehaviour
             float minDist = DarkMatterObjectsDict.Values.Min();
             if(minDist <= ScreenHeight*displayScreenHeightMultiplierAudio){
                 float soundVol = Mathf.Lerp(0f, 1f, ((ScreenHeight*displayScreenHeightMultiplierAudio)-minDist)/(ScreenHeight*displayScreenHeightMultiplierAudio));
-                Debug.Log("SETTING SOUND TO: " + soundVol); // GET THIS CALCULATION (RATIO) CORRECT
+                //Debug.Log("SETTING SOUND TO: " + soundVol); // GET THIS CALCULATION (RATIO) CORRECT
                 Audio_Manager.instance.SetVolume("Space_Junk_Dark_Matter_Ambient", soundVol);
                 if(1f-soundVol >= .4){
                     Audio_Manager.instance.SetVolume("Rocket_Theme_Earth", 1f-soundVol);

@@ -22,10 +22,6 @@ public class Main_Area_Button_Handlers : MonoBehaviour
         }
     }
 
-    public void sayHello(){
-        Debug.Log("HELLO");
-    }
-
     public void onButtonTmp(){
         UI_Controller.instance.onButtonTmp();
     }

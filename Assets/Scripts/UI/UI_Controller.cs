@@ -2597,7 +2597,7 @@ public class UI_Controller : MonoBehaviour
         EnableUIElement(ResearchersConfirmationBox);
         
         selectedResearcherPanel = IDCard;
-        Debug.Log("TEXT: " + ResearchersConfirmationBoxText.text);
+        // Debug.Log("TEXT: " + ResearchersConfirmationBoxText.text);
         ResearchersConfirmationBoxText.text = ResearchersConfirmationBoxText.text.Replace("<research>", ((Research)(System.Object)selectedResearchPanel.GetComponent<ObjectHolder>().Obj).researchName);
         ResearchersConfirmationBoxText.text = ResearchersConfirmationBoxText.text.Replace("<researcher>", ((Researcher)(System.Object)selectedResearcherPanel.GetComponent<ObjectHolder>().Obj).name);
         researchersConfirmationBoxDisplayed = true;
@@ -3301,7 +3301,7 @@ public class UI_Controller : MonoBehaviour
             Object_Finder.findChildObjectByName(panel, "Shop_Panel_Image").GetComponent<Image>().sprite = product.PreviewSprite;
         }
         else{
-            Debug.Log("Missing preview image for: " + product.ProductId + "!!!!!");
+            Debug.LogError("Missing preview image for: " + product.ProductId + "!!!!!");
         }
 
         GameObject shopBuyButton = Object_Finder.findChildObjectByName(panel, "Shop_Buy_Button");
@@ -3462,7 +3462,7 @@ public class UI_Controller : MonoBehaviour
             Crypto_Manager.instance.addPanelsToExchange();
         }
         else{
-            Debug.Log("NO ACTIVE CRYPTOS");
+            Debug.LogError("NO ACTIVE CRYPTOS");
             // TODO: Handle this case
         }
         

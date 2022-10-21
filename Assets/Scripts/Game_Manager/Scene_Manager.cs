@@ -228,16 +228,16 @@ public class Scene_Manager : MonoBehaviour
 
 
     private string getEndRocketGameNextScene(){
-        Debug.Log("GETTING NEXT SCENE");
+        // Debug.Log("GETTING NEXT SCENE");
         Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
         int nextLevelId = curLevelSO.NextLevelId;
         Level_Scriptable_Object nextLevelSO = Progression_Manager.instance.getLevelById(nextLevelId);
         if(nextLevelSO != null){
-            Debug.Log("NEXT LEVEL: " + nextLevelSO.LevelName);
+            // Debug.Log("NEXT LEVEL: " + nextLevelSO.LevelName);
         }
         if(nextLevelSO == null){
             nextLevelSO = curLevelSO;
-            Debug.Log("COULDNT GET NEXT SCENE");
+            // Debug.Log("COULDNT GET NEXT SCENE");
         }
         string nextSceneName = "Main_Area_" + nextLevelSO.LevelName;
         Progression_Manager.instance.Set_Current_Level(nextLevelSO.LevelId);
@@ -245,7 +245,7 @@ public class Scene_Manager : MonoBehaviour
     }
 
     private string getEndRocketGameCurScene(){
-        Debug.Log("GETTING CURRENT SCENE");
+        // Debug.Log("GETTING CURRENT SCENE");
         Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
         string nextSceneName = "Main_Area_" + curLevelSO.LevelName;
 
@@ -293,7 +293,7 @@ public class Scene_Manager : MonoBehaviour
     }
 
     private string getEndMineGameNextScene(){
-        Debug.Log("GETTING NEXT SCENE");
+        // Debug.Log("GETTING NEXT SCENE");
         Level_Scriptable_Object curLevelSO = Progression_Manager.instance.getCurrentLevel();
         string nextSceneName = "Main_Area_" + curLevelSO.LevelName;
         if(nextSceneName == "Main_Area_Earth"){

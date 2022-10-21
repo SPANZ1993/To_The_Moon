@@ -158,7 +158,7 @@ namespace UI_Characters
             switch (c)
             {
                 case Characters.Robot:
-                    if(e == Emotions.Idle){
+                    if(e == Emotions.Idle || e == Emotions.Talking){
                         speechStrs = new string[]{
                             "Speech_Beep_Robot_Neutral_0",
                             "Speech_Beep_Robot_Neutral_1",

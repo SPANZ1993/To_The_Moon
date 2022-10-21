@@ -78,7 +78,7 @@ public class Space_Junk_Golf : Space_Junk_Flyer
                 Golf_Ball = null;
             }
             catch(System.Exception e){
-                Debug.Log("Couldn't Launch");
+                Debug.LogError("Couldn't Launch... " + e.ToString());
             }
         }
     }

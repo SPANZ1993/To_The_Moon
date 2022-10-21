@@ -151,7 +151,7 @@ public class Progression_Manager : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Rocket_Flight"){
             recentlyCompletedLevelId = -1;
-            Debug.Log("INITIALIZING ROCKET GAME WITH: " + getLevelById(CurrentLevelId).LevelName);
+            // Debug.Log("INITIALIZING ROCKET GAME WITH: " + getLevelById(CurrentLevelId).LevelName);
             getLevelById(CurrentLevelId).initializeRocketGame(freePlayMode:RocketGameFreePlayMode);
         }
     }
@@ -189,7 +189,7 @@ public class Progression_Manager : MonoBehaviour
                 }
             }
         }
-        Debug.Log("CURRENT LEVEL SET TO: " + CurrentLevelId + " --- HIGHEST: " + HighestLevelId);
+        // Debug.Log("CURRENT LEVEL SET TO: " + CurrentLevelId + " --- HIGHEST: " + HighestLevelId);
     }
 
     public void Set_Highest_Level(int levelId){
@@ -255,7 +255,7 @@ public class Progression_Manager : MonoBehaviour
 
 
     public void setRecentlyCompletedLevelIdToCurLevel(){
-        Debug.Log("SETTING RECENTLY COMPLETED LEVEL: " + currentLevelId);
+        // Debug.Log("SETTING RECENTLY COMPLETED LEVEL: " + currentLevelId);
         recentlyCompletedLevelId = currentLevelId;
         
     }

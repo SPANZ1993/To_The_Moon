@@ -374,7 +374,7 @@ public class Game_Manager : MonoBehaviour
         thrust = _fixRoundingError(thrust, threshold);
     }
 
-    private bool poo = true; //REMOVE
+
 
     // Update is called once per frame
     void Update()
@@ -406,13 +406,6 @@ public class Game_Manager : MonoBehaviour
         }
         // After we've loaded the save data
         else{
-            if (!poo){
-                Debug.Log("LOCAL START TIME: " + localSessionStartTime);
-                Debug.Log("SERVER START TIME: " + serverSessionStartTime);
-                Debug.Log("Server Start Time: " + serverSessionStartTimeUnix);
-                Debug.Log("Local Start Time Unix: " + localSessionStartTimeUnix);
-                poo = true;
-            }
             if (!initializedGame && !initializeGameStarted && SceneManager.GetActiveScene().name != "Landing_Page"){
                 // Debug.Log("TRYING TO INITIALIZE GAME");
                 initializeGame();
@@ -1104,7 +1097,7 @@ public class Game_Manager : MonoBehaviour
 
     // Initialize outfit.. make sure we own the outfit, and then equip it.. if we don't own it, just put the default outfit on
     private void initializeRobotOutfit(int outfitId){
-        Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
+        // Debug.Log("TRYING TO PUT ON OUTFIT: " + outfitId);
         // If the IAP Manager says we own the outfit that we are trying to wear
         List<IAP_Product_Robot_Outfit> ownedRobotOutfitIAPs = new List<IAP_Product_Robot_Outfit>();
 
@@ -1119,7 +1112,7 @@ public class Game_Manager : MonoBehaviour
         }
 
         if(ownedRobotOutfitIAPs.Any(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId)){
-            Debug.Log("HEY WE OWN THIS OUTFIT");
+            // Debug.Log("HEY WE OWN THIS OUTFIT");
             //Robot_Outfit_Manager.instance.setCurRobotOutfitId(outfitId);
             // Call Equip on the Outfit That We Found
             IAP_Product_Robot_Outfit outfit = new List<IAP_Product_Robot_Outfit>(ownedRobotOutfitIAPs.Where(robotOutfitIAP => robotOutfitIAP.RobotOutfit.OutfitId == outfitId))[0];
@@ -1128,13 +1121,13 @@ public class Game_Manager : MonoBehaviour
             }
             else{
                 // Like if a patreon membership expired
-                Debug.Log("We own this outfit but don't meet the requirements");
+                // Debug.Log("We own this outfit but don't meet the requirements");
                 ((IAP_Product_Robot_Outfit)(System.Object)outfit).OnUnequip();
                 initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
             }
         }
         else{
-            Debug.Log("WE DON'T OWN THIS OUTFIT");
+            // Debug.Log("WE DON'T OWN THIS OUTFIT");
             initializeRobotOutfit(new SaveGameObject().CurRobotClothesId);
         }
     }
@@ -1161,13 +1154,13 @@ public class Game_Manager : MonoBehaviour
             }
             else{
                 // Like if a patreon membership expired
-                Debug.Log("We own this skin but don't meet the requirements");
+                // Debug.Log("We own this skin but don't meet the requirements");
                 ((IAP_Product_Ship_Skin)(System.Object)skin).OnUnequip();
                 initializeShipSkin(new SaveGameObject().CurShipSkinId);
             }
         }
         else{
-            Debug.Log("WE DON'T OWN THIS SKIN");
+            // Debug.Log("WE DON'T OWN THIS SKIN");
             initializeShipSkin(new SaveGameObject().CurShipSkinId);
         }
     }
@@ -1505,7 +1498,7 @@ public class Game_Manager : MonoBehaviour
                     enableNonUITouch();
                 }
                 else{
-                    Debug.Log("SKIPPING ENABLE NON UI TOUCH BECAUSE IN EVENT");
+                    //Debug.Log("SKIPPING ENABLE NON UI TOUCH BECAUSE IN EVENT");
                 }
                 break;
             case "Mine_Game":

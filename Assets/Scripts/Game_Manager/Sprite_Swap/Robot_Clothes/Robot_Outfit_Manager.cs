@@ -58,7 +58,7 @@ public class Robot_Outfit_Manager : MonoBehaviour
             outfit = getOutfitById(CurOutfitID);
         }
         catch(Exception e){
-            Debug.Log("Couldn't find outfit with id " + outfitId + " just returning the first outfit we have");
+            Debug.LogError("Couldn't find outfit with id " + outfitId + " just returning the first outfit we have");
             outfit = allOutfits[0];
         }
         if (SceneManager.GetActiveScene().name.StartsWith("Main_Area")){

@@ -193,10 +193,10 @@ public class Upgrades_Manager : MonoBehaviour
     }
 
     public bool canAddUpgrade(Upgrade upgrade, int number){
-        Debug.Log("HEY");
-        print("A: " + number);
-        print("B: " + upgradesMaxNumberDict[upgrade]);
-        print("C: " + upgradesNumberDict[upgrade]);
+        // Debug.Log("HEY");
+        // print("A: " + number);
+        // print("B: " + upgradesMaxNumberDict[upgrade]);
+        // print("C: " + upgradesNumberDict[upgrade]);
         if (upgradesNumberDict[upgrade] <= upgradesMaxNumberDict[upgrade] - number){
             return true;
         }
@@ -212,7 +212,7 @@ public class Upgrades_Manager : MonoBehaviour
             return true;
         }
         else{
-            Debug.Log("Tried to add upgrade " + upgrade + " but couldn't");
+            Debug.LogError("Tried to add upgrade " + upgrade + " but couldn't");
             return false;
         }
     }

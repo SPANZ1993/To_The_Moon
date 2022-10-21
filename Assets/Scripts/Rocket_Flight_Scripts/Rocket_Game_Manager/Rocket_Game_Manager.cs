@@ -407,7 +407,7 @@ public class Rocket_Game_Manager : MonoBehaviour
                 upgradesManager.autopilotHeight = Game_Manager.instance.metrics.maxAltAllTime - MathUtils.RandRange(Game_Manager.instance.metrics.maxAltAllTime*0.25, Game_Manager.instance.metrics.maxAltAllTime*0.75);
             }
             catch(System.Exception e){
-                Debug.Log("Error while setting autopilot height " + e);
+                Debug.LogError("Error while setting autopilot height " + e);
                 upgradesManager.autopilotHeight = 100.0;
             }
             if(upgradesManager.autopilotHeight >= Game_Manager.instance.metrics.maxAltAllTime*0.75){
@@ -456,7 +456,7 @@ public class Rocket_Game_Manager : MonoBehaviour
                     }
                     catch(System.Exception e){
                         // But just in case something goes screwy
-                        Debug.Log("Error in Calculating Autopilot gems" + e);
+                        Debug.LogError("Error in Calculating Autopilot gems" + e);
                         n_gems = 0;
                     }
                 }
