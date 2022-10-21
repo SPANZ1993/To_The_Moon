@@ -72,16 +72,16 @@ MonoBehaviour:
   numToSpawnListBackground: 190000001900000019000000190000001900000019000000
   shouldExpandListBackground: 010101010101
   spawnObjAltitudeRangesBackground:
-  - {x: 0, y: 400}
-  - {x: 0, y: 400}
-  - {x: 0, y: 400}
-  - {x: 650, y: 0}
-  - {x: 650, y: 0}
-  - {x: 650, y: 0}
+  - {x: 0, y: 375}
+  - {x: 0, y: 375}
+  - {x: 0, y: 375}
+  - {x: 675, y: 0}
+  - {x: 675, y: 0}
+  - {x: 675, y: 0}
   backgroundSpawnRate: 10
   leavingPlanetSprite: {fileID: -825518015, guid: 3bab1129679fd084ca73708b49239253, type: 3}
   leavingPlanetBotParallaxRocketAlt: 0
   leavingPlanetTopParallaxRocketAlt: 100
   arrivingPlanetSprite: {fileID: 21300000, guid: 95192371b74b93042ad22d4dfa052797, type: 3}
-  arrivingPlanetBotParallaxRocketAlt: 400
-  arrivingPlanetTopParallaxRocketAlt: 500
+  arrivingPlanetBotParallaxRocketAlt: 450
+  arrivingPlanetTopParallaxRocketAlt: 550
