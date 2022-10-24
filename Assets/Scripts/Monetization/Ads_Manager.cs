@@ -33,7 +33,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
     // private string bannerPlacementId = "Banner_iOS";
 
 
-    public bool testMode = true; // TODO: Switch this to false for production
+    public bool testMode = false; // TODO: Switch this to false for production
     private bool bannerAdShouldBeShowing = true; // We tried to show the banner ad, it is either showing or we are waiting for it to load
 
 

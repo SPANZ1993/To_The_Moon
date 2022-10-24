@@ -103,6 +103,7 @@ public class PlayFab_Manager : MonoBehaviour
             }
         };
         PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginError);
+        // Debug.Log("TRYING TO LOG IN");
     }
 
     void OnLoginSuccess(LoginResult result){
@@ -128,7 +129,7 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     void OnLoginError(PlayFabError error){
-        //Debug.Log("ERROR LOGGING IN");
+        Debug.LogError("ERROR LOGGING IN: " + error.ToString());
         if (PlayFabLoginFailureInfo != null){
             PlayFabLoginFailureInfo();
         }
@@ -151,7 +152,7 @@ public class PlayFab_Manager : MonoBehaviour
     }
 
     public void OnSetDisplayNameError(PlayFabError error){
-        //Debug.Log("SET DISPLAY NAME ERRROR!!");
+        Debug.LogError("SET DISPLAY NAME ERRROR!! ---  " + error.ToString());
         if (PlayFabSetDisplayNameFailureInfo != null){
             PlayFabSetDisplayNameFailureInfo();
         }

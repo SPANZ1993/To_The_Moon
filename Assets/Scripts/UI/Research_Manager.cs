@@ -28,7 +28,7 @@ public class Research_Manager : MonoBehaviour
     string research1Name;
     double research1ExpectedTime = 600; //600.0 / 100.0;
     double research1ExpectedThrust = 100.0;
-    double research1Price = 100.0;
+    double research1Price = 500.0;
     private Research research1;
 
     [SerializeField]
@@ -36,15 +36,15 @@ public class Research_Manager : MonoBehaviour
     string research2Name;
     double research2ExpectedTime = 1800; // 1800.0 / 100.0;
     double research2ExpectedThrust = 500.0;
-    double research2Price = 1000.0;
+    double research2Price = 5000.0;
     private Research research2;
 
     [SerializeField]
     Sprite research3Sprite;
     string research3Name;
     double research3ExpectedTime = 5400.0; //5400.0 / 100.0;
-    double research3ExpectedThrust = 1000.0;
-    double research3Price = 5000.0;
+    double research3ExpectedThrust = 3000.0;
+    double research3Price = 25000.0;
     private Research research3;
 
     [SerializeField]
@@ -52,7 +52,7 @@ public class Research_Manager : MonoBehaviour
     string research4Name;
     double research4ExpectedTime = 10800.0 / 1000.0; // 10800
     double research4ExpectedThrust = 5000.0;
-    double research4Price = 25000.0;
+    double research4Price = 100000.0;
     private Research research4;
 
     [SerializeField]
@@ -60,7 +60,7 @@ public class Research_Manager : MonoBehaviour
     string research5Name;
     double research5ExpectedTime = 21600.0 / 1000.0; // 21600
     double research5ExpectedThrust = 10000.0;
-    double research5Price = 100000.0;
+    double research5Price = 1000000.0;
     private Research research5;
     
     [SerializeField]
@@ -68,7 +68,7 @@ public class Research_Manager : MonoBehaviour
     string research6Name;
     double research6ExpectedTime = 43200.0 / 1000.0; // 43200
     double research6ExpectedThrust = 25000.0;
-    double research6Price = 1000000.0;
+    double research6Price = 10000000.0;
     private Research research6;
 
     [SerializeField]
@@ -76,7 +76,7 @@ public class Research_Manager : MonoBehaviour
     string research7Name;
     double research7ExpectedTime = 86400.0 / 1000.0; // 86400
     double research7ExpectedThrust = 1000000.0;
-    double research7Price = 100000000.0;
+    double research7Price = 1000000000.0;
     private Research research7;
 
 
@@ -331,7 +331,7 @@ public class Research_Manager : MonoBehaviour
         }
     }
 
-    public void refreshResearchPanel(GameObject researchPanel){ // GOT IT.... PROBLEM IS THAT WE ARE CALLING ENABLE UI ELEMENT ON PARENTS OF LOWER ELEMENTS
+    public void refreshResearchPanel(GameObject researchPanel, bool updateResearchImage=true){ // GOT IT.... PROBLEM IS THAT WE ARE CALLING ENABLE UI ELEMENT ON PARENTS OF LOWER ELEMENTS
         // WE PRETTY MUCH JUST NEED TO SWITCH ON EVERY SINGLE CHILD GAMEOBJECT AND NOT USE ENABLEUIELEMENT ON IT
         // int researchPanelNum = int.Parse(researchPanel.name[researchPanel.name.Length-1].ToString());
         // Research research = researchList[researchPanelNum-1];
@@ -340,7 +340,7 @@ public class Research_Manager : MonoBehaviour
         //Debug.Log(research.researchId);
         int researchPanelNum = research.researchId;
 
-        //Debug.Log("REFRESHING RESEARCH PANEL NUM: " + researchPanelNum);
+        
         Debug.Assert(researchPanelNum == research.researchId);
         //Debug.Log("REFRESHING GOT THIS RESEARCH: " + research.researchName);
 
@@ -406,9 +406,10 @@ public class Research_Manager : MonoBehaviour
             else if (curGameObj.name == "Research_Assigned_Researcher_Image"){
                 //Debug.Log("AYO THE SIZE IS: " + curGameObj.transform.localScale + gameManager.gameTimeUnix);
                 if (research.isResearcherAssigned()){
-                    if(UI_Controller.UIElementIsEnabled(curGameObj)){
+                    if(UI_Controller.UIElementIsEnabled(curGameObj) &&
+                        (updateResearchImage || curGameObj.GetComponent<Image>().sprite == null)){
                         int headshot_i = random.Next(research.assignedResearcher.headshots.Count);
-                        //Debug.Log("PICKING RANDOM HEADSHOT: " + headshot_i + " OUT OF " + research.assignedResearcher.headshots.Count);
+                        // Debug.Log("PICKING RANDOM HEADSHOT: " + headshot_i + " OUT OF " + research.assignedResearcher.headshots.Count);
                         uiController.EnableUIElement(curGameObj);
                         curGameObj.GetComponent<Image>().sprite = research.assignedResearcher.headshots[headshot_i];
                     }
@@ -519,7 +520,7 @@ public class Research_Manager : MonoBehaviour
             }
             else if (callRefreshPanel){
                 //uiController.DisableUIElement(curGameObj);
-                refreshResearchPanel(researchPanel); // If we end on this frame we want to display the button so we need a full refresh
+                refreshResearchPanel(researchPanel, updateResearchImage: false); // If we end on this frame we want to display the button so we need a full refresh
             }
         }
         else{

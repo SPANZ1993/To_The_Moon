@@ -29,7 +29,7 @@ public class Experiments_Manager : MonoBehaviour
     private string experiment1Description;
     private bool experiment1IsPersistent = true;
     private Denomination experiment1Denomination = Denomination.Gems;
-    private double experiment1Price = 10.0;
+    private double experiment1Price = 5.0;
     private Duration experiment1Duration = Duration.Permanent;
     [SerializeField]
     private Sprite  experiment1Sprite;
@@ -43,7 +43,7 @@ public class Experiments_Manager : MonoBehaviour
     private string experiment2Description;
     private bool experiment2IsPersistent = true;
     private Denomination experiment2Denomination = Denomination.Gems;
-    private double experiment2Price = 50.0;
+    private double experiment2Price = 10.0;
     private Duration experiment2Duration = Duration.Permanent;
     [SerializeField]
     private Sprite experiment2Sprite;
@@ -57,7 +57,7 @@ public class Experiments_Manager : MonoBehaviour
     private string experiment3Description;
     private bool experiment3IsPersistent = true;
     private Denomination experiment3Denomination = Denomination.Gems;
-    private double experiment3Price = 100.0;
+    private double experiment3Price = 20.0;
     private Duration experiment3Duration = Duration.Permanent;
     [SerializeField]
     private Sprite experiment3Sprite;

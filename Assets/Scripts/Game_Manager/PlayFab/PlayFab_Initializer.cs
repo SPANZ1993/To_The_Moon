@@ -86,7 +86,7 @@ public class PlayFab_Initializer : MonoBehaviour
             StartingPlayFabInitiationInfo();
         }
 
-        //Debug.Log("IS TITLE DATA NULL? " + (titleData == null));
+        // Debug.Log("IS TITLE DATA NULL? " + (titleData == null));
 
         if(GameObject.Find("App_State_Text")!=null){
             GameObject.Find("App_State_Text").GetComponent<TextMeshProUGUI>().text += "\n Initializing...";
@@ -214,7 +214,7 @@ public class PlayFab_Initializer : MonoBehaviour
     }
 
     void onGetServerTimeFailure(){
-        //Debug.Log("FAILED UNIX TIME HERE");
+        // Debug.Log("FAILED UNIX TIME HERE");
         failedLogInPlayFabServer = true; // NEW 7/24
         waitingForResponsePlayFabTime = false;
     }
@@ -233,7 +233,7 @@ public class PlayFab_Initializer : MonoBehaviour
     }
 
     void onGetSaveDataFailure(){
-        //Debug.Log("FAILED GET SAVE DATA HERE");
+        // Debug.Log("FAILED GET SAVE DATA HERE");
         loadedData = new SaveGameObject();
         waitingForResponsePlayFabData = false;
     }

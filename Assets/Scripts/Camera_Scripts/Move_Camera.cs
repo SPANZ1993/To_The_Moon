@@ -199,7 +199,7 @@ public class Move_Camera : MonoBehaviour
             UI_Controller.instance.closeMenus();
         }
         else{
-            Debug.Log("SKIPPING CLOSE MENUS BC IN EVENT");
+            // Debug.Log("SKIPPING CLOSE MENUS BC IN EVENT");
         }
     }
 

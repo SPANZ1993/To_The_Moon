@@ -83,6 +83,16 @@ public  abstract class Level_End_Event_Scriptable_Object : Event_Trigger_Scripta
     public void onEventEnded(bool nextLevelWasReady){
         //Debug.Log("ALERTING ONBOARDING SEQUENCE OVER");
         base._alertManagerOnEventEnd();
+        
+        // This is already added once in _alertManagerOnEventEnd... but if the next level was ready then do it again so we don't call this multiple times
+        if(nextLevelWasReady){
+            if(Progression_Manager.instance.EventIdToTimesTriggered.Keys.Contains(EventId)){
+                Progression_Manager.instance.EventIdToTimesTriggered[EventId]++;
+            }
+            else{
+                Progression_Manager.instance.EventIdToTimesTriggered[EventId] = 1;
+            }
+        }
     
         // If the next level was ready then no need to go into free play mode, otherwise, go into free play mode
         Progression_Manager.instance.RocketGameFreePlayMode = !nextLevelWasReady;

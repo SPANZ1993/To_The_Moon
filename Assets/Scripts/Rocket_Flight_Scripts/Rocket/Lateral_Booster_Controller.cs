@@ -33,7 +33,13 @@ public class Lateral_Booster_Controller : MonoBehaviour
     void Update()
     {
         if(Upgrades_Manager.instance.upgradesUnlockedDict[Upgrade.Lateral_Boosters]){
-            SetLateralBoosters();
+            if(rocketControl != null && rocketControl.getUserHasControl()){
+                SetLateralBoosters();
+            }
+            else{
+                SetStartLifetime(LateralBoostL, 0f);
+                SetStartLifetime(LateralBoostR, 0f);
+            }
         }
     }
 
