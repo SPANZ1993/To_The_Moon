@@ -396,6 +396,24 @@ public class Touch_Detection : MonoBehaviour
         }
     }
 
+
+    public void simulateSwipe(Swipe dir){
+        if(dir == Swipe.UPSWIPE){
+            SwipedUpInfo();
+        }
+        else if(dir == Swipe.DOWNSWIPE){
+            SwipedDownInfo();
+        }
+        else if(dir == Swipe.LEFTSWIPE){
+            SwipedLeftInfo();
+        }
+        else if(dir == Swipe.RIGHTSWIPE){
+            SwipedRightInfo();
+        }
+    }
+
+
+
     
     public void disableReticle(bool disableswipes=true){
         //reticleCollider.enabled = false;

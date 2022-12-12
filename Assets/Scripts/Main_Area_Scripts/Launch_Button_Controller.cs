@@ -280,6 +280,15 @@ public class Launch_Button_Controller : MonoBehaviour, ITappable
         }
     }
 
+
+    public void simulateOpenSwipe(){
+        coverOpen = true;
+    }
+
+    public void simulateCloseSwipe(){
+        coverOpen = false;
+    }
+
     public void disable(){
         buttonEnabled = false;
     }

@@ -188,4 +188,8 @@ public class Minecart_Manager : MonoBehaviour
             }
         }
     }
+
+    public void simulateMinecartTapped(){
+        onMinecartTapped();
+    }
 }

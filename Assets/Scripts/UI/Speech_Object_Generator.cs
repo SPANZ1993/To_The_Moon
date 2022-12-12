@@ -186,6 +186,13 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.21.5", UI_Characters.Characters.Robot}, // 103
             {"Events_Script.Onboarding.21.6", UI_Characters.Characters.Robot}, // 104
             {"Events_Script.Onboarding.21.7", UI_Characters.Characters.Robot}, // 105
+            {"Events_Script.Onboarding.22.1", UI_Characters.Characters.Robot}, // 105A
+            {"Events_Script.Onboarding.23.1", UI_Characters.Characters.Robot}, // 105B
+            {"Events_Script.Onboarding.24.1", UI_Characters.Characters.Robot}, // 105C
+            {"Events_Script.Onboarding.25.1", UI_Characters.Characters.Robot}, // 105D
+            {"Events_Script.Onboarding.26.1", UI_Characters.Characters.Robot}, // 105E
+            {"Events_Script.Onboarding.27.1", UI_Characters.Characters.Robot}, // 105F
+            {"Events_Script.Onboarding.28.1", UI_Characters.Characters.Robot}, // 105G
             // End Onboarding
 
 
@@ -456,6 +463,13 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.21.5", UI_Characters.Emotions.Talking}, // 103
             {"Events_Script.Onboarding.21.6", UI_Characters.Emotions.Talking}, // 104
             {"Events_Script.Onboarding.21.7", UI_Characters.Emotions.Talking}, // 105
+            {"Events_Script.Onboarding.22.1", UI_Characters.Emotions.Talking}, // 105A
+            {"Events_Script.Onboarding.23.1", UI_Characters.Emotions.Talking}, // 105B
+            {"Events_Script.Onboarding.24.1", UI_Characters.Emotions.Talking}, // 105C
+            {"Events_Script.Onboarding.25.1", UI_Characters.Emotions.Talking}, // 105D
+            {"Events_Script.Onboarding.26.1", UI_Characters.Emotions.Talking}, // 105E
+            {"Events_Script.Onboarding.27.1", UI_Characters.Emotions.Talking}, // 105F
+            {"Events_Script.Onboarding.28.1", UI_Characters.Emotions.Talking}, // 105G
             // End Onboarding
 
 
@@ -721,6 +735,13 @@ public class Speech_Object_Generator : MonoBehaviour
             {"Events_Script.Onboarding.21.5", UI_Characters.Emotions.Idle}, // 103
             {"Events_Script.Onboarding.21.6", UI_Characters.Emotions.Idle}, // 104
             {"Events_Script.Onboarding.21.7", UI_Characters.Emotions.Idle}, // 105
+            {"Events_Script.Onboarding.22.1", UI_Characters.Emotions.Idle}, // 105A
+            {"Events_Script.Onboarding.23.1", UI_Characters.Emotions.Idle}, // 105B
+            {"Events_Script.Onboarding.24.1", UI_Characters.Emotions.Idle}, // 105C
+            {"Events_Script.Onboarding.25.1", UI_Characters.Emotions.Idle}, // 105D
+            {"Events_Script.Onboarding.26.1", UI_Characters.Emotions.Idle}, // 105E
+            {"Events_Script.Onboarding.27.1", UI_Characters.Emotions.Idle}, // 105F
+            {"Events_Script.Onboarding.28.1", UI_Characters.Emotions.Idle}, // 105G
             // End Onboarding
         
             // NextLevelNotReadyEarth

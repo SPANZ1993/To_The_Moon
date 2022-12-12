@@ -19,7 +19,6 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
 
-
     private Sprite_Highlighter spriteHighlighter;
 
 
@@ -34,6 +33,15 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
     private bool displayNameValidated = false;
     private bool waitingForNameValidationResponse = false;
     private bool nameIsUnique = false;
+
+    private int numTimesHomeToMineSwipeHintDisplayed, 
+                numTimesMinesToHomeSwipeHintDisplayed,
+                numTimesHomeToRocketSwipeHintDisplayed,
+                numTimesRocketToHomeSwipeHintDisplayed,
+                numTimesMinecartTapHintDisplayed,
+                numTimesRocketButtonOpenHintDisplayed,
+                numTimesRocketButtonCloseHintDisplayed = 0;
+
 
 
 
@@ -357,10 +365,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateSwipeToMines(){
-        
+        int nTimesToDisplayHint = 1;
+
         float hintWaitTime = 10.0f;
         IEnumerator waitForSwipe(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesHomeToMineSwipeHintDisplayed > nTimesToDisplayHint){
+                Touch_Detection.instance.simulateSwipe(Swipe.LEFTSWIPE);
+            }
             if(!swipedLeftPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForSwipe(timeSinceLastHint + Time.deltaTime));
             }
@@ -375,8 +387,15 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         }
 
         void displayMineSwipeHint(){
-            Touch_Detection.instance.disableSwipes();
-            startOnboardSpeech(5);
+            if(numTimesHomeToMineSwipeHintDisplayed < nTimesToDisplayHint){
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(5);
+            }
+            else{
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(22);
+            }
+            numTimesHomeToMineSwipeHintDisplayed++;
         }
 
 
@@ -414,10 +433,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateTapMinecart(){
+        int nTimesToDisplayHint = 1;
         
         float hintWaitTime = 10.0f;
         IEnumerator waitForTap(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesMinecartTapHintDisplayed > nTimesToDisplayHint){
+                GameObject.Find("Minecart_Manager").GetComponent<Minecart_Manager>().simulateMinecartTapped();
+            }
             if(!minecartTappedPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForTap(timeSinceLastHint + Time.deltaTime));
             }
@@ -434,9 +457,17 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         }
 
         void displayMinecartTapHint(){
-            ///Disable Everything
-            disableAllMineAreaColliders();
-            startOnboardSpeech(8);
+             if(numTimesMinecartTapHintDisplayed < nTimesToDisplayHint){
+            
+                ///Disable Everything
+                disableAllMineAreaColliders();
+                startOnboardSpeech(8);
+             }
+             else{
+                disableAllMineAreaColliders();
+                startOnboardSpeech(26);
+             }
+            numTimesMinecartTapHintDisplayed++;
         }
 
 
@@ -511,10 +542,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateSwipeFromMinesToBase(){
+        int nTimesToDisplayHint = 1;
         
         float hintWaitTime = 10.0f;
         IEnumerator waitForSwipe(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesMinesToHomeSwipeHintDisplayed > nTimesToDisplayHint){
+                Touch_Detection.instance.simulateSwipe(Swipe.RIGHTSWIPE);
+            }
             if(!swipedRightPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForSwipe(timeSinceLastHint + Time.deltaTime));
             }
@@ -529,8 +564,15 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         }
 
         void displayHint(){
-            Touch_Detection.instance.disableSwipes();
-            startOnboardSpeech(12);
+            if(numTimesMinesToHomeSwipeHintDisplayed < nTimesToDisplayHint){
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(12);
+            }
+            else{
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(23);
+            }
+            numTimesMinesToHomeSwipeHintDisplayed++;
         }
 
 
@@ -561,10 +603,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateSwipeToRocket(){
-        
+        int nTimesToDisplayHint = 1;
+
         float hintWaitTime = 10.0f;
         IEnumerator waitForSwipe(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesHomeToRocketSwipeHintDisplayed > nTimesToDisplayHint){
+                Touch_Detection.instance.simulateSwipe(Swipe.RIGHTSWIPE);
+            }
             if(!swipedRightPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForSwipe(timeSinceLastHint + Time.deltaTime));
             }
@@ -579,8 +625,15 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         }
 
         void displayRocketSwipeHint(){
-            Touch_Detection.instance.disableSwipes();
-            startOnboardSpeech(14);
+            if(numTimesHomeToRocketSwipeHintDisplayed < nTimesToDisplayHint){
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(14);
+            }
+            else{
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(24);
+            }
+            numTimesHomeToRocketSwipeHintDisplayed++;
         }
 
 
@@ -638,10 +691,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateOpenLid(){
-        
+        int nTimesToDisplayHint = 1;
+
         float hintWaitTime = 10.0f;
         IEnumerator waitForOpen(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesRocketButtonOpenHintDisplayed > nTimesToDisplayHint){
+                GameObject.Find("Rocket_Button").GetComponent<Launch_Button_Controller>().simulateOpenSwipe();
+            }
             if(!openedLidPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForOpen(timeSinceLastHint + Time.deltaTime));
             }
@@ -669,10 +726,19 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         rocketButtonCollider.enabled = true;
 
         void displayRocketLidOpenHint(){
-            disableAllRocketAreaColliders();
-            Touch_Detection.instance.disableReticle();
-            Touch_Detection.instance.disableSwipes();
-            startOnboardSpeech(17);
+            if(numTimesRocketButtonOpenHintDisplayed < nTimesToDisplayHint){
+                disableAllRocketAreaColliders();
+                Touch_Detection.instance.disableReticle();
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(17);
+            }
+            else{
+                disableAllRocketAreaColliders();
+                Touch_Detection.instance.disableReticle();
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(27);
+            }
+            numTimesRocketButtonOpenHintDisplayed++;
         }
 
 
@@ -697,10 +763,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateCloseLid(){
-        
+        int nTimesToDisplayHint = 1;
+
         float hintWaitTime = 10.0f;
         IEnumerator waitForClose(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesRocketButtonCloseHintDisplayed > nTimesToDisplayHint){
+                GameObject.Find("Rocket_Button").GetComponent<Launch_Button_Controller>().simulateCloseSwipe();
+            }
             if(!closedLidPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForClose(timeSinceLastHint + Time.deltaTime));
             }
@@ -721,9 +791,17 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         rocketButtonCollider.enabled = true;
 
         void displayRocketLidCloseHint(){
-            Touch_Detection.instance.disableReticle();
-            Touch_Detection.instance.disableSwipes();
-            startOnboardSpeech(19);
+            if(numTimesRocketButtonCloseHintDisplayed < nTimesToDisplayHint){
+                Touch_Detection.instance.disableReticle();
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(19);
+            }
+            else{
+                Touch_Detection.instance.disableReticle();
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(28);
+            }
+            numTimesRocketButtonCloseHintDisplayed++;
         }
 
 
@@ -737,10 +815,14 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
 
 
     private void demonstrateSwipeFromRocketToBase(){
-        
+        int nTimesToDisplayHint = 1;
+
         float hintWaitTime = 10.0f;
         IEnumerator waitForSwipe(float timeSinceLastHint){
             yield return new WaitForSeconds(0);
+            if(numTimesRocketToHomeSwipeHintDisplayed > nTimesToDisplayHint){
+                Touch_Detection.instance.simulateSwipe(Swipe.LEFTSWIPE);
+            }
             if(!swipedLeftPrevFrame && !(timeSinceLastHint >= hintWaitTime)){
                 StartCoroutine(waitForSwipe(timeSinceLastHint + Time.deltaTime));
             }
@@ -755,8 +837,15 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         }
 
         void displayHint(){
-            Touch_Detection.instance.disableSwipes();
-            startOnboardSpeech(20);
+            if(numTimesRocketToHomeSwipeHintDisplayed < nTimesToDisplayHint){
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(20);
+            }
+            else{
+                Touch_Detection.instance.disableSwipes();
+                startOnboardSpeech(25);
+            }
+            numTimesRocketToHomeSwipeHintDisplayed++;
         }
 
 
@@ -946,6 +1035,34 @@ public class Onboarding_Manager : MonoBehaviour, IEvent
         else if(onboardingEventSpeechNum == 21){
             keystring = "Events_Script.Onboarding.21.1";
             UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:setUpPlayFabAccount);
+        }
+        else if(onboardingEventSpeechNum == 22){
+            keystring = "Events_Script.Onboarding.22.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateSwipeToMines);
+        }
+        else if(onboardingEventSpeechNum == 23){
+            keystring = "Events_Script.Onboarding.23.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateSwipeFromMinesToBase);
+        }
+        else if(onboardingEventSpeechNum == 24){
+            keystring = "Events_Script.Onboarding.24.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateSwipeToRocket);
+        }
+        else if(onboardingEventSpeechNum == 25){
+            keystring = "Events_Script.Onboarding.25.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateSwipeFromRocketToBase);
+        }
+        else if(onboardingEventSpeechNum == 26){
+            keystring = "Events_Script.Onboarding.26.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateTapMinecart);
+        }
+        else if(onboardingEventSpeechNum == 27){
+            keystring = "Events_Script.Onboarding.27.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateOpenLid);
+        }
+        else if(onboardingEventSpeechNum == 28){
+            keystring = "Events_Script.Onboarding.28.1";
+            UI_Controller.instance.Display_Speech(Speech_Object_Generator.instance.buildSpeechObjectWithStartKey(isBlocker:false, keyString:keystring, formatFunc:null), callBack:demonstrateCloseLid);
         }
     }
 

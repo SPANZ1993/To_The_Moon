@@ -140,7 +140,7 @@ public class Ads_Manager : MonoBehaviour, IUnityAdsInitializationListener, IUnit
 
     public void Initialize()
     {
-        testMode = testMode || IsTestLab();
+        testMode = testMode; //|| IsTestLab(); // Maybe this is always saying True?
         Advertisement.Initialize(gameId, testMode, this);
     }
 
