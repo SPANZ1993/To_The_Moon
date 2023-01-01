@@ -14,26 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
   ScreenshotConfigs:
-  - Name: iPad Pro Portrait
+  - Name: iPad_Fixed_12_21
     Width: 2048
     Height: 2732
     Type: 0
-  - Name: iphone_6_5_in
-    Width: 777
-    Height: 777
-    Type: 0
-  - Name: iphone_5_5_in
-    Width: 1242
-    Height: 2208
-    Type: 0
-  - Name: ipad_pro_2_3_gen_12_9_in
-    Width: 2048
-    Height: 2732
-    Type: 0
-  - Name: iphone_12_pro
-    Width: 1170
-    Height: 2532
-    Type: 0
-  Tag: Flight_
-  AppendTimestamp: 0
-  SaveFolder: C:/Users/riggi/OneDrive/Pictures/To_The_Moon_Logos/Store_Screenshots/Dog
+  Tag: Dog_
+  AppendTimestamp: 1
+  SaveFolder: C:/Users/riggi/OneDrive/Pictures/To_The_Moon_Logos/Store_Screenshots/Fixed_12_21

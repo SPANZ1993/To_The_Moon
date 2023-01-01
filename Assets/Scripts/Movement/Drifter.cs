@@ -56,8 +56,9 @@ public class Drifter : MonoBehaviour
 
     void checkPos(){
         
-        if (Mathf.Abs(gameScaler.Scale_Value_To_Screen_Width(transform.position.x)) > maxDistanceFromOriginX 
-        || Mathf.Abs(gameScaler.Scale_Value_To_Screen_Height(transform.position.y)) > maxDistanceFromOriginY){            
+        if (Mathf.Abs(transform.position.x) > gameScaler.Scale_Value_To_Screen_Width(maxDistanceFromOriginX) 
+        || Mathf.Abs(transform.position.y) > gameScaler.Scale_Value_To_Screen_Height(maxDistanceFromOriginY)){            
+            //Debug.Log("DESTROYING... LOCATION IS: " + Mathf.Abs(gameScaler.Scale_Value_To_Screen_Width(transform.position.x)) + ">" + gameScaler.Scale_Value_To_Screen_Width(maxDistanceFromOriginX));
             Destroy(this.gameObject);
         }
     }

@@ -1241,6 +1241,11 @@ public class UI_Controller : MonoBehaviour
             // example_speech_strings.Add("I've got the hook-up on black market Michelle Obama feet pics. HMU.");
             // example_speech_strings.Add("Hey have you seen that dank new meme called the 'BIG CHUNGUS'?");
             // example_speech_strings.Add("I sure do love that fat bunny.");
+            example_speech_strings.Add("Welcome to Blockchain Blastoff! Get ready to take your crypto to the moon!");
+            example_speech_characters.Add(Characters.Dog);
+            example_speech_emotions.Add(Emotions.Talking);
+            example_speech_post_emotions.Add(Emotions.Happy);
+
             example_speech_strings.Add("OH NO! I have fallen victim to the woke cancel culture narrative!");
             example_speech_characters.Add(Characters.Gorilla);
             example_speech_emotions.Add(Emotions.Talking);

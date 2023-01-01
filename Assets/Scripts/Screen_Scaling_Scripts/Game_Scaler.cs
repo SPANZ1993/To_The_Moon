@@ -75,6 +75,8 @@ public class Game_Scaler : MonoBehaviour
             if (DebugMode){
                 Debug.Log("SCALEX: " + ScaleX);
                 Debug.Log("SCALEY: " + ScaleY);
+                Debug.Log("SCALEXPX: " + ScaleXPx);
+                Debug.Log("SCALEYPX: " + ScaleYPx);
             }
         
             instance = this;
@@ -203,8 +205,8 @@ public class Game_Scaler : MonoBehaviour
         foreach(GameObject canvas in canvases)
         {  
             ObjectsWithDepths owd = FindAllChildren(canvas);
-            print("OWD: " + ListToTextGameObj(owd.Objs));
-            print("OWD: " + ListToTextInt(owd.Depths));
+            //print("OWD: " + ListToTextGameObj(owd.Objs));
+            //print("OWD: " + ListToTextInt(owd.Depths));
             for (int cur_depth = owd.Depths.Max(); cur_depth >= owd.Depths.Min(); cur_depth--){
                 for (int i = 0; i < owd.Objs.Count; i++){
                     if (owd.Depths[i] == cur_depth){
